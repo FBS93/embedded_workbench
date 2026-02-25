@@ -1,0 +1,519 @@
+# Embedded C coding guidelines
+
+## Glossary
+
+| Term | Definition |
+|------|------------|
+| Module | Set of `.c` and `.h` files sharing the same base name that implement a specific functionality. |
+| Library | One or more related modules grouped under a common prefix or functional domain, representing a higher-level functional abstraction and built as a static library (`.a`). |
+| Scope | Visibility of a symbol that defines where it can be accessed within the program. |
+| Global scope | Accessible from anywhere in the project. |
+| Module scope | Accessible only within the defining `.c` file. |
+| Function scope | Accessible only within the defining function. |
+
+## Code review criteria
+
+### Keyword usage
+---
+
+Module-scope variables and functions shall be declared with the `static` keyword.
+
+---
+
+The use of the `volatile` keyword is only allowed for the following use cases:
+
+1. **hardware_interaction**: The variable represents a memory-mapped hardware register whose value can change independently of the program flow.
+2. **asynchronous_interaction**: The variable can be accessed or modified asynchronously with respect to the normal program flow (e.g. by an interrupt service routine or a signal handler).
+3. **context_interaction**: The variable can be accessed or modified by multiple execution contexts that may preempt each other (e.g. a variable shared between RTOS or OS tasks).
+4. **observability**: The variable shall remain visible to external debugging, tracing, or monitoring tools.
+
+Variables declared with the `volatile` keyword shall include in their documentation a justification of its use, explicitly referencing one of the valid use cases listed above. This justification shall use the tag `volatile_use:` as shown below:
+
+```c
+/**
+ * @brief ...
+ *  
+ * volatile_use: hardware_interaction
+ */
+volatile uint8_t var1;
+
+/**
+ * @brief ...
+ *  
+ * volatile_use: asynchronous_interaction
+ */
+volatile uint8_t var2;
+
+/**
+ * @brief ...
+ */
+typedef struct
+{
+    /**
+     * @brief ...
+     *.
+     * volatile_use: context_interaction
+     */
+    volatile uint32_t struct_member_1;
+    
+    /**
+     * @brief ...
+     *.
+     * volatile_use: observability
+     */
+    volatile uint32_t struct_member_2;
+} struct_t;
+```
+
+---
+
+The use of the `const` keyword is only allowed for the following use cases:
+
+1. **ROM placement**: For global or module-scope variables that shall be stored in read-only memory.
+2. **Pass-by-reference input parameter protection**: For function parameters that point to user-provided data which shall not be modified, as specified in the function documentation (i.e. input-only, not input/output).
+
+The use of `const` to protect pass-by-value or local variables is **not permitted**. This restriction is not due to any negative functional effects, but rather to maintain consistency across the codebase. Allowing `const` in these cases would make its usage arbitrary or require applying it systematically to nearly all local variables, which would reduce clarity and add unnecessary verbosity without providing actual protection or benefit. 
+
+An example of correct `const` usage is shown below:
+
+```c
+
+/**
+ * @brief Lookup table stored in ROM.
+ */
+const uint16_t lookupTable[256] = { /* ... */ };
+
+/**
+ * @brief Calculates the checksum of a data buffer.
+ *
+ * @param[in] data_in Pointer to input data.
+ * @param[in] length Number of bytes to process.
+ * @param[out] checksum Pointer to store the calculated checksum.
+ */
+void calculateChecksum(const uint8_t * data_in, 
+					   uint16_t length, 
+					   uint16_t * checksum);
+```
+
+---
+### Include usage
+---
+
+Implementation files (`.c`) shall always include their own module header (`.h`)  to ensure consistency between the public interface and its implementation.
+
+---
+
+Each file shall include only the headers it directly depends on. Dependencies shall never rely on transitive includes (headers included indirectly through other headers).
+
+---
+### Naming conventions
+---
+
+Global variables and functions shall include a module-specific prefix followed by an underscore and the variable or function name, using lowerCamelCase format. 
+
+Optionally, a library prefix (as short as possible) followed by an underscore may precede the module-specific prefix when needed to indicate the library of origin.
+
+Examples: `libName_moduleName_variableName`, `libName_moduleName_functionName`, `moduleName_variableName`, `moduleName_functionName`
+
+---
+
+Global typedefs shall include a module-specific prefix followed by an underscore and the typedef name, ending with the suffix `_t`, using lowerCamelCase format.
+
+Optionally, a library prefix (as short as possible) followed by an underscore may precede the module-specific prefix when needed to indicate the library of origin.
+
+Examples: `libName_moduleName_typeName_t`, `moduleName_typeName_t`
+
+---
+
+Global enumerators shall include a module-specific prefix followed by the enumerator name, using UPPER_CASE format. 
+
+Optionally, a library prefix (as short as possible) may precede the module-specific prefix when needed to indicate the library of origin.
+
+Examples: `LIB_NAME_MODULE_NAME_ENUMERATOR_NAME`, `MODULE_NAME_ENUMERATOR_NAME`
+
+---
+
+Global macros shall include a module-specific prefix followed by the macro name, using UPPER_CASE format. 
+
+Optionally, a library prefix (as short as possible) may precede the module-specific prefix when needed to indicate the library of origin. 
+
+Examples:  `LIB_NAME_MODULE_NAME_MACRO_NAME`, `MODULE_NAME_MACRO_NAME`
+
+---
+
+Module-scope variables and functions shall use lowerCamelCase format. 
+
+Examples: `variableName`, `functionName`
+
+---
+
+Module-scope typedefs shall end with the suffix `_t`, using lowerCamelCase format.
+
+Example: `typeName_t`
+
+---
+
+Module-scope enumerators shall use UPPER_CASE format.
+
+Example: `ENUMERATOR_NAME`
+
+---
+
+Module-scope macros shall use UPPER_CASE format.
+
+Example: `MACRO_NAME`
+
+---
+
+Function-scope variables shall use the snake_case naming convention.  
+
+Example: `variable_name`
+
+---
+
+Struct members shall use snake_case format.
+
+Example: `struct_member_name`
+
+---
+### File templates
+---
+
+The following template shall be used for `.c` files:
+
+```c
+/*******************************************************************************
+ * @brief <Brief description of the file purpose>
+ *
+ * <Detailed description if needed>
+ *
+ * @copyright
+ * Copyright (c) <Year> <Author/Organization>.
+ * See the LICENSE.md file of this project for license details.
+ * This notice shall be retained in all copies or substantial portions
+ * of the software.
+ *
+ * @note
+ * This note is optional. Use only if the file is a derivative work.
+ * Example:
+ * This file is a derivative work based on:
+ * <ProjectName> (c) <Author/Organization>.
+ *
+ * @warning
+ * This software is provided "as is", without any express or implied warranty.
+ * The user assumes all responsibility for its use and any consequences.
+ ******************************************************************************/
+
+/*******************************************************************************
+ * INCLUDES
+ ******************************************************************************/
+
+/* -----------------------------------------------------------------------------
+ * System library headers
+ * -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+ * External library headers
+ * -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+ * Project-specific headers
+ * -------------------------------------------------------------------------- */
+
+/*******************************************************************************
+ * PRIVATE MACROS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PRIVATE TYPEDEFS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PRIVATE VARIABLES
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PUBLIC VARIABLES
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PRIVATE FUNCTIONS
+ ******************************************************************************/
+
+/* -----------------------------------------------------------------------------
+ * Private function declarations
+ * -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+ * Private function definitions
+ * -------------------------------------------------------------------------- */
+
+/*******************************************************************************
+ * PUBLIC FUNCTIONS
+ ******************************************************************************/
+```
+
+---
+
+The following template shall be used for `.h` files
+
+```c
+/*******************************************************************************
+ * @brief <Brief description of the file purpose>
+ *
+ * <Detailed description if needed>
+ *
+ * @copyright
+ * Copyright (c) <Year> <Author/Organization>.
+ * See the LICENSE.md file of this project for license details.
+ * This notice shall be retained in all copies or substantial portions
+ * of the software.
+ *
+ * @note
+ * This note is optional. Use only if the file is a derivative work.
+ * Example:
+ * This file is a derivative work based on:
+ * <ProjectName> (c) <Author/Organization>.
+ *
+ * @warning
+ * This software is provided "as is", without any express or implied warranty.
+ * The user assumes all responsibility for its use and any consequences.
+ ******************************************************************************/
+
+#ifndef MODULE_H
+#define MODULE_H
+
+/*******************************************************************************
+ * INCLUDES
+ ******************************************************************************/
+
+/* -----------------------------------------------------------------------------
+ * System library headers
+ * -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+ * External library headers
+ * -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+ * Project-specific headers
+ * -------------------------------------------------------------------------- */
+
+/*******************************************************************************
+ * PUBLIC MACROS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PUBLIC TYPEDEFS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PUBLIC VARIABLES
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PUBLIC FUNCTIONS
+ ******************************************************************************/
+
+#endif /* MODULE_H */
+```
+
+---
+
+The following template shall be used for `.S` files
+
+```asm
+/*******************************************************************************
+ * @brief <Brief description of the file purpose>
+ * 
+ * <Detailed description if needed>
+ *
+ * @copyright
+ * Copyright (c) <Year> <Author/Organization>.
+ * See the LICENSE.md file of this project for license details.
+ * This notice shall be retained in all copies or substantial portions
+ * of the software.
+ *
+ * @note
+ * This note is optional. Use only if the file is a derivative work.
+ * Example:
+ * This file is a derivative work based on:
+ * <ProjectName> (c) <Author/Organization>.
+ *
+ * @warning
+ * This software is provided "as is", without any express or implied warranty.
+ * The user assumes all responsibility for its use and any consequences.
+ ******************************************************************************/
+ 
+/*******************************************************************************
+ * ASSEMBLER SETTINGS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * EXTERNAL SYMBOLS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * CONSTANTS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * DATA SECTION
+ ******************************************************************************/
+
+/*******************************************************************************
+ * CODE SECTION
+ ******************************************************************************/
+```
+
+---
+### Documentation
+
+#### Source code documentation
+---
+
+All code elements shall be documented using **Doxygen** comments.
+
+The following Doxygen tags are allowed:  `@brief`, `@param`, `@return`, `@note`, `@todo`
+
+Multi-line documentation blocks shall use the following Doxygen format:
+
+```c
+/**
+ * @brief ...
+ *
+ * ...
+ *
+ * @note ...
+ *
+ * @todo ...
+ *
+ * @param[in] ...
+ * @param[out] ...
+ * @param[in,out] ...
+ * @return ...
+ */
+```
+ 
+Single-line documentation, used to document `struct` or `enum` members, shall use the following Doxygen format:
+
+```c
+//!< ...
+```
+
+---
+
+Single-line code comments shall use the following format:
+
+```c
+// ...
+```
+
+---
+
+Multi-line code comments shall use the following format:
+
+```c
+/**
+ * ...
+ * ...
+ */
+```
+
+---
+##### Library documentation
+---
+
+The following template shall be used to document libraries in a separate Markdown (.md) file.
+
+```
+# <Library name> overview
+
+<High-level description of the purpose, intent, and scope of the library>
+
+# Glossary
+
+| Term | Definition |
+|------|------------|
+| <Term used in the library> | <Definition of the term in the context of the library> |
+
+# Usage example
+
+<Minimal example demonstrating how the library is intended to be used in practice>
+```
+
+The Markdown documentation file shall have the same base name as the library, only changing the extension (e.g., mylib.a → mylib.md).
+
+---
+#### Test documentation
+---
+
+The following template shall be used to document tests in a separate Markdown (.md) file.
+
+```
+# <Test name> test overview
+<Description of the purpose of the test>
+
+# Use case
+<Description of the test and the use case being tested>
+
+# Verification scope
+<Description of what is being verified in this test>
+```
+
+The Markdown documentation file shall have the same base name as the test source file, only changing the extension (e.g., test_example.c --> test_example.md).
+
+---
+## Tool-based review criteria
+
+### GCC compiler
+---
+
+All code shall compile with **GCC** without warnings, using the following flags (or stricter):
+
+```
+-Wall -Wextra -Werror
+```
+
+---
+
+### Clang-tidy
+---
+
+All C source code shall comply with the static analysis rules defined in the `.clang-tidy` file below.
+
+```yaml
+@todo
+```
+
+---
+### Clang-format
+---
+
+All C source code shall follow the formatting rules defined in the `.clang-format` file below.
+
+```yaml
+@todo
+```
+
+---
+### CMake-format
+---
+
+All CMake files (`CMakeLists.txt`, `.cmake`) shall follow the formatting rules defined in the `.cmake-format.yaml` file below.
+
+```yaml
+@todo
+```
+
+---
+### Assembly format
+---
+
+@todo: Since there is no widely adopted open-source formatting tool for assembly (`.S`) files, evaluate the possibility to of creating a simple custom script or tool to enforce basic formatting rules such as:
+
+- Consistent indentation levels.
+- Absence of trailing spaces.
+- Maximum line length or lines of code per file limits.
+
+---

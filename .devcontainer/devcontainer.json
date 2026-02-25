@@ -1,0 +1,30 @@
+{
+    "name": "embedded_c_workbench",
+    "dockerFile": "Dockerfile",
+    "containerEnv": {
+        "RPI_USER": "${localEnv:RPI_USER}", // Raspberry Pi SSH username.
+        "RPI_HOST": "${localEnv:RPI_HOST}", // Raspberry Pi IP address.
+        "GDB_PORT": "${localEnv:GDB_PORT}", // TCP port where GDB server will listen.
+        "LOG_PORT": "${localEnv:LOG_PORT}", // TCP port used for logging.
+        "LOG_BAUD_RATE": "115200", // Baud rate used for logging interface.
+        "TARGET_RX_TIMEOUT": "10", // Maximum allowed inactivity time (seconds) without receiving data from target.
+        "SVD_FILE": "" // Path to the SVD file used for target debugging.
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools",
+                "dan-c-underwood.arm",
+                "ms-python.python",
+                "marus25.cortex-debug",
+                "ms-vscode.vscode-serial-monitor",
+                "mhutchie.git-graph",
+                "spencerwmiles.vscode-task-buttons",
+                "jebbs.plantuml",
+                "bierner.markdown-mermaid",
+                "bierner.markdown-preview-github-styles"
+            ]
+        }
+    }
+}

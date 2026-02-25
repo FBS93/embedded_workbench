@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "env": {
+      "TASKS_PATH": "${workspaceFolder}/.vscode/tasks"
+    }
+  },
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "${TASKS_PATH}/build.sh",
+      "args": [
+        "${command:cmake.buildTargetName}",
+        "${command:cmake.activeConfigurePresetName}",
+        "${config:cmake.sourceDirectory}",
+        "${workspaceFolder}/.vscode"
+      ],
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "${TASKS_PATH}/clean.sh",
+      "args": [
+        "${command:cmake.activeConfigurePresetName}",
+        "${config:cmake.sourceDirectory}"
+      ],
+    },
+    {
+      "label": "run_target_gdb_server",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_target_gdb_server.sh"
+    },
+    {
+      "label": "run_target_logging_server",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_target_logging_server.sh"
+    }
+  ]
+}

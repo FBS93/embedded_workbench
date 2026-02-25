@@ -1,0 +1,87 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}",
+    "workbench.tree.indent": 16,
+    "workbench.tree.expandMode": "doubleClick",
+    "editor.formatOnSave": true,
+    "editor.autoIndent": "full",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "git.autofetch": true,
+    "git-graph.showStatusBarItem": false,
+    "debug.showInStatusBar": "always",
+    "cmake.options.advanced": {
+        "variant": { //Debug, Release,...
+            "statusBarVisibility": "hidden",
+        },
+        "cpack": {
+            "statusBarVisibility": "hidden",
+        },
+        "workflow": {
+            "statusBarVisibility": "hidden",
+        },
+        "configurePreset": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "visible"
+        },
+        "buildPreset": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "hidden"
+        },
+        "folder": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "hidden"
+        },
+        "kit": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "hidden"
+        },
+        "build": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "hidden",
+        },
+        "launch": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "hidden"
+        },
+        "debug": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "hidden"
+        },
+        "launchTarget": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "visible"
+        },
+        "buildTarget": {
+            "statusBarVisibility": "inherit",
+            "inheritDefault": "visible"
+        },
+    },
+    "VsCodeTaskButtons.showCounter": false,
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "🧰 Toolbox",
+            "tasks": [
+                // @todo Add toolbox task to open an VSCode SSH terminal connection to the Raspberry Pi using devcontainer.json environment variables
+                {
+                    "label": " 📃 Enable target logging",
+                    "task": "run_target_logging_server"
+                }
+            ],
+            "tooltip": "Software tools"
+        },
+        {
+            "label": "🔨 Build",
+            "task": "build",
+            "tooltip": "Build project",
+        },
+        {
+            "label": "🧹 Clean",
+            "task": "clean",
+            "tooltip": "Clean build artifacts"
+        }
+    ],
+    "files.associations": {
+        "*.c": "c",
+        "*.h": "c",
+    }
+}

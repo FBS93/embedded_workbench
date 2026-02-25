@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS": "-Wall -Wextra -Wconversion -Werror",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "host",
+      "displayName": "Host",
+      "inherits": "base",
+      "toolchainFile": "tools/cmake/toolchains/linux_gcc.cmake"
+    },
+    {
+      "name": "target",
+      "displayName": "Target",
+      "inherits": "base",
+      "toolchainFile": "tools/cmake/toolchains/arm_gcc.cmake"
+    }
+  ]
+}

@@ -66,6 +66,9 @@ LOG_PORT = None
 # Maximum allowed inactivity time (seconds) without receiving data from target.
 TARGET_RX_TIMEOUT = None
 
+# Absolute path to the workspace folder inside the container.
+WORKSPACE_FOLDER = None
+
 # Path to the target ELF firmware to be flashed and executed.
 TEST_BINARY = None
 
@@ -102,7 +105,7 @@ def get_env(name):
 # Terminates the program if any required configuration value is missing.
 ##
 def init_config():
-  global RPI_USER, RPI_HOST, GDB_PORT, LOG_PORT, TARGET_RX_TIMEOUT, TEST_BINARY
+  global RPI_USER, RPI_HOST, GDB_PORT, LOG_PORT, TARGET_RX_TIMEOUT, WORKSPACE_FOLDER, TEST_BINARY
 
   # Validate command-line arguments
   if len(sys.argv) < 2:
@@ -114,6 +117,7 @@ def init_config():
   GDB_PORT = int(get_env("GDB_PORT"))
   LOG_PORT = int(get_env("LOG_PORT"))
   TARGET_RX_TIMEOUT = int(get_env("TARGET_RX_TIMEOUT"))
+  WORKSPACE_FOLDER = get_env("WORKSPACE_FOLDER")
   TEST_BINARY = sys.argv[1]
 
 ##
@@ -174,13 +178,13 @@ def main():
   init_config() # Init config values.
 
   print("Ensuring GDB server running...", flush=True)
-  run(["/workspaces/OPTRTA/.vscode/tasks/run_target_gdb_server.sh"])
+  run([f"{WORKSPACE_FOLDER}/.vscode/tasks/run_target_gdb_server.sh"])
 
   print("Flashing firmware...", flush=True)
   flash_via_gdb(TEST_BINARY)
 
   print("Ensuring serial bridge running...", flush=True)
-  run(["/workspaces/OPTRTA/.vscode/tasks/run_target_logging_server.sh"])
+  run([f"{WORKSPACE_FOLDER}/.vscode/tasks/run_target_logging_server.sh"])
 
   print("Connecting to serial log stream...", flush=True)
   serial = socket.create_connection((RPI_HOST, LOG_PORT), timeout=5)

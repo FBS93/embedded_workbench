@@ -40,6 +40,7 @@ sudo apt-get install -y ser2net
 ```
 
 Make sure that the environment variables in [devcontainer.json](../../.devcontainer/devcontainer.json) are configured for the logging setup and target environment:
+
 - `RPI_USER` and `RPI_HOST` must match the Raspberry Pi SSH credentials.
 - `LOG_PORT` must match the port used for serial logging.
 - `LOG_BAUD_RATE` must match the target serial configuration.

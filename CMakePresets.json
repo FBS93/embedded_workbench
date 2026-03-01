@@ -9,6 +9,8 @@
       "cacheVariables": {
         "ECF_TEST": "ON",
         "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS_RELEASE": "-O2 -g2",
+        "CMAKE_C_FLAGS_DEBUG": "-O0 -g3 -save-temps=obj -P",
         "CMAKE_C_FLAGS": "-Wall -Wextra -Wconversion -Werror",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }

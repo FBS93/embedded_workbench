@@ -72,7 +72,7 @@
  * @brief Declares and defines a test case.
  *
  * @param[in] name Name of the test case.
- * @param[in] trigger_signal Signal used to trigger the test.
+ * @param[in] trigger_signal Signal used to trigger the test case verify phase.
  */
 #define EDF_TEST_CASE(name, trigger_signal)        \
   static void name##_init(void);                   \

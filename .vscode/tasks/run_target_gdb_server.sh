@@ -19,7 +19,7 @@ set -e
 GDB_SERVER_RUN_CMD="JLinkGDBServer \
   -device STM32F103C8 \
   -if SWD \
-  -speed 4000 \
+  -speed 400 \
   -port ${GDB_PORT} \
   -nogui"
 

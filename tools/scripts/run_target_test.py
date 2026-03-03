@@ -139,17 +139,9 @@ def run(cmd, quiet=True):
 ##
 # @brief Flash firmware to the target via GDB server.
 #
-# Copies the test binary to the Raspberry Pi and programs it
-# using GDB commands.
-#
 # @param[in] test_binary Path to the firmware ELF file.
 ##
 def flash_via_gdb(test_binary):
-  remote_path = "/tmp/test.elf"
-
-  print("Copying test binary to Raspberry...", flush=True)
-  run(["scp", test_binary, f"{RPI_USER}@{RPI_HOST}:{remote_path}"])
-
   print("Flashing target via GDB server...", flush=True)
   run([
     "arm-none-eabi-gdb",
@@ -159,6 +151,8 @@ def flash_via_gdb(test_binary):
     "-ex", "monitor reset",
     "-ex", "monitor halt",
     "-ex", "load",
+    "-ex", "monitor reset",
+    "-ex", "monitor halt",
     "-ex", "quit",
   ])
 
@@ -178,16 +172,16 @@ def flash_via_gdb(test_binary):
 def main():
   init_config() # Init config values.
 
-  print("Ensuring GDB server running...", flush=True)
+  print("Run target GDB server ...", flush=True)
   run([f"{WORKSPACE_FOLDER}/.vscode/tasks/run_target_gdb_server.sh"])
 
   print("Flashing firmware...", flush=True)
   flash_via_gdb(TEST_BINARY)
 
-  print("Ensuring serial bridge running...", flush=True)
+  print("Run target logging server ...", flush=True)
   run([f"{WORKSPACE_FOLDER}/.vscode/tasks/run_target_logging_server.sh"])
 
-  print("Connecting to serial log stream...", flush=True)
+  print("Connecting to target logging server ...", flush=True)
   serial = socket.create_connection((RPI_HOST, LOG_PORT), timeout=5)
 
   # Flush stale serial data.
@@ -198,47 +192,68 @@ def main():
   except socket.timeout:
     pass
 
+  # Launch GDB in a subprocess because the "continue" command is blocking.
+  # This allows the script to proceed while the target firmware runs.
   print("Starting firmware execution...", flush=True)
-  run([
-    "arm-none-eabi-gdb",
-    TEST_BINARY,
-    "-batch",
-    "-ex", f"target remote {RPI_HOST}:{GDB_PORT}",
-    "-ex", "monitor reset",
-    "-ex", "continue&",
-    "-ex", "quit",
-  ])
+  gdb_proc = subprocess.Popen(
+    [
+      "arm-none-eabi-gdb",
+      TEST_BINARY,
+      "-batch",
+      "-ex", f"target remote {RPI_HOST}:{GDB_PORT}",
+      "-ex", "monitor reset",
+      "-ex", "continue",
+    ],
+    stdout=subprocess.DEVNULL,
+    stderr=subprocess.DEVNULL,
+  )
 
   print("Capturing test output:", flush=True)
   serial.settimeout(1) # Use short timeout to periodically check for inactivity.
   buffer = ""
   last_rx = time.time() # Timestamp of last received data.
 
-  while True:
+  ret = 1 # Set default exit code to failure.
+  try:
+    while True:
+      try:
+        data = serial.recv(1024).decode(errors="ignore")
+      except socket.timeout:
+        data = ""
+
+      if data:
+        # Update timestamp when data is received.
+        last_rx = time.time()
+
+        print(data, end="", flush=True)
+        buffer += data
+
+        if "0 failed" in buffer:
+          print("\n✅ Test pass.", flush=True)
+          ret = 0
+          break
+
+        if "FAIL" in buffer:
+          print("\n❌ Test fail.", flush=True)
+          break
+
+      # Exit if no data has been received for TARGET_RX_TIMEOUT.
+      if ((time.time() - last_rx) > TARGET_RX_TIMEOUT):
+        print("\n❌ Timeout: no output from target.", flush=True)
+        break
+
+  finally:
+    # Cleanup.
+    serial.close()
+    gdb_proc.terminate()
     try:
-      data = serial.recv(1024).decode(errors="ignore")
-    except socket.timeout:
-      data = ""
+        gdb_proc.wait(timeout=1)
+    except subprocess.TimeoutExpired:
+        gdb_proc.kill()
 
-    if data:
-      # Update timestamp when data is received.
-      last_rx = time.time()
+    # Exit with appropriate exit code.
+    sys.exit(ret)
 
-      print(data, end="", flush=True)
-      buffer += data
-
-      if "0 failed" in buffer:
-        print("\n✅ Test pass.", flush=True)
-        sys.exit(0)
-
-      if "FAIL" in buffer:
-        print("\n❌ Test fail.", flush=True)
-        sys.exit(1)
-
-    # Exit if no data has been received for TARGET_RX_TIMEOUT.
-    if ((time.time() - last_rx) > TARGET_RX_TIMEOUT):
-      print("\n❌ Timeout: no output from target.", flush=True)
-      sys.exit(1)
 
 # ==============================================================================
 # SCRIPT ENTRY POINT

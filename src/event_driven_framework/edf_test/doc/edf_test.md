@@ -41,6 +41,8 @@ sequenceDiagram
 
 This approach enables fully automated, in-system testing within a single self-contained executable, without modifying application logic, relying on external tools, or introducing intrusive logging, while preserving real execution behavior and timing characteristics.
 
+The ECF framework provides CMake functions that encapsulate test executable creation and registration with CTest. See [ECF cmake functions](../../../tools/cmake/functions/ecf_test.cmake)
+
 # Glossary
 
 | Term | Definition |

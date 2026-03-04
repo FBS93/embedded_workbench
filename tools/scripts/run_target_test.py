@@ -217,7 +217,7 @@ def main():
   try:
     while True:
       try:
-        data = serial.recv(1024).decode(errors="ignore")
+        data = serial.recv(1024).decode(errors="replace")
       except socket.timeout:
         data = ""
 
@@ -245,11 +245,8 @@ def main():
   finally:
     # Cleanup.
     serial.close()
-    gdb_proc.terminate()
-    try:
-        gdb_proc.wait(timeout=1)
-    except subprocess.TimeoutExpired:
-        gdb_proc.kill()
+    gdb_proc.kill()
+    gdb_proc.wait()
 
     # Exit with appropriate exit code.
     sys.exit(ret)

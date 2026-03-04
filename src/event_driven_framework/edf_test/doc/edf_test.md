@@ -10,7 +10,7 @@ Each test case is composed of two phases:
 - Init: The test prepares the system with the desired initial conditions and then stimulates it by publishing the event that triggers the behavior under test.
 - Verify: Once all other AOs have processed the init event and any subsequent events derived from it, the test AO is invoked, with the verification phase bound exclusively to a specific event, and executes the validation logic using the built-in macros. After verification, the framework automatically proceeds to the init phase of the next test case.
 
-The following diagram illustrates the event flow of a simple test case.
+The following diagram illustrates the flow of a simple test case.
 
 ```mermaid
 sequenceDiagram

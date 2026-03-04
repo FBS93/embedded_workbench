@@ -40,8 +40,16 @@ connection: &serial_dev
   connector: serialdev,\$SERIAL_DEV,${LOG_BAUD_RATE}n81,local
 CFGEOF
 
-# Kill old instance.
+# Kill previous ser2net instance.
 /usr/bin/pkill ser2net 2>/dev/null || true
+
+# Wait until the serial device node becomes available again.
+for i in {1..20}; do
+    if [ -e "$SERIAL_DEV" ]; then
+        break
+    fi
+    /usr/bin/sleep 0.1
+done
 
 # Start ser2net (absolute path required in non-interactive SSH).
 nohup /usr/sbin/ser2net -c \$CFG > /tmp/ser2net.log 2>&1 &

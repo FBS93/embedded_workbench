@@ -70,6 +70,9 @@ function(create_etf_test test_name test_src)
         ${PROJECT_SOURCE_DIR}/tools/scripts/run_target_test.py
         $<TARGET_FILE:${test_name}>
     )
+    set_tests_properties(${test_name} PROPERTIES
+      RESOURCE_LOCK hil_target
+    )
   else()
     # Host tests: run directly on host machine.
     add_test(
@@ -147,6 +150,9 @@ function(create_edf_test test_name test_src)
         python3
         ${PROJECT_SOURCE_DIR}/tools/scripts/run_target_test.py
         $<TARGET_FILE:${test_name}>
+    )
+    set_tests_properties(${test_name} PROPERTIES
+      RESOURCE_LOCK hil_target
     )
   else()
     # Host tests: run directly on host machine.

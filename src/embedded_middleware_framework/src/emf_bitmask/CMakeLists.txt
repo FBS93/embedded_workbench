@@ -5,3 +5,7 @@ target_include_directories(emf
 target_link_libraries(emf
     PRIVATE eaf
     PRIVATE ebf)
+
+if(ECF_TEST)
+    add_subdirectory(test)
+endif()

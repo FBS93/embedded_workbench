@@ -247,14 +247,14 @@ void EMF_endian_readBuffLE(uint8_t const *const buff,
     else if (out_size == sizeof(uint64_t))
     {
         *(uint64_t *)out =
-            ((uint64_t)buff[7]) |
-            ((uint64_t)buff[6] << 8) |
-            ((uint64_t)buff[5] << 16) |
-            ((uint64_t)buff[4] << 24) |
-            ((uint64_t)buff[3] << 32) |
-            ((uint64_t)buff[2] << 40) |
-            ((uint64_t)buff[1] << 48) |
-            ((uint64_t)buff[0] << 56);
+            ((uint64_t)buff[0]) |
+            ((uint64_t)buff[1] << 8) |
+            ((uint64_t)buff[2] << 16) |
+            ((uint64_t)buff[3] << 24) |
+            ((uint64_t)buff[4] << 32) |
+            ((uint64_t)buff[5] << 40) |
+            ((uint64_t)buff[6] << 48) |
+            ((uint64_t)buff[7] << 56);
     }
 }
 
@@ -348,14 +348,14 @@ void EMF_endian_u64ReadBuffLE(uint8_t const *const buff, uint64_t *const out)
     EAF_ASSERT_IN_BLOCK(out != NULL);
     EAF_ASSERT_BLOCK_END();
 
-    *out = ((uint64_t)buff[7]) |
-           ((uint64_t)buff[6] << 8) |
-           ((uint64_t)buff[5] << 16) |
-           ((uint64_t)buff[4] << 24) |
-           ((uint64_t)buff[3] << 32) |
-           ((uint64_t)buff[2] << 40) |
-           ((uint64_t)buff[1] << 48) |
-           ((uint64_t)buff[0] << 56);
+    *out = ((uint64_t)buff[0]) |
+           ((uint64_t)buff[1] << 8) |
+           ((uint64_t)buff[2] << 16) |
+           ((uint64_t)buff[3] << 24) |
+           ((uint64_t)buff[4] << 32) |
+           ((uint64_t)buff[5] << 40) |
+           ((uint64_t)buff[6] << 48) |
+           ((uint64_t)buff[7] << 56);
 }
 
 void EMF_endian_u64WriteBuffLE(uint8_t *const buff, uint64_t const *const in)

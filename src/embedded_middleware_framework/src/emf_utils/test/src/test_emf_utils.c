@@ -1,10 +1,5 @@
 /*******************************************************************************
- * @brief Bitmask utility for managing and querying bit-level flags.
- *
- * This module is priority-based:
- * - Lower bit index means higher priority.
- * - bit0 is the highest priority bit.
- * - Public API bit positions use 1-based indexing (bit0 <-> bit_pos = 1).
+ * @brief Utils test.
  *
  * @copyright
  * Copyright (c) 2026 FBS93.
@@ -17,9 +12,6 @@
  * The user assumes all responsibility for its use and any consequences.
  ******************************************************************************/
 
-#ifndef EMF_BITMASK_H
-#define EMF_BITMASK_H
-
 /*******************************************************************************
  * INCLUDES
  ******************************************************************************/
@@ -28,7 +20,6 @@
  * System library headers
  * -------------------------------------------------------------------------- */
 #include <stdint.h>
-#include <stdbool.h>
 
 /* -----------------------------------------------------------------------------
  * External library headers
@@ -37,13 +28,19 @@
 /* -----------------------------------------------------------------------------
  * Project-specific headers
  * -------------------------------------------------------------------------- */
+#include "etf.h"
+#include "emf_utils.h"
 
 /*******************************************************************************
- * PUBLIC MACROS
+ * PRIVATE MACROS
  ******************************************************************************/
 
 /*******************************************************************************
- * PUBLIC TYPEDEFS
+ * PRIVATE TYPEDEFS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PRIVATE VARIABLES
  ******************************************************************************/
 
 /*******************************************************************************
@@ -51,59 +48,59 @@
  ******************************************************************************/
 
 /*******************************************************************************
+ * PRIVATE FUNCTIONS
+ ******************************************************************************/
+
+/* -----------------------------------------------------------------------------
+ * Private function declarations
+ * -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+ * Private function definitions
+ * -------------------------------------------------------------------------- */
+
+/*******************************************************************************
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-/**
- * @brief Clears all bits in the bitmask.
- *
- * @param[in,out] bitmask Pointer to the bitmask.
- * @param[in] len Length of the bitmask in bytes.
- */
-void EMF_bitmask_clearAll(uint8_t *bitmask, uint8_t len);
+ETF_TEST_SUITE(test_emf_utils)
+{
+  ETF_TEST(clear_zeroes_requested_region)
+  {
+    uint8_t buffer[10U] = {
+      0xAAU,
+      0xAAU,
+      0xAAU,
+      0xAAU,
+      0xAAU,
+      0xAAU,
+      0xAAU,
+      0xAAU,
+      0xAAU,
+      0xAAU
+    };
+    uint8_t byte_index;
 
-/**
- * @brief Checks if any bit is set in the bitmask.
- *
- * @param[in] bitmask Pointer to the bitmask.
- * @param[in] len Length of the bitmask in bytes.
- * @return true if at least one bit is set, false otherwise.
- */
-bool EMF_bitmask_isAnySet(uint8_t const *bitmask, uint8_t len);
+    EMF_utils_clear(&buffer[1U], 7U);
 
-/**
- * @brief Checks if a specific bit is set in the bitmask.
- *
- * @param[in] bitmask Pointer to the bitmask.
- * @param[in] bit_pos Bit position (1-based index).
- * @return true if the bit is set, false otherwise.
- */
-bool EMF_bitmask_isBitSet(uint8_t const *bitmask, uint8_t bit_pos);
+    ETF_VERIFY(buffer[0U] == 0xAAU);
+    for (byte_index = 1U; byte_index < 8U; byte_index++)
+    {
+      ETF_VERIFY(buffer[byte_index] == 0U);
+    }
+    ETF_VERIFY(buffer[8U] == 0xAAU);
+    ETF_VERIFY(buffer[9U] == 0xAAU);
+  }
 
-/**
- * @brief Sets a specific bit in the bitmask.
- *
- * @param[in,out] bitmask Pointer to the bitmask.
- * @param[in] bit_pos Bit position (1-based index).
- */
-void EMF_bitmask_setBit(uint8_t *bitmask, uint8_t bit_pos);
+  ETF_TEST(macro_contracts)
+  {
+    uint8_t array[5U] = {0U};
+    uint8_t dummy = 0x11U;
+    EMF_UTILS_MEM_ALIGNED_SLOT(9U) aligned_slot;
 
-/**
- * @brief Clears a specific bit in the bitmask.
- *
- * @param[in,out] bitmask Pointer to the bitmask.
- * @param[in] bit_pos Bit position (1-based index).
- */
-void EMF_bitmask_clearBit(uint8_t *bitmask, uint8_t bit_pos);
-
-/**
- * @brief Finds the set bit with the highest priority.
- *
- * @param[in] bitmask Pointer to the bitmask.
- * @param[in] len Length of the bitmask in bytes.
- * @return Position (1-based index) of the highest-priority set bit,
- * or 0 if empty.
- */
-uint8_t EMF_bitmask_findMax(uint8_t const *bitmask, uint8_t len);
-
-#endif /* EMF_BITMASK_H */
+    EMF_UTILS_UNUSED_PARAM(dummy);
+    ETF_VERIFY(EMF_UTILS_SIZEOF_ARRAY(array) == 5U);
+    ETF_VERIFY(sizeof(aligned_slot) >= 9U);
+    ETF_VERIFY((sizeof(aligned_slot) % sizeof(void *)) == 0U);
+  }
+}

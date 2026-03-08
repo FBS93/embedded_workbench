@@ -1,10 +1,5 @@
 /*******************************************************************************
- * @brief Bitmask utility for managing and querying bit-level flags.
- *
- * This module is priority-based:
- * - Lower bit index means higher priority.
- * - bit0 is the highest priority bit.
- * - Public API bit positions use 1-based indexing (bit0 <-> bit_pos = 1).
+ * @brief CRC test.
  *
  * @copyright
  * Copyright (c) 2026 FBS93.
@@ -17,9 +12,6 @@
  * The user assumes all responsibility for its use and any consequences.
  ******************************************************************************/
 
-#ifndef EMF_BITMASK_H
-#define EMF_BITMASK_H
-
 /*******************************************************************************
  * INCLUDES
  ******************************************************************************/
@@ -28,7 +20,6 @@
  * System library headers
  * -------------------------------------------------------------------------- */
 #include <stdint.h>
-#include <stdbool.h>
 
 /* -----------------------------------------------------------------------------
  * External library headers
@@ -37,13 +28,19 @@
 /* -----------------------------------------------------------------------------
  * Project-specific headers
  * -------------------------------------------------------------------------- */
+#include "etf.h"
+#include "emf_crc.h"
 
 /*******************************************************************************
- * PUBLIC MACROS
+ * PRIVATE MACROS
  ******************************************************************************/
 
 /*******************************************************************************
- * PUBLIC TYPEDEFS
+ * PRIVATE TYPEDEFS
+ ******************************************************************************/
+
+/*******************************************************************************
+ * PRIVATE VARIABLES
  ******************************************************************************/
 
 /*******************************************************************************
@@ -51,59 +48,38 @@
  ******************************************************************************/
 
 /*******************************************************************************
+ * PRIVATE FUNCTIONS
+ ******************************************************************************/
+
+/* -----------------------------------------------------------------------------
+ * Private function declarations
+ * -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+ * Private function definitions
+ * -------------------------------------------------------------------------- */
+
+/*******************************************************************************
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-/**
- * @brief Clears all bits in the bitmask.
- *
- * @param[in,out] bitmask Pointer to the bitmask.
- * @param[in] len Length of the bitmask in bytes.
- */
-void EMF_bitmask_clearAll(uint8_t *bitmask, uint8_t len);
+ETF_TEST_SUITE(test_emf_crc)
+{
+  ETF_TEST(crc16_ccitt_known_vector)
+  {
+    uint8_t data[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    uint16_t crc = EMF_crc_16CCITT(data, (uint16_t)sizeof(data));
 
-/**
- * @brief Checks if any bit is set in the bitmask.
- *
- * @param[in] bitmask Pointer to the bitmask.
- * @param[in] len Length of the bitmask in bytes.
- * @return true if at least one bit is set, false otherwise.
- */
-bool EMF_bitmask_isAnySet(uint8_t const *bitmask, uint8_t len);
+    ETF_VERIFY(crc == 0x31C3U);
+  }
 
-/**
- * @brief Checks if a specific bit is set in the bitmask.
- *
- * @param[in] bitmask Pointer to the bitmask.
- * @param[in] bit_pos Bit position (1-based index).
- * @return true if the bit is set, false otherwise.
- */
-bool EMF_bitmask_isBitSet(uint8_t const *bitmask, uint8_t bit_pos);
+  ETF_TEST(crc16_ccitt_changes_when_data_changes)
+  {
+    uint8_t data_1[] = {0x10U, 0x20U, 0x30U, 0x40U};
+    uint8_t data_2[] = {0x10U, 0x20U, 0x30U, 0x41U};
+    uint16_t crc_1 = EMF_crc_16CCITT(data_1, (uint16_t)sizeof(data_1));
+    uint16_t crc_2 = EMF_crc_16CCITT(data_2, (uint16_t)sizeof(data_2));
 
-/**
- * @brief Sets a specific bit in the bitmask.
- *
- * @param[in,out] bitmask Pointer to the bitmask.
- * @param[in] bit_pos Bit position (1-based index).
- */
-void EMF_bitmask_setBit(uint8_t *bitmask, uint8_t bit_pos);
-
-/**
- * @brief Clears a specific bit in the bitmask.
- *
- * @param[in,out] bitmask Pointer to the bitmask.
- * @param[in] bit_pos Bit position (1-based index).
- */
-void EMF_bitmask_clearBit(uint8_t *bitmask, uint8_t bit_pos);
-
-/**
- * @brief Finds the set bit with the highest priority.
- *
- * @param[in] bitmask Pointer to the bitmask.
- * @param[in] len Length of the bitmask in bytes.
- * @return Position (1-based index) of the highest-priority set bit,
- * or 0 if empty.
- */
-uint8_t EMF_bitmask_findMax(uint8_t const *bitmask, uint8_t len);
-
-#endif /* EMF_BITMASK_H */
+    ETF_VERIFY(crc_1 != crc_2);
+  }
+}

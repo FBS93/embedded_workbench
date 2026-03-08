@@ -173,10 +173,15 @@ static void writeUint(uint32_t val)
 
 static void writeInt(int32_t val)
 {
+  uint32_t abs_val;
+
   if (val < 0)
   {
     writeChar('-');
-    writeUint((uint32_t)(-val)); // Absolute value
+    // Avoid signed overflow for int32_t minimum value.
+    abs_val = (uint32_t)(-(val + 1));
+    abs_val++;
+    writeUint(abs_val);
   }
   else
   {
@@ -235,34 +240,51 @@ void EMF_print(char const *fmt, uintptr_t const *args)
       switch (*fmt)
       {
       case 'u':
+      {
+        EAF_ASSERT(args != NULL);
         writeUint((uint32_t)args[arg_idx]);
         arg_idx++;
         break;
+      }
       case 'i':
+      {
+        EAF_ASSERT(args != NULL);
         writeInt((int32_t)args[arg_idx]);
         arg_idx++;
         break;
+      }
       case 'f':
       {
+        EAF_ASSERT(args != NULL);
         conv.u = (uint32_t)args[arg_idx];
         writeFloat(conv.f);
         arg_idx++;
         break;
       }
       case 'c':
+      {
+        EAF_ASSERT(args != NULL);
         writeChar((char)args[arg_idx]);
         arg_idx++;
         break;
+      }
       case 's':
+      {
+        EAF_ASSERT(args != NULL);
         writeStr((const char *)args[arg_idx]);
         arg_idx++;
         break;
+      }
       case '%':
+      {
         writeChar('%');
         break;
+      }
       default:
+      {
         writeChar('?');
         break;
+      }
       }
     }
     else

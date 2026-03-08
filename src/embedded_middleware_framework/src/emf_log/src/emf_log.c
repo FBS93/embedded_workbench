@@ -97,20 +97,30 @@ void EMF_log(EMF_log_level_t log_level, char const *fmt, uintptr_t const *args)
     switch (log_level)
     {
     case LOG_LEVEL_ERROR:
+    {
       EMF_print("[ERROR] ", NULL);
       break;
+    }
     case LOG_LEVEL_WARNING:
+    {
       EMF_print("[WARNING] ", NULL);
       break;
+    }
     case LOG_LEVEL_INFO:
+    {
       EMF_print("[INFO] ", NULL);
       break;
+    }
     case LOG_LEVEL_DEBUG:
+    {
       EMF_print("[DEBUG] ", NULL);
       break;
+    }
     default:
+    {
       EAF_ERROR();
       break;
+    }
     }
 
     EMF_print(fmt, args);

@@ -11,8 +11,10 @@ fi
 
 source_dir="$1"
 clang_format_bin=""
-asm_formatter="/workspaces/embedded_c_framework/tools/scripts/asm_format.py"
-
+script_path="$(realpath "${BASH_SOURCE[0]}")"
+script_dir="$(dirname "$script_path")"
+workspace_root="$(realpath "${script_dir}/../..")"
+asm_formatter="${workspace_root}/tools/scripts/asm_format.py"
 # Resolve clang-format binary:
 # 1) Use clang-format from PATH.
 # 2) Fallback to VS Code extension bundled binary.

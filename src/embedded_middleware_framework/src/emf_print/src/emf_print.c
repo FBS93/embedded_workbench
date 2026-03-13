@@ -85,7 +85,7 @@ static void writeChar(char c);
  *
  * @param[in] str Pointer to a null-terminated string.
  */
-static void writeStr(char const *str);
+static void writeStr(const char *str);
 
 /**
  * @brief Converts an unsigned integer to string and writes it to the output.
@@ -123,10 +123,10 @@ static void writeChar(char c)
      */
   };
 
-  EBF_stdoutWrite((uint8_t *)&c, 1);
+  EBF_stdoutWrite((const uint8_t *)&c, 1);
 }
 
-static void writeStr(char const *str)
+static void writeStr(const char *str)
 {
   EAF_ASSERT(str != NULL);
 
@@ -140,7 +140,7 @@ static void writeStr(char const *str)
        */
     };
 
-    EBF_stdoutWrite((uint8_t *)str, 1);
+    EBF_stdoutWrite((const uint8_t *)str, 1);
     str++;
   }
 }
@@ -220,7 +220,7 @@ static void writeFloat(float val)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_print(char const *fmt, uintptr_t const *args)
+void EMF_print(const char *fmt, const uintptr_t *args)
 {
   int arg_idx;
   union

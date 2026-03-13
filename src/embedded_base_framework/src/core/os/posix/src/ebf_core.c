@@ -85,12 +85,12 @@ int8_t EBF_critSecNestCnt = 0;
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-EBF_WEAK void EBF_setStdinListener(EBF_stdin_t const listener)
+EBF_WEAK void EBF_setStdinListener(EBF_stdin_t listener)
 {
     EMF_UTILS_UNUSED_PARAM(listener);
 }
 
-EBF_WEAK void EBF_stdoutWrite(const uint8_t *data, uint16_t const len)
+EBF_WEAK void EBF_stdoutWrite(const uint8_t *data, uint16_t len)
 {
     EAF_ASSERT_BLOCK_BEGIN();
     EAF_ASSERT_IN_BLOCK(data != NULL);
@@ -105,7 +105,7 @@ EBF_WEAK void EBF_stdoutWrite(const uint8_t *data, uint16_t const len)
     fflush(stdout); // Flush to force immediate output
 }
 
-EBF_WEAK bool EBF_stdoutIsReadyToWrite(uint16_t const len)
+EBF_WEAK bool EBF_stdoutIsReadyToWrite(uint16_t len)
 {
     EMF_UTILS_UNUSED_PARAM(len);
 

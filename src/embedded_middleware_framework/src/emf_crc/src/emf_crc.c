@@ -89,7 +89,7 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-uint16_t EMF_crc_16CCITT(uint8_t const *data, uint16_t length)
+uint16_t EMF_crc_16CCITT(const uint8_t *data, uint16_t length)
 {
     uint16_t crc;
 

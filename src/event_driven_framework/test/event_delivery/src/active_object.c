@@ -74,8 +74,8 @@ activeObject_t activeObject[ACTIVE_OBJECT_N_TOTAL];
  * @param[in] me Pointer to the activeObject instance.
  * @param[in] e Pointer to the event.
  */
-EDF_hsm_stateReturn_t initialTransition(activeObject_t *const me,
-                                        EDF_event_t const *const e);
+static EDF_hsm_stateReturn_t initialTransition(activeObject_t *me,
+                                        const EDF_event_t *e);
 
 /**
  * @brief readyState state of the activeObject HSM.
@@ -83,15 +83,15 @@ EDF_hsm_stateReturn_t initialTransition(activeObject_t *const me,
  * @param[in] me Pointer to the activeObject instance.
  * @param[in] e Pointer to the event.
  */
-EDF_hsm_stateReturn_t readyState(activeObject_t *const me,
-                                 EDF_event_t const *const e);
+static EDF_hsm_stateReturn_t readyState(activeObject_t *me,
+                                 const EDF_event_t *e);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-EDF_hsm_stateReturn_t initialTransition(activeObject_t *const me,
-                                        EDF_event_t const *const e)
+static EDF_hsm_stateReturn_t initialTransition(activeObject_t *me,
+                                        const EDF_event_t *e)
 {
   EMF_UTILS_UNUSED_PARAM(me);
   EMF_UTILS_UNUSED_PARAM(e);
@@ -99,8 +99,8 @@ EDF_hsm_stateReturn_t initialTransition(activeObject_t *const me,
   return EDF_HSM_RET_TRAN(readyState);
 }
 
-EDF_hsm_stateReturn_t readyState(activeObject_t *const me,
-                                 EDF_event_t const *const e)
+static EDF_hsm_stateReturn_t readyState(activeObject_t *me,
+                                 const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 

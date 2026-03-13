@@ -55,6 +55,6 @@
  * @param[in] length Number of bytes in the input data buffer.
  * @return The computed 16-bit CRC value.
  */
-uint16_t EMF_crc_16CCITT(uint8_t const *data, uint16_t length);
+uint16_t EMF_crc_16CCITT(const uint8_t *data, uint16_t length);
 
 #endif /* EMF_CRC_H */

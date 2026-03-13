@@ -94,7 +94,7 @@ static ETF_t ETF;
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-bool ETF_test(char const *title, bool execute)
+bool ETF_test(const char *title, bool execute)
 {
   EAF_ASSERT(title != NULL);
 
@@ -124,7 +124,7 @@ bool ETF_test(char const *title, bool execute)
   return execute;
 }
 
-void ETF_fail(char const *cond, char const *const file, int line)
+void ETF_fail(const char *cond, const char *file, int line)
 {
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(cond != NULL);

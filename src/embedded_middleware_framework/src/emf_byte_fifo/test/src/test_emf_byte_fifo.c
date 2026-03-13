@@ -62,16 +62,16 @@
  * @param[in] actual Actual data.
  * @param[in] size Number of bytes to compare.
  */
-static void verifyBytesEq(uint8_t const* expected,
-                          uint8_t const* actual,
+static void verifyBytesEq(const uint8_t *expected,
+                          const uint8_t *actual,
                           uint32_t size);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static void verifyBytesEq(uint8_t const* expected,
-                          uint8_t const* actual,
+static void verifyBytesEq(const uint8_t *expected,
+                          const uint8_t *actual,
                           uint32_t size) {
   for (uint32_t i = 0U; i < size; ++i) {
     ETF_VERIFY(expected[i] == actual[i]);

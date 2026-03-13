@@ -50,7 +50,7 @@
  * @param[in] name Name of the test suite.
  */
 #define ETF_TEST_SUITE(name)          \
-  char const ETF_testSuite[] = #name; \
+  const char ETF_testSuite[] = #name; \
   void ETF_run(void)
 
 /**
@@ -104,7 +104,7 @@
  *
  * Defined in the test source file.
  */
-extern char const ETF_testSuite[];
+extern const char ETF_testSuite[];
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS
@@ -126,7 +126,7 @@ void ETF_run(void);
  * @param[in] execute Whether the test should be executed or just registered.
  * @return true if the test should execute, false otherwise.
  */
-bool ETF_test(char const *title, bool execute);
+bool ETF_test(const char *title, bool execute);
 
 /**
  * @brief Reports a test failure.
@@ -137,7 +137,7 @@ bool ETF_test(char const *title, bool execute);
  * @param[in] file Source file where the failure occurred.
  * @param[in] line Line number where the failure occurred.
  */
-void ETF_fail(char const *cond, char const *const file, int line);
+void ETF_fail(const char *cond, const char *file, int line);
 
 /**
  * @brief Init callback.

@@ -70,7 +70,7 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_utils_clear(void *const start, uint32_t len)
+void EMF_utils_clear(void *start, uint32_t len)
 {
   uint8_t *ptr8;
   uint32_t *ptr32;

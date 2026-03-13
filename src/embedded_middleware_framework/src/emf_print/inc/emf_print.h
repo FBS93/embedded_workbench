@@ -125,8 +125,8 @@
     }                                         \
     else                                      \
     {                                         \
-      const uintptr_t args[] = {__VA_ARGS__}; \
-      EMF_print(fmt, (uintptr_t *)args);      \
+      uintptr_t args[] = {__VA_ARGS__};       \
+      EMF_print(fmt, args);                   \
     }                                         \
   } while (0)
 
@@ -150,7 +150,7 @@
  * @param[in] fmt Null-terminated format string.
  * @param[in] args Pointer to array of arguments, or NULL.
  */
-void EMF_print(char const *fmt, uintptr_t const *args);
+void EMF_print(const char *fmt, const uintptr_t *args);
 
 /**
  * @note uintptr_t_for_variadic_arguments

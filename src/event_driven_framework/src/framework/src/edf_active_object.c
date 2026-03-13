@@ -80,8 +80,8 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDF_activeObject_init(EDF_activeObject_t *const me,
-                           EDF_hsm_stateHandler_t const initial)
+void EDF_activeObject_init(EDF_activeObject_t *me,
+                           EDF_hsm_stateHandler_t initial)
 {
     EAF_ASSERT_BLOCK_BEGIN();
     EAF_ASSERT_IN_BLOCK(me != NULL);
@@ -96,8 +96,8 @@ void EDF_activeObject_init(EDF_activeObject_t *const me,
 }
 
 void EDF_activeObject_pubSubInit(
-    EDF_activeObject_bitmask_t *const subs_list,
-    EDF_event_signal_t const max_signal)
+    EDF_activeObject_bitmask_t *subs_list,
+    EDF_event_signal_t max_signal)
 {
     EAF_ASSERT(subs_list != NULL);
 
@@ -111,7 +111,7 @@ void EDF_activeObject_pubSubInit(
     }
 }
 
-void EDF_activeObject_publish(EDF_event_t const *const e)
+void EDF_activeObject_publish(const EDF_event_t *e)
 {
     EDF_activeObject_bitmask_t subs_list;
     EDF_activeObject_t *ao;
@@ -166,8 +166,8 @@ void EDF_activeObject_publish(EDF_event_t const *const e)
     EDF_event_gc((EDF_event_t *)e); // Typecast to discard const qualifier.
 }
 
-void EDF_activeObject_subscribe(EDF_activeObject_t const *const me,
-                                EDF_event_signal_t const sig)
+void EDF_activeObject_subscribe(const EDF_activeObject_t *me,
+                                EDF_event_signal_t sig)
 {
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -185,7 +185,7 @@ void EDF_activeObject_subscribe(EDF_activeObject_t const *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-void EDF_activeObject_subscribeAll(EDF_activeObject_t const *const me)
+void EDF_activeObject_subscribeAll(const EDF_activeObject_t *me)
 {
     EAF_ASSERT_BLOCK_BEGIN();
     EAF_ASSERT_IN_BLOCK(me != NULL);
@@ -211,8 +211,8 @@ void EDF_activeObject_subscribeAll(EDF_activeObject_t const *const me)
     }
 }
 
-void EDF_activeObject_unsubscribe(EDF_activeObject_t const *const me,
-                                  EDF_event_signal_t const sig)
+void EDF_activeObject_unsubscribe(const EDF_activeObject_t *me,
+                                  EDF_event_signal_t sig)
 {
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -230,7 +230,7 @@ void EDF_activeObject_unsubscribe(EDF_activeObject_t const *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-void EDF_activeObject_unsubscribeAll(EDF_activeObject_t const *const me)
+void EDF_activeObject_unsubscribeAll(const EDF_activeObject_t *me)
 {
     EAF_ASSERT_BLOCK_BEGIN();
     EAF_ASSERT_IN_BLOCK(me != NULL);
@@ -256,9 +256,9 @@ void EDF_activeObject_unsubscribeAll(EDF_activeObject_t const *const me)
     }
 }
 
-void EDF_activeObject_defer(EDF_activeObject_t const *const me,
-                            EDF_eventQueue_t *const e_queue,
-                            EDF_event_t const *const e)
+void EDF_activeObject_defer(const EDF_activeObject_t *me,
+                            EDF_eventQueue_t *e_queue,
+                            const EDF_event_t *e)
 {
     EMF_UTILS_UNUSED_PARAM(me);
 
@@ -271,8 +271,8 @@ void EDF_activeObject_defer(EDF_activeObject_t const *const me,
     EDF_eventQueue_postFIFO(e_queue, e);
 }
 
-void EDF_activeObject_recall(EDF_activeObject_t *const me,
-                             EDF_eventQueue_t *const e_queue)
+void EDF_activeObject_recall(EDF_activeObject_t *me,
+                             EDF_eventQueue_t *e_queue)
 {
     EDF_event_t *e;
 
@@ -310,9 +310,9 @@ void EDF_activeObject_recall(EDF_activeObject_t *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-uint_fast16_t EDF_activeObject_flushDeferred(EDF_activeObject_t const *const me,
-                                             EDF_eventQueue_t *const e_queue,
-                                             uint_fast16_t const num)
+uint_fast16_t EDF_activeObject_flushDeferred(const EDF_activeObject_t *me,
+                                             EDF_eventQueue_t *e_queue,
+                                             uint_fast16_t num)
 {
     uint_fast16_t n;
     EDF_event_t *e;
@@ -340,7 +340,7 @@ uint_fast16_t EDF_activeObject_flushDeferred(EDF_activeObject_t const *const me,
     return n;
 }
 
-void EDF_activeObject_register(EDF_activeObject_t *const me)
+void EDF_activeObject_register(EDF_activeObject_t *me)
 {
     uint8_t prev_thre;
     uint8_t next_thre;
@@ -397,8 +397,8 @@ void EDF_activeObject_register(EDF_activeObject_t *const me)
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-void EDF_activeObject_postFIFO(EDF_activeObject_t *const me,
-                               EDF_event_t const *const e)
+void EDF_activeObject_postFIFO(EDF_activeObject_t *me,
+                               const EDF_event_t *e)
 {
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -452,10 +452,10 @@ void EDF_activeObject_postFIFO(EDF_activeObject_t *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-void EDF_activeObject_postLIFO(EDF_activeObject_t *const me,
-                               EDF_event_t const *const e)
+void EDF_activeObject_postLIFO(EDF_activeObject_t *me,
+                               const EDF_event_t *e)
 {
-    const EDF_event_t *front_e;
+    EDF_event_t *front_e;
 
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -479,7 +479,7 @@ void EDF_activeObject_postLIFO(EDF_activeObject_t *const me,
             me->e_queue.n_min = me->e_queue.n_free; // Update minimum so far.
         }
 
-        front_e = me->e_queue.front_e;
+        front_e = (EDF_event_t *)me->e_queue.front_e; // Typecast to discard const qualifier.
         me->e_queue.front_e = e; // Deliver the event directly to the front.
 
         if (front_e != NULL)
@@ -509,10 +509,10 @@ void EDF_activeObject_postLIFO(EDF_activeObject_t *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-EDF_event_t const *EDF_activeObject_get(EDF_activeObject_t *const me)
+const EDF_event_t *EDF_activeObject_get(EDF_activeObject_t *me)
 {
-    const EDF_event_t *e;
-    const EDF_event_t *front_e;
+    EDF_event_t *e;
+    EDF_event_t *front_e;
 
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -521,7 +521,7 @@ EDF_event_t const *EDF_activeObject_get(EDF_activeObject_t *const me)
     // Wait for event.
     EDF_CORE_WAIT_FOR_EVENT(me);
 
-    e = me->e_queue.front_e;
+    e = (EDF_event_t *)me->e_queue.front_e; // Typecast to discard const qualifier.
 
     // Queue must NOT be empty.
     EAF_ASSERT_IN_CRITICAL_SECTION(e != NULL);
@@ -532,7 +532,7 @@ EDF_event_t const *EDF_activeObject_get(EDF_activeObject_t *const me)
     if (me->e_queue.n_free <= me->e_queue.end)
     {
         // Remove event from the tail.
-        front_e = me->e_queue.ring[me->e_queue.tail];
+        front_e = (EDF_event_t *)me->e_queue.ring[me->e_queue.tail]; // Typecast to discard const qualifier.
 
         EAF_ASSERT_IN_CRITICAL_SECTION(front_e != NULL);
         me->e_queue.front_e = front_e; // Update the original.

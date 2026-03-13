@@ -94,38 +94,38 @@ void hsm_init(void);
  * @note Global for test access purposes.
  * @{
  */
-EDF_hsm_stateReturn_t initialTransition(hsm_t *const me,
-                                        EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S1(hsm_t *const me,
-                         EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S11(hsm_t *const me,
-                          EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S111(hsm_t *const me,
-                           EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S1111(hsm_t *const me,
-                            EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S11111(hsm_t *const me,
-                             EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S2(hsm_t *const me,
-                         EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S21(hsm_t *const me,
-                          EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S211(hsm_t *const me,
-                           EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S2111(hsm_t *const me,
-                            EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S2112(hsm_t *const me,
-                            EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S3(hsm_t *const me,
-                         EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S31(hsm_t *const me,
-                          EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S311(hsm_t *const me,
-                           EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S4(hsm_t *const me,
-                         EDF_event_t const *const e);
-EDF_hsm_stateReturn_t S41(hsm_t *const me,
-                          EDF_event_t const *const e);
+EDF_hsm_stateReturn_t initialTransition(hsm_t *me,
+                                        const EDF_event_t *e);
+EDF_hsm_stateReturn_t S1(hsm_t *me,
+                         const EDF_event_t *e);
+EDF_hsm_stateReturn_t S11(hsm_t *me,
+                          const EDF_event_t *e);
+EDF_hsm_stateReturn_t S111(hsm_t *me,
+                           const EDF_event_t *e);
+EDF_hsm_stateReturn_t S1111(hsm_t *me,
+                            const EDF_event_t *e);
+EDF_hsm_stateReturn_t S11111(hsm_t *me,
+                             const EDF_event_t *e);
+EDF_hsm_stateReturn_t S2(hsm_t *me,
+                         const EDF_event_t *e);
+EDF_hsm_stateReturn_t S21(hsm_t *me,
+                          const EDF_event_t *e);
+EDF_hsm_stateReturn_t S211(hsm_t *me,
+                           const EDF_event_t *e);
+EDF_hsm_stateReturn_t S2111(hsm_t *me,
+                            const EDF_event_t *e);
+EDF_hsm_stateReturn_t S2112(hsm_t *me,
+                            const EDF_event_t *e);
+EDF_hsm_stateReturn_t S3(hsm_t *me,
+                         const EDF_event_t *e);
+EDF_hsm_stateReturn_t S31(hsm_t *me,
+                          const EDF_event_t *e);
+EDF_hsm_stateReturn_t S311(hsm_t *me,
+                           const EDF_event_t *e);
+EDF_hsm_stateReturn_t S4(hsm_t *me,
+                         const EDF_event_t *e);
+EDF_hsm_stateReturn_t S41(hsm_t *me,
+                          const EDF_event_t *e);
 /** @} */ // HSM_States
 
 #endif /* HSM_H */

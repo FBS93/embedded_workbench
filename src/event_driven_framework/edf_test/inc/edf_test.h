@@ -55,7 +55,7 @@
  * @param[in] name Name of the test suite.
  */
 #define EDF_TEST_SUITE_NAME(name) \
-  char const EDFTest_testSuiteName[] = #name;
+  const char EDFTest_testSuiteName[] = #name;
 
 /**
  * @brief Defines the event buffer for the EDFTest active object.
@@ -66,7 +66,7 @@
  */
 #define EDF_TEST_EVENT_BUFF(size)          \
   EDF_event_ptr EDFTest_eventBuffer[size]; \
-  EDF_eventQueue_ctr_t const EDFTest_eventBufferSize = size;
+  const EDF_eventQueue_ctr_t EDFTest_eventBufferSize = size;
 
 /**
  * @brief Declares and defines a test case.
@@ -76,8 +76,8 @@
  */
 #define EDF_TEST_CASE(name, trigger_signal)        \
   static void name##_init(void);                   \
-  static void name##_verify(EDF_event_t const *e); \
-  static EDFTest_test_t const name##_test = {      \
+  static void name##_verify(const EDF_event_t *e); \
+  static const EDFTest_test_t name##_test = {      \
       .test_name = #name,                          \
       .test_init = name##_init,                    \
       .test_verify = name##_verify,                \
@@ -98,7 +98,7 @@
  * @param[in] input_evt_name Variable name for the input event.
  */
 #define EDF_TEST_CASE_VERIFY(name, input_evt_name) \
-  static void name##_verify(EDF_event_t const *input_evt_name)
+  static void name##_verify(const EDF_event_t *input_evt_name)
 
 /**
  * @brief Verifies a test condition.
@@ -140,9 +140,9 @@
  * @param[in] ... List of registered tests.
  */
 #define EDF_TEST_SUITE(...)                         \
-  EDFTest_testEntry_t const EDFTest_testSuite[] = { \
+  const EDFTest_testEntry_t EDFTest_testSuite[] = { \
       __VA_ARGS__};                                 \
-  uint16_t const EDFTest_numTests = sizeof(EDFTest_testSuite) / sizeof(EDFTest_testEntry_t);
+  const uint16_t EDFTest_numTests = sizeof(EDFTest_testSuite) / sizeof(EDFTest_testEntry_t);
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS
@@ -156,7 +156,7 @@ typedef void (*testInit_t)(void);
 /**
  * @brief Function pointer type for test verification.
  */
-typedef void (*testVerify_t)(EDF_event_t const *e);
+typedef void (*testVerify_t)(const EDF_event_t *e);
 
 /**
  * @brief Test case definition.
@@ -187,7 +187,7 @@ typedef struct
  *
  * Defined in the test source file.
  */
-extern char const EDFTest_testSuiteName[];
+extern const char EDFTest_testSuiteName[];
 
 /**
  * @brief Event buffer for the EDFTest active object.
@@ -201,21 +201,21 @@ extern EDF_event_ptr EDFTest_eventBuffer[];
  *
  * Defined in the test source file.
  */
-extern EDF_eventQueue_ctr_t const EDFTest_eventBufferSize;
+extern const EDF_eventQueue_ctr_t EDFTest_eventBufferSize;
 
 /**
  * @brief Array of test entries.
  *
  * Defined in the test source file.
  */
-extern EDFTest_testEntry_t const EDFTest_testSuite[];
+extern const EDFTest_testEntry_t EDFTest_testSuite[];
 
 /**
  * @brief Number of tests in the suite.
  *
  * Defined in the test source file.
  */
-extern uint16_t const EDFTest_numTests;
+extern const uint16_t EDFTest_numTests;
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS
@@ -230,7 +230,7 @@ extern uint16_t const EDFTest_numTests;
  * @param[in] file Source file where the failure occurred.
  * @param[in] line Line number where the failure occurred.
  */
-void EDFTest_fail(char const *cond, char const *const file, int line);
+void EDFTest_fail(const char *cond, const char *file, int line);
 
 /**
  * @brief Init callback.

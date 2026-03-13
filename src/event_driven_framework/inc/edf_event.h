@@ -73,15 +73,15 @@ typedef uint32_t EDF_event_signal_t;
  */
 typedef struct EDF_event_t
 {
-    EDF_event_signal_t sig;   /**< Event signal. */
-    uint8_t pool_num;         /**< Pool number. */
-    uint8_t volatile ref_cnt; /**< Reference counter. */
+    EDF_event_signal_t sig; /**< Event signal. */
+    uint8_t pool_num;       /**< Pool number. */
+    uint8_t ref_cnt;        /**< Reference counter. */
 } EDF_event_t;
 
 /**
  * @brief Pointer to an event.
  */
-typedef EDF_event_t const *EDF_event_ptr;
+typedef const EDF_event_t *EDF_event_ptr;
 
 /*******************************************************************************
  * PUBLIC VARIABLES
@@ -97,8 +97,8 @@ typedef EDF_event_t const *EDF_event_ptr;
  * @param[in,out] me Pointer to the event instance to initialize.
  * @param[in] sig Event signal.
  */
-void EDF_event_initImmutable(EDF_event_t *const me,
-                             EDF_event_signal_t const sig);
+void EDF_event_initImmutable(EDF_event_t *me,
+                             EDF_event_signal_t sig);
 
 /**
  * @brief Create and initialize a mutable event.
@@ -108,8 +108,8 @@ void EDF_event_initImmutable(EDF_event_t *const me,
  * @return Pointer to the newly created mutable event, or NULL if no pool
  * space is available.
  */
-EDF_event_t *EDF_event_initMutable(uint_fast16_t const e_size,
-                                   int const sig);
+EDF_event_t *EDF_event_initMutable(uint_fast16_t e_size,
+                                   int sig);
 
 /**
  * @brief Increments the reference counter of an event.

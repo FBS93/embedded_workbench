@@ -68,7 +68,7 @@ typedef struct
   EDF_activeObject_t super;             /**< Active object base class*/
   EDF_event_ptr *event_buff;            /**< Event buffer */
   EDF_eventQueue_ctr_t event_buff_size; /**< Event buffer size */
-  EDFTest_testEntry_t *tests;           /**< Tests */
+  const EDFTest_testEntry_t *tests;     /**< Tests */
   uint16_t test_idx;                    /**< Current test index */
   uint16_t skip_cnt;                    /**< Number of tests skipped */
   uint16_t num_tests;                   /**< Number of test entries */
@@ -106,8 +106,8 @@ static EDFTest_t EDFTest;
  * @param[in] me  Pointer to the EDFTest instance.
  * @param[in] e   Pointer to the event.
  */
-static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *const me,
-                                               EDF_event_t const *const e);
+static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *me,
+                                               const EDF_event_t *e);
 
 /**
  * @brief waitForRxCmd state of the EDFTest HSM.
@@ -115,7 +115,7 @@ static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *const me,
  * @param[in] me  Pointer to the EDFTest instance.
  * @param[in] e   Pointer to the event.
  */
-static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *const me, EDF_event_t const *const e);
+static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *me, const EDF_event_t *e);
 
 /**
  * @brief Initializes the EDFTest active object.
@@ -126,8 +126,8 @@ static void EDFTestInit(void);
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *const me,
-                                               EDF_event_t const *const e)
+static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *me,
+                                               const EDF_event_t *e)
 {
   EMF_UTILS_UNUSED_PARAM(me);
   EMF_UTILS_UNUSED_PARAM(e);
@@ -135,7 +135,7 @@ static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *const me,
   return EDF_HSM_RET_TRAN(waitForEvent);
 }
 
-static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *const me, EDF_event_t const *const e)
+static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *me, const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -192,8 +192,8 @@ static void EDFTestInit(void)
 
   // Init active object private attributes
   EDFTest.event_buff = EDFTest_eventBuffer;
-  EDFTest.event_buff_size = (EDF_eventQueue_ctr_t)EDFTest_eventBufferSize; // Typecast to discard const qualifier.
-  EDFTest.tests = (EDFTest_testEntry_t *)EDFTest_testSuite;                // Typecast to discard const qualifier.
+  EDFTest.event_buff_size = EDFTest_eventBufferSize;
+  EDFTest.tests = EDFTest_testSuite;
   EDFTest.test_idx = 0;
   EDFTest.num_tests = EDFTest_numTests;
 
@@ -217,7 +217,7 @@ static void EDFTestInit(void)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDFTest_fail(char const *cond, char const *const file, int line)
+void EDFTest_fail(const char *cond, const char *file, int line)
 {
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(cond != NULL);

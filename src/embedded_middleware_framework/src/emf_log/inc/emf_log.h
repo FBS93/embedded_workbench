@@ -100,7 +100,7 @@
     }                                         \
     else                                      \
     {                                         \
-      const uintptr_t args[] = {__VA_ARGS__}; \
+      uintptr_t args[] = {__VA_ARGS__};       \
       EMF_log(log_level, fmt, args);          \
     }                                         \
   } while (0)
@@ -189,6 +189,6 @@ void EMF_log_setLevel(EMF_log_level_t log_level);
  * @param[in] fmt Null-terminated format string.
  * @param[in] args Pointer to array of arguments, or NULL.
  */
-void EMF_log(EMF_log_level_t log_level, char const *fmt, uintptr_t const *args);
+void EMF_log(EMF_log_level_t log_level, const char *fmt, const uintptr_t *args);
 
 #endif /* EMF_LOG_H */

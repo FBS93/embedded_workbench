@@ -162,8 +162,8 @@ typedef uint16_t EDF_activeObject_prio_t;
  * @param[in,out] me Pointer to the active object instance.
  * @param[in] initial Initial state handler function.
  */
-void EDF_activeObject_init(EDF_activeObject_t *const me,
-                           EDF_hsm_stateHandler_t const initial);
+void EDF_activeObject_init(EDF_activeObject_t *me,
+                           EDF_hsm_stateHandler_t initial);
 
 /**
  * @brief Sets implementation-specific attributes for an active object.
@@ -176,9 +176,9 @@ void EDF_activeObject_init(EDF_activeObject_t *const me,
  * @param[in] attr1 Attribute identifier.
  * @param[in] attr2 Pointer to attribute data.
  */
-void EDF_activeObject_setAttr(EDF_activeObject_t *const me,
+void EDF_activeObject_setAttr(EDF_activeObject_t *me,
                               uint32_t attr1,
-                              void const *attr2);
+                              const void *attr2);
 
 /**
  * @brief Starts the execution of an active object.
@@ -196,13 +196,13 @@ void EDF_activeObject_setAttr(EDF_activeObject_t *const me,
  * If NULL is provided, the AO initial state implementation shall not dereference or rely
  * on this parameter.
  */
-void EDF_activeObject_start(EDF_activeObject_t *const me,
-                            EDF_activeObject_prio_t const prio,
-                            EDF_event_ptr *const q_storage,
-                            EDF_eventQueue_ctr_t const q_len,
-                            void *const stack_storage,
-                            uint_fast16_t const stack_size,
-                            EDF_event_t const *const e);
+void EDF_activeObject_start(EDF_activeObject_t *me,
+                            EDF_activeObject_prio_t prio,
+                            EDF_event_ptr *q_storage,
+                            EDF_eventQueue_ctr_t q_len,
+                            void *stack_storage,
+                            uint_fast16_t stack_size,
+                            const EDF_event_t *e);
 
 /**
  * @brief Initializes the publish-subscribe feature.
@@ -239,15 +239,15 @@ void EDF_activeObject_start(EDF_activeObject_t *const me,
  * @param[in] max_signal Highest user event signal defined.
  */
 void EDF_activeObject_pubSubInit(
-    EDF_activeObject_bitmask_t *const subscriber_list,
-    EDF_event_signal_t const max_signal);
+    EDF_activeObject_bitmask_t *subscriber_list,
+    EDF_event_signal_t max_signal);
 
 /**
  * @brief Publishes an event to all subscribed active objects.
  *
  * @param[in] e Pointer to the event to be published.
  */
-void EDF_activeObject_publish(EDF_event_t const *const e);
+void EDF_activeObject_publish(const EDF_event_t *e);
 
 /**
  * @brief Subscribes an active object to a specific event signal.
@@ -255,15 +255,15 @@ void EDF_activeObject_publish(EDF_event_t const *const e);
  * @param[in] me Pointer to the active object instance.
  * @param[in] sig Event signal to subscribe to.
  */
-void EDF_activeObject_subscribe(EDF_activeObject_t const *const me,
-                                EDF_event_signal_t const sig);
+void EDF_activeObject_subscribe(const EDF_activeObject_t *me,
+                                EDF_event_signal_t sig);
 
 /**
  * @brief Subscribes an active object to all event signals.
  *
  * @param[in] me Pointer to the active object instance.
  */
-void EDF_activeObject_subscribeAll(EDF_activeObject_t const *const me);
+void EDF_activeObject_subscribeAll(const EDF_activeObject_t *me);
 
 /**
  * @brief Unsubscribes an active object from a specific event signal.
@@ -271,15 +271,15 @@ void EDF_activeObject_subscribeAll(EDF_activeObject_t const *const me);
  * @param[in] me Pointer to the active object instance.
  * @param[in] sig Event signal to unsubscribe from.
  */
-void EDF_activeObject_unsubscribe(EDF_activeObject_t const *const me,
-                                  EDF_event_signal_t const sig);
+void EDF_activeObject_unsubscribe(const EDF_activeObject_t *me,
+                                  EDF_event_signal_t sig);
 
 /**
  * @brief Unsubscribes an active object from all event signals.
  *
  * @param[in] me Pointer to the active object instance.
  */
-void EDF_activeObject_unsubscribeAll(EDF_activeObject_t const *const me);
+void EDF_activeObject_unsubscribeAll(const EDF_activeObject_t *me);
 
 /**
  * @brief Defers an event by placing it into a deferred event queue.
@@ -288,9 +288,9 @@ void EDF_activeObject_unsubscribeAll(EDF_activeObject_t const *const me);
  * @param[in,out] e_queue Pointer to the deferred event queue.
  * @param[in] e Pointer to the event to defer.
  */
-void EDF_activeObject_defer(EDF_activeObject_t const *const me,
-                            EDF_eventQueue_t *const e_queue,
-                            EDF_event_t const *const e);
+void EDF_activeObject_defer(const EDF_activeObject_t *me,
+                            EDF_eventQueue_t *e_queue,
+                            const EDF_event_t *e);
 
 /**
  * @brief Recalls (retrieves) a deferred event from the deferred event queue.
@@ -298,8 +298,8 @@ void EDF_activeObject_defer(EDF_activeObject_t const *const me,
  * @param[in,out] me Pointer to the active object instance.
  * @param[in,out] e_queue Pointer to the deferred event queue.
  */
-void EDF_activeObject_recall(EDF_activeObject_t *const me,
-                             EDF_eventQueue_t *const e_queue);
+void EDF_activeObject_recall(EDF_activeObject_t *me,
+                             EDF_eventQueue_t *e_queue);
 
 /**
  * @brief Removes a number of deferred events from the deferred event queue.
@@ -309,9 +309,9 @@ void EDF_activeObject_recall(EDF_activeObject_t *const me,
  * @param[in] num Maximum number of events to flush.
  * @return The actual number of events flushed from the queue.
  */
-uint_fast16_t EDF_activeObject_flushDeferred(EDF_activeObject_t const *const me,
-                                             EDF_eventQueue_t *const e_queue,
-                                             uint_fast16_t const num);
+uint_fast16_t EDF_activeObject_flushDeferred(const EDF_activeObject_t *me,
+                                             EDF_eventQueue_t *e_queue,
+                                             uint_fast16_t num);
 
 /* -----------------------------------------------------------------------------
  * Internal functions for EDF library use only
@@ -324,7 +324,7 @@ uint_fast16_t EDF_activeObject_flushDeferred(EDF_activeObject_t const *const me,
  *
  * @param[in,out] me Pointer to the active object instance.
  */
-void EDF_activeObject_register(EDF_activeObject_t *const me);
+void EDF_activeObject_register(EDF_activeObject_t *me);
 
 /**
  * @brief Posts an event to the back of an active object's queue.
@@ -334,8 +334,8 @@ void EDF_activeObject_register(EDF_activeObject_t *const me);
  * @param[in,out] me Pointer to the active object instance.
  * @param[in] e Pointer to the event to post.
  */
-void EDF_activeObject_postFIFO(EDF_activeObject_t *const me,
-                               EDF_event_t const *const e);
+void EDF_activeObject_postFIFO(EDF_activeObject_t *me,
+                               const EDF_event_t *e);
 
 /**
  * @brief Posts an event to the front of an active object's queue.
@@ -345,8 +345,8 @@ void EDF_activeObject_postFIFO(EDF_activeObject_t *const me,
  * @param[in,out] me Pointer to the active object instance.
  * @param[in] e Pointer to the event to post.
  */
-void EDF_activeObject_postLIFO(EDF_activeObject_t *const me,
-                               EDF_event_t const *const e);
+void EDF_activeObject_postLIFO(EDF_activeObject_t *me,
+                               const EDF_event_t *e);
 
 /**
  * @brief Retrieves the next event from the active object's event queue.
@@ -356,6 +356,6 @@ void EDF_activeObject_postLIFO(EDF_activeObject_t *const me,
  * @param[in,out] me Pointer to the active object instance.
  * @return Pointer to the next event.
  */
-EDF_event_t const *EDF_activeObject_get(EDF_activeObject_t *const me);
+const EDF_event_t *EDF_activeObject_get(EDF_activeObject_t *me);
 
 #endif /* EDF_ACTIVE_OBJECT_H */

@@ -79,10 +79,10 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDF_timeEvent_new(EDF_timeEvent_t *const me,
-                       EDF_activeObject_t *const ao,
-                       EDF_event_signal_t const sig,
-                       uint8_t const tick_rate)
+void EDF_timeEvent_new(EDF_timeEvent_t *me,
+                       EDF_activeObject_t *ao,
+                       EDF_event_signal_t sig,
+                       uint8_t tick_rate)
 {
     EAF_ASSERT_BLOCK_BEGIN();
     EAF_ASSERT_IN_BLOCK(me != NULL);
@@ -103,9 +103,9 @@ void EDF_timeEvent_new(EDF_timeEvent_t *const me,
     me->is_linked = false;
 }
 
-void EDF_timeEvent_arm(EDF_timeEvent_t *const me,
-                       EDF_timeEvent_ctr_t const start,
-                       EDF_timeEvent_ctr_t const period)
+void EDF_timeEvent_arm(EDF_timeEvent_t *me,
+                       EDF_timeEvent_ctr_t start,
+                       EDF_timeEvent_ctr_t period)
 {
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -135,7 +135,7 @@ void EDF_timeEvent_arm(EDF_timeEvent_t *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-bool EDF_timeEvent_disarm(EDF_timeEvent_t *const me)
+bool EDF_timeEvent_disarm(EDF_timeEvent_t *me)
 {
     bool was_armed;
 
@@ -160,8 +160,8 @@ bool EDF_timeEvent_disarm(EDF_timeEvent_t *const me)
     return was_armed;
 }
 
-bool EDF_timeEvent_rearm(EDF_timeEvent_t *const me,
-                         EDF_timeEvent_ctr_t const time)
+bool EDF_timeEvent_rearm(EDF_timeEvent_t *me,
+                         EDF_timeEvent_ctr_t time)
 {
     bool was_armed;
 
@@ -205,7 +205,7 @@ bool EDF_timeEvent_rearm(EDF_timeEvent_t *const me,
     return was_armed;
 }
 
-EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(EDF_timeEvent_t const *const me)
+EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(const EDF_timeEvent_t *me)
 {
     EDF_timeEvent_ctr_t ctr;
 
@@ -220,7 +220,7 @@ EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(EDF_timeEvent_t const *const me
     return ctr;
 }
 
-void EDF_timeEvent_tick(uint8_t const tick_rate)
+void EDF_timeEvent_tick(uint8_t tick_rate)
 {
     EDF_timeEventRegistry_t *registry;
     EDF_timeEvent_t **te_link;
@@ -293,7 +293,7 @@ void EDF_timeEvent_tick(uint8_t const tick_rate)
                 te->ctr = te->period; // Periodic --> reload counter.
 
                 // Advance te_link to the next node.
-                te_link = (EDF_timeEvent_t **)&te->next; // Typecast to discard volatile qualifier.
+                te_link = &te->next;
             }
             else
             {
@@ -313,7 +313,7 @@ void EDF_timeEvent_tick(uint8_t const tick_rate)
             te->ctr--; // Normal countdown.
 
             // Advance te_link to the next node.
-            te_link = (EDF_timeEvent_t **)&te->next; // Typecast to discard volatile qualifier.
+            te_link = &te->next;
 
             EBF_CRITICAL_SECTION_EXIT();
         }

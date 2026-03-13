@@ -53,21 +53,29 @@
  * @brief System Handler Priority Registers
  *
  * Array-like register block (e.g. use SCB_SYSPRI[2]).
+ *
+ * volatile_use: hardware_interaction
  */
 #define SCB_SYSPRI ((uint32_t volatile *)0xE000ED18U)
 
 /**
  * @brief Coprocessor Access Control Register.
+ *
+ * volatile_use: hardware_interaction
  */
 #define SCB_CPACR *((uint32_t volatile *)0xE000ED88U)
 
 /**
  * @brief Floating-Point Context Control Register.
+ *
+ * volatile_use: hardware_interaction
  */
 #define FPU_FPCCR *((uint32_t volatile *)0xE000EF34U)
 
 /**
  * @brief Interrupt Control and State Register.
+ *
+ * volatile_use: hardware_interaction
  */
 #define SCB_ICSR *((uint32_t volatile *)0xE000ED04U)
 
@@ -155,7 +163,7 @@ void EDF_core_init(void)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-EDF_core_schedStatus_t EDF_core_lockScheduler(uint8_t const ceiling)
+EDF_core_schedStatus_t EDF_core_lockScheduler(uint8_t ceiling)
 {
     EDF_core_schedStatus_t prev_ceiling;
 
@@ -181,7 +189,7 @@ EDF_core_schedStatus_t EDF_core_lockScheduler(uint8_t const ceiling)
     return prev_ceiling;
 }
 
-void EDF_core_unlockScheduler(EDF_core_schedStatus_t const prev_ceiling)
+void EDF_core_unlockScheduler(EDF_core_schedStatus_t prev_ceiling)
 {
     // Has the scheduler been actually locked by the last EDF_core_lockScheduler()?
     if (prev_ceiling != EDF_CORE_SCHED_NOT_LOCKED)
@@ -241,8 +249,8 @@ uint8_t EDF_core_schedule(void)
     return prio;
 }
 
-uint8_t EDF_core_scheduleAfter(EDF_activeObject_t const *const act,
-                               uint8_t const pthre_in)
+uint8_t EDF_core_scheduleAfter(const EDF_activeObject_t *act,
+                               uint8_t pthre_in)
 {
     uint8_t prio;
 
@@ -434,11 +442,11 @@ void EDF_stop(void)
     EDF_onShutdown(); // User-specific shutdown callback.
 }
 
-void EDF_activeObject_start(EDF_activeObject_t *const me,
-                            EDF_activeObject_prio_t const prio,
-                            EDF_event_ptr *const q_storage, EDF_eventQueue_ctr_t const q_len,
-                            void *const stack_storage, uint_fast16_t const stack_size,
-                            EDF_event_t const *const e)
+void EDF_activeObject_start(EDF_activeObject_t *me,
+                            EDF_activeObject_prio_t prio,
+                            EDF_event_ptr *q_storage, EDF_eventQueue_ctr_t q_len,
+                            void *stack_storage, uint_fast16_t stack_size,
+                            const EDF_event_t *e)
 {
     EMF_UTILS_UNUSED_PARAM(stack_storage); // Not needed in this core.
     EMF_UTILS_UNUSED_PARAM(stack_size);    // Not needed in this core.
@@ -461,7 +469,7 @@ void EDF_activeObject_start(EDF_activeObject_t *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-void EDF_activeObject_setAttr(EDF_activeObject_t *const me, uint32_t attr1, void const *attr2)
+void EDF_activeObject_setAttr(EDF_activeObject_t *me, uint32_t attr1, const void *attr2)
 {
     EMF_UTILS_UNUSED_PARAM(me);
     EMF_UTILS_UNUSED_PARAM(attr1);

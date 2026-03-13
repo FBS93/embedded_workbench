@@ -176,8 +176,8 @@ typedef enum
  * @param[in] e Pointer to the event being dispatched.
  * @return EDF_hsm_stateReturn_t value indicating how the event was handled.
  */
-typedef EDF_hsm_stateReturn_t (*EDF_hsm_stateHandler_t)(void *const me,
-                                                        EDF_event_t const *const e);
+typedef EDF_hsm_stateReturn_t (*EDF_hsm_stateHandler_t)(void *me,
+                                                        const EDF_event_t *e);
 
 /**
  * @brief HSM structure.
@@ -202,7 +202,7 @@ typedef struct
  * @param[in,out] me Pointer to the HSM instance.
  * @param[in] initial Initial state handler function.
  */
-void EDF_hsm_init(EDF_hsm_t *const me, EDF_hsm_stateHandler_t const initial);
+void EDF_hsm_init(EDF_hsm_t *me, EDF_hsm_stateHandler_t initial);
 
 /**
  * @brief Starts HSM.
@@ -210,7 +210,7 @@ void EDF_hsm_init(EDF_hsm_t *const me, EDF_hsm_stateHandler_t const initial);
  * @param[in,out] me Pointer to the HSM instance.
  * @param[in] e Pointer to the init event provided to the initial state.
  */
-void EDF_hsm_start(EDF_hsm_t *const me, EDF_event_t const *const e);
+void EDF_hsm_start(EDF_hsm_t *me, const EDF_event_t *e);
 
 /**
  * @brief Dispatches an event to the HSM.
@@ -218,7 +218,7 @@ void EDF_hsm_start(EDF_hsm_t *const me, EDF_event_t const *const e);
  * @param[in,out] me Pointer to the HSM instance.
  * @param[in] e Pointer to the event to dispatch.
  */
-void EDF_hsm_dispatch(EDF_hsm_t *const me, EDF_event_t const *const e);
+void EDF_hsm_dispatch(EDF_hsm_t *me, const EDF_event_t *e);
 
 /**
  * @brief Returns the current active state of the HSM.
@@ -226,7 +226,7 @@ void EDF_hsm_dispatch(EDF_hsm_t *const me, EDF_event_t const *const e);
  * @param[in] me Pointer to the HSM instance.
  * @return Current active state handler.
  */
-EDF_hsm_stateHandler_t EDF_hsm_getCurrentState(EDF_hsm_t const *const me);
+EDF_hsm_stateHandler_t EDF_hsm_getCurrentState(const EDF_hsm_t *me);
 
 /**
  * @brief Top state handler of the HSM.
@@ -239,6 +239,6 @@ EDF_hsm_stateHandler_t EDF_hsm_getCurrentState(EDF_hsm_t const *const me);
  * @param[in] e Pointer to the event being dispatched.
  * @return Always returns RET_IGNORED.
  */
-EDF_hsm_stateReturn_t EDF_hsm_top(EDF_hsm_t const *const me, EDF_event_t const *const e);
+EDF_hsm_stateReturn_t EDF_hsm_top(const EDF_hsm_t *me, const EDF_event_t *e);
 
 #endif /* EDF_HSM_H */

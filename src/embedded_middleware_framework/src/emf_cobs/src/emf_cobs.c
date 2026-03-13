@@ -75,10 +75,10 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_cobs_encode(uint8_t const *buff_in, uint16_t const len_in,
-                     uint8_t *buff_out, uint16_t *const len_out)
+void EMF_cobs_encode(const uint8_t *buff_in, uint16_t len_in,
+                     uint8_t *buff_out, uint16_t *len_out)
 {
-    uint8_t const *end_ptr;
+    const uint8_t *end_ptr;
     uint8_t *out_ptr;
     uint8_t *code_ptr;
     uint8_t code;
@@ -122,11 +122,11 @@ void EMF_cobs_encode(uint8_t const *buff_in, uint16_t const len_in,
     *len_out = (uint16_t)(out_ptr - buff_out);
 }
 
-bool EMF_cobs_decode(const uint8_t *buff_in, uint16_t const len_in,
-                     uint8_t *buff_out, uint16_t *const len_out)
+bool EMF_cobs_decode(const uint8_t *buff_in, uint16_t len_in,
+                     uint8_t *buff_out, uint16_t *len_out)
 {
-    uint8_t const *in_ptr;
-    uint8_t const *end_ptr;
+    const uint8_t *in_ptr;
+    const uint8_t *end_ptr;
     uint8_t *out_ptr;
     uint8_t code;
     uint8_t block_bytes;

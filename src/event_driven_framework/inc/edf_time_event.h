@@ -63,13 +63,13 @@ typedef uint32_t EDF_timeEvent_ctr_t;
  */
 typedef struct EDF_timeEvent_t
 {
-    EDF_event_t super;                     /**< Base type. */
-    struct EDF_timeEvent_t *volatile next; /**< Link to the next time event in the list. */
-    EDF_activeObject_t *ao;                /**< Associated active object. */
-    EDF_timeEvent_ctr_t volatile ctr;      /**< Down-counter until expiration (ticks). */
-    EDF_timeEvent_ctr_t period;            /**< Reload value for periodic timer, 0 for one-shot timer (ticks). */
-    uint8_t tick_rate;                     /**< Tick rate index. */
-    bool is_linked;                        /**< True if the time event is currently linked. */
+    EDF_event_t super;                /**< Base type. */
+    struct EDF_timeEvent_t *next;     /**< Link to the next time event in the list. */
+    EDF_activeObject_t *ao;           /**< Associated active object. */
+    EDF_timeEvent_ctr_t ctr;          /**< Down-counter until expiration (ticks). */
+    EDF_timeEvent_ctr_t period;       /**< Reload value for periodic timer, 0 for one-shot timer (ticks). */
+    uint8_t tick_rate;                /**< Tick rate index. */
+    bool is_linked;                   /**< True if the time event is currently linked. */
 } EDF_timeEvent_t;
 
 /*******************************************************************************
@@ -88,10 +88,10 @@ typedef struct EDF_timeEvent_t
  * @param[in] sig Event signal.
  * @param[in] tick_rate Tick rate index.
  */
-void EDF_timeEvent_new(EDF_timeEvent_t *const me,
-                       EDF_activeObject_t *const ao,
-                       EDF_event_signal_t const sig,
-                       uint8_t const tick_rate);
+void EDF_timeEvent_new(EDF_timeEvent_t *me,
+                       EDF_activeObject_t *ao,
+                       EDF_event_signal_t sig,
+                       uint8_t tick_rate);
 
 /**
  * @brief Arms a time event.
@@ -100,9 +100,9 @@ void EDF_timeEvent_new(EDF_timeEvent_t *const me,
  * @param[in] start Time until first expiration (ticks).
  * @param[in] period Periodic interval of timer expirations, 0 for one-shot timer (ticks).
  */
-void EDF_timeEvent_arm(EDF_timeEvent_t *const me,
-                       EDF_timeEvent_ctr_t const start,
-                       EDF_timeEvent_ctr_t const period);
+void EDF_timeEvent_arm(EDF_timeEvent_t *me,
+                       EDF_timeEvent_ctr_t start,
+                       EDF_timeEvent_ctr_t period);
 
 /**
  * @brief Disarms a time event.
@@ -110,7 +110,7 @@ void EDF_timeEvent_arm(EDF_timeEvent_t *const me,
  * @param[in,out] me Pointer to the time event instance.
  * @return true if the time event was armed, false if it was already disarmed.
  */
-bool EDF_timeEvent_disarm(EDF_timeEvent_t *const me);
+bool EDF_timeEvent_disarm(EDF_timeEvent_t *me);
 
 /**
  * @brief Rearms a time event with a new timeout.
@@ -119,8 +119,8 @@ bool EDF_timeEvent_disarm(EDF_timeEvent_t *const me);
  * @param[in] time Time until expiration (ticks).
  * @return true if the time event was already armed, false if it was not.
  */
-bool EDF_timeEvent_rearm(EDF_timeEvent_t *const me,
-                         EDF_timeEvent_ctr_t const time);
+bool EDF_timeEvent_rearm(EDF_timeEvent_t *me,
+                         EDF_timeEvent_ctr_t time);
 
 /**
  * @brief Gets the current counter value of a time event.
@@ -128,7 +128,7 @@ bool EDF_timeEvent_rearm(EDF_timeEvent_t *const me,
  * @param[in] me Pointer to the time event instance.
  * @return Current tick counter of the time event (ticks).
  */
-EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(EDF_timeEvent_t const *const me);
+EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(const EDF_timeEvent_t *me);
 
 /**
  * @brief Processes time events for a given tick rate.
@@ -138,6 +138,6 @@ EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(EDF_timeEvent_t const *const me
  *
  * @param[in] tick_rate Tick rate index.
  */
-void EDF_timeEvent_tick(uint8_t const tick_rate);
+void EDF_timeEvent_tick(uint8_t tick_rate);
 
 #endif /* EDF_TIME_EVENT_H */

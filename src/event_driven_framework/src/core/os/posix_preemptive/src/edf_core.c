@@ -86,8 +86,10 @@ static pthread_mutex_t startupMutex;
 
 /**
  * @brief Flag indicating whether the EDF framework is running.
+ *
+ * volatile_use: context_interaction
  */
-static bool isRunning;
+static volatile bool isRunning;
 
 /*******************************************************************************
  * PUBLIC VARIABLES
@@ -148,7 +150,7 @@ static void *activeObjectThread(void *arg)
     // For-ever.
     while (1)
     {
-        EDF_event_t const *e = EDF_activeObject_get(act); // Wait for event.
+        EDF_event_t *e = (EDF_event_t *)EDF_activeObject_get(act); // Typecast to discard const qualifier.
         EDF_hsm_dispatch(&act->super, e);
         EDF_event_gc(e);
     }
@@ -258,11 +260,11 @@ void EDF_stop(void)
     isRunning = false; // Terminate the main EDF thread
 }
 
-void EDF_activeObject_start(EDF_activeObject_t *const me,
-                            EDF_activeObject_prio_t const prio,
-                            EDF_event_ptr *const q_storage, EDF_eventQueue_ctr_t const q_len,
-                            void *const stack_storage, uint_fast16_t const stack_size,
-                            EDF_event_t const *const e)
+void EDF_activeObject_start(EDF_activeObject_t *me,
+                            EDF_activeObject_prio_t prio,
+                            EDF_event_ptr *q_storage, EDF_eventQueue_ctr_t q_len,
+                            void *stack_storage, uint_fast16_t stack_size,
+                            const EDF_event_t *e)
 {
     pthread_attr_t attr;
     int err;
@@ -315,7 +317,7 @@ void EDF_activeObject_start(EDF_activeObject_t *const me,
     (void)pthread_attr_destroy(&attr);
 }
 
-void EDF_activeObject_setAttr(EDF_activeObject_t *const me, uint32_t attr1, void const *attr2)
+void EDF_activeObject_setAttr(EDF_activeObject_t *me, uint32_t attr1, const void *attr2)
 {
     EMF_UTILS_UNUSED_PARAM(me);
     EMF_UTILS_UNUSED_PARAM(attr1);

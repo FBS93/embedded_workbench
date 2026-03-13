@@ -64,8 +64,10 @@ EAF_DEFINE_THIS_FILE(__FILE__);
 
 /**
  * @brief Flag indicating whether the EDF framework is running.
+ *
+ * volatile_use: context_interaction
  */
-static bool isRunning;
+static volatile bool isRunning;
 
 /*******************************************************************************
  * PUBLIC VARIABLES
@@ -211,11 +213,11 @@ void EDF_stop(void)
     isRunning = false; // Terminate the main EDF thread
 }
 
-void EDF_activeObject_start(EDF_activeObject_t *const me,
-                            EDF_activeObject_prio_t const prio,
-                            EDF_event_ptr *const q_storage, EDF_eventQueue_ctr_t const q_len,
-                            void *const stack_storage, uint_fast16_t const stack_size,
-                            EDF_event_t const *const e)
+void EDF_activeObject_start(EDF_activeObject_t *me,
+                            EDF_activeObject_prio_t prio,
+                            EDF_event_ptr *q_storage, EDF_eventQueue_ctr_t q_len,
+                            void *stack_storage, uint_fast16_t stack_size,
+                            const EDF_event_t *e)
 {
     EMF_UTILS_UNUSED_PARAM(stack_storage); // Not needed in this core.
     EMF_UTILS_UNUSED_PARAM(stack_size);    // Not needed in this core.
@@ -230,7 +232,7 @@ void EDF_activeObject_start(EDF_activeObject_t *const me,
     EDF_hsm_start(&me->super, e); // Execute top-most initial transition of the HSM.
 }
 
-void EDF_activeObject_setAttr(EDF_activeObject_t *const me, uint32_t attr1, void const *attr2)
+void EDF_activeObject_setAttr(EDF_activeObject_t *me, uint32_t attr1, const void *attr2)
 {
     EMF_UTILS_UNUSED_PARAM(me);
     EMF_UTILS_UNUSED_PARAM(attr1);

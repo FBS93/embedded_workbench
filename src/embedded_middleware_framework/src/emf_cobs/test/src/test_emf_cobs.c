@@ -63,16 +63,16 @@
  * @param[in] rhs Pointer to second buffer.
  * @param[in] len Number of bytes to compare.
  */
-static void verifyBuffersEqual(uint8_t const *lhs,
-                               uint8_t const *rhs,
+static void verifyBuffersEqual(const uint8_t *lhs,
+                               const uint8_t *rhs,
                                uint16_t len);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static void verifyBuffersEqual(uint8_t const *lhs,
-                               uint8_t const *rhs,
+static void verifyBuffersEqual(const uint8_t *lhs,
+                               const uint8_t *rhs,
                                uint16_t len)
 {
   uint16_t byte_index;

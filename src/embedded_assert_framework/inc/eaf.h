@@ -46,7 +46,7 @@
  * this file.
  */
 #define EAF_DEFINE_THIS_FILE(file) \
-    static char const EAF_file[] = file
+    static const char EAF_file[] = file
 
 /**
  * @brief Assert expression with critical section protection.

@@ -75,13 +75,13 @@ typedef uint32_t EDF_pool_blockCtr_t;
  */
 typedef struct
 {
-    void **start;                        /**< Pointer to the first block. */
-    void **end;                          /**< Pointer past the last block. */
-    void **volatile free_head;           /**< Head of the free block list. */
-    EDF_pool_blockSize_t block_size;     /**< Size of each block in bytes. */
-    EDF_pool_blockCtr_t n_total;         /**< Total number of blocks in the pool. */
-    EDF_pool_blockCtr_t volatile n_free; /**< Number of free blocks available. */
-    EDF_pool_blockCtr_t n_min;           /**< Minimum number of free blocks ever observed. */
+    void **start;                   /**< Pointer to the first block. */
+    void **end;                     /**< Pointer past the last block. */
+    void **free_head;               /**< Head of the free block list. */
+    EDF_pool_blockSize_t block_size; /**< Size of each block in bytes. */
+    EDF_pool_blockCtr_t n_total;    /**< Total number of blocks in the pool. */
+    EDF_pool_blockCtr_t n_free;     /**< Number of free blocks available. */
+    EDF_pool_blockCtr_t n_min;      /**< Minimum number of free blocks ever observed. */
 } EDF_pool_t;
 
 /*******************************************************************************
@@ -111,9 +111,9 @@ typedef struct
  * @param[in] pool_size Total size of pool_storage in bytes.
  * @param[in] block_size Size of each block of the pool in bytes.
  */
-void EDF_pool_init(void *const pool_storage,
-                   uint_fast32_t const pool_size,
-                   EDF_pool_blockSize_t const block_size);
+void EDF_pool_init(void *pool_storage,
+                   uint_fast32_t pool_size,
+                   EDF_pool_blockSize_t block_size);
 
 /**
  * @brief Acquires a free block from a pool.
@@ -123,7 +123,7 @@ void EDF_pool_init(void *const pool_storage,
  * @param[in,out] me Pointer to the pool structure.
  * @return Pointer to the allocated block, or NULL if no free blocks.
  */
-void *EDF_pool_acquire(EDF_pool_t *const me);
+void *EDF_pool_acquire(EDF_pool_t *me);
 
 /**
  * @brief Releases a pool block.
@@ -131,7 +131,7 @@ void *EDF_pool_acquire(EDF_pool_t *const me);
  * @param[in,out] me Pointer to the pool structure.
  * @param[in] block Pointer to the block to release.
  */
-void EDF_pool_release(EDF_pool_t *const me,
-                      void *const block);
+void EDF_pool_release(EDF_pool_t *me,
+                      void *block);
 
 #endif /* EDF_POOL_H */

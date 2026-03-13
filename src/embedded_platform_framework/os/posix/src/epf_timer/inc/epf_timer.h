@@ -82,7 +82,12 @@ typedef struct
 {
   pthread_t ticker_tid;          /**< Ticker thread handler. */
   pthread_mutex_t mutex;         /**< Mutex protecting timer lists. See note @ref timer_new_list. */
-  volatile bool stop_ticker;     /**< Stop flag for ticker thread. */
+  /**
+   * @brief Stop flag for ticker thread.
+   *
+   * volatile_use: context_interaction
+   */
+  volatile bool stop_ticker;
   EPF_timer_entry_t *armed_head; /**< Points to the list of armed timers. */
   EPF_timer_entry_t *new_head;   /**< Points to the list of newly armed timers. See note @ref timer_new_list. */
 } EPF_timer_t;

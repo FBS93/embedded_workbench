@@ -73,7 +73,7 @@ EAF_DEFINE_THIS_FILE(__FILE__);
 /**
  * @brief Array of HSM internal reserved events.
  */
-static EDF_event_t const reservedEvents[4] = {
+static const EDF_event_t reservedEvents[4] = {
     EDF_EVENT_IMMUTABLE_INIT(EDF_HSM_EMPTY_SIGNAL),
     EDF_EVENT_IMMUTABLE_INIT(EDF_HSM_ENTRY_SIGNAL),
     EDF_EVENT_IMMUTABLE_INIT(EDF_HSM_EXIT_SIGNAL),
@@ -169,12 +169,12 @@ static EDF_event_t const reservedEvents[4] = {
  * @param[out] x_idx Last valid index in @p x_path (−1 if no exit
  * actions needed).
  */
-static void EDF_hsm_getTransitionPath(EDF_hsm_t *const me,
+static void EDF_hsm_getTransitionPath(EDF_hsm_t *me,
                                       EDF_hsm_stateHandler_t source,
                                       EDF_hsm_stateHandler_t target,
-                                      EDF_hsm_stateHandler_t *const e_path,
+                                      EDF_hsm_stateHandler_t *e_path,
                                       int_fast8_t *e_idx,
-                                      EDF_hsm_stateHandler_t *const x_path,
+                                      EDF_hsm_stateHandler_t *x_path,
                                       int_fast8_t *x_idx);
 
 /**
@@ -193,22 +193,22 @@ static void EDF_hsm_getTransitionPath(EDF_hsm_t *const me,
  * @param[in] x_idx Last valid index in @p x_path (−1 if no exit actions).
  */
 static void EDF_hsm_executeTransition(
-    EDF_hsm_t *const me,
-    EDF_hsm_stateHandler_t *const e_path,
+    EDF_hsm_t *me,
+    EDF_hsm_stateHandler_t *e_path,
     int_fast8_t e_idx,
-    EDF_hsm_stateHandler_t *const x_path,
+    EDF_hsm_stateHandler_t *x_path,
     int_fast8_t x_idx);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static void EDF_hsm_getTransitionPath(EDF_hsm_t *const me,
+static void EDF_hsm_getTransitionPath(EDF_hsm_t *me,
                                       EDF_hsm_stateHandler_t source,
                                       EDF_hsm_stateHandler_t target,
-                                      EDF_hsm_stateHandler_t *const e_path,
+                                      EDF_hsm_stateHandler_t *e_path,
                                       int_fast8_t *e_idx,
-                                      EDF_hsm_stateHandler_t *const x_path,
+                                      EDF_hsm_stateHandler_t *x_path,
                                       int_fast8_t *x_idx)
 {
     EDF_hsm_stateReturn_t state_ret;
@@ -317,10 +317,10 @@ static void EDF_hsm_getTransitionPath(EDF_hsm_t *const me,
 }
 
 static void EDF_hsm_executeTransition(
-    EDF_hsm_t *const me,
-    EDF_hsm_stateHandler_t *const e_path,
+    EDF_hsm_t *me,
+    EDF_hsm_stateHandler_t *e_path,
     int_fast8_t e_idx,
-    EDF_hsm_stateHandler_t *const x_path,
+    EDF_hsm_stateHandler_t *x_path,
     int_fast8_t x_idx)
 {
     EDF_hsm_stateHandler_t aux_state;
@@ -386,7 +386,7 @@ static void EDF_hsm_executeTransition(
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDF_hsm_init(EDF_hsm_t *const me, EDF_hsm_stateHandler_t const initial)
+void EDF_hsm_init(EDF_hsm_t *me, EDF_hsm_stateHandler_t initial)
 {
     EAF_ASSERT_BLOCK_BEGIN();
     EAF_ASSERT_IN_BLOCK(me != NULL);
@@ -397,7 +397,7 @@ void EDF_hsm_init(EDF_hsm_t *const me, EDF_hsm_stateHandler_t const initial)
     me->temp_state = initial;
 }
 
-void EDF_hsm_start(EDF_hsm_t *const me, EDF_event_t const *const e)
+void EDF_hsm_start(EDF_hsm_t *me, const EDF_event_t *e)
 {
     EDF_hsm_stateReturn_t state_ret;
     EDF_hsm_stateHandler_t e_path[EDF_HSM_MAX_DEPTH];
@@ -440,8 +440,8 @@ void EDF_hsm_start(EDF_hsm_t *const me, EDF_event_t const *const e)
 }
 
 void EDF_hsm_dispatch(
-    EDF_hsm_t *const me,
-    EDF_event_t const *const e)
+    EDF_hsm_t *me,
+    const EDF_event_t *e)
 {
     EDF_hsm_stateReturn_t state_ret;
     EDF_hsm_stateHandler_t aux_state;
@@ -518,15 +518,15 @@ void EDF_hsm_dispatch(
     }
 }
 
-EDF_hsm_stateHandler_t EDF_hsm_getCurrentState(EDF_hsm_t const *const me)
+EDF_hsm_stateHandler_t EDF_hsm_getCurrentState(const EDF_hsm_t *me)
 {
     EAF_ASSERT(me != NULL);
 
     return me->current_state;
 }
 
-EDF_hsm_stateReturn_t EDF_hsm_top(EDF_hsm_t const *const me,
-                                  EDF_event_t const *const e)
+EDF_hsm_stateReturn_t EDF_hsm_top(const EDF_hsm_t *me,
+                                  const EDF_event_t *e)
 {
     EMF_UTILS_UNUSED_PARAM(me);
     EMF_UTILS_UNUSED_PARAM(e);

@@ -69,7 +69,7 @@ void EMF_bitmask_clearAll(uint8_t *bitmask, uint8_t len);
  * @param[in] len Length of the bitmask in bytes.
  * @return true if at least one bit is set, false otherwise.
  */
-bool EMF_bitmask_isAnySet(uint8_t const *bitmask, uint8_t len);
+bool EMF_bitmask_isAnySet(const uint8_t *bitmask, uint8_t len);
 
 /**
  * @brief Checks if a specific bit is set in the bitmask.
@@ -78,7 +78,7 @@ bool EMF_bitmask_isAnySet(uint8_t const *bitmask, uint8_t len);
  * @param[in] bit_pos Bit position (1-based index).
  * @return true if the bit is set, false otherwise.
  */
-bool EMF_bitmask_isBitSet(uint8_t const *bitmask, uint8_t bit_pos);
+bool EMF_bitmask_isBitSet(const uint8_t *bitmask, uint8_t bit_pos);
 
 /**
  * @brief Sets a specific bit in the bitmask.
@@ -104,6 +104,6 @@ void EMF_bitmask_clearBit(uint8_t *bitmask, uint8_t bit_pos);
  * @return Position (1-based index) of the highest-priority set bit,
  * or 0 if empty.
  */
-uint8_t EMF_bitmask_findMax(uint8_t const *bitmask, uint8_t len);
+uint8_t EMF_bitmask_findMax(const uint8_t *bitmask, uint8_t len);
 
 #endif /* EMF_BITMASK_H */

@@ -182,14 +182,14 @@ extern EDF_core_t EDF_core;
  * @param[in] ceiling New lock ceiling priority.
  * @return Previous scheduler lock state.
  */
-EDF_core_schedStatus_t EDF_core_lockScheduler(uint8_t const ceiling);
+EDF_core_schedStatus_t EDF_core_lockScheduler(uint8_t ceiling);
 
 /**
  * @brief Restores the previous scheduler lock state.
  *
  * @param[in] prev_ceiling Previous scheduler lock state.
  */
-void EDF_core_unlockScheduler(EDF_core_schedStatus_t const prev_ceiling);
+void EDF_core_unlockScheduler(EDF_core_schedStatus_t prev_ceiling);
 
 /**
  * @brief Determine the next active object eligible for execution.
@@ -221,8 +221,8 @@ uint8_t EDF_core_schedule(void);
  * @return The priority of the next active object to run,
  * or 0 if no activation is required.
  */
-uint8_t EDF_core_scheduleAfter(EDF_activeObject_t const *const act,
-                               uint8_t const pthre_in);
+uint8_t EDF_core_scheduleAfter(const EDF_activeObject_t *act,
+                               uint8_t pthre_in);
 
 /**
  * @brief Activates ready active objects according to their priorities.

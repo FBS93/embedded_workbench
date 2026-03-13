@@ -62,13 +62,13 @@ typedef uint16_t EDF_eventQueue_ctr_t;
  */
 typedef struct EDF_eventQueue_t
 {
-    EDF_event_t const *volatile front_e;  /**< Event at the front of the queue. */
-    EDF_event_t const **ring;             /**< Ring buffer storage. */
-    EDF_eventQueue_ctr_t end;             /**< Index of the end of the ring buffer. */
-    EDF_eventQueue_ctr_t volatile head;   /**< Head index for inserting events. */
-    EDF_eventQueue_ctr_t volatile tail;   /**< Tail index for removing events. */
-    EDF_eventQueue_ctr_t volatile n_free; /**< Number of free entries in the queue. */
-    EDF_eventQueue_ctr_t n_min;           /**< Minimum number of free entries ever in the queue. */
+    const EDF_event_t *front_e; /**< Event at the front of the queue. */
+    const EDF_event_t **ring;   /**< Ring buffer storage. */
+    EDF_eventQueue_ctr_t end;   /**< Index of the end of the ring buffer. */
+    EDF_eventQueue_ctr_t head;  /**< Head index for inserting events. */
+    EDF_eventQueue_ctr_t tail;  /**< Tail index for removing events. */
+    EDF_eventQueue_ctr_t n_free; /**< Number of free entries in the queue. */
+    EDF_eventQueue_ctr_t n_min;  /**< Minimum number of free entries ever in the queue. */
 } EDF_eventQueue_t;
 
 /*******************************************************************************
@@ -89,9 +89,9 @@ typedef struct EDF_eventQueue_t
  * @param[in] q_storage Pointer to the ring buffer storage (can be NULL if @p q_len is 0).
  * @param[in] q_len Length of the ring buffer (can be 0 if @p q_storage is NULL).
  */
-void EDF_eventQueue_init(EDF_eventQueue_t *const me,
-                         EDF_event_t const **const q_storage,
-                         EDF_eventQueue_ctr_t const q_len);
+void EDF_eventQueue_init(EDF_eventQueue_t *me,
+                         const EDF_event_t **q_storage,
+                         EDF_eventQueue_ctr_t q_len);
 
 /**
  * @brief Posts an event to the back of the event queue.
@@ -99,8 +99,8 @@ void EDF_eventQueue_init(EDF_eventQueue_t *const me,
  * @param[in,out] me Pointer to the event queue instance.
  * @param[in] e Pointer to the event to post.
  */
-void EDF_eventQueue_postFIFO(EDF_eventQueue_t *const me,
-                             EDF_event_t const *const e);
+void EDF_eventQueue_postFIFO(EDF_eventQueue_t *me,
+                             const EDF_event_t *e);
 
 /**
  * @brief Posts an event to the front of the event queue.
@@ -108,8 +108,8 @@ void EDF_eventQueue_postFIFO(EDF_eventQueue_t *const me,
  * @param[in,out] me Pointer to the event queue instance.
  * @param[in] e Pointer to the event to post.
  */
-void EDF_eventQueue_postLIFO(EDF_eventQueue_t *const me,
-                             EDF_event_t const *const e);
+void EDF_eventQueue_postLIFO(EDF_eventQueue_t *me,
+                             const EDF_event_t *e);
 
 /**
  * @brief Retrieves the next event from the queue (FIFO order).
@@ -117,7 +117,7 @@ void EDF_eventQueue_postLIFO(EDF_eventQueue_t *const me,
  * @param[in,out] me Pointer to the event queue instance.
  * @return Pointer to the retrieved event, or NULL if the queue is empty.
  */
-EDF_event_t const *EDF_eventQueue_get(EDF_eventQueue_t *const me);
+const EDF_event_t *EDF_eventQueue_get(EDF_eventQueue_t *me);
 
 /**
  * @brief Gets the current number of free entries in the event queue.
@@ -125,7 +125,7 @@ EDF_event_t const *EDF_eventQueue_get(EDF_eventQueue_t *const me);
  * @param[in] me Pointer to the event queue instance.
  * @return Number of free entries.
  */
-static inline EDF_eventQueue_ctr_t EDF_eventQueue_getNumFree(EDF_eventQueue_t const *const me)
+static inline EDF_eventQueue_ctr_t EDF_eventQueue_getNumFree(const EDF_eventQueue_t *me)
 {
     return me->n_free;
 }
@@ -137,7 +137,7 @@ static inline EDF_eventQueue_ctr_t EDF_eventQueue_getNumFree(EDF_eventQueue_t co
  * @return Number of occupied entries.
  */
 static inline EDF_eventQueue_ctr_t EDF_eventQueue_getNumOccupied(
-    EDF_eventQueue_t const *const me)
+    const EDF_eventQueue_t *me)
 {
     // Number of occupied entries = total capacity - free slots
     return (EDF_eventQueue_ctr_t)((me->end + 1U) - me->n_free);
@@ -149,7 +149,7 @@ static inline EDF_eventQueue_ctr_t EDF_eventQueue_getNumOccupied(
  * @param[in] me Pointer to the event queue instance.
  * @return true if queue is empty, false otherwise.
  */
-static inline bool EDF_eventQueue_isEmpty(EDF_eventQueue_t const *const me)
+static inline bool EDF_eventQueue_isEmpty(const EDF_eventQueue_t *me)
 {
     return (me->front_e == NULL);
 }
@@ -160,7 +160,7 @@ static inline bool EDF_eventQueue_isEmpty(EDF_eventQueue_t const *const me)
  * @param[in] me Pointer to the event queue instance.
  * @return Minimum number of free entries recorded.
  */
-static inline EDF_eventQueue_ctr_t EDF_eventQueue_getNumMin(EDF_eventQueue_t const *const me)
+static inline EDF_eventQueue_ctr_t EDF_eventQueue_getNumMin(const EDF_eventQueue_t *me)
 {
     return me->n_min;
 }

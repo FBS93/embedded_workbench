@@ -79,8 +79,8 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDF_event_initImmutable(EDF_event_t *const me,
-                             EDF_event_signal_t const sig)
+void EDF_event_initImmutable(EDF_event_t *me,
+                             EDF_event_signal_t sig)
 {
     EAF_ASSERT(me != NULL);
 
@@ -89,8 +89,8 @@ void EDF_event_initImmutable(EDF_event_t *const me,
     me->ref_cnt = EDF_EVENT_REF_CNT_IMMUTABLE;
 }
 
-EDF_event_t *EDF_event_initMutable(uint_fast16_t const e_size,
-                                   int const sig)
+EDF_event_t *EDF_event_initMutable(uint_fast16_t e_size,
+                                   int sig)
 {
     uint8_t pool_idx;
     EDF_event_t *e;

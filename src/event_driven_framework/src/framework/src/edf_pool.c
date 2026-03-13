@@ -78,9 +78,9 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  ******************************************************************************/
 
 void EDF_pool_init(
-    void *const pool_storage,
-    uint_fast32_t const pool_size,
-    EDF_pool_blockSize_t const block_size)
+    void *pool_storage,
+    uint_fast32_t pool_size,
+    EDF_pool_blockSize_t block_size)
 {
     uint8_t pool_num;
     EDF_pool_t *new_pool;
@@ -156,7 +156,7 @@ void EDF_pool_init(
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-void *EDF_pool_acquire(EDF_pool_t *const me)
+void *EDF_pool_acquire(EDF_pool_t *me)
 {
     void **free_block;
     void **next_free_block;
@@ -209,8 +209,8 @@ void *EDF_pool_acquire(EDF_pool_t *const me)
     return (void *)free_block;
 }
 
-void EDF_pool_release(EDF_pool_t *const me,
-                      void *const block)
+void EDF_pool_release(EDF_pool_t *me,
+                      void *block)
 {
     void **free_block;
 

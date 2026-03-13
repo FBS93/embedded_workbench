@@ -39,11 +39,15 @@
 
 /**
  * @brief NVIC Interrupt Set-Enable Register 1.
+ *
+ * volatile_use: hardware_interaction
  */
 #define NVIC_ISER1 (*(volatile uint32_t *)0xE000E104UL)
 
 /**
  * @brief NVIC interrupt priority registers base.
+ *
+ * volatile_use: hardware_interaction
  */
 #define NVIC_IPR_BASE ((volatile uint8_t *)0xE000E400UL)
 
@@ -54,6 +58,8 @@
 
 /**
  * @brief RCC APB2 peripheral clock enable register.
+ *
+ * volatile_use: hardware_interaction
  */
 #define RCC_APB2ENR (*(volatile uint32_t *)(RCC_BASE + 0x18U))
 
@@ -74,6 +80,8 @@
 
 /**
  * @brief GPIOA control register high (pins 8–15).
+ *
+ * volatile_use: hardware_interaction
  */
 #define GPIOA_CRH (*(volatile uint32_t *)(GPIOA_BASE + 0x04U))
 
@@ -84,21 +92,29 @@
 
 /**
  * @brief USART1 status register.
+ *
+ * volatile_use: hardware_interaction
  */
 #define USART1_SR (*(volatile uint32_t *)(USART1_BASE + 0x00U))
 
 /**
  * @brief USART1 data register.
+ *
+ * volatile_use: hardware_interaction
  */
 #define USART1_DR (*(volatile uint32_t *)(USART1_BASE + 0x04U))
 
 /**
  * @brief USART1 baud rate register.
+ *
+ * volatile_use: hardware_interaction
  */
 #define USART1_BRR (*(volatile uint32_t *)(USART1_BASE + 0x08U))
 
 /**
  * @brief USART1 control register 1.
+ *
+ * volatile_use: hardware_interaction
  */
 #define USART1_CR1 (*(volatile uint32_t *)(USART1_BASE + 0x0CU))
 
@@ -157,8 +173,10 @@ static bool uartInitialized = false;
 
 /**
  * @brief Registered standard input listener.
+ *
+ * volatile_use: asynchronous_interaction
  */
-static EBF_stdin_t stdinListener = NULL;
+static volatile EBF_stdin_t stdinListener = NULL;
 
 /*******************************************************************************
  * PUBLIC VARIABLES
@@ -216,7 +234,7 @@ static void initUART(void)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EBF_setStdinListener(EBF_stdin_t const listener)
+void EBF_setStdinListener(EBF_stdin_t listener)
 {
   if (!uartInitialized)
   {
@@ -226,7 +244,7 @@ void EBF_setStdinListener(EBF_stdin_t const listener)
   stdinListener = listener;
 }
 
-bool EBF_stdoutIsReadyToWrite(uint16_t const len)
+bool EBF_stdoutIsReadyToWrite(uint16_t len)
 {
   if (!uartInitialized)
   {
@@ -237,7 +255,7 @@ bool EBF_stdoutIsReadyToWrite(uint16_t const len)
   return (len == 1) && (USART1_SR & USART_SR_TXE);
 }
 
-void EBF_stdoutWrite(const uint8_t *data, uint16_t const len)
+void EBF_stdoutWrite(const uint8_t *data, uint16_t len)
 {
   // No TX buffer --> only 1 Byte allowed.
   EAF_ASSERT(len == 1);

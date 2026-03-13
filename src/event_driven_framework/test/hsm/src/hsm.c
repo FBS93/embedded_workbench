@@ -117,8 +117,8 @@ void hsm_init(void)
  * passed by pointer in the EDF_activeObject_start function, in accordance
  * with the API specification.
  */
-EDF_hsm_stateReturn_t initialTransition(hsm_t *const me,
-                                        EDF_event_t const *const e)
+EDF_hsm_stateReturn_t initialTransition(hsm_t *me,
+                                        const EDF_event_t *e)
 {
   EMF_UTILS_UNUSED_PARAM(me);
   EMF_UTILS_UNUSED_PARAM(e);
@@ -126,8 +126,8 @@ EDF_hsm_stateReturn_t initialTransition(hsm_t *const me,
   return EDF_HSM_RET_TRAN(S1);
 }
 
-EDF_hsm_stateReturn_t S1(hsm_t *const me,
-                         EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S1(hsm_t *me,
+                         const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -158,8 +158,8 @@ EDF_hsm_stateReturn_t S1(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S11(hsm_t *const me,
-                          EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S11(hsm_t *me,
+                          const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -185,8 +185,8 @@ EDF_hsm_stateReturn_t S11(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S111(hsm_t *const me,
-                           EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S111(hsm_t *me,
+                           const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -212,8 +212,8 @@ EDF_hsm_stateReturn_t S111(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S1111(hsm_t *const me,
-                            EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S1111(hsm_t *me,
+                            const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -239,8 +239,8 @@ EDF_hsm_stateReturn_t S1111(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S11111(hsm_t *const me,
-                             EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S11111(hsm_t *me,
+                             const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -261,8 +261,8 @@ EDF_hsm_stateReturn_t S11111(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S2(hsm_t *const me,
-                         EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S2(hsm_t *me,
+                         const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -288,8 +288,8 @@ EDF_hsm_stateReturn_t S2(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S21(hsm_t *const me,
-                          EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S21(hsm_t *me,
+                          const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -315,8 +315,8 @@ EDF_hsm_stateReturn_t S21(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S211(hsm_t *const me,
-                           EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S211(hsm_t *me,
+                           const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -342,8 +342,8 @@ EDF_hsm_stateReturn_t S211(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S2111(hsm_t *const me,
-                            EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S2111(hsm_t *me,
+                            const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -369,8 +369,8 @@ EDF_hsm_stateReturn_t S2111(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S2112(hsm_t *const me,
-                            EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S2112(hsm_t *me,
+                            const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -396,8 +396,8 @@ EDF_hsm_stateReturn_t S2112(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S3(hsm_t *const me,
-                         EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S3(hsm_t *me,
+                         const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -423,8 +423,8 @@ EDF_hsm_stateReturn_t S3(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S31(hsm_t *const me,
-                          EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S31(hsm_t *me,
+                          const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -450,8 +450,8 @@ EDF_hsm_stateReturn_t S31(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S311(hsm_t *const me,
-                           EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S311(hsm_t *me,
+                           const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -477,8 +477,8 @@ EDF_hsm_stateReturn_t S311(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S4(hsm_t *const me,
-                         EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S4(hsm_t *me,
+                         const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -504,8 +504,8 @@ EDF_hsm_stateReturn_t S4(hsm_t *const me,
   return state;
 }
 
-EDF_hsm_stateReturn_t S41(hsm_t *const me,
-                          EDF_event_t const *const e)
+EDF_hsm_stateReturn_t S41(hsm_t *me,
+                          const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 

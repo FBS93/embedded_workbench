@@ -95,8 +95,8 @@
  *
  * @note The input and output buffers must not overlap.
  */
-void EMF_cobs_encode(uint8_t const *buff_in, uint16_t const len_in,
-                     uint8_t *buff_out, uint16_t *const len_out);
+void EMF_cobs_encode(const uint8_t *buff_in, uint16_t len_in,
+                     uint8_t *buff_out, uint16_t *len_out);
 
 /**
  * @brief  Decodes a COBS‑encoded buffer.
@@ -117,7 +117,7 @@ void EMF_cobs_encode(uint8_t const *buff_in, uint16_t const len_in,
  *
  * @note The input and output buffers must not overlap.
  */
-bool EMF_cobs_decode(uint8_t const *buff_in, uint16_t const len_in,
-                     uint8_t *buff_out, uint16_t *const len_out);
+bool EMF_cobs_decode(const uint8_t *buff_in, uint16_t len_in,
+                     uint8_t *buff_out, uint16_t *len_out);
 
 #endif /* EMF_COBS_H */

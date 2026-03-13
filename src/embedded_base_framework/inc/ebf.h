@@ -93,7 +93,7 @@
  * @param[in] data Pointer to received data.
  * @param[in] len Length of the data in bytes.
  */
-typedef void (*EBF_stdin_t)(uint8_t const *const data, uint16_t len);
+typedef void (*EBF_stdin_t)(const uint8_t *data, uint16_t len);
 
 /*******************************************************************************
  * PUBLIC VARIABLES
@@ -128,7 +128,7 @@ extern int8_t EBF_critSecNestCnt;
  *
  * @param[in] listener Function to be called with incoming data.
  */
-void EBF_setStdinListener(EBF_stdin_t const listener);
+void EBF_setStdinListener(EBF_stdin_t listener);
 
 /**
  * @brief Sends data to the standard output.
@@ -139,7 +139,7 @@ void EBF_setStdinListener(EBF_stdin_t const listener);
  * @param[in] data Pointer to data to be sent.
  * @param[in] len Length of the data in bytes.
  */
-void EBF_stdoutWrite(const uint8_t *data, uint16_t const len);
+void EBF_stdoutWrite(const uint8_t *data, uint16_t len);
 
 /**
  * @brief Checks if the output is ready to send the specified number of bytes.
@@ -150,7 +150,7 @@ void EBF_stdoutWrite(const uint8_t *data, uint16_t const len);
  * @param[in] len Number of bytes to check for availability.
  * @return true if ready, false otherwise.
  */
-bool EBF_stdoutIsReadyToWrite(uint16_t const len);
+bool EBF_stdoutIsReadyToWrite(uint16_t len);
 
 /**
  * @brief Entry critical section.

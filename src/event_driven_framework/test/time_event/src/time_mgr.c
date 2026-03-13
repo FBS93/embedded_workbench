@@ -100,8 +100,8 @@ timeMgr_t timeMgr;
  * @param[in] me Pointer to the timeMgr instance.
  * @param[in] e Pointer to the event.
  */
-static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *const me,
-                                               EDF_event_t const *const e);
+static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *me,
+                                               const EDF_event_t *e);
 
 /**
  * @brief readyState state of the timeMgr HSM.
@@ -109,15 +109,15 @@ static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *const me,
  * @param[in] me Pointer to the timeMgr instance.
  * @param[in] e Pointer to the event.
  */
-static EDF_hsm_stateReturn_t readyState(timeMgr_t *const me,
-                                        EDF_event_t const *const e);
+static EDF_hsm_stateReturn_t readyState(timeMgr_t *me,
+                                        const EDF_event_t *e);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *const me,
-                                               EDF_event_t const *const e)
+static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *me,
+                                               const EDF_event_t *e)
 {
   EMF_UTILS_UNUSED_PARAM(me);
   EMF_UTILS_UNUSED_PARAM(e);
@@ -125,8 +125,8 @@ static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *const me,
   return EDF_HSM_RET_TRAN(readyState);
 }
 
-static EDF_hsm_stateReturn_t readyState(timeMgr_t *const me,
-                                        EDF_event_t const *const e)
+static EDF_hsm_stateReturn_t readyState(timeMgr_t *me,
+                                        const EDF_event_t *e)
 {
   EDF_hsm_stateReturn_t state;
 

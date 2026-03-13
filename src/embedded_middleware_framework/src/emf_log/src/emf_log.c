@@ -87,7 +87,7 @@ void EMF_log_setLevel(EMF_log_level_t log_level)
   logLevel = log_level;
 }
 
-void EMF_log(EMF_log_level_t log_level, char const *fmt, uintptr_t const *args)
+void EMF_log(EMF_log_level_t log_level, const char *fmt, const uintptr_t *args)
 {
 
   EAF_ASSERT(fmt != NULL);

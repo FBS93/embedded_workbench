@@ -79,9 +79,9 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDF_eventQueue_init(EDF_eventQueue_t *const me,
-                         EDF_event_t const **const q_storage,
-                         EDF_eventQueue_ctr_t const q_len)
+void EDF_eventQueue_init(EDF_eventQueue_t *me,
+                         const EDF_event_t **q_storage,
+                         EDF_eventQueue_ctr_t q_len)
 {
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -98,8 +98,8 @@ void EDF_eventQueue_init(EDF_eventQueue_t *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-void EDF_eventQueue_postFIFO(EDF_eventQueue_t *const me,
-                             EDF_event_t const *const e)
+void EDF_eventQueue_postFIFO(EDF_eventQueue_t *me,
+                             const EDF_event_t *e)
 {
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -152,10 +152,10 @@ void EDF_eventQueue_postFIFO(EDF_eventQueue_t *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-void EDF_eventQueue_postLIFO(EDF_eventQueue_t *const me,
-                             EDF_event_t const *const e)
+void EDF_eventQueue_postLIFO(EDF_eventQueue_t *me,
+                             const EDF_event_t *e)
 {
-    const EDF_event_t *front_e;
+    EDF_event_t *front_e;
 
     EBF_CRITICAL_SECTION_ENTRY();
 
@@ -179,7 +179,7 @@ void EDF_eventQueue_postLIFO(EDF_eventQueue_t *const me,
             me->n_min = me->n_free; // Update minimum so far.
         }
 
-        front_e = me->front_e;
+        front_e = (EDF_event_t *)me->front_e; // Typecast to discard const qualifier.
         me->front_e = e; // Deliver the event directly to the front.
 
         if (front_e != NULL)
@@ -204,16 +204,17 @@ void EDF_eventQueue_postLIFO(EDF_eventQueue_t *const me,
     EBF_CRITICAL_SECTION_EXIT();
 }
 
-EDF_event_t const *EDF_eventQueue_get(EDF_eventQueue_t *const me)
+const EDF_event_t *EDF_eventQueue_get(EDF_eventQueue_t *me)
 {
-    const EDF_event_t *e;
-    const EDF_event_t *front_e;
+    EDF_event_t *e;
+    EDF_event_t *front_e;
 
     EBF_CRITICAL_SECTION_ENTRY();
 
     EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
 
-    e = me->front_e; // Always remove event from the front.
+    // Always remove event from the front.
+    e = (EDF_event_t *)me->front_e; // Typecast to discard const qualifier.
 
     if (e != NULL)
     {
@@ -223,7 +224,7 @@ EDF_event_t const *EDF_eventQueue_get(EDF_eventQueue_t *const me)
         if (me->n_free <= me->end)
         {
             // Remove event from the tail.
-            front_e = me->ring[me->tail];
+            front_e = (EDF_event_t *)me->ring[me->tail]; // Typecast to discard const qualifier.
 
             EAF_ASSERT_IN_CRITICAL_SECTION(front_e != NULL);
             me->front_e = front_e; // Update the original.

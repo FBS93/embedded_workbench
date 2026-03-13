@@ -97,6 +97,8 @@ ETF_TEST_SUITE(test_emf_array_fifo)
 
     ETF_VERIFY(EMF_arrayFifo_isEmpty(&fifo));
     ETF_VERIFY(!EMF_arrayFifo_isFull(&fifo));
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 0U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 2U);
   }
 
   ETF_TEST(push_pop_preserves_fifo_order)
@@ -110,14 +112,20 @@ ETF_TEST_SUITE(test_emf_array_fifo)
     EMF_arrayFifo_init(&fifo, 3U, 2U, storage);
     EMF_arrayFifo_push(&fifo, input_1);
     EMF_arrayFifo_push(&fifo, input_2);
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 2U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 1U);
 
     EMF_arrayFifo_pop(&fifo, output);
     verifySlotEq(input_1, output, 2U);
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 1U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 2U);
 
     EMF_arrayFifo_pop(&fifo, output);
     verifySlotEq(input_2, output, 2U);
 
     ETF_VERIFY(EMF_arrayFifo_isEmpty(&fifo));
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 0U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 3U);
   }
 
   ETF_TEST(peek_does_not_remove_and_drop_removes)
@@ -131,24 +139,27 @@ ETF_TEST_SUITE(test_emf_array_fifo)
     EMF_arrayFifo_init(&fifo, 2U, 2U, storage);
     EMF_arrayFifo_push(&fifo, input_1);
     EMF_arrayFifo_push(&fifo, input_2);
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 2U);
 
     EMF_arrayFifo_peek(&fifo, output);
     verifySlotEq(input_1, output, 2U);
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 2U);
 
     EMF_arrayFifo_pop(&fifo, output);
     verifySlotEq(input_1, output, 2U);
 
     EMF_arrayFifo_drop(&fifo);
     ETF_VERIFY(EMF_arrayFifo_isEmpty(&fifo));
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 0U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 2U);
   }
 
-  ETF_TEST(push_on_full_fifo_is_ignored)
+  ETF_TEST(fill_to_full_updates_state_and_counters)
   {
     EMF_arrayFifo_handler_t fifo;
     uint8_t storage[2U] = {0U};
     uint8_t input_1[1U] = {0xA1U};
     uint8_t input_2[1U] = {0xB2U};
-    uint8_t input_3[1U] = {0xC3U};
     uint8_t output[1U] = {0U};
 
     EMF_arrayFifo_init(&fifo, 2U, 1U, storage);
@@ -156,15 +167,19 @@ ETF_TEST_SUITE(test_emf_array_fifo)
     EMF_arrayFifo_push(&fifo, input_2);
 
     ETF_VERIFY(EMF_arrayFifo_isFull(&fifo));
-
-    EMF_arrayFifo_push(&fifo, input_3);
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 2U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 0U);
 
     EMF_arrayFifo_pop(&fifo, output);
     ETF_VERIFY(output[0] == input_1[0]);
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 1U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 1U);
 
     EMF_arrayFifo_pop(&fifo, output);
     ETF_VERIFY(output[0] == input_2[0]);
     ETF_VERIFY(EMF_arrayFifo_isEmpty(&fifo));
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 0U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 2U);
   }
 
   ETF_TEST(flush_resets_state)
@@ -179,6 +194,8 @@ ETF_TEST_SUITE(test_emf_array_fifo)
 
     ETF_VERIFY(EMF_arrayFifo_isEmpty(&fifo));
     ETF_VERIFY(!EMF_arrayFifo_isFull(&fifo));
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 0U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 2U);
   }
 
   ETF_TEST(pop_then_push_wraps_around_and_keeps_order)
@@ -198,11 +215,15 @@ ETF_TEST_SUITE(test_emf_array_fifo)
 
     EMF_arrayFifo_push(&fifo, input_3);
     ETF_VERIFY(EMF_arrayFifo_isFull(&fifo));
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 2U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 0U);
 
     EMF_arrayFifo_pop(&fifo, output);
     ETF_VERIFY(output[0] == input_2[0]);
     EMF_arrayFifo_pop(&fifo, output);
     ETF_VERIFY(output[0] == input_3[0]);
     ETF_VERIFY(EMF_arrayFifo_isEmpty(&fifo));
+    ETF_VERIFY(EMF_arrayFifo_getUsed(&fifo) == 0U);
+    ETF_VERIFY(EMF_arrayFifo_getFree(&fifo) == 2U);
   }
 }

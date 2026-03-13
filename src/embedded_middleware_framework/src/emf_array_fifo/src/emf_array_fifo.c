@@ -62,9 +62,99 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * Private function declarations
  * -------------------------------------------------------------------------- */
 
+/**
+ * @brief Advances an index with wrap-around.
+ *
+ * @param[in] handler FIFO handler.
+ * @param[in] idx Base index.
+ * @param[in] offset Offset to add.
+ * @return Wrapped index.
+ */
+static uint8_t advanceIndex(EMF_arrayFifo_handler_t const *const handler,
+                            uint8_t idx,
+                            uint8_t offset);
+
+/**
+ * @brief Reads one slot from FIFO storage into destination buffer.
+ *
+ * @param[in] handler FIFO handler.
+ * @param[in] slot_idx Slot index in storage.
+ * @param[out] data Destination buffer.
+ */
+static void readSlot(EMF_arrayFifo_handler_t const *const handler,
+                     uint8_t slot_idx,
+                     uint8_t *const data);
+
+/**
+ * @brief Writes one slot into FIFO storage from source buffer.
+ *
+ * @param[in,out] handler FIFO handler.
+ * @param[in] slot_idx Slot index in storage.
+ * @param[in] data Source buffer.
+ */
+static void writeSlot(EMF_arrayFifo_handler_t *const handler,
+                      uint8_t slot_idx,
+                      uint8_t const *const data);
+
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
+
+static uint8_t advanceIndex(EMF_arrayFifo_handler_t const *const handler,
+                            uint8_t idx,
+                            uint8_t offset)
+{
+  uint16_t next_idx;
+
+  EAF_ASSERT(handler != NULL);
+  EAF_ASSERT(handler->n_slots > 0U);
+
+  next_idx = (uint16_t)idx + (uint16_t)offset;
+  if (next_idx >= handler->n_slots)
+  {
+    next_idx = (uint16_t)(next_idx % handler->n_slots);
+  }
+
+  return (uint8_t)next_idx;
+}
+
+static void readSlot(EMF_arrayFifo_handler_t const *const handler,
+                     uint8_t slot_idx,
+                     uint8_t *const data)
+{
+  uint8_t const *slot;
+
+  EAF_ASSERT_BLOCK_BEGIN();
+  EAF_ASSERT_IN_BLOCK(handler != NULL);
+  EAF_ASSERT_IN_BLOCK(data != NULL);
+  EAF_ASSERT_IN_BLOCK(slot_idx < handler->n_slots);
+  EAF_ASSERT_BLOCK_END();
+
+  slot = &handler->storage[(uint16_t)slot_idx * handler->slot_size];
+  for (uint16_t i = 0U; i < handler->slot_size; ++i)
+  {
+    data[i] = slot[i];
+  }
+}
+
+static void writeSlot(EMF_arrayFifo_handler_t *const handler,
+                      uint8_t slot_idx,
+                      uint8_t const *const data)
+{
+  uint8_t *slot;
+
+  EAF_ASSERT_BLOCK_BEGIN();
+  EAF_ASSERT_IN_BLOCK(handler != NULL);
+  EAF_ASSERT_IN_BLOCK(data != NULL);
+  EAF_ASSERT_IN_BLOCK(slot_idx < handler->n_slots);
+  EAF_ASSERT_BLOCK_END();
+
+  slot = &handler->storage[(uint16_t)slot_idx * handler->slot_size];
+  for (uint16_t i = 0U; i < handler->slot_size; ++i)
+  {
+    slot[i] = data[i];
+  }
+}
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS
@@ -93,85 +183,56 @@ void EMF_arrayFifo_init(EMF_arrayFifo_handler_t *const handler,
 void EMF_arrayFifo_push(EMF_arrayFifo_handler_t *const handler,
                         uint8_t const *const data)
 {
-  uint8_t *pdest;
-
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
   EAF_ASSERT_IN_BLOCK(data != NULL);
+  EAF_ASSERT_IN_BLOCK(!EMF_arrayFifo_isFull(handler));
   EAF_ASSERT_BLOCK_END();
 
-  if (!handler->full)
+  writeSlot(handler, handler->head, data);
+  handler->head = advanceIndex(handler, handler->head, 1U);
+
+  if (handler->head == handler->tail)
   {
-    pdest = &handler->storage[handler->head * handler->slot_size];
-
-    for (uint16_t i = 0; i < handler->slot_size; ++i)
-    {
-      pdest[i] = data[i];
-    }
-
-    handler->head = (uint8_t)((handler->head + 1) % handler->n_slots);
-
-    if (handler->head == handler->tail)
-    {
-      handler->full = true;
-    }
+    handler->full = true;
   }
 }
 
 void EMF_arrayFifo_pop(EMF_arrayFifo_handler_t *const handler,
                        uint8_t *const data)
 {
-  uint8_t *slot;
-
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
   EAF_ASSERT_IN_BLOCK(data != NULL);
+  EAF_ASSERT_IN_BLOCK(!EMF_arrayFifo_isEmpty(handler));
   EAF_ASSERT_BLOCK_END();
 
-  if (!EMF_arrayFifo_isEmpty(handler))
-  {
-    slot = &handler->storage[handler->tail * handler->slot_size];
-
-    for (uint16_t i = 0; i < handler->slot_size; ++i)
-    {
-      data[i] = slot[i];
-    }
-
-    handler->tail = (uint8_t)((handler->tail + 1) % handler->n_slots);
-    handler->full = false;
-  }
+  readSlot(handler, handler->tail, data);
+  handler->tail = advanceIndex(handler, handler->tail, 1U);
+  handler->full = false;
 }
 
 void EMF_arrayFifo_peek(EMF_arrayFifo_handler_t const *const handler,
                         uint8_t *const data)
 {
-  uint8_t const *slot;
-
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
   EAF_ASSERT_IN_BLOCK(data != NULL);
+  EAF_ASSERT_IN_BLOCK(!EMF_arrayFifo_isEmpty(handler));
   EAF_ASSERT_BLOCK_END();
 
-  if (!EMF_arrayFifo_isEmpty(handler))
-  {
-    slot = &handler->storage[handler->tail * handler->slot_size];
-
-    for (uint16_t i = 0; i < handler->slot_size; ++i)
-    {
-      data[i] = slot[i];
-    }
-  }
+  readSlot(handler, handler->tail, data);
 }
 
 void EMF_arrayFifo_drop(EMF_arrayFifo_handler_t *const handler)
 {
-  EAF_ASSERT(handler != NULL);
+  EAF_ASSERT_BLOCK_BEGIN();
+  EAF_ASSERT_IN_BLOCK(handler != NULL);
+  EAF_ASSERT_IN_BLOCK(!EMF_arrayFifo_isEmpty(handler));
+  EAF_ASSERT_BLOCK_END();
 
-  if (!EMF_arrayFifo_isEmpty(handler))
-  {
-    handler->tail = (uint8_t)((handler->tail + 1) % handler->n_slots);
-    handler->full = false;
-  }
+  handler->tail = advanceIndex(handler, handler->tail, 1U);
+  handler->full = false;
 }
 
 void EMF_arrayFifo_flush(EMF_arrayFifo_handler_t *const handler)
@@ -194,4 +255,33 @@ bool EMF_arrayFifo_isFull(EMF_arrayFifo_handler_t const *const handler)
   EAF_ASSERT(handler != NULL);
 
   return handler->full;
+}
+
+uint8_t EMF_arrayFifo_getUsed(EMF_arrayFifo_handler_t const *const handler)
+{
+  uint8_t used;
+
+  EAF_ASSERT(handler != NULL);
+
+  if (handler->full)
+  {
+    used = handler->n_slots;
+  }
+  else if (handler->head >= handler->tail)
+  {
+    used = (uint8_t)(handler->head - handler->tail);
+  }
+  else
+  {
+    used = (uint8_t)(handler->n_slots - (handler->tail - handler->head));
+  }
+
+  return used;
+}
+
+uint8_t EMF_arrayFifo_getFree(EMF_arrayFifo_handler_t const *const handler)
+{
+  EAF_ASSERT(handler != NULL);
+
+  return (uint8_t)(handler->n_slots - EMF_arrayFifo_getUsed(handler));
 }

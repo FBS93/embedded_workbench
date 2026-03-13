@@ -81,6 +81,31 @@
 #define EMF_LOG_ARG_C(val) EMF_PRINT_ARG_C(val)
 
 /**
+ * @brief Dispatch helper macro for EMF_log().
+ *
+ * Builds a local array of arguments and passes them with the format string.
+ *
+ * @todo Review if 8 is sufficient for maximum number of arguments.
+ *
+ * @param[in] log_level Logging level.
+ * @param[in] fmt Format string.
+ * @param[in] ... Variable arguments.
+ */
+#define EMF_LOG_DISPATCH(log_level, fmt, ...) \
+  do                                          \
+  {                                           \
+    if (EMF_PRINT_NARG(__VA_ARGS__) == 0)     \
+    {                                         \
+      EMF_log(log_level, fmt, NULL);          \
+    }                                         \
+    else                                      \
+    {                                         \
+      const uintptr_t args[] = {__VA_ARGS__}; \
+      EMF_log(log_level, fmt, args);          \
+    }                                         \
+  } while (0)
+
+/**
  * @brief Logs an error-level message using EMF_log.
  *
  * Builds a local array of arguments and passes them with the format string.
@@ -88,19 +113,7 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments.
  */
-#define EMF_LOG_ERROR(fmt, ...)               \
-  do                                          \
-  {                                           \
-    if (EMF_PRINT_NARG(__VA_ARGS__) == 0)     \
-    {                                         \
-      EMF_log(LOG_LEVEL_ERROR, fmt, NULL);    \
-    }                                         \
-    else                                      \
-    {                                         \
-      const uintptr_t args[] = {__VA_ARGS__}; \
-      EMF_log(LOG_LEVEL_ERROR, fmt, args);    \
-    }                                         \
-  } while (0)
+#define EMF_LOG_ERROR(fmt, ...) EMF_LOG_DISPATCH(LOG_LEVEL_ERROR, fmt, __VA_ARGS__)
 
 /**
  * @brief Logs a warning-level message using EMF_log.
@@ -110,19 +123,7 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments.
  */
-#define EMF_LOG_WARNING(fmt, ...)             \
-  do                                          \
-  {                                           \
-    if (EMF_PRINT_NARG(__VA_ARGS__) == 0)     \
-    {                                         \
-      EMF_log(LOG_LEVEL_WARNING, fmt, NULL);  \
-    }                                         \
-    else                                      \
-    {                                         \
-      const uintptr_t args[] = {__VA_ARGS__}; \
-      EMF_log(LOG_LEVEL_WARNING, fmt, args);  \
-    }                                         \
-  } while (0)
+#define EMF_LOG_WARNING(fmt, ...) EMF_LOG_DISPATCH(LOG_LEVEL_WARNING, fmt, __VA_ARGS__)
 
 /**
  * @brief Logs an info-level message using EMF_log.
@@ -132,19 +133,7 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments.
  */
-#define EMF_LOG_INFO(fmt, ...)                \
-  do                                          \
-  {                                           \
-    if (EMF_PRINT_NARG(__VA_ARGS__) == 0)     \
-    {                                         \
-      EMF_log(LOG_LEVEL_INFO, fmt, NULL);     \
-    }                                         \
-    else                                      \
-    {                                         \
-      const uintptr_t args[] = {__VA_ARGS__}; \
-      EMF_log(LOG_LEVEL_INFO, fmt, args);     \
-    }                                         \
-  } while (0)
+#define EMF_LOG_INFO(fmt, ...) EMF_LOG_DISPATCH(LOG_LEVEL_INFO, fmt, __VA_ARGS__)
 
 /**
  * @brief Logs a debug-level message using EMF_log.
@@ -154,19 +143,7 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments.
  */
-#define EMF_LOG_DEBUG(fmt, ...)               \
-  do                                          \
-  {                                           \
-    if (EMF_PRINT_NARG(__VA_ARGS__) == 0)     \
-    {                                         \
-      EMF_log(LOG_LEVEL_DEBUG, fmt, NULL);    \
-    }                                         \
-    else                                      \
-    {                                         \
-      const uintptr_t args[] = {__VA_ARGS__}; \
-      EMF_log(LOG_LEVEL_DEBUG, fmt, args);    \
-    }                                         \
-  } while (0)
+#define EMF_LOG_DEBUG(fmt, ...) EMF_LOG_DISPATCH(LOG_LEVEL_DEBUG, fmt, __VA_ARGS__)
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS

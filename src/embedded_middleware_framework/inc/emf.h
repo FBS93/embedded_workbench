@@ -31,6 +31,7 @@
  * Project-specific headers
  * -------------------------------------------------------------------------- */
 #include "emf_array_fifo.h"
+#include "emf_byte_fifo.h"
 #include "emf_bitmask.h"
 #include "emf_cobs.h"
 #include "emf_crc.h"

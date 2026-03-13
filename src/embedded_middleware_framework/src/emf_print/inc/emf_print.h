@@ -83,24 +83,24 @@
 /**
  * @brief Counts number of variadic arguments passed (up to 8).
  *
- * @param[in] __VA_ARGS__ Variable number of arguments.
- * @return Number of arguments (0–8).
- *
  * @todo Review if 8 is sufficient for maximum number of arguments.
  * @todo Consider moving this macro to a generic middleware module and using
  * it wherever macros of this type are used (e.g., emf_log, eff).
+ *
+ * @param[in] __VA_ARGS__ Variable number of arguments.
+ * @return Number of arguments (0–8).
  */
 #define EMF_PRINT_NARG(...) EMF_PRINT_NARG_(__VA_ARGS__, 8, 7, 6, 5, 4, 3, 2, 1, 0)
 
 /**
  * @brief Helper macro for counting variadic arguments.
  *
- * @param[in] _1..._8 Positional placeholders.
- * @param[in] N Number of arguments resolved by macro expansion.
- *
  * @todo Review if 8 is sufficient for maximum number of arguments.
  * @todo Consider moving this macro to a generic middleware module and using
  * it wherever macros of this type are used (e.g., emf_log, eff).
+ *
+ * @param[in] _1..._8 Positional placeholders.
+ * @param[in] N Number of arguments resolved by macro expansion.
  */
 #define EMF_PRINT_NARG_(_1, _2, _3, _4, _5, _6, _7, _8, N, ...) N
 

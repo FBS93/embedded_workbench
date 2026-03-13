@@ -95,8 +95,8 @@ void EMF_arrayFifo_init(EMF_arrayFifo_handler_t *const handler,
 /**
  * @brief Pushes data to the FIFO.
  *
- * Adds data to the FIFO if it is not full. The length of data pushed
- * is equal to the slot size defined during initialization.
+ * The length of data pushed is equal to the slot size defined during
+ * initialization.
  *
  * @param[in,out] handler Pointer to the FIFO handler structure.
  * @param[in] data Pointer to the buffer containing data to push.
@@ -107,8 +107,8 @@ void EMF_arrayFifo_push(EMF_arrayFifo_handler_t *const handler,
 /**
  * @brief Pops data from the FIFO.
  *
- * Removes data from the FIFO if it is not empty. The length of data
- * popped is equal to the slot size defined during initialization.
+ * The length of data popped is equal to the slot size defined during
+ * initialization.
  *
  * @param[in,out] handler Pointer to the FIFO handler structure.
  * @param[out] data Pointer to the buffer where the popped data will be stored.
@@ -119,8 +119,8 @@ void EMF_arrayFifo_pop(EMF_arrayFifo_handler_t *const handler,
 /**
  * @brief Peeks data from the FIFO without removing it.
  *
- * Copies data from the FIFO without removing it. The length of data
- * copied is equal to the slot size defined during initialization.
+ * The length of data copied is equal to the slot size defined during
+ * initialization.
  *
  * @param[in] handler Pointer to the FIFO handler structure.
  * @param[out] data Pointer to the buffer where the peeked data will be stored.
@@ -162,5 +162,21 @@ bool EMF_arrayFifo_isEmpty(EMF_arrayFifo_handler_t const *const handler);
  * @return true if the FIFO is full, false otherwise.
  */
 bool EMF_arrayFifo_isFull(EMF_arrayFifo_handler_t const *const handler);
+
+/**
+ * @brief Returns used capacity in FIFO slots.
+ *
+ * @param[in] handler Pointer to the FIFO handler structure.
+ * @return Number of used slots.
+ */
+uint8_t EMF_arrayFifo_getUsed(EMF_arrayFifo_handler_t const *const handler);
+
+/**
+ * @brief Returns free capacity in FIFO slots.
+ *
+ * @param[in] handler Pointer to the FIFO handler structure.
+ * @return Number of free slots.
+ */
+uint8_t EMF_arrayFifo_getFree(EMF_arrayFifo_handler_t const *const handler);
 
 #endif /* EMF_ARRAY_FIFO_H */

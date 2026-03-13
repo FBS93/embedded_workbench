@@ -24,6 +24,32 @@ This framework is a derivative work based on:
 | Immutable Event | Read-only event instance that cannot be changed at runtime and can be safely shared without memory management. |
 | Mutable Event | Event instance created at runtime whose payload is filled dynamically and managed through static event pools. |
 
+# Startup contract for event sources
+
+EDF requires that no EDF events are published before the user-specific startup callback `EDF_onStartup()` is executed. This restriction applies to both synchronous user code and asynchronous contexts (e.g., ISRs, threads).
+
+The following startup sequence shall be applied:
+1. Call `EDF_init()`.
+2. Initialize EDF structures used by the application (publish/subscribe mechanisms, active objects, pools, time events, ...).
+3. Do not initialize/enable asynchronous contexts (e.g., ISRs, threads) yet if they can publish EDF events.
+4. Call `EDF_run()`.
+5. The initialization and enabling of asynchronous event sources (e.g., ISRs) shall only occur at the end of `EDF_onStartup()` user callback implementation or later.
+6. Return from `EDF_onStartup()` quickly (avoid long blocking execution to prevent event queue overflows from asynchronous event sources).
+
+This sequence avoids publishing events while EDF startup is still in progress and reduces the risk of queue overflow during startup. However, the user remains responsible for sizing the event queues accordingly to accommodate any accumulation of events that may occur during the startup phase.
+
+# Shutdown contract for `EDF_onShutdown()`
+
+`EDF_onShutdown()` is a termination hook. In this callback, EDF API availability is not guaranteed across all ports and shutdown paths. For portability, the callback shall be treated as a system/application teardown point, not as a normal EDF execution context.
+
+The following shutdown rules shall be applied:
+1. Do not call EDF APIs from `EDF_onShutdown()` (e.g., posting/publishing events, active object start/subscribe operations, time-event APIs, ...).
+2. Use `EDF_onShutdown()` only to stop external sources and integrations (peripherals, sockets, ...).
+3. Keep the callback short and deterministic.
+4. If a complex shutdown sequence is required, trigger it from a normal execution context before `EDF_onShutdown()` is executed.
+
+This contract prevents non-portable behavior and avoids shutdown-time race conditions caused by assuming EDF is still fully available during termination.
+
 # Usage example
 
 @todo

@@ -6,6 +6,8 @@ This document describes how embedded target debugging is performed remotely usin
 
 The Raspberry Pi is connected to the target device through a hardware debug probe and exposes a GDB-compatible interface over TCP to the host system.
 
+GDB acts as an abstraction layer between different hardware debug probes. As long as a debugger provides a GDB server interface, the host debugging workflow remains the same.
+
 ## Architecture
 
 - Embedded target is connected to a debug probe.

@@ -87,40 +87,39 @@ void EMF_log_setLevel(EMF_log_level_t log_level)
   logLevel = log_level;
 }
 
-void EMF_log(EMF_log_level_t log_level, const char *fmt, const uintptr_t *args)
+void EMF_log(EMF_log_level_t log_level, const char* fmt, const uintptr_t* args)
 {
-
   EAF_ASSERT(fmt != NULL);
 
   if (log_level <= logLevel)
   {
     switch (log_level)
     {
-    case LOG_LEVEL_ERROR:
-    {
-      EMF_print("[ERROR] ", NULL);
-      break;
-    }
-    case LOG_LEVEL_WARNING:
-    {
-      EMF_print("[WARNING] ", NULL);
-      break;
-    }
-    case LOG_LEVEL_INFO:
-    {
-      EMF_print("[INFO] ", NULL);
-      break;
-    }
-    case LOG_LEVEL_DEBUG:
-    {
-      EMF_print("[DEBUG] ", NULL);
-      break;
-    }
-    default:
-    {
-      EAF_ERROR();
-      break;
-    }
+      case LOG_LEVEL_ERROR:
+      {
+        EMF_print("[ERROR] ", NULL);
+        break;
+      }
+      case LOG_LEVEL_WARNING:
+      {
+        EMF_print("[WARNING] ", NULL);
+        break;
+      }
+      case LOG_LEVEL_INFO:
+      {
+        EMF_print("[INFO] ", NULL);
+        break;
+      }
+      case LOG_LEVEL_DEBUG:
+      {
+        EMF_print("[DEBUG] ", NULL);
+        break;
+      }
+      default:
+      {
+        EAF_ERROR();
+        break;
+      }
     }
 
     EMF_print(fmt, args);

@@ -79,107 +79,108 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDF_event_initImmutable(EDF_event_t *me,
-                             EDF_event_signal_t sig)
+void EDF_event_initImmutable(EDF_event_t* me, EDF_event_signal_t sig)
 {
-    EAF_ASSERT(me != NULL);
+  EAF_ASSERT(me != NULL);
 
-    me->sig = (EDF_event_signal_t)sig;
-    me->pool_num = 0x00U;
-    me->ref_cnt = EDF_EVENT_REF_CNT_IMMUTABLE;
+  me->sig = (EDF_event_signal_t)sig;
+  me->pool_num = 0x00U;
+  me->ref_cnt = EDF_EVENT_REF_CNT_IMMUTABLE;
 }
 
-EDF_event_t *EDF_event_initMutable(uint_fast16_t e_size,
-                                   int sig)
+EDF_event_t* EDF_event_initMutable(uint_fast16_t e_size, int sig)
 {
-    uint8_t pool_idx;
-    EDF_event_t *e;
+  uint8_t pool_idx;
+  EDF_event_t* e;
 
-    // Search the pool index that fits the requested event size.
-    for (pool_idx = 0; pool_idx < EDF_framework.pool_registry.max_pool; ++pool_idx)
+  // Search the pool index that fits the requested event size.
+  for (pool_idx = 0; pool_idx < EDF_framework.pool_registry.max_pool;
+       ++pool_idx)
+  {
+    if (e_size <=
+        ((uint_fast16_t)EDF_framework.pool_registry.list[pool_idx].block_size))
     {
-        if (e_size <= ((uint_fast16_t)EDF_framework.pool_registry.list[pool_idx].block_size))
-        {
-            break;
-        }
+      break;
     }
+  }
 
-    // Cannot run out of registered pools.
-    EAF_ASSERT(pool_idx < EDF_framework.pool_registry.max_pool);
+  // Cannot run out of registered pools.
+  EAF_ASSERT(pool_idx < EDF_framework.pool_registry.max_pool);
 
-    // Get pool slot.
-    e = (EDF_event_t *)EDF_pool_acquire(&EDF_framework.pool_registry.list[pool_idx]);
+  // Get pool slot.
+  e =
+    (EDF_event_t*)EDF_pool_acquire(&EDF_framework.pool_registry.list[pool_idx]);
 
-    // New event allocated correctly?
-    if (e != NULL)
+  // New event allocated correctly?
+  if (e != NULL)
+  {
+    // Clear full acquired pool slot to ensure deterministic initial state.
+    EMF_utils_clear(e, EDF_framework.pool_registry.list[pool_idx].block_size);
+
+    // Initialize event attributes.
+    e->sig = (EDF_event_signal_t)sig;
+    e->pool_num = pool_idx + 1;
+    e->ref_cnt = 0U;
+  }
+  else
+  {
+    /**
+     * @note This assertion means that the event allocation failed,
+     * and this failure cannot be tolerated.
+     */
+    EAF_ERROR();
+  }
+
+  return e;
+}
+
+void EDF_event_incrementRefCtr_(EDF_event_t* me)
+{
+  EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
+
+  me->ref_cnt++;
+}
+
+void EDF_event_decrementRefCtr_(EDF_event_t* me)
+{
+  EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
+
+  me->ref_cnt--;
+}
+
+void EDF_event_gc(EDF_event_t* e)
+{
+  EBF_CRITICAL_SECTION_ENTRY();
+
+  EAF_ASSERT_IN_CRITICAL_SECTION(e != NULL);
+
+  // Is it a pool event (mutable event)?
+  if (e->pool_num != 0U)
+  {
+    // Isn't this the last reference?
+    if (e->ref_cnt > 1U)
     {
-        // Clear full acquired pool slot to ensure deterministic initial state.
-        EMF_utils_clear(e, EDF_framework.pool_registry.list[pool_idx].block_size);
+      EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt > 0U);
 
-        // Initialize event attributes.
-        e->sig = (EDF_event_signal_t)sig;
-        e->pool_num = pool_idx + 1;
-        e->ref_cnt = 0U;
+      EDF_event_decrementRefCtr_(e);
+
+      EBF_CRITICAL_SECTION_EXIT();
     }
     else
     {
-        /**
-         * @note This assertion means that the event allocation failed,
-         * and this failure cannot be tolerated.
-         */
-        EAF_ERROR();
+      // Pool number must be in range.
+      EAF_ASSERT_IN_CRITICAL_SECTION(
+        (e->pool_num <= EDF_framework.pool_registry.max_pool) &&
+        (e->pool_num <= EDF_MAX_POOL));
+
+      EBF_CRITICAL_SECTION_EXIT();
+
+      // This is the last reference to this event, so recycle it.
+      EDF_pool_release(&EDF_framework.pool_registry.list[e->pool_num - 1U], e);
     }
-
-    return e;
-}
-
-void EDF_event_incrementRefCtr_(EDF_event_t *me)
-{
-    EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
-
-    me->ref_cnt++;
-}
-
-void EDF_event_decrementRefCtr_(EDF_event_t *me)
-{
-    EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
-
-    me->ref_cnt--;
-}
-
-void EDF_event_gc(EDF_event_t *e)
-{
-
-    EBF_CRITICAL_SECTION_ENTRY();
-
-    EAF_ASSERT_IN_CRITICAL_SECTION(e != NULL);
-
-    // Is it a pool event (mutable event)?
-    if (e->pool_num != 0U)
-    {
-
-        // Isn't this the last reference?
-        if (e->ref_cnt > 1U)
-        {
-            EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt > 0U);
-
-            EDF_event_decrementRefCtr_(e);
-
-            EBF_CRITICAL_SECTION_EXIT();
-        }
-        else
-        {
-            // Pool number must be in range.
-            EAF_ASSERT_IN_CRITICAL_SECTION((e->pool_num <= EDF_framework.pool_registry.max_pool) && (e->pool_num <= EDF_MAX_POOL));
-
-            EBF_CRITICAL_SECTION_EXIT();
-
-            // This is the last reference to this event, so recycle it.
-            EDF_pool_release(&EDF_framework.pool_registry.list[e->pool_num - 1U], e);
-        }
-    }
-    else
-    {
-        EBF_CRITICAL_SECTION_EXIT();
-    }
+  }
+  else
+  {
+    EBF_CRITICAL_SECTION_EXIT();
+  }
 }

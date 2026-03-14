@@ -65,11 +65,14 @@
 
 EBF_WEAK uint8_t EBF_utils_log2(uint8_t byte)
 {
+  // clang-format off
   static const uint8_t log2_lut[16] = {
-      0U, 1U, 2U, 2U,
-      3U, 3U, 3U, 3U,
-      4U, 4U, 4U, 4U,
-      4U, 4U, 4U, 4U};
+    0U, 1U, 2U, 2U,
+    3U, 3U, 3U, 3U,
+    4U, 4U, 4U, 4U,
+    4U, 4U, 4U, 4U
+  };
+  // clang-format on
   uint8_t offset;
   uint8_t lut_idx;
   uint8_t high_nibble;

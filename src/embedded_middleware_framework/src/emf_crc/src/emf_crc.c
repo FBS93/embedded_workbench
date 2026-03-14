@@ -89,34 +89,34 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-uint16_t EMF_crc_16CCITT(const uint8_t *data, uint16_t length)
+uint16_t EMF_crc_16CCITT(const uint8_t* data, uint16_t length)
 {
-    uint16_t crc;
+  uint16_t crc;
 
-    EAF_ASSERT_BLOCK_BEGIN();
-    EAF_ASSERT_IN_BLOCK(data != NULL);
-    EAF_ASSERT_IN_BLOCK(length > 0);
-    EAF_ASSERT_BLOCK_END();
+  EAF_ASSERT_BLOCK_BEGIN();
+  EAF_ASSERT_IN_BLOCK(data != NULL);
+  EAF_ASSERT_IN_BLOCK(length > 0);
+  EAF_ASSERT_BLOCK_END();
 
-    crc = CRC16_CCITT_INIT_VALUE;
+  crc = CRC16_CCITT_INIT_VALUE;
 
-    while (length > 0)
+  while (length > 0)
+  {
+    crc ^= (((uint16_t)(*data++)) << 8);
+    for (uint8_t i = 0; i < 8; i++)
     {
-        crc ^= (((uint16_t)(*data++)) << 8);
-        for (uint8_t i = 0; i < 8; i++)
-        {
-            if (crc & CRC16_TOPBIT)
-            {
-                crc = (uint16_t)((crc << 1) ^ CRC16_CCITT_POLY);
-            }
-            else
-            {
-                crc <<= 1;
-            }
-        }
-
-        length--;
+      if (crc & CRC16_TOPBIT)
+      {
+        crc = (uint16_t)((crc << 1) ^ CRC16_CCITT_POLY);
+      }
+      else
+      {
+        crc <<= 1;
+      }
     }
 
-    return crc;
+    length--;
+  }
+
+  return crc;
 }

@@ -75,108 +75,111 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_cobs_encode(const uint8_t *buff_in, uint16_t len_in,
-                     uint8_t *buff_out, uint16_t *len_out)
+void EMF_cobs_encode(const uint8_t* buff_in,
+                     uint16_t len_in,
+                     uint8_t* buff_out,
+                     uint16_t* len_out)
 {
-    const uint8_t *end_ptr;
-    uint8_t *out_ptr;
-    uint8_t *code_ptr;
-    uint8_t code;
+  const uint8_t* end_ptr;
+  uint8_t* out_ptr;
+  uint8_t* code_ptr;
+  uint8_t code;
 
-    EAF_ASSERT_BLOCK_BEGIN();
-    EAF_ASSERT_IN_BLOCK(buff_in != NULL);
-    EAF_ASSERT_IN_BLOCK(buff_out != NULL);
-    EAF_ASSERT_IN_BLOCK(len_out != NULL);
-    EAF_ASSERT_BLOCK_END();
+  EAF_ASSERT_BLOCK_BEGIN();
+  EAF_ASSERT_IN_BLOCK(buff_in != NULL);
+  EAF_ASSERT_IN_BLOCK(buff_out != NULL);
+  EAF_ASSERT_IN_BLOCK(len_out != NULL);
+  EAF_ASSERT_BLOCK_END();
 
-    end_ptr = buff_in + len_in;
-    out_ptr = buff_out;
-    code_ptr = out_ptr++;
-    code = 1;
+  end_ptr = buff_in + len_in;
+  out_ptr = buff_out;
+  code_ptr = out_ptr++;
+  code = 1;
 
-    while (buff_in < end_ptr)
+  while (buff_in < end_ptr)
+  {
+    if (*buff_in != EMF_COBS_PACKET_DELIMITER)
     {
-        if (*buff_in != EMF_COBS_PACKET_DELIMITER)
-        {
-            *out_ptr++ = *buff_in;
-            code++;
-            if (code == COBS_CODE_MAX)
-            {
-                *code_ptr = code;
-                code_ptr = out_ptr++;
-                code = 1;
-            }
-        }
-        else
-        {
-            *code_ptr = code;
-            code_ptr = out_ptr++;
-            code = 1;
-        }
-
-        buff_in++;
-    }
-
-    *code_ptr = code;
-    *out_ptr++ = EMF_COBS_PACKET_DELIMITER;
-    *len_out = (uint16_t)(out_ptr - buff_out);
-}
-
-bool EMF_cobs_decode(const uint8_t *buff_in, uint16_t len_in,
-                     uint8_t *buff_out, uint16_t *len_out)
-{
-    const uint8_t *in_ptr;
-    const uint8_t *end_ptr;
-    uint8_t *out_ptr;
-    uint8_t code;
-    uint8_t block_bytes;
-    bool delimiter_found;
-
-    EAF_ASSERT_BLOCK_BEGIN();
-    EAF_ASSERT_IN_BLOCK(buff_in != NULL);
-    EAF_ASSERT_IN_BLOCK(buff_out != NULL);
-    EAF_ASSERT_IN_BLOCK(len_out != NULL);
-    EAF_ASSERT_BLOCK_END();
-
-    in_ptr = buff_in;
-    end_ptr = buff_in + len_in;
-    out_ptr = buff_out;
-    delimiter_found = false;
-
-    while (in_ptr < end_ptr)
-    {
-        code = *in_ptr++;
-        if (code == EMF_COBS_PACKET_DELIMITER)
-        {
-            delimiter_found = true;
-            break;
-        }
-        // Safe: code == 0 (EMF_COBS_PACKET_DELIMITER) is handled above
-        block_bytes = code - 1;
-        if ((uint16_t)block_bytes > (uint16_t)(end_ptr - in_ptr))
-        {
-            break; // Invalid input
-        }
-        for (uint8_t i = 0; i < block_bytes; i++)
-        {
-            *out_ptr++ = *in_ptr++;
-        }
-        if ((code < COBS_CODE_MAX) &&
-            (in_ptr < end_ptr) &&
-            (*in_ptr != EMF_COBS_PACKET_DELIMITER))
-        {
-            *out_ptr++ = EMF_COBS_PACKET_DELIMITER;
-        }
-    }
-
-    if (delimiter_found)
-    {
-        *len_out = (uint16_t)(out_ptr - buff_out);
+      *out_ptr++ = *buff_in;
+      code++;
+      if (code == COBS_CODE_MAX)
+      {
+        *code_ptr = code;
+        code_ptr = out_ptr++;
+        code = 1;
+      }
     }
     else
     {
-        *len_out = 0;
+      *code_ptr = code;
+      code_ptr = out_ptr++;
+      code = 1;
     }
 
-    return delimiter_found;
+    buff_in++;
+  }
+
+  *code_ptr = code;
+  *out_ptr++ = EMF_COBS_PACKET_DELIMITER;
+  *len_out = (uint16_t)(out_ptr - buff_out);
+}
+
+bool EMF_cobs_decode(const uint8_t* buff_in,
+                     uint16_t len_in,
+                     uint8_t* buff_out,
+                     uint16_t* len_out)
+{
+  const uint8_t* in_ptr;
+  const uint8_t* end_ptr;
+  uint8_t* out_ptr;
+  uint8_t code;
+  uint8_t block_bytes;
+  bool delimiter_found;
+
+  EAF_ASSERT_BLOCK_BEGIN();
+  EAF_ASSERT_IN_BLOCK(buff_in != NULL);
+  EAF_ASSERT_IN_BLOCK(buff_out != NULL);
+  EAF_ASSERT_IN_BLOCK(len_out != NULL);
+  EAF_ASSERT_BLOCK_END();
+
+  in_ptr = buff_in;
+  end_ptr = buff_in + len_in;
+  out_ptr = buff_out;
+  delimiter_found = false;
+
+  while (in_ptr < end_ptr)
+  {
+    code = *in_ptr++;
+    if (code == EMF_COBS_PACKET_DELIMITER)
+    {
+      delimiter_found = true;
+      break;
+    }
+    // Safe: code == 0 (EMF_COBS_PACKET_DELIMITER) is handled above
+    block_bytes = code - 1;
+    if ((uint16_t)block_bytes > (uint16_t)(end_ptr - in_ptr))
+    {
+      break;  // Invalid input
+    }
+    for (uint8_t i = 0; i < block_bytes; i++)
+    {
+      *out_ptr++ = *in_ptr++;
+    }
+    if ((code < COBS_CODE_MAX) && (in_ptr < end_ptr) &&
+        (*in_ptr != EMF_COBS_PACKET_DELIMITER))
+    {
+      *out_ptr++ = EMF_COBS_PACKET_DELIMITER;
+    }
+  }
+
+  if (delimiter_found)
+  {
+    *len_out = (uint16_t)(out_ptr - buff_out);
+  }
+  else
+  {
+    *len_out = 0;
+  }
+
+  return delimiter_found;
 }

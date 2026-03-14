@@ -72,18 +72,18 @@
 
 EBF_WEAK void EBF_setStdinListener(EBF_stdin_t listener)
 {
-    EMF_UTILS_UNUSED_PARAM(listener);
+  EMF_UTILS_UNUSED_PARAM(listener);
 }
 
-EBF_WEAK void EBF_stdoutWrite(const uint8_t *data, uint16_t len)
+EBF_WEAK void EBF_stdoutWrite(const uint8_t* data, uint16_t len)
 {
-    EMF_UTILS_UNUSED_PARAM(data);
-    EMF_UTILS_UNUSED_PARAM(len);
+  EMF_UTILS_UNUSED_PARAM(data);
+  EMF_UTILS_UNUSED_PARAM(len);
 }
 
 EBF_WEAK bool EBF_stdoutIsReadyToWrite(uint16_t len)
 {
-    EMF_UTILS_UNUSED_PARAM(len);
+  EMF_UTILS_UNUSED_PARAM(len);
 
-    return false;
+  return false;
 }

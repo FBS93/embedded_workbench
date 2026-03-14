@@ -74,8 +74,8 @@ activeObject_t activeObject[ACTIVE_OBJECT_N_TOTAL];
  * @param[in] me Pointer to the activeObject instance.
  * @param[in] e Pointer to the event.
  */
-static EDF_hsm_stateReturn_t initialTransition(activeObject_t *me,
-                                        const EDF_event_t *e);
+static EDF_hsm_stateReturn_t initialTransition(activeObject_t* me,
+                                               const EDF_event_t* e);
 
 /**
  * @brief readyState state of the activeObject HSM.
@@ -83,15 +83,15 @@ static EDF_hsm_stateReturn_t initialTransition(activeObject_t *me,
  * @param[in] me Pointer to the activeObject instance.
  * @param[in] e Pointer to the event.
  */
-static EDF_hsm_stateReturn_t readyState(activeObject_t *me,
-                                 const EDF_event_t *e);
+static EDF_hsm_stateReturn_t readyState(activeObject_t* me,
+                                        const EDF_event_t* e);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static EDF_hsm_stateReturn_t initialTransition(activeObject_t *me,
-                                        const EDF_event_t *e)
+static EDF_hsm_stateReturn_t initialTransition(activeObject_t* me,
+                                               const EDF_event_t* e)
 {
   EMF_UTILS_UNUSED_PARAM(me);
   EMF_UTILS_UNUSED_PARAM(e);
@@ -99,8 +99,8 @@ static EDF_hsm_stateReturn_t initialTransition(activeObject_t *me,
   return EDF_HSM_RET_TRAN(readyState);
 }
 
-static EDF_hsm_stateReturn_t readyState(activeObject_t *me,
-                                 const EDF_event_t *e)
+static EDF_hsm_stateReturn_t readyState(activeObject_t* me,
+                                        const EDF_event_t* e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -145,7 +145,8 @@ void activeObject_init(void)
   EDF_init();
 
   // Init EDF publish and subscribe functionality.
-  EDF_activeObject_pubSubInit(subscriberList, (EDF_event_signal_t)LAST_EVENT_SIGNAL);
+  EDF_activeObject_pubSubInit(subscriberList,
+                              (EDF_event_signal_t)LAST_EVENT_SIGNAL);
 
   /**
    * Subscribes each active object to specific event signals:
@@ -155,18 +156,20 @@ void activeObject_init(void)
   ao_prio = 2;
   for (uint8_t ao_idx = 0; ao_idx < ACTIVE_OBJECT_N_TOTAL; ao_idx++)
   {
-    EDF_activeObject_init(EDF_AO_UPCAST(activeObject[ao_idx]), (EDF_hsm_stateHandler_t)initialTransition);
-    EDF_activeObject_start(EDF_AO_UPCAST(activeObject[ao_idx]),
-                           ao_prio,
-                           NULL, 0, NULL, 0, NULL);
+    EDF_activeObject_init(EDF_AO_UPCAST(activeObject[ao_idx]),
+                          (EDF_hsm_stateHandler_t)initialTransition);
+    EDF_activeObject_start(
+      EDF_AO_UPCAST(activeObject[ao_idx]), ao_prio, NULL, 0, NULL, 0, NULL);
 
     if (ao_idx < (ACTIVE_OBJECT_N_TOTAL - 1))
     {
-      EDF_activeObject_subscribe(EDF_AO_UPCAST(activeObject[ao_idx]), ACTIVE_OBJECT_PRIO_TO_SIGNAL(ao_prio));
+      EDF_activeObject_subscribe(EDF_AO_UPCAST(activeObject[ao_idx]),
+                                 ACTIVE_OBJECT_PRIO_TO_SIGNAL(ao_prio));
     }
     else
     {
-      for (activeObject_eventSignal_t e_sig = S1; e_sig <= LAST_EVENT_SIGNAL; e_sig++)
+      for (activeObject_eventSignal_t e_sig = S1; e_sig <= LAST_EVENT_SIGNAL;
+           e_sig++)
       {
         EDF_activeObject_subscribe(EDF_AO_UPCAST(activeObject[ao_idx]), e_sig);
       }

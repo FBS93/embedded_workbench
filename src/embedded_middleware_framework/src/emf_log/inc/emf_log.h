@@ -113,7 +113,8 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments.
  */
-#define EMF_LOG_ERROR(fmt, ...) EMF_LOG_DISPATCH(LOG_LEVEL_ERROR, fmt, __VA_ARGS__)
+#define EMF_LOG_ERROR(fmt, ...) \
+  EMF_LOG_DISPATCH(LOG_LEVEL_ERROR, fmt, __VA_ARGS__)
 
 /**
  * @brief Logs a warning-level message using EMF_log.
@@ -123,7 +124,8 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments.
  */
-#define EMF_LOG_WARNING(fmt, ...) EMF_LOG_DISPATCH(LOG_LEVEL_WARNING, fmt, __VA_ARGS__)
+#define EMF_LOG_WARNING(fmt, ...) \
+  EMF_LOG_DISPATCH(LOG_LEVEL_WARNING, fmt, __VA_ARGS__)
 
 /**
  * @brief Logs an info-level message using EMF_log.
@@ -133,7 +135,8 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments.
  */
-#define EMF_LOG_INFO(fmt, ...) EMF_LOG_DISPATCH(LOG_LEVEL_INFO, fmt, __VA_ARGS__)
+#define EMF_LOG_INFO(fmt, ...) \
+  EMF_LOG_DISPATCH(LOG_LEVEL_INFO, fmt, __VA_ARGS__)
 
 /**
  * @brief Logs a debug-level message using EMF_log.
@@ -143,7 +146,8 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments.
  */
-#define EMF_LOG_DEBUG(fmt, ...) EMF_LOG_DISPATCH(LOG_LEVEL_DEBUG, fmt, __VA_ARGS__)
+#define EMF_LOG_DEBUG(fmt, ...) \
+  EMF_LOG_DISPATCH(LOG_LEVEL_DEBUG, fmt, __VA_ARGS__)
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS
@@ -189,6 +193,6 @@ void EMF_log_setLevel(EMF_log_level_t log_level);
  * @param[in] fmt Null-terminated format string.
  * @param[in] args Pointer to array of arguments, or NULL.
  */
-void EMF_log(EMF_log_level_t log_level, const char *fmt, const uintptr_t *args);
+void EMF_log(EMF_log_level_t log_level, const char* fmt, const uintptr_t* args);
 
 #endif /* EMF_LOG_H */

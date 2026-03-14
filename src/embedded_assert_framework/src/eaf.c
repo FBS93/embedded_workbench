@@ -63,7 +63,7 @@
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EAF_onError(const char *file, int line, int id)
+void EAF_onError(const char* file, int line, int id)
 {
   EMF_PRINT("Error in file %s, line %i, id %i\n",
             EMF_PRINT_ARG_S(file),

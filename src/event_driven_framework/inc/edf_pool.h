@@ -75,13 +75,14 @@ typedef uint32_t EDF_pool_blockCtr_t;
  */
 typedef struct
 {
-    void **start;                   /**< Pointer to the first block. */
-    void **end;                     /**< Pointer past the last block. */
-    void **free_head;               /**< Head of the free block list. */
-    EDF_pool_blockSize_t block_size; /**< Size of each block in bytes. */
-    EDF_pool_blockCtr_t n_total;    /**< Total number of blocks in the pool. */
-    EDF_pool_blockCtr_t n_free;     /**< Number of free blocks available. */
-    EDF_pool_blockCtr_t n_min;      /**< Minimum number of free blocks ever observed. */
+  void** start;                    /**< Pointer to the first block. */
+  void** end;                      /**< Pointer past the last block. */
+  void** free_head;                /**< Head of the free block list. */
+  EDF_pool_blockSize_t block_size; /**< Size of each block in bytes. */
+  EDF_pool_blockCtr_t n_total;     /**< Total number of blocks in the pool. */
+  EDF_pool_blockCtr_t n_free;      /**< Number of free blocks available. */
+  EDF_pool_blockCtr_t n_min;       /**< Minimum number of free blocks ever
+                                        observed. */
 } EDF_pool_t;
 
 /*******************************************************************************
@@ -97,12 +98,12 @@ typedef struct
  *
  * @note Proper memory alignment of the pool storage is required to ensure safe
  * pointer access. As described in @ref free_list, the first bytes of each block
- * store a pointer to the next free block; if the storage is not properly aligned,
- * this may lead to undefined behavior or hardware faults on some architectures.
- * It is recommended to use @ref EMF_UTILS_MEM_ALIGNED_SLOT or an equivalent
- * alignment-safe definition. This not only guarantees correct pointer alignment,
- * but also ensures that the computed number of blocks matches the ratio of
- * pool_size to block_size as intended.
+ * store a pointer to the next free block; if the storage is not properly
+ * aligned, this may lead to undefined behavior or hardware faults on some
+ * architectures. It is recommended to use @ref EMF_UTILS_MEM_ALIGNED_SLOT or an
+ * equivalent alignment-safe definition. This not only guarantees correct
+ * pointer alignment, but also ensures that the computed number of blocks
+ * matches the ratio of pool_size to block_size as intended.
  *
  * @todo Currently, pools must be initialized in ascending block size order.
  * Future implementations shall allow pools to be initialized in any order.
@@ -111,7 +112,7 @@ typedef struct
  * @param[in] pool_size Total size of pool_storage in bytes.
  * @param[in] block_size Size of each block of the pool in bytes.
  */
-void EDF_pool_init(void *pool_storage,
+void EDF_pool_init(void* pool_storage,
                    uint_fast32_t pool_size,
                    EDF_pool_blockSize_t block_size);
 
@@ -123,7 +124,7 @@ void EDF_pool_init(void *pool_storage,
  * @param[in,out] me Pointer to the pool structure.
  * @return Pointer to the allocated block, or NULL if no free blocks.
  */
-void *EDF_pool_acquire(EDF_pool_t *me);
+void* EDF_pool_acquire(EDF_pool_t* me);
 
 /**
  * @brief Releases a pool block.
@@ -131,7 +132,6 @@ void *EDF_pool_acquire(EDF_pool_t *me);
  * @param[in,out] me Pointer to the pool structure.
  * @param[in] block Pointer to the block to release.
  */
-void EDF_pool_release(EDF_pool_t *me,
-                      void *block);
+void EDF_pool_release(EDF_pool_t* me, void* block);
 
 #endif /* EDF_POOL_H */

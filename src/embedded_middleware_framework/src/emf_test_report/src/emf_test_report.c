@@ -82,7 +82,7 @@ static void printRepeated(char c, uint8_t cnt);
  * @param[in] text Null-terminated string to center.
  * @param[in] fill Character used for padding on both sides.
  */
-static void printCenteredLine(const char *text, char fill);
+static void printCenteredLine(const char* text, char fill);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
@@ -96,7 +96,7 @@ static void printRepeated(char c, uint8_t cnt)
   }
 }
 
-static void printCenteredLine(const char *text, char fill)
+static void printCenteredLine(const char* text, char fill)
 {
   size_t len;
   uint8_t pad;
@@ -118,10 +118,10 @@ static void printCenteredLine(const char *text, char fill)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_testReport_printHeader(const char *frameworkName,
-                                const char *suiteName)
+void EMF_testReport_printHeader(const char* frameworkName,
+                                const char* suiteName)
 {
-  const char *prefix;
+  const char* prefix;
   size_t len;
   uint8_t pad;
 
@@ -149,8 +149,7 @@ void EMF_testReport_printHeader(const char *frameworkName,
   EMF_PRINT("\n");
 }
 
-void EMF_testReport_printTestIntro(uint16_t test_num,
-                                   const char *test_name)
+void EMF_testReport_printTestIntro(uint16_t test_num, const char* test_name)
 {
   EAF_ASSERT(test_name != NULL);
 
@@ -161,39 +160,39 @@ void EMF_testReport_printTestIntro(uint16_t test_num,
 }
 
 void EMF_testReport_printTestResult(EMF_testReport_testResult_t test_result,
-                                    const char *fail_cond,
-                                    const char *fail_file,
+                                    const char* fail_cond,
+                                    const char* fail_file,
                                     int fail_line)
 {
   switch (test_result)
   {
-  case TEST_SKIPPED:
-  {
-    EMF_PRINT(" SKIPPED\n");
-    break;
-  }
-  case TEST_FAILED:
-  {
-    EMF_PRINT(" FAILED --> ");
-    EMF_PRINT("%s", EMF_PRINT_ARG_S(fail_file));
-    EMF_PRINT(":");
-    EMF_PRINT("%i", EMF_PRINT_ARG_I(fail_line));
-    EMF_PRINT(" --> ");
-    EMF_PRINT("VERIFY(");
-    EMF_PRINT("%s", EMF_PRINT_ARG_S(fail_cond));
-    EMF_PRINT(")\n");
-    break;
-  }
-  case TEST_PASSED:
-  {
-    EMF_PRINT(" PASSED\n");
-    break;
-  }
-  default:
-  {
-    EAF_ERROR();
-    break;
-  }
+    case TEST_SKIPPED:
+    {
+      EMF_PRINT(" SKIPPED\n");
+      break;
+    }
+    case TEST_FAILED:
+    {
+      EMF_PRINT(" FAILED --> ");
+      EMF_PRINT("%s", EMF_PRINT_ARG_S(fail_file));
+      EMF_PRINT(":");
+      EMF_PRINT("%i", EMF_PRINT_ARG_I(fail_line));
+      EMF_PRINT(" --> ");
+      EMF_PRINT("VERIFY(");
+      EMF_PRINT("%s", EMF_PRINT_ARG_S(fail_cond));
+      EMF_PRINT(")\n");
+      break;
+    }
+    case TEST_PASSED:
+    {
+      EMF_PRINT(" PASSED\n");
+      break;
+    }
+    default:
+    {
+      EAF_ERROR();
+      break;
+    }
   }
 }
 

@@ -67,8 +67,8 @@ typedef enum
  * @param[in] frameworkName Name of the test framework.
  * @param[in] suiteName Name of the test suite.
  */
-void EMF_testReport_printHeader(const char *frameworkName,
-                                const char *suiteName);
+void EMF_testReport_printHeader(const char* frameworkName,
+                                const char* suiteName);
 
 /**
  * @brief Prints the test number and name at the start of test execution.
@@ -76,8 +76,7 @@ void EMF_testReport_printHeader(const char *frameworkName,
  * @param[in] test_num Number of the test.
  * @param[in] test_name Name of the test.
  */
-void EMF_testReport_printTestIntro(uint16_t test_num,
-                                   const char *test_name);
+void EMF_testReport_printTestIntro(uint16_t test_num, const char* test_name);
 
 /**
  * @brief Prints the result of a test.
@@ -88,8 +87,8 @@ void EMF_testReport_printTestIntro(uint16_t test_num,
  * @param[in] fail_line Line number of the failure.
  */
 void EMF_testReport_printTestResult(EMF_testReport_testResult_t test_result,
-                                    const char *fail_cond,
-                                    const char *fail_file,
+                                    const char* fail_cond,
+                                    const char* fail_file,
                                     int fail_line);
 
 /**

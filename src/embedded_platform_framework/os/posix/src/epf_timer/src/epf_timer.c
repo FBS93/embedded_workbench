@@ -106,7 +106,7 @@ static uint64_t ticks_to_ns(uint64_t ticks);
 /**
  * @brief Ticker thread managing all armed timers.
  */
-static void *ticker_thread(void *arg);
+static void* ticker_thread(void* arg);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
@@ -122,29 +122,30 @@ static uint64_t ticks_to_ns(uint64_t ticks)
   return ticks * TICK_NS;
 }
 
-static void *ticker_thread(void *arg)
+static void* ticker_thread(void* arg)
 {
-  EPF_timer_entry_t **t_link;
-  EPF_timer_entry_t *t;
+  EPF_timer_entry_t** t_link;
+  EPF_timer_entry_t* t;
   struct timespec next_tick;
 
-  EPF_timer_t *me = (EPF_timer_t *)arg;
+  EPF_timer_t* me = (EPF_timer_t*)arg;
 
   /**
    * @note The implementation uses a pointer-to-pointer (`EPF_timer_t **t_link`)
    * to avoid special-casing the first element of the timers list:
    * - At the start, `t_link = &me->armed_head`.
-   * - As we traverse the armed timers list, `t_link` is updated to point to the `next` field of the current node:
-   * `t_link = &t->next`, where `t = *t_link`.
+   * - As we traverse the armed timers list, `t_link` is updated to point to the
+   * `next` field of the current node: `t_link = &t->next`, where `t = *t_link`.
    * - Removing a node is always `*t_link = t->next;`
    * (works for both the first node and all subsequent nodes).
    *
    * Attaching freshly armed timers (`me->new_head`) is also unified:
-   * - When `*t_link == NULL` and `me->new_head != NULL`,
-   * simply do `*t_link = me->new_head;`
-   * (this attaches the new timer list either at the beginning of me->armed_head or after its last node).
+   * - When `*t_link == NULL` and `me->new_head != NULL`, simply do
+   * `*t_link = me->new_head;` (this attaches the new timer list either at the
+   * beginning of me->armed_head or after its last node).
    *
-   * This way the same code handles head removal, internal removals and attaching new timers without branching on special cases.
+   * This way the same code handles head removal, internal removals and
+   * attaching new timers without branching on special cases.
    */
 
   // Align next_tick to the nearest lower tick boundary before starting the loop
@@ -171,7 +172,7 @@ static void *ticker_thread(void *arg)
         // No more timers in the armed list.
         if (me->new_head == NULL)
         {
-          break; // No more timers in the new list.
+          break;  // No more timers in the new list.
         }
 
         /**
@@ -181,13 +182,13 @@ static void *ticker_thread(void *arg)
          */
         *t_link = me->new_head;
         me->new_head = NULL;
-        t = *t_link; // Continue from the newly attached list.
+        t = *t_link;  // Continue from the newly attached list.
       }
 
       if (t->ctr == 0U)
       {
         // "t" scheduled for removal.
-        *t_link = t->next; // Unlink.
+        *t_link = t->next;  // Unlink.
         t->is_linked = false;
         // Do not advance t_link, because we just unlinked "t".
 
@@ -197,13 +198,13 @@ static void *ticker_thread(void *arg)
       {
         if (t->period != 0U)
         {
-          t->ctr = t->period; // Periodic --> reload counter.
-          t_link = &t->next;  // Advance t_link to the next node.
+          t->ctr = t->period;  // Periodic --> reload counter.
+          t_link = &t->next;   // Advance t_link to the next node.
         }
         else
         {
-          t->ctr = 0U;       // One-shot --> disarm.
-          *t_link = t->next; // Unlink.
+          t->ctr = 0U;        // One-shot --> disarm.
+          *t_link = t->next;  // Unlink.
           t->is_linked = false;
           // Do not advance t_link, because we just unlinked "t".
         }
@@ -215,8 +216,8 @@ static void *ticker_thread(void *arg)
       }
       else
       {
-        t->ctr--;          // Normal countdown.
-        t_link = &t->next; // Advance t_link to the next node.
+        t->ctr--;           // Normal countdown.
+        t_link = &t->next;  // Advance t_link to the next node.
 
         (void)pthread_mutex_unlock(&me->mutex);
       }
@@ -238,7 +239,7 @@ static void *ticker_thread(void *arg)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EPF_timer_init(EPF_timer_t *me, uint8_t prio)
+void EPF_timer_init(EPF_timer_t* me, uint8_t prio)
 {
   pthread_attr_t attr;
   int err;
@@ -287,7 +288,7 @@ void EPF_timer_init(EPF_timer_t *me, uint8_t prio)
   (void)pthread_attr_destroy(&attr);
 }
 
-void EPF_timer_deinit(EPF_timer_t *me)
+void EPF_timer_deinit(EPF_timer_t* me)
 {
   // Skip only if the ticker thread has not been created.
   if (me->ticker_tid != 0)
@@ -309,8 +310,7 @@ void EPF_timer_deinit(EPF_timer_t *me)
   }
 }
 
-void EPF_timeEvent_new(EPF_timer_entry_t *timer_entry,
-                       EPF_timer_callback_t cb)
+void EPF_timeEvent_new(EPF_timer_entry_t* timer_entry, EPF_timer_callback_t cb)
 {
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(timer_entry != NULL);
@@ -325,8 +325,8 @@ void EPF_timeEvent_new(EPF_timer_entry_t *timer_entry,
   timer_entry->is_linked = false;
 }
 
-void EPF_timer_arm(EPF_timer_t *me,
-                   EPF_timer_entry_t *timer_entry,
+void EPF_timer_arm(EPF_timer_t* me,
+                   EPF_timer_entry_t* timer_entry,
                    uint64_t start,
                    uint64_t period)
 {
@@ -350,7 +350,7 @@ void EPF_timer_arm(EPF_timer_t *me,
    */
   if (!timer_entry->is_linked)
   {
-    timer_entry->is_linked = true; // Mark as linked.
+    timer_entry->is_linked = true;  // Mark as linked.
 
     // Link into the temporary new list. See note @ref timer_new_list.
     timer_entry->next = me->new_head;
@@ -360,7 +360,7 @@ void EPF_timer_arm(EPF_timer_t *me,
   (void)pthread_mutex_unlock(&me->mutex);
 }
 
-bool EPF_timer_disarm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry)
+bool EPF_timer_disarm(EPF_timer_t* me, EPF_timer_entry_t* timer_entry)
 {
   bool was_armed;
 
@@ -375,7 +375,7 @@ bool EPF_timer_disarm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry)
   if (timer_entry->ctr != 0U)
   {
     was_armed = true;
-    timer_entry->ctr = 0U; // Schedule removal from the list.
+    timer_entry->ctr = 0U;  // Schedule removal from the list.
   }
   else
   {
@@ -388,7 +388,9 @@ bool EPF_timer_disarm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry)
   return was_armed;
 }
 
-bool EPF_timer_rearm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry, uint64_t time)
+bool EPF_timer_rearm(EPF_timer_t* me,
+                     EPF_timer_entry_t* timer_entry,
+                     uint64_t time)
 {
   bool was_armed;
 
@@ -413,7 +415,7 @@ bool EPF_timer_rearm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry, uint64_t t
      */
     if (!timer_entry->is_linked)
     {
-      timer_entry->is_linked = true; // Mark as linked.
+      timer_entry->is_linked = true;  // Mark as linked.
 
       // Link into the temporary new list. See note @ref timer_new_list.
       timer_entry->next = me->new_head;
@@ -434,7 +436,8 @@ bool EPF_timer_rearm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry, uint64_t t
   return was_armed;
 }
 
-uint64_t EPF_timer_currentCounter(EPF_timer_t *me, EPF_timer_entry_t *timer_entry)
+uint64_t EPF_timer_currentCounter(EPF_timer_t* me,
+                                  EPF_timer_entry_t* timer_entry)
 {
   uint64_t ctr;
 

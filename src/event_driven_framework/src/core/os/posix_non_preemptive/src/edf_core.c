@@ -101,14 +101,14 @@ static void sigIntHandler(int signum);
 
 static void sigIntHandler(int signum)
 {
-    /**
-     * Unused because we have only registered SIGINT, so the value will
-     * always be SIGINT (2), which corresponds to Ctrl+C.
-     */
-    EMF_UTILS_UNUSED_PARAM(signum);
+  /**
+   * Unused because we have only registered SIGINT, so the value will
+   * always be SIGINT (2), which corresponds to Ctrl+C.
+   */
+  EMF_UTILS_UNUSED_PARAM(signum);
 
-    EDF_onShutdown(); // User-specific shutdown callback.
-    exit(-1);
+  EDF_onShutdown();  // User-specific shutdown callback.
+  exit(-1);
 }
 
 /*******************************************************************************
@@ -117,128 +117,135 @@ static void sigIntHandler(int signum)
 
 void EDF_init(void)
 {
-    struct sigaction sig_act;
+  struct sigaction sig_act;
 
-    // Clear EDF_core instance.
-    EMF_utils_clear(&EDF_core, sizeof(EDF_core));
+  // Clear EDF_core instance.
+  EMF_utils_clear(&EDF_core, sizeof(EDF_core));
 
-    // Initialize EDF framework.
-    EDF_framework_init();
+  // Initialize EDF framework.
+  EDF_framework_init();
 
-    // set SIGINT (Ctrl-C) signal callback
-    (void)memset(&sig_act, 0, sizeof(sig_act));
-    sig_act.sa_handler = &sigIntHandler;
-    (void)sigaction(SIGINT, &sig_act, NULL);
+  // set SIGINT (Ctrl-C) signal callback
+  (void)memset(&sig_act, 0, sizeof(sig_act));
+  sig_act.sa_handler = &sigIntHandler;
+  (void)sigaction(SIGINT, &sig_act, NULL);
 }
 
 int EDF_run(void)
 {
-    uint8_t prio;
-    uint8_t last_prio;
-    EDF_activeObject_t *ao;
-    EDF_event_t *e;
+  uint8_t prio;
+  uint8_t last_prio;
+  EDF_activeObject_t* ao;
+  EDF_event_t* e;
 
-    EDF_onStartup(); // User-specific startup callback.
+  EDF_onStartup();  // User-specific startup callback.
 
-    EBF_CRITICAL_SECTION_ENTRY();
+  EBF_CRITICAL_SECTION_ENTRY();
 
-    last_prio = 0;
-    isRunning = true;
-    while (isRunning)
+  last_prio = 0;
+  isRunning = true;
+  while (isRunning)
+  {
+    // Find new highest-prio AO ready to run.
+    prio = EMF_bitmask_findMax(EDF_core.ready_set.bitmask,
+                               sizeof(EDF_core.ready_set));
+
+    if (prio > 0)
     {
-        // Find new highest-prio AO ready to run.
-        prio = EMF_bitmask_findMax(EDF_core.ready_set.bitmask, sizeof(EDF_core.ready_set));
+      ao = EDF_framework.ao_registry[prio];
 
-        if (prio > 0)
-        {
-            ao = EDF_framework.ao_registry[prio];
+      if (last_prio > 0)
+      {
+        EDF_onContextSwitch(EDF_framework.ao_registry[last_prio], ao);
+      }
+      else
+      {
+        EDF_onContextSwitch(NULL, ao);
+      }
 
-            if (last_prio > 0)
-            {
-                EDF_onContextSwitch(EDF_framework.ao_registry[last_prio], ao);
-            }
-            else
-            {
-                EDF_onContextSwitch(NULL, ao);
-            }
+      last_prio = prio;  // Update last priority.
 
-            last_prio = prio; // Update last priority.
+      EBF_CRITICAL_SECTION_EXIT();
 
-            EBF_CRITICAL_SECTION_EXIT();
+      // Typecast to discard const qualifier.
+      e = (EDF_event_t*)EDF_activeObject_get(ao);
 
-            // Get event for the AO.
-            e = (EDF_event_t *)EDF_activeObject_get(ao); // Typecast to discard const qualifier.
+      // Dispatch event.
+      EDF_hsm_dispatch(&ao->super, e);
+      EDF_event_gc(e);
 
-            // Dispatch event.
-            EDF_hsm_dispatch(&ao->super, e);
-            EDF_event_gc(e);
+      EBF_CRITICAL_SECTION_ENTRY();
 
-            EBF_CRITICAL_SECTION_ENTRY();
-
-            // Empty queue?
-            if (ao->e_queue.front_e == NULL)
-            {
-                EMF_bitmask_clearBit(EDF_core.ready_set.bitmask, prio);
-            }
-        }
-        else
-        {
-            // No active object ready to run --> idle.
-            if (last_prio > 0)
-            {
-                EDF_onContextSwitch(EDF_framework.ao_registry[last_prio], NULL);
-            }
-            else
-            {
-                EDF_onContextSwitch(NULL, NULL);
-            }
-
-            last_prio = 0; // Update last priority.
-
-            EBF_CRITICAL_SECTION_EXIT();
-
-            EDF_onIdle(); // User-specific idle callback.
-
-            EBF_CRITICAL_SECTION_ENTRY();
-        }
+      // Empty queue?
+      if (ao->e_queue.front_e == NULL)
+      {
+        EMF_bitmask_clearBit(EDF_core.ready_set.bitmask, prio);
+      }
     }
+    else
+    {
+      // No active object ready to run --> idle.
+      if (last_prio > 0)
+      {
+        EDF_onContextSwitch(EDF_framework.ao_registry[last_prio], NULL);
+      }
+      else
+      {
+        EDF_onContextSwitch(NULL, NULL);
+      }
 
-    EDF_onShutdown(); // User-specific shutdown callback.
+      last_prio = 0;  // Update last priority.
 
-    return 0; // Return success
+      EBF_CRITICAL_SECTION_EXIT();
+
+      EDF_onIdle();  // User-specific idle callback.
+
+      EBF_CRITICAL_SECTION_ENTRY();
+    }
+  }
+
+  EDF_onShutdown();  // User-specific shutdown callback.
+
+  return 0;  // Return success
 }
 
 void EDF_stop(void)
 {
-    isRunning = false; // Terminate the main EDF thread
+  isRunning = false;  // Terminate the main EDF thread
 }
 
-void EDF_activeObject_start(EDF_activeObject_t *me,
+void EDF_activeObject_start(EDF_activeObject_t* me,
                             EDF_activeObject_prio_t prio,
-                            EDF_event_ptr *q_storage, EDF_eventQueue_ctr_t q_len,
-                            void *stack_storage, uint_fast16_t stack_size,
-                            const EDF_event_t *e)
+                            EDF_event_ptr* q_storage,
+                            EDF_eventQueue_ctr_t q_len,
+                            void* stack_storage,
+                            uint_fast16_t stack_size,
+                            const EDF_event_t* e)
 {
-    EMF_UTILS_UNUSED_PARAM(stack_storage); // Not needed in this core.
-    EMF_UTILS_UNUSED_PARAM(stack_size);    // Not needed in this core.
+  EMF_UTILS_UNUSED_PARAM(stack_storage);  // Not needed in this core.
+  EMF_UTILS_UNUSED_PARAM(stack_size);     // Not needed in this core.
 
-    EAF_ASSERT(me != NULL);
+  EAF_ASSERT(me != NULL);
 
-    me->prio = (uint8_t)(prio & 0xFFU); // Base priority.
-    me->pthre = (uint8_t)(prio >> 8U);  // preemption-threshold
+  me->prio = (uint8_t)(prio & 0xFFU);  // Base priority.
+  me->pthre = (uint8_t)(prio >> 8U);   // preemption-threshold
 
-    EDF_activeObject_register(me);
-    EDF_eventQueue_init(&me->e_queue, q_storage, q_len);
-    EDF_hsm_start(&me->super, e); // Execute top-most initial transition of the HSM.
+  EDF_activeObject_register(me);
+  EDF_eventQueue_init(&me->e_queue, q_storage, q_len);
+
+  // Execute top-most initial transition of the HSM.
+  EDF_hsm_start(&me->super, e);
 }
 
-void EDF_activeObject_setAttr(EDF_activeObject_t *me, uint32_t attr1, const void *attr2)
+void EDF_activeObject_setAttr(EDF_activeObject_t* me,
+                              uint32_t attr1,
+                              const void* attr2)
 {
-    EMF_UTILS_UNUSED_PARAM(me);
-    EMF_UTILS_UNUSED_PARAM(attr1);
-    EMF_UTILS_UNUSED_PARAM(attr2);
+  EMF_UTILS_UNUSED_PARAM(me);
+  EMF_UTILS_UNUSED_PARAM(attr1);
+  EMF_UTILS_UNUSED_PARAM(attr2);
 
-    // Not used.
+  // Not used.
 }
 
 EBF_WEAK void EDF_onStartup(void)
@@ -249,10 +256,11 @@ EBF_WEAK void EDF_onShutdown(void)
 {
 }
 
-EBF_WEAK void EDF_onContextSwitch(EDF_activeObject_t *prev, EDF_activeObject_t *next)
+EBF_WEAK void EDF_onContextSwitch(EDF_activeObject_t* prev,
+                                  EDF_activeObject_t* next)
 {
-    EMF_UTILS_UNUSED_PARAM(prev);
-    EMF_UTILS_UNUSED_PARAM(next);
+  EMF_UTILS_UNUSED_PARAM(prev);
+  EMF_UTILS_UNUSED_PARAM(next);
 }
 
 EBF_WEAK void EDF_onIdle(void)

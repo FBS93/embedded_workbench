@@ -70,7 +70,7 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * @param[in] offset Offset to add.
  * @return Wrapped index.
  */
-static uint32_t advanceIndex(const EMF_byteFifo_handler_t *handler,
+static uint32_t advanceIndex(const EMF_byteFifo_handler_t* handler,
                              uint32_t idx,
                              uint32_t offset);
 
@@ -82,9 +82,9 @@ static uint32_t advanceIndex(const EMF_byteFifo_handler_t *handler,
  * @param[out] data Destination buffer.
  * @param[in] len Number of bytes to read.
  */
-static void readBytes(const EMF_byteFifo_handler_t *handler,
+static void readBytes(const EMF_byteFifo_handler_t* handler,
                       uint32_t start_index,
-                      uint8_t *data,
+                      uint8_t* data,
                       uint32_t len);
 
 /**
@@ -95,56 +95,62 @@ static void readBytes(const EMF_byteFifo_handler_t *handler,
  * @param[in] data Source buffer.
  * @param[in] len Number of bytes to write.
  */
-static void writeBytes(EMF_byteFifo_handler_t *handler,
+static void writeBytes(EMF_byteFifo_handler_t* handler,
                        uint32_t start_index,
-                       const uint8_t *data,
+                       const uint8_t* data,
                        uint32_t len);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static uint32_t advanceIndex(const EMF_byteFifo_handler_t *handler,
+static uint32_t advanceIndex(const EMF_byteFifo_handler_t* handler,
                              uint32_t idx,
-                             uint32_t offset) {
+                             uint32_t offset)
+{
   EAF_ASSERT(handler != NULL);
   EAF_ASSERT(handler->size > 0U);
 
   idx += offset;
-  if (idx >= handler->size) {
+  if (idx >= handler->size)
+  {
     idx %= handler->size;
   }
 
   return idx;
 }
 
-static void readBytes(const EMF_byteFifo_handler_t *handler,
+static void readBytes(const EMF_byteFifo_handler_t* handler,
                       uint32_t start_index,
-                      uint8_t *data,
-                      uint32_t len) {
+                      uint8_t* data,
+                      uint32_t len)
+{
   uint32_t idx;
 
   EAF_ASSERT(handler != NULL);
   EAF_ASSERT((data != NULL) || (len == 0U));
 
   idx = start_index;
-  for (uint32_t i = 0U; i < len; ++i) {
+  for (uint32_t i = 0U; i < len; ++i)
+  {
     data[i] = handler->storage[idx];
     idx = advanceIndex(handler, idx, 1U);
   }
 }
 
-static void writeBytes(EMF_byteFifo_handler_t *handler,
+static void writeBytes(EMF_byteFifo_handler_t* handler,
                        uint32_t start_index,
-                       const uint8_t *data,
-                       uint32_t len) {
+                       const uint8_t* data,
+                       uint32_t len)
+{
   uint32_t idx;
 
   EAF_ASSERT(handler != NULL);
   EAF_ASSERT((data != NULL) || (len == 0U));
 
   idx = start_index;
-  for (uint32_t i = 0U; i < len; ++i) {
+  for (uint32_t i = 0U; i < len; ++i)
+  {
     handler->storage[idx] = data[i];
     idx = advanceIndex(handler, idx, 1U);
   }
@@ -154,9 +160,10 @@ static void writeBytes(EMF_byteFifo_handler_t *handler,
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_byteFifo_init(EMF_byteFifo_handler_t *handler,
+void EMF_byteFifo_init(EMF_byteFifo_handler_t* handler,
                        uint32_t size,
-                       uint8_t *storage) {
+                       uint8_t* storage)
+{
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
   EAF_ASSERT_IN_BLOCK(size > 0U);
@@ -170,9 +177,10 @@ void EMF_byteFifo_init(EMF_byteFifo_handler_t *handler,
   handler->used = 0U;
 }
 
-void EMF_byteFifo_push(EMF_byteFifo_handler_t *handler,
-                       const uint8_t *data,
-                       uint32_t len) {
+void EMF_byteFifo_push(EMF_byteFifo_handler_t* handler,
+                       const uint8_t* data,
+                       uint32_t len)
+{
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
   EAF_ASSERT_IN_BLOCK((data != NULL) || (len == 0U));
@@ -184,9 +192,10 @@ void EMF_byteFifo_push(EMF_byteFifo_handler_t *handler,
   handler->used += len;
 }
 
-void EMF_byteFifo_pop(EMF_byteFifo_handler_t *handler,
-                      uint8_t *data,
-                      uint32_t len) {
+void EMF_byteFifo_pop(EMF_byteFifo_handler_t* handler,
+                      uint8_t* data,
+                      uint32_t len)
+{
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
   EAF_ASSERT_IN_BLOCK((data != NULL) || (len == 0U));
@@ -198,16 +207,18 @@ void EMF_byteFifo_pop(EMF_byteFifo_handler_t *handler,
   handler->used -= len;
 }
 
-void EMF_byteFifo_peek(const EMF_byteFifo_handler_t *handler,
-                       uint8_t *data,
-                       uint32_t len) {
+void EMF_byteFifo_peek(const EMF_byteFifo_handler_t* handler,
+                       uint8_t* data,
+                       uint32_t len)
+{
   EMF_byteFifo_peekAt(handler, 0U, data, len);
 }
 
-void EMF_byteFifo_peekAt(const EMF_byteFifo_handler_t *handler,
+void EMF_byteFifo_peekAt(const EMF_byteFifo_handler_t* handler,
                          uint32_t offset,
-                         uint8_t *data,
-                         uint32_t len) {
+                         uint8_t* data,
+                         uint32_t len)
+{
   uint32_t start_index;
 
   EAF_ASSERT_BLOCK_BEGIN();
@@ -221,8 +232,8 @@ void EMF_byteFifo_peekAt(const EMF_byteFifo_handler_t *handler,
   readBytes(handler, start_index, data, len);
 }
 
-void EMF_byteFifo_drop(EMF_byteFifo_handler_t *handler,
-                       uint32_t len) {
+void EMF_byteFifo_drop(EMF_byteFifo_handler_t* handler, uint32_t len)
+{
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
   EAF_ASSERT_IN_BLOCK(len <= EMF_byteFifo_getUsed(handler));
@@ -232,7 +243,8 @@ void EMF_byteFifo_drop(EMF_byteFifo_handler_t *handler,
   handler->used -= len;
 }
 
-void EMF_byteFifo_flush(EMF_byteFifo_handler_t *handler) {
+void EMF_byteFifo_flush(EMF_byteFifo_handler_t* handler)
+{
   EAF_ASSERT(handler != NULL);
 
   handler->head = 0U;
@@ -240,22 +252,26 @@ void EMF_byteFifo_flush(EMF_byteFifo_handler_t *handler) {
   handler->used = 0U;
 }
 
-uint32_t EMF_byteFifo_getUsed(const EMF_byteFifo_handler_t *handler) {
+uint32_t EMF_byteFifo_getUsed(const EMF_byteFifo_handler_t* handler)
+{
   EAF_ASSERT(handler != NULL);
   return handler->used;
 }
 
-uint32_t EMF_byteFifo_getFree(const EMF_byteFifo_handler_t *handler) {
+uint32_t EMF_byteFifo_getFree(const EMF_byteFifo_handler_t* handler)
+{
   EAF_ASSERT(handler != NULL);
   return (uint32_t)(handler->size - handler->used);
 }
 
-bool EMF_byteFifo_isEmpty(const EMF_byteFifo_handler_t *handler) {
+bool EMF_byteFifo_isEmpty(const EMF_byteFifo_handler_t* handler)
+{
   EAF_ASSERT(handler != NULL);
   return (handler->used == 0U);
 }
 
-bool EMF_byteFifo_isFull(const EMF_byteFifo_handler_t *handler) {
+bool EMF_byteFifo_isFull(const EMF_byteFifo_handler_t* handler)
+{
   EAF_ASSERT(handler != NULL);
   return (handler->used == handler->size);
 }

@@ -137,6 +137,7 @@ EDF_TEST_CASE_VERIFY(one_shot_timer, e)
   EDF_TEST_VERIFY(timeMgr.one_shot_100ms_cnt == 1U);
 }
 
-EDF_TEST_SUITE(
-    EDF_TEST_RUN(periodic_timers),
-    EDF_TEST_RUN(one_shot_timer))
+// clang-format off
+EDF_TEST_SUITE(EDF_TEST_RUN(periodic_timers),
+               EDF_TEST_RUN(one_shot_timer))
+// clang-format on

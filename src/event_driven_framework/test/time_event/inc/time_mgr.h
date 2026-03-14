@@ -67,10 +67,14 @@ typedef struct
 {
   EDF_activeObject_t super;                  /**< Base type. */
   EDF_event_ptr event_buff[EVENT_BUFF_SIZE]; /**< Event buffer. */
-  uint32_t periodic_5ms_cnt;                 /**< Counter of periodic 5ms time event expirations. */
-  uint32_t periodic_100ms_cnt;               /**< Counter of periodic 100ms time event expirations. */
-  uint32_t periodic_5ms_100ms_cnt;           /**< Counter of periodic 5ms-100ms time event expirations. */
-  uint32_t one_shot_100ms_cnt;               /**< Counter of one-shot 100ms time event expirations. */
+  uint32_t periodic_5ms_cnt;       /**< Counter of periodic 5ms time event
+                                        expirations. */
+  uint32_t periodic_100ms_cnt;     /**< Counter of periodic 100ms time event
+                                        expirations. */
+  uint32_t periodic_5ms_100ms_cnt; /**< Counter of periodic 5ms-100ms time event
+                                        expirations. */
+  uint32_t one_shot_100ms_cnt;     /**< Counter of one-shot 100ms time event
+                                        expirations. */
 } timeMgr_t;
 
 /**
@@ -78,12 +82,13 @@ typedef struct
  */
 typedef enum
 {
-  PERIODIC_TIMER_5_MS = EDF_HSM_USER_SIGNAL, /**< Periodic 5ms time event signal. */
-  PERIODIC_TIMER_100_MS,                     /**< Periodic 100ms time event signal. */
-  PERIODIC_TIMER_5_MS_100_MS,                /**< Periodic 5ms-100ms time event signal. */
-  ONE_SHOT_TIMER_100_MS,                     /**< One-shot 100ms time event signal. */
-  VERIFY,                                    /**< Verification event. */
-  LAST_EVENT_SIGNAL,                         /**< Reference for the last valid signal. */
+  PERIODIC_TIMER_5_MS = EDF_HSM_USER_SIGNAL, /**< Periodic 5ms time event
+                                                  signal. */
+  PERIODIC_TIMER_100_MS,      /**< Periodic 100ms time event signal. */
+  PERIODIC_TIMER_5_MS_100_MS, /**< Periodic 5ms-100ms time event signal. */
+  ONE_SHOT_TIMER_100_MS,      /**< One-shot 100ms time event signal. */
+  VERIFY,                     /**< Verification event. */
+  LAST_EVENT_SIGNAL,          /**< Reference for the last valid signal. */
 } timeMgr_eventSignal_t;
 
 /*******************************************************************************

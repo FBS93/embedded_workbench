@@ -106,7 +106,8 @@ EDF_TEST_CASE_VERIFY(signal_1, e)
   success = false;
   for (uint8_t ao_idx = 0; ao_idx < (ACTIVE_OBJECT_N_TOTAL - 1); ao_idx++)
   {
-    if (ACTIVE_OBJECT_PRIO_TO_SIGNAL(EDF_AO_UPCAST(activeObject[ao_idx])->prio) == e->sig)
+    if (ACTIVE_OBJECT_PRIO_TO_SIGNAL(
+          EDF_AO_UPCAST(activeObject[ao_idx])->prio) == e->sig)
     {
       EDF_TEST_VERIFY(activeObject[ao_idx].event_received);
       success = true;
@@ -137,7 +138,8 @@ EDF_TEST_CASE_VERIFY(signal_2, e)
   success = false;
   for (uint8_t ao_idx = 0; ao_idx < (ACTIVE_OBJECT_N_TOTAL - 1); ao_idx++)
   {
-    if (ACTIVE_OBJECT_PRIO_TO_SIGNAL(EDF_AO_UPCAST(activeObject[ao_idx])->prio) == e->sig)
+    if (ACTIVE_OBJECT_PRIO_TO_SIGNAL(
+          EDF_AO_UPCAST(activeObject[ao_idx])->prio) == e->sig)
     {
       EDF_TEST_VERIFY(activeObject[ao_idx].event_received);
       success = true;
@@ -168,7 +170,8 @@ EDF_TEST_CASE_VERIFY(signal_3, e)
   success = false;
   for (uint8_t ao_idx = 0; ao_idx < (ACTIVE_OBJECT_N_TOTAL - 1); ao_idx++)
   {
-    if (ACTIVE_OBJECT_PRIO_TO_SIGNAL(EDF_AO_UPCAST(activeObject[ao_idx])->prio) == e->sig)
+    if (ACTIVE_OBJECT_PRIO_TO_SIGNAL(
+          EDF_AO_UPCAST(activeObject[ao_idx])->prio) == e->sig)
     {
       EDF_TEST_VERIFY(activeObject[ao_idx].event_received);
       success = true;
@@ -193,7 +196,10 @@ EDF_TEST_CASE_VERIFY(last_signal, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  // Check that any active object except the last is subscribed to LAST_EVENT_SIGNAL.
+  /**
+   * Check that any active object except the last is subscribed to
+   * LAST_EVENT_SIGNAL.
+   */
   for (uint8_t ao_idx = 0; ao_idx < (ACTIVE_OBJECT_N_TOTAL - 1); ao_idx++)
   {
     EDF_TEST_VERIFY(!activeObject[ao_idx].event_received);
@@ -201,8 +207,7 @@ EDF_TEST_CASE_VERIFY(last_signal, e)
   EDF_TEST_VERIFY(activeObject[ACTIVE_OBJECT_N_TOTAL - 1].event_received);
 }
 
-EDF_TEST_SUITE(
-    EDF_TEST_RUN(signal_1),
-    EDF_TEST_RUN(signal_2),
-    EDF_TEST_RUN(signal_3),
-    EDF_TEST_RUN(last_signal))
+EDF_TEST_SUITE(EDF_TEST_RUN(signal_1),
+               EDF_TEST_RUN(signal_2),
+               EDF_TEST_RUN(signal_3),
+               EDF_TEST_RUN(last_signal))

@@ -94,7 +94,7 @@ static ETF_t ETF;
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-bool ETF_test(const char *title, bool execute)
+bool ETF_test(const char* title, bool execute)
 {
   EAF_ASSERT(title != NULL);
 
@@ -124,7 +124,7 @@ bool ETF_test(const char *title, bool execute)
   return execute;
 }
 
-void ETF_fail(const char *cond, const char *file, int line)
+void ETF_fail(const char* cond, const char* file, int line)
 {
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(cond != NULL);
@@ -134,7 +134,7 @@ void ETF_fail(const char *cond, const char *file, int line)
   EMF_testReport_printTestResult(TEST_FAILED, cond, file, line);
   EMF_testReport_printSummary(ETF.test_cnt, ETF.skip_cnt, 1);
 
-  ETF_onExit(-1); // Failure
+  ETF_onExit(-1);  // Failure
 
   // Halt in case ETF_onExit() returns unexpectedly
   while (true)
@@ -183,5 +183,5 @@ int main(void)
 
   EMF_testReport_printSummary(ETF.test_cnt, ETF.skip_cnt, 0);
 
-  ETF_onExit(0); // Success
+  ETF_onExit(0);  // Success
 }

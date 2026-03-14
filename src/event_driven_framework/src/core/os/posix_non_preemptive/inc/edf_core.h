@@ -82,7 +82,7 @@
  * @param[in,out] me Active object instance.
  */
 #define EDF_CORE_NOTIFY_EVENT(me) \
-    EMF_bitmask_setBit(EDF_core.ready_set.bitmask, (me)->prio);
+  EMF_bitmask_setBit(EDF_core.ready_set.bitmask, (me)->prio);
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS
@@ -93,7 +93,8 @@
  */
 typedef struct
 {
-    EDF_activeObject_bitmask_t ready_set; /**< Bitmask of active objects ready to run. */
+  EDF_activeObject_bitmask_t ready_set; /**< Bitmask of active objects ready to
+                                             run. */
 } EDF_core_t;
 
 /*******************************************************************************

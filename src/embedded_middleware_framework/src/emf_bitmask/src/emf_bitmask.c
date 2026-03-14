@@ -71,7 +71,7 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_bitmask_clearAll(uint8_t *bitmask, uint8_t len)
+void EMF_bitmask_clearAll(uint8_t* bitmask, uint8_t len)
 {
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(bitmask != NULL);
@@ -84,7 +84,7 @@ void EMF_bitmask_clearAll(uint8_t *bitmask, uint8_t len)
   }
 }
 
-bool EMF_bitmask_isAnySet(const uint8_t *bitmask, uint8_t len)
+bool EMF_bitmask_isAnySet(const uint8_t* bitmask, uint8_t len)
 {
   bool is_any_set;
 
@@ -105,7 +105,7 @@ bool EMF_bitmask_isAnySet(const uint8_t *bitmask, uint8_t len)
   return is_any_set;
 }
 
-bool EMF_bitmask_isBitSet(const uint8_t *bitmask, uint8_t bit_pos)
+bool EMF_bitmask_isBitSet(const uint8_t* bitmask, uint8_t bit_pos)
 {
   uint8_t idx;
   uint8_t bit;
@@ -121,7 +121,7 @@ bool EMF_bitmask_isBitSet(const uint8_t *bitmask, uint8_t bit_pos)
   return ((bitmask[idx] & ((uint8_t)1U << bit)) != 0U);
 }
 
-void EMF_bitmask_setBit(uint8_t *bitmask, uint8_t bit_pos)
+void EMF_bitmask_setBit(uint8_t* bitmask, uint8_t bit_pos)
 {
   uint8_t idx;
   uint8_t bit;
@@ -137,7 +137,7 @@ void EMF_bitmask_setBit(uint8_t *bitmask, uint8_t bit_pos)
   bitmask[idx] |= ((uint8_t)1U << bit);
 }
 
-void EMF_bitmask_clearBit(uint8_t *bitmask, uint8_t bit_pos)
+void EMF_bitmask_clearBit(uint8_t* bitmask, uint8_t bit_pos)
 {
   uint8_t idx;
   uint8_t bit;
@@ -153,7 +153,7 @@ void EMF_bitmask_clearBit(uint8_t *bitmask, uint8_t bit_pos)
   bitmask[idx] &= (uint8_t)(~((uint8_t)1U << bit));
 }
 
-uint8_t EMF_bitmask_findMax(const uint8_t *bitmask, uint8_t len)
+uint8_t EMF_bitmask_findMax(const uint8_t* bitmask, uint8_t len)
 {
   uint8_t max;
 

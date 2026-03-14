@@ -72,11 +72,10 @@
  *
  * @param[in] size Requested slot size in bytes.
  */
-#define EMF_UTILS_MEM_ALIGNED_SLOT(size)          \
-  struct                                          \
-  {                                               \
-    void *storage[((size + sizeof(void *) - 1U) / \
-                   sizeof(void *))];              \
+#define EMF_UTILS_MEM_ALIGNED_SLOT(size)                          \
+  struct                                                          \
+  {                                                               \
+    void* storage[((size + sizeof(void*) - 1U) / sizeof(void*))]; \
   }
 
 /*******************************************************************************
@@ -97,6 +96,6 @@
  * @param[in,out] start Pointer to the start of the memory region.
  * @param[in] len Number of bytes to clear.
  */
-void EMF_utils_clear(void *start, uint32_t len);
+void EMF_utils_clear(void* start, uint32_t len);
 
 #endif /* EMF_UTILS_H */

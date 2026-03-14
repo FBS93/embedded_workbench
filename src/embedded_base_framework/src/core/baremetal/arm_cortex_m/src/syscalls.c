@@ -68,7 +68,7 @@
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-ssize_t _write(int fd, const void *buf, size_t count)
+ssize_t _write(int fd, const void* buf, size_t count)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
   EMF_UTILS_UNUSED_PARAM(buf);
@@ -78,7 +78,7 @@ ssize_t _write(int fd, const void *buf, size_t count)
   return -1;
 }
 
-ssize_t _read(int fd, void *buf, size_t count)
+ssize_t _read(int fd, void* buf, size_t count)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
   EMF_UTILS_UNUSED_PARAM(buf);
@@ -88,12 +88,12 @@ ssize_t _read(int fd, void *buf, size_t count)
   return -1;
 }
 
-void *_sbrk(ptrdiff_t incr)
+void* _sbrk(ptrdiff_t incr)
 {
   EMF_UTILS_UNUSED_PARAM(incr);
 
   errno = ENOMEM;
-  return (void *)-1;
+  return (void*)-1;
 }
 
 int _close(int fd)
@@ -114,7 +114,7 @@ off_t _lseek(int fd, off_t offset, int whence)
   return -1;
 }
 
-int _fstat(int fd, struct stat *st)
+int _fstat(int fd, struct stat* st)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
   EMF_UTILS_UNUSED_PARAM(st);

@@ -93,7 +93,7 @@
  * @param[in] data Pointer to received data.
  * @param[in] len Length of the data in bytes.
  */
-typedef void (*EBF_stdin_t)(const uint8_t *data, uint16_t len);
+typedef void (*EBF_stdin_t)(const uint8_t* data, uint16_t len);
 
 /*******************************************************************************
  * PUBLIC VARIABLES
@@ -111,10 +111,11 @@ extern pthread_mutex_t EBF_critSecMutex;
 /**
  * @brief Tracks critical section nesting depth.
  *
- * Used to detect unbalanced entry/exit. Nesting is not supported (must be 0 or 1).
+ * Used to detect unbalanced entry/exit. Nesting is not supported (must be 0 or
+ * 1).
  */
 extern int8_t EBF_critSecNestCnt;
-#endif // (EBF_CORE == EBF_CORE_OS)
+#endif  // (EBF_CORE == EBF_CORE_OS)
 
 /*******************************************************************************
  * PUBLIC FUNCTIONS
@@ -139,7 +140,7 @@ void EBF_setStdinListener(EBF_stdin_t listener);
  * @param[in] data Pointer to data to be sent.
  * @param[in] len Length of the data in bytes.
  */
-void EBF_stdoutWrite(const uint8_t *data, uint16_t len);
+void EBF_stdoutWrite(const uint8_t* data, uint16_t len);
 
 /**
  * @brief Checks if the output is ready to send the specified number of bytes.
@@ -188,4 +189,4 @@ bool EBF_isInCriticalSection(void);
  */
 void EBF_noOperation(void);
 
-#endif // EBF_H
+#endif  // EBF_H

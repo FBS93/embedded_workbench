@@ -58,9 +58,7 @@
  * @param[out] out Pointer to the output variable.
  * @param[in] out_size Size (in bytes) of the output variable.
  */
-void EMF_endian_readBuffBE(const uint8_t *buff,
-                           void *out,
-                           uint8_t out_size);
+void EMF_endian_readBuffBE(const uint8_t* buff, void* out, uint8_t out_size);
 
 /**
  * @brief Writes a generic variable to a buffer in big-endian format.
@@ -69,9 +67,7 @@ void EMF_endian_readBuffBE(const uint8_t *buff,
  * @param[in] in Pointer to the input variable.
  * @param[in] in_size Size (in bytes) of the input variable.
  */
-void EMF_endian_writeBuffBE(uint8_t *buff,
-                            const void *in,
-                            uint8_t in_size);
+void EMF_endian_writeBuffBE(uint8_t* buff, const void* in, uint8_t in_size);
 
 /**
  * @brief Reads a 16-bit unsigned integer from a buffer in big-endian format.
@@ -79,7 +75,7 @@ void EMF_endian_writeBuffBE(uint8_t *buff,
  * @param[in] buff Pointer to the input byte buffer.
  * @param[out] out Pointer to the output variable.
  */
-void EMF_endian_u16ReadBuffBE(const uint8_t *buff, uint16_t *out);
+void EMF_endian_u16ReadBuffBE(const uint8_t* buff, uint16_t* out);
 
 /**
  * @brief Writes a 16-bit unsigned integer to a buffer in big-endian format.
@@ -87,7 +83,7 @@ void EMF_endian_u16ReadBuffBE(const uint8_t *buff, uint16_t *out);
  * @param[out] buff Pointer to the output byte buffer.
  * @param[in] in Pointer to the input variable.
  */
-void EMF_endian_u16WriteBuffBE(uint8_t *buff, const uint16_t *in);
+void EMF_endian_u16WriteBuffBE(uint8_t* buff, const uint16_t* in);
 
 /**
  * @brief Reads a 32-bit unsigned integer from a buffer in big-endian format.
@@ -95,7 +91,7 @@ void EMF_endian_u16WriteBuffBE(uint8_t *buff, const uint16_t *in);
  * @param[in] buff Pointer to the input byte buffer.
  * @param[out] out Pointer to the output variable.
  */
-void EMF_endian_u32ReadBuffBE(const uint8_t *buff, uint32_t *out);
+void EMF_endian_u32ReadBuffBE(const uint8_t* buff, uint32_t* out);
 
 /**
  * @brief Writes a 32-bit unsigned integer to a buffer in big-endian format.
@@ -103,7 +99,7 @@ void EMF_endian_u32ReadBuffBE(const uint8_t *buff, uint32_t *out);
  * @param[out] buff Pointer to the output byte buffer.
  * @param[in] in Pointer to the input variable.
  */
-void EMF_endian_u32WriteBuffBE(uint8_t *buff, const uint32_t *in);
+void EMF_endian_u32WriteBuffBE(uint8_t* buff, const uint32_t* in);
 
 /**
  * @brief Reads a 64-bit unsigned integer from a buffer in big-endian format.
@@ -111,7 +107,7 @@ void EMF_endian_u32WriteBuffBE(uint8_t *buff, const uint32_t *in);
  * @param[in] buff Pointer to the input byte buffer.
  * @param[out] out Pointer to the output variable.
  */
-void EMF_endian_u64ReadBuffBE(const uint8_t *buff, uint64_t *out);
+void EMF_endian_u64ReadBuffBE(const uint8_t* buff, uint64_t* out);
 
 /**
  * @brief Writes a 64-bit unsigned integer to a buffer in big-endian format.
@@ -119,7 +115,7 @@ void EMF_endian_u64ReadBuffBE(const uint8_t *buff, uint64_t *out);
  * @param[out] buff Pointer to the output byte buffer.
  * @param[in] in Pointer to the input variable.
  */
-void EMF_endian_u64WriteBuffBE(uint8_t *buff, const uint64_t *in);
+void EMF_endian_u64WriteBuffBE(uint8_t* buff, const uint64_t* in);
 
 /**
  * @brief Reads a little-endian value from a buffer into a generic variable.
@@ -128,9 +124,7 @@ void EMF_endian_u64WriteBuffBE(uint8_t *buff, const uint64_t *in);
  * @param[out] out Pointer to the output variable.
  * @param[in] out_size Size (in bytes) of the output variable.
  */
-void EMF_endian_readBuffLE(const uint8_t *buff,
-                           void *out,
-                           uint8_t out_size);
+void EMF_endian_readBuffLE(const uint8_t* buff, void* out, uint8_t out_size);
 
 /**
  * @brief Writes a generic variable to a buffer in little-endian format.
@@ -139,9 +133,7 @@ void EMF_endian_readBuffLE(const uint8_t *buff,
  * @param[in] in Pointer to the input variable.
  * @param[in] in_size Size (in bytes) of the input variable.
  */
-void EMF_endian_writeBuffLE(uint8_t *buff,
-                            const void *in,
-                            uint8_t in_size);
+void EMF_endian_writeBuffLE(uint8_t* buff, const void* in, uint8_t in_size);
 
 /**
  * @brief Reads a 16-bit unsigned integer from a buffer in little-endian format.
@@ -149,7 +141,7 @@ void EMF_endian_writeBuffLE(uint8_t *buff,
  * @param[in] buff Pointer to the input byte buffer.
  * @param[out] out Pointer to the output variable.
  */
-void EMF_endian_u16ReadBuffLE(const uint8_t *buff, uint16_t *out);
+void EMF_endian_u16ReadBuffLE(const uint8_t* buff, uint16_t* out);
 
 /**
  * @brief Writes a 16-bit unsigned integer to a buffer in little-endian format.
@@ -157,7 +149,7 @@ void EMF_endian_u16ReadBuffLE(const uint8_t *buff, uint16_t *out);
  * @param[out] buff Pointer to the output byte buffer.
  * @param[in] in Pointer to the input variable.
  */
-void EMF_endian_u16WriteBuffLE(uint8_t *buff, const uint16_t *in);
+void EMF_endian_u16WriteBuffLE(uint8_t* buff, const uint16_t* in);
 
 /**
  * @brief Reads a 32-bit unsigned integer from a buffer in little-endian format.
@@ -165,7 +157,7 @@ void EMF_endian_u16WriteBuffLE(uint8_t *buff, const uint16_t *in);
  * @param[in] buff Pointer to the input byte buffer.
  * @param[out] out Pointer to the output variable.
  */
-void EMF_endian_u32ReadBuffLE(const uint8_t *buff, uint32_t *out);
+void EMF_endian_u32ReadBuffLE(const uint8_t* buff, uint32_t* out);
 
 /**
  * @brief Writes a 32-bit unsigned integer to a buffer in little-endian format.
@@ -173,7 +165,7 @@ void EMF_endian_u32ReadBuffLE(const uint8_t *buff, uint32_t *out);
  * @param[out] buff Pointer to the output byte buffer.
  * @param[in] in Pointer to the input variable.
  */
-void EMF_endian_u32WriteBuffLE(uint8_t *buff, const uint32_t *in);
+void EMF_endian_u32WriteBuffLE(uint8_t* buff, const uint32_t* in);
 
 /**
  * @brief Reads a 64-bit unsigned integer from a buffer in little-endian format.
@@ -181,7 +173,7 @@ void EMF_endian_u32WriteBuffLE(uint8_t *buff, const uint32_t *in);
  * @param[in] buff Pointer to the input byte buffer.
  * @param[out] out Pointer to the output variable.
  */
-void EMF_endian_u64ReadBuffLE(const uint8_t *buff, uint64_t *out);
+void EMF_endian_u64ReadBuffLE(const uint8_t* buff, uint64_t* out);
 
 /**
  * @brief Writes a 64-bit unsigned integer to a buffer in little-endian format.
@@ -189,6 +181,6 @@ void EMF_endian_u64ReadBuffLE(const uint8_t *buff, uint64_t *out);
  * @param[out] buff Pointer to the output byte buffer.
  * @param[in] in Pointer to the input variable.
  */
-void EMF_endian_u64WriteBuffLE(uint8_t *buff, const uint64_t *in);
+void EMF_endian_u64WriteBuffLE(uint8_t* buff, const uint64_t* in);
 
 #endif /* EMF_ENDIAN_H */

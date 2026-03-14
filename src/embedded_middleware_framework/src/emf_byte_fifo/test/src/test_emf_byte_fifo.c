@@ -62,18 +62,20 @@
  * @param[in] actual Actual data.
  * @param[in] size Number of bytes to compare.
  */
-static void verifyBytesEq(const uint8_t *expected,
-                          const uint8_t *actual,
+static void verifyBytesEq(const uint8_t* expected,
+                          const uint8_t* actual,
                           uint32_t size);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static void verifyBytesEq(const uint8_t *expected,
-                          const uint8_t *actual,
-                          uint32_t size) {
-  for (uint32_t i = 0U; i < size; ++i) {
+static void verifyBytesEq(const uint8_t* expected,
+                          const uint8_t* actual,
+                          uint32_t size)
+{
+  for (uint32_t i = 0U; i < size; ++i)
+  {
     ETF_VERIFY(expected[i] == actual[i]);
   }
 }
@@ -82,8 +84,10 @@ static void verifyBytesEq(const uint8_t *expected,
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-ETF_TEST_SUITE(test_emf_byte_fifo) {
-  ETF_TEST(init_sets_empty_state) {
+ETF_TEST_SUITE(test_emf_byte_fifo)
+{
+  ETF_TEST(init_sets_empty_state)
+  {
     EMF_byteFifo_handler_t fifo;
     uint8_t storage[8U] = {0U};
 
@@ -95,7 +99,8 @@ ETF_TEST_SUITE(test_emf_byte_fifo) {
     ETF_VERIFY(EMF_byteFifo_getFree(&fifo) == 8U);
   }
 
-  ETF_TEST(push_pop_preserves_order_and_counters) {
+  ETF_TEST(push_pop_preserves_order_and_counters)
+  {
     EMF_byteFifo_handler_t fifo;
     uint8_t storage[10U] = {0U};
     uint8_t in_1[3U] = {1U, 2U, 3U};
@@ -120,7 +125,8 @@ ETF_TEST_SUITE(test_emf_byte_fifo) {
     ETF_VERIFY(EMF_byteFifo_getUsed(&fifo) == 0U);
   }
 
-  ETF_TEST(peek_at_reads_without_removing_and_handles_wrap) {
+  ETF_TEST(peek_at_reads_without_removing_and_handles_wrap)
+  {
     EMF_byteFifo_handler_t fifo;
     uint8_t storage[5U] = {0U};
     uint8_t first[4U] = {10U, 11U, 12U, 13U};
@@ -140,7 +146,8 @@ ETF_TEST_SUITE(test_emf_byte_fifo) {
     ETF_VERIFY(EMF_byteFifo_getUsed(&fifo) == 4U);
   }
 
-  ETF_TEST(drop_and_flush_update_state) {
+  ETF_TEST(drop_and_flush_update_state)
+  {
     EMF_byteFifo_handler_t fifo;
     uint8_t storage[6U] = {0U};
     uint8_t in[4U] = {0xA1U, 0xA2U, 0xA3U, 0xA4U};

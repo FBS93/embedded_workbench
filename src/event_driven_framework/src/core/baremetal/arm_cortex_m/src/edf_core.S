@@ -66,7 +66,7 @@ PendSV_Handler:
     PUSH    {r0, lr}
 
     // Disable interrupts (enter critical section).
-    LDR     r0, =EBF_entryCriticalSection 
+    LDR     r0, =EBF_entryCriticalSection
     BLX     r0
 
     // Unpend any spurious PendSV.
@@ -137,7 +137,7 @@ NMI_Handler:
     BL      EBF_exitCriticalSection
 
     /**
-     * lr (EXC_RETURN) was clobbered. Pop stack aligner + EXC_RETURN 
+     * lr (EXC_RETURN) was clobbered. Pop stack aligner + EXC_RETURN
      * into PC (Pushed in PendSV_Handler).
      */
     POP     {r0, pc}
@@ -167,5 +167,5 @@ EDF_core_getIPSR:
 .type   EDF_core_ARMErratum838869, %function
 EDF_core_ARMErratum838869:
     DSB // Data Synchronization Barrier.
-    BX      lr 
+    BX      lr
 .size   EDF_core_ARMErratum838869, .-EDF_core_ARMErratum838869

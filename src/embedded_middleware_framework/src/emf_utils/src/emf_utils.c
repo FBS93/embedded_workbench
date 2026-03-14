@@ -70,17 +70,17 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_utils_clear(void *start, uint32_t len)
+void EMF_utils_clear(void* start, uint32_t len)
 {
-  uint8_t *ptr8;
-  uint32_t *ptr32;
+  uint8_t* ptr8;
+  uint32_t* ptr32;
 
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(start != NULL);
   EAF_ASSERT_IN_BLOCK(len > 0U);
   EAF_ASSERT_BLOCK_END();
 
-  ptr8 = (uint8_t *)start;
+  ptr8 = (uint8_t*)start;
 
   // Align pointer to 4 bytes by clearing single bytes if needed.
   while ((((uintptr_t)ptr8 & 0x3) != 0) && (len > 0))
@@ -90,7 +90,7 @@ void EMF_utils_clear(void *start, uint32_t len)
   }
 
   // Clear memory using 32-bit words.
-  ptr32 = (uint32_t *)ptr8;
+  ptr32 = (uint32_t*)ptr8;
   while (len >= 4)
   {
     *ptr32++ = 0;
@@ -98,7 +98,7 @@ void EMF_utils_clear(void *start, uint32_t len)
   }
 
   // Clear remaining tail bytes if needed.
-  ptr8 = (uint8_t *)ptr32;
+  ptr8 = (uint8_t*)ptr32;
   while (len > 0)
   {
     *ptr8++ = 0;

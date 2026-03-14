@@ -66,9 +66,9 @@
 typedef struct
 {
   EDF_activeObject_t super;             /**< Active object base class*/
-  EDF_event_ptr *event_buff;            /**< Event buffer */
+  EDF_event_ptr* event_buff;            /**< Event buffer */
   EDF_eventQueue_ctr_t event_buff_size; /**< Event buffer size */
-  const EDFTest_testEntry_t *tests;     /**< Tests */
+  const EDFTest_testEntry_t* tests;     /**< Tests */
   uint16_t test_idx;                    /**< Current test index */
   uint16_t skip_cnt;                    /**< Number of tests skipped */
   uint16_t num_tests;                   /**< Number of test entries */
@@ -106,8 +106,8 @@ static EDFTest_t EDFTest;
  * @param[in] me  Pointer to the EDFTest instance.
  * @param[in] e   Pointer to the event.
  */
-static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *me,
-                                               const EDF_event_t *e);
+static EDF_hsm_stateReturn_t initialTransition(EDFTest_t* me,
+                                               const EDF_event_t* e);
 
 /**
  * @brief waitForRxCmd state of the EDFTest HSM.
@@ -115,7 +115,7 @@ static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *me,
  * @param[in] me  Pointer to the EDFTest instance.
  * @param[in] e   Pointer to the event.
  */
-static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *me, const EDF_event_t *e);
+static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t* me, const EDF_event_t* e);
 
 /**
  * @brief Initializes the EDFTest active object.
@@ -126,8 +126,8 @@ static void EDFTestInit(void);
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *me,
-                                               const EDF_event_t *e)
+static EDF_hsm_stateReturn_t initialTransition(EDFTest_t* me,
+                                               const EDF_event_t* e)
 {
   EMF_UTILS_UNUSED_PARAM(me);
   EMF_UTILS_UNUSED_PARAM(e);
@@ -135,7 +135,7 @@ static EDF_hsm_stateReturn_t initialTransition(EDFTest_t *me,
   return EDF_HSM_RET_TRAN(waitForEvent);
 }
 
-static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *me, const EDF_event_t *e)
+static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t* me, const EDF_event_t* e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -146,14 +146,16 @@ static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *me, const EDF_event_t *e)
 
   if (me->tests[me->test_idx].test.test_trigger == e->sig)
   {
-    me->tests[me->test_idx].test.test_verify(e); // Verify test
+    me->tests[me->test_idx].test.test_verify(e);  // Verify test
     EDFTest_tearDown();
     EMF_testReport_printTestResult(TEST_PASSED, NULL, NULL, 0);
     me->test_idx++;
 
-    while ((EDFTest.test_idx < EDFTest.num_tests) && EDFTest.tests[EDFTest.test_idx].skip)
+    while ((EDFTest.test_idx < EDFTest.num_tests) &&
+           EDFTest.tests[EDFTest.test_idx].skip)
     {
-      EMF_testReport_printTestIntro(EDFTest.test_idx + 1, EDFTest.tests[EDFTest.test_idx].test.test_name);
+      EMF_testReport_printTestIntro(
+        EDFTest.test_idx + 1, EDFTest.tests[EDFTest.test_idx].test.test_name);
       EMF_testReport_printTestResult(TEST_SKIPPED, NULL, NULL, 0);
       EDFTest.test_idx++;
       EDFTest.skip_cnt++;
@@ -161,9 +163,10 @@ static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *me, const EDF_event_t *e)
 
     if (EDFTest.test_idx < EDFTest.num_tests)
     {
-      EMF_testReport_printTestIntro(EDFTest.test_idx + 1, EDFTest.tests[EDFTest.test_idx].test.test_name);
+      EMF_testReport_printTestIntro(
+        EDFTest.test_idx + 1, EDFTest.tests[EDFTest.test_idx].test.test_name);
       EDFTest_setUp();
-      EDFTest.tests[EDFTest.test_idx].test.test_init(); // Init test
+      EDFTest.tests[EDFTest.test_idx].test.test_init();  // Init test
     }
     else
     {
@@ -172,7 +175,7 @@ static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *me, const EDF_event_t *e)
       // Disable EDFTest AO by unsubscribing from all signals
       EDF_activeObject_unsubscribeAll(EDF_AO_UPCAST(EDFTest));
 
-      EDFTest_onExit(0); // Success
+      EDFTest_onExit(0);  // Success
     }
 
     state = EDF_HSM_RET_HANDLED();
@@ -188,7 +191,8 @@ static EDF_hsm_stateReturn_t waitForEvent(EDFTest_t *me, const EDF_event_t *e)
 static void EDFTestInit(void)
 {
   // Init active object
-  EDF_activeObject_init(EDF_AO_UPCAST(EDFTest), (EDF_hsm_stateHandler_t)initialTransition);
+  EDF_activeObject_init(EDF_AO_UPCAST(EDFTest),
+                        (EDF_hsm_stateHandler_t)initialTransition);
 
   // Init active object private attributes
   EDFTest.event_buff = EDFTest_eventBuffer;
@@ -207,7 +211,9 @@ static void EDFTestInit(void)
                          EDF_TEST_AO_PRIO,
                          EDFTest.event_buff,
                          EDFTest.event_buff_size,
-                         NULL, 0, NULL);
+                         NULL,
+                         0,
+                         NULL);
 
   // Subscribe test AO to all signals
   EDF_activeObject_subscribeAll(EDF_AO_UPCAST(EDFTest));
@@ -217,7 +223,7 @@ static void EDFTestInit(void)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDFTest_fail(const char *cond, const char *file, int line)
+void EDFTest_fail(const char* cond, const char* file, int line)
 {
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(cond != NULL);
@@ -230,7 +236,7 @@ void EDFTest_fail(const char *cond, const char *file, int line)
   // Disable EDFTest AO by unsubscribing from all signals
   EDF_activeObject_unsubscribeAll(EDF_AO_UPCAST(EDFTest));
 
-  EDFTest_onExit(-1); // Failure
+  EDFTest_onExit(-1);  // Failure
 
   // Halt in case EDFTest_onExit() returns unexpectedly
   while (true)
@@ -259,16 +265,19 @@ int main(void)
 {
   int ret;
 
-  EMF_testReport_printHeader("Event driven test framework", EDFTest_testSuiteName);
+  EMF_testReport_printHeader("Event driven test framework",
+                             EDFTest_testSuiteName);
 
   EDFTest_onInit();
 
   EDFTestInit();
 
   // Initialize the first test
-  while ((EDFTest.test_idx < EDFTest.num_tests) && EDFTest.tests[EDFTest.test_idx].skip)
+  while ((EDFTest.test_idx < EDFTest.num_tests) &&
+         EDFTest.tests[EDFTest.test_idx].skip)
   {
-    EMF_testReport_printTestIntro(EDFTest.test_idx + 1, EDFTest.tests[EDFTest.test_idx].test.test_name);
+    EMF_testReport_printTestIntro(
+      EDFTest.test_idx + 1, EDFTest.tests[EDFTest.test_idx].test.test_name);
     EMF_testReport_printTestResult(TEST_SKIPPED, NULL, NULL, 0);
     EDFTest.test_idx++;
     EDFTest.skip_cnt++;
@@ -276,9 +285,10 @@ int main(void)
 
   if (EDFTest.test_idx < EDFTest.num_tests)
   {
-    EMF_testReport_printTestIntro(EDFTest.test_idx + 1, EDFTest.tests[EDFTest.test_idx].test.test_name);
+    EMF_testReport_printTestIntro(
+      EDFTest.test_idx + 1, EDFTest.tests[EDFTest.test_idx].test.test_name);
     EDFTest_setUp();
-    EDFTest.tests[EDFTest.test_idx].test.test_init(); // Init test
+    EDFTest.tests[EDFTest.test_idx].test.test_init();  // Init test
     ret = EDF_run();
   }
   else
@@ -288,7 +298,7 @@ int main(void)
     // Disable EDFTest AO by unsubscribing from all signals
     EDF_activeObject_unsubscribeAll(EDF_AO_UPCAST(EDFTest));
 
-    EDFTest_onExit(0); // Success
+    EDFTest_onExit(0);  // Success
     ret = 0;
   }
 
@@ -297,8 +307,8 @@ int main(void)
 
 /**
  * @todo Document that the test framework invokes user-defined functions such as
- * setup, teardown, test initialization, and test verification *without* entering
- * a critical section. It is therefore the user's responsibility to ensure proper
- * protection when concurrent contexts or interrupts may occur and could affect the
- * test correctness.
+ * setup, teardown, test initialization, and test verification *without*
+ * entering a critical section. It is therefore the user's responsibility to
+ * ensure proper protection when concurrent contexts or interrupts may occur and
+ * could affect the test correctness.
  */

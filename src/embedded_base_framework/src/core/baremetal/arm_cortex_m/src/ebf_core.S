@@ -11,7 +11,7 @@
  * This software is provided "as is", without any express or implied warranty.
  * The user assumes all responsibility for its use and any consequences.
  ******************************************************************************/
- 
+
 /*******************************************************************************
  * ASSEMBLER SETTINGS
  ******************************************************************************/

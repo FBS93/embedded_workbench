@@ -67,18 +67,12 @@ ETF_TEST_SUITE(test_emf_utils)
 {
   ETF_TEST(clear_zeroes_requested_region)
   {
+    // clang-format off
     uint8_t buffer[10U] = {
-      0xAAU,
-      0xAAU,
-      0xAAU,
-      0xAAU,
-      0xAAU,
-      0xAAU,
-      0xAAU,
-      0xAAU,
-      0xAAU,
-      0xAAU
+      0xAAU, 0xAAU, 0xAAU, 0xAAU, 0xAAU,
+      0xAAU, 0xAAU, 0xAAU, 0xAAU, 0xAAU
     };
+    // clang-format on
     uint8_t byte_index;
 
     EMF_utils_clear(&buffer[1U], 7U);
@@ -101,6 +95,6 @@ ETF_TEST_SUITE(test_emf_utils)
     EMF_UTILS_UNUSED_PARAM(dummy);
     ETF_VERIFY(EMF_UTILS_SIZEOF_ARRAY(array) == 5U);
     ETF_VERIFY(sizeof(aligned_slot) >= 9U);
-    ETF_VERIFY((sizeof(aligned_slot) % sizeof(void *)) == 0U);
+    ETF_VERIFY((sizeof(aligned_slot) % sizeof(void*)) == 0U);
   }
 }

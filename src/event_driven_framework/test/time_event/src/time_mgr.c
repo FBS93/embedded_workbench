@@ -100,8 +100,8 @@ timeMgr_t timeMgr;
  * @param[in] me Pointer to the timeMgr instance.
  * @param[in] e Pointer to the event.
  */
-static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *me,
-                                               const EDF_event_t *e);
+static EDF_hsm_stateReturn_t initialTransition(timeMgr_t* me,
+                                               const EDF_event_t* e);
 
 /**
  * @brief readyState state of the timeMgr HSM.
@@ -109,15 +109,14 @@ static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *me,
  * @param[in] me Pointer to the timeMgr instance.
  * @param[in] e Pointer to the event.
  */
-static EDF_hsm_stateReturn_t readyState(timeMgr_t *me,
-                                        const EDF_event_t *e);
+static EDF_hsm_stateReturn_t readyState(timeMgr_t* me, const EDF_event_t* e);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *me,
-                                               const EDF_event_t *e)
+static EDF_hsm_stateReturn_t initialTransition(timeMgr_t* me,
+                                               const EDF_event_t* e)
 {
   EMF_UTILS_UNUSED_PARAM(me);
   EMF_UTILS_UNUSED_PARAM(e);
@@ -125,8 +124,7 @@ static EDF_hsm_stateReturn_t initialTransition(timeMgr_t *me,
   return EDF_HSM_RET_TRAN(readyState);
 }
 
-static EDF_hsm_stateReturn_t readyState(timeMgr_t *me,
-                                        const EDF_event_t *e)
+static EDF_hsm_stateReturn_t readyState(timeMgr_t* me, const EDF_event_t* e)
 {
   EDF_hsm_stateReturn_t state;
 
@@ -137,35 +135,35 @@ static EDF_hsm_stateReturn_t readyState(timeMgr_t *me,
 
   switch (e->sig)
   {
-  case PERIODIC_TIMER_5_MS:
-  {
-    timeMgr.periodic_5ms_cnt++;
-    state = EDF_HSM_RET_HANDLED();
-    break;
-  }
-  case PERIODIC_TIMER_100_MS:
-  {
-    timeMgr.periodic_100ms_cnt++;
-    state = EDF_HSM_RET_HANDLED();
-    break;
-  }
-  case PERIODIC_TIMER_5_MS_100_MS:
-  {
-    timeMgr.periodic_5ms_100ms_cnt++;
-    state = EDF_HSM_RET_HANDLED();
-    break;
-  }
-  case ONE_SHOT_TIMER_100_MS:
-  {
-    timeMgr.one_shot_100ms_cnt++;
-    state = EDF_HSM_RET_HANDLED();
-    break;
-  }
-  default:
-  {
-    state = EDF_HSM_RET_SUPER(&EDF_hsm_top);
-    break;
-  }
+    case PERIODIC_TIMER_5_MS:
+    {
+      timeMgr.periodic_5ms_cnt++;
+      state = EDF_HSM_RET_HANDLED();
+      break;
+    }
+    case PERIODIC_TIMER_100_MS:
+    {
+      timeMgr.periodic_100ms_cnt++;
+      state = EDF_HSM_RET_HANDLED();
+      break;
+    }
+    case PERIODIC_TIMER_5_MS_100_MS:
+    {
+      timeMgr.periodic_5ms_100ms_cnt++;
+      state = EDF_HSM_RET_HANDLED();
+      break;
+    }
+    case ONE_SHOT_TIMER_100_MS:
+    {
+      timeMgr.one_shot_100ms_cnt++;
+      state = EDF_HSM_RET_HANDLED();
+      break;
+    }
+    default:
+    {
+      state = EDF_HSM_RET_SUPER(&EDF_hsm_top);
+      break;
+    }
   }
 
   return state;
@@ -181,16 +179,21 @@ void timeMgr_init(void)
   EDF_init();
 
   // Init EDF publish and subscribe functionality.
-  EDF_activeObject_pubSubInit(subscriberList, (EDF_event_signal_t)LAST_EVENT_SIGNAL);
+  EDF_activeObject_pubSubInit(subscriberList,
+                              (EDF_event_signal_t)LAST_EVENT_SIGNAL);
 
   // Init hsm active object.
-  EDF_activeObject_init(EDF_AO_UPCAST(timeMgr), (EDF_hsm_stateHandler_t)initialTransition);
+  EDF_activeObject_init(EDF_AO_UPCAST(timeMgr),
+                        (EDF_hsm_stateHandler_t)initialTransition);
 
   // Start active object.
   EDF_activeObject_start(EDF_AO_UPCAST(timeMgr),
                          (EDF_activeObject_prio_t)TIME_MGR_AO_PRIO,
-                         timeMgr.event_buff, EVENT_BUFF_SIZE,
-                         NULL, 0, NULL);
+                         timeMgr.event_buff,
+                         EVENT_BUFF_SIZE,
+                         NULL,
+                         0,
+                         NULL);
 
   // Create time events.
   EDF_timeEvent_new(&timeEvent.periodic_5ms,

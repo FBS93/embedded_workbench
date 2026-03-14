@@ -79,7 +79,8 @@ void EDFTest_onInit(void)
 {
   // Initial transition
   hsm_init();
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S11111);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S11111);
 }
 
 EDF_TEST_CASE(transition_1, TRANSITION)
@@ -91,7 +92,8 @@ EDF_TEST_CASE_VERIFY(transition_1, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S2111);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S2111);
 }
 
 EDF_TEST_CASE(transition_2, TRANSITION)
@@ -103,7 +105,8 @@ EDF_TEST_CASE_VERIFY(transition_2, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S2112);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S2112);
 }
 
 EDF_TEST_CASE(transition_3, TRANSITION)
@@ -115,7 +118,8 @@ EDF_TEST_CASE_VERIFY(transition_3, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S2);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S2);
 }
 
 EDF_TEST_CASE(transition_4, TRANSITION)
@@ -127,7 +131,8 @@ EDF_TEST_CASE_VERIFY(transition_4, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S21);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S21);
 }
 
 EDF_TEST_CASE(transition_5, TRANSITION)
@@ -139,7 +144,8 @@ EDF_TEST_CASE_VERIFY(transition_5, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S31);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S31);
 }
 
 EDF_TEST_CASE(transition_6, TRANSITION)
@@ -151,7 +157,8 @@ EDF_TEST_CASE_VERIFY(transition_6, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S3);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S3);
 }
 
 EDF_TEST_CASE(transition_7, TRANSITION)
@@ -163,7 +170,8 @@ EDF_TEST_CASE_VERIFY(transition_7, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S311);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S311);
 }
 
 EDF_TEST_CASE(transition_8, TRANSITION)
@@ -175,7 +183,8 @@ EDF_TEST_CASE_VERIFY(transition_8, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S41);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S41);
 }
 
 EDF_TEST_CASE(transition_9, TRANSITION)
@@ -188,7 +197,8 @@ EDF_TEST_CASE_VERIFY(transition_9, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S41);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S41);
 }
 
 EDF_TEST_CASE(transition_10, TRANSITION)
@@ -201,17 +211,17 @@ EDF_TEST_CASE_VERIFY(transition_10, e)
 {
   EMF_UTILS_UNUSED_PARAM(e);
 
-  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state == (EDF_hsm_stateHandler_t)S41);
+  EDF_TEST_VERIFY(EDF_HSM_UPCAST(&hsm)->current_state ==
+                  (EDF_hsm_stateHandler_t)S41);
 }
 
-EDF_TEST_SUITE(
-    EDF_TEST_RUN(transition_1),
-    EDF_TEST_RUN(transition_2),
-    EDF_TEST_RUN(transition_3),
-    EDF_TEST_RUN(transition_4),
-    EDF_TEST_RUN(transition_5),
-    EDF_TEST_RUN(transition_6),
-    EDF_TEST_RUN(transition_7),
-    EDF_TEST_RUN(transition_8),
-    EDF_TEST_RUN(transition_9),
-    EDF_TEST_RUN(transition_10))
+EDF_TEST_SUITE(EDF_TEST_RUN(transition_1),
+               EDF_TEST_RUN(transition_2),
+               EDF_TEST_RUN(transition_3),
+               EDF_TEST_RUN(transition_4),
+               EDF_TEST_RUN(transition_5),
+               EDF_TEST_RUN(transition_6),
+               EDF_TEST_RUN(transition_7),
+               EDF_TEST_RUN(transition_8),
+               EDF_TEST_RUN(transition_9),
+               EDF_TEST_RUN(transition_10))

@@ -54,8 +54,7 @@
  *
  * @param[in] name Name of the test suite.
  */
-#define EDF_TEST_SUITE_NAME(name) \
-  const char EDFTest_testSuiteName[] = #name;
+#define EDF_TEST_SUITE_NAME(name) const char EDFTest_testSuiteName[] = #name;
 
 /**
  * @brief Defines the event buffer for the EDFTest active object.
@@ -74,22 +73,20 @@
  * @param[in] name Name of the test case.
  * @param[in] trigger_signal Signal used to trigger the test case verify phase.
  */
-#define EDF_TEST_CASE(name, trigger_signal)        \
-  static void name##_init(void);                   \
-  static void name##_verify(const EDF_event_t *e); \
-  static const EDFTest_test_t name##_test = {      \
-      .test_name = #name,                          \
-      .test_init = name##_init,                    \
-      .test_verify = name##_verify,                \
-      .test_trigger = trigger_signal};
+#define EDF_TEST_CASE(name, trigger_signal)                                \
+  static void name##_init(void);                                           \
+  static void name##_verify(const EDF_event_t* e);                         \
+  static const EDFTest_test_t name##_test = {.test_name = #name,           \
+                                             .test_init = name##_init,     \
+                                             .test_verify = name##_verify, \
+                                             .test_trigger = trigger_signal};
 
 /**
  * @brief Defines the init function for a test case.
  *
  * @param[in] name Name of the test case.
  */
-#define EDF_TEST_CASE_INIT(name) \
-  static void name##_init(void)
+#define EDF_TEST_CASE_INIT(name) static void name##_init(void)
 
 /**
  * @brief Defines the verify function for a test case.
@@ -98,7 +95,7 @@
  * @param[in] input_evt_name Variable name for the input event.
  */
 #define EDF_TEST_CASE_VERIFY(name, input_evt_name) \
-  static void name##_verify(const EDF_event_t *input_evt_name)
+  static void name##_verify(const EDF_event_t* input_evt_name)
 
 /**
  * @brief Verifies a test condition.
@@ -117,8 +114,7 @@
  *
  * @param[in] note Explanation or description of the failure (string literal).
  */
-#define EDF_TEST_FAIL(note) \
-  (EDFTest_fail(note, __FILE__, __LINE__));
+#define EDF_TEST_FAIL(note) (EDFTest_fail(note, __FILE__, __LINE__));
 
 /**
  * @brief Register a test to be executed.
@@ -139,10 +135,10 @@
  *
  * @param[in] ... List of registered tests.
  */
-#define EDF_TEST_SUITE(...)                         \
-  const EDFTest_testEntry_t EDFTest_testSuite[] = { \
-      __VA_ARGS__};                                 \
-  const uint16_t EDFTest_numTests = sizeof(EDFTest_testSuite) / sizeof(EDFTest_testEntry_t);
+#define EDF_TEST_SUITE(...)                                      \
+  const EDFTest_testEntry_t EDFTest_testSuite[] = {__VA_ARGS__}; \
+  const uint16_t EDFTest_numTests =                              \
+    sizeof(EDFTest_testSuite) / sizeof(EDFTest_testEntry_t);
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS
@@ -156,14 +152,14 @@ typedef void (*testInit_t)(void);
 /**
  * @brief Function pointer type for test verification.
  */
-typedef void (*testVerify_t)(const EDF_event_t *e);
+typedef void (*testVerify_t)(const EDF_event_t* e);
 
 /**
  * @brief Test case definition.
  */
 typedef struct
 {
-  const char *test_name;           /**< Name of the test case */
+  const char* test_name;           /**< Name of the test case */
   testInit_t test_init;            /**< Init function pointer */
   testVerify_t test_verify;        /**< Verify function pointer */
   EDF_event_signal_t test_trigger; /**< Test verify signal trigger*/
@@ -230,7 +226,7 @@ extern const uint16_t EDFTest_numTests;
  * @param[in] file Source file where the failure occurred.
  * @param[in] line Line number where the failure occurred.
  */
-void EDFTest_fail(const char *cond, const char *file, int line);
+void EDFTest_fail(const char* cond, const char* file, int line);
 
 /**
  * @brief Init callback.
@@ -240,7 +236,7 @@ void EDFTest_fail(const char *cond, const char *file, int line);
  * a specific behavior.
  *
  * @note All user software shall be initialized in this function,
- * but @c EDF_run() must NOT be called, as control must return to the
+ * but @ref EDF_run() must NOT be called, as control must return to the
  * EDF test framework.
  *
  * @param[in] argc Argument count from main.

@@ -79,44 +79,102 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EDF_timeEvent_new(EDF_timeEvent_t *me,
-                       EDF_activeObject_t *ao,
+void EDF_timeEvent_new(EDF_timeEvent_t* me,
+                       EDF_activeObject_t* ao,
                        EDF_event_signal_t sig,
                        uint8_t tick_rate)
 {
-    EAF_ASSERT_BLOCK_BEGIN();
-    EAF_ASSERT_IN_BLOCK(me != NULL);
-    EAF_ASSERT_IN_BLOCK(ao != NULL);
-    EAF_ASSERT_IN_BLOCK(sig != 0);
-    EAF_ASSERT_IN_BLOCK(tick_rate < EDF_MAX_TICK_RATE);
-    EAF_ASSERT_BLOCK_END();
+  EAF_ASSERT_BLOCK_BEGIN();
+  EAF_ASSERT_IN_BLOCK(me != NULL);
+  EAF_ASSERT_IN_BLOCK(ao != NULL);
+  EAF_ASSERT_IN_BLOCK(sig != 0);
+  EAF_ASSERT_IN_BLOCK(tick_rate < EDF_MAX_TICK_RATE);
+  EAF_ASSERT_BLOCK_END();
 
-    // Initialize base type.
-    EDF_event_initImmutable(&me->super, sig);
+  // Initialize base type.
+  EDF_event_initImmutable(&me->super, sig);
 
-    // Initialize time event attributes.
-    me->next = NULL;
-    me->ao = ao;
-    me->ctr = 0U;
-    me->period = 0U;
-    me->tick_rate = tick_rate;
-    me->is_linked = false;
+  // Initialize time event attributes.
+  me->next = NULL;
+  me->ao = ao;
+  me->ctr = 0U;
+  me->period = 0U;
+  me->tick_rate = tick_rate;
+  me->is_linked = false;
 }
 
-void EDF_timeEvent_arm(EDF_timeEvent_t *me,
+void EDF_timeEvent_arm(EDF_timeEvent_t* me,
                        EDF_timeEvent_ctr_t start,
                        EDF_timeEvent_ctr_t period)
 {
-    EBF_CRITICAL_SECTION_ENTRY();
+  EBF_CRITICAL_SECTION_ENTRY();
 
-    EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
-    EAF_ASSERT_IN_CRITICAL_SECTION(me->ctr == 0U);
-    EAF_ASSERT_IN_CRITICAL_SECTION(me->ao != NULL);
-    EAF_ASSERT_IN_CRITICAL_SECTION(me->tick_rate < EDF_MAX_TICK_RATE);
-    EAF_ASSERT_IN_CRITICAL_SECTION(start != 0U);
+  EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
+  EAF_ASSERT_IN_CRITICAL_SECTION(me->ctr == 0U);
+  EAF_ASSERT_IN_CRITICAL_SECTION(me->ao != NULL);
+  EAF_ASSERT_IN_CRITICAL_SECTION(me->tick_rate < EDF_MAX_TICK_RATE);
+  EAF_ASSERT_IN_CRITICAL_SECTION(start != 0U);
 
-    me->ctr = start;
-    me->period = period;
+  me->ctr = start;
+  me->period = period;
+
+  /**
+   * Is the time event unlinked? See note @ref time_event_disarmed_but_linked.
+   * This check allows disarming and re-arming within the same tick
+   * without duplicating links.
+   */
+  if (!me->is_linked)
+  {
+    me->is_linked = true;  // Mark as linked.
+
+    // Link into the temporary new list. See note @ref time_event_new_list.
+    me->next = EDF_framework.te_registry[me->tick_rate].new_head;
+    EDF_framework.te_registry[me->tick_rate].new_head = me;
+  }
+
+  EBF_CRITICAL_SECTION_EXIT();
+}
+
+bool EDF_timeEvent_disarm(EDF_timeEvent_t* me)
+{
+  bool was_armed;
+
+  EBF_CRITICAL_SECTION_ENTRY();
+
+  EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
+
+  // Was the time event actually armed?
+  if (me->ctr != 0U)
+  {
+    was_armed = true;
+    me->ctr = 0U;  // Schedule removal from the list.
+  }
+  else
+  {
+    // The time event was already disarmed.
+    was_armed = false;
+  }
+
+  EBF_CRITICAL_SECTION_EXIT();
+
+  return was_armed;
+}
+
+bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_ctr_t time)
+{
+  bool was_armed;
+
+  EBF_CRITICAL_SECTION_ENTRY();
+
+  EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
+  EAF_ASSERT_IN_CRITICAL_SECTION(me->ao != NULL);
+  EAF_ASSERT_IN_CRITICAL_SECTION(me->tick_rate < EDF_MAX_TICK_RATE);
+  EAF_ASSERT_IN_CRITICAL_SECTION(time != 0U);
+
+  // Was the time event not running?
+  if (me->ctr == 0U)
+  {
+    was_armed = false;
 
     /**
      * Is the time event unlinked? See note @ref time_event_disarmed_but_linked.
@@ -125,207 +183,152 @@ void EDF_timeEvent_arm(EDF_timeEvent_t *me,
      */
     if (!me->is_linked)
     {
-        me->is_linked = true; // Mark as linked.
+      me->is_linked = true;  // Mark as linked.
 
-        // Link into the temporary new list. See note @ref time_event_new_list.
-        me->next = EDF_framework.te_registry[me->tick_rate].new_head;
-        EDF_framework.te_registry[me->tick_rate].new_head = me;
+      // Link into the temporary new list. See note @ref time_event_new_list.
+      me->next = EDF_framework.te_registry[me->tick_rate].new_head;
+      EDF_framework.te_registry[me->tick_rate].new_head = me;
     }
+  }
+  else
+  {
+    // The time event was armed.
+    was_armed = true;
+  }
 
-    EBF_CRITICAL_SECTION_EXIT();
+  // Set new counter value.
+  me->ctr = time;
+
+  EBF_CRITICAL_SECTION_EXIT();
+
+  return was_armed;
 }
 
-bool EDF_timeEvent_disarm(EDF_timeEvent_t *me)
+EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(const EDF_timeEvent_t* me)
 {
-    bool was_armed;
+  EDF_timeEvent_ctr_t ctr;
 
-    EBF_CRITICAL_SECTION_ENTRY();
+  EBF_CRITICAL_SECTION_ENTRY();
 
-    EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
+  EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
 
-    // Was the time event actually armed?
-    if (me->ctr != 0U)
-    {
-        was_armed = true;
-        me->ctr = 0U; // Schedule removal from the list.
-    }
-    else
-    {
-        // The time event was already disarmed.
-        was_armed = false;
-    }
+  ctr = me->ctr;
 
-    EBF_CRITICAL_SECTION_EXIT();
+  EBF_CRITICAL_SECTION_EXIT();
 
-    return was_armed;
-}
-
-bool EDF_timeEvent_rearm(EDF_timeEvent_t *me,
-                         EDF_timeEvent_ctr_t time)
-{
-    bool was_armed;
-
-    EBF_CRITICAL_SECTION_ENTRY();
-
-    EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
-    EAF_ASSERT_IN_CRITICAL_SECTION(me->ao != NULL);
-    EAF_ASSERT_IN_CRITICAL_SECTION(me->tick_rate < EDF_MAX_TICK_RATE);
-    EAF_ASSERT_IN_CRITICAL_SECTION(time != 0U);
-
-    // Was the time event not running?
-    if (me->ctr == 0U)
-    {
-        was_armed = false;
-
-        /**
-         * Is the time event unlinked? See note @ref time_event_disarmed_but_linked.
-         * This check allows disarming and re-arming within the same tick
-         * without duplicating links.
-         */
-        if (!me->is_linked)
-        {
-            me->is_linked = true; // Mark as linked.
-
-            // Link into the temporary new list. See note @ref time_event_new_list.
-            me->next = EDF_framework.te_registry[me->tick_rate].new_head;
-            EDF_framework.te_registry[me->tick_rate].new_head = me;
-        }
-    }
-    else
-    {
-        // The time event was armed.
-        was_armed = true;
-    }
-
-    // Set new counter value.
-    me->ctr = time;
-
-    EBF_CRITICAL_SECTION_EXIT();
-
-    return was_armed;
-}
-
-EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(const EDF_timeEvent_t *me)
-{
-    EDF_timeEvent_ctr_t ctr;
-
-    EBF_CRITICAL_SECTION_ENTRY();
-
-    EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
-
-    ctr = me->ctr;
-
-    EBF_CRITICAL_SECTION_EXIT();
-
-    return ctr;
+  return ctr;
 }
 
 void EDF_timeEvent_tick(uint8_t tick_rate)
 {
-    EDF_timeEventRegistry_t *registry;
-    EDF_timeEvent_t **te_link;
-    EDF_timeEvent_t *te;
+  EDF_timeEventRegistry_t* registry;
+  EDF_timeEvent_t** te_link;
+  EDF_timeEvent_t* te;
 
-    /**
-     * @note The implementation uses a pointer-to-pointer (`EDF_timeEvent_t **te_link`)
-     * to avoid special-casing the first element of the time event registry:
-     * - At the start, `te_link = &registry->armed_head`.
-     * - As we traverse the armed time events list, `te_link` is updated to point to the `next` field of the current node:
-     * `te_link = &te->next`, where `te = *te_link`.
-     * - Removing a node is always `*te_link = te->next;`
-     * (works for both the first node and all subsequent nodes).
-     *
-     * Attaching freshly armed time events (`registry->new_head`) is also unified:
-     * - When `*te_link == NULL` and `registry->new_head != NULL`,
-     * simply do `*te_link = registry->new_head;`
-     * (this attaches the new time events list either at the beginning of registry->armed_head or after its last node).
-     *
-     * This way the same code handles head removal, internal removals and attaching new time events without branching on special cases.
-     */
+  /**
+   * @note
+   * The implementation uses a pointer-to-pointer (`EDF_timeEvent_t **te_link`)
+   * to avoid special-casing the first element of the time event registry:
+   * - At the start, `te_link = &registry->armed_head`.
+   * - As we traverse the armed time events list, `te_link` is updated to point
+   * to the `next` field of the current node: `te_link = &te->next`, where
+   * `te = *te_link`.
+   * - Removing a node is always `*te_link = te->next;` (works for both the
+   * first node and all subsequent nodes).
+   *
+   * Attaching freshly armed time events (`registry->new_head`) is also unified:
+   * - When `*te_link == NULL` and `registry->new_head != NULL`, simply do
+   * `*te_link = registry->new_head;` (this attaches the new time events list
+   * either at the beginning of registry->armed_head or after its last node).
+   *
+   * This way the same code handles head removal, internal removals and
+   * attaching new time events without branching on special cases.
+   */
 
-    EBF_CRITICAL_SECTION_ENTRY();
+  EBF_CRITICAL_SECTION_ENTRY();
 
-    // Make sure tick_rate is valid.
-    EAF_ASSERT_IN_CRITICAL_SECTION(tick_rate < EMF_UTILS_SIZEOF_ARRAY(EDF_framework.te_registry));
+  // Make sure tick_rate is valid.
+  EAF_ASSERT_IN_CRITICAL_SECTION(
+    tick_rate < EMF_UTILS_SIZEOF_ARRAY(EDF_framework.te_registry));
 
-    // Local reference to EDF_framework.te_registry[tick_rate] for readability.
-    registry = &EDF_framework.te_registry[tick_rate];
+  // Local reference to EDF_framework.te_registry[tick_rate] for readability.
+  registry = &EDF_framework.te_registry[tick_rate];
 
-    // Initialize to head of armed time events list.
-    te_link = &registry->armed_head;
+  // Initialize to head of armed time events list.
+  te_link = &registry->armed_head;
 
-    // Set the current time event to the first node of armed list.
-    te = *te_link;
+  // Set the current time event to the first node of armed list.
+  te = *te_link;
 
-    while (true)
+  while (true)
+  {
+    if (te == NULL)
     {
-        if (te == NULL)
-        {
-            // No more time events in the armed list.
-            if (registry->new_head == NULL)
-            {
-                break; // No more time events in the new list.
-            }
+      // No more time events in the armed list.
+      if (registry->new_head == NULL)
+      {
+        break;  // No more time events in the new list.
+      }
 
-            /**
-             * Attach new time events to armed list;
-             * Updates registry->armed_head or registry->armed_head[last].next
-             * depending on the current te_link.
-             */
-            *te_link = registry->new_head;
-            registry->new_head = NULL;
-            te = *te_link; // Continue from the newly attached list.
-        }
-
-        if (te->ctr == 0U)
-        {
-            // "te" scheduled for removal.
-            *te_link = te->next; // Unlink.
-            te->is_linked = false;
-            // Do not advance te_link, because we just unlinked "te".
-
-            EBF_CRITICAL_SECTION_EXIT();
-        }
-        else if (te->ctr == 1U)
-        {
-            if (te->period != 0U)
-            {
-                te->ctr = te->period; // Periodic --> reload counter.
-
-                // Advance te_link to the next node.
-                te_link = &te->next;
-            }
-            else
-            {
-                te->ctr = 0U;        // One-shot --> disarm.
-                *te_link = te->next; // Unlink.
-                te->is_linked = false;
-                // Do not advance te_link, because we just unlinked "te".
-            }
-
-            EBF_CRITICAL_SECTION_EXIT();
-
-            // Post the event to its active object.
-            EDF_activeObject_postFIFO(te->ao, &te->super);
-        }
-        else
-        {
-            te->ctr--; // Normal countdown.
-
-            // Advance te_link to the next node.
-            te_link = &te->next;
-
-            EBF_CRITICAL_SECTION_EXIT();
-        }
-
-        // Re-enter critical section to continue loop.
-        EBF_CRITICAL_SECTION_ENTRY();
-
-        // Update "te" to the current node after any modifications.
-        te = *te_link;
+      /**
+       * Attach new time events to armed list;
+       * Updates registry->armed_head or registry->armed_head[last].next
+       * depending on the current te_link.
+       */
+      *te_link = registry->new_head;
+      registry->new_head = NULL;
+      te = *te_link;  // Continue from the newly attached list.
     }
 
-    EBF_CRITICAL_SECTION_EXIT();
+    if (te->ctr == 0U)
+    {
+      // "te" scheduled for removal.
+      *te_link = te->next;  // Unlink.
+      te->is_linked = false;
+      // Do not advance te_link, because we just unlinked "te".
+
+      EBF_CRITICAL_SECTION_EXIT();
+    }
+    else if (te->ctr == 1U)
+    {
+      if (te->period != 0U)
+      {
+        te->ctr = te->period;  // Periodic --> reload counter.
+
+        // Advance te_link to the next node.
+        te_link = &te->next;
+      }
+      else
+      {
+        te->ctr = 0U;         // One-shot --> disarm.
+        *te_link = te->next;  // Unlink.
+        te->is_linked = false;
+        // Do not advance te_link, because we just unlinked "te".
+      }
+
+      EBF_CRITICAL_SECTION_EXIT();
+
+      // Post the event to its active object.
+      EDF_activeObject_postFIFO(te->ao, &te->super);
+    }
+    else
+    {
+      te->ctr--;  // Normal countdown.
+
+      // Advance te_link to the next node.
+      te_link = &te->next;
+
+      EBF_CRITICAL_SECTION_EXIT();
+    }
+
+    // Re-enter critical section to continue loop.
+    EBF_CRITICAL_SECTION_ENTRY();
+
+    // Update "te" to the current node after any modifications.
+    te = *te_link;
+  }
+
+  EBF_CRITICAL_SECTION_EXIT();
 }
 
 /**
@@ -340,12 +343,12 @@ void EDF_timeEvent_tick(uint8_t tick_rate)
 /**
  * @note time_event_new_list
  *
- * The list of armed time events (`EDF_framework.te_registry[tick_rate].armed_head`) is modified
- * exclusively inside EDF_timeEvent_tick().
- * Newly armed time events are first linked into a temporary list
- * (`EDF_framework.te_registry[tick_rate].new_head`) and only merged into the main list during
- * the tick processing.
- * This design allows EDF_timeEvent_tick() to enter and exit the critical
- * section multiple times, avoiding long CPU blocking while maintaining armed time
- * event list consistency.
+ * The list of armed time events
+ * (`EDF_framework.te_registry[tick_rate].armed_head`) is modified exclusively
+ * inside EDF_timeEvent_tick(). Newly armed time events are first linked into a
+ * temporary list
+ * (`EDF_framework.te_registry[tick_rate].new_head`) and only merged into the
+ * main list during the tick processing. This design allows EDF_timeEvent_tick()
+ * to enter and exit the critical section multiple times, avoiding long CPU
+ * blocking while maintaining armed time event list consistency.
  */

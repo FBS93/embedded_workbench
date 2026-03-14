@@ -45,8 +45,8 @@
 /**
  * @brief Indicates whether the CPU is currently executing in an ISR context.
  *
- * Evaluates to true if the Interrupt Program Status Register (IPSR) is non-zero,
- * meaning the processor is handling an interrupt.
+ * Evaluates to true if the Interrupt Program Status Register (IPSR) is
+ * non-zero, meaning the processor is handling an interrupt.
  */
 #define EDF_CORE_IS_IN_ISR() (EDF_core_getIPSR() != 0U)
 
@@ -70,32 +70,32 @@
  *
  * @param[in] ceiling Lock ceiling priority.
  */
-#define EDF_CORE_SCHED_LOCK(ceiling)                        \
-    do                                                      \
-    {                                                       \
-        if (EDF_CORE_IS_IN_ISR())                           \
-        {                                                   \
-            sched_status = EDF_CORE_SCHED_NOT_LOCKED;       \
-        }                                                   \
-        else                                                \
-        {                                                   \
-            sched_status = EDF_core_lockScheduler(ceiling); \
-        }                                                   \
-    } while (false)
+#define EDF_CORE_SCHED_LOCK(ceiling)                  \
+  do                                                  \
+  {                                                   \
+    if (EDF_CORE_IS_IN_ISR())                         \
+    {                                                 \
+      sched_status = EDF_CORE_SCHED_NOT_LOCKED;       \
+    }                                                 \
+    else                                              \
+    {                                                 \
+      sched_status = EDF_core_lockScheduler(ceiling); \
+    }                                                 \
+  } while (false)
 
 /**
  * @brief Restores scheduler state after a previous lock.
  *
  * Re-enables task preemption if it was previously locked.
  */
-#define EDF_CORE_SCHED_UNLOCK()                        \
-    do                                                 \
-    {                                                  \
-        if (sched_status != EDF_CORE_SCHED_NOT_LOCKED) \
-        {                                              \
-            EDF_core_unlockScheduler(sched_status);    \
-        }                                              \
-    } while (false)
+#define EDF_CORE_SCHED_UNLOCK()                    \
+  do                                               \
+  {                                                \
+    if (sched_status != EDF_CORE_SCHED_NOT_LOCKED) \
+    {                                              \
+      EDF_core_unlockScheduler(sched_status);      \
+    }                                              \
+  } while (false)
 
 /**
  * @brief Wait until an event is available for the active object.
@@ -115,18 +115,18 @@
  *
  * @param[in,out] me Active object instance.
  */
-#define EDF_CORE_NOTIFY_EVENT(me)                                   \
-    do                                                              \
-    {                                                               \
-        EMF_bitmask_setBit(EDF_core.ready_set.bitmask, (me)->prio); \
-        if (!EDF_CORE_IS_IN_ISR())                                  \
-        {                                                           \
-            if (EDF_core_schedule() != 0U)                          \
-            {                                                       \
-                EDF_core_activate();                                \
-            }                                                       \
-        }                                                           \
-    } while (false)
+#define EDF_CORE_NOTIFY_EVENT(me)                               \
+  do                                                            \
+  {                                                             \
+    EMF_bitmask_setBit(EDF_core.ready_set.bitmask, (me)->prio); \
+    if (!EDF_CORE_IS_IN_ISR())                                  \
+    {                                                           \
+      if (EDF_core_schedule() != 0U)                            \
+      {                                                         \
+        EDF_core_activate();                                    \
+      }                                                         \
+    }                                                           \
+  } while (false)
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS
@@ -137,11 +137,13 @@
  */
 typedef struct
 {
-    EDF_activeObject_bitmask_t ready_set; /**< Bitmask of active objects ready to run. */
-    uint8_t active_priority;              /**< Priority of the currently running active object. */
-    uint8_t next_priority;                /**< Priority of the next active object to execute. */
-    uint8_t active_preemption_threshold;  /**< Current preemption threshold. */
-    uint8_t lock_ceiling;                 /**< Current scheduler lock ceiling. */
+  EDF_activeObject_bitmask_t ready_set; /**< Bitmask of active objects ready to
+                                             run. */
+  uint8_t active_priority; /**< Priority of the currently running active
+                                object. */
+  uint8_t next_priority; /**< Priority of the next active object to execute. */
+  uint8_t active_preemption_threshold; /**< Current preemption threshold. */
+  uint8_t lock_ceiling;                /**< Current scheduler lock ceiling. */
 } EDF_core_t;
 
 /**
@@ -221,8 +223,7 @@ uint8_t EDF_core_schedule(void);
  * @return The priority of the next active object to run,
  * or 0 if no activation is required.
  */
-uint8_t EDF_core_scheduleAfter(const EDF_activeObject_t *act,
-                               uint8_t pthre_in);
+uint8_t EDF_core_scheduleAfter(const EDF_activeObject_t* act, uint8_t pthre_in);
 
 /**
  * @brief Activates ready active objects according to their priorities.
@@ -238,7 +239,8 @@ void EDF_core_activate(void);
  * @brief PendSV exception handler.
  *
  * Handles context switching. Prepares the transition from Handler mode to
- * Thread mode to execute EDF_core_activate and then EDF_core_preemptedContextReturn.
+ * Thread mode to execute @ref EDF_core_activate and then
+ * @ref EDF_core_preemptedContextReturn.
  *
  * @note Implemented in assembly within @ref edf_core.S.
  */

@@ -62,16 +62,16 @@
  * @param[in] actual Pointer to actual buffer.
  * @param[in] size Number of bytes to compare.
  */
-static void verifyBuff(const uint8_t *expected,
-                       const uint8_t *actual,
+static void verifyBuff(const uint8_t* expected,
+                       const uint8_t* actual,
                        uint8_t size);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static void verifyBuff(const uint8_t *expected,
-                       const uint8_t *actual,
+static void verifyBuff(const uint8_t* expected,
+                       const uint8_t* actual,
                        uint8_t size)
 {
   uint8_t byte_index;

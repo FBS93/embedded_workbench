@@ -82,18 +82,18 @@
  *
  * @param[in,out] me Active object instance.
  */
-#define EDF_CORE_WAIT_FOR_EVENT(me)                                    \
-    do                                                                 \
-    {                                                                  \
-        while ((me)->e_queue.front_e == NULL)                          \
-        {                                                              \
-            EAF_ASSERT_IN_CRITICAL_SECTION(EBF_critSecNestCnt == 1);   \
-            --EBF_critSecNestCnt;                                      \
-            (void)pthread_cond_wait(&(me)->e_cond, &EBF_critSecMutex); \
-            EAF_ASSERT_IN_CRITICAL_SECTION(EBF_critSecNestCnt == 0);   \
-            ++EBF_critSecNestCnt;                                      \
-        }                                                              \
-    } while (false)
+#define EDF_CORE_WAIT_FOR_EVENT(me)                              \
+  do                                                             \
+  {                                                              \
+    while ((me)->e_queue.front_e == NULL)                        \
+    {                                                            \
+      EAF_ASSERT_IN_CRITICAL_SECTION(EBF_critSecNestCnt == 1);   \
+      --EBF_critSecNestCnt;                                      \
+      (void)pthread_cond_wait(&(me)->e_cond, &EBF_critSecMutex); \
+      EAF_ASSERT_IN_CRITICAL_SECTION(EBF_critSecNestCnt == 0);   \
+      ++EBF_critSecNestCnt;                                      \
+    }                                                            \
+  } while (false)
 
 /**
  * @brief Notify that a new event is available for the active object.

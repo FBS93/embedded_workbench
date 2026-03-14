@@ -57,9 +57,9 @@
 /**
  * @brief Callback type invoked on timer entry expiration.
  *
- * @note The callback executes in the timer thread context. Performing lengthy or
- * blocking operations may delay other timer entries or cause timing deviations.
- * Use this callback strictly as an ISR-like routine.
+ * @note The callback executes in the timer thread context. Performing lengthy
+ * or blocking operations may delay other timer entries or cause timing
+ * deviations. Use this callback strictly as an ISR-like routine.
  */
 typedef void (*EPF_timer_callback_t)(void);
 
@@ -68,11 +68,12 @@ typedef void (*EPF_timer_callback_t)(void);
  */
 typedef struct EPF_timer_entry_t
 {
-  struct EPF_timer_entry_t *next; /**< Link to the next timer in the list. */
-  EPF_timer_callback_t cb;        /**< User-defined callback executed on expiration. */
-  uint64_t ctr;                   /**< Down-counter until expiration (ticks). */
-  uint64_t period;                /**< Reload value for periodic timer, 0 for one-shot timer (ticks). */
-  bool is_linked;                 /**< True if the timer is currently linked. */
+  struct EPF_timer_entry_t* next; /**< Link to the next timer in the list. */
+  EPF_timer_callback_t cb; /**< User-defined callback executed on expiration. */
+  uint64_t ctr;            /**< Down-counter until expiration (ticks). */
+  uint64_t period; /**< Reload value for periodic timer, 0 for one-shot timer
+                        (ticks). */
+  bool is_linked;  /**< True if the timer is currently linked. */
 } EPF_timer_entry_t;
 
 /**
@@ -81,15 +82,13 @@ typedef struct EPF_timer_entry_t
 typedef struct
 {
   pthread_t ticker_tid;          /**< Ticker thread handler. */
-  pthread_mutex_t mutex;         /**< Mutex protecting timer lists. See note @ref timer_new_list. */
-  /**
-   * @brief Stop flag for ticker thread.
-   *
-   * volatile_use: context_interaction
-   */
-  volatile bool stop_ticker;
-  EPF_timer_entry_t *armed_head; /**< Points to the list of armed timers. */
-  EPF_timer_entry_t *new_head;   /**< Points to the list of newly armed timers. See note @ref timer_new_list. */
+  pthread_mutex_t mutex;         /**< Mutex protecting timer lists.
+                                      See note @ref timer_new_list. */
+  volatile bool stop_ticker;     /**< Stop flag for ticker thread.
+                                      volatile_use: context_interaction */
+  EPF_timer_entry_t* armed_head; /**< Points to the list of armed timers. */
+  EPF_timer_entry_t* new_head;   /**< Points to the list of newly armed timers.
+                                      See note @ref timer_new_list. */
 } EPF_timer_t;
 
 /*******************************************************************************
@@ -106,14 +105,14 @@ typedef struct
  * @param me Pointer to the timer instance.
  * @param prio Ticker thread priority. Valid range: 1–99 (using SCHED_FIFO).
  */
-void EPF_timer_init(EPF_timer_t *me, uint8_t prio);
+void EPF_timer_init(EPF_timer_t* me, uint8_t prio);
 
 /**
  * @brief Deinitializes a timer instance.
  *
  * @param me Pointer to the timer instance.
  */
-void EPF_timer_deinit(EPF_timer_t *me);
+void EPF_timer_deinit(EPF_timer_t* me);
 
 /**
  * @brief Initializes a timer entry.
@@ -121,8 +120,7 @@ void EPF_timer_deinit(EPF_timer_t *me);
  * @param[in,out] timer_entry Pointer to the timer entry instance.
  * @param cb Callback to invoke on timer expiration.
  */
-void EPF_timeEvent_new(EPF_timer_entry_t *timer_entry,
-                       EPF_timer_callback_t cb);
+void EPF_timeEvent_new(EPF_timer_entry_t* timer_entry, EPF_timer_callback_t cb);
 
 /**
  * @brief Arms a timer entry.
@@ -130,10 +128,11 @@ void EPF_timeEvent_new(EPF_timer_entry_t *timer_entry,
  * @param me Pointer to the timer instance.
  * @param[in,out] timer_entry Pointer to the timer entry instance.
  * @param start Time until first expiration (nano seconds).
- * @param period Periodic interval of timer expirations, 0 for one-shot timer  (nano seconds).
+ * @param period Periodic interval of timer expirations, 0 for one-shot timer
+ * (nano seconds).
  */
-void EPF_timer_arm(EPF_timer_t *me,
-                   EPF_timer_entry_t *timer_entry,
+void EPF_timer_arm(EPF_timer_t* me,
+                   EPF_timer_entry_t* timer_entry,
                    uint64_t start,
                    uint64_t period);
 
@@ -144,7 +143,7 @@ void EPF_timer_arm(EPF_timer_t *me,
  * @param[in,out] timer_entry Pointer to the timer entry instance.
  * @return true if the timer was armed, false if it was already disarmed.
  */
-bool EPF_timer_disarm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry);
+bool EPF_timer_disarm(EPF_timer_t* me, EPF_timer_entry_t* timer_entry);
 
 /**
  * @brief Rearms a timer entry with a new timeout.
@@ -154,7 +153,9 @@ bool EPF_timer_disarm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry);
  * @param[in] time Time until first expiration (nano seconds).
  * @return true if the timer was already armed, false if it was not.
  */
-bool EPF_timer_rearm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry, uint64_t time);
+bool EPF_timer_rearm(EPF_timer_t* me,
+                     EPF_timer_entry_t* timer_entry,
+                     uint64_t time);
 
 /**
  * @brief Gets the current counter value of a timer entry.
@@ -163,6 +164,7 @@ bool EPF_timer_rearm(EPF_timer_t *me, EPF_timer_entry_t *timer_entry, uint64_t t
  * @param[in] timer_entry Pointer to the timer entry instance.
  * @return Current tick counter of the timer (nano seconds).
  */
-uint64_t EPF_timer_currentCounter(EPF_timer_t *me, EPF_timer_entry_t *timer_entry);
+uint64_t EPF_timer_currentCounter(EPF_timer_t* me,
+                                  EPF_timer_entry_t* timer_entry);
 
 #endif /* EPF_TIMER_H */

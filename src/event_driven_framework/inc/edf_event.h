@@ -51,7 +51,7 @@
  * @brief Initializer for an immutable event.
  */
 #define EDF_EVENT_IMMUTABLE_INIT(sig) \
-    {(EDF_event_signal_t)(sig), 0x00U, EDF_EVENT_REF_CNT_IMMUTABLE}
+  {(EDF_event_signal_t)(sig), 0x00U, EDF_EVENT_REF_CNT_IMMUTABLE}
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS
@@ -73,15 +73,15 @@ typedef uint32_t EDF_event_signal_t;
  */
 typedef struct EDF_event_t
 {
-    EDF_event_signal_t sig; /**< Event signal. */
-    uint8_t pool_num;       /**< Pool number. */
-    uint8_t ref_cnt;        /**< Reference counter. */
+  EDF_event_signal_t sig; /**< Event signal. */
+  uint8_t pool_num;       /**< Pool number. */
+  uint8_t ref_cnt;        /**< Reference counter. */
 } EDF_event_t;
 
 /**
  * @brief Pointer to an event.
  */
-typedef const EDF_event_t *EDF_event_ptr;
+typedef const EDF_event_t* EDF_event_ptr;
 
 /*******************************************************************************
  * PUBLIC VARIABLES
@@ -97,8 +97,7 @@ typedef const EDF_event_t *EDF_event_ptr;
  * @param[in,out] me Pointer to the event instance to initialize.
  * @param[in] sig Event signal.
  */
-void EDF_event_initImmutable(EDF_event_t *me,
-                             EDF_event_signal_t sig);
+void EDF_event_initImmutable(EDF_event_t* me, EDF_event_signal_t sig);
 
 /**
  * @brief Create and initialize a mutable event.
@@ -108,8 +107,7 @@ void EDF_event_initImmutable(EDF_event_t *me,
  * @return Pointer to the newly created mutable event, or NULL if no pool
  * space is available.
  */
-EDF_event_t *EDF_event_initMutable(uint_fast16_t e_size,
-                                   int sig);
+EDF_event_t* EDF_event_initMutable(uint_fast16_t e_size, int sig);
 
 /**
  * @brief Increments the reference counter of an event.
@@ -118,7 +116,7 @@ EDF_event_t *EDF_event_initMutable(uint_fast16_t e_size,
  *
  * @param[in,out] me Pointer to the event instance.
  */
-void EDF_event_incrementRefCtr_(EDF_event_t *me);
+void EDF_event_incrementRefCtr_(EDF_event_t* me);
 
 /**
  * @brief Decrements the reference counter of an event.
@@ -127,7 +125,7 @@ void EDF_event_incrementRefCtr_(EDF_event_t *me);
  *
  * @param[in,out] me Pointer to the event instance.
  */
-void EDF_event_decrementRefCtr_(EDF_event_t *me);
+void EDF_event_decrementRefCtr_(EDF_event_t* me);
 
 /**
  * @brief Garbage collector for a mutable event.
@@ -136,6 +134,6 @@ void EDF_event_decrementRefCtr_(EDF_event_t *me);
  *
  * @param[in] e Pointer to the mutable event to be recycled.
  */
-void EDF_event_gc(EDF_event_t *e);
+void EDF_event_gc(EDF_event_t* e);
 
-#endif // EDF_EVENT_H
+#endif  // EDF_EVENT_H

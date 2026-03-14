@@ -45,8 +45,7 @@
  * Shall be declared once per source file before using the other macros of
  * this file.
  */
-#define EAF_DEFINE_THIS_FILE(file) \
-    static const char EAF_file[] = file
+#define EAF_DEFINE_THIS_FILE(file) static const char EAF_file[] = file
 
 /**
  * @brief Assert expression with critical section protection.
@@ -55,23 +54,23 @@
  * @param[in] id User-defined identifier for the assertion. Value 0 is
  * reserved for assertions without explicit ID, see @ref EAF_ASSERT.
  */
-#define EAF_ASSERT_ID(expr, id)                    \
-    do                                             \
-    {                                              \
-        bool in_crit = EAF_isInCriticalSection();  \
-        if (!in_crit)                              \
-        {                                          \
-            EAF_criticalSectionEntry();            \
-        }                                          \
-        if (!(expr))                               \
-        {                                          \
-            EAF_onError(EAF_file, (__LINE__), id); \
-        }                                          \
-        if (!in_crit)                              \
-        {                                          \
-            EAF_criticalSectionExit();             \
-        }                                          \
-    } while (0)
+#define EAF_ASSERT_ID(expr, id)               \
+  do                                          \
+  {                                           \
+    bool in_crit = EAF_isInCriticalSection(); \
+    if (!in_crit)                             \
+    {                                         \
+      EAF_criticalSectionEntry();             \
+    }                                         \
+    if (!(expr))                              \
+    {                                         \
+      EAF_onError(EAF_file, (__LINE__), id);  \
+    }                                         \
+    if (!in_crit)                             \
+    {                                         \
+      EAF_criticalSectionExit();              \
+    }                                         \
+  } while (0)
 
 /**
  * @brief Assert expression with critical section protection.
@@ -86,20 +85,20 @@
  * @param[in] id User-defined identifier for the error. Value 0 is
  * reserved for errors without explicit ID, see @ref EAF_ERROR.
  */
-#define EAF_ERROR_ID(id)                          \
-    do                                            \
-    {                                             \
-        bool in_crit = EAF_isInCriticalSection(); \
-        if (!in_crit)                             \
-        {                                         \
-            EAF_criticalSectionEntry();           \
-        }                                         \
-        EAF_onError(EAF_file, (__LINE__), id);    \
-        if (!in_crit)                             \
-        {                                         \
-            EAF_criticalSectionExit();            \
-        }                                         \
-    } while (0)
+#define EAF_ERROR_ID(id)                      \
+  do                                          \
+  {                                           \
+    bool in_crit = EAF_isInCriticalSection(); \
+    if (!in_crit)                             \
+    {                                         \
+      EAF_criticalSectionEntry();             \
+    }                                         \
+    EAF_onError(EAF_file, (__LINE__), id);    \
+    if (!in_crit)                             \
+    {                                         \
+      EAF_criticalSectionExit();              \
+    }                                         \
+  } while (0)
 
 /**
  * @brief Report an error with critical section protection.
@@ -110,34 +109,37 @@
  * @brief Assert expression inside a critical section context.
  *
  * @param[in] expr Expression to assert.
- * @param[in] id User-defined identifier for the assertion. Value 0 is
- * reserved for assertions without explicit ID, see @ref EAF_ASSERT_IN_CRITICAL_SECTION.
+ * @param[in] id User-defined identifier for the assertion.
+ * Value 0 is reserved for assertions without explicit ID,
+ * see @ref EAF_ASSERT_IN_CRITICAL_SECTION.
  */
 #define EAF_ASSERT_IN_CRITICAL_SECTION_ID(expr, id) \
-    do                                              \
-    {                                               \
-        if (!(expr))                                \
-            EAF_onError(EAF_file, (__LINE__), id);  \
-    } while (false)
+  do                                                \
+  {                                                 \
+    if (!(expr))                                    \
+      EAF_onError(EAF_file, (__LINE__), id);        \
+  } while (false)
 
 /**
  * @brief Assert expression inside a critical section context.
  *
  * @param[in] expr Expression to assert.
  */
-#define EAF_ASSERT_IN_CRITICAL_SECTION(expr) EAF_ASSERT_IN_CRITICAL_SECTION_ID(expr, 0)
+#define EAF_ASSERT_IN_CRITICAL_SECTION(expr) \
+  EAF_ASSERT_IN_CRITICAL_SECTION_ID(expr, 0)
 
 /**
  * @brief Report an error inside a critical section context.
  *
- * @param[in] id User-defined identifier for the error. Value 0 is
- * reserved for errors without explicit ID, see @ref EAF_ERROR_IN_CRITICAL_SECTION_ID.
+ * @param[in] id User-defined identifier for the error.
+ * Value 0 is reserved for errors without explicit ID,
+ * see @ref EAF_ERROR_IN_CRITICAL_SECTION_ID.
  */
-#define EAF_ERROR_IN_CRITICAL_SECTION_ID(id)   \
-    do                                         \
-    {                                          \
-        EAF_onError(EAF_file, (__LINE__), id); \
-    } while (false)
+#define EAF_ERROR_IN_CRITICAL_SECTION_ID(id) \
+  do                                         \
+  {                                          \
+    EAF_onError(EAF_file, (__LINE__), id);   \
+  } while (false)
 
 /**
  * @brief Report an error inside a critical section context.
@@ -152,13 +154,13 @@
  *
  * @note Shall be closed with @ref EAF_ASSERT_BLOCK_END().
  */
-#define EAF_ASSERT_BLOCK_BEGIN()                  \
-    {                                             \
-        bool in_crit = EAF_isInCriticalSection(); \
-        if (!in_crit)                             \
-        {                                         \
-            EAF_criticalSectionEntry();           \
-        }
+#define EAF_ASSERT_BLOCK_BEGIN()              \
+  {                                           \
+    bool in_crit = EAF_isInCriticalSection(); \
+    if (!in_crit)                             \
+    {                                         \
+      EAF_criticalSectionEntry();             \
+    }
 
 /**
  * @brief Assert expression within an active assertion block.
@@ -170,7 +172,8 @@
  * @param[in] id User-defined identifier for the assertion. Value 0 is
  * reserved for assertions without explicit ID, see @ref EAF_ASSERT_IN_BLOCK.
  */
-#define EAF_ASSERT_IN_BLOCK_ID(expr, id) EAF_ASSERT_IN_CRITICAL_SECTION_ID(expr, id)
+#define EAF_ASSERT_IN_BLOCK_ID(expr, id) \
+  EAF_ASSERT_IN_CRITICAL_SECTION_ID(expr, id)
 
 /**
  * @brief Assert expression within an active assertion block.
@@ -187,12 +190,12 @@
  *
  * Exits the critical section only if it was entered by the block itself.
  */
-#define EAF_ASSERT_BLOCK_END()     \
-    if (!in_crit)                  \
-    {                              \
-        EAF_criticalSectionExit(); \
-    }                              \
-    }
+#define EAF_ASSERT_BLOCK_END() \
+  if (!in_crit)                \
+  {                            \
+    EAF_criticalSectionExit(); \
+  }                            \
+  }
 
 /**
  * @note
@@ -242,7 +245,8 @@
  * EAF_ASSERT_ID(((global_var < x) && (global_var > y)), 100);
  * @endcode
  *
- * @todo Integrate this note into the coding guidelines so AI tools can verify it.
+ * @todo Integrate this note into the coding guidelines so AI tools can verify
+ * it.
  */
 
 /*******************************************************************************
@@ -279,7 +283,7 @@
  * @param[in] line Line number where the error occurred.
  * @param[in] id Identifier associated with the error.
  */
-void EAF_onError(const char *file, int line, int id);
+void EAF_onError(const char* file, int line, int id);
 
 /**
  * @brief Enter critical section.
@@ -320,4 +324,4 @@ void EAF_criticalSectionExit(void);
  */
 bool EAF_isInCriticalSection(void);
 
-#endif // EAF_H
+#endif  // EAF_H

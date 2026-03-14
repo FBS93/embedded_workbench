@@ -85,7 +85,7 @@ static void writeChar(char c);
  *
  * @param[in] str Pointer to a null-terminated string.
  */
-static void writeStr(const char *str);
+static void writeStr(const char* str);
 
 /**
  * @brief Converts an unsigned integer to string and writes it to the output.
@@ -123,10 +123,10 @@ static void writeChar(char c)
      */
   };
 
-  EBF_stdoutWrite((const uint8_t *)&c, 1);
+  EBF_stdoutWrite((const uint8_t*)&c, 1);
 }
 
-static void writeStr(const char *str)
+static void writeStr(const char* str)
 {
   EAF_ASSERT(str != NULL);
 
@@ -140,7 +140,7 @@ static void writeStr(const char *str)
        */
     };
 
-    EBF_stdoutWrite((const uint8_t *)str, 1);
+    EBF_stdoutWrite((const uint8_t*)str, 1);
     str++;
   }
 }
@@ -208,9 +208,9 @@ static void writeFloat(float val)
   writeChar('.');
 
   frac_part *= 100.0f;
-  frac = (uint32_t)(frac_part + 0.5f); // round to nearest
+  frac = (uint32_t)(frac_part + 0.5f);  // round to nearest
   if (frac < 10)
-  { // Add 0 if single digit
+  {  // Add 0 if single digit
     writeChar('0');
   }
   writeUint(frac);
@@ -220,7 +220,7 @@ static void writeFloat(float val)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-void EMF_print(const char *fmt, const uintptr_t *args)
+void EMF_print(const char* fmt, const uintptr_t* args)
 {
   int arg_idx;
   union
@@ -239,52 +239,52 @@ void EMF_print(const char *fmt, const uintptr_t *args)
       fmt++;
       switch (*fmt)
       {
-      case 'u':
-      {
-        EAF_ASSERT(args != NULL);
-        writeUint((uint32_t)args[arg_idx]);
-        arg_idx++;
-        break;
-      }
-      case 'i':
-      {
-        EAF_ASSERT(args != NULL);
-        writeInt((int32_t)args[arg_idx]);
-        arg_idx++;
-        break;
-      }
-      case 'f':
-      {
-        EAF_ASSERT(args != NULL);
-        conv.u = (uint32_t)args[arg_idx];
-        writeFloat(conv.f);
-        arg_idx++;
-        break;
-      }
-      case 'c':
-      {
-        EAF_ASSERT(args != NULL);
-        writeChar((char)args[arg_idx]);
-        arg_idx++;
-        break;
-      }
-      case 's':
-      {
-        EAF_ASSERT(args != NULL);
-        writeStr((const char *)args[arg_idx]);
-        arg_idx++;
-        break;
-      }
-      case '%':
-      {
-        writeChar('%');
-        break;
-      }
-      default:
-      {
-        writeChar('?');
-        break;
-      }
+        case 'u':
+        {
+          EAF_ASSERT(args != NULL);
+          writeUint((uint32_t)args[arg_idx]);
+          arg_idx++;
+          break;
+        }
+        case 'i':
+        {
+          EAF_ASSERT(args != NULL);
+          writeInt((int32_t)args[arg_idx]);
+          arg_idx++;
+          break;
+        }
+        case 'f':
+        {
+          EAF_ASSERT(args != NULL);
+          conv.u = (uint32_t)args[arg_idx];
+          writeFloat(conv.f);
+          arg_idx++;
+          break;
+        }
+        case 'c':
+        {
+          EAF_ASSERT(args != NULL);
+          writeChar((char)args[arg_idx]);
+          arg_idx++;
+          break;
+        }
+        case 's':
+        {
+          EAF_ASSERT(args != NULL);
+          writeStr((const char*)args[arg_idx]);
+          arg_idx++;
+          break;
+        }
+        case '%':
+        {
+          writeChar('%');
+          break;
+        }
+        default:
+        {
+          writeChar('?');
+          break;
+        }
       }
     }
     else

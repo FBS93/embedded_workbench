@@ -80,7 +80,8 @@
 EAF_DEFINE_THIS_FILE(__FILE__);
 
 /**
- * @brief Mutex used to synchronize the active object threads and EDF initialization.
+ * @brief Mutex used to synchronize the active object threads and EDF
+ * initialization.
  */
 static pthread_mutex_t startupMutex;
 
@@ -121,7 +122,7 @@ static void sigIntHandler(int signum);
  * @param[in] arg Pointer to the active object instance.
  * @return Always returns NULL (unused, as threads are detached).
  */
-static void *activeObjectThread(void *arg);
+static void* activeObjectThread(void* arg);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
@@ -129,33 +130,37 @@ static void *activeObjectThread(void *arg);
 
 static void sigIntHandler(int signum)
 {
-    /**
-     * Unused because we have only registered SIGINT, so the value will
-     * always be SIGINT (2), which corresponds to Ctrl+C.
-     */
-    EMF_UTILS_UNUSED_PARAM(signum);
+  /**
+   * Unused because we have only registered SIGINT, so the value will
+   * always be SIGINT (2), which corresponds to Ctrl+C.
+   */
+  EMF_UTILS_UNUSED_PARAM(signum);
 
-    EDF_onShutdown(); // User-specific shutdown callback.
-    exit(-1);
+  EDF_onShutdown();  // User-specific shutdown callback.
+  exit(-1);
 }
 
-static void *activeObjectThread(void *arg)
+static void* activeObjectThread(void* arg)
 {
-    EDF_activeObject_t *act = (EDF_activeObject_t *)arg;
+  EDF_activeObject_t* act;
+  EDF_event_t* e;
 
-    // Block this thread until the startup mutex is unlocked from EDF_run().
-    (void)pthread_mutex_lock(&startupMutex);
-    (void)pthread_mutex_unlock(&startupMutex);
+  act = (EDF_activeObject_t*)arg;
 
-    // For-ever.
-    while (1)
-    {
-        EDF_event_t *e = (EDF_event_t *)EDF_activeObject_get(act); // Typecast to discard const qualifier.
-        EDF_hsm_dispatch(&act->super, e);
-        EDF_event_gc(e);
-    }
+  // Block this thread until the startup mutex is unlocked from EDF_run().
+  (void)pthread_mutex_lock(&startupMutex);
+  (void)pthread_mutex_unlock(&startupMutex);
 
-    return NULL;
+  // For-ever.
+  while (1)
+  {
+    // Typecast to discard const qualifier.
+    e = (EDF_event_t*)EDF_activeObject_get(act);
+    EDF_hsm_dispatch(&act->super, e);
+    EDF_event_gc(e);
+  }
+
+  return NULL;
 }
 
 /*******************************************************************************
@@ -164,166 +169,181 @@ static void *activeObjectThread(void *arg)
 
 void EDF_init(void)
 {
-    struct sigaction sig_act;
+  struct sigaction sig_act;
 
-    /**
-     * @todo Optional hard real-time optimization.
-     *
-     * mlockall(MCL_CURRENT | MCL_FUTURE) locks all current and future
-     * memory pages of this process into RAM, preventing them from being
-     * swapped to disk. This can eliminate unpredictable page faults and
-     * improve timing determinism in hard real-time systems.
-     *
-     * Considerations before enabling:
-     *  - Requires root privileges or CAP_IPC_LOCK capability.
-     *  - Limited by the RLIMIT_MEMLOCK resource limit (ulimit -l).
-     *  - May consume significant RAM and reduce overall system flexibility.
-     *  - Not strictly necessary for soft real-time applications.
-     *
-     * If enabled, handle errors carefully: failure to lock memory does not
-     * necessarily mean the application cannot run, but timing may degrade.
-     * Use only if strict timing guarantees are required and the platform
-     * environment supports it.
-     *
-     * Example code:
-     *
-     * @code
-     * #include <sys/mman.h> // for mlockall()
-     *
-     * if (mlockall(MCL_CURRENT | MCL_FUTURE) != 0) {
-     *   perror("mlockall failed");
-     *   // optional: decide if you want to exit or continue without locked memory
-     * }
-     * @endcode
-     */
+  /**
+   * @todo Optional hard real-time optimization.
+   *
+   * mlockall(MCL_CURRENT | MCL_FUTURE) locks all current and future
+   * memory pages of this process into RAM, preventing them from being
+   * swapped to disk. This can eliminate unpredictable page faults and
+   * improve timing determinism in hard real-time systems.
+   *
+   * Considerations before enabling:
+   *  - Requires root privileges or CAP_IPC_LOCK capability.
+   *  - Limited by the RLIMIT_MEMLOCK resource limit (ulimit -l).
+   *  - May consume significant RAM and reduce overall system flexibility.
+   *  - Not strictly necessary for soft real-time applications.
+   *
+   * If enabled, handle errors carefully: failure to lock memory does not
+   * necessarily mean the application cannot run, but timing may degrade.
+   * Use only if strict timing guarantees are required and the platform
+   * environment supports it.
+   *
+   * Example code:
+   *
+   * @code
+   * #include <sys/mman.h> // for mlockall()
+   *
+   * if (mlockall(MCL_CURRENT | MCL_FUTURE) != 0) {
+   *   perror("mlockall failed");
+   *   // optional: decide if you want to exit or continue without locked memory
+   * }
+   * @endcode
+   */
 
-    /**
-     * Initialize the startup mutex with default attributes
-     * (non-recursive, same as PTHREAD_MUTEX_INITIALIZER).
-     */
-    (void)pthread_mutex_init(&startupMutex, NULL);
+  /**
+   * Initialize the startup mutex with default attributes
+   * (non-recursive, same as PTHREAD_MUTEX_INITIALIZER).
+   */
+  (void)pthread_mutex_init(&startupMutex, NULL);
 
-    /**
-     * Lock the startup mutex to block any active objects started before
-     * calling EDF_run().
-     */
-    (void)pthread_mutex_lock(&startupMutex);
+  /**
+   * Lock the startup mutex to block any active objects started before
+   * calling EDF_run().
+   */
+  (void)pthread_mutex_lock(&startupMutex);
 
-    // Initialize EDF framework.
-    EDF_framework_init();
+  // Initialize EDF framework.
+  EDF_framework_init();
 
-    // set SIGINT (Ctrl-C) signal callback
-    (void)memset(&sig_act, 0, sizeof(sig_act));
-    sig_act.sa_handler = &sigIntHandler;
-    (void)sigaction(SIGINT, &sig_act, NULL);
+  // set SIGINT (Ctrl-C) signal callback
+  (void)memset(&sig_act, 0, sizeof(sig_act));
+  sig_act.sa_handler = &sigIntHandler;
+  (void)sigaction(SIGINT, &sig_act, NULL);
 }
 
 int EDF_run(void)
 {
-    struct sched_param sparam;
+  struct sched_param sparam;
 
-    EDF_onStartup(); // User-specific startup callback.
+  EDF_onStartup();  // User-specific startup callback.
 
-    // See @ref pthread_priority_scope
-    sparam.sched_priority = sched_get_priority_max(SCHED_FIFO) - EDF_MAIN_THREAD_PRIO_OFFSET;
+  // See @ref pthread_priority_scope
+  sparam.sched_priority =
+    sched_get_priority_max(SCHED_FIFO) - EDF_MAIN_THREAD_PRIO_OFFSET;
 
-    // See @ref scheduler_fifo_policy
-    (void)pthread_setschedparam(pthread_self(), SCHED_FIFO, &sparam);
+  // See @ref scheduler_fifo_policy
+  (void)pthread_setschedparam(pthread_self(), SCHED_FIFO, &sparam);
 
-    /**
-     * Exit the startup critical section to unblock any active objects
-     * started before calling EDF_run()
-     */
-    (void)pthread_mutex_unlock(&startupMutex);
+  /**
+   * Exit the startup critical section to unblock any active objects
+   * started before calling EDF_run()
+   */
+  (void)pthread_mutex_unlock(&startupMutex);
 
-    isRunning = true;
-    while (isRunning)
-    {
-        // Do nothing.
-    }
+  isRunning = true;
+  while (isRunning)
+  {
+    // Do nothing.
+  }
 
-    EDF_onShutdown(); // User-specific shutdown callback.
+  EDF_onShutdown();  // User-specific shutdown callback.
 
-    (void)pthread_mutex_destroy(&startupMutex);
+  (void)pthread_mutex_destroy(&startupMutex);
 
-    return 0; // Return success
+  return 0;  // Return success
 }
 
 void EDF_stop(void)
 {
-    /**
-     * @note Calling this function terminates the main EDF thread,
-     * which causes all Active Object threads to end abruptly.
-     * The user is responsible for invoking EDF_stop() only
-     * when the AO states are safe for an immediate shutdown.
-     */
-    isRunning = false; // Terminate the main EDF thread
+  /**
+   * @note Calling this function terminates the main EDF thread,
+   * which causes all Active Object threads to end abruptly.
+   * The user is responsible for invoking EDF_stop() only
+   * when the AO states are safe for an immediate shutdown.
+   */
+  isRunning = false;  // Terminate the main EDF thread
 }
 
-void EDF_activeObject_start(EDF_activeObject_t *me,
+void EDF_activeObject_start(EDF_activeObject_t* me,
                             EDF_activeObject_prio_t prio,
-                            EDF_event_ptr *q_storage, EDF_eventQueue_ctr_t q_len,
-                            void *stack_storage, uint_fast16_t stack_size,
-                            const EDF_event_t *e)
+                            EDF_event_ptr* q_storage,
+                            EDF_eventQueue_ctr_t q_len,
+                            void* stack_storage,
+                            uint_fast16_t stack_size,
+                            const EDF_event_t* e)
 {
-    pthread_attr_t attr;
-    int err;
-    pthread_t thread;
-    struct sched_param sched_param;
+  pthread_attr_t attr;
+  int err;
+  pthread_t thread;
+  struct sched_param sched_param;
 
-    EMF_UTILS_UNUSED_PARAM(stack_storage); // p-threads allocate stack internally.
+  // p-threads allocate stack internally.
+  EMF_UTILS_UNUSED_PARAM(stack_storage);
 
-    EAF_ASSERT(me != NULL);
+  EAF_ASSERT(me != NULL);
 
-    me->prio = (uint8_t)(prio & 0xFFU); // Base priority.
-    me->pthre = 0U;                     // Preemption-threshold (not used in this port).
+  me->prio = (uint8_t)(prio & 0xFFU);  // Base priority.
+  me->pthre = 0U;  // Preemption-threshold (not used in this port).
 
-    // Ensure priority is within the valid SCHED_FIFO range.
-    EAF_ASSERT((me->prio >= sched_get_priority_min(SCHED_FIFO)) &&
-               (me->prio <= sched_get_priority_max(SCHED_FIFO)));
+  // Ensure priority is within the valid SCHED_FIFO range.
+  EAF_ASSERT((me->prio >= sched_get_priority_min(SCHED_FIFO)) &&
+             (me->prio <= sched_get_priority_max(SCHED_FIFO)));
 
-    EDF_eventQueue_init(&me->e_queue, q_storage, q_len);
-    (void)pthread_cond_init(&me->e_cond, NULL); // Initialize the condition variable used for event notification.
-    EDF_activeObject_register(me);
-    EDF_hsm_start(&me->super, e); // Execute top-most initial transition of the HSM.
+  EDF_eventQueue_init(&me->e_queue, q_storage, q_len);
 
-    // Configure the Active Object thread scheduling policy and attributes.
-    // See @ref scheduler_fifo_policy
-    (void)pthread_attr_init(&attr);
-    (void)pthread_attr_setschedpolicy(&attr, SCHED_FIFO);
-    (void)pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
-    (void)pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+  // Initialize the condition variable used for event notification.
+  (void)pthread_cond_init(&me->e_cond, NULL);
 
-    // Configure the Active Object thread priority.
-    // See @ref pthread_priority_scope
-    sched_param.sched_priority = me->prio + (sched_get_priority_max(SCHED_FIFO) - EDF_MAX_ACTIVE_OBJECT - ACTIVE_OBJECT_THREAD_PRIO_OFFSET);
-    (void)pthread_attr_setschedparam(&attr, &sched_param);
+  EDF_activeObject_register(me);
 
-    // Configure the Active Object thread stack size.
-    (void)pthread_attr_setstacksize(&attr,
-                                    ((stack_size < (int_fast16_t)PTHREAD_STACK_MIN) ? PTHREAD_STACK_MIN : stack_size));
+  // Execute top-most initial transition of the HSM.
+  EDF_hsm_start(&me->super, e);
 
-    // Create the Active Object thread.
-    err = pthread_create(&thread, &attr, &activeObjectThread, me);
+  // Configure the Active Object thread scheduling policy and attributes.
+  // See @ref scheduler_fifo_policy
+  (void)pthread_attr_init(&attr);
+  (void)pthread_attr_setschedpolicy(&attr, SCHED_FIFO);
+  (void)pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
+  (void)pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 
-    /**
-     * If this assertion fails, creating the pthread with the SCHED_FIFO
-     * policy was unsuccessful. Most likely, the application does not
-     * have superuser privileges.
-     */
-    EAF_ASSERT(err == 0);
+  // Configure the Active Object thread priority.
+  // See @ref pthread_priority_scope
+  sched_param.sched_priority =
+    me->prio + (sched_get_priority_max(SCHED_FIFO) - EDF_MAX_ACTIVE_OBJECT -
+                ACTIVE_OBJECT_THREAD_PRIO_OFFSET);
+  (void)pthread_attr_setschedparam(&attr, &sched_param);
 
-    // Release thread attribute object resources.
-    (void)pthread_attr_destroy(&attr);
+  // Configure the Active Object thread stack size.
+  (void)pthread_attr_setstacksize(
+    &attr,
+    ((stack_size < (int_fast16_t)PTHREAD_STACK_MIN) ? PTHREAD_STACK_MIN :
+                                                      stack_size));
+
+  // Create the Active Object thread.
+  err = pthread_create(&thread, &attr, &activeObjectThread, me);
+
+  /**
+   * If this assertion fails, creating the pthread with the SCHED_FIFO
+   * policy was unsuccessful. Most likely, the application does not
+   * have superuser privileges.
+   */
+  EAF_ASSERT(err == 0);
+
+  // Release thread attribute object resources.
+  (void)pthread_attr_destroy(&attr);
 }
 
-void EDF_activeObject_setAttr(EDF_activeObject_t *me, uint32_t attr1, const void *attr2)
+void EDF_activeObject_setAttr(EDF_activeObject_t* me,
+                              uint32_t attr1,
+                              const void* attr2)
 {
-    EMF_UTILS_UNUSED_PARAM(me);
-    EMF_UTILS_UNUSED_PARAM(attr1);
-    EMF_UTILS_UNUSED_PARAM(attr2);
+  EMF_UTILS_UNUSED_PARAM(me);
+  EMF_UTILS_UNUSED_PARAM(attr1);
+  EMF_UTILS_UNUSED_PARAM(attr2);
 
-    // Not used.
+  // Not used.
 }
 
 EBF_WEAK void EDF_onStartup(void)

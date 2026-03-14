@@ -47,7 +47,7 @@
  *
  * @param[in] hsm HSM instance.
  */
-#define EDF_HSM_UPCAST(hsm) ((EDF_hsm_t *)(hsm))
+#define EDF_HSM_UPCAST(hsm) ((EDF_hsm_t*)(hsm))
 
 /**
  * @brief Sets handled return value from state handler.
@@ -73,9 +73,9 @@
  *
  * @param[in] super Superstate handler.
  */
-#define EDF_HSM_RET_SUPER(super)                                         \
-    ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)super), \
-     (EDF_hsm_stateReturn_t)RET_SUPER)
+#define EDF_HSM_RET_SUPER(super)                                       \
+  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)super), \
+   (EDF_hsm_stateReturn_t)RET_SUPER)
 
 /**
  * @brief Sets the transition target and return value from a state handler.
@@ -85,9 +85,9 @@
  *
  * @param[in] target Target state handler for the transition.
  */
-#define EDF_HSM_RET_TRAN(target)                                          \
-    ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)target), \
-     (EDF_hsm_stateReturn_t)RET_TRANSITION)
+#define EDF_HSM_RET_TRAN(target)                                        \
+  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)target), \
+   (EDF_hsm_stateReturn_t)RET_TRANSITION)
 
 /**
  * @brief Internal framework reserved signals for HSM management.
@@ -153,11 +153,12 @@
  */
 typedef enum
 {
-    RET_HANDLED,    /*!< Event handled. */
-    RET_UNHANDLED,  /*!< Event not handled, propagate to superstate if any, otherwise discard (top state). */
-    RET_SUPER,      /*!< Explicit request to propagate event to superstate. */
-    RET_TRANSITION, /*!< Transition taken. */
-    RET_IGNORED     /*!< Reserved, used only in top state. */
+  RET_HANDLED,    /*!< Event handled. */
+  RET_UNHANDLED,  /*!< Event not handled, propagate to superstate if any,
+                       otherwise discard (top state). */
+  RET_SUPER,      /*!< Explicit request to propagate event to superstate. */
+  RET_TRANSITION, /*!< Transition taken. */
+  RET_IGNORED     /*!< Reserved, used only in top state. */
 } EDF_hsm_stateReturn_t;
 
 /**
@@ -167,8 +168,8 @@ typedef enum
  * internally in the EDF library it is treated as EDF_hsm_t, while the user
  * can implement state handlers using their specific AO type.
  * The user AO's first member shall be EDF_hsm_t. This allows state handlers
- * to access the full AO structure while keeping the EDF HSM implementation generic.
- * When the EDF library calls the state handler of the user's AO HSM,
+ * to access the full AO structure while keeping the EDF HSM implementation
+ * generic. When the EDF library calls the state handler of the user's AO HSM,
  * an implicit cast from EDF_hsm_t* to the user AO type is performed.
  *
  * @param[in] me Pointer to the HSM instance of the active object
@@ -176,16 +177,17 @@ typedef enum
  * @param[in] e Pointer to the event being dispatched.
  * @return EDF_hsm_stateReturn_t value indicating how the event was handled.
  */
-typedef EDF_hsm_stateReturn_t (*EDF_hsm_stateHandler_t)(void *me,
-                                                        const EDF_event_t *e);
+typedef EDF_hsm_stateReturn_t (*EDF_hsm_stateHandler_t)(void* me,
+                                                        const EDF_event_t* e);
 
 /**
  * @brief HSM structure.
  */
 typedef struct
 {
-    EDF_hsm_stateHandler_t current_state; /*!< Currently active state handler. */
-    EDF_hsm_stateHandler_t temp_state;    /*!< Temporary state handler; used to manage the HSM functionalities. */
+  EDF_hsm_stateHandler_t current_state; /*!< Currently active state handler. */
+  EDF_hsm_stateHandler_t temp_state;    /*!< Temporary state handler; used to
+                                             manage the HSM functionalities. */
 } EDF_hsm_t;
 
 /*******************************************************************************
@@ -202,7 +204,7 @@ typedef struct
  * @param[in,out] me Pointer to the HSM instance.
  * @param[in] initial Initial state handler function.
  */
-void EDF_hsm_init(EDF_hsm_t *me, EDF_hsm_stateHandler_t initial);
+void EDF_hsm_init(EDF_hsm_t* me, EDF_hsm_stateHandler_t initial);
 
 /**
  * @brief Starts HSM.
@@ -210,7 +212,7 @@ void EDF_hsm_init(EDF_hsm_t *me, EDF_hsm_stateHandler_t initial);
  * @param[in,out] me Pointer to the HSM instance.
  * @param[in] e Pointer to the init event provided to the initial state.
  */
-void EDF_hsm_start(EDF_hsm_t *me, const EDF_event_t *e);
+void EDF_hsm_start(EDF_hsm_t* me, const EDF_event_t* e);
 
 /**
  * @brief Dispatches an event to the HSM.
@@ -218,7 +220,7 @@ void EDF_hsm_start(EDF_hsm_t *me, const EDF_event_t *e);
  * @param[in,out] me Pointer to the HSM instance.
  * @param[in] e Pointer to the event to dispatch.
  */
-void EDF_hsm_dispatch(EDF_hsm_t *me, const EDF_event_t *e);
+void EDF_hsm_dispatch(EDF_hsm_t* me, const EDF_event_t* e);
 
 /**
  * @brief Returns the current active state of the HSM.
@@ -226,7 +228,7 @@ void EDF_hsm_dispatch(EDF_hsm_t *me, const EDF_event_t *e);
  * @param[in] me Pointer to the HSM instance.
  * @return Current active state handler.
  */
-EDF_hsm_stateHandler_t EDF_hsm_getCurrentState(const EDF_hsm_t *me);
+EDF_hsm_stateHandler_t EDF_hsm_getCurrentState(const EDF_hsm_t* me);
 
 /**
  * @brief Top state handler of the HSM.
@@ -239,6 +241,6 @@ EDF_hsm_stateHandler_t EDF_hsm_getCurrentState(const EDF_hsm_t *me);
  * @param[in] e Pointer to the event being dispatched.
  * @return Always returns RET_IGNORED.
  */
-EDF_hsm_stateReturn_t EDF_hsm_top(const EDF_hsm_t *me, const EDF_event_t *e);
+EDF_hsm_stateReturn_t EDF_hsm_top(const EDF_hsm_t* me, const EDF_event_t* e);
 
 #endif /* EDF_HSM_H */

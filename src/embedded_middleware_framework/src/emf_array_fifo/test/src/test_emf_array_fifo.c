@@ -62,16 +62,16 @@
  * @param[in] actual Pointer to actual slot content.
  * @param[in] size Number of bytes in each slot.
  */
-static void verifySlotEq(const uint8_t *expected,
-                         const uint8_t *actual,
+static void verifySlotEq(const uint8_t* expected,
+                         const uint8_t* actual,
                          uint16_t size);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static void verifySlotEq(const uint8_t *expected,
-                         const uint8_t *actual,
+static void verifySlotEq(const uint8_t* expected,
+                         const uint8_t* actual,
                          uint16_t size)
 {
   uint16_t byte_index;

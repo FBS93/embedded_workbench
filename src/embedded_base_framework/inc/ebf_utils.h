@@ -55,8 +55,8 @@
  * the input byte. If @p byte is fully clear, the function returns 0.
  *
  * The default weak implementation is software-only (lookup table + shifts).
- * On cores/ports that provide a hardware-specific instruction (e.g., CLZ in ARM),
- * this function can be overridden for improved performance.
+ * On cores/ports that provide a hardware-specific instruction (e.g., CLZ in
+ * ARM), this function can be overridden for improved performance.
  *
  * @param[in] byte input byte.
  * @return Position (1–8) of highest set bit, or 0 if no bits are set.

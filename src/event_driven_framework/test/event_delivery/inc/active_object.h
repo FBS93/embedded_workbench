@@ -49,13 +49,16 @@
 #define ACTIVE_OBJECT_N_TOTAL 4U
 
 /**
- * @brief Deterministic mapping between active object priority and subscribed signal.
+ * @brief Deterministic mapping between active object priority and subscribed
+ * signal.
  *
- * Each active object (except the last) subscribes to exactly one signal. The relationship
- * is defined such that active object priority `prio` (starting from 2) maps to signal
- * `S1 + (prio - 2)`. The last active object subscribes to all signals.
+ * Each active object (except the last) subscribes to exactly one signal. The
+ * relationship is defined such that active object priority `prio` (starting
+ * from 2) maps to signal `S1 + (prio - 2)`. The last active object subscribes
+ * to all signals.
  */
-#define ACTIVE_OBJECT_PRIO_TO_SIGNAL(prio) ((activeObject_eventSignal_t)(S1 + ((prio) - 2U)))
+#define ACTIVE_OBJECT_PRIO_TO_SIGNAL(prio) \
+  ((activeObject_eventSignal_t)(S1 + ((prio) - 2U)))
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS
@@ -69,7 +72,7 @@
 typedef struct
 {
   EDF_activeObject_t super; /**< Base type. */
-  bool event_received;      /**< True if an event is received, false otherwise. */
+  bool event_received; /**< True if an event is received, false otherwise. */
 } activeObject_t;
 
 /**

@@ -15,7 +15,7 @@
  * This software is provided "as is", without any express or implied warranty.
  * The user assumes all responsibility for its use and any consequences.
  ******************************************************************************/
- 
+
 /*******************************************************************************
  * ASSEMBLER SETTINGS
  ******************************************************************************/
@@ -73,7 +73,7 @@ System_Init:
 .type Reset_Handler, %function
 Reset_Handler:
   // Call the clock system initialization function.
-  bl  System_Init 
+  bl  System_Init
 
   // Copy the data segment initializers from flash to SRAM.
   ldr r0, =_sdata
@@ -91,7 +91,7 @@ loop_copy_data_init:
   adds r4, r0, r3
   cmp r4, r1
   bcc copy_data_init
-  
+
   // Zero fill the bss segment.
   ldr r2, =_sbss
   ldr r4, =_ebss

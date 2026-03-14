@@ -40,6 +40,9 @@
  * PUBLIC MACROS
  ******************************************************************************/
 
+// clang-format off
+// clang-format disabled: macro layout kept for readability.
+
 /* -----------------------------------------------------------------------------
  * Macros for external use (used in tests and user code)
  * -------------------------------------------------------------------------- */
@@ -1894,6 +1897,8 @@
 #define DEFINE_FUNC_VOID_N(N, ...) EXPAND(DEFINE_FAKE_VOID_FUNC##N(__VA_ARGS__))
 /** @} */ // End of FakeFunctionDefinitionDispatch
 
+// clang-format on
+
 /*******************************************************************************
  * PUBLIC TYPEDEFS
  ******************************************************************************/
@@ -1911,7 +1916,8 @@ typedef void (*eff_function_t)(void);
  */
 typedef struct
 {
-  eff_function_t call_history[EFF_CALL_HISTORY_LEN]; /**< Array of called functions */
+  eff_function_t call_history[EFF_CALL_HISTORY_LEN]; /**< Array of called
+                                                          functions */
   unsigned int call_history_idx;                     /**< call_history index*/
 } eff_globals_t;
 

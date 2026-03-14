@@ -62,7 +62,10 @@
  * @param[in] val Floating-point value.
  * @return Casted value.
  */
-#define EMF_PRINT_ARG_F(val) (((union { float f; uintptr_t u; }){.f = (val)}).u)
+// clang-format off
+#define EMF_PRINT_ARG_F(val) \
+  (((union { float f; uintptr_t u; }){ .f = (val) }).u)
+// clang-format on
 
 /**
  * @brief Casts a string pointer for printing.
@@ -90,7 +93,8 @@
  * @param[in] __VA_ARGS__ Variable number of arguments.
  * @return Number of arguments (0–8).
  */
-#define EMF_PRINT_NARG(...) EMF_PRINT_NARG_(__VA_ARGS__, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+#define EMF_PRINT_NARG(...) \
+  EMF_PRINT_NARG_(__VA_ARGS__, 8, 7, 6, 5, 4, 3, 2, 1, 0)
 
 /**
  * @brief Helper macro for counting variadic arguments.
@@ -116,18 +120,18 @@
  * @param[in] fmt Format string.
  * @param[in] ... Variable arguments (max 8).
  */
-#define EMF_PRINT(fmt, ...)                   \
-  do                                          \
-  {                                           \
-    if (EMF_PRINT_NARG(__VA_ARGS__) == 0)     \
-    {                                         \
-      EMF_print(fmt, NULL);                   \
-    }                                         \
-    else                                      \
-    {                                         \
-      uintptr_t args[] = {__VA_ARGS__};       \
-      EMF_print(fmt, args);                   \
-    }                                         \
+#define EMF_PRINT(fmt, ...)               \
+  do                                      \
+  {                                       \
+    if (EMF_PRINT_NARG(__VA_ARGS__) == 0) \
+    {                                     \
+      EMF_print(fmt, NULL);               \
+    }                                     \
+    else                                  \
+    {                                     \
+      uintptr_t args[] = {__VA_ARGS__};   \
+      EMF_print(fmt, args);               \
+    }                                     \
   } while (0)
 
 /*******************************************************************************
@@ -150,7 +154,7 @@
  * @param[in] fmt Null-terminated format string.
  * @param[in] args Pointer to array of arguments, or NULL.
  */
-void EMF_print(const char *fmt, const uintptr_t *args);
+void EMF_print(const char* fmt, const uintptr_t* args);
 
 /**
  * @note uintptr_t_for_variadic_arguments
@@ -174,8 +178,8 @@ void EMF_print(const char *fmt, const uintptr_t *args);
  *
  * @todo Consider supporting 64-bit values (e.g., int64_t, double) if required.
  * This would require extending the representation (e.g., using uint64_t or a
- * wider union) to handle types larger than uintptr_t, while ensuring portability
- * on both 32-bit and 64-bit systems.
+ * wider union) to handle types larger than uintptr_t, while ensuring
+ * portability on both 32-bit and 64-bit systems.
  */
 
 #endif /* EMF_PRINT_H */

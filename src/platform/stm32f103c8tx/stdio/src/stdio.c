@@ -42,14 +42,14 @@
  *
  * volatile_use: hardware_interaction
  */
-#define NVIC_ISER1 (*(volatile uint32_t *)0xE000E104UL)
+#define NVIC_ISER1 (*(volatile uint32_t*)0xE000E104UL)
 
 /**
  * @brief NVIC interrupt priority registers base.
  *
  * volatile_use: hardware_interaction
  */
-#define NVIC_IPR_BASE ((volatile uint8_t *)0xE000E400UL)
+#define NVIC_IPR_BASE ((volatile uint8_t*)0xE000E400UL)
 
 /**
  * @brief Base address of the RCC (Reset and Clock Control) register block.
@@ -61,7 +61,7 @@
  *
  * volatile_use: hardware_interaction
  */
-#define RCC_APB2ENR (*(volatile uint32_t *)(RCC_BASE + 0x18U))
+#define RCC_APB2ENR (*(volatile uint32_t*)(RCC_BASE + 0x18U))
 
 /**
  * @brief GPIOA clock enable bit in RCC_APB2ENR.
@@ -83,7 +83,7 @@
  *
  * volatile_use: hardware_interaction
  */
-#define GPIOA_CRH (*(volatile uint32_t *)(GPIOA_BASE + 0x04U))
+#define GPIOA_CRH (*(volatile uint32_t*)(GPIOA_BASE + 0x04U))
 
 /**
  * @brief Base address of the USART1 peripheral register block.
@@ -95,28 +95,28 @@
  *
  * volatile_use: hardware_interaction
  */
-#define USART1_SR (*(volatile uint32_t *)(USART1_BASE + 0x00U))
+#define USART1_SR (*(volatile uint32_t*)(USART1_BASE + 0x00U))
 
 /**
  * @brief USART1 data register.
  *
  * volatile_use: hardware_interaction
  */
-#define USART1_DR (*(volatile uint32_t *)(USART1_BASE + 0x04U))
+#define USART1_DR (*(volatile uint32_t*)(USART1_BASE + 0x04U))
 
 /**
  * @brief USART1 baud rate register.
  *
  * volatile_use: hardware_interaction
  */
-#define USART1_BRR (*(volatile uint32_t *)(USART1_BASE + 0x08U))
+#define USART1_BRR (*(volatile uint32_t*)(USART1_BASE + 0x08U))
 
 /**
  * @brief USART1 control register 1.
  *
  * volatile_use: hardware_interaction
  */
-#define USART1_CR1 (*(volatile uint32_t *)(USART1_BASE + 0x0CU))
+#define USART1_CR1 (*(volatile uint32_t*)(USART1_BASE + 0x0CU))
 
 /**
  * @brief Transmit data register empty flag.
@@ -204,7 +204,10 @@ static void initUART(void)
   // Enable GPIOA and USART1 peripheral clocks.
   RCC_APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_USART1EN;
 
-  // Configure PA9 as USART1 TX (alternate function push-pull, high-speed output).
+  /**
+   * Configure PA9 as USART1 TX (alternate function push-pull, high-speed
+   * output).
+   */
   GPIOA_CRH &= ~(0xFU << 4U);
   GPIOA_CRH |= (0xBU << 4U);
 
@@ -216,10 +219,7 @@ static void initUART(void)
   USART1_BRR = (4U << 4U) | 5U;
 
   // Enable USART TX, RX and RX interrupt.
-  USART1_CR1 = USART_CR1_TE |
-               USART_CR1_RE |
-               USART_CR1_RXNEIE |
-               USART_CR1_UE;
+  USART1_CR1 = USART_CR1_TE | USART_CR1_RE | USART_CR1_RXNEIE | USART_CR1_UE;
 
   // Enable USART1 interrupt in NVIC (IRQs 32–63 --> ISER1).
   NVIC_ISER1 |= (1U << (USART1_IRQ_NUM - 32U));
@@ -255,7 +255,7 @@ bool EBF_stdoutIsReadyToWrite(uint16_t len)
   return (len == 1) && (USART1_SR & USART_SR_TXE);
 }
 
-void EBF_stdoutWrite(const uint8_t *data, uint16_t len)
+void EBF_stdoutWrite(const uint8_t* data, uint16_t len)
 {
   // No TX buffer --> only 1 Byte allowed.
   EAF_ASSERT(len == 1);

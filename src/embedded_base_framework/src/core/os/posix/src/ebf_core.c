@@ -87,56 +87,56 @@ int8_t EBF_critSecNestCnt = 0;
 
 EBF_WEAK void EBF_setStdinListener(EBF_stdin_t listener)
 {
-    EMF_UTILS_UNUSED_PARAM(listener);
+  EMF_UTILS_UNUSED_PARAM(listener);
 }
 
-EBF_WEAK void EBF_stdoutWrite(const uint8_t *data, uint16_t len)
+EBF_WEAK void EBF_stdoutWrite(const uint8_t* data, uint16_t len)
 {
-    EAF_ASSERT_BLOCK_BEGIN();
-    EAF_ASSERT_IN_BLOCK(data != NULL);
-    EAF_ASSERT_IN_BLOCK(len > 0);
-    EAF_ASSERT_BLOCK_END();
+  EAF_ASSERT_BLOCK_BEGIN();
+  EAF_ASSERT_IN_BLOCK(data != NULL);
+  EAF_ASSERT_IN_BLOCK(len > 0);
+  EAF_ASSERT_BLOCK_END();
 
-    for (uint16_t i = 0; i < len; ++i)
-    {
-        fputc((int)data[i], stdout);
-    }
+  for (uint16_t i = 0; i < len; ++i)
+  {
+    fputc((int)data[i], stdout);
+  }
 
-    fflush(stdout); // Flush to force immediate output
+  fflush(stdout);  // Flush to force immediate output
 }
 
 EBF_WEAK bool EBF_stdoutIsReadyToWrite(uint16_t len)
 {
-    EMF_UTILS_UNUSED_PARAM(len);
+  EMF_UTILS_UNUSED_PARAM(len);
 
-    return true;
+  return true;
 }
 
 void EBF_entryCriticalSection(void)
 {
-    (void)pthread_mutex_lock(&EBF_critSecMutex);
+  (void)pthread_mutex_lock(&EBF_critSecMutex);
 
-    // Nested critical sections are not supported.
-    EAF_ASSERT_IN_CRITICAL_SECTION(EBF_critSecNestCnt == 0);
+  // Nested critical sections are not supported.
+  EAF_ASSERT_IN_CRITICAL_SECTION(EBF_critSecNestCnt == 0);
 
-    EBF_critSecNestCnt++;
+  EBF_critSecNestCnt++;
 }
 
 void EBF_exitCriticalSection(void)
 {
-    // Nested critical sections are not supported.
-    EAF_ASSERT_IN_CRITICAL_SECTION(EBF_critSecNestCnt == 1);
+  // Nested critical sections are not supported.
+  EAF_ASSERT_IN_CRITICAL_SECTION(EBF_critSecNestCnt == 1);
 
-    EBF_critSecNestCnt--;
-    (void)pthread_mutex_unlock(&EBF_critSecMutex);
+  EBF_critSecNestCnt--;
+  (void)pthread_mutex_unlock(&EBF_critSecMutex);
 }
 
 bool EBF_isInCriticalSection(void)
 {
-    return (EBF_critSecNestCnt > 0);
+  return (EBF_critSecNestCnt > 0);
 }
 
 void EBF_noOperation(void)
 {
-    __asm__ volatile("nop");
+  __asm__ volatile("nop");
 }

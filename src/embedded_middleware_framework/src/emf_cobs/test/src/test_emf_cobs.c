@@ -63,16 +63,16 @@
  * @param[in] rhs Pointer to second buffer.
  * @param[in] len Number of bytes to compare.
  */
-static void verifyBuffersEqual(const uint8_t *lhs,
-                               const uint8_t *rhs,
+static void verifyBuffersEqual(const uint8_t* lhs,
+                               const uint8_t* rhs,
                                uint16_t len);
 
 /* -----------------------------------------------------------------------------
  * Private function definitions
  * -------------------------------------------------------------------------- */
 
-static void verifyBuffersEqual(const uint8_t *lhs,
-                               const uint8_t *rhs,
+static void verifyBuffersEqual(const uint8_t* lhs,
+                               const uint8_t* rhs,
                                uint16_t len)
 {
   uint16_t byte_index;
@@ -102,7 +102,8 @@ ETF_TEST_SUITE(test_emf_cobs)
 
     ETF_VERIFY(EMF_COBS_ENCODED_SIZE(0U) == 2U);
     ETF_VERIFY(EMF_COBS_ENCODED_SIZE(1U) == 3U);
-    ETF_VERIFY(EMF_COBS_ENCODED_SIZE(EMF_COBS_BLOCK_MAX) == (EMF_COBS_BLOCK_MAX + 3U));
+    ETF_VERIFY(EMF_COBS_ENCODED_SIZE(EMF_COBS_BLOCK_MAX) ==
+               (EMF_COBS_BLOCK_MAX + 3U));
   }
 
   ETF_TEST(encode_empty_input_includes_trailing_delimiter)
@@ -152,7 +153,11 @@ ETF_TEST_SUITE(test_emf_cobs)
 
   ETF_TEST(decode_round_trip_preserves_payload)
   {
-    uint8_t input[] = {0x00U, 0x11U, 0x22U, 0x00U, 0x33U, 0x44U, 0x55U, 0x00U, 0x66U};
+    // clang-format off
+    uint8_t input[] = {
+      0x00U, 0x11U, 0x22U, 0x00U, 0x33U, 0x44U, 0x55U, 0x00U, 0x66U
+    };
+    // clang-format on
     uint8_t encoded[EMF_COBS_ENCODED_SIZE(sizeof(input))] = {0U};
     uint8_t decoded[sizeof(input)] = {0U};
     uint16_t encoded_len = 0U;

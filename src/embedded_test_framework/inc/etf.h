@@ -58,8 +58,7 @@
  *
  * @param[in] title Name of the test.
  */
-#define ETF_TEST(title) \
-  if (ETF_test(#title, true))
+#define ETF_TEST(title) if (ETF_test(#title, true))
 
 /**
  * @brief Skip test.
@@ -68,8 +67,7 @@
  *
  * @param[in] title Name of the test.
  */
-#define ETF_SKIP_TEST(title) \
-  if (ETF_test(#title, false))
+#define ETF_SKIP_TEST(title) if (ETF_test(#title, false))
 
 /**
  * @brief Verifies a test condition.
@@ -88,8 +86,7 @@
  *
  * @param[in] note Explanation or description of the failure (string literal).
  */
-#define ETF_FAIL(note) \
-  (ETF_fail(note, __FILE__, __LINE__))
+#define ETF_FAIL(note) (ETF_fail(note, __FILE__, __LINE__))
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS
@@ -126,7 +123,7 @@ void ETF_run(void);
  * @param[in] execute Whether the test should be executed or just registered.
  * @return true if the test should execute, false otherwise.
  */
-bool ETF_test(const char *title, bool execute);
+bool ETF_test(const char* title, bool execute);
 
 /**
  * @brief Reports a test failure.
@@ -137,7 +134,7 @@ bool ETF_test(const char *title, bool execute);
  * @param[in] file Source file where the failure occurred.
  * @param[in] line Line number where the failure occurred.
  */
-void ETF_fail(const char *cond, const char *file, int line);
+void ETF_fail(const char* cond, const char* file, int line);
 
 /**
  * @brief Init callback.

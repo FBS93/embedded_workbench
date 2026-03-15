@@ -1,6 +1,6 @@
 # Event Driven Framework (EDF) overview
 
-EDF is a lightweight, multi-platform base framework designed to run on both embedded systems and host environments. Its purpose is to provide:
+EDF is a lightweight, multi-platform event-driven framework designed to run on both embedded systems and host environments. Its purpose is to provide:
 - A structured event-driven architecture.
 - Active Objects implemented as event consumers using Hierarchical State Machines (HSM) for scalable and maintainable application logic.
 - A unified event management and dispatching mechanism based on a publish-subscribe model.
@@ -8,7 +8,10 @@ EDF is a lightweight, multi-platform base framework designed to run on both embe
 - Deterministic real-time scheduling kernels.
 - Configurable framework parametrization to adapt to resource-constrained systems.
 
-All configuration options of this library are documented in the "EDF default configuration" section of [CMakeLists.txt](../../../CMakeLists.txt).
+All configuration options for this library are documented in the "EDF default configuration" section of [CMakeLists.txt](../../../CMakeLists.txt).
+
+Core-specific notes currently documented:
+- [ARM Cortex-M EDF core](../src/core/baremetal/arm_cortex_m/doc/edf_core.md)
 
 This framework is a derivative work based on:
 - QP/C (c) Quantum Leaps, LLC.
@@ -52,4 +55,7 @@ This contract prevents non-portable behavior and avoids shutdown-time race condi
 
 # Usage example
 
-@todo
+See complete examples in:
+- [Event delivery test](../test/event_delivery/doc/test_event_delivery.md)
+- [HSM test](../test/hsm/doc/test_hsm.md)
+- [Time event test](../test/time_event/doc/test_time_event.md)

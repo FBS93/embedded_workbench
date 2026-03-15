@@ -42,7 +42,7 @@ Additional events may be generated and processed before the event bound to the v
 
 This approach enables fully automated, in-system testing within a single self-contained executable, without modifying application logic, relying on external tools, or introducing intrusive logging, while preserving real execution behavior and timing characteristics.
 
-The ECF framework provides CMake functions that encapsulate test executable creation and registration with CTest. See [ECF cmake functions](../../../tools/cmake/functions/ecf_test.cmake)
+ECF provides CMake functions that encapsulate test executable creation and registration with CTest. See [ECF cmake functions](../../../tools/cmake/functions/ecf_test.cmake)
 
 # Glossary
 
@@ -52,4 +52,23 @@ The ECF framework provides CMake functions that encapsulate test executable crea
 
 # Usage example
 
-@todo
+```c
+#include "edf_test.h"
+
+EDF_TEST_SUITE_NAME(example_suite);
+EDF_TEST_EVENT_BUFF(8U);
+
+EDF_TEST_CASE(example_test, MY_SIGNAL);
+EDF_TEST_CASE_INIT(example_test)
+{
+  /* Prepare the system and publish the trigger event. */
+}
+EDF_TEST_CASE_VERIFY(example_test, e)
+{
+  EDF_TEST_VERIFY(e->sig == MY_SIGNAL);
+}
+
+EDF_TEST_SUITE(
+  EDF_TEST_RUN(example_test)
+)
+```

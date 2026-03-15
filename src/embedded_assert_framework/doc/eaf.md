@@ -1,7 +1,7 @@
 # Embedded Assert Framework (EAF) overview
 
 EAF is a lightweight, platform-agnostic runtime assertion framework designed to run on both embedded systems and host environments. Its purpose is to provide:
-- Safe mechanism to validate runtime conditions.
+- A safe mechanism to validate runtime conditions.
 - Atomic evaluation of assertions through automatic critical-section management.
 - Consistent way to report errors with contextual information.
 - Functional assert mechanism even in deeply embedded, safety-critical paths.
@@ -13,7 +13,8 @@ The library implementation delegates platform-specific functionality (e.g., crit
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+| Assert | Runtime check that reports an error when an expected condition is false. |
+| Design by Contract (DBC) | Practice of expressing assumptions and guarantees in code through executable checks such as asserts. |
 
 # Usage example
 
@@ -31,7 +32,7 @@ void func(int a, int b)
   EAF_ASSERT_ID(b != 0, 101);
 
   /**
-   * Multiple assertions evaluated atomically with a 
+   * Multiple assertions evaluated atomically with a
    * single automatic critical section protection.
    */
   EAF_ASSERT_BLOCK_BEGIN();
@@ -50,7 +51,7 @@ void func(int a, int b)
   EBF_CRITICAL_SECTION_ENTRY();
 
   /**
-   * Assertions intended to be used only inside a critical section 
+   * Assertions intended to be used only inside a critical section
    * (i.e., they do not perform critical section management).
    */
   EAF_ASSERT_IN_CRITICAL_SECTION(a > 0);

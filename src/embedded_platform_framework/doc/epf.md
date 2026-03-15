@@ -13,4 +13,5 @@ EPF is a lightweight, platform-dependent framework designed to run on specific p
 
 # Usage example
 
-@todo
+See the specific examples in EPF modules documentation:
+- [POSIX timer](../os/posix/src/epf_timer/doc/epf_timer.md)

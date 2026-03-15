@@ -19,4 +19,45 @@ This framework is a derivative work based on:
 
 # Usage example
 
-@todo
+When the same fake shall be shared across translation units, declare it in one header and define it once in one source file:
+
+```c
+/* sensor_mocks.h */
+#include "eff.h"
+
+DECLARE_FAKE_VALUE_FUNC(int, sensor_read, uint8_t);
+DECLARE_FAKE_VOID_FUNC(sensor_write, const uint8_t*, uint16_t);
+```
+
+```c
+/* sensor_mocks.c */
+#include "sensor_mocks.h"
+
+DEFINE_EFF_GLOBALS;
+DEFINE_FAKE_VALUE_FUNC(int, sensor_read, uint8_t);
+DEFINE_FAKE_VOID_FUNC(sensor_write, const uint8_t*, uint16_t);
+```
+
+```c
+/* test_sensor.c */
+#include "sensor_mocks.h"
+
+void example(void)
+{
+  int sensor_values[2U] = {10, 20};
+  uint8_t command[2U] = {0xA5U, 0x5AU};
+
+  RESET_FAKE(sensor_read);
+  RESET_FAKE(sensor_write);
+  EFF_RESET_HISTORY();
+
+  SET_RETURN_SEQ(sensor_read, sensor_values, 2U);
+
+  (void)sensor_read(1U);
+  (void)sensor_read(1U);
+  sensor_write(command, sizeof(command));
+
+  (void)sensor_read_fake.call_count;
+  (void)sensor_write_fake.arg1_val;
+}
+```

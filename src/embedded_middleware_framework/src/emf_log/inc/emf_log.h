@@ -174,6 +174,8 @@ typedef enum
 
 /**
  * @brief Initializes EMF_LOG module.
+ *
+ * After initialization, the default logging level is @ref LOG_LEVEL_INFO.
  */
 void EMF_log_init(void);
 

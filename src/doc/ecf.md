@@ -29,6 +29,7 @@ ECF is designed according to the following principles:
 | Term | Definition |
 |------|------------|
 | Platform | Combination of execution environment defining the runtime model (bare-metal, RTOS, OS, etc.), hardware architecture and build configuration. Platform selection is performed through the [Embedded Base Framework (EBF)](../embedded_base_framework/doc/ebf.md) configurations. |
+| Platform package | Target-specific package bundling the platform implementation and configuration files needed for a concrete platform. |
 | Platform-agnostic | Platform-independent, providing identical public APIs and behavior across all supported platforms. |
 | Multi-platform | Platform-dependent but with unified public APIs enabling full portability across all supported platforms. |
 | Platform-dependent | Platform-specific, providing optimized but non-portable public APIs. |
@@ -36,4 +37,18 @@ ECF is designed according to the following principles:
 
 # Usage example
 
-@todo
+## Framework examples
+
+For framework-specific usage examples, see the documentation of the frameworks listed in the overview section.
+
+## Platform package example
+
+A concrete embedded target integration is typically grouped as one platform package.
+
+The repository includes the [STM32F103C8Tx platform package](../platform/stm32f103c8tx/doc/stm32f103c8tx.md) as the reference example. It keeps that target-specific implementation in a single folder and is enabled at build time as follows:
+
+```cmake
+set(ECF_TARGET_PLATFORM stm32f103c8tx)
+```
+
+This platform package is used as the reference target for the framework target tests.

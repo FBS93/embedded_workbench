@@ -19,7 +19,7 @@
 #
 # @copyright
 # Copyright (c) 2026 FBS93.
-# See the LICENSE.md file of this project for license details.
+# See the LICENSE file of this project for license details.
 # This notice shall be retained in all copies or substantial portions
 # of the software.
 #

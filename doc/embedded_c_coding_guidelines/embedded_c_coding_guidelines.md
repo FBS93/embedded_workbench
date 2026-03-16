@@ -200,7 +200,7 @@ The following template shall be used for `.c` files:
  *
  * @copyright
  * Copyright (c) <Year> <Author/Organization>.
- * See the LICENSE.md file of this project for license details.
+ * See the LICENSE file of this project for license details.
  * This notice shall be retained in all copies or substantial portions
  * of the software.
  *
@@ -276,7 +276,7 @@ The following template shall be used for `.h` files
  *
  * @copyright
  * Copyright (c) <Year> <Author/Organization>.
- * See the LICENSE.md file of this project for license details.
+ * See the LICENSE file of this project for license details.
  * This notice shall be retained in all copies or substantial portions
  * of the software.
  *
@@ -341,7 +341,7 @@ The following template shall be used for `.S` files
  *
  * @copyright
  * Copyright (c) <Year> <Author/Organization>.
- * See the LICENSE.md file of this project for license details.
+ * See the LICENSE file of this project for license details.
  * This notice shall be retained in all copies or substantial portions
  * of the software.
  *

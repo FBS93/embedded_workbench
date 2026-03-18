@@ -42,6 +42,11 @@
       "command": "${TASKS_PATH}/run_target_logging_server.sh"
     },
     {
+      "label": "run_opencode_web_gui",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_opencode_web_gui.sh"
+    },
+    {
       "label": "format",
       "type": "shell",
       "command": "${TASKS_PATH}/format.sh",

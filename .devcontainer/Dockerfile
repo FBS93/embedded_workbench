@@ -47,7 +47,42 @@ RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION
 ENV PATH="/opt/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi/bin:${PATH}"
 
 ###############################################################################
-# Set default working directory inside the container
+# Install AI support with OpenCode and AI Gentle Stack
 ###############################################################################
 
-WORKDIR /workspaces/embedded_c_workbench
+# Install extra dependencies required by AI Gentle Stack
+RUN apt-get update && apt-get install -y \
+    curl \
+    nodejs \
+    npm \
+    golang \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install AI Gentle Stack from the GitHub release tarball
+# We avoid install.sh because it fails in Docker with "tmpdir: unbound variable" error.
+ARG GENTLE_AI_VERSION=1.6.3
+RUN set -eux; \
+    cd /tmp; \
+    curl -fsSLO "https://github.com/Gentleman-Programming/gentle-ai/releases/download/v${GENTLE_AI_VERSION}/gentle-ai_${GENTLE_AI_VERSION}_linux_amd64.tar.gz"; \
+    tar -xzf "gentle-ai_${GENTLE_AI_VERSION}_linux_amd64.tar.gz"; \
+    install -m 0755 gentle-ai /usr/local/bin/gentle-ai; \
+    rm -f "gentle-ai_${GENTLE_AI_VERSION}_linux_amd64.tar.gz" gentle-ai
+
+# Switch to container user so AI tooling installs in the correct user paths
+USER vscode
+ENV HOME=/home/vscode
+
+# Install OpenCode 
+RUN curl -fsSL https://opencode.ai/install | bash
+
+# Execute AI Gentle Stack install command
+RUN gentle-ai install \
+    --agent opencode \
+    --preset custom \
+    --component engram,sdd,skills,persona,permissions,gga \
+    --skill sdd-init,sdd-explore,sdd-propose,sdd-spec,sdd-design,sdd-tasks,sdd-apply,sdd-verify,sdd-archive,skill-creator \
+    --persona neutral
+
+# Ensure Go-installed binaries are in PATH so OpenCode can launch the engram MCP server
+ENV PATH="/home/vscode/.local/bin:/home/vscode/go/bin:${PATH}"

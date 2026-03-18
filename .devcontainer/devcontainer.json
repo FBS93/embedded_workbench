@@ -10,6 +10,7 @@
         "TARGET_RX_TIMEOUT_S": "10", // Maximum allowed inactivity time (seconds) without receiving data from the target.
         "NETWORK_LATENCY_TIMEOUT_S": "1.5", // Timeout budget (seconds) used for network-latency waits.
         "WORKSPACE_FOLDER": "${containerWorkspaceFolder}", // Absolute path to the workspace folder inside the container.
+        "ENGRAM_DATA_DIR": "${containerWorkspaceFolder}/.engram", // Path where the Engram database is stored. Should be located inside the workspace folder so data persists across container rebuilds.
         "SVD_FILE": "/workspaces/embedded_c_framework/src/platform/stm32f103c8tx/svd/STM32F103.svd" // Path to the SVD file used for target debugging.
     },
     "customizations": {

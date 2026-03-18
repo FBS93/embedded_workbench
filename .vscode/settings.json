@@ -87,6 +87,10 @@
             "label": "🧰 Toolbox",
             "tasks": [
                 {
+                    "label": " 🌐 OpenCode web GUI",
+                    "task": "run_opencode_web_gui"
+                },
+                {
                     "label": " 🔗 Connect Raspberry Pi (SSH)",
                     "task": "connect_rpi_ssh"
                 },

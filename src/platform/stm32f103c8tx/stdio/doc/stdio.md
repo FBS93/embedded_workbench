@@ -1,4 +1,4 @@
-# Standard input/output (stdio) overview
+# Stdio overview
 
 This library provides strong definitions for the EBF stdin/stdout functions using USART1 for STM32F103C8Tx series.
 

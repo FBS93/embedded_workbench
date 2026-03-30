@@ -450,17 +450,17 @@ The following template shall be used to document libraries and modules in a sepa
 ```
 # <Library/module name> overview
 
-<High-level description of the purpose, intent, and scope of the library/module>
+<High-level description of the purpose, intent, and scope of the library/module>.
 
 # Glossary
 
 | Term | Definition |
 |------|------------|
-| <Term used in the library/module> | <Definition of the term in the context of the library/module> |
+| <Term used in the library/module> | <Definition of the term in the context of the library/module>. |
 
 # Usage example
 
-<Minimal example demonstrating how the library/module is intended to be used in practice>
+<Minimal example demonstrating how the library/module is intended to be used externally in practice>.
 ```
 
 The Markdown documentation file shall have the same base name as the library/module, only changing the extension (e.g., my_lib.a -> my_lib.md, my_module.c -> my_module.md).
@@ -473,13 +473,13 @@ The following template shall be used to document tests in a separate Markdown (.
 
 ```
 # <Test name> test overview
-<Description of the purpose of the test>
+<Description of the purpose of the test>.
 
 # Use case
-<Description of the test and the use case being tested>
+<Description of the test and the use case being tested>.
 
 # Verification scope
-<Description of what is being verified in this test>
+<Description of what is being verified in this test>.
 ```
 
 The Markdown documentation file shall have the same base name as the test source file, only changing the extension (e.g., test_example.c --> test_example.md).

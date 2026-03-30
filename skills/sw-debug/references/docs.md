@@ -1,0 +1,3 @@
+- [xxxyyy](xxxyyy)
+apuntar a un doc generic de sw debug que mencioni metodologies y estretegies de resolucio de problemes
+y apart referencies a tooling del workbench per debuggar com host debugger, target debugger, presets disponibles per optimitzar menys el codi i poder inspeccionar millor, logic analyzer quan estigui disponible, etc...

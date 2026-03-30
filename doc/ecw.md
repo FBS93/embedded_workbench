@@ -25,6 +25,7 @@ ECW includes:
 
 - Ubuntu 24.04–based devcontainer. See [.devcontainer](../.devcontainer/) folder.
 - Preconfigured VS Code environment template. See [.vscode](../.vscode/) folder.
+- AI-assisted development workflow based on OpenCode and Gentle AI Stack. See [ai_assisted_development.md](technical_notes/ai_assisted_development.md). xxxyyy TODO documentar mes extensament com s'integra la IA , V-model, domains... revisar document al que fa referencia i actualitzar
 - Automated [embedded target remote debugging](technical_notes/embedded_target_remote_debugging.md) via GDB server.
 - Automated [embedded target remote logging](technical_notes/embedded_target_remote_logging.md) via serial-to-TCP bridge.
 - Automated [embedded target remote HiL testing](technical_notes/embedded_target_remote_HiL_testing.md) via CTest.

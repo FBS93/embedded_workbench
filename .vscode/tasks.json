@@ -51,7 +51,7 @@
       "type": "shell",
       "command": "${TASKS_PATH}/format.sh",
       "args": [
-        "${workspaceFolder}/src"
+        "${workspaceFolder}/sw"
       ]
     }
   ]

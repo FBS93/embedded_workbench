@@ -41,12 +41,12 @@ The implementation of each software unit shall:
 - Follow the rules defined in [embedded_c_guidelines.md](../../../embedded_c_coding_guidelines/embedded_c_coding_guidelines.md)
 - Implement a source file (`.c`) for each header file (`.h`) defined in the software unit detailed design, using the same name as the corresponding header file.
 
-The [Embedded C Framework (ECF)](xxxyyy-ECF) shall be used as a reference for the implementation of the software units.
+The [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md) shall be used as a reference for the implementation of the software units.
 
 #### Active object implementation
 
 The implementation of software units defined as active objects shall:
-- Be implemented using [Event Driven Framework (EDF)](xxxyyy-EDF).
+- Be implemented using [Event Driven Framework (EDF)](../../../../sw/ecf/event_driven_framework/doc/edf.md).
 - Implement the Hierarchical State Machine (HSM) exactly as defined in the software detailed design.
   - Implement each state defined in the HSM as a static function in the source file (`<sw_unit_name>.c`), using the names defined in the software detailed design.
   - Implement each activity defined in the HSM in a source file named `<sw_unit_name>_activities.c`, with corresponding declarations in the `<sw_unit_name>_activities.h` header file.
@@ -59,7 +59,7 @@ The implementation of software units defined as active objects shall:
 
 #### Platform package implementation
 
-If the software detailed design specifies a platform package, its implementation shall be reused from [Embedded C Framework (ECF)](xxxyyy-ECF) when available. If not available, it shall be implemented within ECF based on the corresponding platform package software detailed design and upstream elements.
+If the software detailed design specifies a platform package, its implementation shall be reused from [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md) when available. If not available, it shall be implemented within ECF based on the corresponding platform package software detailed design and upstream elements.
 
 The implementation structure of the platform package software unit deviates from the standard software unit folder structure. The platform package root folder shall not define `inc/`, `src/`, or `u_test/` folders and shall contain:
 - `sw/ECF/src/platform/<platform_name>/doc/` containing the software detailed design Markdown document.
@@ -67,29 +67,29 @@ The implementation structure of the platform package software unit deviates from
 - `sw/ECF/src/platform/<platform_name>/linker/` containing the linker script files.
 - `sw/ECF/src/platform/<platform_name>/startup/` containing the startup source files.
 - `sw/ECF/src/platform/<platform_name>/svd/` containing the SVD file, which shall always be provided by upstream elements and shall never be implemented from scratch.
-- `sw/ECF/src/platform/<platform_name>/stdio/` containing the `stdio` software unit implementation providing [Embedded Base Framework (EBF)](xxxyyy linkar) stdin/stdout integration as specified in the platform software design and software detailed design. The `stdio` software unit implementation deviates from the standard software unit structure and shall:
-  - Contain `sw/ECF/src/platform/<platform_name>/stdio/src/` with the source file implementation providing strong implementations of the weak functions defined in [Embedded Base Framework (EBF)](xxxyyy linkar).
+- `sw/ECF/src/platform/<platform_name>/stdio/` containing the `stdio` software unit implementation providing [Embedded Base Framework (EBF)](../../../../sw/ecf/embedded_base_framework/doc/ebf.md) stdin/stdout integration as specified in the platform software design and software detailed design. The `stdio` software unit implementation deviates from the standard software unit structure and shall:
+  - Contain `sw/ECF/src/platform/<platform_name>/stdio/src/` with the source file implementation providing strong implementations of the weak functions defined in [Embedded Base Framework (EBF)](../../../../sw/ecf/embedded_base_framework/doc/ebf.md).
   - Follow the integration strategy defined in the platform software design.
   - Not define `inc/` or `u_test/` folders.
 
-The platform package shall be integrated into the build system using the mechanisms provided by [Embedded C Framework (ECF)](xxxyyy-ECF), ensuring that all platform-specific elements are applied to all relevant embedded target executables.
+The platform package shall be integrated into the build system using the mechanisms provided by [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md), ensuring that all platform-specific elements are applied to all relevant embedded target executables.
 
-The [STM32F103C8Tx platform package](xxxyyy /stm32f103c8tx_platform_package.md) shall be used as a reference for platform package implementation.
+The [STM32F103C8Tx platform package](../../../../sw/ecf/platform/stm32f103c8tx/doc/stm32f103c8tx_platform_package.md) shall be used as a reference for platform package implementation.
 
 ##### Toolchains implementation
 
 The toolchains defined in the platform package software detailed design or its upstream elements shall be implemented using CMake toolchain files in the `sw/src/tools/cmake/toolchains` folder.
 
-The [Embedded C Framework (ECF) toolchains](xxxyyy-ECF-tools/cmake/toolchains) shall be used as a reference for toolchain implementation, reusing existing definitions whenever available.
+The [Embedded C Framework (ECF) toolchains](../../../../tools/cmake/toolchains) shall be used as a reference for toolchain implementation, reusing existing definitions whenever available.
 
 ##### Build presets implementation
 
 The build presets defined in the platform package software detailed design or its upstream elements shall be implemented in the `sw/src/CMakePresets.json` file.
 
-The [Embedded C Framework (ECF) `CMakePresets.json`](xxxyyy-ECF-CMakePresets.json) shall be used as a reference for build presets implementation, reusing existing definitions whenever available.
+The [Embedded C Framework (ECF) `CMakePresets.json`](../../../../CMakePresets.json) shall be used as a reference for build presets implementation, reusing existing definitions whenever available.
 
 ##### Debug configuration implementation
 
 The debug configuration defined in the platform package software detailed design or its upstream elements shall be implemented in the `sw/src/.vscode/launch.json` file.
 
-The [Embedded C Framework (ECF) launch.json](xxxyyy-ECF-launch.json) shall be used as a reference for debug configuration implementation, reusing existing definitions whenever available.
+The [Embedded C Framework (ECF) launch.json](../../../../.vscode/launch.json) shall be used as a reference for debug configuration implementation, reusing existing definitions whenever available.

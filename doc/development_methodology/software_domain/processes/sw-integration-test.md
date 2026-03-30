@@ -32,11 +32,11 @@ In addition to the [Software test definition](../resources/software_test_definit
 - Be derived from the software architecture to validate that the software detailed design and software implementation correctly realizes it. The software detailed design may be used as complementary input to understand how software interacts and to support test implementation, but it shall not be the validation target. The software implementation shall be used only as the executable element under test.
 - Define at least one integration test for each dynamic view represented as a sequence diagram, ensuring that all interactions defined through interfaces between software components are validated.
 - Have a unique and well-defined objective. Multiple tests may be defined when required to validate the same interaction scenario.
-- Be implemented in C using [Embedded Test Framework (ETF)](xxxyyy-ETF) or [EDF Test Framework (EDFTest)](xxxyyy-EDFTest), depending on the interaction model:
-  - Event-driven interactions implemented using [Event Driven Framework (EDF)](xxxyyy-EDF) shall be tested using [EDF Test Framework (EDFTest)](xxxyyy-EDFTest).
-    - The [Event Driven Framework (EDF)](xxxyyy-EDF) software tests shall be used as a reference for how to use the [EDF Test Framework (EDFTest)](xxxyyy-EDFTest).
-  - All other interactions shall be tested using [Embedded Test Framework (ETF)](xxxyyy-ETF).
-    - The [Embedded Middleware Framework (EMF)](xxxyyy-EMF) software tests shall be used as a reference for how to use the [Embedded Test Framework (ETF)](xxxyyy-ETF).
+- Be implemented in C using [Embedded Test Framework (ETF)](../../../../sw/ecf/embedded_test_framework/doc/etf.md) or [EDF Test Framework (EDFTest)](../../../../sw/ecf/event_driven_framework/edf_test/doc/edf_test.md), depending on the interaction model:
+  - Event-driven interactions implemented using [Event Driven Framework (EDF)](../../../../sw/ecf/event_driven_framework/doc/edf.md) shall be tested using [EDF Test Framework (EDFTest)](../../../../sw/ecf/event_driven_framework/edf_test/doc/edf_test.md).
+    - The [Event Driven Framework (EDF)](../../../../sw/ecf/event_driven_framework/doc/edf.md) software tests shall be used as a reference for how to use the [EDF Test Framework (EDFTest)](../../../../sw/ecf/event_driven_framework/edf_test/doc/edf_test.md).
+  - All other interactions shall be tested using [Embedded Test Framework (ETF)](../../../../sw/ecf/embedded_test_framework/doc/etf.md).
+    - The [Embedded Middleware Framework (EMF)](../../../../sw/ecf/embedded_middleware_framework/doc/emf.md) software tests shall be used as a reference for how to use the [Embedded Test Framework (ETF)](../../../../sw/ecf/embedded_test_framework/doc/etf.md).
 
 At the end of the software integration test process, the complete software implementation shall build as a single executable without errors or warnings, using the toolchain and build configuration defined in the platform software design. This validation shall be performed for all defined build presets, including both host and target. However, individual software integration tests may be implemented using only the subset of software components required to validate the defined interactions and may not require a complete software executable.
 

@@ -28,9 +28,9 @@ The software architecture work product shall follow the [Architecture definition
 
 #### Architecture model
 
-The software architecture shall follow an event-driven model. The use of this architecture model with the [Event Driven Framework (EDF)](xxxyyy-EDF) shall be defined as a software design.
+The software architecture shall follow an event-driven model. The use of this architecture model with the [Event Driven Framework (EDF)](../../../../sw/ecf/event_driven_framework/doc/edf.md) shall be defined as a software design.
 
-The software architecture shall be aligned with the capabilities and features of the [Event Driven Framework (EDF)](xxxyyy-EDF).
+The software architecture shall be aligned with the capabilities and features of the [Event Driven Framework (EDF)](../../../../sw/ecf/event_driven_framework/doc/edf.md).
 
 The software design defining the use of the event-driven architecture model shall contain:
 - A justification of the selection of the event-driven model and the use of EDF with a fixed sentence.
@@ -94,8 +94,8 @@ All platform characteristics required to define the software architecture shall 
 
 The platform software design shall contain:
 - Toolchains:
-  - If the target toolchain is not explicitly defined by upstream elements and the MCU architecture is ARM, the default option for the target shall be the [arm_gcc.cmake](xxxyyy linkar) toolchain.
-  - If the host toolchain is not explicitly defined by upstream elements, the default option for the host shall be the [linux.cmake](xxxyyy linkar) toolchain.
+  - If the target toolchain is not explicitly defined by upstream elements and the MCU architecture is ARM, the default option for the target shall be the [arm_gcc.cmake](../../../../tools/cmake/toolchains/arm_gcc.cmake) toolchain.
+  - If the host toolchain is not explicitly defined by upstream elements, the default option for the host shall be the [linux.cmake](../../../../tools/cmake/toolchains/linux_gcc.cmake) toolchain.
 - Build configuration:
   - If upstream elements do not specify the build configuration and the MCU architecture is ARM, the default build presets shall be:
     - `host`: Host execution (SiL) in release configuration.
@@ -113,8 +113,8 @@ The platform software design shall contain:
     - The end address of the memory region.
 - Debug configuration: 
   - Definition of the debug interfaces used (e.g., SWD, JTAG, etc.).
-- [Embedded C Framework (ECF)](xxxyyy linkar) integration:
-  - Integration strategy for [Embedded Base Framework (EBF)](xxxyyy linkar) stdin/stdout integration. Upstream elements shall define the interface used for this integration. If no further detail is specified by upstream elements, the default shall be:
+- [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md) integration:
+  - Integration strategy for [Embedded Base Framework (EBF)](../../../../sw/ecf/embedded_base_framework/doc/ebf.md) stdin/stdout integration. Upstream elements shall define the interface used for this integration. If no further detail is specified by upstream elements, the default shall be:
     - Stdin listener shall be executed in the reception ISR context.
     - Stdout shall use buffered transmission handled by ISR.
     - Stdout buffer size shall be configurable and defined according to the memory constraints of the target platform.

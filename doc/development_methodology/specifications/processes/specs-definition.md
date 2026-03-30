@@ -52,7 +52,7 @@ A dedicated `tools.md` document shall be defined to capture all available tools 
 Each tool of the `tools.md` document shall:
 - Define all project-specific tools available for implementation, validation, and debugging.
 - Describe how each tool shall be used. 
-  - Reference how it is integrated into the [Embedded C Workbench (xxxyy aquest nom pot cmbiar)](xxxyyy-link) when applicable instead of redefining it.
+  - Reference how it is integrated into the [Embedded C Workbench (xxxyyy aquest nom pot cmbiar)](../../../ecw.md) when applicable instead of redefining it.
   - Reference tool-specific manuals or stakeholder documentation that support its usage.
 
 The following tool template shall be used:

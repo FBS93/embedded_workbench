@@ -45,7 +45,7 @@ For framework-specific usage examples, see the documentation of the frameworks l
 
 A concrete embedded target integration is typically grouped as one platform package.
 
-The repository includes the [STM32F103C8Tx platform package](../platform/stm32f103c8tx/doc/stm32f103c8tx.md) as the reference example. It keeps that target-specific implementation in a single folder and is enabled at build time as follows:
+The repository includes the [STM32F103C8Tx platform package](../platform/stm32f103c8tx/doc/stm32f103c8tx_platform_package.md) as the reference example. It keeps that target-specific implementation in a single folder and is enabled at build time as follows:
 
 ```cmake
 set(ECF_TARGET_PLATFORM stm32f103c8tx)

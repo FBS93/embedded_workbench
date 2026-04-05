@@ -60,7 +60,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install AI Gentle Stack from the GitHub release tarball
-ARG GENTLE_AI_VERSION=1.15.5
+ARG GENTLE_AI_VERSION=1.18.2
 RUN set -eux; \
     cd /tmp; \
     curl -fsSLO "https://github.com/Gentleman-Programming/gentle-ai/releases/download/v${GENTLE_AI_VERSION}/gentle-ai_${GENTLE_AI_VERSION}_linux_amd64.tar.gz"; \

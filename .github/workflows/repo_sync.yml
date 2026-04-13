@@ -95,7 +95,7 @@ jobs:
       - name: Synchronize repository snapshot
         if: steps.open_pr.outputs.skip != 'true'
         run: |
-          python tools/repo_sync/repo_sync.py \
+          python3 tools/repo_sync/repo_sync.py \
             --repository-id "$REPOSITORY_ID" \
             --manifest tools/repo_sync/repos.json \
             --lock tools/repo_sync/repos.lock.json \

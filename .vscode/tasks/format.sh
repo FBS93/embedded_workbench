@@ -12,7 +12,9 @@ fi
 source_dir="$1"
 workspace_root="$2"
 clang_format_bin=""
+ruff_bin=""
 asm_formatter="${workspace_root}/tools/scripts/asm_format.py"
+ruff_config="${workspace_root}/pyproject.toml"
 # Resolve clang-format binary:
 # 1) Use clang-format from PATH.
 # 2) Fallback to VS Code extension bundled binary.
@@ -42,9 +44,24 @@ if [ ! -x "${asm_formatter}" ]; then
     exit 1
 fi
 
+if command -v ruff >/dev/null 2>&1; then
+    ruff_bin="$(command -v ruff)"
+fi
+
+if [ -z "${ruff_bin}" ] || [ ! -x "${ruff_bin}" ]; then
+    echo "❌ Error: ruff not found."
+    exit 1
+fi
+
+if [ ! -f "${ruff_config}" ]; then
+    echo "❌ Error: Ruff config file not found: ${ruff_config}"
+    exit 1
+fi
+
 echo "🧼 Formatting..."
 echo "clang-format: ${clang_format_bin}"
 echo "ASM formatter: ${asm_formatter}"
+echo "ruff: ${ruff_bin}"
 
 cd "${source_dir}"
 
@@ -54,5 +71,9 @@ find . -type f \( -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.hpp' \
 
 # Format assembler source files recursively.
 find . -type f -name '*.S' -exec "${asm_formatter}" {} +
+
+# Format Python files across the workspace using the repository Ruff config.
+"${ruff_bin}" check --fix --config "${ruff_config}" "${workspace_root}"
+"${ruff_bin}" format --config "${ruff_config}" "${workspace_root}"
 
 echo "✅ Formatting completed."

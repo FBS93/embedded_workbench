@@ -84,22 +84,36 @@
     "VsCodeTaskButtons.showCounter": false,
     "VsCodeTaskButtons.tasks": [
         {
-            "label": "🧰 Toolbox",
+            "label": "🧰 WB toolbox",
             "tasks": [
                 {
-                    "label": " 🌐 OpenCode web GUI",
+                    "label": "🌐 OpenCode web GUI",
                     "task": "run_opencode_web_gui"
                 },
                 {
-                    "label": " 🔄 Sync third-party repos",
+                    "label": "🔄 Sync third-party repos",
                     "task": "run_repo_sync"
                 },
                 {
-                    "label": " 🔗 Connect Raspberry Pi (SSH)",
+                    "label": "🔗 Connect Raspberry Pi (SSH)",
                     "task": "connect_rpi_ssh"
+                }
+            ],
+            "tooltip": "Workbench toolbox"
+        },
+        {
+            "label": "💻 SW toolbox",
+            "tasks": [
+                {
+                    "label": "🔨 Build",
+                    "task": "build"
                 },
                 {
-                    "label": " 📃 Enable target logging",
+                    "label": "🧹 Clean",
+                    "task": "clean"
+                },
+                {
+                    "label": "📃 Enable target logging",
                     "task": "run_target_logging_server"
                 },
                 {
@@ -107,18 +121,28 @@
                     "task": "format",
                 }
             ],
-            "tooltip": "Software tools"
+            "tooltip": "Software toolbox"
         },
         {
-            "label": "🔨 Build",
-            "task": "build",
-            "tooltip": "Build project",
+            "label": "🔌 HW toolbox",
+            "tasks": [
+                {
+                    "label": "⚡ Open KiCad",
+                    "task": "open_kicad"
+                }
+            ],
+            "tooltip": "Hardware toolbox"
         },
         {
-            "label": "🧹 Clean",
-            "task": "clean",
-            "tooltip": "Clean build artifacts"
-        }
+            "label": "📐 MECH toolbox",
+            "tasks": [
+                {
+                    "label": "🧊 Open CQ-Editor",
+                    "task": "open_cq_editor"
+                }
+            ],
+            "tooltip": "Mechanical toolbox"
+        },
     ],
     "files.associations": {
         "*.c": "c",

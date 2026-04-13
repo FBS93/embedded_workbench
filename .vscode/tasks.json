@@ -42,6 +42,16 @@
       "command": "${TASKS_PATH}/run_target_logging_server.sh"
     },
     {
+      "label": "open_kicad",
+      "type": "shell",
+      "command": "${TASKS_PATH}/open_kicad.sh"
+    },
+    {
+      "label": "open_cq_editor",
+      "type": "shell",
+      "command": "${TASKS_PATH}/open_cq_editor.sh"
+    },
+    {
       "label": "run_opencode_web_gui",
       "type": "shell",
       "command": "${TASKS_PATH}/run_opencode_web_gui.sh"

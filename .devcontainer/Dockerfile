@@ -18,12 +18,14 @@ RUN apt-get update && apt-get install -y \
     python-is-python3 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-# Install pytest globally in the devcontainer so it is available to the
-# whole workspace without introducing an additional virtual environment layer.
-# --break-system-packages is intentional here because this is a controlled
+    
+# Install common Python tooling globally in the devcontainer so it is available
+# to the whole workspace without introducing an additional virtual environment
+# layer.  --break-system-packages is intentional here because this is a controlled
 # development container image rather than a shared host Python installation.
-RUN python -m pip install --break-system-packages pytest
+RUN python -m pip install --break-system-packages \
+    pytest \
+    ruff
 
 # Configure locale (UTF-8)
 ENV LANG=C.UTF-8
@@ -56,7 +58,25 @@ ENV PATH="/opt/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi/bin:${P
 # Hardware domain
 ################################################################################
 
-# @todo install Kicad, Pyspice and other tools related to the hardware domain
+# Install KiCad
+ARG KICAD_VERSION=10.0.0~ubuntu24.04.1
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    apt-utils \
+    && add-apt-repository --yes ppa:kicad/kicad-10.0-releases \
+    && apt-get update && apt-get install -y --install-recommends \
+    kicad=${KICAD_VERSION} \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install hardware-domain Python tooling globally in the devcontainer so it is
+# available to the whole workspace without introducing an additional virtual
+# environment layer. --break-system-packages is intentional here because this
+# is a controlled development container image rather than a shared host Python
+# installation.
+RUN python -m pip install --break-system-packages \
+    skidl \
+    PySpice
 
 ################################################################################
 # Mechanical domain

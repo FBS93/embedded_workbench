@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "jlc2kicad-lib": {
+      "commit_date": "2026-02-28T15:26:24Z",
+      "default_branch": "master",
+      "resolved_commit": "8df3ad1941071ed499d01ef061795ed29b6349cf",
+      "source": "default_branch_head",
+      "tarball_url": "https://api.github.com/repos/TousstNicolas/JLC2KiCad_lib/tarball/8df3ad1941071ed499d01ef061795ed29b6349cf"
+    }
+  }
 }

@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "jlcpcb-kicad-library": {
+      "published_at": "2026-04-13T06:43:52Z",
+      "resolved_commit": "ddb691388738809310f0856601f1ac7488e2c901",
+      "resolved_release": "2026.04.13",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/CDFER/JLCPCB-Kicad-Library/tarball/2026.04.13"
+    }
+  }
 }

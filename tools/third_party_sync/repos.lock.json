@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "pyspice": {
+      "commit_date": "2024-01-26T02:18:15Z",
+      "default_branch": "master",
+      "resolved_commit": "fe08718d5a1a9af94576b5aef1fa81910f09b037",
+      "source": "default_branch_head",
+      "tarball_url": "https://api.github.com/repos/PySpice-org/PySpice/tarball/fe08718d5a1a9af94576b5aef1fa81910f09b037"
+    }
+  }
 }

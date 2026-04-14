@@ -1,0 +1,144 @@
+{
+  "agent": {
+    "sdd-orchestrator": {
+      "mode": "primary",
+      "description": "Agent Teams Orchestrator - coordinates sub-agents, never does work inline",
+      "prompt": "{file:./AGENTS.md}",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "sdd-*": "allow"
+        }
+      },
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "delegate": true,
+        "delegation_read": true,
+        "delegation_list": true
+      }
+    },
+    "sdd-init": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Bootstrap SDD context and project configuration",
+      "prompt": "__PROMPT_FILE_sdd-init__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-explore": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Investigate codebase and think through ideas",
+      "prompt": "__PROMPT_FILE_sdd-explore__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-propose": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Create change proposals from explorations",
+      "prompt": "__PROMPT_FILE_sdd-propose__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-spec": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Write detailed specifications from proposals",
+      "prompt": "__PROMPT_FILE_sdd-spec__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-design": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Create technical design from proposals",
+      "prompt": "__PROMPT_FILE_sdd-design__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-tasks": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Break down specs and designs into implementation tasks",
+      "prompt": "__PROMPT_FILE_sdd-tasks__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-apply": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Implement code changes from task definitions",
+      "prompt": "__PROMPT_FILE_sdd-apply__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-verify": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Validate implementation against specs",
+      "prompt": "__PROMPT_FILE_sdd-verify__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-archive": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Archive completed change artifacts",
+      "prompt": "__PROMPT_FILE_sdd-archive__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "sdd-onboard": {
+      "mode": "subagent",
+      "hidden": true,
+      "description": "Guide user through a complete SDD cycle using their real codebase",
+      "prompt": "__PROMPT_FILE_sdd-onboard__",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    }
+  }
+}

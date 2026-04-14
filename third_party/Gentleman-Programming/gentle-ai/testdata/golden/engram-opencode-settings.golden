@@ -1,0 +1,12 @@
+{
+  "mcp": {
+    "engram": {
+      "command": [
+        "engram",
+        "mcp",
+        "--tools=agent"
+      ],
+      "type": "local"
+    }
+  }
+}

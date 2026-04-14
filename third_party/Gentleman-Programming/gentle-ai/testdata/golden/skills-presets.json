@@ -1,0 +1,60 @@
+[
+  {
+    "preset": "full-gentleman",
+    "skills": [
+      "sdd-init",
+      "sdd-explore",
+      "sdd-propose",
+      "sdd-spec",
+      "sdd-design",
+      "sdd-tasks",
+      "sdd-apply",
+      "sdd-verify",
+      "sdd-archive",
+      "sdd-onboard",
+      "judgment-day",
+      "go-testing",
+      "skill-creator",
+      "branch-pr",
+      "issue-creation",
+      "skill-registry"
+    ]
+  },
+  {
+    "preset": "ecosystem-only",
+    "skills": [
+      "sdd-init",
+      "sdd-explore",
+      "sdd-propose",
+      "sdd-spec",
+      "sdd-design",
+      "sdd-tasks",
+      "sdd-apply",
+      "sdd-verify",
+      "sdd-archive",
+      "sdd-onboard",
+      "judgment-day",
+      "go-testing",
+      "skill-creator",
+      "branch-pr",
+      "issue-creation",
+      "skill-registry"
+    ]
+  },
+  {
+    "preset": "minimal",
+    "skills": [
+      "sdd-init",
+      "sdd-explore",
+      "sdd-propose",
+      "sdd-spec",
+      "sdd-design",
+      "sdd-tasks",
+      "sdd-apply",
+      "sdd-verify",
+      "sdd-archive",
+      "sdd-onboard",
+      "judgment-day"
+    ]
+  }
+]

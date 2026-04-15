@@ -1,6 +1,7 @@
 {
     "name": "embedded_workbench",
     "dockerFile": "Dockerfile",
+    "postCreateCommand": "python3 .devcontainer/setup-kicad.py",
     "containerEnv": {
         "RPI_USER": "${localEnv:RPI_USER}", // Raspberry Pi SSH username.
         "RPI_HOST": "${localEnv:RPI_HOST}", // Raspberry Pi IP address.

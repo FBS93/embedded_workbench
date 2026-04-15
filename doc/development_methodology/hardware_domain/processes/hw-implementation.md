@@ -59,6 +59,7 @@ The schematic implementation of each hardware assembly shall:
 
 When a hardware assembly requires a PCB, the PCB implementation shall:
 - Be implemented manually by a human in [KiCad](https://www.kicad.org/).
+- Restore and capture the KiCad user state according to [kicad_state_in_devcontainer.md](../resources/kicad_state_in_devcontainer.md).
 - Not be modified directly by AI-assisted tooling.
 - Be derived from the generated top-level assembly source file netlist.
 - Be derived from PCB outline constraints defined in upstream traceable elements, if any.

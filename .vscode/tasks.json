@@ -47,6 +47,14 @@
       "command": "${TASKS_PATH}/open_kicad.sh"
     },
     {
+      "label": "save_kicad_state",
+      "type": "shell",
+      "command": "${TASKS_PATH}/save_kicad_state.sh",
+      "args": [
+        "${workspaceFolder}"
+      ]
+    },
+    {
       "label": "open_cq_editor",
       "type": "shell",
       "command": "${TASKS_PATH}/open_cq_editor.sh"

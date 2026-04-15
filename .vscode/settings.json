@@ -129,6 +129,10 @@
                 {
                     "label": "⚡ Open KiCad",
                     "task": "open_kicad"
+                },
+                {
+                    "label": "💾 Save KiCad state",
+                    "task": "save_kicad_state"
                 }
             ],
             "tooltip": "Hardware toolbox"

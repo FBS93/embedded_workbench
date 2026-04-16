@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "actions-template-sync": {
+      "published_at": "2025-07-16T19:52:05Z",
+      "resolved_commit": "8ec19a5f2721ffb81ff809aa340ddf75e6a85ea6",
+      "resolved_release": "v2.5.2",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/AndreasAugustin/actions-template-sync/tarball/v2.5.2"
+    }
+  }
 }

@@ -64,4 +64,4 @@ Hardware assembly folders may be nested to support logical grouping and hierarch
 - Hardware test definition. See [resources/hardware_test_definition.md](resources/hardware_test_definition.md).
 - SKiDL guidelines. See [resources/skidl_guidelines.md](resources/skidl_guidelines.md).
 - KiCad libraries for JLCPCB and LCSC. See [resources/kicad_libraries_for_jlcpcb_lcsc.md](resources/kicad_libraries_for_jlcpcb_lcsc.md).
-- KiCad state workflow. See [resources/kicad_state.md](resources/kicad_state.md).
+- KiCad workflow. See [resources/kicad_workflow.md](resources/kicad_workflow.md).

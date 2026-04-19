@@ -137,6 +137,14 @@
                 {
                     "label": "💾 Save KiCad state",
                     "task": "save_kicad_state"
+                },
+                {
+                    "label": "♻️ Restore KiCad state",
+                    "task": "restore_kicad_state"
+                },
+                {
+                    "label": "🧹 Clean KiCad runtime state",
+                    "task": "clean_kicad_runtime_state"
                 }
             ],
             "tooltip": "Hardware toolbox"

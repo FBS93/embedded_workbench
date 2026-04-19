@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 
 # ==============================================================================
-# @brief Restore versioned KiCad state into the devcontainer user profile.
-#
-# This script restores the minimal KiCad user state stored in:
-# tools/kicad_state/state/<version>/
+# @brief Restore the KiCad state into the persistent runtime when needed.
 #
 # @copyright
 # Copyright (c) 2026 FBS93.
@@ -24,8 +21,7 @@
 # ------------------------------------------------------------------------------
 # Standard library imports
 # ------------------------------------------------------------------------------
-import re
-import subprocess
+import argparse
 import sys
 
 # ------------------------------------------------------------------------------
@@ -35,12 +31,11 @@ import sys
 # ------------------------------------------------------------------------------
 # Project-specific imports
 # ------------------------------------------------------------------------------
-from kicad_state_common import CONFIG_FILE_NAMES
-from kicad_state_common import copy_optional_file
+from kicad_state_common import directory_has_content
 from kicad_state_common import get_config_root
 from kicad_state_common import get_detected_versions
-from kicad_state_common import get_share_root
 from kicad_state_common import get_state_root_dir
+from kicad_state_common import get_versioned_documents_dir
 from kicad_state_common import remove_path
 from kicad_state_common import replace_dir
 
@@ -67,41 +62,63 @@ def detect_kicad_version():
   if versions:
     return versions[-1]
 
-  try:
-    result = subprocess.run(
-      ["kicad", "--version"],
-      check=True,
-      capture_output=True,
-      text=True,
+  state_root_dir = get_state_root_dir()
+  if state_root_dir.exists():
+    state_versions = sorted(
+      [path.name for path in state_root_dir.iterdir() if path.is_dir()]
     )
-  except (OSError, subprocess.CalledProcessError):
-    return None
+    if len(state_versions) == 1:
+      return state_versions[0]
 
-  match = re.search(r"(\d+\.\d+)", result.stdout)
-  if match is None:
-    return None
-
-  return match.group(1)
+  return None
 
 
 ##
-# @brief Copy one optional state directory into the KiCad profile.
+# @brief Return whether the persistent runtime already contains KiCad state.
 #
-# @param[in] source_dir Directory in the versioned state.
-# @param[in] target_dir Destination directory in the user profile.
+# @param[in] target_config_dir Runtime config directory.
+# @param[in] target_documents_dir Runtime documents directory.
+# @return True when either directory already contains real content.
+##
+def runtime_has_content(target_config_dir, target_documents_dir):
+  return directory_has_content(target_config_dir) or directory_has_content(
+    target_documents_dir
+  )
+
+
+##
+# @brief Restore one optional state directory into the runtime.
+#
+# @param[in] source_dir Directory in the state.
+# @param[in] target_dir Destination directory in the runtime.
 ##
 def restore_dir(source_dir, target_dir):
   if source_dir.is_dir():
-    target_dir.parent.mkdir(parents=True, exist_ok=True)
     replace_dir(source_dir, target_dir)
   else:
     remove_path(target_dir)
 
 
 ##
-# @brief Restore the versioned KiCad state when available.
+# @brief Parse command-line arguments.
+#
+# @return Parsed arguments namespace.
+##
+def parse_args():
+  parser = argparse.ArgumentParser()
+  parser.add_argument(
+    "--force",
+    action="store_true",
+    help="replace the current KiCad runtime with the stored state",
+  )
+  return parser.parse_args()
+
+
+##
+# @brief Restore the KiCad state when the runtime is empty or force is used.
 ##
 def main():
+  args = parse_args()
   kicad_version = detect_kicad_version()
   if kicad_version is None:
     print("KiCad version could not be detected. Skipping KiCad state restore.")
@@ -115,22 +132,18 @@ def main():
     return 0
 
   target_config_dir = get_config_root() / kicad_version
-  target_share_dir = get_share_root() / kicad_version
+  target_documents_dir = get_versioned_documents_dir(kicad_version)
   state_config_dir = state_dir / "config"
-  state_plugins_dir = state_dir / "data" / "plugins"
-  state_template_dir = state_dir / "data" / "template"
+  state_documents_dir = state_dir / "documents"
 
-  target_config_dir.mkdir(parents=True, exist_ok=True)
-  target_share_dir.mkdir(parents=True, exist_ok=True)
+  if not args.force and runtime_has_content(
+    target_config_dir, target_documents_dir
+  ):
+    print(f"KiCad runtime already initialized for version {kicad_version}.")
+    return 0
 
-  for file_name in CONFIG_FILE_NAMES:
-    copy_optional_file(
-      state_config_dir / file_name, target_config_dir / file_name
-    )
-
-  restore_dir(state_config_dir / "colors", target_config_dir / "colors")
-  restore_dir(state_plugins_dir, target_share_dir / "plugins")
-  restore_dir(state_template_dir, target_share_dir / "template")
+  restore_dir(state_config_dir, target_config_dir)
+  restore_dir(state_documents_dir, target_documents_dir)
 
   print(f"KiCad state restored for version {kicad_version}.")
   return 0

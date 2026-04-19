@@ -1,13 +1,5 @@
-#!/usr/bin/env python3
-
 # ==============================================================================
 # @brief Common helpers for KiCad state save/restore scripts.
-#
-# Shared logic used by the KiCad state tools located in:
-# tools/kicad_state/
-#
-# Full tool documentation is defined in:
-# tools/kicad_state/kicad_state.md
 #
 # @copyright
 # Copyright (c) 2026 FBS93.
@@ -27,6 +19,7 @@
 # ------------------------------------------------------------------------------
 # Standard library imports
 # ------------------------------------------------------------------------------
+import os
 import shutil
 from pathlib import Path
 
@@ -42,13 +35,8 @@ from pathlib import Path
 # CONSTANTS
 # ==============================================================================
 
-CONFIG_FILE_NAMES = [
-  "kicad_common.json",
-  "sym-lib-table",
-  "fp-lib-table",
-  "user.hotkeys",
-  "design-block-lib-table",
-]
+DEFAULT_CONFIG_ROOT = Path.home() / ".config" / "kicad"
+DEFAULT_DOCUMENTS_ROOT = Path.home() / ".local" / "share" / "kicad"
 
 # ==============================================================================
 # CLASSES
@@ -69,21 +57,48 @@ def get_state_root_dir():
 
 
 ##
+# @brief Return the configured KiCad config root.
+#
+# @return Absolute config root path.
+##
+def get_env_path(env_name, default_path):
+  raw_value = os.environ.get(env_name)
+  if raw_value:
+    return Path(raw_value)
+
+  return default_path
+
+
+##
 # @brief Return the KiCad config root in the current user home.
 #
 # @return Absolute config root path.
 ##
 def get_config_root():
-  return Path.home() / ".config" / "kicad"
+  return get_env_path("KICAD_CONFIG_HOME", DEFAULT_CONFIG_ROOT)
 
 
 ##
-# @brief Return the KiCad share root in the current user home.
+# @brief Return the KiCad documents root.
 #
-# @return Absolute share root path.
+# @return Absolute documents root path.
 ##
-def get_share_root():
-  return Path.home() / ".local" / "share" / "kicad"
+def get_documents_root():
+  return get_env_path("KICAD_DOCUMENTS_HOME", DEFAULT_DOCUMENTS_ROOT)
+
+
+##
+# @brief Return the versioned KiCad documents directory.
+#
+# @param[in] version KiCad version string.
+# @return Absolute versioned documents directory path.
+##
+def get_versioned_documents_dir(version):
+  documents_root = get_documents_root()
+  if documents_root.name == "kicad":
+    return documents_root / version
+
+  return documents_root / "kicad" / version
 
 
 ##
@@ -125,31 +140,35 @@ def remove_path(path):
 
 
 ##
-# @brief Copy one optional file and remove the destination when absent.
-#
-# @param[in] source_file Source file path.
-# @param[in] destination_file Destination file path.
-##
-def copy_optional_file(source_file, destination_file):
-  if source_file.is_file():
-    destination_file.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source_file, destination_file)
-  else:
-    remove_path(destination_file)
-
-
-##
 # @brief Replace one directory tree from a source directory.
 #
 # @param[in] source_dir Source directory path.
 # @param[in] destination_dir Destination directory path.
 ##
-def replace_dir(source_dir, destination_dir):
+def replace_dir(source_dir, destination_dir, ignore_patterns=None):
   if destination_dir.exists():
     shutil.rmtree(destination_dir)
+
+  destination_dir.parent.mkdir(parents=True, exist_ok=True)
+  patterns = [".gitkeep"]
+  if ignore_patterns is not None:
+    patterns.extend(ignore_patterns)
 
   shutil.copytree(
     source_dir,
     destination_dir,
-    ignore=shutil.ignore_patterns(".gitkeep"),
+    ignore=shutil.ignore_patterns(*patterns),
   )
+
+
+##
+# @brief Return whether a directory exists and contains entries other than `.gitkeep`.
+#
+# @param[in] directory Directory path.
+# @return True when the directory contains real content.
+##
+def directory_has_content(directory):
+  if not directory.is_dir():
+    return False
+
+  return any(path.name != ".gitkeep" for path in directory.iterdir())

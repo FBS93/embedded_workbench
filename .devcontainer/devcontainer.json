@@ -1,39 +1,44 @@
 {
-    "name": "embedded_workbench",
-    "dockerFile": "Dockerfile",
-    "postCreateCommand": "python3 tools/kicad_state/setup_kicad_state.py",
-    "containerEnv": {
-        "RPI_USER": "${localEnv:RPI_USER}", // Raspberry Pi SSH username.
-        "RPI_HOST": "${localEnv:RPI_HOST}", // Raspberry Pi IP address.
-        "GDB_PORT": "${localEnv:GDB_PORT}", // TCP port where GDB server will listen.
-        "LOG_PORT": "${localEnv:LOG_PORT}", // TCP port used for logging.
-        "LOG_BAUD_RATE": "115200", // Baud rate used for logging interface.
-        "TARGET_RX_TIMEOUT_S": "10", // Maximum allowed inactivity time (seconds) without receiving data from the target.
-        "NETWORK_LATENCY_TIMEOUT_S": "1.5", // Timeout budget (seconds) used for network-latency waits.
-        "WORKSPACE_FOLDER": "${containerWorkspaceFolder}", // Absolute path to the workspace folder inside the container.
-        "ENGRAM_DATA_DIR": "${containerWorkspaceFolder}/.engram", // Path where the Engram database is stored. Should be located inside the workspace folder so data persists across container rebuilds.
-        "SVD_FILE": "${containerWorkspaceFolder}/sw/ecf/platform/stm32f103c8tx/svd/STM32F103.svd" // Path to the SVD file used for target debugging.
-    },
-    "mounts": [
-      // Load OpenCode state (including credentials and sessions) from host.
-      "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind"
-    ],
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-vscode.cmake-tools",
-                "ms-vscode.cpptools",
-                "dan-c-underwood.arm",
-                "ms-python.python",
-                "marus25.cortex-debug",
-                "ms-vscode.vscode-serial-monitor",
-                "mhutchie.git-graph",
-                "spencerwmiles.vscode-task-buttons",
-                "emeraldwalk.runonsave",
-                "jebbs.plantuml",
-                "bierner.markdown-mermaid",
-                "bierner.markdown-preview-github-styles"
-            ]
-        }
+  "name": "embedded_workbench",
+  "dockerFile": "Dockerfile",
+  "postStartCommand": "bash .devcontainer/post_start.sh",
+  "containerEnv": {
+    "RPI_USER": "${localEnv:RPI_USER}", // Raspberry Pi SSH username.
+    "RPI_HOST": "${localEnv:RPI_HOST}", // Raspberry Pi IP address.
+    "GDB_PORT": "${localEnv:GDB_PORT}", // TCP port where GDB server will listen.
+    "LOG_PORT": "${localEnv:LOG_PORT}", // TCP port used for logging.
+    "LOG_BAUD_RATE": "115200", // Baud rate used for logging interface.
+    "TARGET_RX_TIMEOUT_S": "10", // Maximum allowed inactivity time (seconds) without receiving data from the target.
+    "NETWORK_LATENCY_TIMEOUT_S": "1.5", // Timeout budget (seconds) used for network-latency waits.
+    "WORKSPACE_FOLDER": "${containerWorkspaceFolder}", // Absolute path to the workspace folder inside the container.
+    "SVD_FILE": "${containerWorkspaceFolder}/sw/ecf/platform/stm32f103c8tx/svd/STM32F103.svd", // Path to the SVD file used for target debugging.
+    "KICAD_CONFIG_HOME": "/kicad-runtime/config", // Persistent KiCad config root stored in the devcontainer volume.
+    "KICAD_DOCUMENTS_HOME": "/kicad-runtime/documents", // Persistent KiCad documents root stored in the devcontainer volume.
+    "KICAD10_3RD_PARTY": "${containerWorkspaceFolder}/tools/kicad_state/3rdparty", // Project-local KiCad third party content tracked in the workspace.
+    "ENGRAM_DATA_DIR": "${containerWorkspaceFolder}/.engram" // Path where the Engram database is stored. Should be located inside the workspace folder so data persists across container rebuilds.
+  },
+  "mounts": [
+    // Mount persistent KiCad runtime as a devcontainer volume named after the workspace folder.
+    "source=${localWorkspaceFolderBasename}_kicad_runtime,target=/kicad-runtime,type=volume",
+    // Load OpenCode state (including credentials and sessions) from host.
+    "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "dan-c-underwood.arm",
+        "ms-python.python",
+        "marus25.cortex-debug",
+        "ms-vscode.vscode-serial-monitor",
+        "mhutchie.git-graph",
+        "spencerwmiles.vscode-task-buttons",
+        "emeraldwalk.runonsave",
+        "jebbs.plantuml",
+        "bierner.markdown-mermaid",
+        "bierner.markdown-preview-github-styles"
+      ]
     }
+  }
 }

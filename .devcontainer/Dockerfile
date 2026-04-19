@@ -69,13 +69,11 @@ RUN python -m pip install --break-system-packages \
 ################################################################################
 
 # Install KiCad
-ARG KICAD_VERSION=10.0.0~ubuntu24.04.1
 RUN apt-get update && apt-get install -y \
     software-properties-common \
-    apt-utils \
     && add-apt-repository --yes ppa:kicad/kicad-10.0-releases \
     && apt-get update && apt-get install -y --install-recommends \
-    kicad=${KICAD_VERSION} \
+    kicad \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -86,7 +84,8 @@ RUN apt-get update && apt-get install -y \
 # installation.
 RUN python -m pip install --break-system-packages \
     skidl \
-    PySpice
+    PySpice \
+    JLC2KiCadLib
 
 ################################################################################
 # Mechanical domain

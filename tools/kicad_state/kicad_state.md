@@ -1,6 +1,9 @@
 # KiCad state overview
 
-`save_kicad_state.py` captures the minimal KiCad user state into `tools/kicad_state/state/<version>/`, and `setup_kicad_state.py` restores that versioned state into the devcontainer user profile.
+This document describes the tool scripts located in tools/kicad_state/, which are listed below:
+- `restore_kicad_state.py` restores `tools/kicad_state/state/<version>/` into the configured KiCad runtime paths. By default it restores only when the runtime is empty. Use `--force` to replace the current runtime.
+- `save_kicad_state.py` captures the current KiCad runtime into `tools/kicad_state/state/<version>/`.
+- `kicad_state_common.py` provides shared helpers for path resolution, version detection, directory replacement, and cleanup.
 
 # Glossary
 
@@ -10,39 +13,20 @@
 
 # Usage example
 
-Restore the stored KiCad state into the devcontainer user profile:
+Restore the current KiCad runtime from the stored state:
 
 ```bash
-python tools/kicad_state/setup_kicad_state.py
+python tools/kicad_state/restore_kicad_state.py
 ```
 
-Capture the current KiCad state back into the repository:
+Force-reset the runtime back to the stored state:
+
+```bash
+python tools/kicad_state/restore_kicad_state.py --force
+```
+
+Capture the current KiCad runtime back into the repository state:
 
 ```bash
 python tools/kicad_state/save_kicad_state.py
 ```
-
-Versioned state layout:
-
-```text
-tools/kicad_state/state/<version>/
-├── config/
-│   ├── kicad_common.json
-│   ├── sym-lib-table
-│   ├── fp-lib-table
-│   ├── user.hotkeys
-│   ├── design-block-lib-table
-│   └── colors/
-├── data/
-│   ├── plugins/
-│   └── template/
-└── custom-libraries/
-```
-
-Behavior rules:
-
-- `setup_kicad_state.py` restores only the versioned state already present under `tools/kicad_state/state/<version>/`.
-- `save_kicad_state.py` captures only the minimal KiCad state intentionally tracked by the repository.
-- `colors/`, `plugins/`, `template/`, and `custom-libraries/` contain `.gitkeep` only when otherwise empty.
-- Caches, logs, backups, and temporary KiCad files are not versioned.
-- `save_kicad_state.py` warns when KiCad library tables still reference custom libraries outside the repository.

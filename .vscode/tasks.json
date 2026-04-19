@@ -49,10 +49,17 @@
     {
       "label": "save_kicad_state",
       "type": "shell",
-      "command": "${TASKS_PATH}/save_kicad_state.sh",
-      "args": [
-        "${workspaceFolder}"
-      ]
+      "command": "${TASKS_PATH}/save_kicad_state.sh"
+    },
+    {
+      "label": "restore_kicad_state",
+      "type": "shell",
+      "command": "${TASKS_PATH}/restore_kicad_state.sh"
+    },
+    {
+      "label": "clean_kicad_runtime_state",
+      "type": "shell",
+      "command": "${TASKS_PATH}/clean_kicad_runtime_state.sh"
     },
     {
       "label": "open_cq_editor",

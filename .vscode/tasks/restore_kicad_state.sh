@@ -17,5 +17,5 @@ if ! command -v python3 >/dev/null 2>&1; then
     exit 1
 fi
 
-echo "💾 Saving KiCad state ..."
-python3 "${workspace_root}/tools/kicad_state/save_kicad_state.py"
+echo "♻️ Restoring KiCad state ..."
+python3 "${workspace_root}/tools/kicad_state/restore_kicad_state.py" --force

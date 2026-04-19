@@ -15,9 +15,44 @@
       "ref": ""
     },
     {
+      "id": "agent-teams-lite",
+      "url": "https://github.com/Gentleman-Programming/agent-teams-lite",
+      "path": "third_party/Gentleman-Programming/agent-teams-lite",
+      "ref_type": "auto",
+      "ref": ""
+    },
+    {
+      "id": "engram",
+      "url": "https://github.com/Gentleman-Programming/engram",
+      "path": "third_party/Gentleman-Programming/engram",
+      "ref_type": "auto",
+      "ref": ""
+    },
+    {
+      "id": "gentleman-guardian-angel",
+      "url": "https://github.com/Gentleman-Programming/gentleman-guardian-angel",
+      "path": "third_party/Gentleman-Programming/gentleman-guardian-angel",
+      "ref_type": "auto",
+      "ref": ""
+    },
+    {
+      "id": "gentleman-dots",
+      "url": "https://github.com/Gentleman-Programming/Gentleman.Dots",
+      "path": "third_party/Gentleman-Programming/Gentleman.Dots",
+      "ref_type": "auto",
+      "ref": ""
+    },
+    {
       "id": "pyspice",
       "url": "https://github.com/PySpice-org/PySpice",
       "path": "third_party/PySpice-org/PySpice",
+      "ref_type": "auto",
+      "ref": ""
+    },
+    {
+      "id": "skidl",
+      "url": "https://github.com/devbisme/skidl",
+      "path": "third_party/devbisme/skidl",
       "ref_type": "auto",
       "ref": ""
     },
@@ -35,7 +70,7 @@
       "ref_type": "auto",
       "ref": ""
     },
-        {
+    {
       "id": "cd-fer-kicad-repository",
       "url": "https://github.com/CDFER/cd_fer-kicad-repository",
       "path": "third_party/CDFER/cd_fer-kicad-repository",
@@ -50,13 +85,11 @@
       "ref": ""
     },
     {
-
       "id": "kicad-jlcpcb-tools",
       "url": "https://github.com/Bouni/kicad-jlcpcb-tools",
       "path": "third_party/Bouni/kicad-jlcpcb-tools",
       "ref_type": "auto",
       "ref": ""
-
     }
   ]
 }

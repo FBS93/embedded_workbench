@@ -31,6 +31,3 @@ The following additions to the Markdown document template shall be applied for h
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
 ```
-
-
-@todo Download the original [PySpice](https://github.com/PySpice-org/PySpice) repository and integrate into the workspace tooling.

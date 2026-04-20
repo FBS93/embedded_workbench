@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "gentleman-guardian-angel": {
+      "published_at": "2026-03-29T21:32:35Z",
+      "resolved_commit": "05976bb8b3df746460734693583a7c737088f356",
+      "resolved_release": "v2.8.1",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/Gentleman-Programming/gentleman-guardian-angel/tarball/v2.8.1"
+    }
+  }
 }

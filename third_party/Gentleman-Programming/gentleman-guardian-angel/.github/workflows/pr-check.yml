@@ -1,0 +1,132 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, edited, labeled, unlabeled, synchronize]
+
+jobs:
+  # ============================================================================
+  # Job 1: Verify PR body contains Closes/Fixes/Resolves #N
+  # ============================================================================
+  check-issue-reference:
+    name: Check Issue Reference
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify PR links an issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || '';
+            const pattern = /(?:closes|fixes|resolves)\s+#(\d+)/gi;
+            const match = pattern.exec(body);
+
+            if (!match) {
+              core.setFailed(
+                '❌ This PR does not reference an issue.\n\n' +
+                'Add one of these to your PR description:\n' +
+                '  Closes #<issue-number>\n' +
+                '  Fixes #<issue-number>\n' +
+                '  Resolves #<issue-number>\n\n' +
+                'This project follows a strict issue-first workflow. ' +
+                'Open an issue first, get it approved, then open a PR.'
+              );
+              return;
+            }
+
+            const issueNumber = parseInt(match[1], 10);
+            core.notice(`✅ PR references issue #${issueNumber}`);
+            core.exportVariable('LINKED_ISSUE', issueNumber.toString());
+
+  # ============================================================================
+  # Job 2: Verify the linked issue has status:approved label
+  # ============================================================================
+  check-issue-approved:
+    name: Check Issue Has status:approved
+    runs-on: ubuntu-latest
+    needs: check-issue-reference
+    steps:
+      - name: Verify issue is approved
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || '';
+            const pattern = /(?:closes|fixes|resolves)\s+#(\d+)/gi;
+            const match = pattern.exec(body);
+
+            if (!match) {
+              core.setFailed('❌ Could not extract issue number from PR body.');
+              return;
+            }
+
+            const issueNumber = parseInt(match[1], 10);
+
+            let issue;
+            try {
+              const response = await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+              });
+              issue = response.data;
+            } catch (err) {
+              core.setFailed(
+                `❌ Could not fetch issue #${issueNumber}. ` +
+                `Make sure the issue exists in this repository.\n\nError: ${err.message}`
+              );
+              return;
+            }
+
+            const labels = issue.labels.map((l) => l.name);
+            const isApproved = labels.includes('status:approved');
+
+            if (!isApproved) {
+              core.setFailed(
+                `❌ Issue #${issueNumber} does not have the \`status:approved\` label.\n\n` +
+                `Current labels: ${labels.length > 0 ? labels.join(', ') : '(none)'}\n\n` +
+                `A maintainer must review and approve the issue before a PR can be merged. ` +
+                `Please wait for a maintainer to add \`status:approved\` to issue #${issueNumber}.`
+              );
+              return;
+            }
+
+            core.notice(`✅ Issue #${issueNumber} has status:approved`);
+
+  # ============================================================================
+  # Job 3: Verify PR has exactly one type:* label
+  # ============================================================================
+  check-type-label:
+    name: Check PR Has type:* Label
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify PR has a type label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = context.payload.pull_request.labels.map((l) => l.name);
+            const typeLabels = labels.filter((l) => l.startsWith('type:'));
+
+            if (typeLabels.length === 0) {
+              core.setFailed(
+                '❌ This PR has no `type:*` label.\n\n' +
+                'Add one of the following labels to your PR:\n' +
+                '  type:bug\n' +
+                '  type:feature\n' +
+                '  type:docs\n' +
+                '  type:refactor\n' +
+                '  type:chore\n' +
+                '  type:breaking-change\n\n' +
+                'Labels help maintainers understand the nature of the change at a glance.'
+              );
+              return;
+            }
+
+            if (typeLabels.length > 1) {
+              core.setFailed(
+                `❌ This PR has multiple \`type:*\` labels: ${typeLabels.join(', ')}\n\n` +
+                'A PR should have exactly one type label. ' +
+                'Please remove the extra label(s) and keep only the most appropriate one.'
+              );
+              return;
+            }
+
+            core.notice(`✅ PR has type label: ${typeLabels[0]}`);

@@ -1,0 +1,136 @@
+name: Bug Report
+description: Report a bug in GGA
+labels: ["bug", "status:needs-review"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before Opening a Bug Report
+
+        Please read [CONTRIBUTING.md](https://github.com/Gentleman-Programming/gentleman-guardian-angel/blob/main/CONTRIBUTING.md) to understand the issue-first workflow.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Pre-flight Checklist
+      options:
+        - label: I have searched existing issues and this is not a duplicate
+          required: true
+        - label: >
+            I understand that this issue needs `status:approved` before I can open a PR.
+            I am NOT opening a PR until a maintainer approves this issue.
+          required: true
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: "When I run `gga run`, it..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Exact steps to reproduce the behavior.
+      placeholder: |
+        1. Run `gga install` in a repo
+        2. Stage a file with `git add file.sh`
+        3. Run `git commit -m "test"`
+        4. See error: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen.
+      placeholder: GGA should...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead.
+      placeholder: |
+        ```
+        paste actual output or error here
+        ```
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Environment"
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Linux (Ubuntu/Debian)
+        - Linux (Arch/Manjaro)
+        - Linux (Fedora/RHEL)
+        - Linux (Other)
+        - Windows (WSL)
+    validations:
+      required: true
+
+  - type: input
+    id: gga_version
+    attributes:
+      label: GGA Version
+      description: Run `gga version` and paste the output here.
+      placeholder: "e.g. 2.4.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: shell
+    attributes:
+      label: Shell
+      options:
+        - bash
+        - zsh
+        - fish
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ai_provider
+    attributes:
+      label: AI Provider
+      description: Which AI provider were you using when the bug occurred?
+      options:
+        - Claude
+        - Gemini
+        - Codex
+        - Ollama
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: relevant_logs
+    attributes:
+      label: Relevant Logs
+      description: Paste any relevant log output. This will be automatically formatted as shell.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here (screenshots, config files, etc.).
+    validations:
+      required: false

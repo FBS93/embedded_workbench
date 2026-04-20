@@ -1,0 +1,82 @@
+name: Feature Request
+description: Suggest a new feature or improvement for GGA
+labels: ["enhancement", "status:needs-review"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before Opening a Feature Request
+
+        Please read [CONTRIBUTING.md](https://github.com/Gentleman-Programming/gentleman-guardian-angel/blob/main/CONTRIBUTING.md) to understand the issue-first workflow.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Pre-flight Checklist
+      options:
+        - label: I have searched existing issues and this feature has not been requested before
+          required: true
+        - label: >
+            I understand that this issue needs `status:approved` before I can open a PR.
+            I am NOT opening a PR until a maintainer approves this issue.
+          required: true
+
+  - type: textarea
+    id: problem_description
+    attributes:
+      label: Problem Description
+      description: What problem does this feature solve? What is the current limitation?
+      placeholder: "Currently, GGA doesn't support... This makes it hard to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like. Include a usage example if possible.
+      placeholder: |
+        ```bash
+        # Example of the proposed feature
+        gga run --new-flag value
+
+        # Or new command
+        gga new-command [options]
+        ```
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_area
+    attributes:
+      label: Affected Area
+      description: Which part of GGA does this feature relate to?
+      options:
+        - CLI (commands, flags)
+        - Hooks (install, uninstall, markers)
+        - Providers (Claude, Gemini, Codex, Ollama)
+        - Cache System
+        - CI Mode
+        - Configuration (.gga file)
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives_considered
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative approaches or workarounds?
+      placeholder: "I also considered... but it doesn't work because..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or references about the feature request here.
+    validations:
+      required: false

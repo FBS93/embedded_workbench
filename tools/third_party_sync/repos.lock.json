@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "agent-teams-lite": {
+      "published_at": "2026-03-26T13:40:56Z",
+      "resolved_commit": "7add9da61167f9fe6a3084c4bf7cbd3811a74f03",
+      "resolved_release": "v4.4.1",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/Gentleman-Programming/agent-teams-lite/tarball/v4.4.1"
+    }
+  }
 }

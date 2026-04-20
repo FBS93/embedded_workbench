@@ -1,0 +1,10 @@
+*_sklib.py
+*.json
+*.net
+*.log
+*.erc
+*.svg
+*.cir
+*.out
+*.dot
+*.png

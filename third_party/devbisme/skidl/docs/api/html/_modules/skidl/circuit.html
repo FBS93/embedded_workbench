@@ -1,0 +1,1695 @@
+
+
+<!doctype html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skidl.circuit &#8212; SKiDL 2.2.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=a66e137f" />
+    
+    <script src="../../_static/documentation_options.js?v=219dea72"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <h1 id="site-title"><a href="../../../../"><img src="../../../../images/slim_banner.png" width="100%"></a></h1>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SKiDL 2.2.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">skidl.circuit</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for skidl.circuit</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># The MIT License (MIT) - Copyright (c) Dave Vandenbout.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Circuit management in SKiDL.</span>
+
+<span class="sd">This module provides the Circuit class which serves as the central container</span>
+<span class="sd">for all circuit elements (parts, nets, buses) and their interconnections. </span>
+<span class="sd">It handles hierarchical circuit structures, electrical rule checking (ERC),</span>
+<span class="sd">and output generation (netlists, PCBs, SVGs, etc.).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">builtins</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span><span class="p">,</span> <span class="n">deque</span>
+
+<span class="kn">import</span> <span class="nn">graphviz</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">future</span> <span class="kn">import</span> <span class="n">standard_library</span>
+
+    <span class="n">standard_library</span><span class="o">.</span><span class="n">install_aliases</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="kn">from</span> <span class="nn">.bus</span> <span class="kn">import</span> <span class="n">Bus</span>
+<span class="kn">from</span> <span class="nn">.design_class</span> <span class="kn">import</span> <span class="n">NetClasses</span><span class="p">,</span> <span class="n">PartClasses</span>
+<span class="kn">from</span> <span class="nn">.erc</span> <span class="kn">import</span> <span class="n">dflt_circuit_erc</span>
+<span class="kn">from</span> <span class="nn">.logger</span> <span class="kn">import</span> <span class="n">active_logger</span><span class="p">,</span> <span class="n">erc_logger</span><span class="p">,</span> <span class="n">stop_log_file_output</span>
+<span class="kn">from</span> <span class="nn">.net</span> <span class="kn">import</span> <span class="n">NCNet</span><span class="p">,</span> <span class="n">Net</span>
+<span class="kn">from</span> <span class="nn">.node</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">.part</span> <span class="kn">import</span> <span class="n">Part</span><span class="p">,</span> <span class="n">PartUnit</span>
+<span class="kn">from</span> <span class="nn">.pckg_info</span> <span class="kn">import</span> <span class="n">__version__</span>
+<span class="kn">from</span> <span class="nn">.pin</span> <span class="kn">import</span> <span class="n">pin_types</span>
+<span class="kn">from</span> <span class="nn">.schlib</span> <span class="kn">import</span> <span class="n">SchLib</span>
+<span class="kn">from</span> <span class="nn">.scriptinfo</span> <span class="kn">import</span> <span class="n">get_script_dir</span><span class="p">,</span> <span class="n">get_script_name</span><span class="p">,</span> <span class="n">get_skidl_trace</span>
+<span class="kn">from</span> <span class="nn">.skidlbaseobj</span> <span class="kn">import</span> <span class="n">SkidlBaseObject</span>
+<span class="kn">from</span> <span class="nn">.utilities</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">detect_os</span><span class="p">,</span>
+    <span class="n">expand_buses</span><span class="p">,</span>
+    <span class="n">export_to_all</span><span class="p">,</span>
+    <span class="n">flatten</span><span class="p">,</span>
+    <span class="n">num_to_chars</span><span class="p">,</span>
+    <span class="n">opened</span><span class="p">,</span>
+    <span class="n">reset_get_unique_name</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="Circuit">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit">[docs]</a>
+<span class="nd">@export_to_all</span>
+<span class="k">class</span> <span class="nc">Circuit</span><span class="p">(</span><span class="n">SkidlBaseObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Container for an entire electronic circuit design.</span>
+<span class="sd">    </span>
+<span class="sd">    The Circuit class is the central repository for all the parts, nets, buses,</span>
+<span class="sd">    and interfaces that make up a circuit. It manages the hierarchical structure</span>
+<span class="sd">    of the design, performs electrical rule checking, and generates various outputs</span>
+<span class="sd">    like netlists, PCB files, and graphical representations.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        parts (list): List of all parts in the circuit.</span>
+<span class="sd">        nets (list): List of all nets in the circuit.</span>
+<span class="sd">        buses (list): List of all buses in the circuit.</span>
+<span class="sd">        interfaces (list): List of all interfaces in the circuit.</span>
+<span class="sd">        hierarchy (str): Current position in the hierarchy, represented as a dot-separated string.</span>
+<span class="sd">        level (int): Current level in the hierarchy.</span>
+<span class="sd">        context (list): Stack tracking the context at each hierarchical level.</span>
+<span class="sd">        erc_list (list): List of ERC (Electrical Rule Checking) functions to run on the circuit.</span>
+<span class="sd">        NC (Net): The special no-connect net used in this circuit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Set the default ERC functions for all Circuit instances.</span>
+    <span class="n">erc_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">dflt_circuit_erc</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attrs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a new Circuit object.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            **attrs: Arbitrary keyword arguments to set as attributes of the circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1"># Store the directory of the top-level script when this Circuit is first created.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">script_dir</span> <span class="o">=</span> <span class="n">get_script_dir</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">track_src</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># By default, put track source info into outputs like netlists.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">track_abs_path</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># By default, track using relative paths.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Set passed-in attributes for the circuit.</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">stuff</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add parts, nets, buses, and interfaces to the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *stuff: Various circuit elements to add.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Circuit: The updated circuit with new elements.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_stuff</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__isub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">stuff</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove parts, nets, buses, and interfaces from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *stuff: Various circuit elements to remove.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Circuit: The updated circuit with elements removed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rmv_stuff</span><span class="p">(</span><span class="o">*</span><span class="n">stuff</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        When entering a Circuit context, save the previous default_circuit and make this circuit the default_circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Circuit: The new default circuit instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circuit_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">default_circuit</span><span class="p">)</span>
+        <span class="n">builtins</span><span class="o">.</span><span class="n">default_circuit</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="n">builtins</span><span class="o">.</span><span class="n">NC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">NC</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Exit the current Circuit context and restore the previous one as the default_circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            type: Exception type if an exception occurred.</span>
+<span class="sd">            value: Exception value if an exception occurred.</span>
+<span class="sd">            traceback: Traceback if an exception occurred.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">builtins</span><span class="o">.</span><span class="n">default_circuit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">builtins</span><span class="o">.</span><span class="n">NC</span> <span class="o">=</span> <span class="n">default_circuit</span><span class="o">.</span><span class="n">NC</span>
+
+<div class="viewcode-block" id="Circuit.mini_reset">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.mini_reset">[docs]</a>
+    <span class="k">def</span> <span class="nf">mini_reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the circuit to its initial state while preserving certain attributes.</span>
+<span class="sd">        This method reinitializes most circuit attributes to their default values,</span>
+<span class="sd">        including clearing parts, nets, buses, interfaces, and design classes. It</span>
+<span class="sd">        also resets counters and creates a new no-connect net.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            init (bool, optional): If True, indicates this is being called during</span>
+<span class="sd">                initialization. If False (default), additional setup is performed</span>
+<span class="sd">                for the default circuit&#39;s global no-connect net.</span>
+<span class="sd">        Note:</span>
+<span class="sd">            - The circuit_stack is only initialized if it doesn&#39;t already exist</span>
+<span class="sd">            - When init=False and this is the default circuit, the global NC</span>
+<span class="sd">              (no-connect) net is updated</span>
+<span class="sd">            - All unique name heaps are cleared via reset_get_unique_name()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_name_cntr</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interfaces</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_netclasses</span> <span class="o">=</span> <span class="n">NetClasses</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_partclasses</span> <span class="o">=</span> <span class="n">PartClasses</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># Set of all nodes in the circuit hierarchy.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Serves as the null parent of the root.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">=</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;circuit_stack&quot;</span><span class="p">):</span>
+            <span class="c1"># Initialize the circuit stack if it doesn&#39;t exist.</span>
+            <span class="c1"># Otherwise, leave it alone since we might need to get back to the</span>
+            <span class="c1"># parent Circuit object.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">circuit_stack</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">erc_assertion_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_files</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Allow creation of files for netlists, ERC, libs, etc.</span>
+
+        <span class="c1"># Clear the name heap for nets, parts, etc.</span>
+        <span class="n">reset_get_unique_name</span><span class="p">()</span>
+
+        <span class="c1"># Clear out the no-connect net and set the global no-connect if it&#39;s</span>
+        <span class="c1"># tied to this circuit.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">NC</span> <span class="o">=</span> <span class="n">NCNet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;__NOCONNECT&quot;</span><span class="p">,</span> <span class="n">circuit</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">init</span> <span class="ow">and</span> <span class="bp">self</span> <span class="ow">is</span> <span class="n">default_circuit</span><span class="p">:</span>
+            <span class="n">builtins</span><span class="o">.</span><span class="n">NC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">NC</span></div>
+
+
+<div class="viewcode-block" id="Circuit.reset">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.reset">[docs]</a>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clear any circuitry and cached part libraries and start over.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            init (bool, optional): True if this is being called during initialization.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">skidl</span>
+
+            <span class="n">config</span> <span class="o">=</span> <span class="n">skidl</span><span class="o">.</span><span class="n">config</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="c1"># For Python 2. Always gotta be different...</span>
+            <span class="kn">from</span> <span class="nn">.skidl</span> <span class="kn">import</span> <span class="n">config</span>
+
+        <span class="c1"># Clear circuitry.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mini_reset</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+
+        <span class="c1"># Also clear any cached libraries.</span>
+        <span class="n">SchLib</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="c1"># Clear out any old backup lib so the new one will get reloaded when it&#39;s needed.</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">backup_lib</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="Circuit.get_node_names">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.get_node_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_node_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the hierarchical names of all subcircuits/groups in the hierarchy.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple: Tuple of hierarchical node names in the circuit hierarchy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">hiertuple</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.activate">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.activate">[docs]</a>
+    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Activate a node in the circuit hierarchy.</span>
+<span class="sd">        </span>
+<span class="sd">        This method adds the given node to the circuit&#39;s node set, establishes</span>
+<span class="sd">        parent-child relationships in the hierarchy, and sets it as the current</span>
+<span class="sd">        active node.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            node (Node): The node instance to activate.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Node: The activated node instance.</span>
+<span class="sd">            </span>
+<span class="sd">        Note:</span>
+<span class="sd">            If an active node already exists, the new node becomes its child.</span>
+<span class="sd">            The new node then becomes the active node for subsequent operations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="k">return</span> <span class="n">node</span></div>
+
+
+<div class="viewcode-block" id="Circuit.deactivate">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.deactivate">[docs]</a>
+    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deactivate the current hierarchical node and return to its parent.</span>
+
+<span class="sd">        This method moves up one level in the circuit hierarchy by setting the</span>
+<span class="sd">        active node to its parent. The circuitry created within the current</span>
+<span class="sd">        hierarchical level remains intact in the part and net lists, but the</span>
+<span class="sd">        hierarchical context is restored to the previous level.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            This method does not remove any circuit components or connections</span>
+<span class="sd">            that were added while the current node was active.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Restore the hierarchy that existed before this one was created.</span>
+        <span class="c1"># This does not remove the circuitry since it has already been</span>
+        <span class="c1"># added to the part and net lists.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span><span class="o">.</span><span class="n">parent</span></div>
+
+
+<div class="viewcode-block" id="Circuit.add_netclasses">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.add_netclasses">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_netclasses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">netclasses</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add one or more net classes to the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *netclasses: One or more net classes to add to the circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_netclasses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">netclasses</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">netclasses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the netclasses dictionary for this circuit.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: A dictionary containing the netclasses defined for this circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_netclasses</span>
+
+    <span class="nd">@netclasses</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">netclasses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">netclasses</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add net classes for the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *netclasses: One or more net classes to add to the circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_netclasses</span><span class="p">(</span><span class="n">netclasses</span><span class="p">)</span>
+
+    <span class="nd">@netclasses</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">netclasses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clear all net classes from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        This removes all netclass definitions from the circuit, clearing</span>
+<span class="sd">        the netclasses dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_netclasses</span> <span class="o">=</span> <span class="n">NetClasses</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Circuit.add_partclasses">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.add_partclasses">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_partclasses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">partclasses</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add one or more part classes to the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *partclasses: One or more part classes to add to the circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_partclasses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">partclasses</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">partclasses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the dictionary of part classes available in this circuit.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: A dictionary mapping part class names to their corresponding </span>
+<span class="sd">                  part class objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_partclasses</span>
+
+    <span class="nd">@partclasses</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">partclasses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">partclasses</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add part classes for the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *partclasses: One or more part classes to add to the circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_partclasses</span><span class="p">(</span><span class="n">partclasses</span><span class="p">)</span>
+
+    <span class="nd">@partclasses</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">partclasses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clear all part classes from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        This removes all partclass definitions from the circuit, clearing</span>
+<span class="sd">        the partclasses dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_partclasses</span> <span class="o">=</span> <span class="n">PartClasses</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Circuit.add_parts">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.add_parts">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_parts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">parts</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add parts to the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *parts: Part objects to add to the circuit.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If attempting to add an unmovable part.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+            <span class="c1"># Add the part to this circuit if the part is movable and</span>
+            <span class="c1"># it&#39;s not already in this circuit.</span>
+            <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">circuit</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">is_movable</span><span class="p">():</span>
+
+                    <span class="c1"># Remove the part from the circuit it&#39;s already in.</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">circuit</span><span class="p">,</span> <span class="n">Circuit</span><span class="p">):</span>
+                        <span class="n">part</span><span class="o">.</span><span class="n">circuit</span> <span class="o">-=</span> <span class="n">part</span>
+
+                    <span class="c1"># Add the part to this circuit.</span>
+                    <span class="n">part</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="bp">self</span>  <span class="c1"># Record the Circuit object for this part.</span>
+                    <span class="n">part</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">ref</span>  <span class="c1"># Adjusts the part reference if necessary.</span>
+
+                    <span class="c1"># Add the part to the currently active node.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+                    <span class="n">part</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span>
+
+                    <span class="c1"># Store part instantiation trace.</span>
+                    <span class="n">part</span><span class="o">.</span><span class="n">skidl_trace</span> <span class="o">=</span> <span class="n">get_skidl_trace</span><span class="p">()</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">active_logger</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+                        <span class="ne">ValueError</span><span class="p">,</span>
+                        <span class="sa">f</span><span class="s2">&quot;Can&#39;t add unmovable part </span><span class="si">{</span><span class="n">part</span><span class="o">.</span><span class="n">ref</span><span class="si">}</span><span class="s2"> to this circuit.&quot;</span><span class="p">,</span>
+                    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.rmv_parts">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.rmv_parts">[docs]</a>
+    <span class="k">def</span> <span class="nf">rmv_parts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">parts</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove parts from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *parts: Part objects to remove from the circuit.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If attempting to remove an unmovable part.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+            <span class="n">part</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">is_movable</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">circuit</span> <span class="o">==</span> <span class="bp">self</span> <span class="ow">and</span> <span class="n">part</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+                    <span class="n">part</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+                    <span class="n">part</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">part</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">part</span><span class="o">.</span><span class="n">hierarchy</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Removing non-existent part </span><span class="si">{</span><span class="n">part</span><span class="o">.</span><span class="n">ref</span><span class="si">}</span><span class="s2"> from this circuit.&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">active_logger</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+                    <span class="ne">ValueError</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">&quot;Can&#39;t remove part </span><span class="si">{</span><span class="n">part</span><span class="o">.</span><span class="n">ref</span><span class="si">}</span><span class="s2"> from this circuit.&quot;</span><span class="p">,</span>
+                <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.add_nets">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.add_nets">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_nets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">nets</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add nets to the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *nets: Net objects to add to the circuit.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If attempting to add an unmovable net.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">nets</span><span class="p">:</span>
+            <span class="c1"># Add the net to this circuit if the net is movable and</span>
+            <span class="c1"># it&#39;s not already in this circuit.</span>
+            <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">circuit</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">is_movable</span><span class="p">():</span>
+
+                    <span class="c1"># Remove the net from the circuit it&#39;s already in.</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">circuit</span><span class="p">,</span> <span class="n">Circuit</span><span class="p">):</span>
+                        <span class="n">net</span><span class="o">.</span><span class="n">circuit</span> <span class="o">-=</span> <span class="n">net</span>
+
+                    <span class="c1"># Save the Circuit object the net belongs to.</span>
+                    <span class="n">net</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="bp">self</span>
+
+                    <span class="c1"># Self-reassign to make the net name unique.</span>
+                    <span class="n">net</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">name</span>
+
+                    <span class="c1"># Add the net to the currently active node.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span><span class="o">.</span><span class="n">nets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+                    <span class="n">net</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span>
+
+                    <span class="c1"># Store net instantiation trace.</span>
+                    <span class="n">net</span><span class="o">.</span><span class="n">skidl_trace</span> <span class="o">=</span> <span class="n">get_skidl_trace</span><span class="p">()</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">nets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">active_logger</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+                        <span class="ne">ValueError</span><span class="p">,</span>
+                        <span class="sa">f</span><span class="s2">&quot;Can&#39;t add unmovable net </span><span class="si">{</span><span class="n">net</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> to this circuit.&quot;</span><span class="p">,</span>
+                    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.rmv_nets">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.rmv_nets">[docs]</a>
+    <span class="k">def</span> <span class="nf">rmv_nets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">nets</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove nets from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *nets: Net objects to remove from the circuit.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If attempting to remove an unmovable net.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">nets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">is_movable</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">circuit</span> <span class="o">==</span> <span class="bp">self</span> <span class="ow">and</span> <span class="n">net</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nets</span><span class="p">:</span>
+                    <span class="n">net</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">nets</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+                    <span class="n">net</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">net</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">net</span><span class="o">.</span><span class="n">hierarchy</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">nets</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Removing non-existent net </span><span class="si">{</span><span class="n">net</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> from this circuit.&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">active_logger</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+                    <span class="ne">ValueError</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">&quot;Can&#39;t remove unmovable net </span><span class="si">{</span><span class="n">net</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> from this circuit.&quot;</span><span class="p">,</span>
+                <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.add_buses">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.add_buses">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_buses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">buses</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add buses to the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *buses: Bus objects to add to the circuit.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If attempting to add an unmovable bus.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">bus</span> <span class="ow">in</span> <span class="n">buses</span><span class="p">:</span>
+            <span class="c1"># Add the bus to this circuit if the bus is movable and</span>
+            <span class="c1"># it&#39;s not already in this circuit.</span>
+            <span class="k">if</span> <span class="n">bus</span><span class="o">.</span><span class="n">circuit</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">bus</span><span class="o">.</span><span class="n">is_movable</span><span class="p">():</span>
+
+                    <span class="c1"># Remove the bus from the circuit it&#39;s already in, but skip</span>
+                    <span class="c1"># this if the bus isn&#39;t already in a Circuit.</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bus</span><span class="o">.</span><span class="n">circuit</span><span class="p">,</span> <span class="n">Circuit</span><span class="p">):</span>
+                        <span class="n">bus</span><span class="o">.</span><span class="n">circuit</span> <span class="o">-=</span> <span class="n">bus</span>
+
+                    <span class="c1"># Save the Circuit object the bus belongs to.</span>
+                    <span class="n">bus</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="bp">self</span>
+
+                    <span class="c1"># Self-reassign to make the bus name unique.</span>
+                    <span class="n">bus</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">bus</span><span class="o">.</span><span class="n">name</span>
+
+                    <span class="c1"># Add the bus to the currently active node.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span><span class="o">.</span><span class="n">buses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bus</span><span class="p">)</span>
+                    <span class="n">bus</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_node</span>
+
+                    <span class="c1"># Store bus instantiation trace.</span>
+                    <span class="n">bus</span><span class="o">.</span><span class="n">skidl_trace</span> <span class="o">=</span> <span class="n">get_skidl_trace</span><span class="p">()</span>
+
+                    <span class="c1"># Add the bus to the circuit.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">buses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bus</span><span class="p">)</span>
+
+                    <span class="c1"># Add the individual bus nets to the circuit.</span>
+                    <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">bus</span><span class="o">.</span><span class="n">nets</span><span class="p">:</span>
+                        <span class="bp">self</span> <span class="o">+=</span> <span class="n">net</span></div>
+
+
+<div class="viewcode-block" id="Circuit.rmv_buses">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.rmv_buses">[docs]</a>
+    <span class="k">def</span> <span class="nf">rmv_buses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">buses</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove buses from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *buses: Bus objects to remove from the circuit.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If attempting to remove an unmovable bus.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">bus</span> <span class="ow">in</span> <span class="n">buses</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">bus</span><span class="o">.</span><span class="n">is_movable</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">bus</span><span class="o">.</span><span class="n">circuit</span> <span class="o">==</span> <span class="bp">self</span> <span class="ow">and</span> <span class="n">bus</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">buses</span><span class="p">:</span>
+                    <span class="n">bus</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">buses</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">bus</span><span class="p">)</span>
+                    <span class="n">bus</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">bus</span><span class="o">.</span><span class="n">circuit</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">bus</span><span class="o">.</span><span class="n">hierarchy</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">buses</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">bus</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">bus</span><span class="o">.</span><span class="n">nets</span><span class="p">:</span>
+                        <span class="bp">self</span> <span class="o">-=</span> <span class="n">net</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Removing non-existent bus </span><span class="si">{</span><span class="n">bus</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> from this circuit.&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">active_logger</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+                    <span class="ne">ValueError</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">&quot;Can&#39;t remove unmovable bus </span><span class="si">{</span><span class="n">bus</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> from this circuit.&quot;</span><span class="p">,</span>
+                <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.add_stuff">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.add_stuff">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_stuff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">stuff</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add various circuit elements to the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *stuff: Parts, nets, buses, or interfaces to add.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Circuit: The updated circuit.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If attempting to add an unsupported type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">flatten</span><span class="p">(</span><span class="n">stuff</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">Part</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_parts</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">Net</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_nets</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">Bus</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_buses</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">active_logger</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+                    <span class="ne">ValueError</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">&quot;Can&#39;t add a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span><span class="si">}</span><span class="s2"> to a Circuit object.&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="Circuit.rmv_stuff">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.rmv_stuff">[docs]</a>
+    <span class="k">def</span> <span class="nf">rmv_stuff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">stuff</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove various circuit elements from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *stuff: Parts, nets, buses, or interfaces to remove.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Circuit: The updated circuit.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If attempting to remove an unsupported type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">flatten</span><span class="p">(</span><span class="n">stuff</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">Part</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rmv_parts</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">Net</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rmv_nets</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">Bus</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rmv_buses</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">active_logger</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+                    <span class="ne">ValueError</span><span class="p">,</span>
+                    <span class="sa">f</span><span class="s2">&quot;Can&#39;t remove a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span><span class="si">}</span><span class="s2"> from a Circuit object.&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="Circuit.get_nets">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.get_nets">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all distinct nets in the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        This excludes the no-connect net, empty nets, and nets that are electrically</span>
+<span class="sd">        connected to other nets already in the result list.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list: List of distinct nets in the circuit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">distinct_nets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">net</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">NC</span><span class="p">:</span>
+                <span class="c1"># Exclude no-connect net.</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">net</span><span class="o">.</span><span class="n">pins</span><span class="p">:</span>
+                <span class="c1"># Exclude empty nets with no attached pins.</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">distinct_nets</span><span class="p">:</span>
+                <span class="c1"># Exclude net if its already attached to a previously selected net.</span>
+                <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">is_attached</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                    <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># This net is not attached to any of the other distinct nets,</span>
+                <span class="c1"># so it is also distinct.</span>
+                <span class="n">distinct_nets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">distinct_nets</span></div>
+
+
+<div class="viewcode-block" id="Circuit.merge_net_names">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.merge_net_names">[docs]</a>
+    <span class="k">def</span> <span class="nf">merge_net_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assign the same name to all segments of multi-segment nets.</span>
+<span class="sd">        </span>
+<span class="sd">        This ensures that connected nets share a common name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">nets</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">net</span><span class="o">.</span><span class="n">merge_names</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Circuit.merge_nets">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.merge_nets">[docs]</a>
+    <span class="k">def</span> <span class="nf">merge_nets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge multi-segment nets into a single net.</span>
+<span class="sd">        </span>
+<span class="sd">        Note: Multi-segment nets had to be merged or else tests to detect the</span>
+<span class="sd">            same net would fail in routing.py when generating schematics.</span>
+<span class="sd">            But as a result of merging, net variables can become invalid because of new merging.</span>
+<span class="sd">            Therefore, only do this when generating schematics so other generate_*() functions</span>
+<span class="sd">            will not be affected.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">merged_nets</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">nets</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">net</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">merged_nets</span><span class="p">:</span>
+
+                <span class="c1"># Select a single name for the net segments.</span>
+                <span class="n">net</span><span class="o">.</span><span class="n">merge_names</span><span class="p">()</span>
+
+                <span class="c1"># Record merged nets so they aren&#39;t processed again.</span>
+                <span class="n">merged_nets</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">nets</span><span class="p">)</span> <span class="o">-</span> <span class="p">{</span><span class="n">net</span><span class="p">})</span>
+
+                <span class="c1"># Move all pins to a single segment.</span>
+                <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">pins</span><span class="p">:</span>
+                    <span class="n">pin</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+
+        <span class="c1"># Remove merged nets from the circuit.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nets</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nets</span><span class="p">)</span> <span class="o">-</span> <span class="n">merged_nets</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.ERC">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.ERC">[docs]</a>
+    <span class="k">def</span> <span class="nf">ERC</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform Electrical Rule Checking on the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        This method runs both the class-wide ERC functions and any local ERC functions </span>
+<span class="sd">        defined for this circuit. It checks for issues like unconnected pins, pin type</span>
+<span class="sd">        conflicts, etc.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *args: Arguments to pass to the ERC functions.</span>
+<span class="sd">            **kwargs: Keyword arguments to pass to the ERC functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Save the currently active logger and activate the ERC logger.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">erc_logger</span><span class="p">)</span>
+
+        <span class="c1"># Reset the counters to clear any warnings/errors from previous ERC run.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_files</span><span class="p">:</span>
+            <span class="n">active_logger</span><span class="o">.</span><span class="n">stop_file_output</span><span class="p">()</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">ERC</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">report_summary</span><span class="p">(</span><span class="s2">&quot;running ERC&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Restore the logger that was active before the ERC.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Circuit.cull_unconnected_parts">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.cull_unconnected_parts">[docs]</a>
+    <span class="k">def</span> <span class="nf">cull_unconnected_parts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove parts that aren&#39;t connected to anything in the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        This can be useful to clean up a design by removing unused parts.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">part</span><span class="o">.</span><span class="n">is_connected</span><span class="p">():</span>
+                <span class="bp">self</span> <span class="o">-=</span> <span class="n">part</span></div>
+
+
+<div class="viewcode-block" id="Circuit.check_for_empty_footprints">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.check_for_empty_footprints">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_for_empty_footprints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check that all parts have assigned footprints.</span>
+<span class="sd">        </span>
+<span class="sd">        This method calls the empty_footprint_handler for any parts that</span>
+<span class="sd">        don&#39;t have a footprint assigned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="s2">&quot;footprint&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="kn">import</span> <span class="nn">skidl</span>
+
+                <span class="n">skidl</span><span class="o">.</span><span class="n">empty_footprint_handler</span><span class="p">(</span><span class="n">part</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.check_tags">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.check_tags">[docs]</a>
+    <span class="k">def</span> <span class="nf">check_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check for missing part or hierarchical node tags.</span>
+<span class="sd">        </span>
+<span class="sd">        Tags are important for maintaining stable associations between</span>
+<span class="sd">        schematic parts and PCB footprints. This method warns about any</span>
+<span class="sd">        missing tags.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+            <span class="n">part</span><span class="o">.</span><span class="n">check_tag</span><span class="p">(</span><span class="n">create_if_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="n">node</span><span class="o">.</span><span class="n">check_tag</span><span class="p">(</span><span class="n">create_if_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.generate_netlist">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.generate_netlist">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_netlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a netlist for the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file (str or file object, optional): File to write netlist to.</span>
+<span class="sd">            file_ (str or file object, optional): Same as file arg. Kept for backward compatibility.</span>
+<span class="sd">            tool (str, optional): The EDA tool to generate the netlist for.</span>
+<span class="sd">            do_backup (bool, optional): If True, create a library with all parts in the circuit.</span>
+<span class="sd">            **kwargs: Additional arguments passed to the tool-specific netlist generator.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The generated netlist as a string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">skidl</span>
+        <span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">tool_modules</span>
+
+        <span class="c1"># Reset the counters to clear any warnings/errors from previous run.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+
+        <span class="c1"># Don&#39;t do any checks for empty footprints or missing tags</span>
+        <span class="c1"># since this should be done when tool-specific netlists are generated.</span>
+        <span class="c1"># For example, these checks aren&#39;t necessary when generating</span>
+        <span class="c1"># a SPICE netlist.</span>
+
+        <span class="c1"># Extract arguments:</span>
+        <span class="c1">#     Get EDA tool the netlist will be generated for.</span>
+        <span class="c1">#     Get file the netlist will be stored in (if any).</span>
+        <span class="c1">#     Get flag controlling the generation of a backup library.</span>
+        <span class="n">tool</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;tool&quot;</span><span class="p">,</span> <span class="n">skidl</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">tool</span><span class="p">)</span>
+        <span class="n">file_</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;file_&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;file&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+        <span class="n">do_backup</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;do_backup&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Pass these settings from the Circuit object if they are not already set.</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;track_abs_path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;track_abs_path&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_abs_path</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;track_src&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;track_src&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_src</span><span class="p">)</span>
+
+        <span class="n">netlist</span> <span class="o">=</span> <span class="n">tool_modules</span><span class="p">[</span><span class="n">tool</span><span class="p">]</span><span class="o">.</span><span class="n">gen_netlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">report_summary</span><span class="p">(</span><span class="s2">&quot;generating netlist&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_files</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">opened</span><span class="p">(</span><span class="n">file_</span> <span class="ow">or</span> <span class="p">(</span><span class="n">get_script_name</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.net&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">netlist</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">do_backup</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">backup_parts</span><span class="p">()</span>  <span class="c1"># Create a new backup lib for the circuit parts.</span>
+            <span class="c1"># Clear out any old backup lib so the new one will get reloaded when it&#39;s needed.</span>
+            <span class="n">skidl</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">backup_lib</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">netlist</span></div>
+
+
+<div class="viewcode-block" id="Circuit.generate_pcb">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.generate_pcb">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_pcb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a PCB file from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file_ (str or file object, optional): File to write PCB data to.</span>
+<span class="sd">            tool (str, optional): The EDA tool to generate the PCB for.</span>
+<span class="sd">            do_backup (bool, optional): If True, create a library with all parts in the circuit.</span>
+<span class="sd">            fp_libs (list, optional): List of directories containing footprint libraries.</span>
+<span class="sd">            **kwargs: Additional arguments passed to the tool-specific PCB generator.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">skidl</span>
+        <span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">tool_modules</span>
+
+        <span class="c1"># Reset the counters to clear any warnings/errors from previous run.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+
+        <span class="c1"># Check for things that can cause problems.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_for_empty_footprints</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">check_tags</span><span class="p">()</span>
+
+        <span class="c1"># Extract arguments:</span>
+        <span class="c1">#     Get EDA tool the netlist will be generated for.</span>
+        <span class="c1">#     Get file the netlist will be stored in (if any).</span>
+        <span class="c1">#     Get flag controlling the generation of a backup library.</span>
+        <span class="c1">#     Get list of footprint libraries.</span>
+        <span class="n">tool</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;tool&quot;</span><span class="p">,</span> <span class="n">skidl</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">tool</span><span class="p">)</span>
+        <span class="n">file_</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;file_&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">do_backup</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;do_backup&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">fp_libs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;fp_libs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">do_backup</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">backup_parts</span><span class="p">()</span>  <span class="c1"># Create a new backup lib for the circuit parts.</span>
+                <span class="c1"># Clear out any old backup lib so the new one will get reloaded when it&#39;s needed.</span>
+                <span class="n">skidl</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">backup_lib</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">tool_modules</span><span class="p">[</span><span class="n">tool</span><span class="p">]</span><span class="o">.</span><span class="n">gen_pcb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_</span><span class="p">,</span> <span class="n">fp_libs</span><span class="o">=</span><span class="n">fp_libs</span><span class="p">)</span>
+
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">report_summary</span><span class="p">(</span><span class="s2">&quot;creating PCB&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.generate_xml">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.generate_xml">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tool</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate an XML representation of the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file_ (str or file object, optional): File to write XML data to.</span>
+<span class="sd">            tool (str, optional): Backend tool to use for XML generation.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: The generated XML as a string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">skidl</span>
+        <span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">tool_modules</span>
+
+        <span class="c1"># Reset the counters to clear any warnings/errors from previous run.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+
+        <span class="n">tool</span> <span class="o">=</span> <span class="n">tool</span> <span class="ow">or</span> <span class="n">skidl</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">tool</span>
+        <span class="n">netlist</span> <span class="o">=</span> <span class="n">tool_modules</span><span class="p">[</span><span class="n">tool</span><span class="p">]</span><span class="o">.</span><span class="n">gen_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_files</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">opened</span><span class="p">(</span><span class="n">file_</span> <span class="ow">or</span> <span class="p">(</span><span class="n">get_script_name</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.xml&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">netlist</span><span class="p">)</span>
+
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">report_summary</span><span class="p">(</span><span class="s2">&quot;generating XML&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">netlist</span></div>
+
+
+<div class="viewcode-block" id="Circuit.generate_netlistsvg_skin">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.generate_netlistsvg_skin">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_netlistsvg_skin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">net_stubs</span><span class="p">,</span> <span class="n">layout_options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate SVG for schematic symbols for a netlistsvg skin file.</span>
+<span class="sd">        </span>
+<span class="sd">        This creates the SVG symbol definitions that will be used by netlistsvg</span>
+<span class="sd">        to visualize the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            net_stubs (list): List of nets that are stubbed rather than routed.</span>
+<span class="sd">            layout_options (str, optional): String of ELK layout options. Defaults to None.</span>
+<span class="sd">                                           See https://eclipse.dev/elk/reference/options.html</span>
+<span class="sd">                                           </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: SVG content for the skin file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">default_layout_options</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers=&quot;5&quot;</span>
+<span class="s2">                org.eclipse.elk.layered.compaction.postCompaction.strategy=&quot;4&quot;</span>
+<span class="s2">                org.eclipse.elk.spacing.nodeNode=&quot;50&quot;</span>
+<span class="s2">                org.eclipse.elk.direction=&quot;DOWN&quot;</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+
+        <span class="n">layout_options</span> <span class="o">=</span> <span class="n">layout_options</span> <span class="ow">or</span> <span class="n">default_layout_options</span>
+
+        <span class="c1"># Generate the SVG for each part in the required transformations.</span>
+        <span class="n">part_svg</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+
+            <span class="c1"># If this part is attached to any net stubs, give it a symbol</span>
+            <span class="c1"># name specifically for this part + stubs.</span>
+            <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">attached_to</span><span class="p">(</span><span class="n">net_stubs</span><span class="p">):</span>
+                <span class="c1"># This part is attached to net stubs, so give it</span>
+                <span class="c1"># a symbol name specifically for this part + stubs.</span>
+                <span class="n">symbol_name</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">part</span><span class="o">.</span><span class="n">ref</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># This part is not attached to any stubs, so give it</span>
+                <span class="c1"># a symbol name for this generic part symbol.</span>
+                <span class="n">symbol_name</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">name</span>
+
+            <span class="c1"># Get the global transformation for the part symbol.</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># If there is only a single unit, then that unit is the same as the part.</span>
+                <span class="c1"># Therefore, ignore the global transformation for the part since we&#39;ll</span>
+                <span class="c1"># pick it up from the unit transformation instead.</span>
+                <span class="n">global_symtx</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># If there are zero units or more than one unit, then use the</span>
+                <span class="c1"># global transformation for the part or apply it to the units.</span>
+                <span class="n">global_symtx</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="s2">&quot;symtx&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Get the transformation for each part unit (if any).</span>
+            <span class="n">unit_symtx</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;&quot;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">part</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">unit_symtx</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="s2">&quot;symtx&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+
+            <span class="c1"># Each combination of global + unit transformation is one of</span>
+            <span class="c1"># the total transformations needed for the part.</span>
+            <span class="n">total_symtx</span> <span class="o">=</span> <span class="p">[</span><span class="n">global_symtx</span> <span class="o">+</span> <span class="n">u_symtx</span> <span class="k">for</span> <span class="n">u_symtx</span> <span class="ow">in</span> <span class="n">unit_symtx</span><span class="p">]</span>
+
+            <span class="c1"># Generate SVG of the part for each total transformation.</span>
+            <span class="k">for</span> <span class="n">symtx</span> <span class="ow">in</span> <span class="n">total_symtx</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">symbol_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">symtx</span>
+                <span class="c1"># Skip any repeats of the part.</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">part_svg</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">part_svg</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">generate_svg_component</span><span class="p">(</span>
+                        <span class="n">symtx</span><span class="o">=</span><span class="n">symtx</span><span class="p">,</span> <span class="n">net_stubs</span><span class="o">=</span><span class="n">net_stubs</span>
+                    <span class="p">)</span>
+
+        <span class="n">part_svg</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">part_svg</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>  <span class="c1"># Just keep the SVG for the part symbols.</span>
+
+        <span class="n">head_svg</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;     xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;     xmlns:s=&quot;https://github.com/nturley/netlistsvg&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;  &lt;s:properties&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;    constants=&quot;false&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;    splitsAndJoins=&quot;false&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;    genericsLaterals=&quot;true&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;    &lt;s:layoutEngine </span><span class="si">{layout_options}</span><span class="s2"> /&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  &lt;/s:properties&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;style&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;svg {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke: #000;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  fill: none;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke-linejoin: round;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke-linecap: round;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;text {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  fill: #000;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke: none;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  font-size: 10px;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  font-weight: bold;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;  font-family: &quot;Courier New&quot;, monospace;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.skidl_text {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  fill: #999;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke: none;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  font-weight: bold;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;  font-family: consolas, &quot;Courier New&quot;, monospace;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.pin_num_text {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    fill: #840000;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.pin_name_text {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    fill: #008484;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.net_name_text {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    font-style: italic;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    fill: #840084;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.part_text {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    fill: #840000;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.part_ref_text {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    fill: #008484;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.part_name_text {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    fill: #008484;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.pen_fill {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    fill: #840000;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.background_fill {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;    fill: #FFFFC2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.nodelabel {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  text-anchor: middle;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.inputPortLabel {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  text-anchor: end;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.splitjoinBody {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  fill: #000;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.symbol {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke-linejoin: round;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke-linecap: round;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke: #840000;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;.detail {{&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke-linejoin: round;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  stroke-linecap: round;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;  fill: #000;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;/style&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;!-- signal --&gt;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;g s:type=&quot;inputExt&quot; s:width=&quot;30&quot; s:height=&quot;20&quot; transform=&quot;translate(0,0)&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;text x=&quot;-2&quot; y=&quot;12&quot; text-anchor=</span><span class="se">\&#39;</span><span class="s1">end</span><span class="se">\&#39;</span><span class="s1"> class=&quot;$cell_id pin_name_text&quot; s:attribute=&quot;ref&quot;&gt;input&lt;/text&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;s:alias val=&quot;$_inputExt_&quot;/&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;path d=&quot;M0,0 V20 H15 L30,10 15,0 Z&quot; class=&quot;$cell_id symbol&quot;/&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;g s:x=&quot;30&quot; s:y=&quot;10&quot; s:pid=&quot;Y&quot; s:position=&quot;right&quot;/&gt;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;/g&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;g s:type=&quot;outputExt&quot; s:width=&quot;30&quot; s:height=&quot;20&quot; transform=&quot;translate(0,0)&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;text x=&quot;32&quot; y=&quot;12&quot; class=&quot;$cell_id pin_name_text&quot; s:attribute=&quot;ref&quot;&gt;output&lt;/text&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;s:alias val=&quot;$_outputExt_&quot;/&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;path d=&quot;M30,0 V20 H15 L0,10 15,0 Z&quot; class=&quot;$cell_id symbol&quot;/&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;g s:x=&quot;0&quot; s:y=&quot;10&quot; s:pid=&quot;A&quot; s:position=&quot;left&quot;/&gt;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;/g&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;!-- signal --&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;!-- builtin --&gt;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;g s:type=&quot;generic&quot; s:width=&quot;30&quot; s:height=&quot;40&quot; transform=&quot;translate(0,0)&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;text x=&quot;15&quot; y=&quot;-4&quot; class=&quot;nodelabel $cell_id&quot; s:attribute=&quot;ref&quot;&gt;generic&lt;/text&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;rect width=&quot;30&quot; height=&quot;40&quot; x=&quot;0&quot; y=&quot;0&quot; s:generic=&quot;body&quot; class=&quot;$cell_id&quot;/&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;g transform=&quot;translate(30,10)&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;     s:x=&quot;30&quot; s:y=&quot;10&quot; s:pid=&quot;out0&quot; s:position=&quot;right&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;    &lt;text x=&quot;5&quot; y=&quot;-4&quot; class=&quot;$cell_id&quot;&gt;out0&lt;/text&gt;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;  &lt;/g&gt;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;g transform=&quot;translate(30,30)&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;     s:x=&quot;30&quot; s:y=&quot;30&quot; s:pid=&quot;out1&quot; s:position=&quot;right&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;    &lt;text x=&quot;5&quot; y=&quot;-4&quot; class=&quot;$cell_id&quot;&gt;out1&lt;/text&gt;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;  &lt;/g&gt;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;g transform=&quot;translate(0,10)&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;     s:x=&quot;0&quot; s:y=&quot;10&quot; s:pid=&quot;in0&quot; s:position=&quot;left&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;      &lt;text x=&quot;-3&quot; y=&quot;-4&quot; class=&quot;inputPortLabel $cell_id&quot;&gt;in0&lt;/text&gt;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;  &lt;/g&gt;&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;  &lt;g transform=&quot;translate(0,30)&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;     s:x=&quot;0&quot; s:y=&quot;30&quot; s:pid=&quot;in1&quot; s:position=&quot;left&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;    &lt;text x=&quot;-3&quot; y=&quot;-4&quot; class=&quot;inputPortLabel $cell_id&quot;&gt;in1&lt;/text&gt;&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;  &lt;/g&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;/g&gt;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&lt;!-- builtin --&gt;&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="n">head_svg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">head_svg</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">())</span>
+        <span class="n">part_svg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">part_svg</span><span class="p">)</span>
+        <span class="n">tail_svg</span> <span class="o">=</span> <span class="s2">&quot;&lt;/svg&gt;&quot;</span>
+
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">head_svg</span><span class="p">,</span> <span class="n">part_svg</span><span class="p">,</span> <span class="n">tail_svg</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Circuit.get_net_nc_stubs">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.get_net_nc_stubs">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_net_nc_stubs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all nets/buses that are stubs or no-connects.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            list: List of nets that are stubs or no-connects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Search all nets for those set as stubs or that are no-connects.</span>
+        <span class="n">stubs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nets</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;stub&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">NCNet</span><span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Also find buses that are set as stubs and add their individual nets.</span>
+        <span class="n">stubs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">expand_buses</span><span class="p">([</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">buses</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s2">&quot;stub&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)]))</span>
+
+        <span class="k">return</span> <span class="n">stubs</span></div>
+
+
+<div class="viewcode-block" id="Circuit.generate_svg">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.generate_svg">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_svg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tool</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layout_options</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create an SVG visualization of the circuit and return the netlistsvg input data.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file_ (str, optional): Base filename to store SVG and intermediate files.</span>
+<span class="sd">            tool (str, optional): Backend tool to use.</span>
+<span class="sd">            layout_options (str, optional): Options to control netlistsvg/ELK layout algorithm.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: JSON dictionary that can be used as input to netlistsvg.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Reset the counters to clear any warnings/errors from previous run.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+
+        <span class="c1"># Get the list of nets which will be routed and not represented by stubs.</span>
+        <span class="n">net_stubs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_net_nc_stubs</span><span class="p">()</span>
+        <span class="n">routed_nets</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nets</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">net_stubs</span><span class="p">))</span>
+
+        <span class="c1"># Assign each routed net a unique integer. Interconnected nets</span>
+        <span class="c1"># all get the same number.</span>
+        <span class="n">net_nums</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">net</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">routed_nets</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">get_nets</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">net_nums</span><span class="p">:</span>
+                    <span class="n">net_nums</span><span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span>
+
+        <span class="n">io_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="s2">&quot;nc&quot;</span><span class="p">}</span>
+
+        <span class="c1"># Assign I/O ports to any named net that has a netio attribute.</span>
+        <span class="n">ports</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">routed_nets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">net</span><span class="o">.</span><span class="n">is_implicit</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Net I/O direction set by 1st letter of netio attribute.</span>
+                    <span class="n">io</span> <span class="o">=</span> <span class="n">io_dict</span><span class="p">[</span><span class="n">net</span><span class="o">.</span><span class="n">netio</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span>
+                    <span class="n">ports</span><span class="p">[</span><span class="n">net</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;direction&quot;</span><span class="p">:</span> <span class="n">io</span><span class="p">,</span>
+                        <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="n">net_nums</span><span class="p">[</span><span class="n">net</span><span class="o">.</span><span class="n">name</span><span class="p">],</span>
+                        <span class="p">],</span>
+                    <span class="p">}</span>
+                <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                    <span class="c1"># Net has no netio so don&#39;t assign a port.</span>
+                    <span class="k">pass</span>
+
+        <span class="n">pin_dir_tbl</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">INPUT</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">OUTPUT</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">BIDIR</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">TRISTATE</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">PASSIVE</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">PULLUP</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">PULLDN</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">UNSPEC</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">PWRIN</span><span class="p">:</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">PWROUT</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">OPENCOLL</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">OPENEMIT</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">pin_types</span><span class="o">.</span><span class="n">NOCONNECT</span><span class="p">:</span> <span class="s2">&quot;nc&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">cells</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">attached_to</span><span class="p">(</span><span class="n">net_stubs</span><span class="p">):</span>
+                <span class="c1"># If the part is attached to any net stubs, it will require</span>
+                <span class="c1"># an individualized symbol in the netlistsvg skin file.</span>
+                <span class="c1"># Give it a unique symbol name so it can be found later.</span>
+                <span class="n">part_name</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">part</span><span class="o">.</span><span class="n">ref</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Otherwise, no net stubs so use the name of the</span>
+                <span class="c1"># generic symbol for this part.</span>
+                <span class="n">part_name</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">name</span>
+
+            <span class="n">part_symtx</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="s2">&quot;symtx&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Get a list of the units in the part.</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># If there are no units, then use the part itself as a unit.</span>
+                <span class="c1"># If there is only one unit, then that unit is just the part itself, so use it.</span>
+                <span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="n">part</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">units</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">units</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">unit</span><span class="o">.</span><span class="n">is_connected</span><span class="p">():</span>
+                    <span class="k">continue</span>  <span class="c1"># Skip unconnected parts.</span>
+
+                <span class="n">pins</span> <span class="o">=</span> <span class="n">unit</span><span class="o">.</span><span class="n">get_pins</span><span class="p">()</span>
+
+                <span class="c1"># Associate each connected pin of a part with the assigned net number.</span>
+                <span class="n">connections</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">pin</span><span class="o">.</span><span class="n">num</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="n">net_nums</span><span class="p">[</span><span class="n">pin</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">name</span><span class="p">],</span>
+                    <span class="p">]</span>
+                    <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">pins</span>
+                    <span class="k">if</span> <span class="n">pin</span><span class="o">.</span><span class="n">net</span> <span class="ow">in</span> <span class="n">routed_nets</span>
+                <span class="p">}</span>
+
+                <span class="c1"># Assign I/O to each part pin by either using the pin&#39;s symio</span>
+                <span class="c1"># attribute or by using its pin function.</span>
+                <span class="n">part_pin_dirs</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">pin</span><span class="o">.</span><span class="n">num</span><span class="p">:</span> <span class="n">io_dict</span><span class="p">[</span>
+                        <span class="nb">getattr</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="s2">&quot;symio&quot;</span><span class="p">,</span> <span class="n">pin_dir_tbl</span><span class="p">[</span><span class="n">pin</span><span class="o">.</span><span class="n">func</span><span class="p">])</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="p">]</span>
+                    <span class="k">for</span> <span class="n">pin</span> <span class="ow">in</span> <span class="n">pins</span>
+                <span class="p">}</span>
+                <span class="c1"># Keep only input/output pins. Remove no-connect pins.</span>
+                <span class="n">part_pin_dirs</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">part_pin_dirs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="s2">&quot;io&quot;</span><span class="p">}</span>
+
+                <span class="c1"># Determine which symbol in the skin file goes with this part.</span>
+                <span class="n">unit_symtx</span> <span class="o">=</span> <span class="n">part_symtx</span> <span class="o">+</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="s2">&quot;symtx&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">PartUnit</span><span class="p">):</span>
+                    <span class="n">ref</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">ref</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="n">part_name</span> <span class="o">+</span> <span class="s2">&quot;_1_&quot;</span> <span class="o">+</span> <span class="n">part_symtx</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">ref</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">ref</span> <span class="o">+</span> <span class="n">num_to_chars</span><span class="p">(</span><span class="n">unit</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="n">part_name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">unit</span><span class="o">.</span><span class="n">num</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">unit_symtx</span>
+
+                <span class="c1"># Create the cell that netlistsvg uses to draw the part and connections.</span>
+                <span class="n">cells</span><span class="p">[</span><span class="n">ref</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                    <span class="s2">&quot;port_directions&quot;</span><span class="p">:</span> <span class="n">part_pin_dirs</span><span class="p">,</span>
+                    <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="n">connections</span><span class="p">,</span>
+                    <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">part</span><span class="o">.</span><span class="n">value</span><span class="p">),</span>
+                    <span class="p">},</span>
+                <span class="p">}</span>
+
+        <span class="n">schematic_json</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;modules&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;ports&quot;</span><span class="p">:</span> <span class="n">ports</span><span class="p">,</span>
+                    <span class="s2">&quot;cells&quot;</span><span class="p">:</span> <span class="n">cells</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_files</span><span class="p">:</span>
+            <span class="n">file_basename</span> <span class="o">=</span> <span class="n">file_</span> <span class="ow">or</span> <span class="n">get_script_name</span><span class="p">()</span>
+            <span class="n">json_file</span> <span class="o">=</span> <span class="n">file_basename</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span>
+            <span class="n">svg_file</span> <span class="o">=</span> <span class="n">file_basename</span> <span class="o">+</span> <span class="s2">&quot;.svg&quot;</span>
+
+            <span class="k">with</span> <span class="n">opened</span><span class="p">(</span><span class="n">json_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                    <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+                        <span class="n">schematic_json</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+            <span class="n">skin_file</span> <span class="o">=</span> <span class="n">file_basename</span> <span class="o">+</span> <span class="s2">&quot;_skin.svg&quot;</span>
+            <span class="k">with</span> <span class="n">opened</span><span class="p">(</span><span class="n">skin_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">generate_netlistsvg_skin</span><span class="p">(</span>
+                        <span class="n">net_stubs</span><span class="o">=</span><span class="n">net_stubs</span><span class="p">,</span> <span class="n">layout_options</span><span class="o">=</span><span class="n">layout_options</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">detect_os</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+                    <span class="p">[</span><span class="s2">&quot;netlistsvg.cmd&quot;</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="s2">&quot;--skin&quot;</span><span class="p">,</span> <span class="n">skin_file</span><span class="p">,</span> <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="n">svg_file</span><span class="p">],</span>
+                    <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+                    <span class="p">[</span><span class="s2">&quot;netlistsvg&quot;</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="s2">&quot;--skin&quot;</span><span class="p">,</span> <span class="n">skin_file</span><span class="p">,</span> <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="n">svg_file</span><span class="p">],</span>
+                    <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="p">)</span>
+
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">report_summary</span><span class="p">(</span><span class="s2">&quot;generating SVG&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">schematic_json</span></div>
+
+
+<div class="viewcode-block" id="Circuit.generate_schematic">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.generate_schematic">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_schematic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a schematic file from the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        This generates a visual representation of the circuit that can be</span>
+<span class="sd">        opened in an EDA tool like KiCad&#39;s Eeschema.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Arguments for the schematic generator including:</span>
+<span class="sd">                empty_footprint_handler (function, optional): Custom handler for parts without footprints.</span>
+<span class="sd">                tool (str, optional): The EDA tool to generate the schematic for.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">import</span> <span class="nn">skidl</span>
+
+        <span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">tool_modules</span>
+
+        <span class="c1"># Reset the counters to clear any warnings/errors from previous run.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="c1"># Supply a schematic-specific empty footprint handler.</span>
+        <span class="n">save_empty_footprint_handler</span> <span class="o">=</span> <span class="n">skidl</span><span class="o">.</span><span class="n">empty_footprint_handler</span>
+
+        <span class="k">def</span> <span class="nf">_empty_footprint_handler</span><span class="p">(</span><span class="n">part</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Handle the situation of a Part with no footprint when generating a schematic.&quot;&quot;&quot;</span>
+
+            <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;No footprint for </span><span class="si">{</span><span class="n">part</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">part</span><span class="o">.</span><span class="n">ref</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Supply a nonsense footprint just so no complaints are raised when the EESCHEMA code is generated.</span>
+            <span class="n">part</span><span class="o">.</span><span class="n">footprint</span> <span class="o">=</span> <span class="s2">&quot;:&quot;</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;empty_footprint_handler]&quot;</span><span class="p">):</span>
+            <span class="n">skidl</span><span class="o">.</span><span class="n">empty_footprint_handler</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;empty_footprint_handler&quot;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">skidl</span><span class="o">.</span><span class="n">empty_footprint_handler</span> <span class="o">=</span> <span class="n">_empty_footprint_handler</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_nets</span><span class="p">()</span> <span class="c1"># Merge nets or schematic routing will fail.</span>
+
+        <span class="n">tool</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;tool&quot;</span><span class="p">,</span> <span class="n">skidl</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">tool</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">tool_modules</span><span class="p">[</span><span class="n">tool</span><span class="p">]</span><span class="o">.</span><span class="n">gen_schematic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">skidl</span><span class="o">.</span><span class="n">empty_footprint_handler</span> <span class="o">=</span> <span class="n">save_empty_footprint_handler</span>
+
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">report_summary</span><span class="p">(</span><span class="s2">&quot;generating schematic&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.generate_dot">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.generate_dot">[docs]</a>
+    <span class="k">def</span> <span class="nf">generate_dot</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">file_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;neato&quot;</span><span class="p">,</span>
+        <span class="n">rankdir</span><span class="o">=</span><span class="s2">&quot;LR&quot;</span><span class="p">,</span>
+        <span class="n">part_shape</span><span class="o">=</span><span class="s2">&quot;rectangle&quot;</span><span class="p">,</span>
+        <span class="n">net_shape</span><span class="o">=</span><span class="s2">&quot;point&quot;</span><span class="p">,</span>
+        <span class="n">splines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">show_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">show_anon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">split_nets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GND&quot;</span><span class="p">],</span>
+        <span class="n">split_parts_ref</span><span class="o">=</span><span class="p">[],</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a Graphviz DOT visualization of the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Creates a graphical representation of the circuit as a graph where parts</span>
+<span class="sd">        and nets are nodes, and connections are edges.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file_ (str, optional): File to write the DOT data to.</span>
+<span class="sd">            engine (str, optional): Graphviz layout engine to use. Default is &quot;neato&quot;.</span>
+<span class="sd">            rankdir (str, optional): Direction of graph layout. Default is &quot;LR&quot; (left to right).</span>
+<span class="sd">            part_shape (str, optional): Shape to use for part nodes. Default is &quot;rectangle&quot;.</span>
+<span class="sd">            net_shape (str, optional): Shape to use for net nodes. Default is &quot;point&quot;.</span>
+<span class="sd">            splines (str, optional): Style for the edges. Try &quot;ortho&quot; for schematic-like feel.</span>
+<span class="sd">            show_values (bool, optional): Show part values as labels. Default is True.</span>
+<span class="sd">            show_anon (bool, optional): Show anonymous net names. Default is False.</span>
+<span class="sd">            split_nets (list, optional): List of net names to split in visualization. Default is [&quot;GND&quot;].</span>
+<span class="sd">            split_parts_ref (list, optional): List of part references to split in visualization.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            graphviz.Digraph: A Graphviz graph object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Reset the counters to clear any warnings/errors from previous run.</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">warning</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+
+        <span class="n">dot</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+        <span class="n">dot</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="n">rankdir</span><span class="o">=</span><span class="n">rankdir</span><span class="p">,</span> <span class="n">splines</span><span class="o">=</span><span class="n">splines</span><span class="p">)</span>
+
+        <span class="n">nets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nets</span><span class="p">()</span>
+
+        <span class="c1"># try and keep things in the same order</span>
+        <span class="n">nets</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+        <span class="c1"># Add stubbed nets to split_nets:</span>
+        <span class="n">split_nets</span> <span class="o">=</span> <span class="n">split_nets</span><span class="p">[:]</span>  <span class="c1"># Make a local copy.</span>
+        <span class="n">split_nets</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">n</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nets</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;stub&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)])</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nets</span><span class="p">):</span>
+            <span class="n">xlabel</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">show_anon</span> <span class="ow">and</span> <span class="n">n</span><span class="o">.</span><span class="n">is_implicit</span><span class="p">():</span>
+                <span class="n">xlabel</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">split_nets</span><span class="p">:</span>
+                <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">net_shape</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">xlabel</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">pin</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">pins</span><span class="p">):</span>
+                <span class="n">net_ref</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">name</span>
+                <span class="n">pin_part_ref</span> <span class="o">=</span> <span class="n">pin</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">ref</span>
+
+                <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">split_nets</span><span class="p">:</span>
+                    <span class="n">net_ref</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">net_ref</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">net_shape</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">xlabel</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">pin</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">ref</span> <span class="ow">in</span> <span class="n">split_parts_ref</span> <span class="ow">and</span> <span class="n">n</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">split_nets</span><span class="p">:</span>
+                    <span class="n">label</span> <span class="o">=</span> <span class="n">pin</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">ref</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">pin</span><span class="o">.</span><span class="n">name</span>
+
+                    <span class="c1"># add label to part</span>
+                    <span class="n">net_ref_part</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_</span><span class="si">%i</span><span class="s2">_</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">net_ref</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">net_ref_part</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">net_shape</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+                    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="n">pin_part_ref</span><span class="p">,</span> <span class="n">net_ref_part</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># add label to splited net</span>
+                    <span class="n">pin_part_ref</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">_</span><span class="si">%i</span><span class="s2">_</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pin_part_ref</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">pin_part_ref</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">net_shape</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+                    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="n">pin_part_ref</span><span class="p">,</span> <span class="n">net_ref</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">dot</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span>
+                        <span class="n">pin_part_ref</span><span class="p">,</span> <span class="n">net_ref</span><span class="p">,</span> <span class="n">arrowhead</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">taillabel</span><span class="o">=</span><span class="n">pin</span><span class="o">.</span><span class="n">name</span>
+                    <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">ref</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+            <span class="n">xlabel</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">show_values</span><span class="p">:</span>
+                <span class="n">xlabel</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+            <span class="n">dot</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">part_shape</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">xlabel</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">file_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">dot</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">file_</span><span class="p">)</span>
+
+        <span class="n">active_logger</span><span class="o">.</span><span class="n">report_summary</span><span class="p">(</span><span class="s2">&quot;generating DOT&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dot</span></div>
+
+
+    <span class="n">generate_graph</span> <span class="o">=</span> <span class="n">generate_dot</span>  <span class="c1"># Old method name for generating graphviz dot file.</span>
+
+<div class="viewcode-block" id="Circuit.backup_parts">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.backup_parts">[docs]</a>
+    <span class="k">def</span> <span class="nf">backup_parts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save all parts in the circuit as a SKiDL library file.</span>
+<span class="sd">        </span>
+<span class="sd">        This creates a backup library that can be used to restore the parts</span>
+<span class="sd">        in the circuit.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file_ (str or file object, optional): File to write the library to.</span>
+<span class="sd">                If None, a standard library file will be used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">skidl</span>
+        <span class="kn">from</span> <span class="nn">skidl</span> <span class="kn">import</span> <span class="n">SKIDL</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_files</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+
+        <span class="n">lib</span> <span class="o">=</span> <span class="n">SchLib</span><span class="p">(</span><span class="n">tool</span><span class="o">=</span><span class="n">SKIDL</span><span class="p">)</span>  <span class="c1"># Create empty library.</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+            <span class="n">lib</span> <span class="o">+=</span> <span class="n">p</span>
+
+        <span class="n">file_</span> <span class="o">=</span> <span class="n">file_</span> <span class="ow">or</span> <span class="n">skidl</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">backup_lib_file_name</span>
+
+        <span class="n">lib</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">libname</span><span class="o">=</span><span class="n">skidl</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">backup_lib_name</span><span class="p">,</span> <span class="n">file_</span><span class="o">=</span><span class="n">file_</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circuit.to_tuple">
+<a class="viewcode-back" href="../../rst_output/skidl.circuit.html#skidl.circuit.Circuit.to_tuple">[docs]</a>
+    <span class="k">def</span> <span class="nf">to_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a nested tuple representation of the circuit for comparison.</span>
+<span class="sd">        </span>
+<span class="sd">        The tuple contains sorted tuples of parts and nets information,</span>
+<span class="sd">        suitable for comparing circuits structurally.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple: A tuple containing:</span>
+<span class="sd">                - A tuple of part representations (ref, name, lib)</span>
+<span class="sd">                - A tuple of net representations (name, pins)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_net_names</span><span class="p">()</span>
+        
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nb">tuple</span><span class="p">(</span>
+                <span class="nb">sorted</span><span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span>
+                    <span class="p">),</span>
+                    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
+                <span class="p">)</span>
+            <span class="p">),</span>
+            <span class="nb">tuple</span><span class="p">(</span>
+                <span class="nb">sorted</span><span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">tuple</span><span class="p">((</span><span class="n">p</span><span class="o">.</span><span class="n">part</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">n</span><span class="o">.</span><span class="n">get_pins</span><span class="p">()))))</span>
+                        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_nets</span><span class="p">()</span>
+                    <span class="p">),</span>
+                    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
+                <span class="p">)</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">no_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Control whether output files are generated.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if file output is suppressed, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_no_files</span>
+
+    <span class="nd">@no_files</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">no_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set whether to suppress file output.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            stop (bool): True to suppress file output, False to allow it.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_no_files</span> <span class="o">=</span> <span class="n">stop</span>
+        <span class="n">stop_log_file_output</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span></div>
+
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">SKiDL 2.2.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">skidl.circuit</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2016-2026, Dave Vandenbout.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

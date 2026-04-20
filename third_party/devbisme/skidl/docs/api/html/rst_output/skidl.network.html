@@ -1,0 +1,171 @@
+
+
+<!doctype html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>skidl.network module &#8212; SKiDL 2.2.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=a66e137f" />
+    
+    <script src="../_static/documentation_options.js?v=219dea72"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <h1 id="site-title"><a href="../../../"><img src="../../../images/slim_banner.png" width="100%"></a></h1>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SKiDL 2.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">skidl.network module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-skidl.network">
+<span id="skidl-network-module"></span><h1>skidl.network module<a class="headerlink" href="#module-skidl.network" title="Link to this heading">¶</a></h1>
+<p>Object for handling series and parallel networks of two-pin parts, nets, and pins.</p>
+<p>This module provides the Network class which allows electronic components to be
+connected in series and parallel using operators like ‘&amp;’ and ‘|’. This enables
+a concise, algebraic notation for creating complex circuits.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="skidl.network.Network">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skidl.network.</span></span><span class="sig-name descname"><span class="pre">Network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">objs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/skidl/network.html#Network"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skidl.network.Network" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
+<p>A container for arranging pins, nets, and parts in series and parallel.</p>
+<p>The Network class extends the list type to store input and output ports
+which can be connected to form series and parallel arrangements using the ‘&amp;’ and ‘|’
+operators. A Network can have up to two ports representing its input and output.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="skidl.network.Network.create_network">
+<span class="sig-name descname"><span class="pre">create_network</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/skidl/network.html#Network.create_network"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skidl.network.Network.create_network" title="Link to this definition">¶</a></dt>
+<dd><p>Create a Network from this object.</p>
+<p>For Network objects, this simply returns self since it’s already a Network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>This Network object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#skidl.network.Network" title="skidl.network.Network">Network</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skidl.network.tee">
+<span class="sig-prename descclassname"><span class="pre">skidl.network.</span></span><span class="sig-name descname"><span class="pre">tee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ntwk</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/skidl/network.html#tee"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skidl.network.tee" title="Link to this definition">¶</a></dt>
+<dd><p>Create a network “tee” by returning the first terminal of a Network object.</p>
+<p>This function allows for the creation of branch points in networks, enabling
+more complex circuit topologies beyond simple series and parallel arrangements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ntwk</strong> – Object to be converted to a Network if not already.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The first terminal (input port) of the Network.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Port</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>vi &amp; r1 &amp; r2 &amp; tee(r3 &amp; r4 &amp; gnd) &amp; r5 &amp; gnd</p>
+<dl>
+<dt>This creates:</dt><dd><dl>
+<dt>vi—r1—r2-+-r5—gnd</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p>r3—r4—gnd</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">skidl.network module</a><ul>
+<li><a class="reference internal" href="#skidl.network.Network"><code class="docutils literal notranslate"><span class="pre">Network</span></code></a><ul>
+<li><a class="reference internal" href="#skidl.network.Network.create_network"><code class="docutils literal notranslate"><span class="pre">Network.create_network()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#skidl.network.tee"><code class="docutils literal notranslate"><span class="pre">tee()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rst_output/skidl.network.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SKiDL 2.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">skidl.network module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2016-2026, Dave Vandenbout.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

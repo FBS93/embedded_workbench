@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+
+# The MIT License (MIT) - Copyright (c) Dave Vandenbout.
+
+"""
+Import this file to reconfigure SKiDL for doing SPICE simulations.
+
+This module configures SKiDL to work with SPICE simulations by:
+1. Importing necessary SPICE-related modules and classes
+2. Setting up the default ground net
+3. Loading SPICE-specific parts libraries
+4. Making all PySpice parts available in the module namespace
+"""
+
+import sys
+
+from skidl.logger import active_logger
+def abort_if_spice_unavailable():
+    if "InSpice" not in sys.modules:
+        msg = "InSpice package is not available. SPICE simulation is not possible."
+        if sys.version_info < (3, 11):
+            # InSpice is not available for Python 3.10 or earlier.
+            msg += " Upgrade to Python 3.11 or later and install InSpice to enable SPICE simulation."
+        else:
+            # InSpice is not installed, so raise an ImportError.
+            msg += " Install InSpice to enable SPICE simulation."
+        active_logger.raise_(ImportError, msg)
+
+# InSpice may not be installed because of Python version.
+try:
+    from InSpice import *
+    from InSpice.Unit import *
+except ImportError:
+    abort_if_spice_unavailable()
+    pass
+
+from skidl import *
+from .tools.spice import *
+from .tools.skidl.libs.pyspice_sklib import *
+
+
+_splib = SchLib("pyspice", tool=SKIDL)  # Read-in the SPICE part library.
+
+set_default_tool(SPICE)  # Set the library format for reading SKiDL libraries.
+
+GND = gnd = Net("0")  # Instantiate the default ground net for SPICE.
+gnd.fixed_name = True  # Make sure ground keeps it's name of "0" during net merges.
+
+# Place all the PySpice parts into the namespace so they can be instantiated easily.
+_this_module = sys.modules[__name__]
+for p in _splib.get_parts():
+    # Add the part name to the module namespace.
+    setattr(_this_module, p.name, p)
+    # Add all the part aliases to the module namespace.
+    try:
+        for alias in p.aliases:
+            setattr(_this_module, alias, p)
+    except AttributeError:
+        pass

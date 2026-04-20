@@ -1,0 +1,7 @@
+skidl.tools.kicad8.sexp\_schematic module
+=========================================
+
+.. automodule:: skidl.tools.kicad8.sexp_schematic
+   :members:
+   :show-inheritance:
+   :undoc-members:

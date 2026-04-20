@@ -1,0 +1,175 @@
+
+
+<!doctype html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>skidl.interface module &#8212; SKiDL 2.2.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=a66e137f" />
+    
+    <script src="../_static/documentation_options.js?v=219dea72"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <h1 id="site-title"><a href="../../../"><img src="../../../images/slim_banner.png" width="100%"></a></h1>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SKiDL 2.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">skidl.interface module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-skidl.interface">
+<span id="skidl-interface-module"></span><h1>skidl.interface module<a class="headerlink" href="#module-skidl.interface" title="Link to this heading">¶</a></h1>
+<p>Interface management in SKiDL.</p>
+<p>This module provides the Interface class, which bundles nets, buses, and pins into
+a single entity that can be used for connecting subsystems with complex I/O.
+Interfaces make it easier to handle groups of related signals and enable
+connecting subsystems with matching interfaces using simple operators.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="skidl.interface.Interface">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skidl.interface.</span></span><span class="sig-name descname"><span class="pre">Interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/skidl/interface.html#Interface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skidl.interface.Interface" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.13/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<p>A bundle of nets, buses, and pins that can be accessed as attributes or dict entries.</p>
+<p>An Interface groups related nets, buses, and pins into a single entity where each
+item can be accessed either as an attribute (obj.item) or as a dictionary key (obj[‘item’]).
+This makes Interfaces useful for standardizing connections between subsystems or
+for creating reusable connection patterns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – Positional arguments passed to dict constructor.</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments defining nets/buses to include in the interface.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>unbundle</strong> (<a class="reference external" href="https://docs.python.org/3.13/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to automatically unbundle buses into individual
+nets that can be accessed directly. Defaults to True.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">power</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">vcc</span><span class="o">=</span><span class="n">Net</span><span class="p">(</span><span class="s1">&#39;VCC&#39;</span><span class="p">),</span> <span class="n">gnd</span><span class="o">=</span><span class="n">Net</span><span class="p">(</span><span class="s1">&#39;GND&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">power</span><span class="o">.</span><span class="n">vcc</span> <span class="o">+=</span> <span class="n">part1</span><span class="p">[</span><span class="s1">&#39;VCC&#39;</span><span class="p">]</span>  <span class="c1"># Connect using attribute access</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">power</span><span class="p">[</span><span class="s1">&#39;gnd&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">part1</span><span class="p">[</span><span class="s1">&#39;GND&#39;</span><span class="p">]</span>  <span class="c1"># Connect using dictionary access</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="skidl.interface.Interface.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_intfc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/skidl/interface.html#Interface.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skidl.interface.Interface.connect" title="Link to this definition">¶</a></dt>
+<dd><p>Connect this interface to another interface.</p>
+<p>This method connects nets and buses in this interface to those
+with matching names in another interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other_intfc</strong> (<a class="reference internal" href="#skidl.interface.Interface" title="skidl.interface.Interface"><em>Interface</em></a>) – The interface to connect to this one.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>This interface with connections to the other interface.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#skidl.interface.Interface" title="skidl.interface.Interface">Interface</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">intf1</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">Net</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="n">b</span><span class="o">=</span><span class="n">Net</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intf2</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">Net</span><span class="p">(</span><span class="s1">&#39;a2&#39;</span><span class="p">),</span> <span class="n">b</span><span class="o">=</span><span class="n">Net</span><span class="p">(</span><span class="s1">&#39;b2&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intf1</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">intf2</span><span class="p">)</span>  <span class="c1"># Connect matching nets</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Alternative: intf1 += intf2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="skidl.interface.Interface.erc_list">
+<span class="sig-name descname"><span class="pre">erc_list</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#skidl.interface.Interface.erc_list" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">skidl.interface module</a><ul>
+<li><a class="reference internal" href="#skidl.interface.Interface"><code class="docutils literal notranslate"><span class="pre">Interface</span></code></a><ul>
+<li><a class="reference internal" href="#skidl.interface.Interface.connect"><code class="docutils literal notranslate"><span class="pre">Interface.connect()</span></code></a></li>
+<li><a class="reference internal" href="#skidl.interface.Interface.erc_list"><code class="docutils literal notranslate"><span class="pre">Interface.erc_list</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rst_output/skidl.interface.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">SKiDL 2.2.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">skidl.interface module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2016-2026, Dave Vandenbout.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

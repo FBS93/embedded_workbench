@@ -1,0 +1,15 @@
+include AUTHORS.md
+include CONTRIBUTING.md
+include HISTORY.md
+include LICENSE
+include README.md
+
+recursive-exclude tests *
+recursive-exclude docs *
+recursive-exclude docsrc *
+recursive-exclude examples *
+recursive-exclude logo *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
+recursive-include *.rst conf.py Makefile make.bat

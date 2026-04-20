@@ -1,0 +1,1447 @@
+# -*- coding: utf-8 -*-
+
+# The MIT License (MIT) - Copyright (c) Dave Vandenbout.
+
+"""
+Handles parts in a circuit.
+
+This module provides classes and functions for creating, managing, and connecting electronic parts
+in a circuit. Parts can be instantiated from libraries, customized with attributes, and connected
+to form complete circuits.
+"""
+
+import functools
+from collections.abc import Iterable
+from copy import copy
+from random import randint
+
+from .design_class import PartClass, PartClasses
+from .erc import dflt_part_erc
+from .logger import active_logger
+from .mixins import PinMixin
+from .node import HIER_SEP
+from .skidlbaseobj import SkidlBaseObject
+from .utilities import (
+    add_unique_attr,
+    export_to_all,
+    filter_list,
+    find_num_copies,
+    get_unique_name,
+    rmv_unique_name,
+    list_or_scalar,
+    to_list,
+    Rgx,
+)
+
+
+__all__ = ["NETLIST", "LIBRARY", "TEMPLATE", "PartTmplt", "SkidlPart"]
+
+
+# Places where parts can be stored.
+#   NETLIST: The part will become part of a circuit netlist.
+#   LIBRARY: The part will be placed in the part list for a library.
+#   TEMPLATE: The part will be used as a template to be copied from.
+NETLIST, LIBRARY, TEMPLATE = ["NETLIST", "LIBRARY", "TEMPLATE"]
+
+
+class PinNumberSearch(object):
+    """
+    A class for restricting part pin indexing to only pin numbers while ignoring pin names.
+    
+    This class enables accessing pins by their number only, even when pins
+    might have both numbers and names.
+    
+    Attributes:
+        part (Part): The part whose pins this object searches through.
+    """
+
+    def __init__(self, part):
+        """
+        Initialize the pin number search object.
+        
+        Args:
+            part (Part): The part whose pins will be searched by number.
+        """
+        # Store the part this object belongs to.
+        self.part = part
+
+    def get_pins(self, *pin_ids, **criteria):
+        """
+        Get pins from a part using only pin numbers.
+        
+        Args:
+            pin_ids: ID numbers of the pins to get from the part.
+            criteria: Additional criteria for selecting pins.
+            
+        Returns:
+            Pin or list: The selected pins.
+        """
+        # Add criteria that restricts pin searching to only numbers.
+        criteria["only_search_numbers"] = True
+
+        # Now search the part for pin numbers matching the pin_ids.
+        return self.part.get_pins(*pin_ids, **criteria)
+
+    # Get pin numbers from a part using brackets, e.g. [1,5:9].
+    __getitem__ = get_pins
+
+    def __setitem__(self, ids, *pins_nets_buses):
+        self.part.__setitem__(ids, *pins_nets_buses)
+
+
+class PinNameSearch(object):
+    """
+    A class for restricting part pin indexing to only pin names while ignoring pin numbers.
+    
+    This class enables accessing pins by their name only, even when pins
+    might have both numbers and names.
+    
+    Attributes:
+        part (Part): The part whose pins this object searches through.
+    """
+
+    def __init__(self, part):
+        """
+        Initialize the pin name search object.
+        
+        Args:
+            part (Part): The part whose pins will be searched by name.
+        """
+        self.part = part
+
+    def get_pins(self, *pin_ids, **criteria):
+        """
+        Get pins from a part using only pin names.
+        
+        Args:
+            pin_ids: Names of the pins to get from the part.
+            criteria: Additional criteria for selecting pins.
+            
+        Returns:
+            Pin or list: The selected pins.
+        """
+        # Add criteria that restricts pin searching to only names.
+        criteria["only_search_names"] = True
+
+        # Now search the part for pin names matching the pin_ids.
+        return self.part.get_pins(*pin_ids, **criteria)
+
+    # Get pin names from a part using brackets, e.g. ['A1, A2, A3'].
+    __getitem__ = get_pins
+
+    def __setitem__(self, ids, *pins_nets_buses):
+        self.part.__setitem__(ids, *pins_nets_buses)
+
+
+@export_to_all
+class Part(PinMixin, SkidlBaseObject):
+# class Part(SkidlBaseObject, PinMixin):
+    """
+    A class for storing a definition of a schematic part.
+    
+    This class represents electronic components in a schematic. Parts can be
+    instantiated from libraries, customized with attributes, and connected
+    together to form circuits.
+
+    Args:
+        lib (str or SchLib, optional): Either a SchLib object or a schematic part library file name.
+        name (str, optional): A string with name of the part to find in the library, or to assign to
+            the part defined by the part definition.
+        dest (str, optional): String that indicates where the part is destined for (e.g., NETLIST).
+        tool (str, optional): The format for the library file or part definition (e.g., KICAD).
+        connections (dict, optional): A dictionary with part pin names/numbers as keys and the
+            nets to which they will be connected as values. For example:
+            { 'IN-':a_in, 'IN+':gnd, '1':AMPED_OUTPUT, '14':vcc, '7':gnd }
+        part_defn (list, optional): A list of strings that define the part (usually read from a
+            schematic library file).
+        circuit (Circuit, optional): The Circuit object this Part belongs to.
+        ref_prefix (str, optional): Prefix for part references such as 'U' or 'J'.
+        ref (str, optional): A specific part reference to be assigned.
+        tag (str, optional): A specific tag to tie the part to its footprint in the PCB.
+        pin_splitters (str, optional): String of characters that split long pin names into shorter aliases.
+
+    Keyword Args:
+        kwargs: Name/value pairs for setting attributes for the part.
+            For example, manf_num='LM4808MP-8' would create an attribute
+            named 'manf_num' for the part and assign it the value 'LM4808MP-8'.
+
+    Raises:
+        ValueError: If the part library and definition are both missing.
+        ValueError: If an unknown file format is requested.
+        
+    Attributes:
+        name (str): The part name.
+        description (str): Description of the part.
+        ref (str): Reference designator for the part (e.g., 'R1', 'U3').
+        ref_prefix (str): Prefix for the reference (e.g., 'R', 'U').
+        pins (list): List of Pin objects for this part.
+        unit (dict): Dictionary for storing subunits of the part.
+        circuit (Circuit): The circuit this part belongs to.
+    """
+
+    # Set the default ERC functions for all Part instances.
+    erc_list = [dflt_part_erc]
+
+    def __init__(
+        self,
+        lib=None,
+        name=None,
+        dest=NETLIST,
+        tool=None,
+        connections=None,
+        part_defn=None,
+        circuit=None,
+        ref_prefix="",
+        ref=None,
+        tag=None,
+        pin_splitters=None,
+        **kwargs
+    ):
+        """
+        Initialize a part with the given parameters.
+        
+        Args:
+            lib (str or SchLib, optional): Library containing the part.
+            name (str, optional): Part name to search for in the library.
+            dest (str, optional): Destination for the part (NETLIST, LIBRARY, TEMPLATE).
+            tool (str, optional): Tool format (KICAD, SPICE, etc.).
+            connections (dict, optional): Pre-defined connections for the part's pins.
+            part_defn (list, optional): List of strings defining the part.
+            circuit (Circuit, optional): Circuit the part belongs to.
+            ref_prefix (str, optional): Prefix for the part reference (e.g., 'R', 'U').
+            ref (str, optional): Specific reference designator.
+            tag (str, optional): Tag for associating with PCB footprint.
+            pin_splitters (str, optional): Characters for splitting pin names into aliases.
+            
+        Keyword Args:
+            kwargs: Additional attributes for the part.
+        """
+        import skidl
+        from skidl import SchLib, SKIDL
+        from skidl.tools.spice import add_xspice_io
+
+        # Initialize the base classes. Start with SkidlBaseObject to instantiate basic stuff.
+        # Then do PinMixin to set up handling of pins in the part. Don't do PinMixin first
+        # because its __getattr__ method will be overridden by __getattr__ in SkidlBaseObject.
+        SkidlBaseObject.__init__(self)
+        PinMixin.__init__(self)
+
+        tool = tool or skidl.config.tool
+
+        # Setup some part attributes that might be overwritten later on.
+        self.do_erc = True  # Allow part to be included in ERC.
+        self.unit = {}  # Dictionary for storing subunits of the part, if desired.
+        self.p = PinNumberSearch(self)  # Does pin search using only pin numbers.
+        self.n = PinNameSearch(self)  # Does pin search using only pin names.
+        self.name = name  # Assign initial part name.
+        self._ref = ""  # Provide a member for holding a reference.
+        self.tool = tool  # Initial type of part (SKIDL, KICAD, etc.)
+        self.circuit = None  # Part starts off unassociated with any circuit.
+        self._partclasses = PartClasses()  # List of part classes this part belongs to.
+
+        # Create a Part from a library entry.
+        if lib:
+            # If the lib argument is a string, then create a library using the
+            # string as the library file name.
+            if isinstance(lib, str):
+                libname = lib
+                try:
+                    lib = SchLib(filename=libname, tool=tool)
+                except FileNotFoundError as e:
+                    if skidl.config.query_backup_lib:
+                        active_logger.warning(
+                            f'Could not load KiCad schematic library "{libname}", falling back to backup library.'
+                        )
+                        lib = skidl.load_backup_lib()
+                        if not lib:
+                            raise e
+                    else:
+                        raise e
+
+            # Make a copy of the part from the library but don't add it to the netlist.
+            part = lib[name].copy(dest=TEMPLATE)
+
+            # Overwrite self with the new part.
+            self.__dict__.update(part.__dict__)
+
+            # Make sure all the pins have a valid reference to this part.
+            self.associate_pins()
+
+            # Copy part units so all the pin and part references stay valid.
+            self.copy_units(part)
+
+        # Otherwise, create a Part from a part definition. If the part is
+        # destined for a library, then just get its name. If it's going into
+        # a netlist, then parse the entire part definition.
+        elif part_defn:
+            self.part_defn = part_defn
+            self.parse(partial_parse=(dest != NETLIST))
+
+        # If the part is destined for a SKiDL library, then it will be defined
+        # by the additional attribute values that are passed.
+        elif tool == SKIDL and name:
+            pass
+
+        else:
+            active_logger.raise_(
+                ValueError,
+                "Can't make a part without a library & part name or a part definition.",
+            )
+
+        # Split multi-part pin names into individual pin aliases.
+        self.split_pin_names(pin_splitters)
+
+        # Setup the tag for tieing the part to a footprint in a pcb editor.
+        # Do this before adding the part to the circuit or an exception will occur
+        # because the part can't give its hierarchical name to the circuit.
+        self.tag = tag
+
+        # Override the reference prefix if it was passed as a parameter.
+        # If nothing was set, default to using "U".
+        # This MUST be done before adding the part to a circuit below!
+        self.ref_prefix = ref_prefix or getattr(self, "ref_prefix", "") or "U"
+
+        if dest != LIBRARY:
+            if dest == NETLIST:
+                # If the part is going to be an element in a circuit, then add it to the
+                # the circuit and make any indicated pin/net connections.
+                # If no Circuit object is given, then use the default Circuit that always exists.
+                circuit = circuit or default_circuit
+                circuit += self
+            elif dest == TEMPLATE:
+                # If this is just a part template, don't add the part to the circuit.
+                self.circuit = None
+
+            # Add any net/pin connections to this part that were passed as arguments.
+            if isinstance(connections, dict):
+                for pin, net in list(connections.items()):
+                    net += self[pin]
+
+        # Add any XSPICE I/O as pins. (This only happens with SPICE simulations.)
+        add_xspice_io(self, kwargs.pop("io", []))
+
+        # Make sure there is a description, even if empty.
+        self.description = getattr(self, "description", "")
+
+        # Set the part reference if one was explicitly provided.
+        if ref:
+            self.ref = ref
+
+        # Add any pins that were passed in, and make sure they're associated with the part.
+        self.add_pins(kwargs.pop("pins", []))
+        self.associate_pins()
+
+        # If any unit definitions were passed in, then make units.
+        # FIXME: make_unit takes too long because of filtering pin lists.
+        for unit_def in kwargs.pop("unit_defs", []):
+            self.make_unit(
+                unit_def["label"], *unit_def["pin_nums"], unit=unit_def["num"]
+            )
+
+        # Add any other passed-in attributes to the part.
+        for k, v in list(kwargs.items()):
+            setattr(self, k, v)
+
+        # If the part was found using an alias, then substitute the alias for the name in the part.
+        # Only make the substitution if the name is one of the aliases. (It's possible the part was
+        # found using a regex and we don't want that entered as an alias.)
+        if self.name != name and name in self.aliases:
+            part_name = self.name
+            for k,v in vars(self).items():
+                if v == part_name:
+                    setattr(self, k, name)
+            for k,v in self.fields.items():
+                if v == part_name:
+                    self.fields[k] = name
+
+        # Make sure the part name is also included in the list of aliases
+        # because part searching only checks the aliases for name matches.
+        self.aliases += self.name
+
+    def __str__(self):
+        """
+        Return a description of the pins on this part as a string.
+        
+        Returns:
+            str: A formatted string showing the part name, aliases, description and pins.
+        """
+        return "\n {name} ({aliases}): {desc}\n    {pins}".format(
+            name=self.name,
+            aliases=", ".join(self.aliases),
+            desc=self.description,
+            pins="\n    ".join([p.__str__() for p in self.pins]),
+        )
+
+    __repr__ = __str__
+
+    def __bool__(self):
+        """
+        Any valid Part is True.
+        
+        Returns:
+            bool: Always returns True for valid Part objects.
+        """
+        return True
+
+    __nonzero__ = __bool__  # Python 2 compatibility.
+
+    def __len__(self):
+        """
+        Return the number of pins in this part.
+        
+        Returns:
+            int: The number of pins in this part.
+        """
+        return len(self.pins)
+
+    # Make copies with the multiplication operator or by calling the object.
+    def __call__(self, num_copies=None, dest=NETLIST, circuit=None, io=None, **attribs):
+        """
+        Make zero or more copies of this part while maintaining all pin/net connections.
+
+        Args:
+            num_copies (int, optional): Number of copies to make of this part.
+            dest (str, optional): Indicates where the copy is destined for (e.g., NETLIST).
+            circuit (Circuit, optional): The circuit this part should be added to.
+            io (list, optional): XSPICE I/O names.
+
+        Keyword Args:
+            attribs: Name/value pairs for setting attributes for the copy.
+
+        Returns:
+            Part or list: A list of Part copies or a single Part if num_copies==1.
+
+        Raises:
+            ValueError: If the requested number of copies is a non-integer or negative.
+
+        Notes:
+            An instance of a part can be copied just by calling it like so::
+
+                res = Part("Device",'R')    # Get a resistor.
+                res_copy = res(value='1K')  # Copy the resistor and set resistance value.
+
+            You can also use the multiplication operator to make copies::
+
+                cap = Part("Device", 'C')   # Get a capacitor
+                caps = 10 * cap             # Make an array with 10 copies of it.
+        """
+        return self.copy(
+            num_copies=num_copies, dest=dest, circuit=circuit, io=io, **attribs
+        )
+
+    def __mul__(self, num_copies):
+        """
+        Create multiple copies of a part using the * operator.
+        
+        Args:
+            num_copies (int): Number of copies to make.
+            
+        Returns:
+            list: List of part copies.
+        """
+        if num_copies is None:
+            num_copies = 0
+        return self.copy(num_copies=num_copies)
+
+    __rmul__ = __mul__
+
+    def __and__(self, obj):
+        """
+        Attach a part and another part/pin/net in serial.
+        
+        Args:
+            obj: The object to connect in series with this part.
+            
+        Returns:
+            Network: A network representing the series connection.
+        """
+        from .network import Network
+
+        return Network(self) & obj
+
+    def __rand__(self, obj):
+        """
+        Attach a part and another part/pin/net in serial (right-side operation).
+        
+        Args:
+            obj: The object to connect in series with this part.
+            
+        Returns:
+            Network: A network representing the series connection.
+        """
+        from .network import Network
+
+        return obj & Network(self)
+
+    def __or__(self, obj):
+        """
+        Attach a part and another part/pin/net in parallel.
+        
+        Args:
+            obj: The object to connect in parallel with this part.
+            
+        Returns:
+            Network: A network representing the parallel connection.
+        """
+        from .network import Network
+
+        return Network(self) | obj
+
+    def __ror__(self, obj):
+        """
+        Attach a part and another part/pin/net in parallel (right-side operation).
+        
+        Args:
+            obj: The object to connect in parallel with this part.
+            
+        Returns:
+            Network: A network representing the parallel connection.
+        """
+        from .network import Network
+
+        return obj | Network(self)
+
+    @classmethod
+    def get(cls, text, circuit=None):
+        """
+        Get the part with the given text from a circuit, or return None.
+
+        Args:
+            text (str): A text string that will be searched for in the list of
+                parts.
+
+        Keyword Args:
+            circuit (Circuit, optional): The circuit whose parts will be searched. If set to None,
+                then the parts in the default_circuit will be searched.
+
+        Returns:
+            Part or list: A list of parts or a single part that match the text string with
+                either their reference, name, alias, or their description.
+        """
+
+        circuit = circuit or default_circuit
+
+        search_params = (
+            ("ref", text, True),
+            # ("name", text, True), # Redundant: name is already replicated in aliases.
+            ("aliases", text, True),
+            ("description", text, False),
+        )
+
+        parts = []
+        for attr, value, do_str_match in search_params:
+            parts.extend(
+                filter_list(circuit.parts, do_str_match=do_str_match, **{attr: value})
+            )
+
+        return list_or_scalar(parts)
+
+    def value_to_str(self):
+        """
+        Return value of part as a string.
+        
+        Returns:
+            str: String representation of the part's value.
+        """
+        value = getattr(self, "value", getattr(self, "name", self.ref_prefix))
+        return str(value)
+
+    def similarity(self, part, **options):
+        """
+        Return a measure of how similar two parts are.
+
+        Args:
+            part (Part): The part to compare to for similarity.
+            options (dict): Dictionary of options and settings affecting similarity computation.
+
+        Returns:
+            float: Value for similarity (larger means more similar).
+        """
+
+        def score_pins():
+            pin_score = 0
+            if len(self.pins) == len(part.pins):
+                for p_self, p_other in zip(self.ordered_pins, part.ordered_pins):
+                    if p_self.is_attached(p_other):
+                        pin_score += 1
+            return pin_score
+
+        # Every part starts off somewhat similar to another.
+        score = 1
+
+        if self.description == part.description:
+            score += 5
+        if self.name == part.name:
+            score += 5
+            if self.value == part.value:
+                score += 2
+            score += score_pins()
+        elif self.ref_prefix == part.ref_prefix:
+            score += 3
+            if self.value == part.value:
+                score += 2
+            score += score_pins()
+
+        return score / 3
+
+    def parse(self, partial_parse=False):
+        """
+        Create a part from its stored part definition.
+
+        Args:
+            partial_parse (bool, optional): When true, just get the name and aliases for the
+                part. Leave the rest unparsed. Defaults to False.
+        """
+
+        from .tools import tool_modules
+
+        # Parse the part description.
+        tool_modules[self.tool].parse_lib_part(self, partial_parse)
+
+    def copy(self, num_copies=None, dest=NETLIST, circuit=None, io=None, **attribs):
+        """
+        Make zero or more copies of this part while maintaining all pin/net connections.
+
+        Args:
+            num_copies (int, optional): Number of copies to make of this part.
+            dest (str, optional): Indicates where the copy is destined for (e.g., NETLIST).
+            circuit (Circuit, optional): The circuit this part should be added to.
+            io (list, optional): XSPICE I/O names.
+
+        Keyword Args:
+            attribs: Name/value pairs for setting attributes for the copy.
+
+        Returns:
+            Part or list: A list of Part copies or a single Part if num_copies==1.
+
+        Raises:
+            ValueError: If the requested number of copies is a non-integer or negative.
+
+        Notes:
+            An instance of a part can be copied just by calling it like so::
+
+                res = Part("Device",'R')    # Get a resistor.
+                res_copy = res(value='1K')  # Copy the resistor and set resistance value.
+
+            You can also use the multiplication operator to make copies::
+
+                cap = Part("Device", 'C')   # Get a capacitor
+                caps = 10 * cap             # Make an array with 10 copies of it.
+        """
+
+        from .circuit import Circuit
+        from .part import NETLIST
+        from .pin import Pin
+        from .tools.spice import add_xspice_io
+
+        # If the number of copies is None, then a single copy will be made
+        # and returned as a scalar (not a list). Otherwise, the number of
+        # copies will be set by the num_copies parameter or the number of
+        # values supplied for each part attribute.
+        num_copies_attribs = find_num_copies(**attribs)
+        return_list = (num_copies is not None) or (num_copies_attribs > 1)
+        if num_copies is None:
+            num_copies = max(1, num_copies_attribs)
+
+        # Check that a valid number of copies is requested.
+        if not isinstance(num_copies, int):
+            active_logger.raise_(
+                ValueError,
+                f"Can't make a non-integer number ({num_copies}) of copies of a part!"
+            )
+        if num_copies < 0:
+            active_logger.raise_(
+                ValueError,
+                "Can't make a negative number ({num_copies}) of copies of a part!"
+            )
+
+        # Now make copies of the part one-by-one.
+        copies = []
+        for i in range(num_copies):
+
+            # Make a copy of the part.
+            cpy = copy(self)  # Start with shallow copy.
+            for k,v in self.__dict__.items():
+                if isinstance(v, (Pin, PartUnit)):
+                    # These require special handling later.
+                    continue
+                if isinstance(v, Iterable) and not isinstance(v, str):
+                    # Copy the list with shallow copies of its items to the copy.
+                    setattr(cpy, k, copy(v))
+
+            # Remove any existing part tag so the copy won't be linked to the
+            # same footprint in the PCB as the source.
+            try:
+                del cpy.tag
+            except AttributeError:
+                pass
+
+            # Remove any existing Pin and PartUnit attributes so new ones
+            # can be made in the copy without generating warning messages.
+            rmv_attrs = [
+                k
+                for k, v in list(cpy.__dict__.items())
+                if isinstance(v, (Pin, PartUnit))
+            ]
+            for attr in rmv_attrs:
+                delattr(cpy, attr)
+
+            # The shallow copy will just put references to the pins of the
+            # original into the copy, so create independent copies of the pins.
+            cpy.pins = []
+            # Add pin with part attribute set to the newly copied part.
+            cpy += [p.copy(part=cpy) for p in self.pins]
+
+            # If the part copy is intended as a template, then disconnect its pins
+            # from any circuit nets.
+            if dest == TEMPLATE:
+                for p in cpy.pins:
+                    p.disconnect()
+
+            # Make new objects for searching the copy's pin numbers and names.
+            cpy.p = PinNumberSearch(cpy)
+            cpy.n = PinNameSearch(cpy)
+
+            # Copy the part fields from the original.
+            cpy.fields = {k: v for k, v in self.fields.items()}
+
+            # Copy part units from the original to the copy.
+            cpy.copy_units(self)
+
+            # Clear the part reference of the copied part so a unique reference
+            # can be assigned when the part is added to the circuit.
+            # (This is not strictly necessary since the part reference will be
+            # adjusted to be unique if needed during the addition process.)
+            cpy._ref = None
+
+            # Copied part starts off not being in any circuit.
+            cpy.circuit = None
+
+            # If copy is destined for a netlist, then add it to the Circuit its
+            # source came from or else add it to the default Circuit object.
+            if dest == NETLIST:
+                # Place the copied part in the explicitly-stated circuit,
+                # or the same circuit as the original,
+                # or else into the default circuit.
+                circuit = circuit or self.circuit or default_circuit
+                circuit += cpy
+
+            # Add any XSPICE I/O as pins to the part.
+            add_xspice_io(cpy, io)
+
+            # Enter any new attributes.
+            for k, v in list(attribs.items()):
+                if isinstance(v, (list, tuple)):
+                    try:
+                        v = v[i]
+                    except IndexError:
+                        active_logger.raise_(
+                            ValueError,
+                            f"{num_copies} copies of part {self.name} were requested, but too few elements in attribute {k}!"
+                        )
+                setattr(cpy, k, v)
+
+            # Add the part copy to the list of copies.
+            copies.append(cpy)
+
+        # Return a list of the copies made or just a single copy.
+        if return_list:
+            return copies
+        return copies[0]
+
+    def validate(self):
+        """
+        Check that pins and units reference the correct part that owns them.
+        
+        Raises:
+            AssertionError: If pins or units don't properly reference this part.
+        """
+        for pin in self.pins:
+            assert pin.part == self
+        for unit in self.unit.values():
+            # A Part can be a unit of itself, so don't validate it to avoid infinite recursion.
+            if unit is not self:
+                unit.validate()
+
+    def copy_units(self, src):
+        """
+        Make copies of the units from the source part.
+        
+        Args:
+            src (Part): The source part containing units to copy.
+            
+        Raises:
+            Exception: If an illegal unit type is encountered.
+        """
+        self.unit = {}  # Remove references to any existing units.
+        for label, unit in src.unit.items():
+            if isinstance(unit, PartUnit):
+                # Get the pin numbers from the unit in the source part
+                # and make a unit in the part copy with the same pin numbers.
+                pin_nums = [p.num for p in unit.pins]
+                self.make_unit(label, *pin_nums, unit=unit.num)
+            elif isinstance(unit, Part):
+                # A Part can be a unit of itself, so it requires special handling.
+                assert id(unit) == id(src)
+                self.unit[label] = self
+                self.unit[label].num = unit.num
+                add_unique_attr(self, label, self)
+            else:
+                raise Exception(f"Illegal unit type ({type(unit)}).")
+
+    def is_connected(self):
+        """
+        Return T/F depending upon whether a part is connected in a netlist.
+
+        If a part has pins but none of them are connected to nets, then
+        this method will return False. Otherwise, it will return True even if
+        the part has no pins (which can be the case for mechanical parts,
+        silkscreen logos, or other non-electrical schematic elements).
+        
+        Returns:
+            bool: True if the part is connected or has no pins, False otherwise.
+        """
+
+        # Assume parts without pins (like mech. holes) are always connected.
+        if len(self.pins) == 0:
+            return True
+
+        # If any pin is found to be connected to a net, return True.
+        for p in self.pins:
+            if p.is_connected():
+                return True
+
+        # No net connections found, so return False.
+        return False
+
+    def attached_to(self, nets=None):
+        """
+        Return True if any part pin is connected to a net in the list.
+        
+        Args:
+            nets (list, optional): List of nets to check for connection.
+            
+        Returns:
+            bool: True if part is connected to any of the nets, False otherwise.
+        """
+        if not nets:
+            return False
+
+        for pin in self:
+            for net in pin.nets:
+                if net in nets:
+                    return True
+        return False
+
+    def is_movable(self):
+        """
+        Return T/F if the part can be moved from one circuit into another.
+
+        This method returns true if:
+            1) the part is not in a circuit, or
+            2) the part has pins but none of them are connected to nets, or
+            3) the part has no pins (which can be the case for mechanical parts,
+               silkscreen logos, or other non-electrical schematic elements).
+               
+        Returns:
+            bool: True if the part can be moved to another circuit, False otherwise.
+        """
+        from .circuit import Circuit
+
+        return (
+            not isinstance(self.circuit, Circuit)
+            or not self.is_connected()
+            or not self.pins
+        )
+
+    def make_unit(self, label, *pin_ids, **criteria):
+        """
+        Create a PartUnit from a set of pins in a Part object.
+
+        Parts can be organized into smaller pieces called PartUnits. A PartUnit
+        acts like a Part but contains only a subset of the pins of the Part.
+
+        Args:
+            label (str): The label used to identify the PartUnit.
+            pin_ids: A list of strings containing pin names, numbers,
+                regular expressions, slices, lists or tuples.
+
+        Keyword Args:
+            criteria: Key/value pairs that specify attribute values the
+                pin must have in order to be selected.
+
+        Returns:
+            PartUnit: The newly created part unit.
+            
+        Warning:
+            Will issue a warning if the unit label collides with any part pin names.
+        """
+
+        # Warn if the unit label collides with any of the part's pin names.
+        collisions = [pin for pin in self if pin.aliases == label]
+        if collisions:
+            active_logger.warning(
+                f"Using a label ({label}) for a unit of {self.erc_desc()} that matches one or more of it's pin names ({collisions})!"
+            )
+
+        # Create the part unit.
+        self.unit[label] = PartUnit(self, label, *pin_ids, **criteria)
+
+        # Add a unique identifier to the unit.
+        add_unique_attr(self, label, self.unit[label])
+
+        return self.unit[label]
+
+    def rmv_unit(self, label):
+        """
+        Remove a PartUnit from a Part.
+        
+        Args:
+            label (str): Label of unit to remove.
+        """
+        delattr(self, label)
+        del self.unit[label]
+
+    def grab_pins(self):
+        """
+        Grab pins back from PartUnits.
+        
+        Makes each unit release its pins back to the part that contains it.
+        """
+
+        # Make each unit release its pins back to the part that contains it.
+        for unit in self.unit.values():
+            unit.release_pins()
+
+    def release_pins(self):
+        """
+        A Part can't release pins back to its PartUnits, so do nothing.
+        """
+
+        pass
+
+    def create_network(self):
+        """
+        Create a network from the pins of a part.
+        
+        Returns:
+            Network: A network containing the part's pins.
+            
+        Raises:
+            Exception: If the part has more than 2 pins.
+        """
+        from .network import Network
+
+        ntwk = Network(self[:])  # An error will occur if part has more than 2 pins.
+        return ntwk
+
+    def generate_svg_component(self, symtx="", tool=None, net_stubs=None):
+        """
+        Generate the SVG for displaying a part in an SVG schematic.
+        
+        Args:
+            symtx (str, optional): Transform for the SVG symbol. Defaults to "".
+            tool (str, optional): Tool format to use for SVG generation. Defaults to config.tool.
+            net_stubs (list, optional): List of net stubs to include in the SVG.
+            
+        Returns:
+            str: SVG representation of the component.
+        """
+
+        import skidl
+
+        from .tools import tool_modules
+
+        tool = tool or skidl.config.tool
+
+        return tool_modules[tool].gen_svg_comp(self, symtx=symtx, net_stubs=net_stubs)
+
+    def erc_desc(self):
+        """
+        Create description of part for ERC and other error reporting.
+        
+        Returns:
+            str: A string description in the form "name/ref"
+        """
+        return f"{self.name}/{self.ref}"
+
+    def export(self, addtl_part_attrs=None):
+        """
+        Return a string to recreate a Part object.
+
+        Args:
+            addtl_part_attrs (list, optional): List of additional part attribute names to include in export.
+
+        Returns:
+            str: String that can be evaluated to rebuild the Part object.
+        """
+
+        # Make sure the part is fully instantiated. Otherwise, attributes like
+        # pins may be missing because they haven't been parsed from the part definition.
+        self.parse()
+
+        # List of attributes to export that are necessary for rebuilding a part.
+        keys = [
+            "aliases",
+            "ref_prefix",
+            "fplist",
+            "footprint",
+            "keywords",
+            "description",
+            "datasheet",
+        ]
+
+        # Add any other additional part attributes
+        if addtl_part_attrs:
+            keys.extend(addtl_part_attrs)
+
+        # Export the part as a SKiDL template.
+        attribs = []
+        attribs.append(f"'name':{repr(self.name)}")
+        attribs.append("'dest':TEMPLATE")
+        attribs.append("'tool':SKIDL")
+
+        # Collect all the part attributes and the list of pins and units as Python code.
+        for k in keys:
+            v = getattr(self, k, None)
+            attribs.append(f"'{k}':{repr(v)}")
+        if self.pins:
+            pin_strs = [p.export() for p in self.pins]
+            attribs.append("'pins':[{}]".format(",".join(pin_strs)))
+        if self.unit:
+            # TODO: How to handle a Part that is also a unit?
+            unit_strs = [
+                unit.export()
+                for unit in self.unit.values()
+                if isinstance(unit, PartUnit)
+            ]
+            attribs.append("'unit_defs':[{}]".format(",".join(unit_strs)))
+
+        # Return the string after removing all the non-ascii stuff (like ohm symbols).
+        # This string is a Part instantiation with parameters that will create the part when executed.
+        return "Part(**{{ {} }})".format(", ".join(attribs))
+
+    def convert_for_spice(self, spice_part, pin_map):
+        """
+        Convert a Part object for use with SPICE.
+
+        Args:
+            spice_part (Part): The type of SPICE Part to be converted to.
+            pin_map (dict): Dict with pin numbers/names of self as keys and num/names of spice_part pins as replacement values.
+        """
+        from .tools.spice import convert_for_spice
+
+        convert_for_spice(self, spice_part, pin_map)
+
+    @property
+    def ref(self):
+        """
+        Get the part reference.
+
+        When setting the part reference, if another part with the same
+        reference is found, the reference for this part is adjusted to make
+        it unique.
+        
+        Returns:
+            str: The part's reference designator.
+        """
+        return self._ref
+
+    @ref.setter
+    def ref(self, r):
+        """
+        Set the part's reference.
+        
+        Args:
+            r (str): The reference to assign to the part.
+            
+        Notes:
+            If the reference would conflict with another part, a unique
+            variation will be generated.
+        """
+        # Remove the existing reference so it doesn't cause a collision if the
+        # object is renamed with its existing name.
+        del self.ref
+
+        # Now name the object with the given reference or some variation
+        # of it that doesn't collide with anything else in the list.
+        self._ref = get_unique_name(self.circuit.parts, "ref", self.ref_prefix, r)
+        return
+
+    @ref.deleter
+    def ref(self):
+        """
+        Delete the part reference.
+        """
+        rmv_unique_name(self.circuit.parts, "ref", self._ref)
+        self._ref = None
+
+    @property
+    def value(self):
+        """
+        Get the part value.
+        
+        Returns:
+            str: The part's value, or part name if no value is set.
+        """
+        try:
+            return self._value
+        except AttributeError:
+            # If part has no value, return its part name as the value. This is
+            # done in KiCad where a resistor value is set to 'R' if no
+            # explicit value was set.
+            return self.name
+
+    @value.setter
+    def value(self, value):
+        """
+        Set the part value.
+        
+        Args:
+            value: The value to assign to the part.
+        """
+        self._value = value
+
+    @value.deleter
+    def value(self):
+        """
+        Delete the part value.
+        """
+        del self._value
+
+    @property
+    def foot(self):
+        """
+        Get the part footprint.
+        
+        Returns:
+            str: The part's footprint.
+        """
+        return self._foot
+
+    @foot.setter
+    def foot(self, footprint):
+        """
+        Set the part footprint.
+        
+        Args:
+            footprint (str): The footprint to assign to the part.
+        """
+        self._foot = str(footprint)
+
+    @foot.deleter
+    def foot(self):
+        """
+        Delete the part footprint.
+        """
+        del self._foot
+
+    @property
+    def hiertuple(self):
+        """
+        Return a tuple of the node's hierarchy path names from top-most node to this one (self).
+        
+        This provides a string representation of the hierarchical path by extracting
+        the names from each node in the hierarchy chain.
+        
+        Returns:
+            tuple: A tuple of strings representing the names of nodes in the
+                  hierarchical path from root to this node.
+        """
+        return self.node.hiertuple
+
+    @property
+    def tag_ref_name(self):
+        """
+        Return the tag, reference, or name of an object.
+
+        This provides a way to retrieve the most relevant identifier for the object.
+        If the tag is set, it will be returned. Otherwise, if the reference is set,
+        it will be returned. If all else fails, the name will be returned.
+
+        Returns:
+            str: The tag, reference, or name of the object.
+        """
+        return getattr(self, "tag", None) or getattr(self, "ref", None) or getattr(self, "name")
+    
+    @property
+    def hiertuple(self):
+        return self.node.hiertuple
+
+    @property
+    def hiername(self):
+        """
+        Return the hierarchical name of the part.
+        
+        Returns:
+            str: The hierarchical name including hierarchy prefix and tag.
+        """
+
+        return HIER_SEP.join(self.hiertuple + (self.tag_ref_name,))
+
+    @property
+    def partclasses(self):
+        """
+        Get all part classes associated with this part.
+
+        Returns the combined set of part classes from both the hierarchical nodes
+        surrounding this part and the part classes directly assigned to this part.
+
+        Returns:
+            set: A set containing all part classes from the node hierarchy and 
+                the part's directly assigned classes.
+        """
+        # Add all the part classes for all the hierarchical nodes surrounding this part.
+        total_partclasses = self.node.partclasses
+
+        # Add the part classes directly assigned to this part.
+        total_partclasses.add(self._partclasses)
+        
+        return total_partclasses
+
+    @partclasses.setter
+    def partclasses(self, *partclasses):
+        """
+        Add one or more part classes to this part's collection of part classes.
+
+        Args:
+            *partclasses: Variable number of part class objects to be added to this part's
+                         part classes collection. Each part class will be associated with
+                         this part's circuit.
+
+        Returns:
+            None
+
+        Note:
+            The part classes are added to the internal _partclasses collection and
+            automatically associated with the current circuit context.
+        """
+        self._partclasses.add(partclasses, circuit=self.circuit)
+
+    @partclasses.deleter
+    def partclasses(self):
+        """
+        Replace existing list of part classes with an empty PartClasses.
+        """
+        self._partclasses = PartClasses()
+
+
+@export_to_all
+class PartUnit(Part):
+    """
+    Create a PartUnit from a set of pins in a Part object.
+
+    Parts can be organized into smaller pieces called PartUnits. A PartUnit
+    acts like a Part but contains only a subset of the pins of the Part.
+    Except for the pins, the PartUnit is a shallow copy of the Part and
+    cannot store any other unique data.
+
+    Args:
+        part (Part): This is the parent Part whose pins the PartUnit is built from.
+        label (str): A unique label for this unit.
+        pin_ids: A list of strings containing pin names, numbers,
+            regular expressions, slices, lists or tuples. If empty, it
+            will match *every* pin of the part.
+
+    Keyword Args:
+        criteria: Key/value pairs that specify attribute values the
+            pin must have in order to be selected.
+        unit (int): Unit number assigned to this PartUnit. Defaults to 1.
+
+    Examples:
+        This will return unit 1 from a part::
+
+            lm358 = Part('linear','lm358')
+            lm358a = PartUnit(lm358, unit=1)
+
+        Or you can specify the pins directly::
+
+            lm358a = PartUnit(lm358, 1, 2, 3)
+    """
+
+    def __init__(self, parent, label, *pin_ids, **criteria):
+        """
+        Initialize a PartUnit with pins selected from a parent part.
+        
+        Args:
+            parent (Part): Parent part to get pins from.
+            label (str): Label for this unit.
+            pin_ids: Pin names/numbers to include in this unit.
+            
+        Keyword Args:
+            criteria: Key/value pairs for selecting pins.
+            unit (int): Unit number. Defaults to 1.
+        """
+
+        from .pin import Pin
+
+        # Don't use super() for this.
+        SkidlBaseObject.__init__(self)
+
+        # Remember the part that this unit belongs to.
+        self.parent = parent
+
+        # Store the part unit label.
+        self.label = label
+
+        # Store the part unit number if it's given, otherwise default to 1.
+        self.num = criteria.get("unit", 1)
+
+        # Give the PartUnit the same information as the Part it is generated
+        # from so it can act the same way, just with fewer pins.
+        # Do we need this if we define __getattr__ as below?
+        # Yes, since we're no longer using the __getattr__ shown below.
+        for k, v in list(parent.__dict__.items()):
+            self.__dict__[k] = v
+
+        # Setup the pin number and name search objects for this unit
+        # so the equivalent ones in the parent aren't used which will search
+        # *all* pins rather than just the unit's pins.
+        self.p = PinNumberSearch(self)
+        self.n = PinNameSearch(self)
+
+        # Don't associate any units from the parent with this unit itself.
+        self.unit = {}
+
+        # Remove the pins copied from the parent and replace them with
+        # pins selected from the parent.
+        self.pins = []
+
+        # A unit may have no pins but gets them from the global unit 0,
+        # so suppress errors if no pins from this unit are found.
+        self.add_pins_from_parent(*pin_ids, silent=True, **criteria)
+
+        # Now Add pins from the global unit 0. Suppress errors if it doesn't exist.
+        # TODO: KiCad uses unit 0 for global unit. What about other tools?
+        self.add_pins_from_parent(unit=0, silent=True)
+
+    #
+    # This was commented-out because it led to infinite recursion when pickling libraries.
+    #
+    # def __getattr__(self, key):
+    #     """Return attribute from parent Part if it wasn't found in the PartUnit."""
+    #     # FIXME: This allows the unit to access *all* the attributes of the parent
+    #     #        even those it shouldn't be able to (like pins not assigned to it).
+    #     return getattr(self.parent, key)
+
+    def add_pins_from_parent(self, *pin_ids, **criteria):
+        """
+        Add selected pins from the parent to the part unit.
+        
+        Args:
+            pin_ids: Pin names/numbers to add from parent.
+            
+        Keyword Args:
+            criteria: Key/value pairs for selecting pins.
+        """
+
+        # Get new pins selected from the parent.
+        new_pins = to_list(self.parent.get_pins(*pin_ids, **criteria))
+        # Remove None if that's gotten into the list.
+        try:
+            new_pins.remove(None)
+        except ValueError:
+            pass
+
+        # Add attributes (via aliases) for accessing the new pins.
+        for pin in new_pins:
+            pin.aliases += pin.name
+            pin.aliases += "p" + str(pin.num)
+
+        # Add new pins to existing pins of the unit, removing duplicates.
+        self.pins = list(set(self.pins + new_pins))
+
+    def validate(self):
+        """
+        Check that unit pins point to the parent part.
+        
+        Raises:
+            AssertionError: If pins don't refer to the parent part.
+        """
+        for pin in self.pins:
+            assert id(pin.part) == id(self.parent)
+
+    def grab_pins(self):
+        """
+        Grab pin from Part and assign to PartUnit.
+        
+        This changes each pin's part reference to point to this unit.
+        """
+        for pin in self.pins:
+            pin.part = self
+
+    def release_pins(self):
+        """
+        Return PartUnit pins to parent Part.
+        
+        This changes each pin's part reference to point back to the parent part.
+        """
+        for pin in self.pins:
+            pin.part = self.parent
+
+    def export(self):
+        """
+        Return a string describing the PartUnit for exporting purposes.
+        
+        Returns:
+            str: Dictionary representation of the unit as a string.
+        """
+        d = dict()
+        d["label"] = self.label
+        d["num"] = self.num
+        d["pin_nums"] = [pin.num for pin in self.pins]
+        return repr(d)
+
+    @property
+    def ref(self):
+        """
+        Get the unit's hierarchical reference.
+        
+        Returns:
+            str: Reference in the form "parent_ref.label"
+        """
+        return HIER_SEP.join((self.parent.ref, self.label))
+    
+    @property
+    def hiertuple(self):
+        return self.parent.hiertuple
+
+
+PartTmplt = functools.partial(Part, dest=TEMPLATE)
+PartTmplt.__doc__ = """
+    Shortcut for creating a Part template.
+    
+    Creates a Part that is not added to the default circuit.
+    """
+
+SkidlPart = functools.partial(Part, tool="skidl", dest=TEMPLATE)
+SkidlPart.__doc__ = """ 
+    A class for storing a SKiDL definition of a schematic part.
+    
+    It's identical to its Part superclass except:
+
+    + The tool defaults to SKIDL.
+    + The destination defaults to TEMPLATE so that it's easier to start
+        a part and then add pins to it without it being added to the netlist.
+    """
+
+
+@export_to_all
+def default_empty_footprint_handler(part):
+    """
+    Handle the situation of a Part with no footprint when generating netlist/PCB.
+
+    Args:
+        part (Part): The part with no footprint.
+
+    Note:
+        By default, this function logs an error message if the footprint is missing.
+        Override this function if you want to try and set some default footprint
+        for particular types of parts (such as using an 0805 footprint for a resistor).
+    """
+
+    from .logger import active_logger
+
+    active_logger.bare_error(
+        f"No footprint for {part.name}/{part.ref} added at {part.src_line(True)}."
+    )

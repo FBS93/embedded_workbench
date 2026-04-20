@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "skidl": {
+      "published_at": "2026-04-08T15:02:19Z",
+      "resolved_commit": "02d0c8f80102c2b4a3e1925d253b77c41ca3bafc",
+      "resolved_release": "v2.2.3",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/devbisme/skidl/tarball/v2.2.3"
+    }
+  }
 }

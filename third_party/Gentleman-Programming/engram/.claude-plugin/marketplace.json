@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "engram",
+  "description": "Persistent memory for AI coding agents — agent-agnostic, single binary, zero dependencies",
+  "owner": {
+    "name": "Gentleman Programming",
+    "email": "gentlemanprogramming.dev@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "engram",
+      "description": "Persistent memory with session tracking, compaction recovery, and Memory Protocol. Gives Claude a brain that survives across sessions.",
+      "version": "0.1.1",
+      "author": {
+        "name": "Gentleman Programming"
+      },
+      "source": "./plugin/claude-code",
+      "category": "productivity",
+      "homepage": "https://github.com/Gentleman-Programming/engram"
+    }
+  ]
+}

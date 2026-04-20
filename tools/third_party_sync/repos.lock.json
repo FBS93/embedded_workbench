@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "engram": {
+      "published_at": "2026-04-12T13:53:55Z",
+      "resolved_commit": "9f87509a3fa09e892c9a59408ccbdbf28c2c199b",
+      "resolved_release": "v1.12.0",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/Gentleman-Programming/engram/tarball/v1.12.0"
+    }
+  }
 }

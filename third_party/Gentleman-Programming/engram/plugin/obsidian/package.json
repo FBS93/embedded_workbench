@@ -1,0 +1,18 @@
+{
+  "name": "engram-brain",
+  "version": "1.0.0",
+  "description": "Obsidian plugin to sync Engram persistent memory into your vault",
+  "main": "main.js",
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "dev": "node esbuild.config.mjs --watch"
+  },
+  "keywords": ["obsidian-plugin", "engram", "memory", "ai"],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.21.0",
+    "obsidian": "^1.4.0",
+    "typescript": "^5.0.0"
+  }
+}

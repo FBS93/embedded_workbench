@@ -1,0 +1,10 @@
+{
+  "id": "engram-brain",
+  "name": "Engram Brain",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Sync your Engram persistent memory into your Obsidian vault as interconnected markdown notes.",
+  "author": "Gentleman Programming",
+  "authorUrl": "https://github.com/Gentleman-Programming/engram",
+  "isDesktopOnly": false
+}

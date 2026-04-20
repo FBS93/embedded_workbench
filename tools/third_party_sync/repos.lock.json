@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "gentleman-dots": {
+      "published_at": "2026-04-12T14:06:56Z",
+      "resolved_commit": "d6d422f19a2134b7a1efb150abdf173352453435",
+      "resolved_release": "v2.10.0",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/Gentleman-Programming/Gentleman.Dots/tarball/v2.10.0"
+    }
+  }
 }

@@ -2,12 +2,11 @@
 
 ## Overview
 
-AI-assisted SDD (Spec Driven Development) defines a workflow where specifications drive development activities, with AI (Artificial Intelligence) tools supporting design, implementation, and validation tasks. It integrates with the V-model development methodology defined in the template to ensure that all generated work products follow the defined processes.
-
-The AI integration is supported by the following components:
-- [AI Gentle Stack](https://github.com/Gentleman-Programming/gentle-ai)
-- [OpenCode](https://opencode.ai/)
-- [Skills](../../skills/) defined in the template, referencing the [V-model development methodology and processes](../development_methodology/development_methodology_overview.md)
+AI-assisted SDD (Spec Driven Development) defines a workflow in which specifications drive development activities, with AI (Artificial Intelligence) tools supporting design, implementation, and validation tasks. In this template, it is integrated with the V-model development methodology as follows:
+1. The [V-model development methodology](../development_methodology/development_methodology_overview.md) defines the engineering processes, their inputs, outputs, resources and traceability rules.
+2. The [skills](../../skills/) provided by the repository map those processes to AI-usable entry points.
+3. [AI Gentle Stack](https://github.com/Gentleman-Programming/gentle-ai) provides the AI-assisted SDD environment.
+4. [OpenCode](https://opencode.ai/) provides the main user interface for accessing and coordinating the available AI capabilities.
 
 ## Glossary
 
@@ -17,4 +16,8 @@ The AI integration is supported by the following components:
 
 ## Usage example
 
-@todo
+A repository activity is aligned first with the corresponding V-model process defined in the development methodology.
+
+The smallest repository skill matching that process or supporting activity is then used.
+
+That skill references the applicable process documentation and resources, allowing the corresponding work products to be produced or reviewed in a repository-aligned and traceable way.

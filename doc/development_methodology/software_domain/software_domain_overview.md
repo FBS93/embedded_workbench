@@ -74,6 +74,7 @@ Software unit folders may be nested to support logical grouping and hierarchical
 ## Resources
 
 - Software test definition. See [resources/software_test_definition.md](resources/software_test_definition.md).
+- Custom CMake functions. See [resources/custom_cmake_functions.md](resources/custom_cmake_functions.md).
 - Embedded C coding guidelines. See [resources/embedded_c_coding_guidelines.md](resources/embedded_c_coding_guidelines.md).
 - ASM formatter tool. See [resources/asm_format.md](resources/asm_format.md).
 - Embedded target remote debugging. See [resources/embedded_target_remote_debugging.md](resources/embedded_target_remote_debugging.md).

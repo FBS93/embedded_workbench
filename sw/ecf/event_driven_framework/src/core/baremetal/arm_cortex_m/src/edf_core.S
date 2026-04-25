@@ -54,11 +54,6 @@
 .section .text
 .align 4
 
-/**
- * @todo Find a formatter for assembly code (similar to clang-format for C)
- * to avoid manual comment formatting (e.g., asmfmt).
- */
-
 .global PendSV_Handler
 .type PendSV_Handler, %function
 PendSV_Handler:

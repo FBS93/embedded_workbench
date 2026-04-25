@@ -51,9 +51,6 @@ endif()
 #     add_subdirectory(ecf)
 # ******************************************************************************
 
-# @todo Verify whether if(NOT DEFINED ...) is strictly necessary to avoid
-# overwriting user-defined configuration values, or if it can be safely omitted.
-
 # ==============================================================================
 # EBF default configuration.
 # ==============================================================================

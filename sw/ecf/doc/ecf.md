@@ -37,6 +37,20 @@ The ECF build configuration is mainly controlled through the following CMake cac
 
 These variables are typically defined in the project [CMakePresets.json](../../../CMakePresets.json).
 
+### Platform integration
+
+When `ECF_TARGET_PLATFORM` is defined, ECF loads the selected platform package and its platform-specific CMake integration.
+
+The `platform.cmake` file of the selected platform package centralizes the common platform-specific build configuration that shall be applied to the relevant embedded executables, such as startup files, linker scripts, libraries, and target-specific compiler or linker options.
+
+The [STM32F103C8Tx platform package](../platform/stm32f103c8tx/doc/stm32f103c8tx_platform_package.md) shall be used as the reference example.
+
+### Test and mock integration
+
+When `ECF_TEST` is enabled, ECF loads its CMake functions for test registration and mock integration.
+
+For software tests and mocks using the ECF test and mock utilities, ECF provides the CMake functions defined in [`ecf_test.cmake`](../tools/cmake/functions/ecf_test.cmake) and [`ecf_mock.cmake`](../tools/cmake/functions/ecf_mock.cmake). The function contracts and expected usage are defined in their header documentation.
+
 # Glossary
 
 | Term | Definition |

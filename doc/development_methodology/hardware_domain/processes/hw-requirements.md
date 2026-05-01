@@ -2,13 +2,12 @@
 
 ## Purpose
 
-Define hardware requirements from system requirements, system architecture and mechanical-hardware interface.
+Define hardware requirements from system requirements and system architecture.
 
 ## Input work products
 
 - System requirements
 - System architecture
-- Mechanical-hardware interface
 
 ## Output work products
 
@@ -16,10 +15,10 @@ Define hardware requirements from system requirements, system architecture and m
 
 ## Steps
 
-1. Review the system requirements, system architecture, and mechanical-hardware interface.
+1. Review the system requirements and system architecture.
 2. Identify the needs to be addressed by the hardware requirements.
-3. Define the hardware requirements derived from the system requirements, system architecture, and mechanical-hardware interface.
-4. Define traceability from hardware requirements to system requirements, system architecture, and mechanical-hardware interface.
+3. Define the hardware requirements derived from the system requirements and system architecture.
+4. Define traceability from hardware requirements to system requirements and system architecture.
 5. Check the hardware requirements for completeness, consistency, and correctness.
 
 ## Guidelines

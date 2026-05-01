@@ -41,7 +41,7 @@ These skills map directly to development processes and should be used following 
 
 | Skill | Purpose | Path |
 |---|---|---|
-| `hw-requirements` | Define hardware requirements from system requirements, system architecture and mechanical-hardware interface. | skills/hw-requirements/SKILL.md |
+| `hw-requirements` | Define hardware requirements from system requirements and system architecture. | skills/hw-requirements/SKILL.md |
 | `hw-architecture` | Define hardware architecture from hardware requirements. | skills/hw-architecture/SKILL.md |
 | `hw-implementation` | Implement the hardware design from hardware requirements and hardware architecture. | skills/hw-implementation/SKILL.md |
 | `hw-integration-test` | Define and implement hardware integration tests against hardware architecture to validate that the hardware implementation correctly realizes it. | skills/hw-integration-test/SKILL.md |
@@ -51,7 +51,7 @@ These skills map directly to development processes and should be used following 
 
 | Skill | Purpose | Path |
 |---|---|---|
-| `mech-requirements` | Define mechanical requirements from system requirements and system architecture. | skills/mech-requirements/SKILL.md |
+| `mech-requirements` | Define mechanical requirements from system requirements, system architecture and hardware-mechanical interface. | skills/mech-requirements/SKILL.md |
 | `mech-architecture` | Define mechanical architecture from mechanical requirements. | skills/mech-architecture/SKILL.md |
 | `mech-implementation` | Implement the mechanical design from mechanical requirements and mechanical architecture. | skills/mech-implementation/SKILL.md |
 | `mech-integration-test` | Define and implement mechanical integration tests against mechanical architecture to validate that the mechanical implementation correctly realizes it. | skills/mech-integration-test/SKILL.md |

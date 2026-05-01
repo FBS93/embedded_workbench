@@ -29,7 +29,7 @@ The development flow is organized across the following domains:
 - System domain: Defines and validates the system based on specifications.
 - Engineering domains (one or more depending on system needs): Define and validate domain-specific implementations based on the system domain (e.g., software, hardware, ...). Engineering domains are typically developed in parallel. However, dependencies between domains may define a prioritized execution flow when required. For example:
   - Software domain may depend on hardware domain for low-level drivers or hardware interfaces.
-  - Hardware domain may depend on mechanical domain for enclosure constraints, connector accessibility, or mounting constraints.
+  - Mechanical domain may depend on hardware domain for outline constraints or hardware interfaces.
 
 Not all engineering domains shall apply to all projects.
 

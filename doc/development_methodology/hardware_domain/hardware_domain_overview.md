@@ -10,6 +10,7 @@
 | Hardware component | Traceable element of the hardware architecture representing an indivisible architectural element that addresses one or more needs specified by hardware requirements.  |
 | Hardware interface | Traceable element of the hardware architecture defining the interaction between hardware components or between hardware and external elements. |
 | Hardware parameter | Traceable element of the hardware architecture defining values that affect the hardware solution. |
+| Hardware-mechanical interface | Work product defining the traceable elements from the hardware domain that are relevant for the mechanical domain. |
 | Hardware-software interface | Work product defining the traceable elements from the hardware domain that are relevant for the software domain. |
 | Hardware integration test | Traceable element validating the hardware architecture. |
 | Hardware qualification test | Traceable element validating the hardware requirements. |

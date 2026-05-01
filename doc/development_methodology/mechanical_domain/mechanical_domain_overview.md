@@ -10,7 +10,6 @@
 | Mechanical component | Traceable element of the mechanical architecture representing an indivisible architectural element that addresses one or more needs specified by mechanical requirements. |
 | Mechanical interface | Traceable element of the mechanical architecture defining the interaction between mechanical components. |
 | Mechanical parameter | Traceable element of the mechanical architecture defining values that affect the mechanical solution. |
-| Mechanical-hardware interface | Work product defining the traceable elements from the mechanical domain that are relevant for the hardware domain. |
 | Mechanical integration test | Traceable element validating the mechanical architecture. |
 | Mechanical qualification test | Traceable element validating the mechanical requirements. |
 

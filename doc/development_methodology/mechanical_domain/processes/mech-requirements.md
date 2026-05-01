@@ -2,12 +2,13 @@
 
 ## Purpose
 
-Define mechanical requirements from system requirements and system architecture.
+Define mechanical requirements from system requirements, system architecture and hardware-mechanical interface.
 
 ## Input work products
 
 - System requirements
 - System architecture
+- Hardware-mechanical interface
 
 ## Output work products
 
@@ -15,10 +16,10 @@ Define mechanical requirements from system requirements and system architecture.
 
 ## Steps
 
-1. Review the system requirements and system architecture.
+1. Review the system requirements, system architecture, and hardware-mechanical interface.
 2. Identify the needs to be addressed by the mechanical requirements.
-3. Define the mechanical requirements derived from the system requirements and system architecture.
-4. Define traceability from mechanical requirements to system requirements and system architecture.
+3. Define the mechanical requirements derived from the system requirements, system architecture, and hardware-mechanical interface.
+4. Define traceability from mechanical requirements to system requirements, system architecture, and hardware-mechanical interface.
 5. Check the mechanical requirements for completeness, consistency, and correctness.
 
 ## Guidelines

@@ -13,6 +13,7 @@ Implement the hardware design from hardware requirements and hardware architectu
 ## Output work products
 
 - Hardware implementation
+- Hardware-mechanical interface
 - Hardware-software interface
 
 ## Steps
@@ -22,9 +23,12 @@ Implement the hardware design from hardware requirements and hardware architectu
 3. Implement each hardware assembly according to its hardware architecture definition.
 4. Ensure consistency between the implementation and the hardware architecture and hardware requirements.
 5. Check the hardware implementation for completeness, consistency, and correctness.
-6. Define the hardware-software interface according to the hardware architecture and hardware implementation.
-7. Ensure consistency between hardware-software interface, hardware architecture and hardware implementation.
-8. Check the hardware-software interface for completeness, consistency, and correctness.
+6. Define the hardware-mechanical interface according to the hardware architecture and hardware implementation.
+7. Ensure consistency between hardware-mechanical interface, hardware architecture and hardware implementation.
+8. Check the hardware-mechanical interface for completeness, consistency, and correctness.
+9. Define the hardware-software interface according to the hardware architecture and hardware implementation.
+10. Ensure consistency between hardware-software interface, hardware architecture and hardware implementation.
+11. Check the hardware-software interface for completeness, consistency, and correctness.
 
 ## Guidelines
 
@@ -68,6 +72,18 @@ When a hardware assembly requires a PCB, the PCB implementation shall:
 The hardware implementation shall not be considered complete until the human responsible for the PCB implementation explicitly confirms that the PCB implementation is complete.
 
 AI-assisted tooling may continue with other tasks that does not depend on the final PCB implementation. However, no activity depending on the final PCB implementation shall be considered complete until the required human confirmation is provided.
+
+### Hardware-mechanical interface work product
+
+The hardware-mechanical interface work product shall follow the [Cross-domain interface definition](../../resources/cross_domain_interface_definition.md).
+
+The hardware-mechanical interface work product shall be defined using as input the traceable elements of the hardware architecture and hardware implementation that are relevant to the mechanical domain.
+
+The hardware-mechanical interface work product may include, for example, when applicable:
+- PCB outline constraints.
+- Mounting hole definitions and keep-out constraints.
+- Connector locations and accessibility constraints.
+- A 3D model of the PCB including all assembled components.
 
 ### Hardware-software interface work product
 

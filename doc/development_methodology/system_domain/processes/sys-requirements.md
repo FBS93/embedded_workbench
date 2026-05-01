@@ -26,6 +26,8 @@ Define system requirements from specifications.
 
 The system requirements work product shall follow the [Requirements definition](../../resources/requirements_definition.md).
 
+System requirements shall be defined in a clear and unambiguous way. When input specifications are ambiguous or incomplete, the ambiguity shall not be propagated downstream and shall be resolved through an explicit technically viable proposal.
+
 #### Domain attribute
 
 System requirements shall define an additional domain attribute to specify the engineering domains to which the requirement applies.

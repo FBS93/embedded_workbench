@@ -93,7 +93,7 @@ Architecture parameters shall have the following attributes:
 - A unique and descriptive name for the parameter, following the pattern: `<domain>p_<architectureParameterName>`.
   - `<domain>` identifies the engineering domain using its abbreviation in lower case.
   - `<architectureParameterName>` is the unique parameter name written in camelCase.
-- A description defining the parameter. The description shall include all necessary information to fully specify the parameter, written in a clear and concise manner.
+- A description defining the parameter. The description shall include all necessary information to fully specify the parameter, written in a clear and concise manner, including its explicit value and units when applicable.
 - Upstream traceability to one or more requirements. Shall be defined as a list of Markdown links referencing the corresponding requirements.
 
 The following parameter template shall be used:

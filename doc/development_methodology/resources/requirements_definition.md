@@ -85,7 +85,7 @@ Parameter requirements shall have the following attributes:
 - A unique and descriptive name for the parameter, following the pattern: `<domain>p_<requirementParameterName>`.
   - `<domain>` identifies the engineering domain using its abbreviation in lower case.
   - `<requirementParameterName>` is the unique parameter name written in camelCase.
-- A description defining the parameter. The description shall include all necessary information to fully specify the parameter, written in a clear and concise manner.
+- A description defining the parameter. The description shall include all necessary information to fully specify the parameter, written in a clear and concise manner, including its explicit value and units when applicable.
 - Upstream traceability to one or more upstream elements. Shall be defined as a list of Markdown links referencing the corresponding upstream element.
 
 The following parameter requirement template shall be used:

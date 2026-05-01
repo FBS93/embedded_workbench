@@ -63,6 +63,7 @@ These skills support the development process but are not tied to a specific V-mo
 
 | Skill | Purpose | Path |
 |---|---|---|
+| `spec-review` | Review specifications process work products before closure. | skills/spec-review/SKILL.md |
 | `sys-review` | Review system process work products before closure. | skills/sys-review/SKILL.md |
 | `sw-review` | Review software process work products before closure. | skills/sw-review/SKILL.md |
 | `hw-review` | Review hardware process work products before closure. | skills/hw-review/SKILL.md |

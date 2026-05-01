@@ -54,6 +54,7 @@ Each tool of the `tools.md` document shall:
 - Describe how each tool shall be used. 
   - Reference how it is integrated into the [Embedded Workbench](../../../ew.md) when applicable instead of redefining it.
   - Reference tool-specific manuals or stakeholder documentation that support its usage.
+- Not redefine tools already provided by Embedded Workbench.
 
 The following tool template shall be used:
 

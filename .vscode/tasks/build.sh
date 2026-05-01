@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-echo "🔨 Build C project 🔨"
+echo "🔨 Build"
 
 # Parse command-line arguments.
 if [ "$#" -lt 3 ]; then
@@ -21,6 +21,12 @@ fi
 
 if [ ! -d "${source_dir}" ]; then
     echo "❌ Error: source directory not found: ${source_dir}"
+    exit 1
+fi
+
+# Validate required commands.
+if ! command -v cmake >/dev/null 2>&1; then
+    echo "❌ Error: cmake not found."
     exit 1
 fi
 

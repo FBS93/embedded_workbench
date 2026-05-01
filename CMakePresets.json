@@ -49,6 +49,37 @@
       }
     },
     {
+      "name": "host_fuzz",
+      "displayName": "Host (fuzz)",
+      "inherits": "base",
+      "toolchainFile": "tools/cmake/toolchains/linux_afl_clang_lto.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS": "",
+        "CMAKE_C_FLAGS_DEBUG": "-O0 -g3",
+        "EDF_EXAMPLE_FUZZ": "ON",
+        "ECF_TEST": "OFF",
+        "EBF_CORE": "EBF_CORE_OS",
+        "EBF_PORT": "EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ"
+      }
+    },
+    {
+      "name": "host_fuzz_coverage",
+      "displayName": "Host (fuzz coverage)",
+      "inherits": "base",
+      "toolchainFile": "tools/cmake/toolchains/linux_clang.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_FLAGS": "",
+        "CMAKE_C_FLAGS_DEBUG": "-O0 -g3 -fprofile-instr-generate -fcoverage-mapping",
+        "CMAKE_EXE_LINKER_FLAGS": "-fprofile-instr-generate -fcoverage-mapping",
+        "EDF_EXAMPLE_FUZZ": "ON",
+        "ECF_TEST": "OFF",
+        "EBF_CORE": "EBF_CORE_OS",
+        "EBF_PORT": "EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ"
+      }
+    },
+    {
       "name": "target_stm32f103c8tx",
       "displayName": "Target STM32F103C8Tx (release)",
       "inherits": "base",

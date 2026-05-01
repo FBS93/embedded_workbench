@@ -27,6 +27,8 @@ The repository exposes these functions through three VS Code entry point types:
 | Clean | `clean` task, `🧹 Clean` task button | Cleans the build artifacts generated for the active CMake preset. | |
 | Format | `format` task, `🧼 Format all source files` task button | Formats repository C, ASM, CMake, and Python sources using the configured repository tooling. ASM files are also formatted on save through VS Code settings. | [Embedded C coding guidelines](../development_methodology/software_domain/resources/embedded_c_coding_guidelines.md), [Python coding guidelines](../development_methodology/resources/python_coding_guidelines.md), [ASM formatter tool](../development_methodology/software_domain/resources/asm_format.md) |
 | Lint | `lint` task, `🔎 Run linter` task button | Runs the configured software static analysis workflow using the active CMake preset. | |
+| Fuzz | `run_fuzz` task, `🧪 Run fuzzer` task button | Runs the selected fuzz target using the active CMake build target. | |
+| Fuzz source coverage | `run_fuzz_coverage` task, `📊 Run fuzzer coverage` task button | Replays the fuzz campaign results available for the selected fuzz target to generate coverage reports using the active CMake build target. | [Fuzz example](../../sw/ecf/event_driven_framework/example/fuzz_example/doc/fuzz_example.md) |
 | Host debug | `Host` launch configuration | Launches host-side debugging for the active CMake launch target. | |
 | Target debug | `Target STM32F103C8Tx (launch/attach)` launch configurations, `run_target_gdb_server` task | Launches or attaches a remote debug session on the target platform. | [Embedded target remote debugging](../development_methodology/software_domain/resources/embedded_target_remote_debugging.md) |
 | Target logging | `run_target_logging_server` task, `📃 Enable target logging` task button | Starts the remote logging workflow for the target platform. | [Embedded target remote logging](../development_methodology/software_domain/resources/embedded_target_remote_logging.md) |
@@ -61,6 +63,7 @@ The repository also expects VS Code Remote - Containers support on the host mach
 - `mhutchie.git-graph`
 - `bierner.markdown-mermaid`
 - `bierner.markdown-preview-github-styles`
+- `ms-vscode.live-server`
 
 ### Devcontainer - Software domain
 - `ms-vscode.cmake-tools`
@@ -68,6 +71,7 @@ The repository also expects VS Code Remote - Containers support on the host mach
 - `dan-c-underwood.arm`
 - `ms-python.python`
 - `marus25.cortex-debug`
+- `ms-vscode.hexeditor`
 - `ms-vscode.vscode-serial-monitor`
 - `emeraldwalk.runonsave`
 

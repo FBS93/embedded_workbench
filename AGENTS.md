@@ -68,5 +68,6 @@ These skills support the development process but are not tied to a specific V-mo
 | `hw-review` | Review hardware process work products before closure. | skills/hw-review/SKILL.md |
 | `mech-review` | Review mechanical process work products before closure. | skills/mech-review/SKILL.md |
 | `sw-debug` | Debug software issues by investigating problems and deriving accurate conclusions based on evidence to enable correct resolution. | skills/sw-debug/SKILL.md |
+| `sw-fuzz-corpus` | Analyze EDF fuzzable events to generate an AFL++ corpus. | skills/sw-fuzz-corpus/SKILL.md |
 | `workbench-debug` | Debug and resolve development environment issues by investigating problems and deriving accurate conclusions based on evidence. | skills/workbench-debug/SKILL.md |
 | `technical-note` | Create technical notes for relevant embedded engineering findings. | skills/technical-note/SKILL.md |

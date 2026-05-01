@@ -9,7 +9,9 @@ set -e
 # select the wrong one. In that case, manual filtering must be added.
 # -----------------------------------------------------------------------------
 
-# Load and validate environment variables
+echo "📃 Enable target logging"
+
+# Validate required environment variables.
 : "${RPI_USER:?Missing RPI_USER}"
 : "${RPI_HOST:?Missing RPI_HOST}"
 : "${LOG_PORT:?Missing LOG_PORT}"
@@ -17,23 +19,34 @@ set -e
 : "${NETWORK_LATENCY_TIMEOUT_S:?Missing NETWORK_LATENCY_TIMEOUT_S}"
 : "${WORKSPACE_FOLDER:?Missing WORKSPACE_FOLDER}"
 
+# Validate required commands.
+if ! command -v ssh >/dev/null 2>&1; then
+    echo "❌ Error: ssh not found."
+    exit 1
+fi
+
+if ! command -v scp >/dev/null 2>&1; then
+    echo "❌ Error: scp not found."
+    exit 1
+fi
+
 # Local and remote file paths used to deploy and run the logging server.
 LOCAL_SCRIPT="${WORKSPACE_FOLDER}/tools/run_target_logging_server/run_target_logging_server.py"
 REMOTE_SCRIPT="/tmp/run_target_logging_server.py"
 REMOTE_LOG="/tmp/run_target_logging_server.log"
 
 if [ ! -f "${LOCAL_SCRIPT}" ]; then
-  echo "❌ Missing local script: ${LOCAL_SCRIPT}"
-  exit 1
+    echo "❌ Error: local script not found: ${LOCAL_SCRIPT}"
+    exit 1
 fi
 
-# Copy target logging server script to Raspberry Pi (overwrite if exists).
+# Copy the target logging server script to the Raspberry Pi.
 scp -o StrictHostKeyChecking=accept-new "${LOCAL_SCRIPT}" "${RPI_USER}@${RPI_HOST}:${REMOTE_SCRIPT}" >/dev/null
 
 ssh -o StrictHostKeyChecking=accept-new "${RPI_USER}@${RPI_HOST}" bash << EOF
 set -e
 
-# Find serial device.
+# Find the serial device.
 SERIAL_NAME=\$(ls -1 /dev/serial/by-id/ 2>/dev/null | head -n1)
 if [ -z "\$SERIAL_NAME" ]; then
     echo "❌ No USB serial device found."
@@ -43,7 +56,7 @@ fi
 SERIAL_DEV="/dev/serial/by-id/\$SERIAL_NAME"
 echo "USB serial device found: \$SERIAL_DEV."
 
-# Reuse existing logging server when healthy and matching device/port.
+# Reuse the existing logging server when healthy and matching the device and port.
 if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT" && \
    /usr/bin/pgrep -f "python3 ${REMOTE_SCRIPT} \${SERIAL_DEV} ${LOG_PORT} ${LOG_BAUD_RATE}" >/dev/null; then
     if bash -c "exec 9<>/dev/tcp/127.0.0.1/$LOG_PORT" 2>/dev/null; then
@@ -60,11 +73,11 @@ if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
 fi
 /usr/bin/pkill -f "python3 ${REMOTE_SCRIPT}" 2>/dev/null || true
 
-# Start logging server.
+# Start the logging server.
 nohup python3 "${REMOTE_SCRIPT}" "\${SERIAL_DEV}" "${LOG_PORT}" "${LOG_BAUD_RATE}" \
     > "${REMOTE_LOG}" 2>&1 &
 
-# Wait for TCP port.
+# Wait for the TCP port.
 TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT_S} * 1000) }')
 while true; do
     if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then

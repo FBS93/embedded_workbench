@@ -90,6 +90,13 @@
       "path": "third_party/Bouni/kicad-jlcpcb-tools",
       "ref_type": "auto",
       "ref": ""
+    },
+    {
+      "id": "aflplusplus",
+      "url": "https://github.com/AFLplusplus/AFLplusplus",
+      "path": "third_party/AFLplusplus/AFLplusplus",
+      "ref_type": "auto",
+      "ref": ""
     }
   ]
 }

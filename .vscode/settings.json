@@ -6,6 +6,7 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
     "editor.detectIndentation": false,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "[c]": {
         "editor.defaultFormatter": "ms-vscode.cpptools",
         "editor.formatOnSave": true
@@ -123,6 +124,14 @@
                 {
                     "label": "🔎 Run linter",
                     "task": "lint"
+                },
+                {
+                    "label": "🧪 Run fuzzer",
+                    "task": "run_fuzz"
+                },
+                {
+                    "label": "📊 Run fuzzer coverage",
+                    "task": "run_fuzz_coverage"
                 }
             ],
             "tooltip": "Software toolbox"

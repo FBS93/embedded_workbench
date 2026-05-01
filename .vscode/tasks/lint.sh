@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+echo "🔎 Run linter"
+
 # Parse command-line arguments.
 if [ "$#" -lt 3 ]; then
     echo "Usage: $0 [SOURCE_DIR] [WORKSPACE_ROOT] [PRESET]"
@@ -16,17 +18,23 @@ compile_commands="${build_dir}/compile_commands.json"
 header_filter="^${source_dir}/.*"
 lint_status=0
 
-# Validate required paths.
+# Validate required inputs.
 if [ ! -d "${source_dir}" ]; then
     echo "❌ Error: source directory not found: ${source_dir}"
     exit 1
 fi
 
-if [ ! -f "${workspace_root}/.clang-tidy" ]; then
-    echo "❌ Error: .clang-tidy file not found in ${workspace_root}"
+if [ ! -d "${workspace_root}" ]; then
+    echo "❌ Error: workspace directory not found: ${workspace_root}"
     exit 1
 fi
 
+if [ ! -f "${workspace_root}/.clang-tidy" ]; then
+    echo "❌ Error: .clang-tidy file not found: ${workspace_root}/.clang-tidy"
+    exit 1
+fi
+
+# Validate required commands.
 if ! command -v clang-tidy >/dev/null 2>&1; then
     echo "❌ Error: clang-tidy not found."
     exit 1
@@ -41,6 +49,8 @@ if [ ! -f "${compile_commands}" ]; then
 fi
 
 # Clean previous log.
+: "${preset:?}"
+mkdir -p "${build_dir}"
 : > "${log_file}"
 
 found_files=0

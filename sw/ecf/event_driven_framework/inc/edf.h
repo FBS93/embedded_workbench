@@ -107,8 +107,9 @@ void EDF_onShutdown(void);
 void EDF_ISRExit(void);
 #endif  //(EBF_CORE == EBF_CORE_BAREMETAL)
 
-#if ((EBF_CORE == EBF_CORE_BAREMETAL) || \
-     (EBF_PORT == EBF_PORT_POSIX_NON_PREEMPTIVE))
+#if ((EBF_CORE == EBF_CORE_BAREMETAL) ||            \
+     (EBF_PORT == EBF_PORT_POSIX_NON_PREEMPTIVE) || \
+     (EBF_PORT == EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ))
 /**
  * @brief User-specific context switch callback.
  *
@@ -135,7 +136,8 @@ void EDF_onContextSwitch(EDF_activeObject_t* prev, EDF_activeObject_t* next);
  */
 void EDF_onIdle(void);
 #endif  // ((EBF_CORE == EBF_CORE_BAREMETAL) ||
-        //  (EBF_PORT == EBF_PORT_POSIX_NON_PREEMPTIVE))
+        //  (EBF_PORT == EBF_PORT_POSIX_NON_PREEMPTIVE) ||
+        //  (EBF_PORT == EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ))
 
 /**
  * @todo Implement a logging mechanism called edf_spy module to collect

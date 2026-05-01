@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+echo "🧹 Clean"
+
 # Parse command-line arguments.
 if [ "$#" -lt 2 ]; then
     echo "Usage: $0 [PRESET] [SOURCE_DIR]"
@@ -10,7 +12,7 @@ fi
 preset="$1"
 source_dir="$2"
 
-# Validate source directory input.
+# Validate required inputs.
 if [ ! -d "${source_dir}" ]; then
     echo "❌ Error: source directory not found: ${source_dir}"
     exit 1

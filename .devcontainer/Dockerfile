@@ -8,6 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ################################################################################
 
 RUN apt-get update && apt-get install -y \
+    curl \
     git \
     wget \
     sudo \
@@ -15,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     python3-dev \
+    python3-setuptools \
     python-is-python3 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -39,13 +41,42 @@ ENV LC_ALL=C.UTF-8
 # https://github.com/microsoft/vscode-serial-monitor/issues/137#issuecomment-1804710798
 RUN apt-get update && apt-get install -y \
     build-essential \
+    automake \
+    bison \
     cmake \
+    clang-18 \
     clang-format \
     clang-tidy \
+    flex \
     gdb \
+    gcc-14-plugin-dev \
+    libstdc++-14-dev \
+    lld-18 \
+    llvm-18 \
+    llvm-18-dev \
     udev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Download and install AFL++ from the GitHub release tarball
+ARG AFLPP_VERSION=4.40c
+RUN set -eux; \
+    cd /tmp; \
+    curl -fsSLO "https://github.com/AFLplusplus/AFLplusplus/archive/refs/tags/v${AFLPP_VERSION}.tar.gz"; \
+    tar -xzf "v${AFLPP_VERSION}.tar.gz"; \
+    cd "AFLplusplus-${AFLPP_VERSION}"; \
+    make source-only LLVM_CONFIG=llvm-config-18; \
+    make install; \
+    rm -rf "/tmp/AFLplusplus-${AFLPP_VERSION}" "/tmp/v${AFLPP_VERSION}.tar.gz"
+
+# Download and install the upstream AFLplusplus/cov-analysis helper used by the
+# source-coverage VS Code task.  This script wraps LLVM source coverage replay
+# and report generation for AFL++ corpora.
+ARG COV_ANALYSIS_REF=main
+RUN set -eux; \
+    curl -fsSL "https://raw.githubusercontent.com/AFLplusplus/cov-analysis/${COV_ANALYSIS_REF}/cov-analysis" \
+      -o /usr/local/bin/cov-analysis; \
+    chmod 0755 /usr/local/bin/cov-analysis
 
 # Download and install ARM GNU Toolchain
 ARG ARM_GCC_VERSION=15.2.rel1
@@ -123,7 +154,6 @@ RUN python -m pip install --break-system-packages \
 
 # Install extra dependencies required by AI Gentle Stack
 RUN apt-get update && apt-get install -y \
-    curl \
     nodejs \
     npm \
     golang \

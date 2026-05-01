@@ -1,5 +1,7 @@
 if(EBF_PORT STREQUAL "EBF_PORT_POSIX_NON_PREEMPTIVE")
     add_subdirectory(posix_non_preemptive)
+elseif(EBF_PORT STREQUAL "EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ")
+    add_subdirectory(posix_non_preemptive_fuzz)
 elseif(EBF_PORT STREQUAL "EBF_PORT_POSIX_PREEMPTIVE")
     add_subdirectory(posix_preemptive)
 else()

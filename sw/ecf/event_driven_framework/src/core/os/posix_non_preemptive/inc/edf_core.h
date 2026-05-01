@@ -35,6 +35,7 @@
  * Project-specific headers
  * -------------------------------------------------------------------------- */
 #include "edf_active_object.h"
+#include "emf.h"
 
 /*******************************************************************************
  * PUBLIC MACROS
@@ -104,7 +105,7 @@ typedef struct
 /**
  * @brief EDF core instance.
  *
- * @note Declared global to allow acces from macros defined in this file.
+ * @note Declared global to allow access from macros defined in this file.
  */
 extern EDF_core_t EDF_core;
 

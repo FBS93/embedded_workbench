@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-# Load and validate environment variables
+echo "🧹 Clean KiCad runtime state"
+
+# Validate required environment variables.
 : "${KICAD_CONFIG_HOME:?Missing KICAD_CONFIG_HOME}"
 : "${KICAD_DOCUMENTS_HOME:?Missing KICAD_DOCUMENTS_HOME}"
 

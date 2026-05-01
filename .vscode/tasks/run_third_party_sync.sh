@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+echo "🔄 Sync third-party repositories"
+
 # Parse command-line arguments.
 if [ "$#" -lt 1 ]; then
     echo "Usage: $0 [WORKSPACE_ROOT]"
@@ -9,15 +11,15 @@ fi
 
 workspace_root="$1"
 
-# Validate workspace input.
+# Validate required inputs.
 if [ ! -d "${workspace_root}" ]; then
     echo "❌ Error: workspace directory not found: ${workspace_root}"
     exit 1
 fi
 
-# Validate required command.
-if ! command -v python >/dev/null 2>&1; then
-    echo "❌ Error: python not found."
+# Validate required commands.
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "❌ Error: python3 not found."
     exit 1
 fi
 

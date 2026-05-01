@@ -97,6 +97,24 @@
         "${workspaceFolder}",
         "${command:cmake.activeConfigurePresetName}"
       ]
+    },
+    {
+      "label": "run_fuzz",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_fuzz.sh",
+      "args": [
+        "${command:cmake.buildTargetName}",
+        "${config:cmake.sourceDirectory}"
+      ]
+    },
+    {
+      "label": "run_fuzz_coverage",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_fuzz_coverage.sh",
+      "args": [
+        "${command:cmake.buildTargetName}",
+        "${config:cmake.sourceDirectory}"
+      ]
     }
   ]
 }

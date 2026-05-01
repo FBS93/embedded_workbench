@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-# Validate required command.
+echo "🧊 Open CQ-Editor"
+
+# Validate required commands.
 if ! command -v cq-editor >/dev/null 2>&1; then
     echo "❌ Error: cq-editor not found."
     exit 1

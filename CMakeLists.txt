@@ -31,6 +31,9 @@ include(tools/cmake/functions/ect_add_executable.cmake)
 # Set ECF_TEST to OFF if not defined.
 option(ECF_TEST "Build Embedded C Framework tests" OFF)
 
+# Set EDF_EXAMPLE_FUZZ to OFF if not defined.
+option(EDF_EXAMPLE_FUZZ "Build the EDF fuzz example application" OFF)
+
 if(ECF_TEST)
     # Enable CTest.
     enable_testing() 
@@ -60,12 +63,24 @@ if(NOT DEFINED EBF_CORE)
 endif()
 
 if(NOT DEFINED EBF_PORT)
-    set(EBF_PORT "EBF_PORT_POSIX_NON_PREEMPTIVE" CACHE STRING "Target port: one of {EBF_PORT_ARM_CORTEX_M, EBF_PORT_FREERTOS, EBF_PORT_POSIX_NON_PREEMPTIVE, EBF_PORT_POSIX_PREEMPTIVE}")
+    set(EBF_PORT "EBF_PORT_POSIX_NON_PREEMPTIVE" CACHE STRING "Target port: one of {EBF_PORT_ARM_CORTEX_M, EBF_PORT_FREERTOS, EBF_PORT_POSIX_NON_PREEMPTIVE, EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ, EBF_PORT_POSIX_PREEMPTIVE}")
 endif()
 
-if(EBF_PORT STREQUAL "EBF_PORT_POSIX")
+if(EBF_PORT STREQUAL "EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ" AND ECF_TEST)
+    message(FATAL_ERROR
+        "Invalid configuration: ECF_TEST=ON is not supported with EBF_PORT=EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ. Disable ECF_TEST or select a non-fuzz port."
+    )
+endif()
+
+if(EDF_EXAMPLE_FUZZ AND NOT EBF_PORT STREQUAL "EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ")
+    message(FATAL_ERROR
+        "Invalid configuration: EDF_EXAMPLE_FUZZ=ON requires EBF_PORT=EBF_PORT_POSIX_NON_PREEMPTIVE_FUZZ. Disable EDF_EXAMPLE_FUZZ or select the fuzz port."
+    )
+endif()
+
+if(EBF_PORT MATCHES "^EBF_PORT_POSIX")
     # Expose features from the 2008 POSIX standard (IEEE 1003.1-2008) for all
-    # ECF libraries before including any POSIX-related headers.
+    # POSIX-based ECF ports before including any POSIX-related headers.
     add_compile_definitions(_POSIX_C_SOURCE=200809L)
 endif()
 

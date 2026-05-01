@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-# Validate required command.
+echo "🌐 OpenCode web GUI"
+
+# Validate required commands.
 if ! command -v opencode >/dev/null 2>&1; then
     echo "❌ Error: opencode not found."
     exit 1

@@ -110,7 +110,7 @@ void internal_update(const MyObject * obj)
 ### Include usage
 ---
 
-Implementation files (`.c`) shall always include their own module header (`.h`)  to ensure consistency between the public interface and its implementation.
+Implementation files (`.c`) shall include their corresponding module header (`.h`) whenever such a header exists, to ensure consistency between the public interface and its implementation.
 
 ---
 
@@ -385,7 +385,7 @@ The following template shall be used for `.S` files
 
 All code elements shall be documented using **Doxygen** comments.
 
-The following Doxygen tags are allowed:  `@brief`, `@param`, `@return`, `@note`, `@todo`
+The following Doxygen tags are allowed:  `@brief`, `@param`, `@return`, `@note`, `@todo`, `@ref`
 
 Multi-line documentation blocks shall use the following Doxygen format:
 
@@ -393,7 +393,7 @@ Multi-line documentation blocks shall use the following Doxygen format:
 /**
  * @brief ...
  *
- * ...
+ * ... @ref ...
  *
  * @note ...
  *

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-# Parse command-line arguments
-# Input:
-#  - SOURCE_DIR: directory where recursive formatting starts.
+echo "🧼 Format all source files"
+
+# Parse command-line arguments.
 if [ "$#" -lt 2 ]; then
     echo "Usage: $0 [SOURCE_DIR] [WORKSPACE_ROOT]"
     exit 1
@@ -30,7 +30,12 @@ if [ ! -d "${source_dir}" ]; then
     exit 1
 fi
 
-# Resolve clang-format binary:
+if [ ! -d "${workspace_root}" ]; then
+    echo "❌ Error: workspace directory not found: ${workspace_root}"
+    exit 1
+fi
+
+# Resolve clang-format binary.
 # 1) Use clang-format from PATH.
 # 2) Fallback to VS Code extension bundled binary.
 if command -v clang-format >/dev/null 2>&1; then

@@ -8,6 +8,7 @@ target_include_directories(edf
 
 add_subdirectory(src)
 add_subdirectory(edf_test)
+add_subdirectory(examples)
 
 if(ECF_TEST)
     add_subdirectory(test)

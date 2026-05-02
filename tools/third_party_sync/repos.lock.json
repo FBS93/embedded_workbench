@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "aflplusplus": {
+      "published_at": "2026-03-13T09:24:49Z",
+      "resolved_commit": "e5a8ba39ecf97d05e286fdd4e01da96554dbf64f",
+      "resolved_release": "v4.40c",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/AFLplusplus/AFLplusplus/tarball/v4.40c"
+    }
+  }
 }

@@ -4,7 +4,7 @@ EFF is a lightweight, platform-agnostic fake functions framework designed to run
 - Macro-based creation of fake functions for testing and validation.
 - Fake functions autogeneration script.
 
-The ECF framework provides CMake functions that encapsulate the usage of the autogeneration script. See [ECF cmake functions](../../tools/cmake/functions/ecf_mock.cmake)
+The ECF framework provides [ECF cmake functions](../../tools/cmake/functions/ecf_mock.cmake) that encapsulate the usage of the autogeneration script implemented in [eff_gen.py](../../tools/scripts/eff_gen.py).
 
 This framework is a derivative work based on:
 - fff (c) Meekrosoft.

@@ -31,9 +31,6 @@ include(tools/cmake/functions/ew_add_executable.cmake)
 # Set ECF_TEST to OFF if not defined.
 option(ECF_TEST "Build Embedded C Framework tests" OFF)
 
-# Set EDF_EXAMPLE_FUZZ to OFF if not defined.
-option(EDF_EXAMPLE_FUZZ "Build the EDF fuzz example application" OFF)
-
 if(ECF_TEST)
     # Enable CTest.
     enable_testing() 
@@ -42,6 +39,16 @@ if(ECF_TEST)
     include(sw/ecf/tools/cmake/functions/ecf_test.cmake)
     include(sw/ecf/tools/cmake/functions/ecf_mock.cmake)
 endif()
+
+option(EW_ENABLE_CLANG_TIDY "Run clang-tidy during compilation" OFF)
+
+if(EW_ENABLE_CLANG_TIDY)
+    include(tools/cmake/functions/ew_enable_clang_tidy.cmake)
+    ew_enable_clang_tidy()
+endif()
+
+# Set EDF_EXAMPLE_FUZZ to OFF if not defined.
+option(EDF_EXAMPLE_FUZZ "Build the EDF fuzz example application" OFF)
 
 # ******************************************************************************
 # ECF configuration.

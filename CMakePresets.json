@@ -8,6 +8,7 @@
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
         "ECF_TEST": "ON",
+        "EW_ENABLE_CLANG_TIDY": "OFF",
         "CMAKE_C_FLAGS": "-Wall -Wextra -Wconversion -Werror",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }

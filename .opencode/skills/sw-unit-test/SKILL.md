@@ -19,7 +19,7 @@ description: >
 - Shall never define and implement the software unit tests against the software implementation.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key software unit test decisions.
-- Shall request final validation before closing the software unit test to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

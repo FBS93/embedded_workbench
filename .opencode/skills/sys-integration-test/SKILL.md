@@ -18,7 +18,7 @@ description: >
 - Shall define and implement the system integration tests against system architecture to validate that the system implementation correctly realizes it.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key system integration test decisions.
-- Shall request final validation before closing the system integration test to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

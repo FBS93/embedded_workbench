@@ -36,6 +36,9 @@ Each specification of the `specs.md` document shall:
 - Ensure each specification element is self-contained and understandable.
 - Define a unique identifier for each specification element following the pattern: `SPEC_<X>`
   - `<X>` is a monotonically increasing number that shall never be reused.
+- Define a milestone identifying the V-model milestone to which the specification element belongs following the pattern: `M_<X>`
+  - `<X>` identifies the milestone number and may be shared by multiple specification elements belonging to the same milestone.
+- Define a status indicating the approval state of the specification. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following specification template shall be used:
 
@@ -43,15 +46,19 @@ The following specification template shall be used:
 # SPEC_<X>
 
 <Exact text extracted from stakeholder specifications>.
+
+Milestone: M_<X>
+
+Status: <status>
 ```
 
 ### Tools work product
 
-A dedicated `tools.md` document shall be defined to capture all project-specific tools for project implementation, test and debugging by reviewing stakeholder specifications. 
+A dedicated `tools.md` document shall be defined to capture all project-specific tools for project implementation, test and debugging by reviewing stakeholder specifications.
 
 Each tool of the `tools.md` document shall:
 - Define all project-specific tools available for implementation, test and debugging.
-- Describe how each tool shall be used. 
+- Describe how each tool shall be used.
   - Reference how it is integrated into the [Embedded Workbench](../../../ew.md) when applicable instead of redefining it.
   - Reference tool-specific manuals or stakeholder documentation that support its usage.
 - Not redefine tools already provided by Embedded Workbench.
@@ -63,7 +70,7 @@ The following tool template shall be used:
 
 ## Overview
 
-<Description of the tool and in which cases is useful>.
+<Description of the tool and the cases in which it is useful>.
 
 ## Usage
 

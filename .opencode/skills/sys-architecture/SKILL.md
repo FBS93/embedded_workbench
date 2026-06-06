@@ -18,7 +18,7 @@ description: >
 - Shall prioritize reuse over creation.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key system architectural decisions.
-- Shall request final validation before closing the system architecture to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

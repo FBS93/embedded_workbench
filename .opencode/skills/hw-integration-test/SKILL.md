@@ -19,7 +19,7 @@ description: >
 - Shall use PySpice only when simulation-based validation is appropriate according to the defined process.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key hardware integration test decisions.
-- Shall request final validation before closing the hardware integration test to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

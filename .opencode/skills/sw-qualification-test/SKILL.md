@@ -18,7 +18,7 @@ description: >
 - Shall define and implement the software qualification tests against the software requirements to validate that the software architecture, software detailed design and software implementation correctly realizes them.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key software qualification test decisions.
-- Shall request final validation before closing the software qualification test to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

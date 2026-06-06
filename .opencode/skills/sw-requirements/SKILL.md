@@ -18,7 +18,7 @@ description: >
 - Shall avoid embedding architectural or implementation decisions in software requirements.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval when software requirements are incomplete, ambiguous, or conflicting.
-- Shall request final validation before closing the software requirements to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

@@ -13,10 +13,12 @@ description: >
 ## Critical Patterns
 
 - Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current task.
-- Shall ensure all system process work products are complete and consistent.
-- Shall identify missing traceability, inconsistencies, or deviations from the defined system process.
-- Shall verify that documentation is DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
-- Shall clearly state whether the system process work products are approved and the process can be closed, or if further work is needed.
+- Shall verify the following points only for system process work products with status `not approved`:
+  - Ensure that all system process work products are complete and consistent.
+  - Identify missing traceability, inconsistencies, or deviations from the defined system process.
+  - Verify that documentation is DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
+- Shall update the status of compliant reviewed system process work products to `approved`; work products that fail the review shall remain `not approved`.
+- Shall clearly state whether the system process work products are approved and the process can be closed, or whether further work is needed.
 
 ## Resources
 

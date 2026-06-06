@@ -18,7 +18,7 @@ description: >
 - Shall define and implement the system qualification tests against the system requirements to validate that the system implementation correctly realizes them.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key system qualification test decisions.
-- Shall request final validation before closing the system qualification test to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

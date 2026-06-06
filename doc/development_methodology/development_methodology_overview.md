@@ -39,6 +39,38 @@ Work products belonging to engineering domains that do not apply to the project 
 
 This methodology enforces a structured flow, establishing full traceability from system requirements down to engineering domains implementation and back to system-level validation, ensuring that all requirements are consistently implemented and validated.
 
+## V-model workflow
+
+The complete flow of a V-model milestone is defined as follows:
+- [Specifications](#specifications)
+- System requirements. See [System domain](#system-domain)
+- System architecture. See [System domain](#system-domain)
+- Complete V of each applicable engineering domain. When multiple engineering domains apply, the preferred execution order is:
+  1. [Hardware domain](#hardware-domain)
+  2. [Mechanical domain](#mechanical-domain)
+  3. [Software domain](#software-domain)
+- System integration test. See [System domain](#system-domain)
+- System qualification test. See [System domain](#system-domain)
+- V-model closure audit
+
+```mermaid
+flowchart TD
+    A[Specifications] --> B[System requirements]
+    B --> C[System architecture]
+    C --> D{Applicable engineering domains}
+    D --> SIT[System integration test]
+    SIT --> SQT[System qualification test]
+    SQT --> AUDIT[V-model closure audit]
+```
+
+Each V-model process shall be followed by the corresponding domain review before that process is considered closed. In addition, as indicated by the flow, a final V-model closure audit shall be performed once all processes are considered complete for a given milestone, in order to formally close it.
+
+Milestones define small, self-contained, functionally meaningful groups of specifications. When practical, a larger number of smaller milestones should be preferred over a smaller number of larger milestones.
+
+Each V-model iteration shall be scoped to a single milestone. Only specifications assigned to that milestone, shall be considered in scope.
+
+The V-model may be entered at any point where the relevant upstream work products already exist. It is not required to start at the top-V process for every iteration. When modifying mid-V process work products, the flow shall continue through the remaining applicable processes to preserve the integrity and coherence of all applicable V-model work products.
+
 ## Specifications
 
 See [specifications overview](specifications/specifications_overview.md).

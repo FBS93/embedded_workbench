@@ -18,7 +18,7 @@ description: >
 - Shall define and implement the software integration tests against the software architecture to validate that the software detailed design and software implementation correctly realizes it.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key software integration test decisions.
-- Shall request final validation before closing the software integration test to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

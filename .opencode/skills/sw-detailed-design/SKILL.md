@@ -20,7 +20,7 @@ description: >
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall identify and list all opportunities for reuse and ask for user decision before classifying them as reusable or project-specific.
 - Shall ask for approval on key software detailed design decisions.
-- Shall request final validation before closing the software detailed design to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

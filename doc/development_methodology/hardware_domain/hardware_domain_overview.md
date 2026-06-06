@@ -65,6 +65,8 @@ The `hw/src/<hardware-assembly>/export/` folder contains the exported elements f
 
 Hardware assembly folders may be nested to support logical grouping and hierarchical organization according to hardware complexity. In folders used only for grouping (i.e., not representing a hardware assembly), the `sch/`, `pcb/` and `export/` folders shall not be present.
 
+When the hardware solution is externally provided and is not implemented within the project scope, the hardware domain may be limited to documenting the cross-domain interface work products required by the applicable engineering domains from the technical documentation of the externally provided hardware. See the corresponding work product definitions [Hardware-mechanical interface](processes/hw-implementation.md#hardware-mechanical-interface-work-product) and [Hardware-software interface](processes/hw-implementation.md#hardware-software-interface-work-product).
+
 ## Resources
 
 - Hardware test definition. See [resources/hardware_test_definition.md](resources/hardware_test_definition.md).

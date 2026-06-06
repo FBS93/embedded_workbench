@@ -18,7 +18,7 @@ description: >
 - Shall define and implement the hardware qualification tests against the hardware requirements to validate that the hardware architecture and hardware implementation correctly realize them.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key hardware qualification test decisions.
-- Shall request final validation before closing the hardware qualification test to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

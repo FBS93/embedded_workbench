@@ -18,7 +18,7 @@ description: >
 - Shall define and implement the mechanical integration tests against the mechanical architecture to validate that the mechanical implementation correctly realizes it.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key mechanical integration test decisions.
-- Shall request final validation before closing the mechanical integration test to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

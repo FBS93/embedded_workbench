@@ -18,7 +18,7 @@ description: >
 - Shall progressively refine and update the specifications work product during the interaction.
 - Shall keep documentation DRY (Don't Repeat Yourself) by avoiding duplication of stakeholder content beyond atomic extraction.
 - Shall ask for approval when specifications are incomplete, ambiguous, or conflicting.
-- Shall request final validation before closing the specifications to ensure no further iterations are needed.
+- Shall set produced/modified work products status to `not approved`.
 
 ## Resources
 

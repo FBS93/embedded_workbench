@@ -31,6 +31,7 @@ Functional domain requirements shall have the following attributes:
 - Validation criteria. Shall be defined as a list of one or more criteria describing how the requirement is validated in a clear and unambiguous way, including measurable values, tolerances, or observable behaviors when applicable.
 - Upstream traceability to one or more upstream elements. Shall be defined as a list of Markdown links referencing the corresponding upstream element.
 - References to other requirements of the same engineering domain when applicable. Shall be defined as a list of Markdown links referencing the target requirement identifier.
+- A status indicating the approval state of the requirement. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following functional domain requirement template shall be used:
 
@@ -47,6 +48,8 @@ Upstream traceability:
 
 References:
 - [<DOMAIN>_...](#...)
+
+Status: <status>
 ```
 
 ### Interface requirements
@@ -61,6 +64,7 @@ Interface requirements shall have the following attributes:
   - `<requirementInterfaceName>` is the unique interface name written in camelCase.
 - A description defining the interface. The description shall include all necessary information to fully specify the interface, written in a clear and concise manner.
 - Upstream traceability to one or more upstream elements. Shall be defined as a list of Markdown links referencing the corresponding upstream element.
+- A status indicating the approval state of the interface. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following interface requirement template shall be used:
 
@@ -73,6 +77,8 @@ Name: <domain>i_<requirementInterfaceName>
 
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
+
+Status: <status>
 ```
 
 ### Parameter requirements
@@ -87,6 +93,7 @@ Parameter requirements shall have the following attributes:
   - `<requirementParameterName>` is the unique parameter name written in camelCase.
 - A description defining the parameter. The description shall include all necessary information to fully specify the parameter, written in a clear and concise manner, including its explicit value and units when applicable.
 - Upstream traceability to one or more upstream elements. Shall be defined as a list of Markdown links referencing the corresponding upstream element.
+- A status indicating the approval state of the parameter. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following parameter requirement template shall be used:
 
@@ -99,6 +106,8 @@ Name: <domain>p_<requirementParameterName>
 
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
+
+Status: <status>
 ```
 
 ## Rules

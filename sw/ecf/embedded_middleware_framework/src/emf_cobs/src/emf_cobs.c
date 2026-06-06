@@ -100,10 +100,14 @@ void EMF_cobs_encode(const uint8_t* buff_in,
   {
     if (*buff_in != EMF_COBS_PACKET_DELIMITER)
     {
+      // Precondition enforced by contract assertions.
+      // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
       *out_ptr++ = *buff_in;
       code++;
       if (code == COBS_CODE_MAX)
       {
+        // Precondition enforced by contract assertions.
+        // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
         *code_ptr = code;
         code_ptr = out_ptr++;
         code = 1;
@@ -111,6 +115,8 @@ void EMF_cobs_encode(const uint8_t* buff_in,
     }
     else
     {
+      // Precondition enforced by contract assertions.
+      // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
       *code_ptr = code;
       code_ptr = out_ptr++;
       code = 1;
@@ -119,6 +125,8 @@ void EMF_cobs_encode(const uint8_t* buff_in,
     buff_in++;
   }
 
+  // Precondition enforced by contract assertions.
+  // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
   *code_ptr = code;
   *out_ptr++ = EMF_COBS_PACKET_DELIMITER;
   *len_out = (uint16_t)(out_ptr - buff_out);
@@ -163,11 +171,15 @@ bool EMF_cobs_decode(const uint8_t* buff_in,
     }
     for (uint8_t i = 0; i < block_bytes; i++)
     {
+      // Precondition enforced by contract assertions.
+      // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
       *out_ptr++ = *in_ptr++;
     }
     if ((code < COBS_CODE_MAX) && (in_ptr < end_ptr) &&
         (*in_ptr != EMF_COBS_PACKET_DELIMITER))
     {
+      // Precondition enforced by contract assertions.
+      // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
       *out_ptr++ = EMF_COBS_PACKET_DELIMITER;
     }
   }

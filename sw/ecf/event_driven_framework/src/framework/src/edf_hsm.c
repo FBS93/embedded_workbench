@@ -49,12 +49,16 @@
 /**
  * @brief Dispatches a reserved HSM event to the given state handler.
  *
+ * @note The caller shall ensure that @p state is a valid state handler.
+ *
  * @param state Pointer to the state handler function.
  * @param sig Reserved signal to dispatch. Must be one of the following:
  * @ref EDF_HSM_EMPTY_SIGNAL, @ref EDF_HSM_ENTRY_SIGNAL,
  * @ref EDF_HSM_EXIT_SIGNAL or @ref EDF_HSM_INIT_SIGNAL.
  */
-#define DISPATCH_RESERVED_EVENT(state, sig) \
+#define DISPATCH_RESERVED_EVENT(state, sig)                 \
+  /* State handlers contract is validated by assertions. */ \
+  /* NOLINTNEXTLINE(clang-analyzer-core.CallAndMessage) */  \
   ((*(state))(me, &reservedEvents[(sig)]))
 
 /*******************************************************************************
@@ -321,8 +325,8 @@ static void EDF_hsm_getTransitionPath(EDF_hsm_t* me,
       {
         if (x_path[x_i] == e_path[e_i])
         {
-          *x_idx = x_i - 1;  // Do not exit the LCA.
-          *e_idx = e_i - 1;  // Do not enter the LCA.
+          *x_idx = (int_fast8_t)(x_i - 1);  // Do not exit the LCA.
+          *e_idx = (int_fast8_t)(e_i - 1);  // Do not enter the LCA.
           t_found = true;
           break;
         }
@@ -433,7 +437,9 @@ void EDF_hsm_start(EDF_hsm_t* me, const EDF_event_t* e)
   EAF_ASSERT_BLOCK_END();
 
   // Execute the top-most initial transition.
-  state_ret = (*me->temp_state)(me, e);
+  // State handlers contract is validated by assertions.
+  // NOLINTNEXTLINE(clang-analyzer-core.CallAndMessage)
+  state_ret = me->temp_state(me, e);
 
   // The top-most initial transition shall be taken.
   EAF_ASSERT(state_ret == RET_TRANSITION);
@@ -492,7 +498,9 @@ void EDF_hsm_dispatch(EDF_hsm_t* me, const EDF_event_t* e)
      * Invoke state handler (updates me->temp_state on RET_SUPER or
      * RET_TRANSITION).
      */
-    state_ret = (*aux_state)(me, e);
+    // State handlers contract is validated by assertions.
+    // NOLINTNEXTLINE(clang-analyzer-core.CallAndMessage)
+    state_ret = aux_state(me, e);
 
     // Unhandled due to a guard?
     if (state_ret == RET_UNHANDLED)

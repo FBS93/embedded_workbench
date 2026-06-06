@@ -162,12 +162,14 @@ uint8_t EMF_bitmask_findMax(const uint8_t* bitmask, uint8_t len)
   EAF_ASSERT_IN_BLOCK(len > 0);
   EAF_ASSERT_BLOCK_END();
 
-  max = 0;
-  for (int16_t i = (len - 1); i >= 0; i--)
+  max = 0U;
+  while (len > 0U)
   {
-    if (bitmask[i] != 0U)
+    len--;
+
+    if (bitmask[len] != 0U)
     {
-      max = (uint8_t)(EBF_utils_log2(bitmask[i]) + (i * 8));
+      max = (uint8_t)(EBF_utils_log2(bitmask[len]) + (len * 8U));
     }
   }
 

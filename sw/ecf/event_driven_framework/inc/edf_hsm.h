@@ -73,8 +73,8 @@
  *
  * @param[in] super Superstate handler.
  */
-#define EDF_HSM_RET_SUPER(super)                                       \
-  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)super), \
+#define EDF_HSM_RET_SUPER(super)                                         \
+  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)(super)), \
    (EDF_hsm_stateReturn_t)RET_SUPER)
 
 /**
@@ -85,8 +85,8 @@
  *
  * @param[in] target Target state handler for the transition.
  */
-#define EDF_HSM_RET_TRAN(target)                                        \
-  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)target), \
+#define EDF_HSM_RET_TRAN(target)                                          \
+  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)(target)), \
    (EDF_hsm_stateReturn_t)RET_TRANSITION)
 
 /**

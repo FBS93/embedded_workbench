@@ -132,10 +132,10 @@ void EDF_pool_init(void* pool_storage,
        size -= (uint_fast32_t)new_pool->block_size)
   {
     // Set the next link to next free block.
-    free_block[0] = &free_block[next_block_idx];
+    free_block[0] = (void*)&free_block[next_block_idx];
 
     // Advance to the next block.
-    free_block = free_block[0];
+    free_block = (void**)free_block[0];
 
     // One more free block in the pool.
     ++n_total;
@@ -230,7 +230,7 @@ void EDF_pool_release(EDF_pool_t* me, void* block)
   EAF_ASSERT_IN_CRITICAL_SECTION((me->start <= free_block) &&
                                  (free_block <= me->end));
 
-  free_block[0] = me->free_head;  // Link into the free list.
+  free_block[0] = (void*)me->free_head;  // Link into the free list.
   me->free_head = free_block;     // Set as new head of the free list.
   me->n_free++;                   // One more free block in this pool.
 

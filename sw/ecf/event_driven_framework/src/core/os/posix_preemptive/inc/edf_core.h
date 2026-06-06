@@ -56,7 +56,7 @@
  *
  * @param[in] _ Unused parameter, kept for API compatibility.
  */
-#define EDF_CORE_SCHED_LOCK(_) ((void)0)
+#define EDF_CORE_SCHED_LOCK(_) EMF_UTILS_UNUSED_PARAM(_)
 
 /**
  * @brief Unlock task scheduling.

@@ -98,7 +98,8 @@
  */
 #define EFF_RESET_HISTORY() \
   eff.call_history_idx = 0; \
-  memset(eff.call_history, 0, sizeof(eff.call_history));
+  /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */ \
+  memset((void *)eff.call_history, 0, sizeof(eff.call_history));
 
 /* -----------------------------------------------------------------------------
  * Macros for fake function definition and configuration
@@ -243,7 +244,8 @@
  * @param[in] n Argument index number.
  */
 #define SAVE_ARG(FUNCNAME, n) \
-  memcpy((void *)&FUNCNAME##_fake.arg##n##_val, (void *)&arg##n, sizeof(arg##n));
+  /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */ \
+  memcpy((void *)&FUNCNAME##_fake.arg##n##_val, (const void *)&arg##n, sizeof(arg##n));
 
 /**
  * @brief Checks if there is space to store more call history for a fake function.
@@ -265,7 +267,8 @@
  */
 #define SAVE_RET_HISTORY(FUNCNAME, RETVAL)                    \
   if ((FUNCNAME##_fake.call_count - 1) < EFF_ARG_HISTORY_LEN) \
-    memcpy((void *)&FUNCNAME##_fake.return_val_history[FUNCNAME##_fake.call_count - 1], (const void *)&RETVAL, sizeof(RETVAL));
+    /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */ \
+    memcpy((void *)&FUNCNAME##_fake.return_val_history[FUNCNAME##_fake.call_count - 1], (const void *)&(RETVAL), sizeof(RETVAL));
 
 /**
  * @brief Saves an argument value to the argument history of a fake function.
@@ -276,7 +279,8 @@
  * @param[in] ARGN Argument index number.
  */
 #define SAVE_ARG_HISTORY(FUNCNAME, ARGN) \
-  memcpy((void *)&FUNCNAME##_fake.arg##ARGN##_history[FUNCNAME##_fake.call_count], (void *)&arg##ARGN, sizeof(arg##ARGN));
+  /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */ \
+  memcpy((void *)&FUNCNAME##_fake.arg##ARGN##_history[FUNCNAME##_fake.call_count], (const void *)&arg##ARGN, sizeof(arg##ARGN));
 
 /**
  * @brief Increments the count of dropped argument histories for a fake function.
@@ -300,7 +304,7 @@
   RETURN_TYPE return_val;                             \
   int return_val_seq_len;                             \
   int return_val_seq_idx;                             \
-  RETURN_TYPE *return_val_seq;
+  RETURN_TYPE (*return_val_seq);
 
 /**
  * @brief Declares variables for managing a sequence of custom fake functions.
@@ -329,7 +333,7 @@
  */
 #define REGISTER_CALL(function)                    \
   if (eff.call_history_idx < EFF_CALL_HISTORY_LEN) \
-    eff.call_history[eff.call_history_idx++] = (eff_function_t)function;
+    eff.call_history[eff.call_history_idx++] = (eff_function_t)(function);
 
 /**
  * @brief Returns the appropriate fake function result, handling sequences.
@@ -362,6 +366,7 @@
 #define DEFINE_RESET_FUNCTION(FUNCNAME)                                                                                                           \
   void FUNCNAME##_reset(void)                                                                                                                     \
   {                                                                                                                                               \
+    /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */                                                    \
     memset((void *)&FUNCNAME##_fake, 0, sizeof(FUNCNAME##_fake) - sizeof(FUNCNAME##_fake.custom_fake) - sizeof(FUNCNAME##_fake.custom_fake_seq)); \
     FUNCNAME##_fake.custom_fake = NULL;                                                                                                           \
     FUNCNAME##_fake.custom_fake_seq = NULL;                                                                                                       \

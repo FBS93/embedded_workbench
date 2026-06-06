@@ -123,6 +123,7 @@ static void readSlot(const EMF_arrayFifo_handler_t* handler,
                      uint8_t* data)
 {
   const uint8_t* slot;
+  uint32_t offset;
 
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
@@ -130,7 +131,8 @@ static void readSlot(const EMF_arrayFifo_handler_t* handler,
   EAF_ASSERT_IN_BLOCK(slot_idx < handler->n_slots);
   EAF_ASSERT_BLOCK_END();
 
-  slot = &handler->storage[(uint16_t)slot_idx * handler->slot_size];
+  offset = slot_idx * handler->slot_size;
+  slot = &handler->storage[offset];
   for (uint16_t i = 0U; i < handler->slot_size; ++i)
   {
     data[i] = slot[i];
@@ -142,6 +144,7 @@ static void writeSlot(EMF_arrayFifo_handler_t* handler,
                       const uint8_t* data)
 {
   uint8_t* slot;
+  uint32_t offset;
 
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(handler != NULL);
@@ -149,7 +152,8 @@ static void writeSlot(EMF_arrayFifo_handler_t* handler,
   EAF_ASSERT_IN_BLOCK(slot_idx < handler->n_slots);
   EAF_ASSERT_BLOCK_END();
 
-  slot = &handler->storage[(uint16_t)slot_idx * handler->slot_size];
+  offset = slot_idx * handler->slot_size;
+  slot = &handler->storage[offset];
   for (uint16_t i = 0U; i < handler->slot_size; ++i)
   {
     slot[i] = data[i];

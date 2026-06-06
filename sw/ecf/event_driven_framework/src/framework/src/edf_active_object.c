@@ -154,9 +154,6 @@ void EDF_activeObject_publish(const EDF_event_t* e)
     prio = EMF_bitmask_findMax(subs_list.bitmask,
                                EMF_UTILS_SIZEOF_ARRAY(subs_list.bitmask));
 
-    // Get active object reference.
-    ao = EDF_framework.ao_registry[prio];
-
     EDF_CORE_SCHED_STATUS
     EDF_CORE_SCHED_LOCK(prio);  // Lock the scheduler up to AO's prio.
 

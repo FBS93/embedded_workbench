@@ -79,6 +79,8 @@ static void verifyBuffersEqual(const uint8_t* lhs,
 
   for (byte_index = 0U; byte_index < len; byte_index++)
   {
+    // Caller verifies buffer length equivalence before this helper call.
+    // NOLINTNEXTLINE(clang-analyzer-core.UndefinedBinaryOperatorResult)
     ETF_VERIFY(lhs[byte_index] == rhs[byte_index]);
   }
 }

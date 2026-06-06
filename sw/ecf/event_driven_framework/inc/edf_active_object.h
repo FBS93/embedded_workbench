@@ -62,7 +62,7 @@
  *
  * @param[in] ao Active object instance.
  */
-#define EDF_AO_UPCAST(ao) ((EDF_activeObject_t*)(&ao))
+#define EDF_AO_UPCAST(ao) ((EDF_activeObject_t*)(&(ao)))
 
 /**
  * @brief Compose the priority of an active object.

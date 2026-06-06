@@ -75,7 +75,7 @@
 #define EMF_UTILS_MEM_ALIGNED_SLOT(size)                          \
   struct                                                          \
   {                                                               \
-    void* storage[((size + sizeof(void*) - 1U) / sizeof(void*))]; \
+    void* storage[((size) + sizeof(void*) - 1U) / sizeof(void*)]; \
   }
 
 /*******************************************************************************

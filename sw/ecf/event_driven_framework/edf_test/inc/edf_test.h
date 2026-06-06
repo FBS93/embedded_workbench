@@ -79,7 +79,7 @@
   static const EDFTest_test_t name##_test = {.test_name = #name,           \
                                              .test_init = name##_init,     \
                                              .test_verify = name##_verify, \
-                                             .test_trigger = trigger_signal};
+                                             .test_trigger = (trigger_signal)};
 
 /**
  * @brief Defines the init function for a test case.
@@ -95,7 +95,7 @@
  * @param[in] input_evt_name Variable name for the input event.
  */
 #define EDF_TEST_CASE_VERIFY(name, input_evt_name) \
-  static void name##_verify(const EDF_event_t* input_evt_name)
+  static void name##_verify(const EDF_event_t *(input_evt_name))
 
 /**
  * @brief Verifies a test condition.

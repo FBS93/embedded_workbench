@@ -60,11 +60,10 @@ void effDummy_storeSample(const uint8_t* input_buffer, uint16_t* output_value);
  * @brief Measures a value using a sample counter and sample window.
  *
  * @param[in,out] sample_count Pointer to the sample counter.
- * volatile_use: context_interaction
  * @param[in] sample_window Pointer to the input sample window.
  * @return Measured value.
  */
-uint8_t effDummy_measure(volatile uint8_t* sample_count,
+uint8_t effDummy_measure(uint8_t* sample_count,
                          const uint8_t* sample_window);
 
 /**

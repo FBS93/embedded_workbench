@@ -104,8 +104,8 @@ ETF_TEST_SUITE(test_eff)
     effDummy_registerCallback(dummy_callback);
     selected_buffer =
       effDummy_selectBuffer(candidate_buffers, &reference_value);
-    measured_value = effDummy_measure(&sample_count, sample_window);
-    measured_value = effDummy_measure(&sample_count, sample_window);
+    (void)effDummy_measure(&sample_count, sample_window);
+    (void)effDummy_measure(&sample_count, sample_window);
     measured_value = effDummy_measure(&sample_count, sample_window);
 
     ETF_VERIFY(effDummy_storeSample_fake.call_count == 1U);

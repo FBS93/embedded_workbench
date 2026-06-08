@@ -65,7 +65,9 @@ MAX_LINE_LENGTH = 80
 def normalize_indentation(body):
   normalized_body = body
   stripped = body.lstrip(b" ")
-  is_comment_block_line = stripped.startswith(b"*") or stripped.startswith(b"/*")
+  starts_with_star = stripped.startswith(b"*")
+  starts_with_slash_star = stripped.startswith(b"/*")
+  is_comment_block_line = starts_with_star or starts_with_slash_star
 
   if not is_comment_block_line:
     leading_spaces = len(body) - len(body.lstrip(b" "))
@@ -108,9 +110,14 @@ def split_line_body_and_eol(line):
 # @return Normalized line body.
 ##
 def format_line_body(body):
-  formatted_body = body.replace(b"\t", b"  ") # Replace each tab with two spaces.
-  formatted_body = re.sub(rb"[ \t]+$", b"", formatted_body) # Remove trailing spaces/tabs from the line.
-  formatted_body = normalize_indentation(formatted_body) # Normalize leading indentation to 2-space steps.
+  # Replace each tab with two spaces.
+  formatted_body = body.replace(b"\t", b"  ")
+
+  # Remove trailing spaces/tabs from the line.
+  formatted_body = re.sub(rb"[ \t]+$", b"", formatted_body)
+
+  # Normalize leading indentation to 2-space steps.
+  formatted_body = normalize_indentation(formatted_body)
 
   return formatted_body
 
@@ -198,6 +205,7 @@ def collect_line_length_warnings(asm_files):
 
   return warnings
 
+
 ##
 # @brief Main formatter workflow.
 #
@@ -215,7 +223,10 @@ def main():
   changed_count = format_files(asm_files)
   warnings = collect_line_length_warnings(asm_files)
 
-  print(f"ASM formatter: processed {len(asm_files)} files, updated {changed_count}.", flush=True)
+  print(
+    f"ASM formatter: processed {len(asm_files)} files, updated {changed_count}.",
+    flush=True,
+  )
   for warning in warnings:
     print(f"Warning: {warning}", flush=True)
 

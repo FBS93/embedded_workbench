@@ -50,8 +50,10 @@
 /**
  * @brief Initializer for an immutable event.
  */
-#define EDF_EVENT_IMMUTABLE_INIT(sig) \
-  {(EDF_event_signal_t)(sig), 0x00U, EDF_EVENT_REF_CNT_IMMUTABLE}
+#define EDF_EVENT_IMMUTABLE_INIT(sig)                             \
+  {                                                               \
+    (EDF_event_signal_t)(sig), 0x00U, EDF_EVENT_REF_CNT_IMMUTABLE \
+  }
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS

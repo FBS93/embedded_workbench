@@ -231,8 +231,8 @@ void EDF_pool_release(EDF_pool_t* me, void* block)
                                  (free_block <= me->end));
 
   free_block[0] = (void*)me->free_head;  // Link into the free list.
-  me->free_head = free_block;     // Set as new head of the free list.
-  me->n_free++;                   // One more free block in this pool.
+  me->free_head = free_block;            // Set as new head of the free list.
+  me->n_free++;                          // One more free block in this pool.
 
   EBF_CRITICAL_SECTION_EXIT();
 }

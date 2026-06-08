@@ -73,13 +73,14 @@
  * @param[in] name Name of the test case.
  * @param[in] trigger_signal Signal used to trigger the test case verify phase.
  */
-#define EDF_TEST_CASE(name, trigger_signal)                                \
-  static void name##_init(void);                                           \
-  static void name##_verify(const EDF_event_t* e);                         \
-  static const EDFTest_test_t name##_test = {.test_name = #name,           \
-                                             .test_init = name##_init,     \
-                                             .test_verify = name##_verify, \
-                                             .test_trigger = (trigger_signal)};
+#define EDF_TEST_CASE(name, trigger_signal)        \
+  static void name##_init(void);                   \
+  static void name##_verify(const EDF_event_t* e); \
+  static const EDFTest_test_t name##_test = {      \
+    .test_name = #name,                            \
+    .test_init = name##_init,                      \
+    .test_verify = name##_verify,                  \
+    .test_trigger = (trigger_signal)};
 
 /**
  * @brief Defines the init function for a test case.
@@ -95,7 +96,7 @@
  * @param[in] input_evt_name Variable name for the input event.
  */
 #define EDF_TEST_CASE_VERIFY(name, input_evt_name) \
-  static void name##_verify(const EDF_event_t *(input_evt_name))
+  static void name##_verify(const EDF_event_t*(input_evt_name))
 
 /**
  * @brief Verifies a test condition.
@@ -121,14 +122,20 @@
  *
  * @param[in] name Name of the test case.
  */
-#define EDF_TEST_RUN(name) {.test = name##_test, .skip = false}
+#define EDF_TEST_RUN(name)             \
+  {                                    \
+    .test = name##_test, .skip = false \
+  }
 
 /**
  * @brief Register a test to be skipped.
  *
  * @param[in] name Name of the test case.
  */
-#define EDF_TEST_SKIP(name) {.test = name##_test, .skip = true}
+#define EDF_TEST_SKIP(name)           \
+  {                                   \
+    .test = name##_test, .skip = true \
+  }
 
 /**
  * @brief Define an array of test entries.

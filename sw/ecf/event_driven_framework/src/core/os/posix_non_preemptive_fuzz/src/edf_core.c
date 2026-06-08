@@ -262,8 +262,8 @@ static bool injectFuzzEvent(const EDF_fuzz_eventDescriptor_t* descriptor,
 
     if (payload_len >= expected_payload_len)
     {
-      event = EDF_event_initMutable(descriptor->mutable_event_size,
-                                    descriptor->sig);
+      event =
+        EDF_event_initMutable(descriptor->mutable_event_size, descriptor->sig);
       EAF_ASSERT(event != NULL);
 
       if (expected_payload_len > 0U)

@@ -63,8 +63,7 @@ void effDummy_storeSample(const uint8_t* input_buffer, uint16_t* output_value);
  * @param[in] sample_window Pointer to the input sample window.
  * @return Measured value.
  */
-uint8_t effDummy_measure(uint8_t* sample_count,
-                         const uint8_t* sample_window);
+uint8_t effDummy_measure(uint8_t* sample_count, const uint8_t* sample_window);
 
 /**
  * @brief Selects a candidate buffer using a reference buffer.

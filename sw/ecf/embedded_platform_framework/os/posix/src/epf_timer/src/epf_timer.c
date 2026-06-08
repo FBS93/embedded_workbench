@@ -143,8 +143,8 @@ static void* ticker_thread(void* arg)
    *
    * Attaching freshly armed timers (@c me->new_head) is also unified:
    * - When @c *t_link == NULL and @c me->new_head != NULL, simply do
-   *   @c *t_link = me->new_head; (this attaches the new timer list either at the
-   * beginning of me->armed_head or after its last node).
+   *   @c *t_link = me->new_head; (this attaches the new timer list either at
+   *   the beginning of me->armed_head or after its last node).
    *
    * This way the same code handles head removal, internal removals and
    * attaching new timers without branching on special cases.

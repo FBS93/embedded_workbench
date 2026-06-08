@@ -57,6 +57,7 @@ MAX_CLIENTS = 0
 # FUNCTIONS
 # ==============================================================================
 
+
 ##
 # @brief Map integer baud rate to termios constant.
 #
@@ -118,7 +119,10 @@ def open_serial_raw(serial_dev, baud_rate):
 ##
 def main():
   if len(sys.argv) != 4:
-    print("Usage: run_target_logging_server.py <serial_device> <tcp_port> <baud_rate>", flush=True)
+    print(
+      "Usage: run_target_logging_server.py <serial_device> <tcp_port> <baud_rate>",
+      flush=True,
+    )
     sys.exit(1)
 
   serial_dev = sys.argv[1]
@@ -147,7 +151,10 @@ def main():
     print(f"❌ Failed to bind/listen on TCP port {tcp_port}: {e}", flush=True)
     sys.exit(1)
 
-  print(f"✅ Python logging bridge ready on TCP port {tcp_port} for {serial_dev}", flush=True)
+  print(
+    f"✅ Python logging bridge ready on TCP port {tcp_port} for {serial_dev}",
+    flush=True,
+  )
 
   clients = set()
   while True:

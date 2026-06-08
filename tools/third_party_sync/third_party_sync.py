@@ -61,6 +61,7 @@ GITHUB_API_BASE_URL = "https://api.github.com"
 # FUNCTIONS
 # ==============================================================================
 
+
 ##
 # @brief Parse command-line arguments.
 #
@@ -97,6 +98,7 @@ def parse_args():
 
   return parser.parse_args()
 
+
 ##
 # @brief Read and parse a JSON file.
 #
@@ -118,6 +120,7 @@ def read_json_file(file_path, required):
     print(f"❌ Invalid JSON in {file_path}: {error}", flush=True)
     sys.exit(1)
 
+
 ##
 # @brief Write a JSON object to disk.
 #
@@ -129,6 +132,7 @@ def write_json_file(file_path, payload):
   with file_path.open("w", encoding="utf-8") as file_handle:
     json.dump(payload, file_handle, indent=2, sort_keys=True)
     file_handle.write("\n")
+
 
 ##
 # @brief Validate manifest structure and return repository entries.
@@ -158,7 +162,9 @@ def validate_manifest(manifest):
     repository_ref = repository.get("ref", "")
 
     if not isinstance(repository_id, str) or repository_id.strip() == "":
-      print(f"❌ repositories[{index}].id must be a non-empty string.", flush=True)
+      print(
+        f"❌ repositories[{index}].id must be a non-empty string.", flush=True
+      )
       sys.exit(1)
 
     if repository_id in seen_ids:
@@ -167,11 +173,15 @@ def validate_manifest(manifest):
     seen_ids.add(repository_id)
 
     if not isinstance(repository_url, str) or repository_url.strip() == "":
-      print(f"❌ repositories[{index}].url must be a non-empty string.", flush=True)
+      print(
+        f"❌ repositories[{index}].url must be a non-empty string.", flush=True
+      )
       sys.exit(1)
 
     if not isinstance(repository_path, str) or repository_path.strip() == "":
-      print(f"❌ repositories[{index}].path must be a non-empty string.", flush=True)
+      print(
+        f"❌ repositories[{index}].path must be a non-empty string.", flush=True
+      )
       sys.exit(1)
 
     if Path(repository_path).is_absolute():
@@ -208,6 +218,7 @@ def validate_manifest(manifest):
 
   return validated
 
+
 ##
 # @brief Filter repositories by id when requested.
 #
@@ -220,14 +231,19 @@ def filter_repositories(repositories, repository_id):
     return repositories
 
   filtered_repositories = [
-    repository for repository in repositories if repository["id"] == repository_id
+    repository
+    for repository in repositories
+    if repository["id"] == repository_id
   ]
 
   if len(filtered_repositories) == 0:
-    print(f"❌ Repository id not found in manifest: {repository_id}", flush=True)
+    print(
+      f"❌ Repository id not found in manifest: {repository_id}", flush=True
+    )
     sys.exit(1)
 
   return filtered_repositories
+
 
 ##
 # @brief Parse owner/repo from a GitHub URL.
@@ -239,7 +255,9 @@ def parse_github_slug(repository_url):
   parsed = urllib.parse.urlparse(repository_url)
 
   if parsed.netloc not in ["github.com", "www.github.com"]:
-    print(f"❌ Only github.com URLs are supported: {repository_url}", flush=True)
+    print(
+      f"❌ Only github.com URLs are supported: {repository_url}", flush=True
+    )
     sys.exit(1)
 
   path = parsed.path.rstrip("/")
@@ -252,6 +270,7 @@ def parse_github_slug(repository_url):
     sys.exit(1)
 
   return f"{segments[0]}/{segments[1]}"
+
 
 ##
 # @brief Perform a GitHub API GET request and decode JSON response.
@@ -285,6 +304,7 @@ def github_api_get_json(url, github_token):
   except urllib.error.URLError as error:
     print(f"❌ Network error while requesting {url}: {error}", flush=True)
     sys.exit(1)
+
 
 ##
 # @brief Perform a GitHub API GET request returning None on HTTP 404.
@@ -322,6 +342,7 @@ def github_api_get_json_or_none(url, github_token):
     print(f"❌ Network error while requesting {url}: {error}", flush=True)
     sys.exit(1)
 
+
 ##
 # @brief Resolve the commit SHA associated with a repository ref.
 #
@@ -344,7 +365,9 @@ def resolve_commit_sha(repository_slug, ref_name, github_token, error_context):
   if github_token:
     headers["Authorization"] = f"Bearer {github_token}"
 
-  request = urllib.request.Request(commit_api_url, headers=headers, method="GET")
+  request = urllib.request.Request(
+    commit_api_url, headers=headers, method="GET"
+  )
 
   try:
     with urllib.request.urlopen(request) as response:
@@ -365,7 +388,9 @@ def resolve_commit_sha(repository_slug, ref_name, github_token, error_context):
     )
     sys.exit(1)
   except urllib.error.URLError as error:
-    print(f"❌ Network error while requesting {commit_api_url}: {error}", flush=True)
+    print(
+      f"❌ Network error while requesting {commit_api_url}: {error}", flush=True
+    )
     sys.exit(1)
 
   commit_sha = commit_metadata.get("sha")
@@ -378,6 +403,7 @@ def resolve_commit_sha(repository_slug, ref_name, github_token, error_context):
     sys.exit(1)
 
   return commit_sha
+
 
 ##
 # @brief Resolve snapshot metadata for one repository entry.
@@ -399,14 +425,14 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
   ref_value = ref_value.strip()
 
   def resolve_latest_release_or_none():
-    release_api_url = f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/latest"
+    release_api_url = (
+      f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/latest"
+    )
     return github_api_get_json_or_none(release_api_url, github_token)
 
   def resolve_release_by_tag_or_fail(release_tag):
     encoded_tag = urllib.parse.quote(release_tag, safe="")
-    release_api_url = (
-      f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/tags/{encoded_tag}"
-    )
+    release_api_url = f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/tags/{encoded_tag}"
     metadata = github_api_get_json_or_none(release_api_url, github_token)
     if metadata is None:
       print(
@@ -440,11 +466,17 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
     tarball_url = release_metadata.get("tarball_url")
 
     if not isinstance(resolved_release, str) or resolved_release.strip() == "":
-      print(f"❌ Missing tag_name in release metadata for {repository_slug}", flush=True)
+      print(
+        f"❌ Missing tag_name in release metadata for {repository_slug}",
+        flush=True,
+      )
       sys.exit(1)
 
     if not isinstance(tarball_url, str) or tarball_url.strip() == "":
-      print(f"❌ Missing tarball_url in release metadata for {repository_slug}", flush=True)
+      print(
+        f"❌ Missing tarball_url in release metadata for {repository_slug}",
+        flush=True,
+      )
       sys.exit(1)
 
     resolved_commit = resolve_commit_sha(
@@ -467,7 +499,9 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
   default_branch = repository_metadata.get("default_branch")
 
   if not isinstance(default_branch, str) or default_branch.strip() == "":
-    print(f"❌ Missing default_branch for repository {repository_slug}", flush=True)
+    print(
+      f"❌ Missing default_branch for repository {repository_slug}", flush=True
+    )
     sys.exit(1)
 
   if ref_type == "commit" and ref_value != "":
@@ -485,7 +519,9 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
       "Default branch",
     )
 
-  commit_api_url = f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/commits/{resolved_commit}"
+  commit_api_url = (
+    f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/commits/{resolved_commit}"
+  )
   commit_metadata = github_api_get_json(commit_api_url, github_token)
 
   commit_date = None
@@ -502,6 +538,7 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
     "commit_date": commit_date,
     "tarball_url": f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/tarball/{resolved_commit}",
   }
+
 
 ##
 # @brief Download a URL to a local file.
@@ -535,6 +572,7 @@ def download_file(url, destination_path, github_token):
     print(f"❌ Network error while downloading {url}: {error}", flush=True)
     sys.exit(1)
 
+
 ##
 # @brief Extract a GitHub release tarball into a target path.
 #
@@ -557,7 +595,9 @@ def extract_tarball_to_path(tarball_path, target_path):
         continue
 
       member_name = member.name.lstrip("/")
-      member_parts = [part for part in member_name.split("/") if part not in ["", "."]]
+      member_parts = [
+        part for part in member_name.split("/") if part not in ["", "."]
+      ]
       if len(member_parts) < 2:
         continue
 
@@ -585,6 +625,7 @@ def extract_tarball_to_path(tarball_path, target_path):
       with destination.open("wb") as destination_file:
         shutil.copyfileobj(file_object, destination_file)
 
+
 ##
 # @brief Determine whether a repository entry needs update.
 #
@@ -603,7 +644,9 @@ def needs_update(lock_entry, target_path, snapshot_metadata):
   if lock_entry.get("source") != snapshot_metadata.get("source"):
     return True
 
-  if lock_entry.get("resolved_commit") != snapshot_metadata.get("resolved_commit"):
+  if lock_entry.get("resolved_commit") != snapshot_metadata.get(
+    "resolved_commit"
+  ):
     return True
 
   resolved_release = snapshot_metadata.get("resolved_release")
@@ -611,6 +654,7 @@ def needs_update(lock_entry, target_path, snapshot_metadata):
     return lock_entry.get("resolved_release") != resolved_release
 
   return False
+
 
 ##
 # @brief Build a readable snapshot label for logs.
@@ -631,6 +675,7 @@ def snapshot_label(snapshot_metadata):
 
   return "unknown"
 
+
 ##
 # @brief Synchronize repositories from manifest to workspace.
 #
@@ -641,7 +686,9 @@ def snapshot_label(snapshot_metadata):
 # @param[in] github_token Optional GitHub token.
 # @return Updated lock data.
 ##
-def synchronize_repositories(repositories, lock_data, workspace_root, dry_run, github_token):
+def synchronize_repositories(
+  repositories, lock_data, workspace_root, dry_run, github_token
+):
   lock_repositories = lock_data.get("repositories")
   if not isinstance(lock_repositories, dict):
     lock_repositories = {}
@@ -684,14 +731,19 @@ def synchronize_repositories(repositories, lock_data, workspace_root, dry_run, g
     )
 
     if not dry_run:
-      with tempfile.TemporaryDirectory(prefix="third_party_sync_") as temporary_directory:
+      with tempfile.TemporaryDirectory(
+        prefix="third_party_sync_"
+      ) as temporary_directory:
         tarball_path = Path(temporary_directory) / "release.tar"
-        download_file(snapshot_metadata["tarball_url"], tarball_path, github_token)
+        download_file(
+          snapshot_metadata["tarball_url"], tarball_path, github_token
+        )
         extract_tarball_to_path(tarball_path, repository_path)
 
     updated_lock_repositories[repository_id] = snapshot_metadata
 
   return {"repositories": updated_lock_repositories}
+
 
 ##
 # @brief Main third-party synchronization workflow.
@@ -737,6 +789,7 @@ def main():
 
   write_json_file(lock_path, updated_lock_data)
   print(f"✅ Lock file updated: {lock_path}", flush=True)
+
 
 # ==============================================================================
 # SCRIPT ENTRY POINT

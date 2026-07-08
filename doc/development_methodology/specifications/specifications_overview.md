@@ -7,6 +7,7 @@
 | Stakeholder specification | Source information provided by stakeholders describing needs, constraints and expectations. |
 | Specification | Traceable element derived from stakeholder specifications representing the smallest meaningful unit of information. |
 | Tool | Project resource used for development, validation, or debugging. |
+| External hardware documentation | Documentation for external hardware used by the project's target product. |
 
 ## Processes
 
@@ -35,5 +36,6 @@ Stakeholder specifications shall be provided in plain text formats, for example:
 Stakeholder specifications shall include:
 - A high-level description of the system including objectives, expected behavior and constraints
 - Tools available for the project, including usage instructions or references
+- References to external hardware documentation used by the project's target product
 
 The content shall be clear, structured and as unambiguous as possible.

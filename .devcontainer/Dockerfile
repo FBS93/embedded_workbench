@@ -96,59 +96,6 @@ RUN python -m pip install --break-system-packages \
     cmakelang
 
 ################################################################################
-# Hardware domain
-################################################################################
-
-# Install KiCad
-RUN apt-get update && apt-get install -y \
-    software-properties-common \
-    && add-apt-repository --yes ppa:kicad/kicad-10.0-releases \
-    && apt-get update && apt-get install -y --install-recommends \
-    kicad \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install hardware-domain Python tooling globally in the devcontainer so it is
-# available to the whole workspace without introducing an additional virtual
-# environment layer. --break-system-packages is intentional here because this
-# is a controlled development container image rather than a shared host Python
-# installation.
-RUN python -m pip install --break-system-packages \
-    skidl \
-    PySpice \
-    JLC2KiCadLib
-
-################################################################################
-# Mechanical domain
-################################################################################
-
-RUN apt-get update && apt-get install -y \
-    libdbus-1-3 \
-    libegl1 \
-    libfontconfig1 \
-    libgl1 \
-    libopengl0 \
-    libsm6 \
-    libx11-xcb1 \
-    libxcb-cursor0 \
-    libxcb-icccm4 \
-    libxext6 \
-    libxcb-keysyms1 \
-    libxcb-xinerama0 \
-    libxkbcommon-x11-0 \
-    libxrender1 \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install CadQuery tooling globally in the devcontainer so it is available to the
-# whole workspace without introducing an additional virtual environment layer.
-# --break-system-packages is intentional here because this is a controlled
-# development container image rather than a shared host Python installation.
-RUN python -m pip install --break-system-packages \
-    cadquery \
-    cq-editor
-
-################################################################################
 # AI support with OpenCode
 ################################################################################
 

@@ -12,6 +12,7 @@ Define project specifications from stakeholder specifications.
 
 - Specifications
 - Tools
+- External hardware documentation
 
 ## Steps
 
@@ -22,6 +23,9 @@ Define project specifications from stakeholder specifications.
 5. Identify tools available for project development, validation and debugging.
 6. Define the tools.
 7. Check the tools for completeness, consistency and correctness.
+8. Identify external hardware documentation for hardware used by the project’s target product.
+9. Define the external hardware documentation.
+10. Check the external hardware documentation for completeness, consistency and correctness.
 
 ## Guidelines
 
@@ -75,4 +79,24 @@ The following tool template shall be used:
 ## Usage
 
 <Usage description. May include references to manufacturer manuals or stakeholder specifications explaining how to use the tool>.
+```
+
+### External hardware documentation work product
+
+A dedicated `external_hw_docs.md` document shall be defined to capture stakeholder-provided documentation for external hardware used by the project's target product by reviewing stakeholder specifications.
+
+Each external hardware documentation of the `external_hw_docs.md` document shall:
+- Define a unique identifier for each external hardware documentation entry following the pattern: `EHW_DOC_<X>`
+  - `<X>` is a monotonically increasing number that shall never be reused.
+- Provide a brief description of the external hardware documentation.
+- Provide a link to the stakeholder-provided external hardware documentation.
+
+The following external hardware documentation template shall be used:
+
+```md
+# EHW_DOC_<X>
+
+<Brief description of the external hardware documentation>.
+
+Link: <link to stakeholder-provided document>
 ```

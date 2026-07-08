@@ -43,8 +43,10 @@ Platform requirements shall have the following attributes:
 - A description using the following pattern: `<subject> shall <required behavior>.`
   - `<subject>` identifies the element that is responsible for fulfilling the requirement.
   - `<required behavior>` may include actions, conditions, constraints, timing, or any other information needed to define the requirement clearly.
+- Validation criteria. Shall be defined as a list of one or more criteria describing how the requirement is validated in a clear and unambiguous way, including measurable values, tolerances, or observable behaviors when applicable.
 - Upstream traceability to one or more upstream elements. Shall be defined as a list of Markdown links referencing the corresponding upstream element.
 - References to other requirements of the same engineering domain when applicable. Shall be defined as a list of Markdown links referencing the target requirement identifier.
+- A status indicating the approval state of the platform requirement. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following platform requirement template shall be used:
 
@@ -53,9 +55,14 @@ The following platform requirement template shall be used:
 
 <subject> shall <required behavior>.
 
+Validation criteria:
+- <criterion>
+
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
 
 References:
 - [SW_...](#...)
+
+Status: <status>
 ```

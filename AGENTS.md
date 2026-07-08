@@ -75,21 +75,7 @@ The following skills map directly to development processes and should be used fo
 
 | Skill | Purpose | Path |
 |---|---|---|
-| `hw-requirements` | Define hardware requirements from system requirements and system architecture. | .opencode/skills/hw-requirements/SKILL.md |
-| `hw-architecture` | Define hardware architecture from hardware requirements. | .opencode/skills/hw-architecture/SKILL.md |
-| `hw-implementation` | Implement the hardware design from hardware requirements and hardware architecture. | .opencode/skills/hw-implementation/SKILL.md |
-| `hw-integration-test` | Define and implement hardware integration tests against hardware architecture to validate that the hardware implementation correctly realizes it. | .opencode/skills/hw-integration-test/SKILL.md |
-| `hw-qualification-test` | Define and implement hardware qualification tests against hardware requirements to validate that the hardware architecture and hardware implementation correctly realize them. | .opencode/skills/hw-qualification-test/SKILL.md |
-
-### Mechanical domain
-
-| Skill | Purpose | Path |
-|---|---|---|
-| `mech-requirements` | Define mechanical requirements from system requirements, system architecture and hardware-mechanical interface. | .opencode/skills/mech-requirements/SKILL.md |
-| `mech-architecture` | Define mechanical architecture from mechanical requirements. | .opencode/skills/mech-architecture/SKILL.md |
-| `mech-implementation` | Implement the mechanical design from mechanical requirements and mechanical architecture. | .opencode/skills/mech-implementation/SKILL.md |
-| `mech-integration-test` | Define and implement mechanical integration tests against mechanical architecture to validate that the mechanical implementation correctly realizes it. | .opencode/skills/mech-integration-test/SKILL.md |
-| `mech-qualification-test` | Define and implement mechanical qualification tests against mechanical requirements to validate that the mechanical architecture and mechanical implementation correctly realize them. | .opencode/skills/mech-qualification-test/SKILL.md |
+| `hw-sw-interface-definition` | Define the hardware-software interface from system requirements, system architecture and external hardware documentation. | .opencode/skills/hw-sw-interface-definition/SKILL.md |
 
 ### Review
 
@@ -99,7 +85,6 @@ The following skills map directly to development processes and should be used fo
 | `sys-review` | Review system process work products before closure. | .opencode/skills/sys-review/SKILL.md |
 | `sw-review` | Review software process work products before closure. | .opencode/skills/sw-review/SKILL.md |
 | `hw-review` | Review hardware process work products before closure. | .opencode/skills/hw-review/SKILL.md |
-| `mech-review` | Review mechanical process work products before closure. | .opencode/skills/mech-review/SKILL.md |
 | `v-model-closure-audit` | Perform the final closure audit for a V-model milestone. | .opencode/skills/v-model-closure-audit/SKILL.md |
 
 ## Supporting skills

@@ -3,14 +3,6 @@
 # ==============================================================================
 # @brief Simple formatter for GNU assembler (.S) files.
 #
-# Usage:
-#   asm_format.py <path> [<path> ...]
-#
-# Parameters:
-#   <path> File or directory path.
-#          - If it is a directory, all .S files are searched recursively.
-#          - If it is a file, only .S files are processed.
-#
 # @copyright
 # Copyright (c) 2026 FBS93.
 # See the LICENSE file of this project for license details.
@@ -186,6 +178,25 @@ def format_files(asm_files):
 
 
 ##
+# @brief Check formatting of all resolved .S files without modifying them.
+#
+# @param[in] asm_files List of .S files to check.
+# @return List of files that would be updated by formatting.
+##
+def check_files(asm_files):
+  changed_files = []
+
+  for asm_file in asm_files:
+    original = asm_file.read_bytes()
+    formatted = format_content(original)
+
+    if formatted != original:
+      changed_files.append(asm_file)
+
+  return changed_files
+
+
+##
 # @brief Collect line-length warnings from formatted content.
 #
 # @param[in] asm_files List of .S files to check.
@@ -200,7 +211,8 @@ def collect_line_length_warnings(asm_files):
       line_length = len(line.decode("utf-8", errors="replace"))
       if line_length > MAX_LINE_LENGTH:
         warnings.append(
-          f"{asm_file}:{line_index}: line {line_index} exceeds {MAX_LINE_LENGTH} columns"
+          f"{asm_file}:{line_index}: line {line_index} exceeds "
+          f"{MAX_LINE_LENGTH} columns"
         )
 
   return warnings
@@ -216,15 +228,43 @@ def collect_line_length_warnings(asm_files):
 ##
 def main():
   if len(sys.argv) < 2:
-    print("Usage: asm_format.py <path> [<path> ...]", flush=True)
+    print("Usage: asm_format.py [--check] <path> [<path> ...]", flush=True)
     sys.exit(1)
 
-  asm_files = resolve_asm_files(sys.argv[1:])
-  changed_count = format_files(asm_files)
+  check_only = False
+  raw_paths = sys.argv[1:]
+
+  if raw_paths[0] == "--check":
+    check_only = True
+    raw_paths = raw_paths[1:]
+
+  if len(raw_paths) == 0:
+    print("Usage: asm_format.py [--check] <path> [<path> ...]", flush=True)
+    sys.exit(1)
+
+  asm_files = resolve_asm_files(raw_paths)
   warnings = collect_line_length_warnings(asm_files)
 
+  if check_only:
+    changed_files = check_files(asm_files)
+    print(
+      f"ASM formatter: checked {len(asm_files)} files, "
+      f"{len(changed_files)} require formatting.",
+      flush=True,
+    )
+    for changed_file in changed_files:
+      print(f"❌ Error: formatting required: {changed_file}", flush=True)
+    for warning in warnings:
+      print(f"Warning: {warning}", flush=True)
+    if len(changed_files) > 0:
+      sys.exit(1)
+    return
+
+  changed_count = format_files(asm_files)
+
   print(
-    f"ASM formatter: processed {len(asm_files)} files, updated {changed_count}.",
+    f"ASM formatter: processed {len(asm_files)} files, "
+    f"updated {changed_count}.",
     flush=True,
   )
   for warning in warnings:

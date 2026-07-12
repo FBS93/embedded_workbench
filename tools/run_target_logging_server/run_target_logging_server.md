@@ -19,6 +19,11 @@ It works as follows:
 
 # Usage example
 
+Arguments:
+- `<serial_device>`: Absolute path to the serial device to open.
+- `<tcp_port>`: TCP port exposed for the logging interface.
+- `<baud_rate>`: Serial baud rate.
+
 Run the logging bridge directly on the Raspberry Pi:
 
 ```bash

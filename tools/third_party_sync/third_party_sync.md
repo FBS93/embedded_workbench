@@ -12,6 +12,16 @@
 
 # Usage example
 
+Options:
+- `--repository-id <id>`: Synchronize only the manifest entry matching `id`.
+- `--manifest <path>`: Path to manifest file.
+- `--lock <path>`: Path to lock file.
+- `--workspace <path>`: Workspace root used to resolve repository paths.
+- `--dry-run`: Show updates without writing files.
+
+Environment:
+- `GH_TOKEN`: Optional personal access token for GitHub API requests.
+
 ```bash
 python tools/third_party_sync/third_party_sync.py
 ```

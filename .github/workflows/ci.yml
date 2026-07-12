@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # TODO: Replace this devcontainers/ci step with a published CI/devcontainer image when available.
+      - name: Run CI in devcontainer
+        uses: devcontainers/ci@v0.3
+        with:
+          checkoutPath: ${{ env.LOCAL_CI_CHECKOUT_PATH || github.workspace }}
+          runCmd: |
+            set -euo pipefail
+
+            # Print tool versions for CI diagnostics.
+            cmake --version
+            clang-format --version
+            clang-tidy --version
+            ruff --version
+            cmake-format --version
+
+            # Check Python formatting and linting.
+            ruff format --check --config pyproject.toml .
+            ruff check --config pyproject.toml .
+
+            # Check C source formatting.
+            git ls-files -z -- '*.c' '*.h' \
+              | xargs -0 -r clang-format --dry-run --Werror --style=file
+
+            # Check CMake source formatting.
+            git ls-files -z -- 'CMakeLists.txt' '*.cmake' \
+              | xargs -0 -r cmake-format --check \
+                  --config-files .cmake-format.yaml
+
+            # Check assembler source formatting.
+            python tools/asm_format/asm_format.py --check sw
+
+            # Build host software with clang-tidy enabled and run SIL tests.
+            cmake --preset host -DEW_ENABLE_CLANG_TIDY=ON --no-warn-unused-cli
+            cmake --build build/host --clean-first --parallel
+            ctest --test-dir build/host --output-on-failure \
+              --test-output-size-passed 0 \
+              --test-output-size-failed 0
+
+            # Cross-build target software without HIL tests execution.
+            cmake --preset target_stm32f103c8tx --no-warn-unused-cli
+            cmake --build build/target_stm32f103c8tx --parallel

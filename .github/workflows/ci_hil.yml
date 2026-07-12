@@ -1,0 +1,46 @@
+name: HIL CI
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: HIL CI
+    runs-on: [self-hosted, linux, hil]
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate HIL environment
+        run: |
+          : "${RPI_USER:?Missing RPI_USER on self-hosted HIL runner}"
+          : "${RPI_HOST:?Missing RPI_HOST on self-hosted HIL runner}"
+          : "${GDB_PORT:?Missing GDB_PORT on self-hosted HIL runner}"
+          : "${LOG_PORT:?Missing LOG_PORT on self-hosted HIL runner}"
+          : "${LOG_BAUD_RATE:?Missing LOG_BAUD_RATE on self-hosted HIL runner}"
+          : "${LOG_SERIAL_DEVICE:?Missing LOG_SERIAL_DEVICE on self-hosted HIL runner}"
+
+      # TODO: Replace this devcontainers/ci step with a published CI/devcontainer image when available.
+      - name: Run HIL tests in devcontainer
+        uses: devcontainers/ci@v0.3
+        with:
+          checkoutPath: ${{ env.LOCAL_CI_CHECKOUT_PATH || github.workspace }}
+          runCmd: |
+            set -euo pipefail
+
+            # Print tool versions for HIL diagnostics.
+            cmake --version
+            arm-none-eabi-gcc --version
+            arm-none-eabi-gdb --version
+
+            # Build target software and run HIL tests.
+            cmake --preset target_stm32f103c8tx --no-warn-unused-cli
+            cmake --build build/target_stm32f103c8tx --parallel
+            ctest --test-dir build/target_stm32f103c8tx --output-on-failure \
+              --test-output-size-passed 0 \
+              --test-output-size-failed 0

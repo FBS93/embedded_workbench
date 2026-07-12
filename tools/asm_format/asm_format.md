@@ -14,6 +14,10 @@
 
 # Usage example
 
+Arguments:
+- `--check`: Check formatting without modifying files.
+- `<path>`: File or directory path. Directories are searched recursively for `.S` files.
+
 Format one assembler file:
 
 ```bash
@@ -24,4 +28,10 @@ Format every assembler file under one directory:
 
 ```bash
 python tools/asm_format/asm_format.py sw/
+```
+
+Report formatting errors without modifying files:
+
+```bash
+python tools/asm_format/asm_format.py --check sw/
 ```

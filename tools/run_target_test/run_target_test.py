@@ -3,12 +3,6 @@
 # ==============================================================================
 # @brief Automated embedded target test runner.
 #
-# Usage:
-#   run_target_test.py <test_binary>
-#
-# Parameters:
-#   <test_binary> Absolute path to the target ELF firmware to be executed.
-#
 # Intended for CI and automated hardware testing using CTest.
 #
 # @copyright

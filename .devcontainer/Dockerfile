@@ -1,6 +1,9 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
-# Prevent interactive prompts during package installations
+# Defines target architecture to support multi-platform builds.
+ARG TARGETARCH
+
+# Prevent interactive prompts during package installations.
 ENV DEBIAN_FRONTEND=noninteractive
 
 ################################################################################
@@ -26,10 +29,25 @@ RUN apt-get update && apt-get install -y \
 # layer.  --break-system-packages is intentional here because this is a controlled
 # development container image rather than a shared host Python installation.
 RUN python -m pip install --break-system-packages \
-    pytest \
-    ruff
+    jsonschema==4.25.1 \
+    pytest==9.1.1 \
+    ruff==0.15.20
 
-# Configure locale (UTF-8)
+# Download and install act for local GitHub Actions workflow execution.
+ARG ACT_VERSION=0.2.89
+RUN set -eux; \
+    arch="${TARGETARCH:-$(dpkg --print-architecture)}"; \
+    case "${arch}" in \
+      amd64) act_arch="x86_64" ;; \
+      arm64) act_arch="arm64" ;; \
+      *) echo "Unsupported architecture for act: ${arch}"; exit 1 ;; \
+    esac; \
+    curl -fsSLo /tmp/act.tar.gz "https://github.com/nektos/act/releases/download/v${ACT_VERSION}/act_Linux_${act_arch}.tar.gz"; \
+    tar -xzf /tmp/act.tar.gz -C /usr/local/bin act; \
+    chmod 0755 /usr/local/bin/act; \
+    rm -f /tmp/act.tar.gz
+
+# Configure locale (UTF-8).
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
@@ -72,39 +90,48 @@ RUN set -eux; \
 # Download and install the upstream AFLplusplus/cov-analysis helper used by the
 # source-coverage VS Code task.  This script wraps LLVM source coverage replay
 # and report generation for AFL++ corpora.
-ARG COV_ANALYSIS_REF=main
+ARG COV_ANALYSIS_REF=v1.0
 RUN set -eux; \
     curl -fsSL "https://raw.githubusercontent.com/AFLplusplus/cov-analysis/${COV_ANALYSIS_REF}/cov-analysis" \
       -o /usr/local/bin/cov-analysis; \
     chmod 0755 /usr/local/bin/cov-analysis
 
-# Download and install ARM GNU Toolchain
+# Download and install ARM GNU Toolchain.
 ARG ARM_GCC_VERSION=15.2.rel1
-RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION}/binrel/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz && \
-    tar -xf arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz -C /opt && \
-    rm arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz
+RUN set -eux; \
+    arch="${TARGETARCH:-$(dpkg --print-architecture)}"; \
+    case "${arch}" in \
+      amd64) arm_gcc_arch="x86_64" ;; \
+      arm64) arm_gcc_arch="aarch64" ;; \
+      *) echo "Unsupported architecture for ARM GNU Toolchain: ${arch}"; exit 1 ;; \
+    esac; \
+    arm_gcc_archive="arm-gnu-toolchain-${ARM_GCC_VERSION}-${arm_gcc_arch}-arm-none-eabi.tar.xz"; \
+    wget "https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION}/binrel/${arm_gcc_archive}"; \
+    tar -xf "${arm_gcc_archive}" -C /opt; \
+    ln -sfn "/opt/arm-gnu-toolchain-${ARM_GCC_VERSION}-${arm_gcc_arch}-arm-none-eabi" "/opt/arm-gnu-toolchain-arm-none-eabi"; \
+    rm "${arm_gcc_archive}"
 
-# Add toolchain to PATH
-ENV PATH="/opt/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi/bin:${PATH}"
+# Add toolchain to PATH.
+ENV PATH="/opt/arm-gnu-toolchain-arm-none-eabi/bin:${PATH}"
 
-# Install software-domain Python tooling globally in the devcontainer so it is 
-# available to the whole workspace without introducing an additional virtual 
-# environment layer.  --break-system-packages is intentional here because this 
-# is a controlled development container image rather than a shared host Python 
+# Install software-domain Python tooling globally in the devcontainer so it is
+# available to the whole workspace without introducing an additional virtual
+# environment layer.  --break-system-packages is intentional here because this
+# is a controlled development container image rather than a shared host Python
 # installation.
 RUN python -m pip install --break-system-packages \
-    cmakelang
+    cmakelang==0.6.13
 
 ################################################################################
 # AI support with OpenCode
 ################################################################################
 
-# Switch to container user so AI tooling installs in the correct user paths
+# Switch to container user so AI tooling installs in the correct user paths.
 USER vscode
 ENV HOME=/home/vscode
 
-# Install OpenCode 
+# Install OpenCode.
 RUN curl -fsSL https://opencode.ai/install | bash
 
-# Create ~/.local/state as vscode so OpenCode has write permissions
+# Create ~/.local/state as vscode so OpenCode has write permissions.
 RUN mkdir -p /home/vscode/.local/state

@@ -118,7 +118,6 @@ find "${workspace_root}" -type f \( -name 'CMakeLists.txt' -o -name '*.cmake' \)
     -exec "${cmake_format_bin}" --in-place --config-files "${cmake_format_config}" {} + >> "${cmake_report}" 2>&1 || format_status=$?
 
 # Format Python files across the workspace using the repository Ruff config.
-"${ruff_bin}" check --fix --config "${ruff_config}" "${workspace_root}" >> "${python_report}" 2>&1 || format_status=$?
 "${ruff_bin}" format --config "${ruff_config}" "${workspace_root}" >> "${python_report}" 2>&1 || format_status=$?
 
 echo "Formatting completed."

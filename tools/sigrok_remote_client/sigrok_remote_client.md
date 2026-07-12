@@ -17,6 +17,12 @@ It works as follows:
 
 # Usage example
 
+Configuration:
+- `RPI_USER`: Raspberry Pi SSH username.
+- `RPI_HOST`: Raspberry Pi IP address.
+- `LOGIC_ANALYZER_DEVICE`: Sigrok device selector assigned to the logic analyzer workflow.
+- `LOGIC_ANALYZER_ARTIFACTS_DIR`: Directory where logic analyzer artifacts are stored grouped by logical capture name.
+
 Run one remote capture and fetch the resulting `.sr` file into the configured local artifacts directory:
 
 ```python

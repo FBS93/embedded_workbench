@@ -86,6 +86,14 @@
       ]
     },
     {
+      "label": "run_local_ci",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_local_ci.sh",
+      "args": [
+        "${workspaceFolder}"
+      ]
+    },
+    {
       "label": "run_fuzz",
       "type": "shell",
       "command": "${TASKS_PATH}/run_fuzz.sh",

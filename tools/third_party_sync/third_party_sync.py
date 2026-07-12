@@ -42,6 +42,8 @@ from pathlib import Path
 # ------------------------------------------------------------------------------
 # External library imports
 # ------------------------------------------------------------------------------
+from jsonschema import Draft202012Validator
+from jsonschema import exceptions as jsonschema_exceptions
 
 # ------------------------------------------------------------------------------
 # Project-specific imports
@@ -52,6 +54,11 @@ from pathlib import Path
 # ==============================================================================
 
 GITHUB_API_BASE_URL = "https://api.github.com"
+
+##
+# @brief JSON Schema path for repository manifest validation.
+##
+MANIFEST_SCHEMA_PATH = Path(__file__).with_name("repos.schema.json")
 
 # ==============================================================================
 # CLASSES
@@ -68,9 +75,10 @@ GITHUB_API_BASE_URL = "https://api.github.com"
 # @return Parsed arguments namespace.
 ##
 def parse_args():
-  parser = argparse.ArgumentParser(
-    description="Synchronize third-party GitHub repositories by snapshot reference."
+  description = (
+    "Synchronize third-party GitHub repositories by snapshot reference."
   )
+  parser = argparse.ArgumentParser(description=description)
   parser.add_argument(
     "--repository-id",
     help="Synchronize only the repository entry matching this id.",
@@ -122,6 +130,56 @@ def read_json_file(file_path, required):
 
 
 ##
+# @brief Format a JSON Schema validation path for diagnostics.
+#
+# @param[in] path_elements JSON Schema validation path elements.
+# @return Human-readable dotted path.
+##
+def format_schema_path(path_elements):
+  formatted_path = "$"
+
+  for path_element in path_elements:
+    if isinstance(path_element, int):
+      formatted_path += f"[{path_element}]"
+    else:
+      formatted_path += f".{path_element}"
+
+  return formatted_path
+
+
+##
+# @brief Validate a JSON instance against a JSON Schema file.
+#
+# @param[in] instance Parsed JSON instance.
+# @param[in] schema_file JSON Schema file path.
+# @param[in] source_file Source JSON file path for diagnostics.
+##
+def validate_json_schema(instance, schema_file, source_file):
+  schema = read_json_file(schema_file, required=True)
+
+  try:
+    Draft202012Validator.check_schema(schema)
+    validator = Draft202012Validator(schema)
+    validator.validate(instance)
+  except jsonschema_exceptions.SchemaError as error:
+    schema_path = format_schema_path(error.schema_path)
+    print(
+      f"❌ Invalid JSON Schema in {schema_file} at {schema_path}: "
+      f"{error.message}",
+      flush=True,
+    )
+    sys.exit(1)
+  except jsonschema_exceptions.ValidationError as error:
+    instance_path = format_schema_path(error.path)
+    print(
+      f"❌ Invalid manifest in {source_file} at {instance_path}: "
+      f"{error.message}",
+      flush=True,
+    )
+    sys.exit(1)
+
+
+##
 # @brief Write a JSON object to disk.
 #
 # @param[in] file_path Absolute path to the JSON file.
@@ -143,67 +201,26 @@ def write_json_file(file_path, payload):
 def validate_manifest(manifest):
   repositories = manifest.get("repositories")
 
-  if not isinstance(repositories, list):
-    print("❌ Manifest must contain a 'repositories' list.", flush=True)
-    sys.exit(1)
-
   seen_ids = set()
   validated = []
 
   for index, repository in enumerate(repositories, start=1):
-    if not isinstance(repository, dict):
-      print(f"❌ repositories[{index}] must be an object.", flush=True)
-      sys.exit(1)
-
     repository_id = repository.get("id")
     repository_url = repository.get("url")
     repository_path = repository.get("path")
     repository_ref_type = repository.get("ref_type", "auto")
     repository_ref = repository.get("ref", "")
 
-    if not isinstance(repository_id, str) or repository_id.strip() == "":
-      print(
-        f"❌ repositories[{index}].id must be a non-empty string.", flush=True
-      )
-      sys.exit(1)
-
     if repository_id in seen_ids:
       print(f"❌ Duplicate repository id: {repository_id}", flush=True)
       sys.exit(1)
     seen_ids.add(repository_id)
-
-    if not isinstance(repository_url, str) or repository_url.strip() == "":
-      print(
-        f"❌ repositories[{index}].url must be a non-empty string.", flush=True
-      )
-      sys.exit(1)
-
-    if not isinstance(repository_path, str) or repository_path.strip() == "":
-      print(
-        f"❌ repositories[{index}].path must be a non-empty string.", flush=True
-      )
-      sys.exit(1)
 
     if Path(repository_path).is_absolute():
       print(
         f"❌ repositories[{index}].path must be workspace-relative.",
         flush=True,
       )
-      sys.exit(1)
-
-    if not isinstance(repository_ref_type, str):
-      print(f"❌ repositories[{index}].ref_type must be a string.", flush=True)
-      sys.exit(1)
-
-    if repository_ref_type not in ["auto", "release", "commit"]:
-      print(
-        f"❌ repositories[{index}].ref_type must be one of: auto, release, commit.",
-        flush=True,
-      )
-      sys.exit(1)
-
-    if not isinstance(repository_ref, str):
-      print(f"❌ repositories[{index}].ref must be a string.", flush=True)
       sys.exit(1)
 
     validated.append(
@@ -383,7 +400,8 @@ def resolve_commit_sha(repository_slug, ref_name, github_token, error_context):
 
     error_message = error.read().decode("utf-8", errors="replace")
     print(
-      f"❌ GitHub API request failed ({error.code}) for {commit_api_url}: {error_message}",
+      f"❌ GitHub API request failed ({error.code}) for "
+      f"{commit_api_url}: {error_message}",
       flush=True,
     )
     sys.exit(1)
@@ -432,7 +450,10 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
 
   def resolve_release_by_tag_or_fail(release_tag):
     encoded_tag = urllib.parse.quote(release_tag, safe="")
-    release_api_url = f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/tags/{encoded_tag}"
+    release_api_url = (
+      f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/tags/"
+      f"{encoded_tag}"
+    )
     metadata = github_api_get_json_or_none(release_api_url, github_token)
     if metadata is None:
       print(
@@ -536,7 +557,9 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
     "default_branch": default_branch,
     "resolved_commit": resolved_commit,
     "commit_date": commit_date,
-    "tarball_url": f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/tarball/{resolved_commit}",
+    "tarball_url": (
+      f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/tarball/{resolved_commit}"
+    ),
   }
 
 
@@ -766,6 +789,7 @@ def main():
     sys.exit(1)
 
   manifest_data = read_json_file(manifest_path, required=True)
+  validate_json_schema(manifest_data, MANIFEST_SCHEMA_PATH, manifest_path)
   repositories = validate_manifest(manifest_data)
   repositories = filter_repositories(repositories, arguments.repository_id)
 

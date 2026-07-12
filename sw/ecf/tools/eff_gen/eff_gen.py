@@ -552,17 +552,22 @@ def main():
 
     # write mock function prototypes to mock file .h
     for function in functions:
+      function_name = function["function_name"]
+      mock_argument_types = ", ".join(function["mock_argument_types"])
+      return_type = function["return_type"]
+
       # if function returns void
       if function["return_type"] == "void":
         # DECLARE_FAKE_VOID_FUNC(function_name)
         if function["mock_argument_types"][0] == "void":
           mock_file_h.write(
-            f"DECLARE_FAKE_VOID_FUNC({function['function_name']});\
+            f"DECLARE_FAKE_VOID_FUNC({function_name});\
           \n"
           )
         else:
           mock_file_h.write(
-            f"DECLARE_FAKE_VOID_FUNC({function['function_name']}, {', '.join(function['mock_argument_types'])});\
+            f"DECLARE_FAKE_VOID_FUNC({function_name}, "
+            f"{mock_argument_types});\
           \n"
           )
       else:
@@ -570,12 +575,13 @@ def main():
         # if function argument is void
         if function["mock_argument_types"][0] == "void":
           mock_file_h.write(
-            f"DECLARE_FAKE_VALUE_FUNC({function['return_type']}, {function['function_name']});\
+            f"DECLARE_FAKE_VALUE_FUNC({return_type}, {function_name});\
           \n"
           )
         else:
           mock_file_h.write(
-            f"DECLARE_FAKE_VALUE_FUNC({function['return_type']}, {function['function_name']}, {', '.join(function['mock_argument_types'])});\
+            f"DECLARE_FAKE_VALUE_FUNC({return_type}, "
+            f"{function_name}, {mock_argument_types});\
           \n"
           )
 
@@ -584,31 +590,37 @@ def main():
 
     # write mock function definitions to mock file .c
     for function in functions:
+      function_name = function["function_name"]
+      mock_argument_types = ", ".join(function["mock_argument_types"])
+      return_type = function["return_type"]
+
       # if function returns void
       if function["return_type"] == "void":
         if function["mock_argument_types"][0] == "void":
           # DEFINE_FAKE_VOID_FUNC(function_name)
           mock_file_c.write(
-            f"DEFINE_FAKE_VOID_FUNC({function['function_name']});\
+            f"DEFINE_FAKE_VOID_FUNC({function_name});\
           \n"
           )
         else:
           # DEFINE_FAKE_VOID_FUNC(function_name, argument_types)
           mock_file_c.write(
-            f"DEFINE_FAKE_VOID_FUNC({function['function_name']}, {', '.join(function['mock_argument_types'])});\
+            f"DEFINE_FAKE_VOID_FUNC({function_name}, "
+            f"{mock_argument_types});\
           \n"
           )
 
       else:
         if function["mock_argument_types"][0] == "void":
           mock_file_c.write(
-            f"DEFINE_FAKE_VALUE_FUNC({function['return_type']}, {function['function_name']});\
+            f"DEFINE_FAKE_VALUE_FUNC({return_type}, {function_name});\
           \n"
           )
         else:
           # DEFINE_FAKE_VALUE_FUNC(return_type, function_name, argument_types);
           mock_file_c.write(
-            f"DEFINE_FAKE_VALUE_FUNC({function['return_type']}, {function['function_name']}, {', '.join(function['mock_argument_types'])});\
+            f"DEFINE_FAKE_VALUE_FUNC({return_type}, "
+            f"{function_name}, {mock_argument_types});\
           \n"
           )
 

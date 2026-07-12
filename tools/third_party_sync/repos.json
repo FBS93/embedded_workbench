@@ -1,4 +1,5 @@
 {
+  "$schema": "repos.schema.json",
   "repositories": [
     {
       "id": "actions-template-sync",

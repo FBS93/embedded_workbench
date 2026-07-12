@@ -8,6 +8,8 @@ AI-assisted development defines a workflow in which the repository development m
 3. [OpenCode](https://opencode.ai/) provides the project-local AI environment, including the custom Embedded Workbench orchestrator and its skills.
 4. The custom Embedded Workbench orchestrator coordinates delegated execution.
 
+The AI workflow runs inside the repository devcontainer. This constrains its normal scope of action to the repository workspace and to the integrations explicitly exposed by the devcontainer configuration, which improves safety compared to running an AI model directly on the host environment.
+
 ## Glossary
 
 | Term | Definition |

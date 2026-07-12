@@ -19,6 +19,10 @@
     "AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES": "1", // Allow AFL++ fuzzing in the devcontainer when the host core_pattern cannot be reconfigured.
     "FUZZ_TIMEOUT_MS": "1000" // Shared timeout budget (milliseconds) used by fuzzing and fuzz-coverage replay.
   },
+  "features": {
+    // Enable local act with Docker-outside-of-Docker.
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
   "mounts": [
     // Load OpenCode state (including credentials and sessions) from host.
     "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind"
@@ -26,8 +30,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.cmake-tools",
-        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
         "dan-c-underwood.arm",
         "ms-python.python",
         "marus25.cortex-debug",

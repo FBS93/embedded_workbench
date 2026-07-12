@@ -134,6 +134,10 @@
                     "task": "lint"
                 },
                 {
+                    "label": "🚦 Run local CI",
+                    "task": "run_local_ci"
+                },
+                {
                     "label": "🧪 Run fuzzer",
                     "task": "run_fuzz"
                 },

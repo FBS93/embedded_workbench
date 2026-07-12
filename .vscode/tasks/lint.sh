@@ -12,6 +12,8 @@ fi
 workspace_root="${1%/}"
 preset="$2"
 build_dir="${workspace_root}/build/${preset}"
+ruff_bin=""
+ruff_config="${workspace_root}/pyproject.toml"
 
 # Validate required inputs.
 if [ -z "${preset}" ]; then
@@ -30,7 +32,22 @@ if ! command -v cmake >/dev/null 2>&1; then
     exit 1
 fi
 
+if command -v ruff >/dev/null 2>&1; then
+    ruff_bin="$(command -v ruff)"
+fi
+
+if [ -z "${ruff_bin}" ] || [ ! -x "${ruff_bin}" ]; then
+    echo "❌ Error: Ruff linter not found."
+    exit 1
+fi
+
+if [ ! -f "${ruff_config}" ]; then
+    echo "❌ Error: Ruff linter config file not found: ${ruff_config}"
+    exit 1
+fi
+
 echo "CMake preset: ${preset}"
+echo "Ruff linter: ${ruff_bin}"
 
 cd "${workspace_root}"
 
@@ -48,5 +65,13 @@ if cmake --build "${build_dir}" --clean-first; then
     echo "✅ Lint build successful."
 else
     echo "❌ Lint build failed."
+    exit 1
+fi
+
+echo "Running Python lint with Ruff ..."
+if "${ruff_bin}" check --config "${ruff_config}" "${workspace_root}"; then
+    echo "✅ Python lint successful."
+else
+    echo "❌ Python lint failed."
     exit 1
 fi

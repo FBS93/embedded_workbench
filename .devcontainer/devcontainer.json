@@ -25,7 +25,7 @@
   },
   "mounts": [
     // Load OpenCode state (including credentials and sessions) from host.
-    "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind"
+    "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind,bind-create-src"
   ],
   "customizations": {
     "vscode": {

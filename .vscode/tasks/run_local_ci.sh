@@ -17,12 +17,12 @@ hil_workflow_file="${workspace_root}/.github/workflows/ci_hil.yml"
 job_name="ci"
 act_platform_image="${ACT_PLATFORM_IMAGE:-catthehacker/ubuntu:act-24.04}"
 hil_env_args=(
-    --env RPI_USER
-    --env RPI_HOST
-    --env GDB_PORT
-    --env LOG_PORT
-    --env LOG_BAUD_RATE
-    --env LOG_SERIAL_DEVICE
+    --env "RPI_USER=${RPI_USER-}"
+    --env "RPI_HOST=${RPI_HOST-}"
+    --env "GDB_PORT=${GDB_PORT-}"
+    --env "LOG_PORT=${LOG_PORT-}"
+    --env "LOG_BAUD_RATE=${LOG_BAUD_RATE-}"
+    --env "LOG_SERIAL_DEVICE=${LOG_SERIAL_DEVICE-}"
 )
 act_workspace_args=()
 

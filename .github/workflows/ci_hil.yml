@@ -16,20 +16,18 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Validate HIL environment
-        run: |
-          : "${RPI_USER:?Missing RPI_USER on self-hosted HIL runner}"
-          : "${RPI_HOST:?Missing RPI_HOST on self-hosted HIL runner}"
-          : "${GDB_PORT:?Missing GDB_PORT on self-hosted HIL runner}"
-          : "${LOG_PORT:?Missing LOG_PORT on self-hosted HIL runner}"
-          : "${LOG_BAUD_RATE:?Missing LOG_BAUD_RATE on self-hosted HIL runner}"
-          : "${LOG_SERIAL_DEVICE:?Missing LOG_SERIAL_DEVICE on self-hosted HIL runner}"
-
       # TODO: Replace this devcontainers/ci step with a published CI/devcontainer image when available.
       - name: Run HIL tests in devcontainer
         uses: devcontainers/ci@v0.3
         with:
           checkoutPath: ${{ env.LOCAL_CI_CHECKOUT_PATH || github.workspace }}
+          env: |
+            RPI_USER
+            RPI_HOST
+            GDB_PORT
+            LOG_PORT
+            LOG_BAUD_RATE
+            LOG_SERIAL_DEVICE
           runCmd: |
             set -euo pipefail
 

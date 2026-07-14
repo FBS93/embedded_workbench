@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+workspace_root="$(git rev-parse --show-toplevel)"
+configured_branches=()
+configured_presets=()
+runs_local_ci=0
+
+if [ -z "${LOCAL_CI_BRANCHES-}" ]; then
+    echo "❌ Error: LOCAL_CI_BRANCHES must list at least one remote branch."
+    exit 1
+fi
+
+read -r -a configured_branches <<< "${LOCAL_CI_BRANCHES}"
+
+if [ "${#configured_branches[@]}" -eq 0 ]; then
+    echo "❌ Error: LOCAL_CI_BRANCHES must list at least one remote branch."
+    exit 1
+fi
+
+while read -r local_ref local_oid remote_ref remote_oid; do
+    if [ -z "${local_ref}" ] || [ -z "${local_oid}" ] || [ -z "${remote_ref}" ] || [ -z "${remote_oid}" ]; then
+        echo "❌ Error: malformed pre-push reference update."
+        exit 1
+    fi
+
+    if [ -z "$(printf '%s' "${local_oid}" | tr -d '0')" ]; then
+        continue
+    fi
+
+    for branch in "${configured_branches[@]}"; do
+        if [ "${remote_ref}" = "refs/heads/${branch}" ]; then
+            runs_local_ci=1
+            break
+        fi
+    done
+done
+
+if [ "${runs_local_ci}" -eq 0 ]; then
+    echo "Pre-push: no non-deletion update targets a branch in LOCAL_CI_BRANCHES; Local CI skipped."
+    exit 0
+fi
+
+if [ -z "${LOCAL_CI_PRESETS-}" ]; then
+    echo "❌ Error: LOCAL_CI_PRESETS must list at least one CMake preset."
+    exit 1
+fi
+
+read -r -a configured_presets <<< "${LOCAL_CI_PRESETS}"
+
+if [ "${#configured_presets[@]}" -eq 0 ]; then
+    echo "❌ Error: LOCAL_CI_PRESETS must list at least one CMake preset."
+    exit 1
+fi
+
+echo "Pre-push: configured branch update detected; running Local CI..."
+"${workspace_root}/.vscode/tasks/run_local_ci.sh" "${workspace_root}" "${configured_presets[@]}"

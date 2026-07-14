@@ -8,6 +8,8 @@ This document describes the minimal Raspberry Pi configuration required to use i
 
 For automated workflows, it is recommended to use a dedicated, locally isolated Raspberry Pi configured for this purpose with passwordless SSH access, as described below.
 
+@todo Simultaneous hardware access is not coordinated. A remote reservation or exclusion mechanism could be implemented if needed.
+
 Connect to the Raspberry Pi via SSH.
 
 ```bash

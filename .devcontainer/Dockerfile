@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     wget \
+    xz-utils \
     sudo \
     locales \
     python3 \
@@ -32,20 +33,6 @@ RUN python -m pip install --break-system-packages \
     jsonschema==4.25.1 \
     pytest==9.1.1 \
     ruff==0.15.20
-
-# Download and install act for local GitHub Actions workflow execution.
-ARG ACT_VERSION=0.2.89
-RUN set -eux; \
-    arch="${TARGETARCH:-$(dpkg --print-architecture)}"; \
-    case "${arch}" in \
-      amd64) act_arch="x86_64" ;; \
-      arm64) act_arch="arm64" ;; \
-      *) echo "Unsupported architecture for act: ${arch}"; exit 1 ;; \
-    esac; \
-    curl -fsSLo /tmp/act.tar.gz "https://github.com/nektos/act/releases/download/v${ACT_VERSION}/act_Linux_${act_arch}.tar.gz"; \
-    tar -xzf /tmp/act.tar.gz -C /usr/local/bin act; \
-    chmod 0755 /usr/local/bin/act; \
-    rm -f /tmp/act.tar.gz
 
 # Configure locale (UTF-8).
 ENV LANG=C.UTF-8

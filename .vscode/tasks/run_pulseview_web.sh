@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 echo "📈 Run PulseView web"
 
@@ -38,7 +38,7 @@ ssh -o StrictHostKeyChecking=accept-new "${RPI_USER}@${RPI_HOST}" \
     LOGIC_ANALYZER_DEVICE="${LOGIC_ANALYZER_DEVICE}" \
     RPI_HOST_VALUE="${RPI_HOST}" \
     'bash -s' <<'EOF'
-set -e
+set -euo pipefail
 
 for required_command in pulseview Xvfb x0tigervncserver websockify openbox wmctrl; do
     if ! command -v "${required_command}" >/dev/null 2>&1; then
@@ -83,7 +83,7 @@ wait_for_process() {
     local pid_file="$1"
     local service_name="$2"
     local log_file="$3"
-    local conflict_hint="$4"
+    local conflict_hint="${4-}"
     local attempt=0
 
     while [ "${attempt}" -lt 10 ]; do

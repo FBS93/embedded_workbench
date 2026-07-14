@@ -90,7 +90,8 @@
       "type": "shell",
       "command": "${TASKS_PATH}/run_local_ci.sh",
       "args": [
-        "${workspaceFolder}"
+        "${workspaceFolder}",
+        "${command:cmake.activeConfigurePresetName}"
       ]
     },
     {

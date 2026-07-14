@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 echo "📃 Enable target logging"
 
@@ -37,7 +37,7 @@ fi
 scp -o StrictHostKeyChecking=accept-new "${LOCAL_SCRIPT}" "${RPI_USER}@${RPI_HOST}:${REMOTE_SCRIPT}" >/dev/null
 
 ssh -o StrictHostKeyChecking=accept-new "${RPI_USER}@${RPI_HOST}" bash << EOF
-set -e
+set -euo pipefail
 
 # Use the configured serial device.
 if [ ! -e "${LOG_SERIAL_DEVICE}" ]; then
@@ -48,7 +48,7 @@ fi
 echo "USB serial device configured: ${LOG_SERIAL_DEVICE}."
 
 # Reuse the existing logging server when healthy and matching the device and port.
-if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT" && \
+if /usr/bin/ss -ltn | /usr/bin/grep ":$LOG_PORT" >/dev/null && \
    /usr/bin/pgrep -f "python3 ${REMOTE_SCRIPT} ${LOG_SERIAL_DEVICE} ${LOG_PORT} ${LOG_BAUD_RATE}" >/dev/null; then
     if bash -c "exec 9<>/dev/tcp/127.0.0.1/$LOG_PORT" 2>/dev/null; then
         exec 9>&-
@@ -59,7 +59,7 @@ if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT" && \
 fi
 
 # Stop stale instances before starting a fresh one.
-if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
+if /usr/bin/ss -ltn | /usr/bin/grep ":$LOG_PORT" >/dev/null; then
     /usr/bin/fuser -k ${LOG_PORT}/tcp 2>/dev/null || true
 fi
 /usr/bin/pkill -f "python3 ${REMOTE_SCRIPT}" 2>/dev/null || true
@@ -71,7 +71,7 @@ nohup python3 "${REMOTE_SCRIPT}" "${LOG_SERIAL_DEVICE}" "${LOG_PORT}" "${LOG_BAU
 # Wait for the TCP port.
 TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT_S} * 1000) }')
 while true; do
-    if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
+    if /usr/bin/ss -ltn | /usr/bin/grep ":$LOG_PORT" >/dev/null; then
         echo "✅ Logging server ready on port $LOG_PORT."
         exit 0
     fi

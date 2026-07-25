@@ -267,7 +267,7 @@ EBF_WEAK void EDF_onIdle(void)
 }
 
 /**
- * @anchor ticker_thread
+ * @anchor ticker_thread_posix_non_preemptive
  * @par Ticker thread
  *
  * The ticker thread is responsible for periodically invoking

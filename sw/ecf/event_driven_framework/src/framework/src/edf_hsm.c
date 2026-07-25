@@ -104,52 +104,21 @@ static const EDF_event_t reservedEvents[4] = {
  * Case 1: Self-Transition (source == target)
  * Transition begins and ends in the same state.
  * The source state executes its exit action and then its entry action.
- * @startuml
- *  state S
- *  S --> S : "Self-Transition (exit and re-enter)"
- * @enduml
  *
  * Case 2: Ancestor → Descendant
  * Transition goes from an ancestor state to a descendant state.
  * Only entry actions are executed for each state on the path down to the
  * descendant.
- * @startuml
- *  state Ancestor {
- *      state Mid {
- *          state Descendant
- *      }
- *  }
- *  Ancestor --> Descendant : "Ancestor to Descendant"
- * @enduml
  *
  * Case 3: Descendant → Ancestor
  * Transition ascends from a deep descendant to one of its ancestors.
  * Exit actions are executed upward until (but not including) the ancestor
  * target.
- * @startuml
- *  state Ancestor {
- *      state Mid {
- *          state Descendant
- *      }
- *  }
- *  Descendant --> Ancestor : "Descendant to Ancestor (upward)"
- * @enduml
  *
  * Case 4: Between Branches (via Lowest Common Ancestor)
  * Transition between two states in different branches sharing a Lowest Common
  * Ancestor (LCA). Exit actions are executed up to (but not including) the LCA,
  * then entry actions down to the target.
- * @startuml
- *  state LCA {
- *      state BranchA {
- *          state A1
- *      }
- *      state BranchB {
- *          state B1
- *      }
- *  }
- *  A1 --> B1 : "Between branches via LCA"
- * @enduml
  *
  * Key Definitions:
  * -Ancestor: A state that is higher in the hierarchy relative to another state

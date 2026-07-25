@@ -90,7 +90,6 @@
  * @todo Consider moving this macro to a generic middleware module and using
  * it wherever macros of this type are used (e.g., emf_log, eff).
  *
- * @param[in] __VA_ARGS__ Variable number of arguments.
  * @return Number of arguments (0–8).
  */
 #define EMF_PRINT_NARG(...) \
@@ -103,8 +102,7 @@
  * @todo Consider moving this macro to a generic middleware module and using
  * it wherever macros of this type are used (e.g., emf_log, eff).
  *
- * @param[in] _1..._8 Positional placeholders.
- * @param[in] N Number of arguments resolved by macro expansion.
+ * @return Number of arguments (0–8).
  */
 #define EMF_PRINT_NARG_(_1, _2, _3, _4, _5, _6, _7, _8, N, ...) N
 

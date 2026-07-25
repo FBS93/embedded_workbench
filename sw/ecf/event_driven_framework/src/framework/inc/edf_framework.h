@@ -102,7 +102,7 @@ typedef struct
   /**
    * @brief Active objects registry, indexed by their priority.
    *
-   * Index 0 is unused; valid entries are 1..@ref EDF_MAX_ACTIVE_OBJECT.
+   * Index 0 is unused; valid entries are 1 ... @c EDF_MAX_ACTIVE_OBJECT.
    *
    * @note The framework does not support unregistering; entries shall be
    * only modified to add new active objects, never removed or replaced.

@@ -258,7 +258,7 @@ int EDF_run(void)
 void EDF_stop(void)
 {
   /**
-   * @note Calling this function terminates the main EDF thread,
+   * Calling this function terminates the main EDF thread,
    * which causes all Active Object threads to end abruptly.
    * The user is responsible for invoking @ref EDF_stop() only
    * when the AO states are safe for an immediate shutdown.

@@ -142,9 +142,6 @@ void ETF_fail(const char* cond, const char* file, int line);
  * This function is defined as weak within the ETF framework,
  * providing a default implementation in case the user does not define
  * a specific behavior.
- *
- * @param[in] argc Argument count from main.
- * @param[in] argv Argument vector from main.
  */
 void ETF_onInit(void);
 

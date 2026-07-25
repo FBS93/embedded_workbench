@@ -103,7 +103,7 @@
  *
  * If the condition fails, it triggers a test failure report.
  *
- * @param[in] cond Boolean expression to evaluate.
+ * @param[in] cond_ Boolean expression to evaluate.
  */
 #define EDF_TEST_VERIFY(cond_) \
   ((cond_) ? (void)0 : EDFTest_fail(#cond_, __FILE__, __LINE__));
@@ -245,9 +245,6 @@ void EDFTest_fail(const char* cond, const char* file, int line);
  * @note All user software shall be initialized in this function,
  * but @ref EDF_run() must NOT be called, as control must return to the
  * EDF test framework.
- *
- * @param[in] argc Argument count from main.
- * @param[in] argv Argument vector from main.
  */
 void EDFTest_onInit(void);
 

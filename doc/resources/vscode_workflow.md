@@ -20,6 +20,9 @@ The repository exposes these functions through three VS Code entry point types:
 | PulseView web | `run_pulseview_web` task, `📈 Run PulseView web` task button | Starts the remote PulseView web visualization workflow on the Raspberry Pi and prints the browser URL. | [Embedded target remote logic analyzer](../development_methodology/resources/embedded_target_remote_logic_analyzer.md) |
 | Logic analyzer capture sync | `sync_logic_analyzer_captures` task, `📥 Sync logic analyzer captures` task button | Mirrors `LOGIC_ANALYZER_ARTIFACTS_DIR` from the workspace to the same relative path under `/tmp/` on the Raspberry Pi. | [Embedded target remote logic analyzer](../development_methodology/resources/embedded_target_remote_logic_analyzer.md) |
 | Third-party sync | `run_third_party_sync` task, `🔄 Sync third-party repositories` task button | Runs the local third-party synchronization workflow. | [Third-party sync workflow](third_party_sync_workflow.md), [third_party_sync tool](../../tools/third_party_sync/third_party_sync.md) |
+| Documentation generation | `run_docgen` task, `📄 Generate documentation` task button | Generates static repository documentation in the configured `DOCGEN_OUTPUT` path. | [docgen tool](../../tools/docgen/docgen.md) |
+| Release validation | `validate_release` task, `☑️ Validate release` task button | Runs configured CI and generates release documentation without creating or publishing a release, so the release validation can be checked before publication. | [CI](ci.md) |
+| Release | `run_release` task, `🚀 Run release` task button | Generates a release. | [CI](ci.md) |
 
 ## Software domain
 
@@ -29,7 +32,7 @@ The repository exposes these functions through three VS Code entry point types:
 | Clean | `clean` task, `🧹 Clean` task button | Cleans the build artifacts generated for the active CMake preset. | |
 | Format | `format` task, `🧼 Format all source files` task button | Formats repository C, ASM, CMake and Python sources using the configured repository tooling. ASM files are also formatted on save through VS Code settings. | [Embedded C coding guidelines](../development_methodology/software_domain/resources/embedded_c_coding_guidelines.md), [Python coding guidelines](../development_methodology/resources/python_coding_guidelines.md), [ASM formatter tool](../development_methodology/software_domain/resources/assembler_format_tool.md) |
 | Lint | `lint` task, `🔎 Run linter` task button | Runs the configured software static analysis workflow using the active CMake preset. | |
-| Local CI | `run_local_ci` task, `🚦 Run Local CI` task button | Runs local CI manually for the active CMake preset. | [Local CI](local_ci.md) |
+| CI | `run_ci` task, `🚦 Run CI` task button | Runs CI manually for the active CMake preset. | [CI](ci.md) |
 | Fuzz | `run_fuzz` task, `🧪 Run fuzzer` task button | Runs the selected fuzz target using the active CMake build target. | |
 | Fuzz source coverage | `run_fuzz_coverage` task, `📊 Run fuzzer coverage` task button | Replays the fuzz campaign results available for the selected fuzz target to generate coverage reports using the active CMake build target. | [Fuzz example](../../sw/ecf/event_driven_framework/examples/fuzz_example/doc/fuzz_example.md) |
 | Host debug | `Host` launch configuration | Launches host-side debugging for the active CMake launch target. | |
@@ -49,7 +52,6 @@ The repository also expects VS Code Remote - Containers support on the host mach
 ### Devcontainer - Workbench
 - `spencerwmiles.vscode-task-buttons`
 - `mhutchie.git-graph`
-- `bierner.markdown-mermaid`
 - `bierner.markdown-preview-github-styles`
 - `ms-vscode.live-server`
 

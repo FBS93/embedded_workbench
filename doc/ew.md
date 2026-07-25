@@ -7,7 +7,8 @@ EW includes:
 - AI-assisted development workflow. See [ai_assisted_development_workflow.md](resources/ai_assisted_development_workflow.md).
 - Embedded C Framework (ECF). See [ecf.md](../sw/ecf/doc/ecf.md).
 - Dual targeting setup. See [dual_targeting_setup.md](resources/dual_targeting_setup.md).
-- Local Continuous Integration (CI). See [local_ci.md](resources/local_ci.md).
+- Continuous Integration (CI) workflow. See [ci.md](resources/ci.md).
+- Automatic documentation generation. See [automatic_documentation_generation.md](resources/automatic_documentation_generation.md).
 - Technical notes related to embedded systems. See [technical_notes](technical_notes/) folder.
 - VS Code workflow. See [vscode_workflow.md](resources/vscode_workflow.md).
 - Template repository synchronization support. See [template_sync.md](resources/template_sync.md).

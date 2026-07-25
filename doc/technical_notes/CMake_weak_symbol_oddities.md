@@ -41,7 +41,7 @@ The output of this program is `This is a strong function`.
 Assembly code can also define functions as weak. For example, STM32Cube defines the microcontroller’s interrupt handlers as weak in the assembly startup code:
 
 ```c
-*******************************************************************************
+/*******************************************************************************
 *
 * Provide weak aliases for each Exception handler to the Default_Handler.
 * As they are weak aliases, any function with the same name will override

@@ -249,26 +249,12 @@ void EDF_pool_release(EDF_pool_t* me, void* block)
  * Upon release, the same first bytes are reused to relink the block
  * back into the free list.
  *
- * @startuml free_list_diagram
- *  class freeBlock1 {
- *    + next: freeBlock2
- *  }
- *  class freeBlock2 {
- *    + next: freeBlock3
- *  }
- *  class freeBlock3 {
- *    + next: NULL
- *  }
- *
- *  freeBlock1 --> freeBlock2
- *  freeBlock2 --> freeBlock3
- *
- *  note right of freeBlock1
- *  freeBlock[0] stores pointer to next free block.
- *  end note
- *
- *  note right of freeBlock3
- *  Last block of the free list.
- *  end note
- * @enduml
+ * @code{.unparsed}
+ * me->free_block
+ *       |
+ *       v
+ * +--------------------+     +--------------------+     +--------------------+
+ * | block1[0] = block2 | --> | block2[0] = block3 | --> | block3[0] = NULL   |
+ * +--------------------+     +--------------------+     +--------------------+
+ * @endcode
  */

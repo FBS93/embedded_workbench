@@ -71,7 +71,7 @@ EAF_DEFINE_THIS_FILE(__FILE__);
  * @brief Prints a character repeated a specified number of times.
  *
  * @param[in] c Character to print repeatedly.
- * @param[in] count Number of times to print the character.
+ * @param[in] cnt Number of times to print the character.
  */
 static void printRepeated(char c, uint8_t cnt);
 

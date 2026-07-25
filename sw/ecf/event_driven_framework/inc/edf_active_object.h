@@ -119,8 +119,8 @@ typedef struct
  *
  * Use the macro @ref EDF_AO_PRIO(prio, pthre) to compose this value.
  *
- * @note Priority numbering is ascending (1 = lowest), up to @ref
- * EDF_MAX_ACTIVE_OBJECT.
+ * @note Priority numbering is ascending (1 = lowest), up to
+ * @c EDF_MAX_ACTIVE_OBJECT.
  *
  * @todo Consider separating base priority and preemption-threshold into
  * distinct typedefs and removing the @c EDF_activeObject_prio_t type from all

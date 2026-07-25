@@ -65,7 +65,7 @@ Summary:
 - Brief result
 
 Artifacts:
-- `path/to/file` — created/updated/reviewed
+- `path/to/file` - created/updated/reviewed
 
 Decisions / issues:
 - None.

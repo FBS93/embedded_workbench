@@ -30,7 +30,10 @@ RUN apt-get update && apt-get install -y \
 # layer.  --break-system-packages is intentional here because this is a controlled
 # development container image rather than a shared host Python installation.
 RUN python -m pip install --break-system-packages \
+    Jinja2==3.1.6 \
     jsonschema==4.25.1 \
+    markdown-it-py==4.0.0 \
+    mdit-py-plugins==0.5.0 \
     pytest==9.1.1 \
     ruff==0.15.20
 
@@ -52,6 +55,7 @@ RUN apt-get update && apt-get install -y \
     clang-18 \
     clang-format \
     clang-tidy \
+    doxygen \
     flex \
     gdb \
     gcc-14-plugin-dev \

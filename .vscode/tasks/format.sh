@@ -26,6 +26,7 @@ cmake_report="${reports_dir}/cmake_format_report.txt"
 python_report="${reports_dir}/python_format_report.txt"
 format_status=0
 
+# Validate required inputs.
 if [ -n "${mode}" ] && [ "${mode}" != "--check" ]; then
     echo "❌ Error: unsupported mode: ${mode}"
     exit 1
@@ -164,5 +165,11 @@ echo "  - Clang-format: ${clang_report}"
 echo "  - ASM formatter: ${asm_report}"
 echo "  - Cmake-format: ${cmake_report}"
 echo "  - Ruff formatter: ${python_report}"
+
+if [ "${format_status}" -eq 0 ]; then
+    echo "✅ Formatting passed."
+else
+    echo "❌ Formatting failed."
+fi
 
 exit "${format_status}"

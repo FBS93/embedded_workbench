@@ -5,6 +5,13 @@
       "TASKS_PATH": "${workspaceFolder}/.vscode/tasks"
     }
   },
+  "inputs": [
+    {
+      "id": "releaseVersion",
+      "type": "promptString",
+      "description": "Release version (vX.Y.Z)"
+    }
+  ],
   "tasks": [
     {
       "label": "build",
@@ -68,6 +75,35 @@
       ]
     },
     {
+      "label": "run_docgen",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_docgen.sh",
+      "args": [
+        "${workspaceFolder}",
+        "${workspaceFolderBasename}"
+      ]
+    },
+    {
+      "label": "validate_release",
+      "type": "shell",
+      "command": "${TASKS_PATH}/validate_release.sh",
+      "args": [
+        "${workspaceFolder}",
+        "${workspaceFolderBasename}",
+        "${input:releaseVersion}"
+      ]
+    },
+    {
+      "label": "run_release",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_release.sh",
+      "args": [
+        "${workspaceFolder}",
+        "${workspaceFolderBasename}",
+        "${input:releaseVersion}"
+      ]
+    },
+    {
       "label": "format",
       "type": "shell",
       "command": "${TASKS_PATH}/format.sh",
@@ -86,9 +122,9 @@
       ]
     },
     {
-      "label": "run_local_ci",
+      "label": "run_ci",
       "type": "shell",
-      "command": "${TASKS_PATH}/run_local_ci.sh",
+      "command": "${TASKS_PATH}/run_ci.sh",
       "args": [
         "${workspaceFolder}",
         "${command:cmake.activeConfigurePresetName}"

@@ -104,7 +104,7 @@
  *
  * @note This macro is called within a critical section.
  *
- * @param[in,out] _ Unused parameter, kept for API compatibility.
+ * @param[in,out] me Unused parameter, kept for API compatibility.
  */
 #define EDF_CORE_WAIT_FOR_EVENT(me) ((void)0)
 

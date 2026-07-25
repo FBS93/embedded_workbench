@@ -4,7 +4,8 @@ This test verifies the correct operation of a deeply nested hierarchical state m
 # Use case
 The test instantiates one active object (`hsm`) that implements the full HSM defined in the following diagram:
 
-@startuml
+```mermaid
+stateDiagram-v2
 state "top" as top {
   [*] --> S1 : Initial
   state "S1" as S1 {
@@ -30,17 +31,29 @@ state "top" as top {
     }
   }
   state "S3" as S3 {
-    state "S31" as S31{
-      state "S311" as S311{
-      }
+    state "S31" as S31 {
+      state "S311" as S311
     }
   }
   state "S4" as S4 {
     [*] --> S41
     state "S41" as S41
   }
-  state "choice" as C <<choice>>
+  state G <<choice>>
 }
+
+  S1 --> S211
+  S2111 --> S2112
+  S2112 --> S2
+  S2 --> S21
+  S21 --> S31
+  S31 --> S3
+  S3 --> S311
+  S311 --> S41
+  S41 --> G
+  G --> S41 : [self_transition == true]
+  G --> S4 : [self_transition == false]
+```
 
 Each test case publishes the same signal (`TRANSITION`) and the HSM must reach the next expected state according to the predefined transition flow:
 - Initial transition: (S11111)
@@ -52,15 +65,15 @@ Each test case publishes the same signal (`TRANSITION`) and the HSM must reach t
 - S31 --> S3 : Child to Parent (S3)
 - S3 --> S311 : Ancestor to Descendant (S311)
 - S311 --> S41 : Last common ancestor (S41)
-- S41 --> C
-- C --> S41 : Self transition (S41) [self_transition == true]
-- C --> S4  : Child to Parent + Initial transition (S41) [flag == false]
+- S41:
+  - --> S41: Self transition (S41) [self_transition == true]
+  - --> S4: Child to Parent + Initial transition (S41) [self_transition == false]
 
 # Verification scope
 This test validates:
 - Correct traversal of the hierarchical state structure, including all kinds of transitions across multiple nesting levels.
 - Proper resolution of transitions according to HSM rules.
-- Deterministic behavior of the choice pseudo-state based on its guard conditions.
+- Deterministic behavior of the guarded transitions from S41.
 - Stable and predictable final state after each `TRANSITION` event, ensuring consistent HSM execution.
 
 This test provides a foundational verification that ensures all functionality builds on a solid and predictable hierarchical state machine model.

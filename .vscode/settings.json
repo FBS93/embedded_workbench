@@ -106,6 +106,18 @@
                 {
                     "label": "🔄 Sync third-party repositories",
                     "task": "run_third_party_sync"
+                },
+                {
+                    "label": "📄 Generate documentation",
+                    "task": "run_docgen"
+                },
+                {
+                    "label": "☑️ Validate release",
+                    "task": "validate_release"
+                },
+                {
+                    "label": "🚀 Release",
+                    "task": "run_release"
                 }
             ],
             "tooltip": "Workbench toolbox"
@@ -134,8 +146,8 @@
                     "task": "lint"
                 },
                 {
-                    "label": "🚦 Run local CI",
-                    "task": "run_local_ci"
+                    "label": "🚦 Run CI",
+                    "task": "run_ci"
                 },
                 {
                     "label": "🧪 Run fuzzer",

@@ -1,0 +1,1777 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="structactiveObject__t" kind="struct"><name>activeObject_t</name>
+    <member refid="structactiveObject__t_1a56956a60ce8628b618b6c488cc465d82" kind="variable"><name>super</name></member>
+    <member refid="structactiveObject__t_1afdfa66d1343ce9b38a1fed73eb4cc325" kind="variable"><name>event_received</name></member>
+  </compound>
+  <compound refid="structEDF__activeObject__bitmask__t" kind="struct"><name>EDF_activeObject_bitmask_t</name>
+    <member refid="structEDF__activeObject__bitmask__t_1a0371ca26e978848c9a75879d8f381c6e" kind="variable"><name>bitmask</name></member>
+  </compound>
+  <compound refid="structEDF__activeObject__t" kind="struct"><name>EDF_activeObject_t</name>
+    <member refid="structEDF__activeObject__t_1a09a3b633aa3adc1a73eaf4e545a88c7f" kind="variable"><name>super</name></member>
+    <member refid="structEDF__activeObject__t_1ae01ab7ca2f3cf5afc790a16b00f06ae4" kind="variable"><name>prio</name></member>
+    <member refid="structEDF__activeObject__t_1aa652748484ae19f6dbb571ab5816f9a6" kind="variable"><name>pthre</name></member>
+    <member refid="structEDF__activeObject__t_1ac09c5bf3474bc1fcecdd60ee7aed5dd4" kind="variable"><name>e_queue</name></member>
+  </compound>
+  <compound refid="structEDF__core__t" kind="struct"><name>EDF_core_t</name>
+    <member refid="structEDF__core__t_1a0a361c40e34eb034f117e62d3e985846" kind="variable"><name>ready_set</name></member>
+    <member refid="structEDF__core__t_1a8207a888d1bf8d1fbf0fd874243e6b97" kind="variable"><name>active_priority</name></member>
+    <member refid="structEDF__core__t_1aee2311fc5cd3e3101ae99e313d70b946" kind="variable"><name>next_priority</name></member>
+    <member refid="structEDF__core__t_1a2b1dd5d0c61e6ef865ae98da4c051417" kind="variable"><name>active_preemption_threshold</name></member>
+    <member refid="structEDF__core__t_1a40773591c11bd02a8bab4ea800894d0f" kind="variable"><name>lock_ceiling</name></member>
+  </compound>
+  <compound refid="structEDF__event__t" kind="struct"><name>EDF_event_t</name>
+    <member refid="structEDF__event__t_1aaedd456489612e92ff32d936cae0b134" kind="variable"><name>sig</name></member>
+    <member refid="structEDF__event__t_1a8d9ca69008b03ac4d3ad382ed4b561e6" kind="variable"><name>pool_num</name></member>
+    <member refid="structEDF__event__t_1a1e35c6c9c18b0e4503317f02fe7b57c5" kind="variable"><name>ref_cnt</name></member>
+  </compound>
+  <compound refid="structEDF__eventQueue__t" kind="struct"><name>EDF_eventQueue_t</name>
+    <member refid="structEDF__eventQueue__t_1a6fc9fc68a80a2aca0375a15eb5e9feea" kind="variable"><name>front_e</name></member>
+    <member refid="structEDF__eventQueue__t_1a53f994887326fc4a87aadc02bd18fae4" kind="variable"><name>ring</name></member>
+    <member refid="structEDF__eventQueue__t_1acd0afdd0c1b9e1ac826989b5756585b7" kind="variable"><name>end</name></member>
+    <member refid="structEDF__eventQueue__t_1a6edb0f5896967222a1c72f0dd325b4a6" kind="variable"><name>head</name></member>
+    <member refid="structEDF__eventQueue__t_1add5bd7be7a01eeca2b5564ab91d310ab" kind="variable"><name>tail</name></member>
+    <member refid="structEDF__eventQueue__t_1a64c1a4648ee56bd0c3df86da5f0636d1" kind="variable"><name>n_free</name></member>
+    <member refid="structEDF__eventQueue__t_1aa2a55f81358cf6607de136db4a96b04f" kind="variable"><name>n_min</name></member>
+  </compound>
+  <compound refid="structEDF__framework__t" kind="struct"><name>EDF_framework_t</name>
+    <member refid="structEDF__framework__t_1a959b988ccc9e7b6420193d911b9b82a3" kind="variable"><name>ao_registry</name></member>
+    <member refid="structEDF__framework__t_1a0d9a11b7555e7d4b376985067c9fa979" kind="variable"><name>subscr_registry</name></member>
+    <member refid="structEDF__framework__t_1a6c08263092f13d6dd410eac670e71e29" kind="variable"><name>pool_registry</name></member>
+    <member refid="structEDF__framework__t_1a8f12a5ffee3d0ff9578d32f2e1d09efc" kind="variable"><name>te_registry</name></member>
+  </compound>
+  <compound refid="structEDF__fuzz__eventDescriptor__t" kind="struct"><name>EDF_fuzz_eventDescriptor_t</name>
+    <member refid="structEDF__fuzz__eventDescriptor__t_1a32c2040fb4027d1dcc6f2a61bfcec3da" kind="variable"><name>sig</name></member>
+    <member refid="structEDF__fuzz__eventDescriptor__t_1a9cebf1dd246af3582db02ded6bfb44e8" kind="variable"><name>is_mutable</name></member>
+    <member refid="structEDF__fuzz__eventDescriptor__t_1a7eecdd604a82931bd2aa7df5a4045135" kind="variable"><name>immutable_event</name></member>
+    <member refid="structEDF__fuzz__eventDescriptor__t_1a700b2de3817df91c0c9c72ac83f34f38" kind="variable"><name>mutable_event_size</name></member>
+  </compound>
+  <compound refid="structEDF__hsm__t" kind="struct"><name>EDF_hsm_t</name>
+    <member refid="structEDF__hsm__t_1a779165a54c4e10798911604cfc29ee60" kind="variable"><name>current_state</name></member>
+    <member refid="structEDF__hsm__t_1a94296c867e2ee50658bca17d6b7fa381" kind="variable"><name>temp_state</name></member>
+  </compound>
+  <compound refid="structEDF__pool__t" kind="struct"><name>EDF_pool_t</name>
+    <member refid="structEDF__pool__t_1a1cc29e02bf1a33eddc7235472c260c5b" kind="variable"><name>start</name></member>
+    <member refid="structEDF__pool__t_1a6abf558eb9210f2d8b206ce7924f5de6" kind="variable"><name>end</name></member>
+    <member refid="structEDF__pool__t_1a107b019bcbee4edbe1073ac91a8eacf8" kind="variable"><name>free_head</name></member>
+    <member refid="structEDF__pool__t_1a97e58b7d46928fba529f3625aef83725" kind="variable"><name>block_size</name></member>
+    <member refid="structEDF__pool__t_1af700e3ef6f8e9f47116613b250c44e71" kind="variable"><name>n_total</name></member>
+    <member refid="structEDF__pool__t_1a26a524c5b8e346e326a55ed97acbb642" kind="variable"><name>n_free</name></member>
+    <member refid="structEDF__pool__t_1a05ed11cdf0ee39c688a8e83d1a1cb655" kind="variable"><name>n_min</name></member>
+  </compound>
+  <compound refid="structEDF__poolRegistry__t" kind="struct"><name>EDF_poolRegistry_t</name>
+    <member refid="structEDF__poolRegistry__t_1a96041a9d19232657881a5af7230e6777" kind="variable"><name>list</name></member>
+    <member refid="structEDF__poolRegistry__t_1ad55a27a3932953f5dc8517facd200e1f" kind="variable"><name>max_pool</name></member>
+  </compound>
+  <compound refid="structEDF__subscriberRegistry__t" kind="struct"><name>EDF_subscriberRegistry_t</name>
+    <member refid="structEDF__subscriberRegistry__t_1a72639d8c0d3d96538af22cc53d082df1" kind="variable"><name>list</name></member>
+    <member refid="structEDF__subscriberRegistry__t_1aa2793e67457da346edb4239722e75f75" kind="variable"><name>max_signal</name></member>
+  </compound>
+  <compound refid="structEDF__timeEvent__t" kind="struct"><name>EDF_timeEvent_t</name>
+    <member refid="structEDF__timeEvent__t_1a006d3478a80e16437eb56a7036fd9ed9" kind="variable"><name>super</name></member>
+    <member refid="structEDF__timeEvent__t_1abc8c4080b63ae2ee25f71acafd2b1d36" kind="variable"><name>next</name></member>
+    <member refid="structEDF__timeEvent__t_1a3e9d4f414afcdf9c309b62bb8c3e47d7" kind="variable"><name>ao</name></member>
+    <member refid="structEDF__timeEvent__t_1a5b8e5da3b9679bec2b3b14c0444e819c" kind="variable"><name>cnt</name></member>
+    <member refid="structEDF__timeEvent__t_1addf1719bb44b2c250227b68340561229" kind="variable"><name>period</name></member>
+    <member refid="structEDF__timeEvent__t_1aeee525bbb08237f7d301c3e7e459e322" kind="variable"><name>tick_rate</name></member>
+    <member refid="structEDF__timeEvent__t_1aa3e3f140e21a379fef961d288a07a57d" kind="variable"><name>is_linked</name></member>
+  </compound>
+  <compound refid="structEDF__timeEventRegistry__t" kind="struct"><name>EDF_timeEventRegistry_t</name>
+    <member refid="structEDF__timeEventRegistry__t_1a14c20d5f1e38ae092a2015b0bc2d96fb" kind="variable"><name>armed_head</name></member>
+    <member refid="structEDF__timeEventRegistry__t_1a7ba58917405c23d8de2198e4031b4555" kind="variable"><name>new_head</name></member>
+  </compound>
+  <compound refid="structEDFTest__t" kind="struct"><name>EDFTest_t</name>
+    <member refid="structEDFTest__t_1abf0c688a819e2a27093e7915865a90af" kind="variable"><name>super</name></member>
+    <member refid="structEDFTest__t_1acd1710b05dbe172013c33917fb0d3443" kind="variable"><name>event_buff</name></member>
+    <member refid="structEDFTest__t_1a3f22dfc27504d11391410a77084f9a47" kind="variable"><name>event_buff_size</name></member>
+    <member refid="structEDFTest__t_1ac705c804a70988d9632ab267f98f1cab" kind="variable"><name>tests</name></member>
+    <member refid="structEDFTest__t_1a41b475ffe2c77c42291c6a192dd6a0fc" kind="variable"><name>test_idx</name></member>
+    <member refid="structEDFTest__t_1a6c9262a70f7c7f0bf666b5ab817b8cd0" kind="variable"><name>skip_cnt</name></member>
+    <member refid="structEDFTest__t_1adef82b2f6750f5be10e6ccd4622f7020" kind="variable"><name>num_tests</name></member>
+  </compound>
+  <compound refid="structEDFTest__test__t" kind="struct"><name>EDFTest_test_t</name>
+    <member refid="structEDFTest__test__t_1a017af5b411b722c64668810df61ea7f1" kind="variable"><name>test_name</name></member>
+    <member refid="structEDFTest__test__t_1a1aad3117e7e4726b16057e9f0967641a" kind="variable"><name>test_init</name></member>
+    <member refid="structEDFTest__test__t_1a9d12c30e51cb82f1448bee545a611e97" kind="variable"><name>test_verify</name></member>
+    <member refid="structEDFTest__test__t_1a05bb534414f9f61293995ae1db8687ad" kind="variable"><name>test_trigger</name></member>
+  </compound>
+  <compound refid="structEDFTest__testEntry__t" kind="struct"><name>EDFTest_testEntry_t</name>
+    <member refid="structEDFTest__testEntry__t_1a8e9be1d1f7dda45d7e1b833d8792e434" kind="variable"><name>test</name></member>
+    <member refid="structEDFTest__testEntry__t_1a0a9dd31ea5b1ffdc1e8245518f9d49ab" kind="variable"><name>skip</name></member>
+  </compound>
+  <compound refid="structeff__globals__t" kind="struct"><name>eff_globals_t</name>
+    <member refid="structeff__globals__t_1a7dbdbd81a4d9d05f50671dc5d0196050" kind="variable"><name>call_history</name></member>
+    <member refid="structeff__globals__t_1a6a1a25edc64f16568d3653cfe38f5664" kind="variable"><name>call_history_idx</name></member>
+  </compound>
+  <compound refid="structEMF__arrayFifo__handler__t" kind="struct"><name>EMF_arrayFifo_handler_t</name>
+    <member refid="structEMF__arrayFifo__handler__t_1a715cf88331d7283f2527f6a94b15b915" kind="variable"><name>n_slots</name></member>
+    <member refid="structEMF__arrayFifo__handler__t_1a71b2636f4008b65cae696369b9f2a9bc" kind="variable"><name>slot_size</name></member>
+    <member refid="structEMF__arrayFifo__handler__t_1aa76454486c245d6aab481717d66b3fed" kind="variable"><name>storage</name></member>
+    <member refid="structEMF__arrayFifo__handler__t_1a0228060c5dfb9e84ee874a8f1d80df3b" kind="variable"><name>head</name></member>
+    <member refid="structEMF__arrayFifo__handler__t_1aef722607914d96180105971aba33ccdb" kind="variable"><name>tail</name></member>
+    <member refid="structEMF__arrayFifo__handler__t_1ad319ec11ec9563416922522a600a1053" kind="variable"><name>full</name></member>
+  </compound>
+  <compound refid="structEMF__byteFifo__handler__t" kind="struct"><name>EMF_byteFifo_handler_t</name>
+    <member refid="structEMF__byteFifo__handler__t_1abe1c8a1d81b929d51b26e5ba41e3d242" kind="variable"><name>storage</name></member>
+    <member refid="structEMF__byteFifo__handler__t_1a1b01f34bf5490f7eed515e1e4ceb679b" kind="variable"><name>size</name></member>
+    <member refid="structEMF__byteFifo__handler__t_1a2497632cf464f74c6eac3fccec494001" kind="variable"><name>head</name></member>
+    <member refid="structEMF__byteFifo__handler__t_1abb0de75001485fa987b2b92cb73cf1c3" kind="variable"><name>tail</name></member>
+    <member refid="structEMF__byteFifo__handler__t_1a972e3351f8e6054662d214185b2dd1d4" kind="variable"><name>used</name></member>
+  </compound>
+  <compound refid="structEPF__timer__entry__t" kind="struct"><name>EPF_timer_entry_t</name>
+    <member refid="structEPF__timer__entry__t_1aa128b46b882243e18357a0f9b0a95f91" kind="variable"><name>next</name></member>
+    <member refid="structEPF__timer__entry__t_1a3e8da653ee0b4150ba35977ba775e6d7" kind="variable"><name>cb</name></member>
+    <member refid="structEPF__timer__entry__t_1a2f9c5a274f38fc1a9e382b0f7679a0c6" kind="variable"><name>cnt</name></member>
+    <member refid="structEPF__timer__entry__t_1a0252caee628781a9df4eaf8e1980e4c1" kind="variable"><name>period</name></member>
+    <member refid="structEPF__timer__entry__t_1af1d3266b8c49ee8ef435eaf447ac7393" kind="variable"><name>is_linked</name></member>
+  </compound>
+  <compound refid="structEPF__timer__t" kind="struct"><name>EPF_timer_t</name>
+    <member refid="structEPF__timer__t_1af8705dbd079dc76c38c9eea7802085aa" kind="variable"><name>ticker_tid</name></member>
+    <member refid="structEPF__timer__t_1a98f4d12c8c9ffc5fe5cdadcaed067fd1" kind="variable"><name>mutex</name></member>
+    <member refid="structEPF__timer__t_1a348bd7b14902e6776d5159dcce40481b" kind="variable"><name>stop_ticker</name></member>
+    <member refid="structEPF__timer__t_1a569f2e2f99bc55e1119b1e09fa037237" kind="variable"><name>armed_head</name></member>
+    <member refid="structEPF__timer__t_1afc903946c6b7ebdf334c15f635f88488" kind="variable"><name>new_head</name></member>
+  </compound>
+  <compound refid="structETF__t" kind="struct"><name>ETF_t</name>
+    <member refid="structETF__t_1a03fcc7eeb9b1a3190027be8d6454c81a" kind="variable"><name>test_cnt</name></member>
+    <member refid="structETF__t_1a2941bbad694a4ccad2342bf3f606d86e" kind="variable"><name>skip_cnt</name></member>
+    <member refid="structETF__t_1a2c469db23cbb9f6d0ca43636ea23eea8" kind="variable"><name>last_skipped</name></member>
+  </compound>
+  <compound refid="structfuzzExample__setEvent__t" kind="struct"><name>fuzzExample_setEvent_t</name>
+    <member refid="structfuzzExample__setEvent__t_1ae9aa1163f0980475569d17898b22221d" kind="variable"><name>super</name></member>
+    <member refid="structfuzzExample__setEvent__t_1a1f5d1db99c173afbe909393454ba3e93" kind="variable"><name>slot</name></member>
+    <member refid="structfuzzExample__setEvent__t_1a495b4aaae52ae1f53bde5a94968ffa24" kind="variable"><name>gate</name></member>
+    <member refid="structfuzzExample__setEvent__t_1a4aefc308c53e207a2db02d10b67cd290" kind="variable"><name>target_count</name></member>
+  </compound>
+  <compound refid="structfuzzExample__stepEvent__t" kind="struct"><name>fuzzExample_stepEvent_t</name>
+    <member refid="structfuzzExample__stepEvent__t_1a045ee9be11ca93aaf8b1dfc9bb4cbecd" kind="variable"><name>super</name></member>
+    <member refid="structfuzzExample__stepEvent__t_1ae137d43e29fb28321c69da18bdeaac6b" kind="variable"><name>slot</name></member>
+    <member refid="structfuzzExample__stepEvent__t_1acd18342203ad392c35fa444dc1fd3215" kind="variable"><name>value</name></member>
+    <member refid="structfuzzExample__stepEvent__t_1a09d19185afbc657b5f0065094b834901" kind="variable"><name>flags</name></member>
+  </compound>
+  <compound refid="structfuzzExample__t" kind="struct"><name>fuzzExample_t</name>
+    <member refid="structfuzzExample__t_1ad8509cda5959e38900b6c23187c10be1" kind="variable"><name>super</name></member>
+    <member refid="structfuzzExample__t_1a1e5e69dda82daf8fc149adc6cac2c549" kind="variable"><name>ping_count</name></member>
+    <member refid="structfuzzExample__t_1aab3fc0b233314b76697b854b3124e30c" kind="variable"><name>set_count</name></member>
+    <member refid="structfuzzExample__t_1a4a393b96212f607bb771b9e0bd4dccab" kind="variable"><name>step_count_total</name></member>
+    <member refid="structfuzzExample__t_1acc2e577c9b9940760b7eb5e695a5f0c6" kind="variable"><name>ignored_count</name></member>
+    <member refid="structfuzzExample__t_1a7c10deaf3fdce4dc46188009725baa1d" kind="variable"><name>rejected_count</name></member>
+    <member refid="structfuzzExample__t_1aba0ad42b45ab75688c2fa4577e1ecc9c" kind="variable"><name>transition_count</name></member>
+    <member refid="structfuzzExample__t_1a0c6a02beb3d8a9b450f82a9330a8242c" kind="variable"><name>running_sum</name></member>
+    <member refid="structfuzzExample__t_1a4a143ab35de1b86aa6d2f2dea53f011c" kind="variable"><name>match_slot</name></member>
+    <member refid="structfuzzExample__t_1a26aeb11617053923f69e9d9d49553d12" kind="variable"><name>gate</name></member>
+    <member refid="structfuzzExample__t_1ab2b09025c6dfc88fa34e07cfab7f211d" kind="variable"><name>target_count</name></member>
+    <member refid="structfuzzExample__t_1a5c5d4a893dbc03b494331b71584b7165" kind="variable"><name>collected_count</name></member>
+    <member refid="structfuzzExample__t_1afd2150170a9dde5f6326d14041e6feb3" kind="variable"><name>last_slot</name></member>
+    <member refid="structfuzzExample__t_1a20426780e0ebde02729a748147bc5408" kind="variable"><name>last_value</name></member>
+  </compound>
+  <compound refid="structhsm__t" kind="struct"><name>hsm_t</name>
+    <member refid="structhsm__t_1ac8009260e6ace087a28103ede8b3b58a" kind="variable"><name>super</name></member>
+    <member refid="structhsm__t_1a4f62ff46c3ed6b027ec2e7ba4b761aa6" kind="variable"><name>self_transition</name></member>
+  </compound>
+  <compound refid="structtimeEvent__t" kind="struct"><name>timeEvent_t</name>
+    <member refid="structtimeEvent__t_1a430a9291e2e816f6022eab9e6d116635" kind="variable"><name>periodic_5ms</name></member>
+    <member refid="structtimeEvent__t_1a71c55755ae9ae3fcb88f1806146a379f" kind="variable"><name>periodic_100ms</name></member>
+    <member refid="structtimeEvent__t_1a1247e6beeb3166136fd17de10242b020" kind="variable"><name>periodic_5ms_100ms</name></member>
+    <member refid="structtimeEvent__t_1a0be35511425a6142e09dfabfa4cffc26" kind="variable"><name>one_shot_100ms</name></member>
+  </compound>
+  <compound refid="structtimeMgr__t" kind="struct"><name>timeMgr_t</name>
+    <member refid="structtimeMgr__t_1a30e976505817ffc81d7974871b062fb2" kind="variable"><name>super</name></member>
+    <member refid="structtimeMgr__t_1a85bc147667bea3594686caaadbd7a245" kind="variable"><name>event_buff</name></member>
+    <member refid="structtimeMgr__t_1ac0943b3c88c9e4683914a4ff2b663bc2" kind="variable"><name>periodic_5ms_cnt</name></member>
+    <member refid="structtimeMgr__t_1a6fb1651347b54e86c09cd4e2a3689df1" kind="variable"><name>periodic_100ms_cnt</name></member>
+    <member refid="structtimeMgr__t_1a000a0ae04c7db49fc58ee1e8cc1f8a4a" kind="variable"><name>periodic_5ms_100ms_cnt</name></member>
+    <member refid="structtimeMgr__t_1ab1afc70a4cee88ac84924e913f822275" kind="variable"><name>one_shot_100ms_cnt</name></member>
+  </compound>
+  <compound refid="structworkerAo__t" kind="struct"><name>workerAo_t</name>
+    <member refid="structworkerAo__t_1af2967350f12d2646bf41449f07940827" kind="variable"><name>super</name></member>
+    <member refid="structworkerAo__t_1abf4ba013ec28be0e7101ba3ea61e7de4" kind="variable"><name>event_buff</name></member>
+    <member refid="structworkerAo__t_1a3824490f8b5309e62973fd87787516f7" kind="variable"><name>activation_time_event</name></member>
+    <member refid="structworkerAo__t_1ae4f1131d07ad1ec3fcb4fe3a49cc20ce" kind="variable"><name>trace_channel</name></member>
+    <member refid="structworkerAo__t_1a4fef1efa1a513f8f5ff8a79e08158946" kind="variable"><name>activation_sig</name></member>
+    <member refid="structworkerAo__t_1aaa77d680256a82d86aaeddb0c249ce60" kind="variable"><name>first_delay_ms</name></member>
+    <member refid="structworkerAo__t_1a2e58fe2796a300e3622d32ae567cefa8" kind="variable"><name>period_ms</name></member>
+    <member refid="structworkerAo__t_1afc540a0940f5989ead6e826dbe568317" kind="variable"><name>execution_time_us</name></member>
+    <member refid="structworkerAo__t_1a4b909f35a428de60bb23248de951ce76" kind="variable"><name>execution_budget_ticks</name></member>
+    <member refid="structworkerAo__t_1a41f1bbe2cc7b1bc6caef269e26ef5078" kind="variable"><name>executed_ticks</name></member>
+    <member refid="structworkerAo__t_1ae637565040d6fda81c02c0de706f0f9e" kind="variable"><name>resume_tick</name></member>
+    <member refid="structworkerAo__t_1ae48a23b9333fc8b78f5764691d6975ae" kind="variable"><name>execution_active</name></member>
+    <member refid="structworkerAo__t_1ae195b60fafa0db45ace149117603e052" kind="variable"><name>execution_counting</name></member>
+  </compound>
+  <compound refid="eaf_8h" kind="file"><name>eaf.h</name>
+    <member refid="eaf_8h_1ada0d9697a9188529419158bba511dfab" kind="define"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="eaf_8h_1a92c4a5c879646da112054000a22265e7" kind="define"><name>EAF_ASSERT_ID</name></member>
+    <member refid="eaf_8h_1a69ce561e8b8aadf6ddfee313d1a4288b" kind="define"><name>EAF_ASSERT</name></member>
+    <member refid="eaf_8h_1ac3a3971f7481a6885c6829fc11c4c893" kind="define"><name>EAF_ERROR_ID</name></member>
+    <member refid="eaf_8h_1a69ea92bb9f6ec645eb808246573748ed" kind="define"><name>EAF_ERROR</name></member>
+    <member refid="eaf_8h_1a0a0aa9983f4492f8478a1bffbf077854" kind="define"><name>EAF_ASSERT_IN_CRITICAL_SECTION_ID</name></member>
+    <member refid="eaf_8h_1a0e68ed6bfcb78d5621202ca71c7caa05" kind="define"><name>EAF_ASSERT_IN_CRITICAL_SECTION</name></member>
+    <member refid="eaf_8h_1aae598ab6d223cc897608e40c509c562f" kind="define"><name>EAF_ERROR_IN_CRITICAL_SECTION_ID</name></member>
+    <member refid="eaf_8h_1a18aeab14ab95de511777def54ad01e04" kind="define"><name>EAF_ERROR_IN_CRITICAL_SECTION</name></member>
+    <member refid="eaf_8h_1a5099b62e4f0b41bee01594c33d73aaf0" kind="define"><name>EAF_ASSERT_BLOCK_BEGIN</name></member>
+    <member refid="eaf_8h_1a2195c8f8081ed8a2742832c4cb79de50" kind="define"><name>EAF_ASSERT_IN_BLOCK_ID</name></member>
+    <member refid="eaf_8h_1ac6852b068db51dde92a2065a23008d83" kind="define"><name>EAF_ASSERT_IN_BLOCK</name></member>
+    <member refid="eaf_8h_1a5527c84790575eb476f9bdb40a490046" kind="define"><name>EAF_ASSERT_BLOCK_END</name></member>
+    <member refid="eaf_8h_1a775e2f2146540dd04bd26e30594e37ea" kind="function"><name>EAF_onError</name></member>
+    <member refid="eaf_8h_1a906160bff4d41462eded66cd25618650" kind="function"><name>EAF_criticalSectionEntry</name></member>
+    <member refid="eaf_8h_1a7cd97c066df677a908333636728b41fb" kind="function"><name>EAF_criticalSectionExit</name></member>
+    <member refid="eaf_8h_1a864a951f6ba88663f3ee0673b42d1daa" kind="function"><name>EAF_isInCriticalSection</name></member>
+  </compound>
+  <compound refid="eaf_8c" kind="file"><name>eaf.c</name>
+    <member refid="eaf_8c_1a57fda8a487555e8a2d639242b0f6b393" kind="function"><name>EAF_onError</name></member>
+    <member refid="eaf_8c_1a906160bff4d41462eded66cd25618650" kind="function"><name>EAF_criticalSectionEntry</name></member>
+    <member refid="eaf_8c_1a7cd97c066df677a908333636728b41fb" kind="function"><name>EAF_criticalSectionExit</name></member>
+    <member refid="eaf_8c_1a864a951f6ba88663f3ee0673b42d1daa" kind="function"><name>EAF_isInCriticalSection</name></member>
+  </compound>
+  <compound refid="ebf_8h" kind="file"><name>ebf.h</name>
+    <member refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kind="define"><name>EBF_WEAK</name></member>
+    <member refid="ebf_8h_1a058a9071df8f3bcedc4fff0a9e06ee84" kind="define"><name>EBF_CRITICAL_SECTION_ENTRY</name></member>
+    <member refid="ebf_8h_1ae34944c46809734fbb6dd706bc6779fa" kind="define"><name>EBF_CRITICAL_SECTION_EXIT</name></member>
+    <member refid="ebf_8h_1abbbde831fae6109e3636d62e7c83bcf8" kind="define"><name>EBF_IS_IN_CRITICAL_SECTION</name></member>
+    <member refid="ebf_8h_1aed92d67c0140dc726662c31ce3e29544" kind="define"><name>EBF_NOP</name></member>
+    <member refid="ebf_8h_1ae5791af1ebceacc30e9a8e993eb3df3a" kind="typedef"><name>EBF_stdin_t</name></member>
+    <member refid="ebf_8h_1a3399e41af271d07722214b4d88984215" kind="variable"><name>EBF_critSecMutex</name></member>
+    <member refid="ebf_8h_1ae6891c9bd47ae72702538529471923ff" kind="variable"><name>EBF_critSecNestCnt</name></member>
+    <member refid="ebf_8h_1a733b7470285b529fa946e66c05119a98" kind="function"><name>EBF_setStdinListener</name></member>
+    <member refid="ebf_8h_1af4373c4d67200cee67afe5735c468e23" kind="function"><name>EBF_stdoutWrite</name></member>
+    <member refid="ebf_8h_1a9e40651d3855ef9a6e6a5617167ba31e" kind="function"><name>EBF_stdoutIsReadyToWrite</name></member>
+    <member refid="ebf_8h_1a0b0358a40adba6c0e471e0966b14ba48" kind="function"><name>EBF_entryCriticalSection</name></member>
+    <member refid="ebf_8h_1afdb2b786dfef7807e74876b0ded5835b" kind="function"><name>EBF_exitCriticalSection</name></member>
+    <member refid="ebf_8h_1ab53792ce200aea84b9a1db7f2c4935de" kind="function"><name>EBF_isInCriticalSection</name></member>
+    <member refid="ebf_8h_1a0e26790e54ccca52c482ac2a1c715ce1" kind="function"><name>EBF_noOperation</name></member>
+  </compound>
+  <compound refid="ebf__utils_8h" kind="file"><name>ebf_utils.h</name>
+    <member refid="ebf__utils_8h_1a215ccc192f06529b13aa06e1ec2378f1" kind="function"><name>EBF_utils_log2</name></member>
+  </compound>
+  <compound refid="baremetal_2arm__cortex__m_2inc_2ebf__core_8h" kind="file"><name>ebf_core.h</name>
+  </compound>
+  <compound refid="os_2posix_2inc_2ebf__core_8h" kind="file"><name>ebf_core.h</name>
+  </compound>
+  <compound refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c" kind="file"><name>ebf_core.c</name>
+    <member refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c_1a7fc8f5b888fff4b4266b71a29f2df517" kind="function"><name>EBF_setStdinListener</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c_1adc15f503f197b8c6dc3a52381f068a27" kind="function"><name>EBF_stdoutWrite</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c_1a5d055623374191377a72fc73e89fb9f8" kind="function"><name>EBF_stdoutIsReadyToWrite</name></member>
+  </compound>
+  <compound refid="os_2posix_2src_2ebf__core_8c" kind="file"><name>ebf_core.c</name>
+    <member refid="os_2posix_2src_2ebf__core_8c_1a3399e41af271d07722214b4d88984215" kind="variable"><name>EBF_critSecMutex</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1ae6891c9bd47ae72702538529471923ff" kind="variable"><name>EBF_critSecNestCnt</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1a7fc8f5b888fff4b4266b71a29f2df517" kind="function"><name>EBF_setStdinListener</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1adc15f503f197b8c6dc3a52381f068a27" kind="function"><name>EBF_stdoutWrite</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1a5d055623374191377a72fc73e89fb9f8" kind="function"><name>EBF_stdoutIsReadyToWrite</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1a0b0358a40adba6c0e471e0966b14ba48" kind="function"><name>EBF_entryCriticalSection</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1afdb2b786dfef7807e74876b0ded5835b" kind="function"><name>EBF_exitCriticalSection</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1ab53792ce200aea84b9a1db7f2c4935de" kind="function"><name>EBF_isInCriticalSection</name></member>
+    <member refid="os_2posix_2src_2ebf__core_8c_1a0e26790e54ccca52c482ac2a1c715ce1" kind="function"><name>EBF_noOperation</name></member>
+  </compound>
+  <compound refid="syscalls_8c" kind="file"><name>syscalls.c</name>
+    <member refid="syscalls_8c_1ab5d780fb26c5cbe9cccad71637e474cd" kind="function"><name>_write</name></member>
+    <member refid="syscalls_8c_1a5c3b96561fe05baaeab1af37b35606c4" kind="function"><name>_read</name></member>
+    <member refid="syscalls_8c_1a68125648bcce70b6bb3aa0be50e99700" kind="function"><name>_sbrk</name></member>
+    <member refid="syscalls_8c_1a58a559c63748012aab165d5f82af766d" kind="function"><name>_close</name></member>
+    <member refid="syscalls_8c_1a6fd96f1827f22161142519298141cd2f" kind="function"><name>_lseek</name></member>
+    <member refid="syscalls_8c_1a6e8d95db883bc4efe10c487d74e96b06" kind="function"><name>_fstat</name></member>
+    <member refid="syscalls_8c_1a4284676ccba12d7f2061d338001f71fb" kind="function"><name>_isatty</name></member>
+    <member refid="syscalls_8c_1abc96bd69b58b2deaddb484478d911c1b" kind="function"><name>_exit</name></member>
+    <member refid="syscalls_8c_1aea4fc7643f2a2aacc79a377ffb7be528" kind="function"><name>_kill</name></member>
+    <member refid="syscalls_8c_1ad1f206883946ce8cb8bb983464f9b102" kind="function"><name>_getpid</name></member>
+  </compound>
+  <compound refid="ebf__utils_8c" kind="file"><name>ebf_utils.c</name>
+    <member refid="ebf__utils_8c_1adef04c4b7d4a97b7cb9afe092d05cc9a" kind="function"><name>EBF_utils_log2</name></member>
+  </compound>
+  <compound refid="eff_8h" kind="file"><name>eff.h</name>
+    <member refid="eff_8h_1acdca2e59514f2393766c66ccb235fdee" kind="define"><name>SET_RETURN_SEQ</name></member>
+    <member refid="eff_8h_1a312c7ffe4911b7ee89c96ba5a710394a" kind="define"><name>SET_CUSTOM_FAKE_SEQ</name></member>
+    <member refid="eff_8h_1aeb6d3347167d658bbd604805a5ea4648" kind="define"><name>RESET_FAKE</name></member>
+    <member refid="eff_8h_1a8affb67f3d175fe43771a559be95034d" kind="define"><name>EFF_RESET_HISTORY</name></member>
+    <member refid="eff_8h_1aac963376ac8fc2477912c769c0db032f" kind="define"><name>DEFINE_EFF_GLOBALS</name></member>
+    <member refid="eff_8h_1a0dceb064829f208bc30dc9a09fe9b6f5" kind="define"><name>EFF_MAX_ARGS</name></member>
+    <member refid="eff_8h_1a49410639a3a59ada13b17231e25f4da2" kind="define"><name>EFF_ARG_HISTORY_LEN</name></member>
+    <member refid="eff_8h_1a64c809141559efb52ca8a4789e267eb4" kind="define"><name>EFF_CALL_HISTORY_LEN</name></member>
+    <member refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kind="define"><name>EFF_GCC_FUNCTION_ATTRIBUTES</name></member>
+    <member refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kind="define"><name>CUSTOM_EFF_FUNCTION_TEMPLATE</name></member>
+    <member refid="group__FakeFunction_1gaadc3f4cfe5d96785e3b49be014aa1677" kind="define"><name>FAKE_VALUE_FUNC</name></member>
+    <member refid="group__FakeFunction_1gaf5e0d3e09a9383ac72a9cb45eb4ed831" kind="define"><name>FAKE_VOID_FUNC</name></member>
+    <member refid="group__FakeFunctionDeclarations_1gabe755adc69a66dab496ea7583050d3fd" kind="define"><name>DECLARE_FAKE_VALUE_FUNC</name></member>
+    <member refid="group__FakeFunctionDeclarations_1gab3a6abd531c44d2ec1d249e3e100ff3c" kind="define"><name>DECLARE_FAKE_VOID_FUNC</name></member>
+    <member refid="group__FakeFunctionDefinitions_1ga4d9be23c4ca81be38396a83bc94164c0" kind="define"><name>DEFINE_FAKE_VALUE_FUNC</name></member>
+    <member refid="group__FakeFunctionDefinitions_1ga1629581dedc52dad4772c16b3c314828" kind="define"><name>DEFINE_FAKE_VOID_FUNC</name></member>
+    <member refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kind="define"><name>DECLARE_ARG</name></member>
+    <member refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kind="define"><name>DECLARE_ALL_FUNC_COMMON</name></member>
+    <member refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kind="define"><name>DECLARE_RETURN_VALUE_HISTORY</name></member>
+    <member refid="eff_8h_1a3e2f865bd86814ffac51b1dc1e4d3450" kind="define"><name>SAVE_ARG</name></member>
+    <member refid="eff_8h_1a9de5f1b447452968c07a477fbfec9c9e" kind="define"><name>ROOM_FOR_MORE_HISTORY</name></member>
+    <member refid="eff_8h_1af7caefd665b7c070c1cee343ca572dce" kind="define"><name>SAVE_RET_HISTORY</name></member>
+    <member refid="eff_8h_1afb6d5256553c3be825f7f83fe6d5dde9" kind="define"><name>SAVE_ARG_HISTORY</name></member>
+    <member refid="eff_8h_1adcf92825fec9b9478398765cb84cd00f" kind="define"><name>HISTORY_DROPPED</name></member>
+    <member refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kind="define"><name>DECLARE_VALUE_FUNCTION_VARIABLES</name></member>
+    <member refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kind="define"><name>DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</name></member>
+    <member refid="eff_8h_1ae570ba4a02c31f264f5da7d092c8cac4" kind="define"><name>INCREMENT_CALL_COUNT</name></member>
+    <member refid="eff_8h_1a539b3c049757e910bee6c8c6f5414e30" kind="define"><name>REGISTER_CALL</name></member>
+    <member refid="eff_8h_1af19fef1f0025bb4733e998d35bc03310" kind="define"><name>RETURN_FAKE_RESULT</name></member>
+    <member refid="eff_8h_1aec1937352832e066bddd2220ccc8a503" kind="define"><name>DEFINE_RESET_FUNCTION</name></member>
+    <member refid="group__FakeFunctionMacros_1gab78d1321173c5ec6fa029201d80b7243" kind="define"><name>DECLARE_FAKE_VOID_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1gaad05785f517f7bfed8fbdabd94197b31" kind="define"><name>DEFINE_FAKE_VOID_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1ga4d1ab0fa0d0d90f90177ad393870fc15" kind="define"><name>FAKE_VOID_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1gab99f92d18abc83674d17291169275712" kind="define"><name>DECLARE_FAKE_VOID_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1ga4b83661285f76e002833cf73600a0ef4" kind="define"><name>DEFINE_FAKE_VOID_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1gaefef27bc3014a5535c02cc7b9c043355" kind="define"><name>FAKE_VOID_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1ga0ac9e87dc810b8a5bb6e6c532e6be39d" kind="define"><name>DECLARE_FAKE_VOID_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1ga5be5bb3c42fca77b248404aff6cd2027" kind="define"><name>DEFINE_FAKE_VOID_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1ga58cde3d8a1e79effd038c63a59e55104" kind="define"><name>FAKE_VOID_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1gad5293b1eb48a7d4d5a11c3c75aaa5d71" kind="define"><name>DECLARE_FAKE_VOID_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga6d2c55ab70f5fb9acd9760d9d09e42f9" kind="define"><name>DEFINE_FAKE_VOID_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1gaa130f9e166b31b1156fceccda8dc31df" kind="define"><name>FAKE_VOID_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga7db609175d368a7f64569899944cbc83" kind="define"><name>DECLARE_FAKE_VOID_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1dd59da676a468c78c4d71482b227a3f" kind="define"><name>DEFINE_FAKE_VOID_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1gafad7544f90a9db9c9d14d6565006a314" kind="define"><name>FAKE_VOID_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1gacad2449d38b7d37e8cfc81920a4cb4cf" kind="define"><name>DECLARE_FAKE_VOID_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga0d1fba2ef7aa0c128f2773a640c536e3" kind="define"><name>DEFINE_FAKE_VOID_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1gae468697dd7626c63a5093cc505b9056b" kind="define"><name>FAKE_VOID_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga791750f81a0ab23de808df374498812b" kind="define"><name>DECLARE_FAKE_VOID_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga644fc466c398bee48c8b47b02f40d7c5" kind="define"><name>DEFINE_FAKE_VOID_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga13e908e62ea8cc666d2b52af87d31d94" kind="define"><name>FAKE_VOID_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga5e93a67a7a9398e66cd5d8c32b2cf97b" kind="define"><name>DECLARE_FAKE_VOID_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga952ad059564364677d12eb60e3502ced" kind="define"><name>DEFINE_FAKE_VOID_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1gaf4c9613946a4564812695db47c18c7fe" kind="define"><name>FAKE_VOID_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga40ded2b5aa02187f35c64597decd85e3" kind="define"><name>DECLARE_FAKE_VOID_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1gae9ad8635021363488ca5a60f7443172b" kind="define"><name>DEFINE_FAKE_VOID_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1ga414c19398243ecb3b6e6089a970b517d" kind="define"><name>FAKE_VOID_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1gaeb6fdcc872b8cac7a43e567912ead87a" kind="define"><name>DECLARE_FAKE_VOID_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1e82227c0a74849ca3df99fea2da718f" kind="define"><name>DEFINE_FAKE_VOID_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga9bfcd16a665682cbc7acc723762fc057" kind="define"><name>FAKE_VOID_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga89b7e7d5b41cb8658b44ef43e51bc460" kind="define"><name>DECLARE_FAKE_VOID_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1gab3d57c134c4ded89611bd80eeb4f2ba6" kind="define"><name>DEFINE_FAKE_VOID_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1gadb8da71d91ec087bc164e858626c3357" kind="define"><name>FAKE_VOID_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1ga948e9a55b1fb4d8faefeb5586ed87b54" kind="define"><name>DECLARE_FAKE_VALUE_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1ga62e52bb4169a4064e240fee1d6d0ffef" kind="define"><name>DEFINE_FAKE_VALUE_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1gad5a62862651ac48fdabbcb2ec166a856" kind="define"><name>FAKE_VALUE_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1ga6a83cf86c84df816f5a5a7378940a141" kind="define"><name>DECLARE_FAKE_VALUE_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1gad5b9dbf0ecde74490845fdb24ab9c82f" kind="define"><name>DEFINE_FAKE_VALUE_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1ga9aa6f70cb4fafba7117582cdd568af7a" kind="define"><name>FAKE_VALUE_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1ga47f6a10ebc54d48df5dfb294920faf2c" kind="define"><name>DECLARE_FAKE_VALUE_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1gaabc1f9414d1aec0ce34a88addca6ea44" kind="define"><name>DEFINE_FAKE_VALUE_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1334c40947b6a71442d3a8363ab85e45" kind="define"><name>FAKE_VALUE_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1gaf8d6323b2ca5983fcfbcc5e99d1a22a6" kind="define"><name>DECLARE_FAKE_VALUE_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga174910cf63261390944368b656443d7c" kind="define"><name>DEFINE_FAKE_VALUE_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga13274b15d56763d56365c6cb7b36e9b0" kind="define"><name>FAKE_VALUE_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1cd827d54f1ce2de5be6bfffa183a42b" kind="define"><name>DECLARE_FAKE_VALUE_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1gaec251b7082fd92db673c7797d678db1b" kind="define"><name>DEFINE_FAKE_VALUE_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1ga985a7e10aaad6a1108f5093afb4aad91" kind="define"><name>FAKE_VALUE_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1ga4bb680a4fd1ecaafaa4fb52efae21b3a" kind="define"><name>DECLARE_FAKE_VALUE_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga11206579c82b79ffcc5cbc98e874dc88" kind="define"><name>DEFINE_FAKE_VALUE_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga005a828cb8cd31d85d9d3974416a12fc" kind="define"><name>FAKE_VALUE_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga5b811ace680aa63e501539244f10249f" kind="define"><name>DECLARE_FAKE_VALUE_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga3cbf5347f876ac0e6c530b0461f88aae" kind="define"><name>DEFINE_FAKE_VALUE_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1e7329a3880facae95f57016933a1710" kind="define"><name>FAKE_VALUE_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga4dc16c4fa9b91c60d91f4c046934c50d" kind="define"><name>DECLARE_FAKE_VALUE_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga35abd788057adafc718bea84e17029eb" kind="define"><name>DEFINE_FAKE_VALUE_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga69b1ecedd06e63cb40af937c167562ca" kind="define"><name>FAKE_VALUE_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga3d565c07339708db8917c4b732c81fed" kind="define"><name>DECLARE_FAKE_VALUE_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1gaa714d55175dc73f6058d628bcaa09a6b" kind="define"><name>DEFINE_FAKE_VALUE_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1ga2c198934771fd04db81577fee5db49e6" kind="define"><name>FAKE_VALUE_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1gaf107425ea18f1c488feaaf35402cd212" kind="define"><name>DECLARE_FAKE_VALUE_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga3a28ceda7883c1b0a01e125d7206780f" kind="define"><name>DEFINE_FAKE_VALUE_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1gaccab85b0ce3cd20c1e101c5e0171189c" kind="define"><name>FAKE_VALUE_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga8443637605560af0ca45ddd274a72d4f" kind="define"><name>DECLARE_FAKE_VALUE_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1c60bac0421fbba415f25a3604391305" kind="define"><name>DEFINE_FAKE_VALUE_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1ga239a00463bf260bb1b5fb97c558f643c" kind="define"><name>FAKE_VALUE_FUNC10</name></member>
+    <member refid="eff_8h_1ae4b532a93c757194ec73b6790a3e6b1f" kind="define"><name>EXPAND</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gaed4e92e74d3346203733f847c1fb7c13" kind="define"><name>PP_NARG_MINUS2</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gacdd3fc1d1e62fd3f5da6cc3a0b121e73" kind="define"><name>PP_NARG_MINUS2_</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gae6c437a9f72281ce6d8d92f6abb5f7da" kind="define"><name>PP_ARG_MINUS2_N</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gad8efeac53da71c035282ee9a13880a14" kind="define"><name>PP_RSEQ_N_MINUS2</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gae35e4e10e3c657c61184fb4f80a9d436" kind="define"><name>PP_NARG_MINUS1</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gaa751f94e24b84d18435bb22958c913b9" kind="define"><name>PP_NARG_MINUS1_</name></member>
+    <member refid="group__PP__CountArgumentMacros_1ga4aaae05af53813dc7c5b93ab295a441e" kind="define"><name>PP_ARG_MINUS1_N</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gacca5a4e5675ac18afa05990b1c7485b7" kind="define"><name>PP_RSEQ_N_MINUS1</name></member>
+    <member refid="group__FakeFunctionDispatch_1ga8625ed13dfb3b5021bb8d532f2160ff8" kind="define"><name>FUNC_VALUE_</name></member>
+    <member refid="group__FakeFunctionDispatch_1gaf0fddd67177d21091ab7d222d8edd6fd" kind="define"><name>FUNC_VALUE_N</name></member>
+    <member refid="group__FakeFunctionDispatch_1ga857495061e2f86db044bb9f633251c65" kind="define"><name>FUNC_VOID_</name></member>
+    <member refid="group__FakeFunctionDispatch_1gada990ce44fa8e5d9a4caf5927863f36a" kind="define"><name>FUNC_VOID_N</name></member>
+    <member refid="group__FakeFunctionDeclarationDispatch_1ga87931f735fdb8221f2f4c18146c59c80" kind="define"><name>DECLARE_FUNC_VALUE_</name></member>
+    <member refid="group__FakeFunctionDeclarationDispatch_1ga5b8bdf38c87d97882d04d74f3839b813" kind="define"><name>DECLARE_FUNC_VALUE_N</name></member>
+    <member refid="group__FakeFunctionDeclarationDispatch_1gad87ab733f2f23db8ca737780762de08a" kind="define"><name>DECLARE_FUNC_VOID_</name></member>
+    <member refid="group__FakeFunctionDeclarationDispatch_1ga748f971c722172983ee913eddcd314be" kind="define"><name>DECLARE_FUNC_VOID_N</name></member>
+    <member refid="group__FakeFunctionDefinitionDispatch_1gaec6f33309a6e05463eff93190db809ba" kind="define"><name>DEFINE_FUNC_VALUE_</name></member>
+    <member refid="group__FakeFunctionDefinitionDispatch_1ga65ae8b005afece51e4ead99d32402420" kind="define"><name>DEFINE_FUNC_VALUE_N</name></member>
+    <member refid="group__FakeFunctionDefinitionDispatch_1ga9647ac5bbd553454c66976056c556b25" kind="define"><name>DEFINE_FUNC_VOID_</name></member>
+    <member refid="group__FakeFunctionDefinitionDispatch_1ga5a3498cf3b25c3e6522649a5a25d9345" kind="define"><name>DEFINE_FUNC_VOID_N</name></member>
+    <member refid="eff_8h_1ad6c4be434f0b0441d80bdba7d8d4f64e" kind="typedef"><name>eff_function_t</name></member>
+    <member refid="eff_8h_1a7cc0d0af15c5493bace1bf9b01984a04" kind="variable"><name>eff</name></member>
+  </compound>
+  <compound refid="eff__dummy_8h" kind="file"><name>eff_dummy.h</name>
+    <member refid="eff__dummy_8h_1a4b0b901b65057c7e0795e7e9cc10e539" kind="function"><name>effDummy_storeSample</name></member>
+    <member refid="eff__dummy_8h_1ae2c75af829107ff9f4f1ef8e5c1ad076" kind="function"><name>effDummy_measure</name></member>
+    <member refid="eff__dummy_8h_1a1b031cef473ca46b628730690674e6c3" kind="function"><name>effDummy_selectBuffer</name></member>
+    <member refid="eff__dummy_8h_1a164c8ccf464ee070fc9e1b5f54a8d02e" kind="function"><name>effDummy_registerCallback</name></member>
+  </compound>
+  <compound refid="test__eff_8c" kind="file"><name>test_eff.c</name>
+    <member refid="test__eff_8c_1a16f99fbadd467cae303f3dff41f4960f" kind="variable"><name>DEFINE_EFF_GLOBALS</name></member>
+    <member refid="test__eff_8c_1a44e5622641a0ac7d82933a89eccec9a6" kind="function"><name>dummy_callback</name></member>
+    <member refid="test__eff_8c_1adc6e297b8cf1b8c782544bec0ac3f55e" kind="function"><name>ETF_TEST_SUITE</name></member>
+  </compound>
+  <compound refid="emf_8h" kind="file"><name>emf.h</name>
+  </compound>
+  <compound refid="emf__array__fifo_8h" kind="file"><name>emf_array_fifo.h</name>
+    <member refid="emf__array__fifo_8h_1a184be524315f9fb3c9eb8834505e452b" kind="function"><name>EMF_arrayFifo_init</name></member>
+    <member refid="emf__array__fifo_8h_1a851e730d518d6d37b37576f0092df285" kind="function"><name>EMF_arrayFifo_push</name></member>
+    <member refid="emf__array__fifo_8h_1a9be54383f58a9bc01c099a04136e815d" kind="function"><name>EMF_arrayFifo_pop</name></member>
+    <member refid="emf__array__fifo_8h_1a45ee9e3fa8fe72c430d4decf30d50fb8" kind="function"><name>EMF_arrayFifo_peek</name></member>
+    <member refid="emf__array__fifo_8h_1a50ef696afc329c11efe25e223d6a6ef2" kind="function"><name>EMF_arrayFifo_drop</name></member>
+    <member refid="emf__array__fifo_8h_1a18fd4a49f23f090ca4efe47f07618559" kind="function"><name>EMF_arrayFifo_flush</name></member>
+    <member refid="emf__array__fifo_8h_1a018852314f59a2ba95e60bc7a1900209" kind="function"><name>EMF_arrayFifo_isEmpty</name></member>
+    <member refid="emf__array__fifo_8h_1a56a1b03013116e1de77f8170c2becbc1" kind="function"><name>EMF_arrayFifo_isFull</name></member>
+    <member refid="emf__array__fifo_8h_1ae9f28cd25e63a56c2577ae98b175b324" kind="function"><name>EMF_arrayFifo_getUsed</name></member>
+    <member refid="emf__array__fifo_8h_1a4f2db5bac712e44470c58fab421eef41" kind="function"><name>EMF_arrayFifo_getFree</name></member>
+  </compound>
+  <compound refid="emf__array__fifo_8c" kind="file"><name>emf_array_fifo.c</name>
+    <member refid="emf__array__fifo_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__array__fifo_8c_1a7bdc2e5827051fa24165d4d00861c33e" kind="function"><name>advanceIndex</name></member>
+    <member refid="emf__array__fifo_8c_1a075b12f6f3eff944e5b1a97442353785" kind="function"><name>readSlot</name></member>
+    <member refid="emf__array__fifo_8c_1aae4824a6ea77039ee32a4625b2ef57b1" kind="function"><name>writeSlot</name></member>
+    <member refid="emf__array__fifo_8c_1a184be524315f9fb3c9eb8834505e452b" kind="function"><name>EMF_arrayFifo_init</name></member>
+    <member refid="emf__array__fifo_8c_1a851e730d518d6d37b37576f0092df285" kind="function"><name>EMF_arrayFifo_push</name></member>
+    <member refid="emf__array__fifo_8c_1a9be54383f58a9bc01c099a04136e815d" kind="function"><name>EMF_arrayFifo_pop</name></member>
+    <member refid="emf__array__fifo_8c_1a45ee9e3fa8fe72c430d4decf30d50fb8" kind="function"><name>EMF_arrayFifo_peek</name></member>
+    <member refid="emf__array__fifo_8c_1a50ef696afc329c11efe25e223d6a6ef2" kind="function"><name>EMF_arrayFifo_drop</name></member>
+    <member refid="emf__array__fifo_8c_1a18fd4a49f23f090ca4efe47f07618559" kind="function"><name>EMF_arrayFifo_flush</name></member>
+    <member refid="emf__array__fifo_8c_1a018852314f59a2ba95e60bc7a1900209" kind="function"><name>EMF_arrayFifo_isEmpty</name></member>
+    <member refid="emf__array__fifo_8c_1a56a1b03013116e1de77f8170c2becbc1" kind="function"><name>EMF_arrayFifo_isFull</name></member>
+    <member refid="emf__array__fifo_8c_1ae9f28cd25e63a56c2577ae98b175b324" kind="function"><name>EMF_arrayFifo_getUsed</name></member>
+    <member refid="emf__array__fifo_8c_1a4f2db5bac712e44470c58fab421eef41" kind="function"><name>EMF_arrayFifo_getFree</name></member>
+  </compound>
+  <compound refid="test__emf__array__fifo_8c" kind="file"><name>test_emf_array_fifo.c</name>
+    <member refid="test__emf__array__fifo_8c_1a354dd3b5877a5b86c057e5ed4577cf53" kind="function"><name>verifySlotEq</name></member>
+    <member refid="test__emf__array__fifo_8c_1a49fc28cab8e051b65c743972378403fb" kind="function"><name>ETF_TEST_SUITE</name></member>
+  </compound>
+  <compound refid="emf__bitmask_8h" kind="file"><name>emf_bitmask.h</name>
+    <member refid="emf__bitmask_8h_1a2330d97fcf1518a012de5d90e847802c" kind="function"><name>EMF_bitmask_clearAll</name></member>
+    <member refid="emf__bitmask_8h_1a51a8bb9119c2673598b8dec37faee7a3" kind="function"><name>EMF_bitmask_isAnySet</name></member>
+    <member refid="emf__bitmask_8h_1ad5cde05c12cda1821539120f1ef84b20" kind="function"><name>EMF_bitmask_isBitSet</name></member>
+    <member refid="emf__bitmask_8h_1a1f42d1a2bc37c4519dab49a4ab1c3d26" kind="function"><name>EMF_bitmask_setBit</name></member>
+    <member refid="emf__bitmask_8h_1aaa26303520393ffa364d294c8f7d481f" kind="function"><name>EMF_bitmask_clearBit</name></member>
+    <member refid="emf__bitmask_8h_1af098ff5e898d70159b6102b793b8a4e6" kind="function"><name>EMF_bitmask_findMax</name></member>
+  </compound>
+  <compound refid="emf__bitmask_8c" kind="file"><name>emf_bitmask.c</name>
+    <member refid="emf__bitmask_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__bitmask_8c_1a2330d97fcf1518a012de5d90e847802c" kind="function"><name>EMF_bitmask_clearAll</name></member>
+    <member refid="emf__bitmask_8c_1a51a8bb9119c2673598b8dec37faee7a3" kind="function"><name>EMF_bitmask_isAnySet</name></member>
+    <member refid="emf__bitmask_8c_1ad5cde05c12cda1821539120f1ef84b20" kind="function"><name>EMF_bitmask_isBitSet</name></member>
+    <member refid="emf__bitmask_8c_1a1f42d1a2bc37c4519dab49a4ab1c3d26" kind="function"><name>EMF_bitmask_setBit</name></member>
+    <member refid="emf__bitmask_8c_1aaa26303520393ffa364d294c8f7d481f" kind="function"><name>EMF_bitmask_clearBit</name></member>
+    <member refid="emf__bitmask_8c_1af098ff5e898d70159b6102b793b8a4e6" kind="function"><name>EMF_bitmask_findMax</name></member>
+  </compound>
+  <compound refid="test__emf__bitmask_8c" kind="file"><name>test_emf_bitmask.c</name>
+    <member refid="test__emf__bitmask_8c_1a5a7864a3bb7eb4bd414aa50f5b6e387d" kind="function"><name>ETF_TEST_SUITE</name></member>
+  </compound>
+  <compound refid="emf__byte__fifo_8h" kind="file"><name>emf_byte_fifo.h</name>
+    <member refid="emf__byte__fifo_8h_1a84db8c2a0ccc597236d705d0eb18c9d4" kind="function"><name>EMF_byteFifo_init</name></member>
+    <member refid="emf__byte__fifo_8h_1a736babf83ee18d58cb183b45b4dcc238" kind="function"><name>EMF_byteFifo_push</name></member>
+    <member refid="emf__byte__fifo_8h_1ae8615c471b960a843ca20252d8eb0c73" kind="function"><name>EMF_byteFifo_pop</name></member>
+    <member refid="emf__byte__fifo_8h_1abfe857c9c079ca1bf0e5e902b16128a2" kind="function"><name>EMF_byteFifo_peek</name></member>
+    <member refid="emf__byte__fifo_8h_1a8033a01d06661287e61b4bcb9e421e36" kind="function"><name>EMF_byteFifo_peekAt</name></member>
+    <member refid="emf__byte__fifo_8h_1a349419ed1e2d76b9cdbe9e518d9d083f" kind="function"><name>EMF_byteFifo_drop</name></member>
+    <member refid="emf__byte__fifo_8h_1a0d30cd0706ce6c2a7b9725f6bb834ed2" kind="function"><name>EMF_byteFifo_flush</name></member>
+    <member refid="emf__byte__fifo_8h_1a950b7bfe3b3084eb6f3ad92a6fcc8c5d" kind="function"><name>EMF_byteFifo_getUsed</name></member>
+    <member refid="emf__byte__fifo_8h_1a7f65df5c9d18c5af6d359dee3bd495bf" kind="function"><name>EMF_byteFifo_getFree</name></member>
+    <member refid="emf__byte__fifo_8h_1afca655da1eddf7907904a5cbaef59cb2" kind="function"><name>EMF_byteFifo_isEmpty</name></member>
+    <member refid="emf__byte__fifo_8h_1acf303c1789585f917a83b22187f08a25" kind="function"><name>EMF_byteFifo_isFull</name></member>
+  </compound>
+  <compound refid="emf__byte__fifo_8c" kind="file"><name>emf_byte_fifo.c</name>
+    <member refid="emf__byte__fifo_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__byte__fifo_8c_1ac24cbc2d30e8f85ef9832b48b5401394" kind="function"><name>advanceIndex</name></member>
+    <member refid="emf__byte__fifo_8c_1adc478c9b9da7efdc10929194ee1e3149" kind="function"><name>readBytes</name></member>
+    <member refid="emf__byte__fifo_8c_1a97fa940d3e4ac27afded61d007a75bb6" kind="function"><name>writeBytes</name></member>
+    <member refid="emf__byte__fifo_8c_1a84db8c2a0ccc597236d705d0eb18c9d4" kind="function"><name>EMF_byteFifo_init</name></member>
+    <member refid="emf__byte__fifo_8c_1a736babf83ee18d58cb183b45b4dcc238" kind="function"><name>EMF_byteFifo_push</name></member>
+    <member refid="emf__byte__fifo_8c_1ae8615c471b960a843ca20252d8eb0c73" kind="function"><name>EMF_byteFifo_pop</name></member>
+    <member refid="emf__byte__fifo_8c_1abfe857c9c079ca1bf0e5e902b16128a2" kind="function"><name>EMF_byteFifo_peek</name></member>
+    <member refid="emf__byte__fifo_8c_1a8033a01d06661287e61b4bcb9e421e36" kind="function"><name>EMF_byteFifo_peekAt</name></member>
+    <member refid="emf__byte__fifo_8c_1a349419ed1e2d76b9cdbe9e518d9d083f" kind="function"><name>EMF_byteFifo_drop</name></member>
+    <member refid="emf__byte__fifo_8c_1a0d30cd0706ce6c2a7b9725f6bb834ed2" kind="function"><name>EMF_byteFifo_flush</name></member>
+    <member refid="emf__byte__fifo_8c_1a950b7bfe3b3084eb6f3ad92a6fcc8c5d" kind="function"><name>EMF_byteFifo_getUsed</name></member>
+    <member refid="emf__byte__fifo_8c_1a7f65df5c9d18c5af6d359dee3bd495bf" kind="function"><name>EMF_byteFifo_getFree</name></member>
+    <member refid="emf__byte__fifo_8c_1afca655da1eddf7907904a5cbaef59cb2" kind="function"><name>EMF_byteFifo_isEmpty</name></member>
+    <member refid="emf__byte__fifo_8c_1acf303c1789585f917a83b22187f08a25" kind="function"><name>EMF_byteFifo_isFull</name></member>
+  </compound>
+  <compound refid="test__emf__byte__fifo_8c" kind="file"><name>test_emf_byte_fifo.c</name>
+    <member refid="test__emf__byte__fifo_8c_1a11cfc1e1c2cce0eb71b6d73471fc2c57" kind="function"><name>verifyBytesEq</name></member>
+    <member refid="test__emf__byte__fifo_8c_1ab29f40ea4fb46667ae44546cdd4e974d" kind="function"><name>ETF_TEST_SUITE</name></member>
+  </compound>
+  <compound refid="emf__cobs_8h" kind="file"><name>emf_cobs.h</name>
+    <member refid="emf__cobs_8h_1aab99d78b59a698ef6c962c49da053536" kind="define"><name>EMF_COBS_PACKET_DELIMITER</name></member>
+    <member refid="emf__cobs_8h_1a85a4f8270ca5f503ae110154520d57e5" kind="define"><name>EMF_COBS_PACKET_DELIMITER_SIZE</name></member>
+    <member refid="emf__cobs_8h_1aee0fcbe6ca09ae8704ba05126bf6f7a1" kind="define"><name>EMF_COBS_BLOCK_MAX</name></member>
+    <member refid="emf__cobs_8h_1a24d7882d42fde16e47eb6c77bc27e7b1" kind="define"><name>EMF_COBS_OVERHEAD</name></member>
+    <member refid="emf__cobs_8h_1aeb5beb51db36b7552a42999b9f3f0132" kind="define"><name>EMF_COBS_ENCODED_SIZE</name></member>
+    <member refid="emf__cobs_8h_1a293089cabff82a290ea9128f68a87e8e" kind="function"><name>EMF_cobs_encode</name></member>
+    <member refid="emf__cobs_8h_1aa69189e6dafbfd6bbcaf04250ef73bb6" kind="function"><name>EMF_cobs_decode</name></member>
+  </compound>
+  <compound refid="emf__cobs_8c" kind="file"><name>emf_cobs.c</name>
+    <member refid="emf__cobs_8c_1a2a34e5e86b8e6341d89a309e144618a1" kind="define"><name>COBS_CODE_MAX</name></member>
+    <member refid="emf__cobs_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__cobs_8c_1a293089cabff82a290ea9128f68a87e8e" kind="function"><name>EMF_cobs_encode</name></member>
+    <member refid="emf__cobs_8c_1aa69189e6dafbfd6bbcaf04250ef73bb6" kind="function"><name>EMF_cobs_decode</name></member>
+  </compound>
+  <compound refid="test__emf__cobs_8c" kind="file"><name>test_emf_cobs.c</name>
+    <member refid="test__emf__cobs_8c_1adf29c40a0fd7aea9e6cb13a05d4f5cc0" kind="function"><name>verifyBuffersEqual</name></member>
+    <member refid="test__emf__cobs_8c_1a5c2f62442d06c790a4e53ead47da569d" kind="function"><name>ETF_TEST_SUITE</name></member>
+  </compound>
+  <compound refid="emf__crc_8h" kind="file"><name>emf_crc.h</name>
+    <member refid="emf__crc_8h_1a160d3bc8492c491592c2fa852c238409" kind="function"><name>EMF_crc_16CCITT</name></member>
+  </compound>
+  <compound refid="emf__crc_8c" kind="file"><name>emf_crc.c</name>
+    <member refid="emf__crc_8c_1a85565a7b9f1ec670c38e569c48d585ca" kind="define"><name>CRC16_CCITT_POLY</name></member>
+    <member refid="emf__crc_8c_1a29b8bee5fe44a916600ae2ead4f36531" kind="define"><name>CRC16_CCITT_INIT_VALUE</name></member>
+    <member refid="emf__crc_8c_1adf148d93a836e27261c7cf1454722d24" kind="define"><name>CRC16_WIDTH</name></member>
+    <member refid="emf__crc_8c_1a194c1f2e2f9300a64f3c53ca7c0417fc" kind="define"><name>CRC16_TOPBIT</name></member>
+    <member refid="emf__crc_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__crc_8c_1a160d3bc8492c491592c2fa852c238409" kind="function"><name>EMF_crc_16CCITT</name></member>
+  </compound>
+  <compound refid="test__emf__crc_8c" kind="file"><name>test_emf_crc.c</name>
+    <member refid="test__emf__crc_8c_1a84799ca2bc54cac75c0736e551589ae6" kind="function"><name>ETF_TEST_SUITE</name></member>
+  </compound>
+  <compound refid="emf__endian_8h" kind="file"><name>emf_endian.h</name>
+    <member refid="emf__endian_8h_1a93d1f9ab51115bd314d1b728636dad1b" kind="function"><name>EMF_endian_readBuffBE</name></member>
+    <member refid="emf__endian_8h_1a1278d3f6c683c91aa99c85bac3bd0de8" kind="function"><name>EMF_endian_writeBuffBE</name></member>
+    <member refid="emf__endian_8h_1abcb71604f10194968a3d50a16d9fc8ac" kind="function"><name>EMF_endian_u16ReadBuffBE</name></member>
+    <member refid="emf__endian_8h_1a6addac5943c989dfbd7672db229b8ab2" kind="function"><name>EMF_endian_u16WriteBuffBE</name></member>
+    <member refid="emf__endian_8h_1ab50485ec116cd8534b8dd3bd42171475" kind="function"><name>EMF_endian_u32ReadBuffBE</name></member>
+    <member refid="emf__endian_8h_1af53cbe22c4f07c8f00755f1b057f50d7" kind="function"><name>EMF_endian_u32WriteBuffBE</name></member>
+    <member refid="emf__endian_8h_1a49df7fa960c7d2bba662b5026948e802" kind="function"><name>EMF_endian_u64ReadBuffBE</name></member>
+    <member refid="emf__endian_8h_1abd2840e8999fa013e9022b31ae4b7f6a" kind="function"><name>EMF_endian_u64WriteBuffBE</name></member>
+    <member refid="emf__endian_8h_1a55268637dc1753ebd262eba15810f19b" kind="function"><name>EMF_endian_readBuffLE</name></member>
+    <member refid="emf__endian_8h_1aceb6b7b8de294f1b35672a716a8934c0" kind="function"><name>EMF_endian_writeBuffLE</name></member>
+    <member refid="emf__endian_8h_1afe4db90de8be4a84c7490b6a849f7a71" kind="function"><name>EMF_endian_u16ReadBuffLE</name></member>
+    <member refid="emf__endian_8h_1a14557e3a7f8c39316df3930d5f419657" kind="function"><name>EMF_endian_u16WriteBuffLE</name></member>
+    <member refid="emf__endian_8h_1a4271f59ed23197a35d6113439b9d11ae" kind="function"><name>EMF_endian_u32ReadBuffLE</name></member>
+    <member refid="emf__endian_8h_1a54da44eb934fd8fc5aab535352870b64" kind="function"><name>EMF_endian_u32WriteBuffLE</name></member>
+    <member refid="emf__endian_8h_1ae86f6f9e4c21dd9b593192e3f3f0e78b" kind="function"><name>EMF_endian_u64ReadBuffLE</name></member>
+    <member refid="emf__endian_8h_1aade46c44e5694833b5268985a5cd55e3" kind="function"><name>EMF_endian_u64WriteBuffLE</name></member>
+  </compound>
+  <compound refid="emf__endian_8c" kind="file"><name>emf_endian.c</name>
+    <member refid="emf__endian_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__endian_8c_1a93d1f9ab51115bd314d1b728636dad1b" kind="function"><name>EMF_endian_readBuffBE</name></member>
+    <member refid="emf__endian_8c_1a1278d3f6c683c91aa99c85bac3bd0de8" kind="function"><name>EMF_endian_writeBuffBE</name></member>
+    <member refid="emf__endian_8c_1abcb71604f10194968a3d50a16d9fc8ac" kind="function"><name>EMF_endian_u16ReadBuffBE</name></member>
+    <member refid="emf__endian_8c_1a6addac5943c989dfbd7672db229b8ab2" kind="function"><name>EMF_endian_u16WriteBuffBE</name></member>
+    <member refid="emf__endian_8c_1ab50485ec116cd8534b8dd3bd42171475" kind="function"><name>EMF_endian_u32ReadBuffBE</name></member>
+    <member refid="emf__endian_8c_1af53cbe22c4f07c8f00755f1b057f50d7" kind="function"><name>EMF_endian_u32WriteBuffBE</name></member>
+    <member refid="emf__endian_8c_1a49df7fa960c7d2bba662b5026948e802" kind="function"><name>EMF_endian_u64ReadBuffBE</name></member>
+    <member refid="emf__endian_8c_1abd2840e8999fa013e9022b31ae4b7f6a" kind="function"><name>EMF_endian_u64WriteBuffBE</name></member>
+    <member refid="emf__endian_8c_1a55268637dc1753ebd262eba15810f19b" kind="function"><name>EMF_endian_readBuffLE</name></member>
+    <member refid="emf__endian_8c_1aceb6b7b8de294f1b35672a716a8934c0" kind="function"><name>EMF_endian_writeBuffLE</name></member>
+    <member refid="emf__endian_8c_1afe4db90de8be4a84c7490b6a849f7a71" kind="function"><name>EMF_endian_u16ReadBuffLE</name></member>
+    <member refid="emf__endian_8c_1a14557e3a7f8c39316df3930d5f419657" kind="function"><name>EMF_endian_u16WriteBuffLE</name></member>
+    <member refid="emf__endian_8c_1a4271f59ed23197a35d6113439b9d11ae" kind="function"><name>EMF_endian_u32ReadBuffLE</name></member>
+    <member refid="emf__endian_8c_1a54da44eb934fd8fc5aab535352870b64" kind="function"><name>EMF_endian_u32WriteBuffLE</name></member>
+    <member refid="emf__endian_8c_1ae86f6f9e4c21dd9b593192e3f3f0e78b" kind="function"><name>EMF_endian_u64ReadBuffLE</name></member>
+    <member refid="emf__endian_8c_1aade46c44e5694833b5268985a5cd55e3" kind="function"><name>EMF_endian_u64WriteBuffLE</name></member>
+  </compound>
+  <compound refid="test__emf__endian_8c" kind="file"><name>test_emf_endian.c</name>
+    <member refid="test__emf__endian_8c_1a7ceafec87072dc6fc44edb87203dfca2" kind="function"><name>verifyBuff</name></member>
+    <member refid="test__emf__endian_8c_1afbc40671d6701091b9c3f2479cdee76b" kind="function"><name>ETF_TEST_SUITE</name></member>
+  </compound>
+  <compound refid="emf__log_8h" kind="file"><name>emf_log.h</name>
+    <member refid="emf__log_8h_1a9bff6a0ea88a5ebc12a6e948a353d4ba" kind="define"><name>EMF_LOG_ARG_U</name></member>
+    <member refid="emf__log_8h_1a94ef18a25c6083d4e87146389fc22e81" kind="define"><name>EMF_LOG_ARG_I</name></member>
+    <member refid="emf__log_8h_1af816cbed0479d06bf75ce700a0a659ec" kind="define"><name>EMF_LOG_ARG_F</name></member>
+    <member refid="emf__log_8h_1a4358eb932230526babd091cc358de427" kind="define"><name>EMF_LOG_ARG_S</name></member>
+    <member refid="emf__log_8h_1a88380caac0060b5472187c4b5e8306da" kind="define"><name>EMF_LOG_ARG_C</name></member>
+    <member refid="emf__log_8h_1a53174a7b9008b97ad1f7e5cef44828d2" kind="define"><name>EMF_LOG_DISPATCH</name></member>
+    <member refid="emf__log_8h_1a14456dc9430c97688c3e4a98ff841c3a" kind="define"><name>EMF_LOG_ERROR</name></member>
+    <member refid="emf__log_8h_1aea3ee90093bfaa3a8e442697cd3941aa" kind="define"><name>EMF_LOG_WARNING</name></member>
+    <member refid="emf__log_8h_1ae6b5dc69f4d2eca1c44a0aee7338904f" kind="define"><name>EMF_LOG_INFO</name></member>
+    <member refid="emf__log_8h_1a5c967a815ffa6a606a6d7d6cfc512511" kind="define"><name>EMF_LOG_DEBUG</name></member>
+    <member refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264" kind="enum"><name>EMF_log_level_t</name></member>
+    <member refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264a5b40f003febbc3b535649d63f4b8a44f" kind="enumvalue"><name>LOG_LEVEL_ERROR</name></member>
+    <member refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264a5b4dd81b4dc7eefbc55ba03415c627ef" kind="enumvalue"><name>LOG_LEVEL_WARNING</name></member>
+    <member refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264aedee1e3159bfe7d918b6e29873c5aee4" kind="enumvalue"><name>LOG_LEVEL_INFO</name></member>
+    <member refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264a538b2b6e011479d408ecd2be0f6d6177" kind="enumvalue"><name>LOG_LEVEL_DEBUG</name></member>
+    <member refid="emf__log_8h_1ad4232d294ea3dc5ca1c53c04d1039130" kind="function"><name>EMF_log_init</name></member>
+    <member refid="emf__log_8h_1a906563388c8d7a8477687a47a6be4586" kind="function"><name>EMF_log_setLevel</name></member>
+    <member refid="emf__log_8h_1af50cd3bb68bb281d2068a294e20064a8" kind="function"><name>EMF_log</name></member>
+  </compound>
+  <compound refid="emf__log_8c" kind="file"><name>emf_log.c</name>
+    <member refid="emf__log_8c_1a4a9b804ff8baff2e54eefd9805df2ba4" kind="variable"><name>logLevel</name></member>
+    <member refid="emf__log_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__log_8c_1ad4232d294ea3dc5ca1c53c04d1039130" kind="function"><name>EMF_log_init</name></member>
+    <member refid="emf__log_8c_1a906563388c8d7a8477687a47a6be4586" kind="function"><name>EMF_log_setLevel</name></member>
+    <member refid="emf__log_8c_1af50cd3bb68bb281d2068a294e20064a8" kind="function"><name>EMF_log</name></member>
+  </compound>
+  <compound refid="emf__print_8h" kind="file"><name>emf_print.h</name>
+    <member refid="emf__print_8h_1a09b4af88a67d832ee96e8ba952b548ec" kind="define"><name>EMF_PRINT_ARG_U</name></member>
+    <member refid="emf__print_8h_1adb07a126e75c20ecce0b0806b3f3a5f5" kind="define"><name>EMF_PRINT_ARG_I</name></member>
+    <member refid="emf__print_8h_1a1d559228414cacbf889690eeed805601" kind="define"><name>EMF_PRINT_ARG_F</name></member>
+    <member refid="emf__print_8h_1a6c2f2ff9c94300180ba9f463969efdf2" kind="define"><name>EMF_PRINT_ARG_S</name></member>
+    <member refid="emf__print_8h_1a38462fa9e99c5f8cc46362a293963124" kind="define"><name>EMF_PRINT_ARG_C</name></member>
+    <member refid="emf__print_8h_1a57ca66445a18ffc13d0f305ab75e9c8d" kind="define"><name>EMF_PRINT_NARG</name></member>
+    <member refid="emf__print_8h_1af0e8c425c9b1a60f5bf9f11436e13dc0" kind="define"><name>EMF_PRINT_NARG_</name></member>
+    <member refid="emf__print_8h_1a6710a7a0dd075a545aa20ef41fd4f102" kind="define"><name>EMF_PRINT</name></member>
+    <member refid="emf__print_8h_1aa2affc0918cda6aaf259b4492d973f86" kind="function"><name>EMF_print</name></member>
+  </compound>
+  <compound refid="emf__print_8c" kind="file"><name>emf_print.c</name>
+    <member refid="emf__print_8c_1ad37893797b35ff7ec4d9c9a9b0ab9a5c" kind="define"><name>UINT32_STR_MAX_LEN</name></member>
+    <member refid="emf__print_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__print_8c_1ac7bd385b9ab03aefc3a995ec925af5dc" kind="function"><name>writeChar</name></member>
+    <member refid="emf__print_8c_1a76a7d920173a26636c45a41dd64b9fbc" kind="function"><name>writeStr</name></member>
+    <member refid="emf__print_8c_1a8cb01a684528fc10c82504905853e4c6" kind="function"><name>writeUint</name></member>
+    <member refid="emf__print_8c_1aa9db85936b81f12759815d833774e9f0" kind="function"><name>writeInt</name></member>
+    <member refid="emf__print_8c_1a4a747eadeaacd96b380bc41e50c828bf" kind="function"><name>writeFloat</name></member>
+    <member refid="emf__print_8c_1aa2affc0918cda6aaf259b4492d973f86" kind="function"><name>EMF_print</name></member>
+  </compound>
+  <compound refid="emf__test__report_8h" kind="file"><name>emf_test_report.h</name>
+    <member refid="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0b" kind="enum"><name>EMF_testReport_testResult_t</name></member>
+    <member refid="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0bab0b7c38c4ec19a4cf3be3d851e6724c0" kind="enumvalue"><name>TEST_PASSED</name></member>
+    <member refid="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0ba35a64703143880acd8948c7b00b0ca09" kind="enumvalue"><name>TEST_SKIPPED</name></member>
+    <member refid="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0ba983ad813fec232f9af0d26f1bb43caa5" kind="enumvalue"><name>TEST_FAILED</name></member>
+    <member refid="emf__test__report_8h_1ad2f89759f33808b4038733eadcf7be0d" kind="function"><name>EMF_testReport_printHeader</name></member>
+    <member refid="emf__test__report_8h_1a282a2aeabc2e8fe63e1a97bf333c4282" kind="function"><name>EMF_testReport_printTestIntro</name></member>
+    <member refid="emf__test__report_8h_1a2bfb2ad97de5d8f36023d4945b74fe92" kind="function"><name>EMF_testReport_printTestResult</name></member>
+    <member refid="emf__test__report_8h_1a49d34027d56d4c9a5222480a3867c739" kind="function"><name>EMF_testReport_printSummary</name></member>
+  </compound>
+  <compound refid="emf__test__report_8c" kind="file"><name>emf_test_report.c</name>
+    <member refid="emf__test__report_8c_1a666201b429d62c0cc1bd9f464c0fafb3" kind="define"><name>LINE_WIDTH</name></member>
+    <member refid="emf__test__report_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__test__report_8c_1a157998985edd94237260ec9f40513b21" kind="function"><name>printRepeated</name></member>
+    <member refid="emf__test__report_8c_1a5a373aa4bb119674d74232ab94a661e5" kind="function"><name>printCenteredLine</name></member>
+    <member refid="emf__test__report_8c_1ad2f89759f33808b4038733eadcf7be0d" kind="function"><name>EMF_testReport_printHeader</name></member>
+    <member refid="emf__test__report_8c_1a282a2aeabc2e8fe63e1a97bf333c4282" kind="function"><name>EMF_testReport_printTestIntro</name></member>
+    <member refid="emf__test__report_8c_1a2bfb2ad97de5d8f36023d4945b74fe92" kind="function"><name>EMF_testReport_printTestResult</name></member>
+    <member refid="emf__test__report_8c_1a49d34027d56d4c9a5222480a3867c739" kind="function"><name>EMF_testReport_printSummary</name></member>
+  </compound>
+  <compound refid="emf__utils_8h" kind="file"><name>emf_utils.h</name>
+    <member refid="emf__utils_8h_1a137ba9470dd9263e76c36ea298e44db0" kind="define"><name>EMF_UTILS_UNUSED_PARAM</name></member>
+    <member refid="emf__utils_8h_1a13f1a0084658d997018202c48e0df0ac" kind="define"><name>EMF_UTILS_SIZEOF_ARRAY</name></member>
+    <member refid="emf__utils_8h_1a187facb8161d36f1bed711ae44ec731a" kind="define"><name>EMF_UTILS_MEM_ALIGNED_SLOT</name></member>
+    <member refid="emf__utils_8h_1a3fe2d7c03b7088cef60199453fab3542" kind="function"><name>EMF_utils_clear</name></member>
+  </compound>
+  <compound refid="emf__utils_8c" kind="file"><name>emf_utils.c</name>
+    <member refid="emf__utils_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="emf__utils_8c_1a3fe2d7c03b7088cef60199453fab3542" kind="function"><name>EMF_utils_clear</name></member>
+  </compound>
+  <compound refid="test__emf__utils_8c" kind="file"><name>test_emf_utils.c</name>
+    <member refid="test__emf__utils_8c_1a34d8868eaefcde965e78c38cacd012a4" kind="function"><name>ETF_TEST_SUITE</name></member>
+  </compound>
+  <compound refid="epf_8h" kind="file"><name>epf.h</name>
+  </compound>
+  <compound refid="epf__timer_8h" kind="file"><name>epf_timer.h</name>
+    <member refid="epf__timer_8h_1aa7beb66b6440d9ef2a26a415ac2eb173" kind="define"><name>EPF_TIMER_MS_TO_NS</name></member>
+    <member refid="epf__timer_8h_1a91d904c9decd23fa77ead5595503d310" kind="typedef"><name>EPF_timer_callback_t</name></member>
+    <member refid="epf__timer_8h_1aa1be7840388c8066eb3af1614a705ab2" kind="typedef"><name>EPF_timer_entry_t</name></member>
+    <member refid="epf__timer_8h_1a0145c7a497b841d80aa344c9b3a7be02" kind="function"><name>EPF_timer_init</name></member>
+    <member refid="epf__timer_8h_1a03a38f2867a05fabc356573e92cd0148" kind="function"><name>EPF_timer_deinit</name></member>
+    <member refid="epf__timer_8h_1a8f198551c269d8e75a3284c85d764a05" kind="function"><name>EPF_timeEvent_new</name></member>
+    <member refid="epf__timer_8h_1afacb092a00de3c8410e498b5ae4fd06a" kind="function"><name>EPF_timer_arm</name></member>
+    <member refid="epf__timer_8h_1a2576aef6156f1f78e029b9e491d70fad" kind="function"><name>EPF_timer_disarm</name></member>
+    <member refid="epf__timer_8h_1a48fb383313381c15b35cad5b0b0d0939" kind="function"><name>EPF_timer_rearm</name></member>
+    <member refid="epf__timer_8h_1a689cc59d7dcd46afc489f8e3bc26f57f" kind="function"><name>EPF_timer_currentCounter</name></member>
+  </compound>
+  <compound refid="epf__timer_8c" kind="file"><name>epf_timer.c</name>
+    <member refid="epf__timer_8c_1a4a0c770328891d8916c1142a26481e4a" kind="define"><name>TICKS_PER_SEC</name></member>
+    <member refid="epf__timer_8c_1a0501e82515b2bdf36453c4cc80f5e0cc" kind="define"><name>NSEC_PER_SEC</name></member>
+    <member refid="epf__timer_8c_1a625673e62b60522ff6b88a8195441c23" kind="define"><name>TICK_NS</name></member>
+    <member refid="epf__timer_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="epf__timer_8c_1a3ea281971894644cda26c1dba2f0b9b6" kind="function"><name>ns_to_ticks</name></member>
+    <member refid="epf__timer_8c_1a34deb9fda09a03f30771a0a8724168cc" kind="function"><name>ticks_to_ns</name></member>
+    <member refid="epf__timer_8c_1a02abaf76b5bb124449eb291352ee5b55" kind="function"><name>ticker_thread</name></member>
+    <member refid="epf__timer_8c_1a0145c7a497b841d80aa344c9b3a7be02" kind="function"><name>EPF_timer_init</name></member>
+    <member refid="epf__timer_8c_1a03a38f2867a05fabc356573e92cd0148" kind="function"><name>EPF_timer_deinit</name></member>
+    <member refid="epf__timer_8c_1a8f198551c269d8e75a3284c85d764a05" kind="function"><name>EPF_timeEvent_new</name></member>
+    <member refid="epf__timer_8c_1afacb092a00de3c8410e498b5ae4fd06a" kind="function"><name>EPF_timer_arm</name></member>
+    <member refid="epf__timer_8c_1a2576aef6156f1f78e029b9e491d70fad" kind="function"><name>EPF_timer_disarm</name></member>
+    <member refid="epf__timer_8c_1a48fb383313381c15b35cad5b0b0d0939" kind="function"><name>EPF_timer_rearm</name></member>
+    <member refid="epf__timer_8c_1a689cc59d7dcd46afc489f8e3bc26f57f" kind="function"><name>EPF_timer_currentCounter</name></member>
+  </compound>
+  <compound refid="etf_8h" kind="file"><name>etf.h</name>
+    <member refid="etf_8h_1a8ab235f8d4f4382ed466e7d68da81f18" kind="define"><name>ETF_TEST_SUITE</name></member>
+    <member refid="etf_8h_1ac20ec8d9ab957fb7f98aa5106bcf354f" kind="define"><name>ETF_TEST</name></member>
+    <member refid="etf_8h_1a049ad6db13e3c7813661b7589be0643a" kind="define"><name>ETF_SKIP_TEST</name></member>
+    <member refid="etf_8h_1a307a86b059c556472fe4d695b020cb96" kind="define"><name>ETF_VERIFY</name></member>
+    <member refid="etf_8h_1a719db24df07e46f06d1447cc9b5709a0" kind="define"><name>ETF_FAIL</name></member>
+    <member refid="etf_8h_1a3ed5c4bf2d10cefa204a9a477054c407" kind="variable"><name>ETF_testSuite</name></member>
+    <member refid="etf_8h_1a84c4ccc8add34c61fdafc0d5ca9c7d34" kind="function"><name>ETF_run</name></member>
+    <member refid="etf_8h_1a8d967b1b1cb240f4a01f5ec782a34ebd" kind="function"><name>ETF_test</name></member>
+    <member refid="etf_8h_1ae9db35e991674a437c47d677a633490f" kind="function"><name>ETF_fail</name></member>
+    <member refid="etf_8h_1a77874e70ac0d73338c53aad2a404ef13" kind="function"><name>ETF_onInit</name></member>
+    <member refid="etf_8h_1a80b536274c2895faf112eb27168ec5f0" kind="function"><name>ETF_onExit</name></member>
+    <member refid="etf_8h_1af374430e85d122656fbfcd92aae74f4e" kind="function"><name>ETF_setUp</name></member>
+    <member refid="etf_8h_1ac7a5e735d9df12f78672613c7029b20d" kind="function"><name>ETF_tearDown</name></member>
+  </compound>
+  <compound refid="etf_8c" kind="file"><name>etf.c</name>
+    <member refid="etf_8c_1ab25cc0186a733657c503400ded12043c" kind="variable"><name>ETF</name></member>
+    <member refid="etf_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="etf_8c_1a8d967b1b1cb240f4a01f5ec782a34ebd" kind="function"><name>ETF_test</name></member>
+    <member refid="etf_8c_1ae9db35e991674a437c47d677a633490f" kind="function"><name>ETF_fail</name></member>
+    <member refid="etf_8c_1a3adccf0ec4b7984918ab8677456a5c2b" kind="function"><name>ETF_onInit</name></member>
+    <member refid="etf_8c_1a10e45478da482eeab02ce8857bc87015" kind="function"><name>ETF_onExit</name></member>
+    <member refid="etf_8c_1a4715bcb2733fb94b353e68ab2f39aa08" kind="function"><name>ETF_setUp</name></member>
+    <member refid="etf_8c_1aca6cdd3f66890e768fe9b565dfd4a3fd" kind="function"><name>ETF_tearDown</name></member>
+    <member refid="etf_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="edf__test_8h" kind="file"><name>edf_test.h</name>
+    <member refid="edf__test_8h_1a3a7db57a4505f91a8877d6a176adc9b4" kind="define"><name>EDF_TEST_SUITE_NAME</name></member>
+    <member refid="edf__test_8h_1a531afb9a2c135e82658d7bc8e0c4a342" kind="define"><name>EDF_TEST_EVENT_BUFF</name></member>
+    <member refid="edf__test_8h_1a0c8e5951d52ad6d623aadb86a3dd5509" kind="define"><name>EDF_TEST_CASE</name></member>
+    <member refid="edf__test_8h_1a3dbf6b20652e6e3e93c6e8e430210f55" kind="define"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="edf__test_8h_1a941298df62bcf25711cc1635c3aeff19" kind="define"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="edf__test_8h_1af43540ace26097f28bfe083038b1697b" kind="define"><name>EDF_TEST_VERIFY</name></member>
+    <member refid="edf__test_8h_1a555b2f5de75402542c557c2fc48ec5e9" kind="define"><name>EDF_TEST_FAIL</name></member>
+    <member refid="edf__test_8h_1a9f1a67d483de56cdf409ccb8226dc7e6" kind="define"><name>EDF_TEST_RUN</name></member>
+    <member refid="edf__test_8h_1aca63df28a3dd9f6bcf6e4cf869c819d4" kind="define"><name>EDF_TEST_SKIP</name></member>
+    <member refid="edf__test_8h_1a0a55506c1d983400e3a4b55791db81e3" kind="define"><name>EDF_TEST_SUITE</name></member>
+    <member refid="edf__test_8h_1a10a0653247641b6a0f6bd1611bdffbca" kind="typedef"><name>testInit_t</name></member>
+    <member refid="edf__test_8h_1a987699b88ef8030e2afa6f112daffba8" kind="typedef"><name>testVerify_t</name></member>
+    <member refid="edf__test_8h_1a44081f8910bf15fe1907c04deccb5f44" kind="variable"><name>EDFTest_testSuiteName</name></member>
+    <member refid="edf__test_8h_1a86f2afa1a10c43c89e6bb8fd50834e94" kind="variable"><name>EDFTest_eventBuffer</name></member>
+    <member refid="edf__test_8h_1acdcbfddd33efa4b1cec81bd020593ff3" kind="variable"><name>EDFTest_eventBufferSize</name></member>
+    <member refid="edf__test_8h_1aea97af5ded616bb2ffe62fae763c0378" kind="variable"><name>EDFTest_testSuite</name></member>
+    <member refid="edf__test_8h_1a49043385e13330913f9195ec4b4352cd" kind="variable"><name>EDFTest_numTests</name></member>
+    <member refid="edf__test_8h_1ad46126f05a2400e1f1210e9da914eddf" kind="function"><name>EDFTest_fail</name></member>
+    <member refid="edf__test_8h_1ae9aea5e7aba53585e3f23a27d29a6fc2" kind="function"><name>EDFTest_onInit</name></member>
+    <member refid="edf__test_8h_1a0aa9175789312e1e036ad54739c2563c" kind="function"><name>EDFTest_onExit</name></member>
+    <member refid="edf__test_8h_1a35a2f6bca88844142fb41a5d44708229" kind="function"><name>EDFTest_setUp</name></member>
+    <member refid="edf__test_8h_1acbf204a56c3400b9051faf4b5d781da7" kind="function"><name>EDFTest_tearDown</name></member>
+  </compound>
+  <compound refid="edf__test_8c" kind="file"><name>edf_test.c</name>
+    <member refid="edf__test_8c_1a0f39bee1fe3ddff8fd500157cbbedf0e" kind="define"><name>EDF_TEST_AO_PRIO</name></member>
+    <member refid="edf__test_8c_1aa08f935af60341fc2fc40662e2d42ac7" kind="variable"><name>EDFTest</name></member>
+    <member refid="edf__test_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="edf__test_8c_1a720a70042bdc8e90bcdc9e49e7e6e5af" kind="function"><name>initialTransition</name></member>
+    <member refid="edf__test_8c_1aefa4b8c730977645061aeacda8e928f2" kind="function"><name>waitForEvent</name></member>
+    <member refid="edf__test_8c_1a99f53847240d9d623f466c48eab9e6ec" kind="function"><name>EDFTestInit</name></member>
+    <member refid="edf__test_8c_1ad46126f05a2400e1f1210e9da914eddf" kind="function"><name>EDFTest_fail</name></member>
+    <member refid="edf__test_8c_1ab26188db97c3778444a070cd2680663f" kind="function"><name>EDFTest_onInit</name></member>
+    <member refid="edf__test_8c_1aa9a4afc514eb08f9b0dea8c575e09c6e" kind="function"><name>EDFTest_onExit</name></member>
+    <member refid="edf__test_8c_1a0d1badf64e9d0e0253a6ca74a4134584" kind="function"><name>EDFTest_setUp</name></member>
+    <member refid="edf__test_8c_1afcba74ede74df5d336ca606c104f348b" kind="function"><name>EDFTest_tearDown</name></member>
+    <member refid="edf__test_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="app_8h" kind="file"><name>app.h</name>
+    <member refid="app_8h_1add3190cf715f513666f4be42874d91e2" kind="function"><name>app_init</name></member>
+  </compound>
+  <compound refid="exec__timer_8h" kind="file"><name>exec_timer.h</name>
+    <member refid="exec__timer_8h_1a1b2958a0a0ce30b1f5222ef3cafd61d3" kind="function"><name>execTimer_init</name></member>
+    <member refid="exec__timer_8h_1a449bf212e6e8b673cac3d690543ae97f" kind="function"><name>execTimer_getTick</name></member>
+    <member refid="exec__timer_8h_1a78b874ad03879e85dbdd176e59df156d" kind="function"><name>execTimer_delayUsToTicks</name></member>
+    <member refid="exec__timer_8h_1a66fa1e128220df0a5036ef1fc700c2a7" kind="function"><name>execTimer_elapsedTicks</name></member>
+  </compound>
+  <compound refid="gpio__trace_8h" kind="file"><name>gpio_trace.h</name>
+    <member refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11" kind="enum"><name>gpioTrace_channel_t</name></member>
+    <member refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11af5a76fa52ad1516dd0f75fba1e80c1ab" kind="enumvalue"><name>GPIO_TRACE_CHANNEL_LOW</name></member>
+    <member refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11a4337aa6b5812469531ab7a48c84ac538" kind="enumvalue"><name>GPIO_TRACE_CHANNEL_MID</name></member>
+    <member refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11a15e2f950b6ae16b60fa16d7487127411" kind="enumvalue"><name>GPIO_TRACE_CHANNEL_HIGH</name></member>
+    <member refid="gpio__trace_8h_1a7c9af55380a64c8dd3afe8668f07c3e6" kind="function"><name>gpioTrace_init</name></member>
+    <member refid="gpio__trace_8h_1a6e41439af908889aba763b0e2eb165f6" kind="function"><name>gpioTrace_setActive</name></member>
+    <member refid="gpio__trace_8h_1a25205559eff92ae58cda0606d21d6b50" kind="function"><name>gpioTrace_setInactive</name></member>
+  </compound>
+  <compound refid="stm32f103c8tx__registers_8h" kind="file"><name>stm32f103c8tx_registers.h</name>
+    <member refid="stm32f103c8tx__registers_8h_1a0e681b03f364532055d88f63fec0d99d" kind="define"><name>RCC_BASE</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a6d4cd87f49d551c356fed82cbbddc5a4" kind="define"><name>RCC_APB2ENR</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1ad4baa1f26b04719fe3d4e2f02d7dde40" kind="define"><name>RCC_APB1ENR</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1aa9ba85777143e752841c2e6a6977deb9" kind="define"><name>RCC_APB2ENR_IOPBEN</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1acd3966a4d6ae47f06b3c095eaf26a610" kind="define"><name>RCC_APB1ENR_TIM2EN</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1ac944a89eb789000ece920c0f89cb6a68" kind="define"><name>GPIOB_BASE</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a9d81eb770dba2e815811e92a63be8e86" kind="define"><name>GPIOB_CRH</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a655fb7f4dc9f0c07c004e559c9697796" kind="define"><name>GPIOB_BSRR</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a00d0fe6ad532ab32f0f81cafca8d3aa5" kind="define"><name>TIM2_BASE</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1ab24fffc378e2c8b41357f644a85db741" kind="define"><name>TIM2_CR1</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a20a254ef5effa48e066764ef61f2b8db" kind="define"><name>TIM2_EGR</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1adaca4b7a298da08c4795d6a1177c1abe" kind="define"><name>TIM2_CNT</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1af0e1e8b150a6a80588c2de7b4abe1994" kind="define"><name>TIM2_PSC</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a7e23a551449bab7a29e421d494b5fb4f" kind="define"><name>TIM2_ARR</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a93d86355e5e3b399ed45e1ca83abed2a" kind="define"><name>TIM_CR1_CEN</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a16f52a8e9aad153223405b965566ae91" kind="define"><name>TIM_EGR_UG</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1ab26b3fc75982181f81b185b206e897f6" kind="define"><name>SYST_CSR</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1a4e8efcc1f2b551dbf3cb0aae1231e380" kind="define"><name>SYST_RVR</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1ae3dc4d2dbfdf38c593a5581415fecfed" kind="define"><name>SYST_CVR</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1aa06233914534ab86fb517b840264d7ae" kind="define"><name>SYST_CSR_ENABLE</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1adcb26bdee87d532910c6c3510988be78" kind="define"><name>SYST_CSR_TICKINT</name></member>
+    <member refid="stm32f103c8tx__registers_8h_1af73485753224fac0ed8119ec18e424fb" kind="define"><name>SYST_CSR_CLKSOURCE</name></member>
+  </compound>
+  <compound refid="tick__timer_8h" kind="file"><name>tick_timer.h</name>
+    <member refid="tick__timer_8h_1a518ed37e2e0239493c53b5c900db9fea" kind="function"><name>tickTimer_init</name></member>
+  </compound>
+  <compound refid="app_8c" kind="file"><name>app.c</name>
+    <member refid="app_8c_1a2d620781eb0d42cca3583b81ccef1611" kind="define"><name>APP_TICK_RATE_IDX_1_MS</name></member>
+    <member refid="app_8c_1ad790fa83ab99edefd0b8324ac76f02ae" kind="define"><name>APP_EVENT_BUFF_SIZE</name></member>
+    <member refid="app_8c_1a997c4acc216f54de3f83ff3295e7ec8a" kind="define"><name>AO_LOW_PRIO</name></member>
+    <member refid="app_8c_1a3f9ad2b1e60766ca8f7c43dbaf3a22de" kind="define"><name>AO_MID_PRIO</name></member>
+    <member refid="app_8c_1aa7253050703aa463b4b7e501079b2224" kind="define"><name>AO_HIGH_PRIO</name></member>
+    <member refid="app_8c_1ac498e8dd1f9f1907697a29506730a03c" kind="enum"><name>app_eventSignal_t</name></member>
+    <member refid="app_8c_1ac498e8dd1f9f1907697a29506730a03caea9a8a433bfaef29b0af2e8fb34ce1a5" kind="enumvalue"><name>AO_LOW_TIMEOUT</name></member>
+    <member refid="app_8c_1ac498e8dd1f9f1907697a29506730a03caac81f09c694dcb69a8be80bf54a2f542" kind="enumvalue"><name>AO_MID_TIMEOUT</name></member>
+    <member refid="app_8c_1ac498e8dd1f9f1907697a29506730a03cafac78e413b0462ba4cdc41849db9a6b1" kind="enumvalue"><name>AO_HIGH_TIMEOUT</name></member>
+    <member refid="app_8c_1aec4ff178ff7745e69fb83db1592f9c1d" kind="variable"><name>aoLow</name></member>
+    <member refid="app_8c_1a2335356778a77ebc2c54ac9e3037f8c8" kind="variable"><name>aoMid</name></member>
+    <member refid="app_8c_1abdcabfe50d5d9e01048eade70a474d0e" kind="variable"><name>aoHigh</name></member>
+    <member refid="app_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="app_8c_1a527db7a06765393e3b6efa8e39478bbd" kind="function"><name>initialTransition</name></member>
+    <member refid="app_8c_1ad387ea2e65a2c4860a96027812ddd310" kind="function"><name>readyState</name></member>
+    <member refid="app_8c_1acb1b76d1d828bb3fadc38649949e5dda" kind="function"><name>initWorkerAo</name></member>
+    <member refid="app_8c_1adca0857a11b662f122fcfb23247e1cea" kind="function"><name>workerFromAo</name></member>
+    <member refid="app_8c_1a5dd58e1f352c7ca6839a6a87819b3310" kind="function"><name>updateExecutedTicks</name></member>
+    <member refid="app_8c_1acfaa6d9e8b8ba3c298604a7351cc5568" kind="function"><name>currentExecutedTicks</name></member>
+    <member refid="app_8c_1add3190cf715f513666f4be42874d91e2" kind="function"><name>app_init</name></member>
+    <member refid="app_8c_1a78a0071d6610ff033393b92a213e1249" kind="function"><name>EDF_onStartup</name></member>
+    <member refid="app_8c_1ab7526d3761f52be63e9d7d751ef882e4" kind="function"><name>EDF_onContextSwitch</name></member>
+  </compound>
+  <compound refid="exec__timer_8c" kind="file"><name>exec_timer.c</name>
+    <member refid="exec__timer_8c_1a057f2da74c76373f6be25dffe229b810" kind="define"><name>EXEC_TIMER_TICK_US</name></member>
+    <member refid="exec__timer_8c_1a2ba05d5d53f60ef21f97e69c2b1c6996" kind="define"><name>EXEC_TIMER_PRESCALER</name></member>
+    <member refid="exec__timer_8c_1a9f01157a9dd0d4bd068cb1f273625419" kind="define"><name>EXEC_TIMER_MAX_ARR</name></member>
+    <member refid="exec__timer_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="exec__timer_8c_1a1b2958a0a0ce30b1f5222ef3cafd61d3" kind="function"><name>execTimer_init</name></member>
+    <member refid="exec__timer_8c_1a449bf212e6e8b673cac3d690543ae97f" kind="function"><name>execTimer_getTick</name></member>
+    <member refid="exec__timer_8c_1a78b874ad03879e85dbdd176e59df156d" kind="function"><name>execTimer_delayUsToTicks</name></member>
+    <member refid="exec__timer_8c_1a66fa1e128220df0a5036ef1fc700c2a7" kind="function"><name>execTimer_elapsedTicks</name></member>
+  </compound>
+  <compound refid="gpio__trace_8c" kind="file"><name>gpio_trace.c</name>
+    <member refid="gpio__trace_8c_1a131aba57240489a775bd7fb83213cd18" kind="define"><name>GPIO_OUTPUT_PUSH_PULL_50MHZ</name></member>
+    <member refid="gpio__trace_8c_1aa0a15a52c0f5b77e976d6473ca980f4f" kind="define"><name>GPIO_TRACE_LOW_PIN_MASK</name></member>
+    <member refid="gpio__trace_8c_1ae6cfd1bfbebece51794624f77f23b390" kind="define"><name>GPIO_TRACE_MID_PIN_MASK</name></member>
+    <member refid="gpio__trace_8c_1a9a96c4c7bc6aa987b0e3e97e451bb44f" kind="define"><name>GPIO_TRACE_HIGH_PIN_MASK</name></member>
+    <member refid="gpio__trace_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="gpio__trace_8c_1a56fe07d232a8d487e7aef8c520d0c1e4" kind="function"><name>getPinMask</name></member>
+    <member refid="gpio__trace_8c_1a7c9af55380a64c8dd3afe8668f07c3e6" kind="function"><name>gpioTrace_init</name></member>
+    <member refid="gpio__trace_8c_1a6e41439af908889aba763b0e2eb165f6" kind="function"><name>gpioTrace_setActive</name></member>
+    <member refid="gpio__trace_8c_1a25205559eff92ae58cda0606d21d6b50" kind="function"><name>gpioTrace_setInactive</name></member>
+  </compound>
+  <compound refid="arm__cortex__m__preemption__example_2src_2main_8c" kind="file"><name>main.c</name>
+    <member refid="arm__cortex__m__preemption__example_2src_2main_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="fuzz__example_2src_2main_8c" kind="file"><name>main.c</name>
+    <member refid="fuzz__example_2src_2main_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="tick__timer_8c" kind="file"><name>tick_timer.c</name>
+    <member refid="tick__timer_8c_1a5cf8dbc739ad91329b51f1599f7f9495" kind="define"><name>SYSTICK_RELOAD_1_MS</name></member>
+    <member refid="tick__timer_8c_1a518ed37e2e0239493c53b5c900db9fea" kind="function"><name>tickTimer_init</name></member>
+    <member refid="tick__timer_8c_1ab5e09814056d617c521549e542639b7e" kind="function"><name>SysTick_Handler</name></member>
+  </compound>
+  <compound refid="fuzz__example_8h" kind="file"><name>fuzz_example.h</name>
+    <member refid="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eb" kind="enum"><name>fuzzExample_eventSignal_t</name></member>
+    <member refid="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba74b9518536bbdcc82123457262f7d527" kind="enumvalue"><name>FUZZ_EXAMPLE_PING_SIG</name></member>
+    <member refid="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba64177df3eeeee7bd0800b87d1f688f49" kind="enumvalue"><name>FUZZ_EXAMPLE_START_SIG</name></member>
+    <member refid="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba5edd2d296e79bad8c3073224dbe0cd2c" kind="enumvalue"><name>FUZZ_EXAMPLE_FINISH_SIG</name></member>
+    <member refid="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5ebaed0f5ebdd54fb9315f404cf3af6bc5dd" kind="enumvalue"><name>FUZZ_EXAMPLE_RESET_SIG</name></member>
+    <member refid="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba72c670c1e001d8f8592e5b4f9500f37e" kind="enumvalue"><name>FUZZ_EXAMPLE_SET_SIG</name></member>
+    <member refid="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba04e139f228c7aebd8109e1159e9ef3b0" kind="enumvalue"><name>FUZZ_EXAMPLE_STEP_SIG</name></member>
+    <member refid="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba6fe262b7f27a591fa4e66a624f66b3a8" kind="enumvalue"><name>FUZZ_EXAMPLE_LAST_SIG</name></member>
+    <member refid="fuzz__example_8h_1ace923deac2bada319cc2bb30bfebd552" kind="function"><name>fuzzExample_init</name></member>
+  </compound>
+  <compound refid="fuzz__example_8c" kind="file"><name>fuzz_example.c</name>
+    <member refid="fuzz__example_8c_1a7eca63c9195fb08803e079e60c4f5011" kind="define"><name>FUZZ_EXAMPLE_AO_PRIO</name></member>
+    <member refid="fuzz__example_8c_1a64b75838a4e81d9f391520ccd0c5a8dd" kind="define"><name>FUZZ_EXAMPLE_QUEUE_LEN</name></member>
+    <member refid="fuzz__example_8c_1ae70ca50f5278cbaf6941a1a91e481f42" kind="define"><name>FUZZ_EXAMPLE_POOL_BLOCKS</name></member>
+    <member refid="fuzz__example_8c_1a3c1012a9b8b7c57edd7659a7fd13f1ce" kind="define"><name>FUZZ_EXAMPLE_DEFAULT_SLOT</name></member>
+    <member refid="fuzz__example_8c_1a9d7e8d4ed52cbb6a5b4259d7fb403d0c" kind="define"><name>FUZZ_EXAMPLE_DEFAULT_GATE</name></member>
+    <member refid="fuzz__example_8c_1a07729cd31f791ad12ebe1fc722935d28" kind="define"><name>FUZZ_EXAMPLE_DEFAULT_TARGET_COUNT</name></member>
+    <member refid="fuzz__example_8c_1ab252400158a882d9c9e10fcc5380a563" kind="define"><name>FUZZ_EXAMPLE_CRASH_SET_SLOT</name></member>
+    <member refid="fuzz__example_8c_1ac5ab50f5ea40a50290df549d5b42fe18" kind="define"><name>FUZZ_EXAMPLE_CRASH_SET_GATE</name></member>
+    <member refid="fuzz__example_8c_1a0df83c2cc16f408524558d5992ab4f81" kind="define"><name>FUZZ_EXAMPLE_CRASH_SET_TARGET</name></member>
+    <member refid="fuzz__example_8c_1a62dbe3241a5dfff5d721644eab3a263e" kind="define"><name>FUZZ_EXAMPLE_HANG_SET_SLOT</name></member>
+    <member refid="fuzz__example_8c_1ab36ed4a7fe7ee6a441594104fff257fe" kind="define"><name>FUZZ_EXAMPLE_HANG_SET_GATE</name></member>
+    <member refid="fuzz__example_8c_1a37649bc001f396ae20adf736279d12f7" kind="define"><name>FUZZ_EXAMPLE_HANG_SET_TARGET</name></member>
+    <member refid="fuzz__example_8c_1ad374d12745f30bf6f14bfb2d37ce5533" kind="define"><name>FUZZ_EXAMPLE_FINISH_CRASH_SLOT</name></member>
+    <member refid="fuzz__example_8c_1a29e18a8e4db762ab012094c4276d14be" kind="define"><name>FUZZ_EXAMPLE_FINISH_CRASH_GATE</name></member>
+    <member refid="fuzz__example_8c_1a2efc28d546aa4caf180a9df92f1c12b3" kind="define"><name>FUZZ_EXAMPLE_FINISH_CRASH_TARGET</name></member>
+    <member refid="fuzz__example_8c_1ae7dbeca5b6a9d3136b3b84cb5d8b1f39" kind="define"><name>FUZZ_EXAMPLE_FINISH_CRASH_SUM</name></member>
+    <member refid="fuzz__example_8c_1ae11e9c4678c27184ad4eee152dc6c28b" kind="define"><name>FUZZ_EXAMPLE_STEP_HANG_VALUE</name></member>
+    <member refid="fuzz__example_8c_1ac4345bcb7826a854e6e9016fb74ed06c" kind="define"><name>FUZZ_EXAMPLE_STEP_BOOST_DELTA</name></member>
+    <member refid="fuzz__example_8c_1a308af9a9b03af98d4efe0e52b2865428" kind="define"><name>FUZZ_EXAMPLE_MAX_MUTABLE_EVENT_SIZE</name></member>
+    <member refid="fuzz__example_8c_1a2fee31dcd1ac7e99f2360fa3318885fa" kind="define"><name>FUZZ_EXAMPLE_POOL_BLOCK_SIZE</name></member>
+    <member refid="fuzz__example_8c_1a80c2f03c5c49b1472efea351d8b26997" kind="enum"><name>fuzzExample_stepFlag_t</name></member>
+    <member refid="fuzz__example_8c_1a80c2f03c5c49b1472efea351d8b26997a7f8666dc5b40a0f1e4a11a3e21a22116" kind="enumvalue"><name>FUZZ_EXAMPLE_STEP_FLAG_BOOST</name></member>
+    <member refid="fuzz__example_8c_1a80c2f03c5c49b1472efea351d8b26997a2f6eccca7488653ce0e146caa12de739" kind="enumvalue"><name>FUZZ_EXAMPLE_STEP_FLAG_STOP</name></member>
+    <member refid="fuzz__example_8c_1a80c2f03c5c49b1472efea351d8b26997ab736073e81a847f50eae18421279b38e" kind="enumvalue"><name>FUZZ_EXAMPLE_STEP_FLAG_CLEAR</name></member>
+    <member refid="fuzz__example_8c_1a3ddc8f39b51c1467e733d18d028abe56" kind="variable"><name>fuzzExample</name></member>
+    <member refid="fuzz__example_8c_1ad638fc543df08a91e0d393515aa727e0" kind="variable"><name>subscriberList</name></member>
+    <member refid="fuzz__example_8c_1a4f6085a7a933ee5f16a5388004cd2c36" kind="variable"><name>eventQueueStorage</name></member>
+    <member refid="fuzz__example_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="fuzz__example_8c_1a6a5d28c69b2f7c6475cab695fdbf6eda" kind="function"><name>EMF_UTILS_MEM_ALIGNED_SLOT</name></member>
+    <member refid="fuzz__example_8c_1a56f71694f6b44e80ed18731e7f7c7eaa" kind="function"><name>fuzzExample_operationalState</name></member>
+    <member refid="fuzz__example_8c_1a3803021d00213c3eb4c18fc512d40e3b" kind="function"><name>fuzzExample_standbyState</name></member>
+    <member refid="fuzz__example_8c_1a9c31fb7a3e6fffc9bd0962347a814a57" kind="function"><name>fuzzExample_armedState</name></member>
+    <member refid="fuzz__example_8c_1ae6ce4476ef4b320c10eb0979fa085bda" kind="function"><name>fuzzExample_collectingState</name></member>
+    <member refid="fuzz__example_8c_1ae3872039aab29ffc4c15b4dc885d2dd5" kind="function"><name>fuzzExample_resetRuntime</name></member>
+    <member refid="fuzz__example_8c_1abc2c32ba88884bc85a17065fa6b2a243" kind="function"><name>fuzzExample_applySet</name></member>
+    <member refid="fuzz__example_8c_1abbe04ba9844f89a4e8b3112ec0c4c7ed" kind="function"><name>fuzzExample_acceptsSlot</name></member>
+    <member refid="fuzz__example_8c_1aa0248b85ebda0d189457a91dc7470503" kind="function"><name>fuzzExample_adjustValue</name></member>
+    <member refid="fuzz__example_8c_1ab690c0c4381da75475605cc1ad87c52f" kind="function"><name>fuzzExample_beginCollecting</name></member>
+    <member refid="fuzz__example_8c_1aac2e97c083d93b340643877c8280bbc7" kind="function"><name>fuzzExample_shouldCrashOnSet</name></member>
+    <member refid="fuzz__example_8c_1afc679a1885b583689724e920cee50f87" kind="function"><name>fuzzExample_shouldHangOnSet</name></member>
+    <member refid="fuzz__example_8c_1a84dab537b9617e93c47ca73d80a8875d" kind="function"><name>fuzzExample_shouldCrashOnFinish</name></member>
+    <member refid="fuzz__example_8c_1af5ef90d68bc474e04d511624ec623a6f" kind="function"><name>fuzzExample_shouldHangOnStep</name></member>
+    <member refid="fuzz__example_8c_1a653404b3fea15fc8851f524e35c9598d" kind="function"><name>fuzzExample_triggerCrash</name></member>
+    <member refid="fuzz__example_8c_1a23502d5cb97b7641cc02d38d9cc6de84" kind="function"><name>fuzzExample_triggerHang</name></member>
+    <member refid="fuzz__example_8c_1ace923deac2bada319cc2bb30bfebd552" kind="function"><name>fuzzExample_init</name></member>
+  </compound>
+  <compound refid="edf_8h" kind="file"><name>edf.h</name>
+    <member refid="edf_8h_1aa39ca4397d9a775d2a56e0280901b31b" kind="function"><name>EDF_init</name></member>
+    <member refid="edf_8h_1ab0327c1b380f9da71459714ce13f3fea" kind="function"><name>EDF_stop</name></member>
+    <member refid="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" kind="function"><name>EDF_run</name></member>
+    <member refid="edf_8h_1a78a0071d6610ff033393b92a213e1249" kind="function"><name>EDF_onStartup</name></member>
+    <member refid="edf_8h_1aea18abcbcfb67888e64dd1315407cdd9" kind="function"><name>EDF_onShutdown</name></member>
+    <member refid="edf_8h_1ad633188bc929012aeeb8e31b8834ba29" kind="function"><name>EDF_ISRExit</name></member>
+    <member refid="edf_8h_1ab7526d3761f52be63e9d7d751ef882e4" kind="function"><name>EDF_onContextSwitch</name></member>
+    <member refid="edf_8h_1a3a579f87161dd3a61080d455374930be" kind="function"><name>EDF_onIdle</name></member>
+  </compound>
+  <compound refid="edf__active__object_8h" kind="file"><name>edf_active_object.h</name>
+    <member refid="edf__active__object_8h_1a44e94ca18ea781426ad21a3d0a0957ba" kind="define"><name>EDF_AO_UPCAST</name></member>
+    <member refid="edf__active__object_8h_1ac14c4cdfbcfbb2552382a0b91623ba30" kind="define"><name>EDF_AO_PRIO</name></member>
+    <member refid="edf__active__object_8h_1ac6abb3dab6df18ac3f03c7bfec321ad7" kind="typedef"><name>EDF_activeObject_prio_t</name></member>
+    <member refid="edf__active__object_8h_1a79459067401e9ed55fca1f17283cdc7d" kind="function"><name>EDF_activeObject_init</name></member>
+    <member refid="edf__active__object_8h_1a3a57c1b9f40fb6c4bae5e8ee99aff57e" kind="function"><name>EDF_activeObject_setAttr</name></member>
+    <member refid="edf__active__object_8h_1ae4df5c8aa4c336242ffdf563948a0772" kind="function"><name>EDF_activeObject_start</name></member>
+    <member refid="edf__active__object_8h_1a98ab370a2d43d65769d26af855f732b9" kind="function"><name>EDF_activeObject_pubSubInit</name></member>
+    <member refid="edf__active__object_8h_1a6b91bd4f1399ba0f638d562305c063a0" kind="function"><name>EDF_activeObject_publish</name></member>
+    <member refid="edf__active__object_8h_1a96e398f42ea14f17ac094b8538c973d9" kind="function"><name>EDF_activeObject_subscribe</name></member>
+    <member refid="edf__active__object_8h_1ab7195013756d0fbed7aee0d37c1fd2c7" kind="function"><name>EDF_activeObject_subscribeAll</name></member>
+    <member refid="edf__active__object_8h_1abaf821cbbf94eb1e0de51dbc7b377a54" kind="function"><name>EDF_activeObject_unsubscribe</name></member>
+    <member refid="edf__active__object_8h_1a9535c9727a4cdadbe7afafdb54e1079b" kind="function"><name>EDF_activeObject_unsubscribeAll</name></member>
+    <member refid="edf__active__object_8h_1a6515b237aa3fe9531a4fc45c63f789e5" kind="function"><name>EDF_activeObject_defer</name></member>
+    <member refid="edf__active__object_8h_1afe9233dab6dcd1282cd53103a3ddd6c7" kind="function"><name>EDF_activeObject_recall</name></member>
+    <member refid="edf__active__object_8h_1a917710d3a74e92249afc0804550c0db0" kind="function"><name>EDF_activeObject_flushDeferred</name></member>
+    <member refid="edf__active__object_8h_1aa4ae260fade3b8b6c960113379c40eec" kind="function"><name>EDF_activeObject_register</name></member>
+    <member refid="edf__active__object_8h_1a02783a44bc856636e089b8220da3a449" kind="function"><name>EDF_activeObject_postFIFO</name></member>
+    <member refid="edf__active__object_8h_1a22aae6af2c48209e5d3aa93624706ba8" kind="function"><name>EDF_activeObject_postLIFO</name></member>
+    <member refid="edf__active__object_8h_1a515611fbb8263f762598df5b561c64fd" kind="function"><name>EDF_activeObject_get</name></member>
+  </compound>
+  <compound refid="edf__event_8h" kind="file"><name>edf_event.h</name>
+    <member refid="edf__event_8h_1ab9cb3096a090641fbf495f96cf2ac060" kind="define"><name>EDF_EVENT_REF_CNT_IMMUTABLE</name></member>
+    <member refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kind="define"><name>EDF_EVENT_IMMUTABLE_INIT</name></member>
+    <member refid="edf__event_8h_1a77589289eec868e7cd360a4d5d51cee4" kind="typedef"><name>EDF_event_t</name></member>
+    <member refid="edf__event_8h_1ad3ce23e581fbb6e6edbfd96bec56d9aa" kind="typedef"><name>EDF_event_ptr</name></member>
+    <member refid="edf__event_8h_1aca9295f06b59146a186b7b2a1628e73c" kind="function"><name>EDF_event_initImmutable</name></member>
+    <member refid="edf__event_8h_1aa330c3b895241a243cf7315f92678e2c" kind="function"><name>EDF_event_initMutable</name></member>
+    <member refid="edf__event_8h_1a84f67396e28805b84cb94ea46589177e" kind="function"><name>EDF_event_incrementRefCnt_</name></member>
+    <member refid="edf__event_8h_1a3c231f2d6c18b50ca64073ab76134cf5" kind="function"><name>EDF_event_decrementRefCnt_</name></member>
+    <member refid="edf__event_8h_1aa7f1bacc9a03a303d353398699c8dd03" kind="function"><name>EDF_event_gc</name></member>
+  </compound>
+  <compound refid="edf__event__queue_8h" kind="file"><name>edf_event_queue.h</name>
+    <member refid="edf__event__queue_8h_1ab46fb43f00eac5c8ec63ba129ff3cd4a" kind="typedef"><name>EDF_eventQueue_t</name></member>
+    <member refid="edf__event__queue_8h_1ace12f6d658c1b1f0c808f4915855afed" kind="function"><name>EDF_eventQueue_init</name></member>
+    <member refid="edf__event__queue_8h_1a866e3e991fbf8a109dc697562b541f64" kind="function"><name>EDF_eventQueue_postFIFO</name></member>
+    <member refid="edf__event__queue_8h_1ab40df10c0a838e361daa609fe2497d77" kind="function"><name>EDF_eventQueue_postLIFO</name></member>
+    <member refid="edf__event__queue_8h_1a097f9cddecee5a9afaf9633713b4b858" kind="function"><name>EDF_eventQueue_get</name></member>
+    <member refid="edf__event__queue_8h_1ad3eb360dd89f53e22b7ad7ddb3f34fe8" kind="function"><name>EDF_eventQueue_getNumFree</name></member>
+    <member refid="edf__event__queue_8h_1a5e30ee4405b7311850aae40959080bfe" kind="function"><name>EDF_eventQueue_getNumOccupied</name></member>
+    <member refid="edf__event__queue_8h_1a70884fcc41eaad26c49240141d928469" kind="function"><name>EDF_eventQueue_isEmpty</name></member>
+    <member refid="edf__event__queue_8h_1ab7092d4f206974abe4d0e7c3de831929" kind="function"><name>EDF_eventQueue_getNumMin</name></member>
+  </compound>
+  <compound refid="edf__fuzz_8h" kind="file"><name>edf_fuzz.h</name>
+    <member refid="edf__fuzz_8h_1a1742b9f5f56c8f4ea24199c19ffac87f" kind="define"><name>EDF_FUZZ_EVENT_TABLE</name></member>
+    <member refid="edf__fuzz_8h_1a854673074512c0f08745e91c182713c2" kind="define"><name>EDF_FUZZ_IMMUTABLE_EVENT</name></member>
+    <member refid="edf__fuzz_8h_1ae141cf52ab9791c40479ef9df7e5a956" kind="define"><name>EDF_FUZZ_MUTABLE_EVENT</name></member>
+    <member refid="edf__fuzz_8h_1ae87cc0b78cf91673af90a69b9e84882b" kind="variable"><name>EDF_fuzz_eventTable</name></member>
+    <member refid="edf__fuzz_8h_1a86c5e846afa6402e26bf6c8070771740" kind="variable"><name>EDF_fuzz_eventTableLen</name></member>
+  </compound>
+  <compound refid="edf__hsm_8h" kind="file"><name>edf_hsm.h</name>
+    <member refid="edf__hsm_8h_1ac31b8b9642cd6a89e271093142077361" kind="define"><name>EDF_HSM_EMPTY_SIGNAL</name></member>
+    <member refid="edf__hsm_8h_1ad17e2f295a3b30559e323c26e8c03876" kind="define"><name>EDF_HSM_ENTRY_SIGNAL</name></member>
+    <member refid="edf__hsm_8h_1a48e9e549cfca0a1e5ad4caaa54a021c1" kind="define"><name>EDF_HSM_EXIT_SIGNAL</name></member>
+    <member refid="edf__hsm_8h_1ac70917e5b7dc505e6814afcf94296553" kind="define"><name>EDF_HSM_INIT_SIGNAL</name></member>
+    <member refid="edf__hsm_8h_1a90e79450b49ed799ee9beb70ff9fba92" kind="define"><name>EDF_HSM_USER_SIGNAL</name></member>
+    <member refid="edf__hsm_8h_1a4ec8dff0a8ef5f3a8fc4ca987d6930f6" kind="define"><name>EDF_HSM_UPCAST</name></member>
+    <member refid="edf__hsm_8h_1a356c0d8eb8c95289794b66efc56f8544" kind="define"><name>EDF_HSM_RET_HANDLED</name></member>
+    <member refid="edf__hsm_8h_1a8d7da3a5da6aea09be11875df93b7531" kind="define"><name>EDF_HSM_RET_UNHANDLED</name></member>
+    <member refid="edf__hsm_8h_1ae1fb8c5035fbfadf1aa6807fd1149f06" kind="define"><name>EDF_HSM_RET_SUPER</name></member>
+    <member refid="edf__hsm_8h_1a7fadb95b4816e7619be66cc414a37f86" kind="define"><name>EDF_HSM_RET_TRAN</name></member>
+    <member refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kind="enum"><name>EDF_hsm_stateReturn_t</name></member>
+    <member refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8a9213690b356ec5183ca43526ce61cef5" kind="enumvalue"><name>RET_HANDLED</name></member>
+    <member refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8a8de197aa5c024079005267eec5311d0e" kind="enumvalue"><name>RET_UNHANDLED</name></member>
+    <member refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8aa553517e7ce343e59e8449bdd34807ee" kind="enumvalue"><name>RET_SUPER</name></member>
+    <member refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8ac2a6738f7ca2b5c19434c3000bc0d937" kind="enumvalue"><name>RET_TRANSITION</name></member>
+    <member refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8af6dc75dce72f8451fc2fd21ba8b289b9" kind="enumvalue"><name>RET_IGNORED</name></member>
+    <member refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kind="typedef"><name>EDF_hsm_stateHandler_t</name></member>
+    <member refid="edf__hsm_8h_1a7756b16e76d3948ef0703a58be56b9e8" kind="function"><name>EDF_hsm_init</name></member>
+    <member refid="edf__hsm_8h_1aade9d9b30dcaefad855b7cdd967c35a0" kind="function"><name>EDF_hsm_start</name></member>
+    <member refid="edf__hsm_8h_1ac6efff17f85a8012dab971619c1c7e10" kind="function"><name>EDF_hsm_dispatch</name></member>
+    <member refid="edf__hsm_8h_1aa9668cc97d0874b9ef13023111ba37a6" kind="function"><name>EDF_hsm_getCurrentState</name></member>
+    <member refid="edf__hsm_8h_1a908122f9e5440e03655d7a28a29a839c" kind="function"><name>EDF_hsm_top</name></member>
+  </compound>
+  <compound refid="edf__pool_8h" kind="file"><name>edf_pool.h</name>
+    <member refid="edf__pool_8h_1ad7480419c24fe94d4008bd9fc2387e61" kind="function"><name>EDF_pool_init</name></member>
+    <member refid="edf__pool_8h_1a55a7c1a0dc2062e4840570726ec037b4" kind="function"><name>EDF_pool_acquire</name></member>
+    <member refid="edf__pool_8h_1a27a004b99c811ac20de35198185d3f83" kind="function"><name>EDF_pool_release</name></member>
+  </compound>
+  <compound refid="edf__time__event_8h" kind="file"><name>edf_time_event.h</name>
+    <member refid="edf__time__event_8h_1a0b85aeced70078983345be5b0d6f3e82" kind="typedef"><name>EDF_timeEvent_t</name></member>
+    <member refid="edf__time__event_8h_1a0451c418914896fc10fdc7fbbfdc22bd" kind="function"><name>EDF_timeEvent_new</name></member>
+    <member refid="edf__time__event_8h_1ab9a852d92750082459fd26b98a599f84" kind="function"><name>EDF_timeEvent_arm</name></member>
+    <member refid="edf__time__event_8h_1a63aa702343e589c12d03ca168026e2fb" kind="function"><name>EDF_timeEvent_disarm</name></member>
+    <member refid="edf__time__event_8h_1aaec52cd086da0a640e043734053b49da" kind="function"><name>EDF_timeEvent_rearm</name></member>
+    <member refid="edf__time__event_8h_1a483f37c09b0fc2b725f6d86cd69948f6" kind="function"><name>EDF_timeEvent_currentCounter</name></member>
+    <member refid="edf__time__event_8h_1a310b5ba291f7765a5a874e360fcc10fe" kind="function"><name>EDF_timeEvent_tick</name></member>
+  </compound>
+  <compound refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h" kind="file"><name>edf_core.h</name>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a25e82d49902077aecdfe613a46d1ace2" kind="define"><name>EDF_CORE_IS_IN_ISR</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a593e68f83856e1b3fcae88c6d688f9a0" kind="define"><name>EDF_CORE_SCHED_STATUS</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a3118aad14d598c5810971ae23888a90e" kind="define"><name>EDF_CORE_SCHED_NOT_LOCKED</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1ab26070dc7c2e36f567811ae435bd300e" kind="define"><name>EDF_CORE_SCHED_LOCK</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1ae93bc912dbefdb5a706c2381637a4f69" kind="define"><name>EDF_CORE_SCHED_UNLOCK</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a58f7c00750b3a9e52ce2355896e9c1b9" kind="define"><name>EDF_CORE_WAIT_FOR_EVENT</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a1d02c6a3d49b09079c4bc600cc772abc" kind="define"><name>EDF_CORE_NOTIFY_EVENT</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1ab65351184e17503508d8092f85a75d38" kind="typedef"><name>EDF_core_schedStatus_t</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a51679d4142534ac8d36782961100e756" kind="variable"><name>EDF_core</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1aaeba4868d10079fc4a500a27beef7dc6" kind="function"><name>EDF_core_lockScheduler</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a0190b963c1c755db567605f4c446ce9f" kind="function"><name>EDF_core_unlockScheduler</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1aea83f75aeac77f31d0e5f2c29468f1b7" kind="function"><name>EDF_core_schedule</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a9d401e5d855fa93ba6828750289428ab" kind="function"><name>EDF_core_scheduleAfter</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a830b7ae3b8145806e386c66bfa439023" kind="function"><name>EDF_core_activate</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a6303e1f258cbdc1f970ce579cc015623" kind="function"><name>PendSV_Handler</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a2c8c49d70c739f745a777e1b17267369" kind="function"><name>EDF_core_preemptedContextReturn</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a6ad7a5e3ee69cb6db6a6b9111ba898bc" kind="function"><name>NMI_Handler</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1aa0669cdd5a192a5b55835e861d36be26" kind="function"><name>EDF_core_disableFPUContext</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1afbb2d53be0019cc7b5a1372f3a3fb79e" kind="function"><name>EDF_core_getIPSR</name></member>
+    <member refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1a918696b2811ad952ab88e2c3742a4228" kind="function"><name>EDF_core_ARMErratum838869</name></member>
+  </compound>
+  <compound refid="os_2posix__non__preemptive_2inc_2edf__core_8h" kind="file"><name>edf_core.h</name>
+    <member refid="os_2posix__non__preemptive_2inc_2edf__core_8h_1a593e68f83856e1b3fcae88c6d688f9a0" kind="define"><name>EDF_CORE_SCHED_STATUS</name></member>
+    <member refid="os_2posix__non__preemptive_2inc_2edf__core_8h_1acd5353fd660f0febda48f0ea378c12b4" kind="define"><name>EDF_CORE_SCHED_LOCK</name></member>
+    <member refid="os_2posix__non__preemptive_2inc_2edf__core_8h_1ae93bc912dbefdb5a706c2381637a4f69" kind="define"><name>EDF_CORE_SCHED_UNLOCK</name></member>
+    <member refid="os_2posix__non__preemptive_2inc_2edf__core_8h_1a58f7c00750b3a9e52ce2355896e9c1b9" kind="define"><name>EDF_CORE_WAIT_FOR_EVENT</name></member>
+    <member refid="os_2posix__non__preemptive_2inc_2edf__core_8h_1a1d02c6a3d49b09079c4bc600cc772abc" kind="define"><name>EDF_CORE_NOTIFY_EVENT</name></member>
+    <member refid="os_2posix__non__preemptive_2inc_2edf__core_8h_1a51679d4142534ac8d36782961100e756" kind="variable"><name>EDF_core</name></member>
+  </compound>
+  <compound refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h" kind="file"><name>edf_core.h</name>
+    <member refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1a593e68f83856e1b3fcae88c6d688f9a0" kind="define"><name>EDF_CORE_SCHED_STATUS</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1acd5353fd660f0febda48f0ea378c12b4" kind="define"><name>EDF_CORE_SCHED_LOCK</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1ae93bc912dbefdb5a706c2381637a4f69" kind="define"><name>EDF_CORE_SCHED_UNLOCK</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1a58f7c00750b3a9e52ce2355896e9c1b9" kind="define"><name>EDF_CORE_WAIT_FOR_EVENT</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1a1d02c6a3d49b09079c4bc600cc772abc" kind="define"><name>EDF_CORE_NOTIFY_EVENT</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1a51679d4142534ac8d36782961100e756" kind="variable"><name>EDF_core</name></member>
+  </compound>
+  <compound refid="os_2posix__preemptive_2inc_2edf__core_8h" kind="file"><name>edf_core.h</name>
+    <member refid="os_2posix__preemptive_2inc_2edf__core_8h_1a593e68f83856e1b3fcae88c6d688f9a0" kind="define"><name>EDF_CORE_SCHED_STATUS</name></member>
+    <member refid="os_2posix__preemptive_2inc_2edf__core_8h_1acd5353fd660f0febda48f0ea378c12b4" kind="define"><name>EDF_CORE_SCHED_LOCK</name></member>
+    <member refid="os_2posix__preemptive_2inc_2edf__core_8h_1ae93bc912dbefdb5a706c2381637a4f69" kind="define"><name>EDF_CORE_SCHED_UNLOCK</name></member>
+    <member refid="os_2posix__preemptive_2inc_2edf__core_8h_1a58f7c00750b3a9e52ce2355896e9c1b9" kind="define"><name>EDF_CORE_WAIT_FOR_EVENT</name></member>
+    <member refid="os_2posix__preemptive_2inc_2edf__core_8h_1a1d02c6a3d49b09079c4bc600cc772abc" kind="define"><name>EDF_CORE_NOTIFY_EVENT</name></member>
+  </compound>
+  <compound refid="baremetal_2arm__cortex__m_2src_2edf__core_8c" kind="file"><name>edf_core.c</name>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ad998c31e1eef9f7d8a0933e5f9c2ae7c" kind="define"><name>SCB_SYSPRI</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aa1677b86fc9699414925aeca46baac9a" kind="define"><name>SCB_CPACR</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1af259bafcf8a95053debb7cb0c82c8518" kind="define"><name>FPU_FPCCR</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a7f8564488243827944de74c4db24b732" kind="define"><name>SCB_ICSR</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a0a12e243d9e081a821837e109318c6de" kind="define"><name>SCB_SYSPRI_PENDSV_PRI</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aeb039d3fad201ab00ebf8e788e7726ba" kind="define"><name>SCB_CPACR_CP10_FULL_ACCESS</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a8e3e7cfe2f1185f75d25a5e7acba7833" kind="define"><name>SCB_CPACR_CP11_FULL_ACCESS</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a4d08b3c1bd96c4c12dddd25aea063e35" kind="define"><name>SCB_ICSR_PENDSVSET</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ab3e819588b83ad03dd1419c983279f0d" kind="define"><name>FPU_FPCCR_ASPEN</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a618b6786326d394524f4757341eea808" kind="define"><name>FPU_FPCCR_LSPEN</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a51679d4142534ac8d36782961100e756" kind="variable"><name>EDF_core</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a8db178db226a4ccaf767313276480c06" kind="function"><name>EDF_core_init</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aaeba4868d10079fc4a500a27beef7dc6" kind="function"><name>EDF_core_lockScheduler</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a0190b963c1c755db567605f4c446ce9f" kind="function"><name>EDF_core_unlockScheduler</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aea83f75aeac77f31d0e5f2c29468f1b7" kind="function"><name>EDF_core_schedule</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a9d401e5d855fa93ba6828750289428ab" kind="function"><name>EDF_core_scheduleAfter</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a830b7ae3b8145806e386c66bfa439023" kind="function"><name>EDF_core_activate</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aa39ca4397d9a775d2a56e0280901b31b" kind="function"><name>EDF_init</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a741f22f8d99bbfbb000daeca620ca2a6" kind="function"><name>EDF_run</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ab0327c1b380f9da71459714ce13f3fea" kind="function"><name>EDF_stop</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ae4df5c8aa4c336242ffdf563948a0772" kind="function"><name>EDF_activeObject_start</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a3a57c1b9f40fb6c4bae5e8ee99aff57e" kind="function"><name>EDF_activeObject_setAttr</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a53ef92afdf8b412f92b918b04d89464c" kind="function"><name>EDF_onStartup</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a07d67b09f2c5893ffc971abccd3cf182" kind="function"><name>EDF_onShutdown</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ad633188bc929012aeeb8e31b8834ba29" kind="function"><name>EDF_ISRExit</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1afbbd2d226f02c377c5ce4b0167ad67f5" kind="function"><name>EDF_onContextSwitch</name></member>
+    <member refid="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ae8d8cd156148263012c035b6b5c69b8d" kind="function"><name>EDF_onIdle</name></member>
+  </compound>
+  <compound refid="os_2posix__non__preemptive_2src_2edf__core_8c" kind="file"><name>edf_core.c</name>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1afdf24e281764d1399ee4a5cbb1ae92f9" kind="variable"><name>isRunning</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1a51679d4142534ac8d36782961100e756" kind="variable"><name>EDF_core</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1ae677108f84ee41b1bcfee9b5aa8684e4" kind="function"><name>sigIntHandler</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1aa39ca4397d9a775d2a56e0280901b31b" kind="function"><name>EDF_init</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1a741f22f8d99bbfbb000daeca620ca2a6" kind="function"><name>EDF_run</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1ab0327c1b380f9da71459714ce13f3fea" kind="function"><name>EDF_stop</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1ae4df5c8aa4c336242ffdf563948a0772" kind="function"><name>EDF_activeObject_start</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1a3a57c1b9f40fb6c4bae5e8ee99aff57e" kind="function"><name>EDF_activeObject_setAttr</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1a53ef92afdf8b412f92b918b04d89464c" kind="function"><name>EDF_onStartup</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1a07d67b09f2c5893ffc971abccd3cf182" kind="function"><name>EDF_onShutdown</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1afbbd2d226f02c377c5ce4b0167ad67f5" kind="function"><name>EDF_onContextSwitch</name></member>
+    <member refid="os_2posix__non__preemptive_2src_2edf__core_8c_1ae8d8cd156148263012c035b6b5c69b8d" kind="function"><name>EDF_onIdle</name></member>
+  </compound>
+  <compound refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c" kind="file"><name>edf_core.c</name>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a34355c38f1a33cb6414c4a2fdfb01630" kind="define"><name>EDF_FUZZ_INPUT_MAX_LEN</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1adbab861bbb7bcfd1a3d177dd56aa0dfd" kind="define"><name>EDF_COVERAGE_FLUSH_SIGNAL_COUNT</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1afdf24e281764d1399ee4a5cbb1ae92f9" kind="variable"><name>isRunning</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a5762df3b46b7b0c582352e087096e143" kind="variable"><name>llvmCoverageFlushAttempted</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a73265d021e66cc6e1f9605f8c4b06b5b" kind="variable"><name>coverageFlushPrevActions</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1ae2ac2317b86590bcd36a6b3913b0c3c5" kind="variable"><name>coverageFlushSignals</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a51679d4142534ac8d36782961100e756" kind="variable"><name>EDF_core</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1aea93b29eb18453a9567147b1a78e0f98" kind="function"><name>__llvm_profile_write_file</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a76ccb5d981cf6c73114218295a27fa4d" kind="function"><name>injectFuzzEvent</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a7e10b24e56e5a07c16443250f3290960" kind="function"><name>maybeFlushLlvmCoverage</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1ad0c89b56211a8bff03826191bcd882f8" kind="function"><name>getCoverageFlushSignalIndex</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a970bc0081078a1c42e8813c5527cd31b" kind="function"><name>coverageFlushSignalHandler</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a05edae233a87ee6032fc7d9065d6b8ec" kind="function"><name>installCoverageFlushSignalHandlers</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a775e2f2146540dd04bd26e30594e37ea" kind="function"><name>EAF_onError</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1aa39ca4397d9a775d2a56e0280901b31b" kind="function"><name>EDF_init</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a741f22f8d99bbfbb000daeca620ca2a6" kind="function"><name>EDF_run</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1ab0327c1b380f9da71459714ce13f3fea" kind="function"><name>EDF_stop</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1ae4df5c8aa4c336242ffdf563948a0772" kind="function"><name>EDF_activeObject_start</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a3a57c1b9f40fb6c4bae5e8ee99aff57e" kind="function"><name>EDF_activeObject_setAttr</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a53ef92afdf8b412f92b918b04d89464c" kind="function"><name>EDF_onStartup</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a07d67b09f2c5893ffc971abccd3cf182" kind="function"><name>EDF_onShutdown</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1afbbd2d226f02c377c5ce4b0167ad67f5" kind="function"><name>EDF_onContextSwitch</name></member>
+    <member refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1ae8d8cd156148263012c035b6b5c69b8d" kind="function"><name>EDF_onIdle</name></member>
+  </compound>
+  <compound refid="os_2posix__preemptive_2src_2edf__core_8c" kind="file"><name>edf_core.c</name>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a4929a372396638523e886c1efe0303e2" kind="define"><name>ACTIVE_OBJECT_THREAD_PRIO_OFFSET</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a4c9878b0ac34c445d2811dfb9181870f" kind="define"><name>EDF_MAIN_THREAD_PRIO_OFFSET</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a6589a4cd0a9c86a632d24b1a6dbbdceb" kind="variable"><name>startupMutex</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1afdf24e281764d1399ee4a5cbb1ae92f9" kind="variable"><name>isRunning</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1ae677108f84ee41b1bcfee9b5aa8684e4" kind="function"><name>sigIntHandler</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a7a5feef252d18cfb549492c722ecea8b" kind="function"><name>activeObjectThread</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1aa39ca4397d9a775d2a56e0280901b31b" kind="function"><name>EDF_init</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a741f22f8d99bbfbb000daeca620ca2a6" kind="function"><name>EDF_run</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1ab0327c1b380f9da71459714ce13f3fea" kind="function"><name>EDF_stop</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1ae4df5c8aa4c336242ffdf563948a0772" kind="function"><name>EDF_activeObject_start</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a3a57c1b9f40fb6c4bae5e8ee99aff57e" kind="function"><name>EDF_activeObject_setAttr</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a53ef92afdf8b412f92b918b04d89464c" kind="function"><name>EDF_onStartup</name></member>
+    <member refid="os_2posix__preemptive_2src_2edf__core_8c_1a07d67b09f2c5893ffc971abccd3cf182" kind="function"><name>EDF_onShutdown</name></member>
+  </compound>
+  <compound refid="edf__framework_8h" kind="file"><name>edf_framework.h</name>
+    <member refid="edf__framework_8h_1aa71bd6cdc8adc017c71054575866afb5" kind="variable"><name>EDF_framework</name></member>
+    <member refid="edf__framework_8h_1ac3a4dfa07da66e5e5559e8eb2eb5480c" kind="function"><name>EDF_framework_init</name></member>
+  </compound>
+  <compound refid="edf__active__object_8c" kind="file"><name>edf_active_object.c</name>
+    <member refid="edf__active__object_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="edf__active__object_8c_1a79459067401e9ed55fca1f17283cdc7d" kind="function"><name>EDF_activeObject_init</name></member>
+    <member refid="edf__active__object_8c_1a9424373b920b0b1f26d9a22083582edd" kind="function"><name>EDF_activeObject_pubSubInit</name></member>
+    <member refid="edf__active__object_8c_1a6b91bd4f1399ba0f638d562305c063a0" kind="function"><name>EDF_activeObject_publish</name></member>
+    <member refid="edf__active__object_8c_1a96e398f42ea14f17ac094b8538c973d9" kind="function"><name>EDF_activeObject_subscribe</name></member>
+    <member refid="edf__active__object_8c_1ab7195013756d0fbed7aee0d37c1fd2c7" kind="function"><name>EDF_activeObject_subscribeAll</name></member>
+    <member refid="edf__active__object_8c_1abaf821cbbf94eb1e0de51dbc7b377a54" kind="function"><name>EDF_activeObject_unsubscribe</name></member>
+    <member refid="edf__active__object_8c_1a9535c9727a4cdadbe7afafdb54e1079b" kind="function"><name>EDF_activeObject_unsubscribeAll</name></member>
+    <member refid="edf__active__object_8c_1a6515b237aa3fe9531a4fc45c63f789e5" kind="function"><name>EDF_activeObject_defer</name></member>
+    <member refid="edf__active__object_8c_1afe9233dab6dcd1282cd53103a3ddd6c7" kind="function"><name>EDF_activeObject_recall</name></member>
+    <member refid="edf__active__object_8c_1a917710d3a74e92249afc0804550c0db0" kind="function"><name>EDF_activeObject_flushDeferred</name></member>
+    <member refid="edf__active__object_8c_1aa4ae260fade3b8b6c960113379c40eec" kind="function"><name>EDF_activeObject_register</name></member>
+    <member refid="edf__active__object_8c_1a02783a44bc856636e089b8220da3a449" kind="function"><name>EDF_activeObject_postFIFO</name></member>
+    <member refid="edf__active__object_8c_1a22aae6af2c48209e5d3aa93624706ba8" kind="function"><name>EDF_activeObject_postLIFO</name></member>
+    <member refid="edf__active__object_8c_1a515611fbb8263f762598df5b561c64fd" kind="function"><name>EDF_activeObject_get</name></member>
+  </compound>
+  <compound refid="edf__event_8c" kind="file"><name>edf_event.c</name>
+    <member refid="edf__event_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="edf__event_8c_1aca9295f06b59146a186b7b2a1628e73c" kind="function"><name>EDF_event_initImmutable</name></member>
+    <member refid="edf__event_8c_1aa330c3b895241a243cf7315f92678e2c" kind="function"><name>EDF_event_initMutable</name></member>
+    <member refid="edf__event_8c_1a84f67396e28805b84cb94ea46589177e" kind="function"><name>EDF_event_incrementRefCnt_</name></member>
+    <member refid="edf__event_8c_1a3c231f2d6c18b50ca64073ab76134cf5" kind="function"><name>EDF_event_decrementRefCnt_</name></member>
+    <member refid="edf__event_8c_1aa7f1bacc9a03a303d353398699c8dd03" kind="function"><name>EDF_event_gc</name></member>
+  </compound>
+  <compound refid="edf__event__queue_8c" kind="file"><name>edf_event_queue.c</name>
+    <member refid="edf__event__queue_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="edf__event__queue_8c_1ace12f6d658c1b1f0c808f4915855afed" kind="function"><name>EDF_eventQueue_init</name></member>
+    <member refid="edf__event__queue_8c_1a866e3e991fbf8a109dc697562b541f64" kind="function"><name>EDF_eventQueue_postFIFO</name></member>
+    <member refid="edf__event__queue_8c_1ab40df10c0a838e361daa609fe2497d77" kind="function"><name>EDF_eventQueue_postLIFO</name></member>
+    <member refid="edf__event__queue_8c_1a097f9cddecee5a9afaf9633713b4b858" kind="function"><name>EDF_eventQueue_get</name></member>
+  </compound>
+  <compound refid="edf__framework_8c" kind="file"><name>edf_framework.c</name>
+    <member refid="edf__framework_8c_1aa71bd6cdc8adc017c71054575866afb5" kind="variable"><name>EDF_framework</name></member>
+    <member refid="edf__framework_8c_1ac3a4dfa07da66e5e5559e8eb2eb5480c" kind="function"><name>EDF_framework_init</name></member>
+  </compound>
+  <compound refid="edf__hsm_8c" kind="file"><name>edf_hsm.c</name>
+    <member refid="edf__hsm_8c_1a8c4a19ac1689d9f70c8855bae97bc54b" kind="define"><name>DISPATCH_RESERVED_EVENT</name></member>
+    <member refid="edf__hsm_8c_1aae1ac5a583c740f0d8b0ae1a1bd99015" kind="variable"><name>reservedEvents</name></member>
+    <member refid="edf__hsm_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="edf__hsm_8c_1a68d21175cf4b21f3ecefef376007b126" kind="function"><name>EDF_hsm_getTransitionPath</name></member>
+    <member refid="edf__hsm_8c_1a523554bcc30e074f0666138a3c6ecb6b" kind="function"><name>EDF_hsm_executeTransition</name></member>
+    <member refid="edf__hsm_8c_1a7756b16e76d3948ef0703a58be56b9e8" kind="function"><name>EDF_hsm_init</name></member>
+    <member refid="edf__hsm_8c_1aade9d9b30dcaefad855b7cdd967c35a0" kind="function"><name>EDF_hsm_start</name></member>
+    <member refid="edf__hsm_8c_1ac6efff17f85a8012dab971619c1c7e10" kind="function"><name>EDF_hsm_dispatch</name></member>
+    <member refid="edf__hsm_8c_1aa9668cc97d0874b9ef13023111ba37a6" kind="function"><name>EDF_hsm_getCurrentState</name></member>
+    <member refid="edf__hsm_8c_1a908122f9e5440e03655d7a28a29a839c" kind="function"><name>EDF_hsm_top</name></member>
+  </compound>
+  <compound refid="edf__pool_8c" kind="file"><name>edf_pool.c</name>
+    <member refid="edf__pool_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="edf__pool_8c_1ad7480419c24fe94d4008bd9fc2387e61" kind="function"><name>EDF_pool_init</name></member>
+    <member refid="edf__pool_8c_1a55a7c1a0dc2062e4840570726ec037b4" kind="function"><name>EDF_pool_acquire</name></member>
+    <member refid="edf__pool_8c_1a27a004b99c811ac20de35198185d3f83" kind="function"><name>EDF_pool_release</name></member>
+  </compound>
+  <compound refid="edf__time__event_8c" kind="file"><name>edf_time_event.c</name>
+    <member refid="edf__time__event_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="edf__time__event_8c_1a0451c418914896fc10fdc7fbbfdc22bd" kind="function"><name>EDF_timeEvent_new</name></member>
+    <member refid="edf__time__event_8c_1ab9a852d92750082459fd26b98a599f84" kind="function"><name>EDF_timeEvent_arm</name></member>
+    <member refid="edf__time__event_8c_1a63aa702343e589c12d03ca168026e2fb" kind="function"><name>EDF_timeEvent_disarm</name></member>
+    <member refid="edf__time__event_8c_1aaec52cd086da0a640e043734053b49da" kind="function"><name>EDF_timeEvent_rearm</name></member>
+    <member refid="edf__time__event_8c_1a483f37c09b0fc2b725f6d86cd69948f6" kind="function"><name>EDF_timeEvent_currentCounter</name></member>
+    <member refid="edf__time__event_8c_1a310b5ba291f7765a5a874e360fcc10fe" kind="function"><name>EDF_timeEvent_tick</name></member>
+  </compound>
+  <compound refid="active__object_8h" kind="file"><name>active_object.h</name>
+    <member refid="active__object_8h_1a680557d8e1608bd1aa3fdc816e1ba895" kind="define"><name>ACTIVE_OBJECT_N_TOTAL</name></member>
+    <member refid="active__object_8h_1a9e25162131c65528fc7663b099826e9e" kind="define"><name>ACTIVE_OBJECT_PRIO_TO_SIGNAL</name></member>
+    <member refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17f" kind="enum"><name>activeObject_eventSignal_t</name></member>
+    <member refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa4eda5f72b331209ee9bc2d8fb2c02e7e" kind="enumvalue"><name>S1</name></member>
+    <member refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa113785310fe1ea81844313b0a2a360ad" kind="enumvalue"><name>S2</name></member>
+    <member refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa448146e9295c1ce04d258f3aed12169f" kind="enumvalue"><name>S3</name></member>
+    <member refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fae52a67fe08f6f2d20f15eab27fa68069" kind="enumvalue"><name>LAST_EVENT_SIGNAL</name></member>
+    <member refid="active__object_8h_1a66624994117a8c6ae3cda1cdca19c9c9" kind="variable"><name>activeObject</name></member>
+    <member refid="active__object_8h_1ab00237f257ea1f1def0924b1811edf78" kind="function"><name>activeObject_init</name></member>
+    <member refid="active__object_8h_1a5de959001970f040a03b44db35f83c73" kind="function"><name>activeObject_resetEventReceivedFlag</name></member>
+  </compound>
+  <compound refid="active__object_8c" kind="file"><name>active_object.c</name>
+    <member refid="active__object_8c_1acbf276c3201777f991172a57c9efdc90" kind="variable"><name>subscriberList</name></member>
+    <member refid="active__object_8c_1a66624994117a8c6ae3cda1cdca19c9c9" kind="variable"><name>activeObject</name></member>
+    <member refid="active__object_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="active__object_8c_1aa1b85b1956b8bda97ac0697a5aa73c52" kind="function"><name>initialTransition</name></member>
+    <member refid="active__object_8c_1a9ab24abeb412b238fd46a1246682ded1" kind="function"><name>readyState</name></member>
+    <member refid="active__object_8c_1ab00237f257ea1f1def0924b1811edf78" kind="function"><name>activeObject_init</name></member>
+    <member refid="active__object_8c_1a5de959001970f040a03b44db35f83c73" kind="function"><name>activeObject_resetEventReceivedFlag</name></member>
+  </compound>
+  <compound refid="test__event__delivery_8c" kind="file"><name>test_event_delivery.c</name>
+    <member refid="test__event__delivery_8c_1a7cf74c2db751271f374d334ac0e64495" kind="variable"><name>sig1</name></member>
+    <member refid="test__event__delivery_8c_1ac833968a1577b4109460475258f9582a" kind="variable"><name>sig2</name></member>
+    <member refid="test__event__delivery_8c_1a1195f01f43906f0def69b14fa83217cb" kind="variable"><name>sig3</name></member>
+    <member refid="test__event__delivery_8c_1ac71d1b80ed5b3a421e3bfc6ce9d4b57a" kind="variable"><name>lastSig</name></member>
+    <member refid="test__event__delivery_8c_1ae9aea5e7aba53585e3f23a27d29a6fc2" kind="function"><name>EDFTest_onInit</name></member>
+    <member refid="test__event__delivery_8c_1a35a2f6bca88844142fb41a5d44708229" kind="function"><name>EDFTest_setUp</name></member>
+    <member refid="test__event__delivery_8c_1a3015d92a9e337f89823de6b327af817b" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__event__delivery_8c_1a1f518f7e8064c88b7d99d2f11ce58fc5" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__event__delivery_8c_1a848c995fec92702bd2518e21de77722f" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__event__delivery_8c_1a912467937caca014d474727519a68de0" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__event__delivery_8c_1af13c83826d8ecfa426d68b81924ba662" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__event__delivery_8c_1a75cb04c087958f933ae0489acd93d288" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__event__delivery_8c_1a6d3ff37f55e4bf3fae4eb0d363f58324" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__event__delivery_8c_1ad7b44f9de8bfcee78afa274ac1bf16f3" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+  </compound>
+  <compound refid="hsm_8h" kind="file"><name>hsm.h</name>
+    <member refid="hsm_8h_1a2c057348c500357fe2cc3d5724e47f6f" kind="enum"><name>hsm_eventSignal_t</name></member>
+    <member refid="hsm_8h_1a2c057348c500357fe2cc3d5724e47f6fa544dafaf104c4d12f4f6590528c12c3c" kind="enumvalue"><name>TRANSITION</name></member>
+    <member refid="hsm_8h_1a2c057348c500357fe2cc3d5724e47f6fae52a67fe08f6f2d20f15eab27fa68069" kind="enumvalue"><name>LAST_EVENT_SIGNAL</name></member>
+    <member refid="hsm_8h_1a3c153f01b98054bca7fa83d8c6e7124a" kind="variable"><name>hsm</name></member>
+    <member refid="hsm_8h_1a79f2d72a6c863bdea89b7f5c9be95560" kind="function"><name>hsm_init</name></member>
+    <member refid="group__HSM__States_1ga1f9bb00217905e1d9e2e4ca9b7a94a77" kind="function"><name>initialTransition</name></member>
+    <member refid="group__HSM__States_1ga200db285bf0233fa8d725feab8335232" kind="function"><name>S1</name></member>
+    <member refid="group__HSM__States_1ga354097f4b5cf7e58ec54a5577aa702ba" kind="function"><name>S11</name></member>
+    <member refid="group__HSM__States_1gaafb646218bb2a3632b889cb84cb690a6" kind="function"><name>S111</name></member>
+    <member refid="group__HSM__States_1gac245a6a1f36a9e7e7a89a580f246247b" kind="function"><name>S1111</name></member>
+    <member refid="group__HSM__States_1gaaab823046aee1c904909d6308c6da161" kind="function"><name>S11111</name></member>
+    <member refid="group__HSM__States_1gadf306213d03bff742daabc82a185be43" kind="function"><name>S2</name></member>
+    <member refid="group__HSM__States_1ga268f39855dfd5969bf77bcfd95f108bc" kind="function"><name>S21</name></member>
+    <member refid="group__HSM__States_1ga9cfe48ddec88f7e28fbbb60c186a56f9" kind="function"><name>S211</name></member>
+    <member refid="group__HSM__States_1ga67086c9b8d036bb94cb1e618c495e75b" kind="function"><name>S2111</name></member>
+    <member refid="group__HSM__States_1ga0e105b5b1a9a7d3b769b8e4d29c239db" kind="function"><name>S2112</name></member>
+    <member refid="group__HSM__States_1ga58800db65bbef5181ed280bbcbea63d9" kind="function"><name>S3</name></member>
+    <member refid="group__HSM__States_1ga998cd743fb4f36fe1de120df7dcc6575" kind="function"><name>S31</name></member>
+    <member refid="group__HSM__States_1ga7caa2fd0b26e617d5ed983ea5c6f9f34" kind="function"><name>S311</name></member>
+    <member refid="group__HSM__States_1ga77f8391ab1ddedc77c4ed432527c9a74" kind="function"><name>S4</name></member>
+    <member refid="group__HSM__States_1gab85d138ecd59cb08c9f0ff321408a8eb" kind="function"><name>S41</name></member>
+  </compound>
+  <compound refid="hsm_8c" kind="file"><name>hsm.c</name>
+    <member refid="hsm_8c_1a6d602e0b8e86906810bdc5bb8d2800c7" kind="define"><name>HSM_AO_PRIO</name></member>
+    <member refid="hsm_8c_1acbf276c3201777f991172a57c9efdc90" kind="variable"><name>subscriberList</name></member>
+    <member refid="hsm_8c_1a3c153f01b98054bca7fa83d8c6e7124a" kind="variable"><name>hsm</name></member>
+    <member refid="hsm_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="hsm_8c_1a79f2d72a6c863bdea89b7f5c9be95560" kind="function"><name>hsm_init</name></member>
+    <member refid="group__HSM__States_1ga1f9bb00217905e1d9e2e4ca9b7a94a77" kind="function"><name>initialTransition</name></member>
+    <member refid="group__HSM__States_1ga200db285bf0233fa8d725feab8335232" kind="function"><name>S1</name></member>
+    <member refid="group__HSM__States_1ga354097f4b5cf7e58ec54a5577aa702ba" kind="function"><name>S11</name></member>
+    <member refid="group__HSM__States_1gaafb646218bb2a3632b889cb84cb690a6" kind="function"><name>S111</name></member>
+    <member refid="group__HSM__States_1gac245a6a1f36a9e7e7a89a580f246247b" kind="function"><name>S1111</name></member>
+    <member refid="group__HSM__States_1gaaab823046aee1c904909d6308c6da161" kind="function"><name>S11111</name></member>
+    <member refid="group__HSM__States_1gadf306213d03bff742daabc82a185be43" kind="function"><name>S2</name></member>
+    <member refid="group__HSM__States_1ga268f39855dfd5969bf77bcfd95f108bc" kind="function"><name>S21</name></member>
+    <member refid="group__HSM__States_1ga9cfe48ddec88f7e28fbbb60c186a56f9" kind="function"><name>S211</name></member>
+    <member refid="group__HSM__States_1ga67086c9b8d036bb94cb1e618c495e75b" kind="function"><name>S2111</name></member>
+    <member refid="group__HSM__States_1ga0e105b5b1a9a7d3b769b8e4d29c239db" kind="function"><name>S2112</name></member>
+    <member refid="group__HSM__States_1ga58800db65bbef5181ed280bbcbea63d9" kind="function"><name>S3</name></member>
+    <member refid="group__HSM__States_1ga998cd743fb4f36fe1de120df7dcc6575" kind="function"><name>S31</name></member>
+    <member refid="group__HSM__States_1ga7caa2fd0b26e617d5ed983ea5c6f9f34" kind="function"><name>S311</name></member>
+    <member refid="group__HSM__States_1ga77f8391ab1ddedc77c4ed432527c9a74" kind="function"><name>S4</name></member>
+    <member refid="group__HSM__States_1gab85d138ecd59cb08c9f0ff321408a8eb" kind="function"><name>S41</name></member>
+  </compound>
+  <compound refid="test__hsm_8c" kind="file"><name>test_hsm.c</name>
+    <member refid="test__hsm_8c_1a521534494889161aaa10ef6be0fefe65" kind="variable"><name>transitionEvent</name></member>
+    <member refid="test__hsm_8c_1ae9aea5e7aba53585e3f23a27d29a6fc2" kind="function"><name>EDFTest_onInit</name></member>
+    <member refid="test__hsm_8c_1a79948377abb0dabcf7112776975b3084" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1a73b1553fca29ca30c7778bc714232dd6" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1a46880610cb567705d83666a52adfd03f" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1a83654c328d724b10a67a3f10f03dd5b5" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1acd7c3df85a8cd888647215499889a97a" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1aca7752d0e838b88e5ae786cdc2912de3" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1ab9e377e1ea940155fc5d81444e54f53f" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1af60bc89a0d9f183bb4fb4196b05a56ea" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1aedbf71d7c31e846383b2ff38bcbdc2cc" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1ad04b4ec6ec7d7bdb1bc3b83a09b0847c" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1a950007223bb5b20c53aa83f1690d811e" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1a7388fc07ad073970506f9b3be907d4a2" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1a85f402e55def7bafba34979b1b400298" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1a163ebfab40ee14f2b42edd54f7a8e4a7" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1a792b66aa6b2096fc5b929b93fe5609a0" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1af78d47ffc97cbc52a340b1c7a6fd2338" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1a0c59bd91779120c2ac65f2ae62c67bf2" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1ab876309332483cfba3e260abb32d60d7" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__hsm_8c_1aea8efc14c02ff3f18a0c9976c52a439a" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__hsm_8c_1a634436a9fce098add67075921feed8de" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+  </compound>
+  <compound refid="time__mgr_8h" kind="file"><name>time_mgr.h</name>
+    <member refid="time__mgr_8h_1a139f21408bbcea35ffc96263cb1fdf44" kind="define"><name>TICK_RATE_IDX_1_MS</name></member>
+    <member refid="time__mgr_8h_1a9caba83b45ef3f5d8651f51a4c6c773f" kind="define"><name>EVENT_BUFF_SIZE</name></member>
+    <member refid="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2ab" kind="enum"><name>timeMgr_eventSignal_t</name></member>
+    <member refid="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2aba0b9480255dbdba73193bdfeed1142c29" kind="enumvalue"><name>PERIODIC_TIMER_5_MS</name></member>
+    <member refid="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2aba89d61b1c720a632b327bcb7f23293549" kind="enumvalue"><name>PERIODIC_TIMER_100_MS</name></member>
+    <member refid="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2abacf3f5a102a2678eef072f60be50e639e" kind="enumvalue"><name>PERIODIC_TIMER_5_MS_100_MS</name></member>
+    <member refid="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2abaab36dbbd20b8f312490963e4a8b70e0a" kind="enumvalue"><name>ONE_SHOT_TIMER_100_MS</name></member>
+    <member refid="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2aba570b000ad5bd233482644aaaac095680" kind="enumvalue"><name>VERIFY</name></member>
+    <member refid="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2abae52a67fe08f6f2d20f15eab27fa68069" kind="enumvalue"><name>LAST_EVENT_SIGNAL</name></member>
+    <member refid="time__mgr_8h_1a773056ed4e85d47aaf71baa35f47bec4" kind="variable"><name>timeMgr</name></member>
+    <member refid="time__mgr_8h_1a4b150d4bb5bd8972c2997b8d4db6788c" kind="function"><name>timeMgr_init</name></member>
+    <member refid="time__mgr_8h_1aa0f7cdd3f1e0bf734dfc8f871b7ff9a9" kind="function"><name>timeMgr_clearExpirationCnt</name></member>
+    <member refid="time__mgr_8h_1ac7e88802edbf380698afce96fb390223" kind="function"><name>timeMgr_armPeriodicTimer5ms</name></member>
+    <member refid="time__mgr_8h_1a419c3eedc6973b118ce1951da65beb24" kind="function"><name>timeMgr_disarmPeriodicTimer5ms</name></member>
+    <member refid="time__mgr_8h_1a7b066317f9bd64aab3b0fc7b80465429" kind="function"><name>timeMgr_armPeriodicTimer100ms</name></member>
+    <member refid="time__mgr_8h_1a2a2de4780446effebc6bf478013505b4" kind="function"><name>timeMgr_disarmPeriodicTimer100ms</name></member>
+    <member refid="time__mgr_8h_1a28b94c456684aa1d17c98c11ac983853" kind="function"><name>timeMgr_armPeriodicTimer5ms100ms</name></member>
+    <member refid="time__mgr_8h_1a84bee3954bcb7adde9a51c63c277800d" kind="function"><name>timeMgr_disarmPeriodicTimer5ms100ms</name></member>
+    <member refid="time__mgr_8h_1a954bb7347dd82997e50caaf8c31d9030" kind="function"><name>timeMgr_armOneShotTimer100ms</name></member>
+    <member refid="time__mgr_8h_1a8e92a2a9fe95b7e0bd90a5745592ed5b" kind="function"><name>timeMgr_disarmOneShotTimer100ms</name></member>
+  </compound>
+  <compound refid="test__time__event_8c" kind="file"><name>test_time_event.c</name>
+    <member refid="test__time__event_8c_1ac56f90c1b144cbaddbb6b9221068a82c" kind="variable"><name>verifyEvent</name></member>
+    <member refid="test__time__event_8c_1ae9aea5e7aba53585e3f23a27d29a6fc2" kind="function"><name>EDFTest_onInit</name></member>
+    <member refid="test__time__event_8c_1a35a2f6bca88844142fb41a5d44708229" kind="function"><name>EDFTest_setUp</name></member>
+    <member refid="test__time__event_8c_1a33cbb73ddcd475def55df80af25c0460" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__time__event_8c_1a6a132a54cfebe9517c17f315da80030d" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+    <member refid="test__time__event_8c_1a78064d1003575bd443c262bd6e78e78f" kind="function"><name>EDF_TEST_CASE_INIT</name></member>
+    <member refid="test__time__event_8c_1a8b778952b839a0b9af4af9a3416f74e2" kind="function"><name>EDF_TEST_CASE_VERIFY</name></member>
+  </compound>
+  <compound refid="time__mgr_8c" kind="file"><name>time_mgr.c</name>
+    <member refid="time__mgr_8c_1a38052bc658eebb2a2632cbe743224051" kind="define"><name>TIME_MGR_AO_PRIO</name></member>
+    <member refid="time__mgr_8c_1ad2d2feaa8153fc6f0277c22688f7ecc3" kind="define"><name>TICK_RATE_1_MS</name></member>
+    <member refid="time__mgr_8c_1acbf276c3201777f991172a57c9efdc90" kind="variable"><name>subscriberList</name></member>
+    <member refid="time__mgr_8c_1ad7a67d4419dda1162f90dac770083d4f" kind="variable"><name>timeEvent</name></member>
+    <member refid="time__mgr_8c_1a773056ed4e85d47aaf71baa35f47bec4" kind="variable"><name>timeMgr</name></member>
+    <member refid="time__mgr_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="time__mgr_8c_1aae5c24bf05902edbd412f3ba85a1f71c" kind="function"><name>initialTransition</name></member>
+    <member refid="time__mgr_8c_1ac0e185ee7956c6b65414948b7fc9ede7" kind="function"><name>readyState</name></member>
+    <member refid="time__mgr_8c_1a4b150d4bb5bd8972c2997b8d4db6788c" kind="function"><name>timeMgr_init</name></member>
+    <member refid="time__mgr_8c_1aa0f7cdd3f1e0bf734dfc8f871b7ff9a9" kind="function"><name>timeMgr_clearExpirationCnt</name></member>
+    <member refid="time__mgr_8c_1ac7e88802edbf380698afce96fb390223" kind="function"><name>timeMgr_armPeriodicTimer5ms</name></member>
+    <member refid="time__mgr_8c_1a419c3eedc6973b118ce1951da65beb24" kind="function"><name>timeMgr_disarmPeriodicTimer5ms</name></member>
+    <member refid="time__mgr_8c_1a7b066317f9bd64aab3b0fc7b80465429" kind="function"><name>timeMgr_armPeriodicTimer100ms</name></member>
+    <member refid="time__mgr_8c_1a2a2de4780446effebc6bf478013505b4" kind="function"><name>timeMgr_disarmPeriodicTimer100ms</name></member>
+    <member refid="time__mgr_8c_1a28b94c456684aa1d17c98c11ac983853" kind="function"><name>timeMgr_armPeriodicTimer5ms100ms</name></member>
+    <member refid="time__mgr_8c_1a84bee3954bcb7adde9a51c63c277800d" kind="function"><name>timeMgr_disarmPeriodicTimer5ms100ms</name></member>
+    <member refid="time__mgr_8c_1a954bb7347dd82997e50caaf8c31d9030" kind="function"><name>timeMgr_armOneShotTimer100ms</name></member>
+    <member refid="time__mgr_8c_1a8e92a2a9fe95b7e0bd90a5745592ed5b" kind="function"><name>timeMgr_disarmOneShotTimer100ms</name></member>
+  </compound>
+  <compound refid="stdio_8c" kind="file"><name>stdio.c</name>
+    <member refid="stdio_8c_1aeea822ab87e3ef3b207f26c6176a746c" kind="define"><name>NVIC_ISER1</name></member>
+    <member refid="stdio_8c_1a132bbfed53e26798e3f38708dc66b7c9" kind="define"><name>NVIC_IPR_BASE</name></member>
+    <member refid="stdio_8c_1a0e681b03f364532055d88f63fec0d99d" kind="define"><name>RCC_BASE</name></member>
+    <member refid="stdio_8c_1a6d4cd87f49d551c356fed82cbbddc5a4" kind="define"><name>RCC_APB2ENR</name></member>
+    <member refid="stdio_8c_1ad7b860fbeb386425bd7d4ef00ce17c27" kind="define"><name>RCC_APB2ENR_IOPAEN</name></member>
+    <member refid="stdio_8c_1a4666bb90842e8134b32e6a34a0f165f3" kind="define"><name>RCC_APB2ENR_USART1EN</name></member>
+    <member refid="stdio_8c_1ad7723846cc5db8e43a44d78cf21f6efa" kind="define"><name>GPIOA_BASE</name></member>
+    <member refid="stdio_8c_1a44ed4308d14771a0118579569d250868" kind="define"><name>GPIOA_CRH</name></member>
+    <member refid="stdio_8c_1a86162ab3f740db9026c1320d46938b4d" kind="define"><name>USART1_BASE</name></member>
+    <member refid="stdio_8c_1a487db57656db6abc99b3e64f54096fd5" kind="define"><name>USART1_SR</name></member>
+    <member refid="stdio_8c_1a6909af146975c44b99e68e2491ae96a6" kind="define"><name>USART1_DR</name></member>
+    <member refid="stdio_8c_1aacb1e95db24ea6e6abdd0ca2737f4242" kind="define"><name>USART1_BRR</name></member>
+    <member refid="stdio_8c_1aa0889f12c0e570ac578c26f7ca7f300e" kind="define"><name>USART1_CR1</name></member>
+    <member refid="stdio_8c_1a65e9cddf0890113d405342f1d8b5b980" kind="define"><name>USART_SR_TXE</name></member>
+    <member refid="stdio_8c_1aa0c99e2bb265b3d58a91aca7a93f7836" kind="define"><name>USART_SR_RXNE</name></member>
+    <member refid="stdio_8c_1a2bb650676aaae4a5203f372d497d5947" kind="define"><name>USART_CR1_UE</name></member>
+    <member refid="stdio_8c_1ade7f090b04fd78b755b43357ecaa9622" kind="define"><name>USART_CR1_TE</name></member>
+    <member refid="stdio_8c_1ada0d5d407a22264de847bc1b40a17aeb" kind="define"><name>USART_CR1_RE</name></member>
+    <member refid="stdio_8c_1a91118f867adfdb2e805beea86666de04" kind="define"><name>USART_CR1_RXNEIE</name></member>
+    <member refid="stdio_8c_1a249b4ba600c234755d01cbbe30d37bee" kind="define"><name>USART1_IRQ_NUM</name></member>
+    <member refid="stdio_8c_1a072c1aaa864151df8c0881f5560c83b9" kind="variable"><name>uartInitialized</name></member>
+    <member refid="stdio_8c_1a1c88c4c66af8a19d5c209917ff273829" kind="variable"><name>stdinListener</name></member>
+    <member refid="stdio_8c_1a6d7019d8ef1b28133be5e5a73411a728" kind="function"><name>EAF_DEFINE_THIS_FILE</name></member>
+    <member refid="stdio_8c_1a4df52e9c100da91b679b9cd68eac45f7" kind="function"><name>initUART</name></member>
+    <member refid="stdio_8c_1a733b7470285b529fa946e66c05119a98" kind="function"><name>EBF_setStdinListener</name></member>
+    <member refid="stdio_8c_1a9e40651d3855ef9a6e6a5617167ba31e" kind="function"><name>EBF_stdoutIsReadyToWrite</name></member>
+    <member refid="stdio_8c_1af4373c4d67200cee67afe5735c468e23" kind="function"><name>EBF_stdoutWrite</name></member>
+    <member refid="stdio_8c_1a7139cd4baabbbcbab0c1fe6d7d4ae1cc" kind="function"><name>USART1_IRQHandler</name></member>
+  </compound>
+  <compound refid="group__FakeFunction" kind="group"><name>FakeFunction</name>
+    <member refid="group__FakeFunction_1gaadc3f4cfe5d96785e3b49be014aa1677" kind="define"><name>FAKE_VALUE_FUNC</name></member>
+    <member refid="group__FakeFunction_1gaf5e0d3e09a9383ac72a9cb45eb4ed831" kind="define"><name>FAKE_VOID_FUNC</name></member>
+  </compound>
+  <compound refid="group__FakeFunctionDeclarations" kind="group"><name>FakeFunctionDeclarations</name>
+    <member refid="group__FakeFunctionDeclarations_1gabe755adc69a66dab496ea7583050d3fd" kind="define"><name>DECLARE_FAKE_VALUE_FUNC</name></member>
+    <member refid="group__FakeFunctionDeclarations_1gab3a6abd531c44d2ec1d249e3e100ff3c" kind="define"><name>DECLARE_FAKE_VOID_FUNC</name></member>
+  </compound>
+  <compound refid="group__FakeFunctionDefinitions" kind="group"><name>FakeFunctionDefinitions</name>
+    <member refid="group__FakeFunctionDefinitions_1ga4d9be23c4ca81be38396a83bc94164c0" kind="define"><name>DEFINE_FAKE_VALUE_FUNC</name></member>
+    <member refid="group__FakeFunctionDefinitions_1ga1629581dedc52dad4772c16b3c314828" kind="define"><name>DEFINE_FAKE_VOID_FUNC</name></member>
+  </compound>
+  <compound refid="group__FakeFunctionMacros" kind="group"><name>FakeFunctionMacros</name>
+    <member refid="group__FakeFunctionMacros_1gab78d1321173c5ec6fa029201d80b7243" kind="define"><name>DECLARE_FAKE_VOID_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1gaad05785f517f7bfed8fbdabd94197b31" kind="define"><name>DEFINE_FAKE_VOID_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1ga4d1ab0fa0d0d90f90177ad393870fc15" kind="define"><name>FAKE_VOID_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1gab99f92d18abc83674d17291169275712" kind="define"><name>DECLARE_FAKE_VOID_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1ga4b83661285f76e002833cf73600a0ef4" kind="define"><name>DEFINE_FAKE_VOID_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1gaefef27bc3014a5535c02cc7b9c043355" kind="define"><name>FAKE_VOID_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1ga0ac9e87dc810b8a5bb6e6c532e6be39d" kind="define"><name>DECLARE_FAKE_VOID_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1ga5be5bb3c42fca77b248404aff6cd2027" kind="define"><name>DEFINE_FAKE_VOID_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1ga58cde3d8a1e79effd038c63a59e55104" kind="define"><name>FAKE_VOID_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1gad5293b1eb48a7d4d5a11c3c75aaa5d71" kind="define"><name>DECLARE_FAKE_VOID_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga6d2c55ab70f5fb9acd9760d9d09e42f9" kind="define"><name>DEFINE_FAKE_VOID_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1gaa130f9e166b31b1156fceccda8dc31df" kind="define"><name>FAKE_VOID_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga7db609175d368a7f64569899944cbc83" kind="define"><name>DECLARE_FAKE_VOID_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1dd59da676a468c78c4d71482b227a3f" kind="define"><name>DEFINE_FAKE_VOID_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1gafad7544f90a9db9c9d14d6565006a314" kind="define"><name>FAKE_VOID_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1gacad2449d38b7d37e8cfc81920a4cb4cf" kind="define"><name>DECLARE_FAKE_VOID_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga0d1fba2ef7aa0c128f2773a640c536e3" kind="define"><name>DEFINE_FAKE_VOID_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1gae468697dd7626c63a5093cc505b9056b" kind="define"><name>FAKE_VOID_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga791750f81a0ab23de808df374498812b" kind="define"><name>DECLARE_FAKE_VOID_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga644fc466c398bee48c8b47b02f40d7c5" kind="define"><name>DEFINE_FAKE_VOID_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga13e908e62ea8cc666d2b52af87d31d94" kind="define"><name>FAKE_VOID_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga5e93a67a7a9398e66cd5d8c32b2cf97b" kind="define"><name>DECLARE_FAKE_VOID_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga952ad059564364677d12eb60e3502ced" kind="define"><name>DEFINE_FAKE_VOID_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1gaf4c9613946a4564812695db47c18c7fe" kind="define"><name>FAKE_VOID_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga40ded2b5aa02187f35c64597decd85e3" kind="define"><name>DECLARE_FAKE_VOID_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1gae9ad8635021363488ca5a60f7443172b" kind="define"><name>DEFINE_FAKE_VOID_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1ga414c19398243ecb3b6e6089a970b517d" kind="define"><name>FAKE_VOID_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1gaeb6fdcc872b8cac7a43e567912ead87a" kind="define"><name>DECLARE_FAKE_VOID_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1e82227c0a74849ca3df99fea2da718f" kind="define"><name>DEFINE_FAKE_VOID_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga9bfcd16a665682cbc7acc723762fc057" kind="define"><name>FAKE_VOID_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga89b7e7d5b41cb8658b44ef43e51bc460" kind="define"><name>DECLARE_FAKE_VOID_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1gab3d57c134c4ded89611bd80eeb4f2ba6" kind="define"><name>DEFINE_FAKE_VOID_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1gadb8da71d91ec087bc164e858626c3357" kind="define"><name>FAKE_VOID_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1ga948e9a55b1fb4d8faefeb5586ed87b54" kind="define"><name>DECLARE_FAKE_VALUE_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1ga62e52bb4169a4064e240fee1d6d0ffef" kind="define"><name>DEFINE_FAKE_VALUE_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1gad5a62862651ac48fdabbcb2ec166a856" kind="define"><name>FAKE_VALUE_FUNC0</name></member>
+    <member refid="group__FakeFunctionMacros_1ga6a83cf86c84df816f5a5a7378940a141" kind="define"><name>DECLARE_FAKE_VALUE_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1gad5b9dbf0ecde74490845fdb24ab9c82f" kind="define"><name>DEFINE_FAKE_VALUE_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1ga9aa6f70cb4fafba7117582cdd568af7a" kind="define"><name>FAKE_VALUE_FUNC1</name></member>
+    <member refid="group__FakeFunctionMacros_1ga47f6a10ebc54d48df5dfb294920faf2c" kind="define"><name>DECLARE_FAKE_VALUE_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1gaabc1f9414d1aec0ce34a88addca6ea44" kind="define"><name>DEFINE_FAKE_VALUE_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1334c40947b6a71442d3a8363ab85e45" kind="define"><name>FAKE_VALUE_FUNC2</name></member>
+    <member refid="group__FakeFunctionMacros_1gaf8d6323b2ca5983fcfbcc5e99d1a22a6" kind="define"><name>DECLARE_FAKE_VALUE_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga174910cf63261390944368b656443d7c" kind="define"><name>DEFINE_FAKE_VALUE_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga13274b15d56763d56365c6cb7b36e9b0" kind="define"><name>FAKE_VALUE_FUNC3</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1cd827d54f1ce2de5be6bfffa183a42b" kind="define"><name>DECLARE_FAKE_VALUE_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1gaec251b7082fd92db673c7797d678db1b" kind="define"><name>DEFINE_FAKE_VALUE_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1ga985a7e10aaad6a1108f5093afb4aad91" kind="define"><name>FAKE_VALUE_FUNC4</name></member>
+    <member refid="group__FakeFunctionMacros_1ga4bb680a4fd1ecaafaa4fb52efae21b3a" kind="define"><name>DECLARE_FAKE_VALUE_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga11206579c82b79ffcc5cbc98e874dc88" kind="define"><name>DEFINE_FAKE_VALUE_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga005a828cb8cd31d85d9d3974416a12fc" kind="define"><name>FAKE_VALUE_FUNC5</name></member>
+    <member refid="group__FakeFunctionMacros_1ga5b811ace680aa63e501539244f10249f" kind="define"><name>DECLARE_FAKE_VALUE_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga3cbf5347f876ac0e6c530b0461f88aae" kind="define"><name>DEFINE_FAKE_VALUE_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1e7329a3880facae95f57016933a1710" kind="define"><name>FAKE_VALUE_FUNC6</name></member>
+    <member refid="group__FakeFunctionMacros_1ga4dc16c4fa9b91c60d91f4c046934c50d" kind="define"><name>DECLARE_FAKE_VALUE_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga35abd788057adafc718bea84e17029eb" kind="define"><name>DEFINE_FAKE_VALUE_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga69b1ecedd06e63cb40af937c167562ca" kind="define"><name>FAKE_VALUE_FUNC7</name></member>
+    <member refid="group__FakeFunctionMacros_1ga3d565c07339708db8917c4b732c81fed" kind="define"><name>DECLARE_FAKE_VALUE_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1gaa714d55175dc73f6058d628bcaa09a6b" kind="define"><name>DEFINE_FAKE_VALUE_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1ga2c198934771fd04db81577fee5db49e6" kind="define"><name>FAKE_VALUE_FUNC8</name></member>
+    <member refid="group__FakeFunctionMacros_1gaf107425ea18f1c488feaaf35402cd212" kind="define"><name>DECLARE_FAKE_VALUE_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga3a28ceda7883c1b0a01e125d7206780f" kind="define"><name>DEFINE_FAKE_VALUE_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1gaccab85b0ce3cd20c1e101c5e0171189c" kind="define"><name>FAKE_VALUE_FUNC9</name></member>
+    <member refid="group__FakeFunctionMacros_1ga8443637605560af0ca45ddd274a72d4f" kind="define"><name>DECLARE_FAKE_VALUE_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1ga1c60bac0421fbba415f25a3604391305" kind="define"><name>DEFINE_FAKE_VALUE_FUNC10</name></member>
+    <member refid="group__FakeFunctionMacros_1ga239a00463bf260bb1b5fb97c558f643c" kind="define"><name>FAKE_VALUE_FUNC10</name></member>
+  </compound>
+  <compound refid="group__PP__CountArgumentMacros" kind="group"><name>PP_CountArgumentMacros</name>
+    <member refid="group__PP__CountArgumentMacros_1gaed4e92e74d3346203733f847c1fb7c13" kind="define"><name>PP_NARG_MINUS2</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gacdd3fc1d1e62fd3f5da6cc3a0b121e73" kind="define"><name>PP_NARG_MINUS2_</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gae6c437a9f72281ce6d8d92f6abb5f7da" kind="define"><name>PP_ARG_MINUS2_N</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gad8efeac53da71c035282ee9a13880a14" kind="define"><name>PP_RSEQ_N_MINUS2</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gae35e4e10e3c657c61184fb4f80a9d436" kind="define"><name>PP_NARG_MINUS1</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gaa751f94e24b84d18435bb22958c913b9" kind="define"><name>PP_NARG_MINUS1_</name></member>
+    <member refid="group__PP__CountArgumentMacros_1ga4aaae05af53813dc7c5b93ab295a441e" kind="define"><name>PP_ARG_MINUS1_N</name></member>
+    <member refid="group__PP__CountArgumentMacros_1gacca5a4e5675ac18afa05990b1c7485b7" kind="define"><name>PP_RSEQ_N_MINUS1</name></member>
+  </compound>
+  <compound refid="group__FakeFunctionDispatch" kind="group"><name>FakeFunctionDispatch</name>
+    <member refid="group__FakeFunctionDispatch_1ga8625ed13dfb3b5021bb8d532f2160ff8" kind="define"><name>FUNC_VALUE_</name></member>
+    <member refid="group__FakeFunctionDispatch_1gaf0fddd67177d21091ab7d222d8edd6fd" kind="define"><name>FUNC_VALUE_N</name></member>
+    <member refid="group__FakeFunctionDispatch_1ga857495061e2f86db044bb9f633251c65" kind="define"><name>FUNC_VOID_</name></member>
+    <member refid="group__FakeFunctionDispatch_1gada990ce44fa8e5d9a4caf5927863f36a" kind="define"><name>FUNC_VOID_N</name></member>
+  </compound>
+  <compound refid="group__FakeFunctionDeclarationDispatch" kind="group"><name>FakeFunctionDeclarationDispatch</name>
+    <member refid="group__FakeFunctionDeclarationDispatch_1ga87931f735fdb8221f2f4c18146c59c80" kind="define"><name>DECLARE_FUNC_VALUE_</name></member>
+    <member refid="group__FakeFunctionDeclarationDispatch_1ga5b8bdf38c87d97882d04d74f3839b813" kind="define"><name>DECLARE_FUNC_VALUE_N</name></member>
+    <member refid="group__FakeFunctionDeclarationDispatch_1gad87ab733f2f23db8ca737780762de08a" kind="define"><name>DECLARE_FUNC_VOID_</name></member>
+    <member refid="group__FakeFunctionDeclarationDispatch_1ga748f971c722172983ee913eddcd314be" kind="define"><name>DECLARE_FUNC_VOID_N</name></member>
+  </compound>
+  <compound refid="group__FakeFunctionDefinitionDispatch" kind="group"><name>FakeFunctionDefinitionDispatch</name>
+    <member refid="group__FakeFunctionDefinitionDispatch_1gaec6f33309a6e05463eff93190db809ba" kind="define"><name>DEFINE_FUNC_VALUE_</name></member>
+    <member refid="group__FakeFunctionDefinitionDispatch_1ga65ae8b005afece51e4ead99d32402420" kind="define"><name>DEFINE_FUNC_VALUE_N</name></member>
+    <member refid="group__FakeFunctionDefinitionDispatch_1ga9647ac5bbd553454c66976056c556b25" kind="define"><name>DEFINE_FUNC_VOID_</name></member>
+    <member refid="group__FakeFunctionDefinitionDispatch_1ga5a3498cf3b25c3e6522649a5a25d9345" kind="define"><name>DEFINE_FUNC_VOID_N</name></member>
+  </compound>
+  <compound refid="group__HSM__States" kind="group"><name>HSM_States</name>
+    <member refid="group__HSM__States_1ga1f9bb00217905e1d9e2e4ca9b7a94a77" kind="function"><name>initialTransition</name></member>
+    <member refid="group__HSM__States_1ga200db285bf0233fa8d725feab8335232" kind="function"><name>S1</name></member>
+    <member refid="group__HSM__States_1ga354097f4b5cf7e58ec54a5577aa702ba" kind="function"><name>S11</name></member>
+    <member refid="group__HSM__States_1gaafb646218bb2a3632b889cb84cb690a6" kind="function"><name>S111</name></member>
+    <member refid="group__HSM__States_1gac245a6a1f36a9e7e7a89a580f246247b" kind="function"><name>S1111</name></member>
+    <member refid="group__HSM__States_1gaaab823046aee1c904909d6308c6da161" kind="function"><name>S11111</name></member>
+    <member refid="group__HSM__States_1gadf306213d03bff742daabc82a185be43" kind="function"><name>S2</name></member>
+    <member refid="group__HSM__States_1ga268f39855dfd5969bf77bcfd95f108bc" kind="function"><name>S21</name></member>
+    <member refid="group__HSM__States_1ga9cfe48ddec88f7e28fbbb60c186a56f9" kind="function"><name>S211</name></member>
+    <member refid="group__HSM__States_1ga67086c9b8d036bb94cb1e618c495e75b" kind="function"><name>S2111</name></member>
+    <member refid="group__HSM__States_1ga0e105b5b1a9a7d3b769b8e4d29c239db" kind="function"><name>S2112</name></member>
+    <member refid="group__HSM__States_1ga58800db65bbef5181ed280bbcbea63d9" kind="function"><name>S3</name></member>
+    <member refid="group__HSM__States_1ga998cd743fb4f36fe1de120df7dcc6575" kind="function"><name>S31</name></member>
+    <member refid="group__HSM__States_1ga7caa2fd0b26e617d5ed983ea5c6f9f34" kind="function"><name>S311</name></member>
+    <member refid="group__HSM__States_1ga77f8391ab1ddedc77c4ed432527c9a74" kind="function"><name>S4</name></member>
+    <member refid="group__HSM__States_1gab85d138ecd59cb08c9f0ff321408a8eb" kind="function"><name>S41</name></member>
+  </compound>
+  <compound refid="todo" kind="page"><name>todo</name>
+  </compound>
+  <compound refid="dir_df980b5e247b322dbb74adbc5538d54e" kind="dir"><name>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m</name>
+  </compound>
+  <compound refid="dir_206cad0825d23d1cd10d76b2bcbd0996" kind="dir"><name>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m</name>
+  </compound>
+  <compound refid="dir_71b6e8e3f4094c6803af0c5f4ef24424" kind="dir"><name>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example</name>
+  </compound>
+  <compound refid="dir_41061359a58e36c08ce05881b6bccbd5" kind="dir"><name>sw/ecf/embedded_base_framework/src/core/baremetal</name>
+  </compound>
+  <compound refid="dir_d2059beea7d6e49a58ae84a4abaf3503" kind="dir"><name>sw/ecf/event_driven_framework/src/core/baremetal</name>
+  </compound>
+  <compound refid="dir_1260f00f14c800934306b4e199d90d50" kind="dir"><name>sw/ecf/embedded_base_framework/src/core</name>
+  </compound>
+  <compound refid="dir_f5cae5e8e1f174ffda999cb4838267c5" kind="dir"><name>sw/ecf/event_driven_framework/src/core</name>
+  </compound>
+  <compound refid="dir_23089f8447e951e36f2045bde07b0b6e" kind="dir"><name>sw/ecf</name>
+  </compound>
+  <compound refid="dir_e159dfe61fefabdae60962454075e233" kind="dir"><name>sw/ecf/event_driven_framework/edf_test</name>
+  </compound>
+  <compound refid="dir_1763ccf680a6bfd4d2f90785db908a1e" kind="dir"><name>sw/ecf/embedded_assert_framework</name>
+  </compound>
+  <compound refid="dir_8455eb7ffad68415393e4f3e8477bb49" kind="dir"><name>sw/ecf/embedded_base_framework</name>
+  </compound>
+  <compound refid="dir_c8c248c78292d33d136898359c7bcb48" kind="dir"><name>sw/ecf/embedded_fake_framework</name>
+  </compound>
+  <compound refid="dir_76bdf1236c870ada8e3cb8df008e5033" kind="dir"><name>sw/ecf/embedded_middleware_framework</name>
+  </compound>
+  <compound refid="dir_16604aff1dc7e6aea12f63d93dc5df23" kind="dir"><name>sw/ecf/embedded_platform_framework</name>
+  </compound>
+  <compound refid="dir_35c3f0324748fc6e81c140226abe5430" kind="dir"><name>sw/ecf/embedded_test_framework</name>
+  </compound>
+  <compound refid="dir_1a13c92b839ee3e6b61d50b103d09720" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_array_fifo</name>
+  </compound>
+  <compound refid="dir_841a56acea6b39e9925055a1ad1cebc6" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_bitmask</name>
+  </compound>
+  <compound refid="dir_104320396b92705214f0579526a2ecfe" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_byte_fifo</name>
+  </compound>
+  <compound refid="dir_89aa83eb3336ce2c1c39256008930f38" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_cobs</name>
+  </compound>
+  <compound refid="dir_c1373100961b8908e4648fc0b4c6649b" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_crc</name>
+  </compound>
+  <compound refid="dir_251bd84082a482a2bbbb649c188c9a5b" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_endian</name>
+  </compound>
+  <compound refid="dir_4e84f1e4a27800d4ab6ace6968b95bf7" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_log</name>
+  </compound>
+  <compound refid="dir_28d52ba36cc070f03f67c8d06365c16b" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_print</name>
+  </compound>
+  <compound refid="dir_867b5346d257dadcca1a1149cbd2e8e6" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_test_report</name>
+  </compound>
+  <compound refid="dir_d66725549e42f36b685952a41fae8ff5" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_utils</name>
+  </compound>
+  <compound refid="dir_34c820ecdcc030b5c15769bacfa48c21" kind="dir"><name>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer</name>
+  </compound>
+  <compound refid="dir_b41ff3966f1ae025d212552a9919d3b4" kind="dir"><name>sw/ecf/event_driven_framework/test/event_delivery</name>
+  </compound>
+  <compound refid="dir_72a981b9314f14af5b156a8578978205" kind="dir"><name>sw/ecf/event_driven_framework</name>
+  </compound>
+  <compound refid="dir_5f18bf52164e568dc332b2f99c20c34c" kind="dir"><name>sw/ecf/event_driven_framework/examples</name>
+  </compound>
+  <compound refid="dir_87d7b4229348807ba1c19dd0c66f175d" kind="dir"><name>sw/ecf/embedded_base_framework/src/framework</name>
+  </compound>
+  <compound refid="dir_7f6db06de2dec0c8fdc543b145efcb5c" kind="dir"><name>sw/ecf/event_driven_framework/src/framework</name>
+  </compound>
+  <compound refid="dir_ccf68216b6a28a58d06de320ad90cf68" kind="dir"><name>sw/ecf/event_driven_framework/examples/fuzz_example</name>
+  </compound>
+  <compound refid="dir_b83d3747ab31952165b876266df5bf6f" kind="dir"><name>sw/ecf/event_driven_framework/test/hsm</name>
+  </compound>
+  <compound refid="dir_840f359338919ec80a81b0026e9fa841" kind="dir"><name>sw/ecf/embedded_assert_framework/inc</name>
+  </compound>
+  <compound refid="dir_031cabd9c71e7af8ebe55952c79b2468" kind="dir"><name>sw/ecf/embedded_base_framework/inc</name>
+  </compound>
+  <compound refid="dir_c23eb40aa13067d37bb0de47e941f588" kind="dir"><name>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/inc</name>
+  </compound>
+  <compound refid="dir_928bafb15560dd50806f8ba5b20e0188" kind="dir"><name>sw/ecf/embedded_base_framework/src/core/os/posix/inc</name>
+  </compound>
+  <compound refid="dir_8a4ef2d6a05c23a8d728b8f2f0383330" kind="dir"><name>sw/ecf/embedded_fake_framework/inc</name>
+  </compound>
+  <compound refid="dir_0a7f314ed93960e79eb0fb9bdf0939b7" kind="dir"><name>sw/ecf/embedded_fake_framework/test/inc</name>
+  </compound>
+  <compound refid="dir_b382076370a0fb526b1ff08168fbb7d0" kind="dir"><name>sw/ecf/embedded_middleware_framework/inc</name>
+  </compound>
+  <compound refid="dir_d89a6e4b6f01bde0a70797db05e711c2" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc</name>
+  </compound>
+  <compound refid="dir_970f6827d721cc120aa1435e23fd2ca5" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_bitmask/inc</name>
+  </compound>
+  <compound refid="dir_76fa3f8165920316bccd122139627f9c" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/inc</name>
+  </compound>
+  <compound refid="dir_2de53c796769da83b34901ecc29d5ad7" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_cobs/inc</name>
+  </compound>
+  <compound refid="dir_665483ce57e3fa4e9125f6da50b2f187" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_crc/inc</name>
+  </compound>
+  <compound refid="dir_e39184b42095c7911cf244d139b66922" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_endian/inc</name>
+  </compound>
+  <compound refid="dir_26c3dec97246ba498e81c87f6f79b017" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_log/inc</name>
+  </compound>
+  <compound refid="dir_83877942e7c0e7516c6c80c9c0488905" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_print/inc</name>
+  </compound>
+  <compound refid="dir_ec0f9d546585057e60be40dd863a6b09" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_test_report/inc</name>
+  </compound>
+  <compound refid="dir_579019a9151b7b2db37408f651177b22" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_utils/inc</name>
+  </compound>
+  <compound refid="dir_6f5003247f8669f0cfffa547d226c2ce" kind="dir"><name>sw/ecf/embedded_platform_framework/os/posix/inc</name>
+  </compound>
+  <compound refid="dir_bd8b0b189adc301ddbf5b8579820faf1" kind="dir"><name>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc</name>
+  </compound>
+  <compound refid="dir_dd244baeca7aec6c4d84785fdd3f7fc9" kind="dir"><name>sw/ecf/embedded_test_framework/inc</name>
+  </compound>
+  <compound refid="dir_a2cbc569c35fbe5f68d29a0f9af98647" kind="dir"><name>sw/ecf/event_driven_framework/edf_test/inc</name>
+  </compound>
+  <compound refid="dir_504ae2fe380b3bdafa77bd0b3076337b" kind="dir"><name>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc</name>
+  </compound>
+  <compound refid="dir_bda3a788be1635ddd371b56c39e633f7" kind="dir"><name>sw/ecf/event_driven_framework/examples/fuzz_example/inc</name>
+  </compound>
+  <compound refid="dir_cf32203fa003f7f87913412f231bc2e2" kind="dir"><name>sw/ecf/event_driven_framework/inc</name>
+  </compound>
+  <compound refid="dir_28bba419114e78401167589d75b4b606" kind="dir"><name>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc</name>
+  </compound>
+  <compound refid="dir_60c8be6908f49426d73732c10fc7e86f" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/inc</name>
+  </compound>
+  <compound refid="dir_84e6f5bc0641296f0fd17abee619cc05" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc</name>
+  </compound>
+  <compound refid="dir_38a572adba5ae838ff6618858246ad1d" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc</name>
+  </compound>
+  <compound refid="dir_bc59a1c9941dbc76cf0b1e94be7e2c1b" kind="dir"><name>sw/ecf/event_driven_framework/src/framework/inc</name>
+  </compound>
+  <compound refid="dir_622f1b1bd2c837c9f6d9e41c314b73f9" kind="dir"><name>sw/ecf/event_driven_framework/test/event_delivery/inc</name>
+  </compound>
+  <compound refid="dir_67ea619ae1c78e95fcf9635eddef6c05" kind="dir"><name>sw/ecf/event_driven_framework/test/hsm/inc</name>
+  </compound>
+  <compound refid="dir_2bb86c52285a57039e4f80f958cb1ede" kind="dir"><name>sw/ecf/event_driven_framework/test/time_event/inc</name>
+  </compound>
+  <compound refid="dir_ff761b47f4a1135ef9d460cb8dd4d47e" kind="dir"><name>sw/ecf/embedded_base_framework/src/core/os</name>
+  </compound>
+  <compound refid="dir_6adc93b134c5d2f5f3a9be9593f4e765" kind="dir"><name>sw/ecf/embedded_platform_framework/os</name>
+  </compound>
+  <compound refid="dir_152d24f6df891b46bdbbb4b5ad2161f3" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os</name>
+  </compound>
+  <compound refid="dir_88c7320252908f545e37670b090d8ede" kind="dir"><name>sw/ecf/platform</name>
+  </compound>
+  <compound refid="dir_bd5ea1254d976f78ab9a77aa079a88bf" kind="dir"><name>sw/ecf/embedded_base_framework/src/core/os/posix</name>
+  </compound>
+  <compound refid="dir_8f123ff19e8692a7a5e8170ddac4835f" kind="dir"><name>sw/ecf/embedded_platform_framework/os/posix</name>
+  </compound>
+  <compound refid="dir_1c841b939b6e28b17ae7fd05d7da00df" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive</name>
+  </compound>
+  <compound refid="dir_1c178099de1c10b855c45f2a7663b6be" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz</name>
+  </compound>
+  <compound refid="dir_d7ba37e49ef21fb47707e5e7a56d3b4c" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_preemptive</name>
+  </compound>
+  <compound refid="dir_cdfae10d21014663f11b3e12ba1560f9" kind="dir"><name>sw/ecf/embedded_assert_framework/src</name>
+  </compound>
+  <compound refid="dir_b6624b9701aa1418bdb0cec9219378b3" kind="dir"><name>sw/ecf/embedded_base_framework/src</name>
+  </compound>
+  <compound refid="dir_783739343adcefb85568103d6910f921" kind="dir"><name>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src</name>
+  </compound>
+  <compound refid="dir_51e5f01e8aaba604db1b746169c557db" kind="dir"><name>sw/ecf/embedded_base_framework/src/core/os/posix/src</name>
+  </compound>
+  <compound refid="dir_e359d1bec0db301b9adf551edd6557a3" kind="dir"><name>sw/ecf/embedded_base_framework/src/framework/src</name>
+  </compound>
+  <compound refid="dir_bfa7e23efe07ba0534b15e400b5f1087" kind="dir"><name>sw/ecf/embedded_fake_framework/test/src</name>
+  </compound>
+  <compound refid="dir_4c415627fb2eaeb01be5c55afd71a7b9" kind="dir"><name>sw/ecf/embedded_middleware_framework/src</name>
+  </compound>
+  <compound refid="dir_3af5b907a81489fd35cd7a974e537b2b" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_array_fifo/src</name>
+  </compound>
+  <compound refid="dir_aa36564441e3aba24a59ce09987b9e0e" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src</name>
+  </compound>
+  <compound refid="dir_2131871579eb8b7639b0dab441b70128" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_bitmask/src</name>
+  </compound>
+  <compound refid="dir_14180a27a23eff0e68bbc167e9e7d54a" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_bitmask/test/src</name>
+  </compound>
+  <compound refid="dir_993235c6537a37a8952f2d2cb7d4a3c3" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src</name>
+  </compound>
+  <compound refid="dir_66dd614de603b9e582f2d00ed0f147c0" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/test/src</name>
+  </compound>
+  <compound refid="dir_e46e95adddf7e4f426b07e6ddf8cb12c" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_cobs/src</name>
+  </compound>
+  <compound refid="dir_af0733cd205ea1eb2ca55fc38f312842" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src</name>
+  </compound>
+  <compound refid="dir_e3582c69a39ad8da5bf35336e910825f" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_crc/src</name>
+  </compound>
+  <compound refid="dir_035576e8971aa97d2b87cbb9aa03be6b" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_crc/test/src</name>
+  </compound>
+  <compound refid="dir_71854683dbf7877b346ab9677d1a8104" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_endian/src</name>
+  </compound>
+  <compound refid="dir_85d41705955ef28f73184306088bd1e9" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_endian/test/src</name>
+  </compound>
+  <compound refid="dir_34532c8725ce2324b6e21d3b3e081851" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_log/src</name>
+  </compound>
+  <compound refid="dir_de8bdd455e1ca84816f6a45e4e523014" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_print/src</name>
+  </compound>
+  <compound refid="dir_fef83f14c74d40c20e8071d6d98ca24d" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_test_report/src</name>
+  </compound>
+  <compound refid="dir_52cfeec966d20e1a0afa2e3671aec10a" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_utils/src</name>
+  </compound>
+  <compound refid="dir_bb1cc78897874d31e6fa31995fd7b6f3" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_utils/test/src</name>
+  </compound>
+  <compound refid="dir_61884dcbb391559862cfdcfd6cdc9884" kind="dir"><name>sw/ecf/embedded_platform_framework/os/posix/src</name>
+  </compound>
+  <compound refid="dir_3e205b8fbd5b5486df1873fa298d771e" kind="dir"><name>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src</name>
+  </compound>
+  <compound refid="dir_9f4554e1b6edbff5a711bdc269635cb7" kind="dir"><name>sw/ecf/embedded_test_framework/src</name>
+  </compound>
+  <compound refid="dir_20e36c84a5d4bf9a2668ddadfb2bd2a6" kind="dir"><name>sw/ecf/event_driven_framework/edf_test/src</name>
+  </compound>
+  <compound refid="dir_59acfaa4a44736372ea7cca22c6b5e2b" kind="dir"><name>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src</name>
+  </compound>
+  <compound refid="dir_57ff49d112969bc96717c5b63d39138f" kind="dir"><name>sw/ecf/event_driven_framework/examples/fuzz_example/src</name>
+  </compound>
+  <compound refid="dir_22ef66d1777319063c47e232f7956c55" kind="dir"><name>sw/ecf/event_driven_framework/src</name>
+  </compound>
+  <compound refid="dir_343375b00cbb89c6ebffe88960541917" kind="dir"><name>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src</name>
+  </compound>
+  <compound refid="dir_2c2fe33f5b74403fd235149ef031e2c0" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src</name>
+  </compound>
+  <compound refid="dir_ff431fbbc85304e9b6bd2c5a2393f7a3" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src</name>
+  </compound>
+  <compound refid="dir_e6c39039bf51a804d96339ee2f593235" kind="dir"><name>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src</name>
+  </compound>
+  <compound refid="dir_cd34f79f5fe9d3acb2cc9b2487af95d4" kind="dir"><name>sw/ecf/event_driven_framework/src/framework/src</name>
+  </compound>
+  <compound refid="dir_6afb8d29ef6bd7bbbd5395a1d7b8c1e5" kind="dir"><name>sw/ecf/event_driven_framework/test/event_delivery/src</name>
+  </compound>
+  <compound refid="dir_9c7e4f31c2e9163bedb23958e87353dd" kind="dir"><name>sw/ecf/event_driven_framework/test/hsm/src</name>
+  </compound>
+  <compound refid="dir_6b84e6e43aec4387376beef1732ac24e" kind="dir"><name>sw/ecf/event_driven_framework/test/time_event/src</name>
+  </compound>
+  <compound refid="dir_7927c137f7bc6a0dc4d949f157d5dc60" kind="dir"><name>sw/ecf/platform/stm32f103c8tx/stdio/src</name>
+  </compound>
+  <compound refid="dir_9a0eb92c4f4838dbdfa9a8ec50f1b396" kind="dir"><name>sw/ecf/platform/stm32f103c8tx/stdio</name>
+  </compound>
+  <compound refid="dir_160faea4616d948186c3d2c931367072" kind="dir"><name>sw/ecf/platform/stm32f103c8tx</name>
+  </compound>
+  <compound refid="dir_01fcd3835fb4e7d9331b722d86291b65" kind="dir"><name>sw</name>
+  </compound>
+  <compound refid="dir_5744c86ab3a2699e947104d7b04f0587" kind="dir"><name>sw/ecf/embedded_fake_framework/test</name>
+  </compound>
+  <compound refid="dir_048647fb0bdc1f484cfafc0a7fb7d7b4" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test</name>
+  </compound>
+  <compound refid="dir_3479950e9e888047a64238b2f1b0c9f1" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_bitmask/test</name>
+  </compound>
+  <compound refid="dir_ec61cc5fedde2958aef02a06d457f0a2" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/test</name>
+  </compound>
+  <compound refid="dir_3fc6efee5834cf0dbdde57d3a2b40d80" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_cobs/test</name>
+  </compound>
+  <compound refid="dir_050b87ad08176dc53007c7aa600d28de" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_crc/test</name>
+  </compound>
+  <compound refid="dir_14c3133858933b05216b47e6410bd5cc" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_endian/test</name>
+  </compound>
+  <compound refid="dir_0a170a5a5da9b22df5cc63279b5ebee2" kind="dir"><name>sw/ecf/embedded_middleware_framework/src/emf_utils/test</name>
+  </compound>
+  <compound refid="dir_5a78ea906f701f4c5404d83101cc573f" kind="dir"><name>sw/ecf/event_driven_framework/test</name>
+  </compound>
+  <compound refid="dir_fcf009c2ced128e74475b02bd336053c" kind="dir"><name>sw/ecf/event_driven_framework/test/time_event</name>
+  </compound>
+</doxygenindex>

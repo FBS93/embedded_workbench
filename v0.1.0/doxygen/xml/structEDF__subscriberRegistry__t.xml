@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__subscriberRegistry__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_subscriberRegistry_t</compoundname>
+    <includes refid="edf__framework_8h" local="no">edf_framework.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__subscriberRegistry__t_1a72639d8c0d3d96538af22cc53d082df1" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__bitmask__t" kindref="compound">EDF_activeObject_bitmask_t</ref> *</type>
+        <definition>EDF_activeObject_bitmask_t* EDF_subscriberRegistry_t::list</definition>
+        <argsstring></argsstring>
+        <name>list</name>
+        <qualifiedname>EDF_subscriberRegistry_t::list</qualifiedname>
+        <briefdescription>
+<para>Subscriber list, one entry per user event signal defined. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each entry corresponds to a signal event (index == signal value) and stores the bitmask of active objects subscribed to that signal, indexed by their priority. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="64" column="30" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__subscriberRegistry__t_1aa2793e67457da346edb4239722e75f75" prot="public" static="no" mutable="no">
+        <type>EDF_event_signal_t</type>
+        <definition>EDF_event_signal_t EDF_subscriberRegistry_t::max_signal</definition>
+        <argsstring></argsstring>
+        <name>max_signal</name>
+        <qualifiedname>EDF_subscriberRegistry_t::max_signal</qualifiedname>
+        <briefdescription>
+<para>Highest event signal supported in publish-subscribe. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="69" column="22" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Subscriber registry. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_activeObject_bitmask_t</label>
+        <link refid="structEDF__activeObject__bitmask__t"/>
+      </node>
+      <node id="1">
+        <label>EDF_subscriberRegistry_t</label>
+        <link refid="structEDF__subscriberRegistry__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="55" column="1" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="56" bodyend="70"/>
+    <listofallmembers>
+      <member refid="structEDF__subscriberRegistry__t_1a72639d8c0d3d96538af22cc53d082df1" prot="public" virt="non-virtual"><scope>EDF_subscriberRegistry_t</scope><name>list</name></member>
+      <member refid="structEDF__subscriberRegistry__t_1aa2793e67457da346edb4239722e75f75" prot="public" virt="non-virtual"><scope>EDF_subscriberRegistry_t</scope><name>max_signal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

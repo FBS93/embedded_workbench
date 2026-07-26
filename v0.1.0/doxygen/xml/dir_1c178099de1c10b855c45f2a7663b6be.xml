@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_1c178099de1c10b855c45f2a7663b6be" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz</compoundname>
+    <innerdir refid="dir_84e6f5bc0641296f0fd17abee619cc05">sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc</innerdir>
+    <innerdir refid="dir_ff431fbbc85304e9b6bd2c5a2393f7a3">sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/"/>
+  </compounddef>
+</doxygen>

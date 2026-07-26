@@ -7,6 +7,7 @@ EW includes:
 - AI-assisted development workflow. See [ai_assisted_development_workflow.md](resources/ai_assisted_development_workflow.md).
 - Embedded C Framework (ECF). See [ecf.md](../sw/ecf/doc/ecf.md).
 - Dual targeting setup. See [dual_targeting_setup.md](resources/dual_targeting_setup.md).
+- Model-based systems and software engineering (MBSE). See [MBSE](https://github.com/FBS93/mbse).
 - Continuous Integration (CI) workflow. See [ci.md](resources/ci.md).
 - Automatic documentation generation. See [automatic_documentation_generation.md](resources/automatic_documentation_generation.md).
 - Technical notes related to embedded systems. See [technical_notes](technical_notes/) folder.

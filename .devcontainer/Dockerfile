@@ -10,6 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Common packages
 ################################################################################
 
+# MBSE requires Graphviz's dot command for its local web viewer.
 RUN apt-get update && apt-get install -y \
     curl \
     git \
@@ -22,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     python3-setuptools \
     python-is-python3 \
+    graphviz \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
@@ -31,11 +33,12 @@ RUN apt-get update && apt-get install -y \
 # development container image rather than a shared host Python installation.
 RUN python -m pip install --break-system-packages \
     Jinja2==3.1.6 \
-    jsonschema==4.25.1 \
+    jsonschema==4.26.0 \
     markdown-it-py==4.0.0 \
     mdit-py-plugins==0.5.0 \
     pytest==9.1.1 \
-    ruff==0.15.20
+    ruff==0.15.20 \
+    mbse
 
 # Configure locale (UTF-8).
 ENV LANG=C.UTF-8
@@ -116,6 +119,12 @@ RUN python -m pip install --break-system-packages \
 ################################################################################
 # AI support with OpenCode
 ################################################################################
+
+# xdg-open is required by OpenCode.
+RUN apt-get update && apt-get install -y \
+    xdg-utils \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Switch to container user so AI tooling installs in the correct user paths.
 USER vscode

@@ -77,4 +77,4 @@ After the first successful release creates and publishes the `gh-pages` branch, 
 4. Select the `gh-pages` branch and the `/(root)` folder.
 5. Save the configuration.
 
-GitHub Pages then publishes the root `index.html`, which links to each release documentation version under `vMAJOR.MINOR.PATCH/`.
+Unless a custom domain is configured, GitHub Pages publishes the release index at `https://<owner>.github.io/<repository>/`. A specific release is available at `https://<owner>.github.io/<repository>/vMAJOR.MINOR.PATCH/`.

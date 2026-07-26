@@ -6,13 +6,21 @@ This document describes how the CI workflow of EW validates releases and changes
 
 See [vscode_workflow.md](vscode_workflow.md) for repository task entry points.
 
-CI workflow use [Docgen tool](../../tools/docgen/docgen.md) to generate documentation. See [automatic_documentation_generation.md](automatic_documentation_generation.md).
+The CI workflow uses [Docgen tool](../../tools/docgen/docgen.md) to generate documentation. See [automatic_documentation_generation.md](automatic_documentation_generation.md).
+
+### Release versioning
+
+Release tags use the `vMAJOR.MINOR.PATCH` format:
+
+- `MAJOR`: Significant changes or milestones.
+- `MINOR`: Incremental features or improvements.
+- `PATCH`: Bug fixes.
 
 ## Architecture
 
 - The pre-push hook runs CI for non-deletion updates to configured remote branches, validating each configured CMake preset.
 - The `🚦 Run CI` task button validates the active CMake configure preset on demand.
-- The `☑️ Validate release` task button requests a `vX.Y.Z` version, validates every preset in `CI_PRESETS` and generates release documentation.
+- The `☑️ Validate release` task button requests a `vMAJOR.MINOR.PATCH` version, validates every preset in `CI_PRESETS` and generates release documentation.
 - The `🚀 Release` task button validates a release, creates and pushes its tag, and publishes the generated documentation.
 
 Git push --> Pre-push hook --> CI runner --> Configured CMake presets
@@ -38,12 +46,12 @@ Matching remote branch updates are checked by the [pre-push hook](../../.githook
 - Skips CI for other updates; it remains a local safeguard that can be bypassed with `git push --no-verify`.
 
 Release validation is performed by [validate_release.sh](../../.vscode/tasks/validate_release.sh). This script:
-- Validates a `vX.Y.Z` release version.
+- Validates a `vMAJOR.MINOR.PATCH` release version.
 - Runs configured CI and generates release documentation with its CI result.
 
 Release publication is performed by [run_release.sh](../../.vscode/tasks/run_release.sh). This script:
-- Validates the release and creates and pushes its `vX.Y.Z` tag.
-- Publishes documentation generated from each tagged commit under `gh-pages/vX.Y.Z/`.
+- Validates the release and creates and pushes its `vMAJOR.MINOR.PATCH` tag.
+- Publishes documentation generated from each tagged commit under `gh-pages/vMAJOR.MINOR.PATCH/`.
 - Regenerates the root Pages index with links to the published release versions.
 
 CI configured presets containing Hardware-in-the-Loop (HiL) tests require the hardware setup to be configured and operational. See [Raspberry Pi setup](raspberry_pi_setup.md) and [dual targeting setup](dual_targeting_setup.md).
@@ -69,4 +77,4 @@ After the first successful release creates and publishes the `gh-pages` branch, 
 4. Select the `gh-pages` branch and the `/(root)` folder.
 5. Save the configuration.
 
-GitHub Pages then publishes the root `index.html`, which links to each release documentation version under `vX.Y.Z/`.
+GitHub Pages then publishes the root `index.html`, which links to each release documentation version under `vMAJOR.MINOR.PATCH/`.

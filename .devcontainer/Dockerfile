@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
     graphviz \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-    
+
 # Install common Python tooling globally in the devcontainer so it is available
 # to the whole workspace without introducing an additional virtual environment
 # layer.  --break-system-packages is intentional here because this is a controlled
@@ -115,6 +115,19 @@ ENV PATH="/opt/arm-gnu-toolchain-arm-none-eabi/bin:${PATH}"
 # installation.
 RUN python -m pip install --break-system-packages \
     cmakelang==0.6.13
+
+################################################################################
+# Hardware domain
+################################################################################
+
+# Install KiCad
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    && add-apt-repository --yes ppa:kicad/kicad-10.0-releases \
+    && apt-get update && apt-get install -y --install-recommends \
+    kicad \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 ################################################################################
 # AI support with OpenCode

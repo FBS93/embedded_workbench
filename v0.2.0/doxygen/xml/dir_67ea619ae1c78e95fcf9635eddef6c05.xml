@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_67ea619ae1c78e95fcf9635eddef6c05" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/test/hsm/inc</compoundname>
+    <innerfile refid="hsm_8h">hsm.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/hsm/inc/"/>
+  </compounddef>
+</doxygen>

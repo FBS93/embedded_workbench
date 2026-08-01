@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h" kind="file" language="C++">
+    <compoundname>edf_core.h</compoundname>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="14">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="10">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="5">
+        <label>edf_config.h</label>
+      </node>
+      <node id="13">
+        <label>queue.h</label>
+      </node>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structEDF__core__t" prot="public">EDF_core_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1a593e68f83856e1b3fcae88c6d688f9a0" prot="public" static="no">
+        <name>EDF_CORE_SCHED_STATUS</name>
+        <briefdescription>
+<para>Defines the variable storing the scheduler lock status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Not implemented in this port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" line="41" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1acd5353fd660f0febda48f0ea378c12b4" prot="public" static="no">
+        <name>EDF_CORE_SCHED_LOCK</name>
+        <param><defname>_</defname></param>
+        <initializer><ref refid="emf__utils_8h_1a137ba9470dd9263e76c36ea298e44db0" kindref="member">EMF_UTILS_UNUSED_PARAM</ref>(_)</initializer>
+        <briefdescription>
+<para>Lock task scheduling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Not implemented in this port.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unused parameter, kept for API compatibility. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" line="50" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1ae93bc912dbefdb5a706c2381637a4f69" prot="public" static="no">
+        <name>EDF_CORE_SCHED_UNLOCK</name>
+        <param></param>
+        <initializer>((void)0)</initializer>
+        <briefdescription>
+<para>Unlock task scheduling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Not implemented in this port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" line="57" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1a58f7c00750b3a9e52ce2355896e9c1b9" prot="public" static="no">
+        <name>EDF_CORE_WAIT_FOR_EVENT</name>
+        <param><defname>me</defname></param>
+        <initializer>((void)0)</initializer>
+        <briefdescription>
+<para>Wait until an event is available for the active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Not used in this port.</para>
+<para><simplesect kind="note"><para>This macro is called within a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unused parameter, kept for API compatibility. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" line="68" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1a1d02c6a3d49b09079c4bc600cc772abc" prot="public" static="no">
+        <name>EDF_CORE_NOTIFY_EVENT</name>
+        <param><defname>me</defname></param>
+        <initializer>  <ref refid="emf__bitmask_8h_1a1f42d1a2bc37c4519dab49a4ab1c3d26" kindref="member">EMF_bitmask_setBit</ref>(EDF_core.ready_set.bitmask, (me)-&gt;prio);</initializer>
+        <briefdescription>
+<para>Notify that a new event is available for the active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Shall be called inside a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Active object instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" line="77" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" bodystart="77" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h_1a51679d4142534ac8d36782961100e756" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="structEDF__core__t" kindref="compound">EDF_core_t</ref></type>
+        <definition>EDF_core_t EDF_core</definition>
+        <argsstring></argsstring>
+        <name>EDF_core</name>
+        <briefdescription>
+<para>EDF core instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Declared global to allow access from macros defined in this file.</para>
+</simplesect>
+<simplesect kind="note"><para>Declared global to allow port-specific implementations and to be accessed from macros defined in this file. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" line="102" column="19" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="130" bodyend="-1" declfile="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h" declline="102" declcolumn="19"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h"/>
+  </compounddef>
+</doxygen>

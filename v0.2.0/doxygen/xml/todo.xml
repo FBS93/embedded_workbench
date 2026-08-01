@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="todo" kind="page">
+    <compoundname>todo</compoundname>
+    <title>Todo List</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><variablelist>
+<varlistentry><term>Global <ref refid="active__object_8c_1ab00237f257ea1f1def0924b1811edf78" kindref="member">activeObject_init</ref>  (void)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000024"/>Evaluate adding test validation for correct reception order of events taking into account the AOs priority. This could be done by setting an array within the HSM states to record the sequence of state activity executions.  </para>
+</listitem>
+<varlistentry><term>Global <ref refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c_1a775e2f2146540dd04bd26e30594e37ea" kindref="member">EAF_onError</ref>  (const char *file, int line, int id)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000001"/>Integrate this note into the coding guidelines so AI tools can verify it.  </para>
+</listitem>
+<varlistentry><term>Global <ref refid="os_2posix_2src_2ebf__core_8c_1a3399e41af271d07722214b4d88984215" kindref="member">EBF_critSecMutex</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000002"/>If an init function is added to this module, move initialization there.  </para>
+</listitem>
+<varlistentry><term>Global <ref refid="os_2posix_2src_2ebf__core_8c_1ae6891c9bd47ae72702538529471923ff" kindref="member">EBF_critSecNestCnt</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000003"/>If an init function is added to this module, move initialization there.  </para>
+</listitem>
+<varlistentry><term>Global <ref refid="edf__active__object_8h_1ac6abb3dab6df18ac3f03c7bfec321ad7" kindref="member">EDF_activeObject_prio_t</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000020"/>Consider separating base priority and preemption-threshold into distinct typedefs and removing the <computeroutput>EDF_activeObject_prio_t</computeroutput> type from all usage sites, to improve clarity and avoid packing both values into a single type.  </para>
+</listitem>
+<varlistentry><term>Global <ref refid="edf__active__object_8c_1a9424373b920b0b1f26d9a22083582edd" kindref="member">EDF_activeObject_pubSubInit</ref>  (<ref refid="structEDF__activeObject__bitmask__t" kindref="compound">EDF_activeObject_bitmask_t</ref> *subs_list, EDF_event_signal_t max_signal)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000021"/>Evaluate whether it is worth optimizing memory usage by avoiding reserved entries for EDF signals (those below <ref refid="edf__hsm_8h_1a90e79450b49ed799ee9beb70ff9fba92" kindref="member">EDF_HSM_USER_SIGNAL</ref>). These entries remain intentionally unused in the current implementation for indexing simplicity. </para>
+</listitem>
+<varlistentry><term>Global <ref refid="os_2posix__preemptive_2src_2edf__core_8c_1aa39ca4397d9a775d2a56e0280901b31b" kindref="member">EDF_init</ref>  (void)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000023"/>Optional hard real-time optimization. </para>
+</listitem>
+<varlistentry><term>Global <ref refid="edf__pool_8c_1ad7480419c24fe94d4008bd9fc2387e61" kindref="member">EDF_pool_init</ref>  (void *pool_storage, uint_fast32_t pool_size, EDF_pool_blockSize_t block_size)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000022"/>Currently, pools must be initialized in ascending block size order. Future implementations shall allow pools to be initialized in any order. </para>
+</listitem>
+<varlistentry><term>Global <ref refid="edf__test_8c_1a0f39bee1fe3ddff8fd500157cbbedf0e" kindref="member">EDF_TEST_AO_PRIO</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000010"/>Move this note to the module documentation to make it highly visible for the user.  </para>
+</listitem>
+<varlistentry><term>Global <ref refid="emf__log_8h_1a53174a7b9008b97ad1f7e5cef44828d2" kindref="member">EMF_LOG_DISPATCH</ref>  (log_level, fmt,...)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000004"/>Review if 8 is sufficient for maximum number of arguments. </para>
+</listitem>
+<varlistentry><term>Global <ref refid="emf__print_8h_1a6710a7a0dd075a545aa20ef41fd4f102" kindref="member">EMF_PRINT</ref>  (fmt,...)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000007"/>Limit of 8 arguments is imposed by EMF_PRINT_NARG. </para>
+<para></para>
+<para>If the limit is changed update the documentation. </para>
+</listitem>
+<varlistentry><term>Global <ref refid="emf__print_8h_1a57ca66445a18ffc13d0f305ab75e9c8d" kindref="member">EMF_PRINT_NARG</ref>  (...)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000005"/>Review if 8 is sufficient for maximum number of arguments. </para>
+<para></para>
+<para>Consider moving this macro to a generic middleware module and using it wherever macros of this type are used (e.g., emf_log, eff). </para>
+</listitem>
+<varlistentry><term>Global <ref refid="emf__print_8h_1af0e8c425c9b1a60f5bf9f11436e13dc0" kindref="member">EMF_PRINT_NARG_</ref>  (_1, _2, _3, _4, _5, _6, _7, _8, N,...)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000006"/>Review if 8 is sufficient for maximum number of arguments. </para>
+<para></para>
+<para>Consider moving this macro to a generic middleware module and using it wherever macros of this type are used (e.g., emf_log, eff). </para>
+</listitem>
+<varlistentry><term>Global <ref refid="hsm_8c_1a79f2d72a6c863bdea89b7f5c9be95560" kindref="member">hsm_init</ref>  (void)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000025"/>Verify that the defined HSM state depth allows reaching the top level with the default value of EDF_HSM_MAX_DEPTH (6). </para>
+<para><anchor id="todo_1_todo000026"/>Evaluate adding test validation for correct execution order of init/entry/exit activities. This could be done by setting an array or log within the HSM states to record the sequence of state activity executions.  </para>
+</listitem>
+<varlistentry><term>Global <ref refid="group__HSM__States_1ga1f9bb00217905e1d9e2e4ca9b7a94a77" kindref="member">initialTransition</ref>  (<ref refid="structhsm__t" kindref="compound">hsm_t</ref> *me, const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *e)</term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000027"/>Validate that the initial transition correctly receives event parameters passed by pointer in the EDF_activeObject_start function, in accordance with the API specification.  </para>
+</listitem>
+<varlistentry><term>Global <ref refid="epf__timer_8c_1a4a0c770328891d8916c1142a26481e4a" kindref="member">TICKS_PER_SEC</ref>  </term></varlistentry>
+<listitem><para><anchor id="todo_1_todo000009"/>Make this value configurable by the library user via CMake. </para>
+</listitem>
+</variablelist>
+</para>
+    </detaileddescription>
+    <location file="todo"/>
+  </compounddef>
+</doxygen>

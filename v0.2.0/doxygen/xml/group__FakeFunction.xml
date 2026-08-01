@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__FakeFunction" kind="group">
+    <compoundname>FakeFunction</compoundname>
+    <title>fake function macros</title>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group__FakeFunction_1gaadc3f4cfe5d96785e3b49be014aa1677" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="eff_8h_1ae4b532a93c757194ec73b6790a3e6b1f" kindref="member">EXPAND</ref>(<ref refid="group__FakeFunctionDispatch_1ga8625ed13dfb3b5021bb8d532f2160ff8" kindref="member">FUNC_VALUE_</ref>(<ref refid="group__PP__CountArgumentMacros_1gaed4e92e74d3346203733f847c1fb7c13" kindref="member">PP_NARG_MINUS2</ref>(__VA_ARGS__), __VA_ARGS__))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="183" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunction_1gaf5e0d3e09a9383ac72a9cb45eb4ed831" prot="public" static="no">
+        <name>FAKE_VOID_FUNC</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="eff_8h_1ae4b532a93c757194ec73b6790a3e6b1f" kindref="member">EXPAND</ref>(<ref refid="group__FakeFunctionDispatch_1ga857495061e2f86db044bb9f633251c65" kindref="member">FUNC_VOID_</ref>(<ref refid="group__PP__CountArgumentMacros_1gae35e4e10e3c657c61184fb4f80a9d436" kindref="member">PP_NARG_MINUS1</ref>(__VA_ARGS__), __VA_ARGS__))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="184" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Macros to declare and define fake functions (with or without return value) using variadic arguments. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These macros automatically dispatch to the correct internal fake function macro based on the number of arguments (0–10). </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__hsm_8c" kind="file" language="C++">
+    <compoundname>edf_hsm.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="edf__hsm_8h" local="yes">edf_hsm.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes local="yes">edf_config.h</includes>
+    <includes refid="edf__event_8h" local="yes">edf_event.h</includes>
+    <includes local="yes">edf_core.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c</label>
+        <link refid="edf__hsm_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="7">
+        <label>edf_config.h</label>
+      </node>
+      <node id="9">
+        <label>edf_core.h</label>
+      </node>
+      <node id="13">
+        <label>pthread.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="edf__hsm_8c_1a8c4a19ac1689d9f70c8855bae97bc54b" prot="public" static="no">
+        <name>DISPATCH_RESERVED_EVENT</name>
+        <param><defname>state</defname></param>
+        <param><defname>sig</defname></param>
+        <initializer>  /* State handlers contract is validated by assertions. */ \
+  /* NOLINTNEXTLINE(clang-analyzer-core.CallAndMessage) */  \
+  ((*(state))(me, &amp;reservedEvents[(sig)]))</initializer>
+        <briefdescription>
+<para>Dispatches a reserved HSM event to the given state handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The caller shall ensure that <computeroutput>state</computeroutput> is a valid state handler.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the state handler function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reserved signal to dispatch. Must be one of the following: <ref refid="edf__hsm_8h_1ac31b8b9642cd6a89e271093142077361" kindref="member">EDF_HSM_EMPTY_SIGNAL</ref>, <ref refid="edf__hsm_8h_1ad17e2f295a3b30559e323c26e8c03876" kindref="member">EDF_HSM_ENTRY_SIGNAL</ref>, <ref refid="edf__hsm_8h_1a48e9e549cfca0a1e5ad4caaa54a021c1" kindref="member">EDF_HSM_EXIT_SIGNAL</ref> or <ref refid="edf__hsm_8h_1ac70917e5b7dc505e6814afcf94296553" kindref="member">EDF_HSM_INIT_SIGNAL</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="59" column="9" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="59" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="edf__hsm_8c_1aae1ac5a583c740f0d8b0ae1a1bd99015" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>const EDF_event_t reservedEvents[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>reservedEvents</name>
+        <initializer>= {
+  <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="edf__hsm_8h_1ac31b8b9642cd6a89e271093142077361" kindref="member">EDF_HSM_EMPTY_SIGNAL</ref>),
+  <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="edf__hsm_8h_1ad17e2f295a3b30559e323c26e8c03876" kindref="member">EDF_HSM_ENTRY_SIGNAL</ref>),
+  <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="edf__hsm_8h_1a48e9e549cfca0a1e5ad4caaa54a021c1" kindref="member">EDF_HSM_EXIT_SIGNAL</ref>),
+  <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="edf__hsm_8h_1ac70917e5b7dc505e6814afcf94296553" kindref="member">EDF_HSM_INIT_SIGNAL</ref>)}</initializer>
+        <briefdescription>
+<para>Array of HSM internal reserved events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="80" column="26" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="80" bodyend="84"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__hsm_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="75" column="1" declfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" declline="75" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__hsm_8c_1a68d21175cf4b21f3ecefef376007b126" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void EDF_hsm_getTransitionPath</definition>
+        <argsstring>(EDF_hsm_t *me, EDF_hsm_stateHandler_t source, EDF_hsm_stateHandler_t target, EDF_hsm_stateHandler_t *e_path, int_fast8_t *e_idx, EDF_hsm_stateHandler_t *x_path, int_fast8_t *x_idx)</argsstring>
+        <name>EDF_hsm_getTransitionPath</name>
+        <param>
+          <type><ref refid="structEDF__hsm__t" kindref="compound">EDF_hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref> *</type>
+          <declname>e_path</declname>
+        </param>
+        <param>
+          <type>int_fast8_t *</type>
+          <declname>e_idx</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref> *</type>
+          <declname>x_path</declname>
+        </param>
+        <param>
+          <type>int_fast8_t *</type>
+          <declname>x_idx</declname>
+        </param>
+        <briefdescription>
+<para>Computes the transition path between two states in the HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Determines which states must be exited and entered when transitioning from <computeroutput>source</computeroutput> to <computeroutput>target</computeroutput>. Supports the following transition types:</para>
+<para>Case 1: Self-Transition (source == target) Transition begins and ends in the same state. The source state executes its exit action and then its entry action.</para>
+<para>Case 2: Ancestor → Descendant Transition goes from an ancestor state to a descendant state. Only entry actions are executed for each state on the path down to the descendant.</para>
+<para>Case 3: Descendant → Ancestor Transition ascends from a deep descendant to one of its ancestors. Exit actions are executed upward until (but not including) the ancestor target.</para>
+<para>Case 4: Between Branches (via Lowest Common Ancestor) Transition between two states in different branches sharing a Lowest Common Ancestor (LCA). Exit actions are executed up to (but not including) the LCA, then entry actions down to the target.</para>
+<para>Key Definitions: -Ancestor: A state that is higher in the hierarchy relative to another state (e.g., a parent, grandparent, etc.). -Descendant: A state that is nested within another state (e.g., a child, grandchild, etc.). -Sibling: States that share the same immediate parent in the hierarchy. -Parent: The direct enclosing state of a child state. -Child: A state that is directly nested within a parent. -Self-transition: A transition where the source and target are the same state. -Lowest Common Ancestor (LCA): The deepest (lowest) state in the hierarchy that is a common ancestor of both the source and the target states. -Exit action: The behavior executed when leaving a state. -Entry action: The behavior executed when entering a state.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the HSM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source state handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target state handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">e_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ordered list of states to enter, from <computeroutput>target</computeroutput> upward in the hierarchy (excluding already active LCA). The array must be at least EDF_HSM_MAX_DEPTH in size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">e_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Last valid index in <computeroutput>e_path</computeroutput> (−1 if no entry actions needed). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">x_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ordered list of states to exit, from <computeroutput>source</computeroutput> upward in the hierarchy (excluding already active LCA). The array must be at least EDF_HSM_MAX_DEPTH in size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">x_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Last valid index in <computeroutput>x_path</computeroutput> (−1 if no exit actions needed). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Case 1: Check is self transition.</para>
+<para>Case 2: Check is ancestor to descendant transition and build the entry path along the way.</para>
+<para>Case 3: Check is descendant to ancestor transition and build the exit path along the way.</para>
+<para>Case 4: Check is lowest common ancestor transition and trim paths accordingly.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="185" column="13" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="185" bodyend="308" declfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" declline="152" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__hsm_8c_1a523554bcc30e074f0666138a3c6ecb6b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void EDF_hsm_executeTransition</definition>
+        <argsstring>(EDF_hsm_t *me, EDF_hsm_stateHandler_t *e_path, int_fast8_t e_idx, EDF_hsm_stateHandler_t *x_path, int_fast8_t x_idx)</argsstring>
+        <name>EDF_hsm_executeTransition</name>
+        <param>
+          <type><ref refid="structEDF__hsm__t" kindref="compound">EDF_hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref> *</type>
+          <declname>e_path</declname>
+        </param>
+        <param>
+          <type>int_fast8_t</type>
+          <declname>e_idx</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref> *</type>
+          <declname>x_path</declname>
+        </param>
+        <param>
+          <type>int_fast8_t</type>
+          <declname>x_idx</declname>
+        </param>
+        <briefdescription>
+<para>Executes transition along the given entry and exit paths in the HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs the exit actions for all states in <computeroutput>x_path</computeroutput>, then the entry actions for all states in <computeroutput>e_path</computeroutput>. Handles initial transitions recursively if the target state defines them, updating the current active state accordingly.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the HSM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ordered list of states to enter, from target upward. The array must be at least EDF_HSM_MAX_DEPTH in size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Last valid index in <computeroutput>e_path</computeroutput> (−1 if no entry actions). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">x_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ordered list of states to exit, from source upward. The array must be at least EDF_HSM_MAX_DEPTH in size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">x_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Last valid index in <computeroutput>x_path</computeroutput> (−1 if no exit actions). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="310" column="13" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="310" bodyend="376" declfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" declline="175" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__hsm_8c_1a7756b16e76d3948ef0703a58be56b9e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_hsm_init</definition>
+        <argsstring>(EDF_hsm_t *me, EDF_hsm_stateHandler_t initial)</argsstring>
+        <name>EDF_hsm_init</name>
+        <param>
+          <type><ref refid="structEDF__hsm__t" kindref="compound">EDF_hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref></type>
+          <declname>initial</declname>
+        </param>
+        <briefdescription>
+<para>Initializes HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the HSM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">initial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial state handler function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="382" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="382" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__hsm_8c_1aade9d9b30dcaefad855b7cdd967c35a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_hsm_start</definition>
+        <argsstring>(EDF_hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>EDF_hsm_start</name>
+        <param>
+          <type><ref refid="structEDF__hsm__t" kindref="compound">EDF_hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Starts HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the HSM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the init event provided to the initial state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="393" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="393" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__hsm_8c_1ac6efff17f85a8012dab971619c1c7e10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_hsm_dispatch</definition>
+        <argsstring>(EDF_hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>EDF_hsm_dispatch</name>
+        <param>
+          <type><ref refid="structEDF__hsm__t" kindref="compound">EDF_hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Dispatches an event to the HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the HSM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event to dispatch. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Invoke state handler (updates me-&gt;temp_state on RET_SUPER or RET_TRANSITION).</para>
+<para>else: Exit event not defined in the invoked state handler. Default case executed, so me-&gt;temp_state already points to the next superstate.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="441" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="441" bodyend="518"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__hsm_8c_1aa9668cc97d0874b9ef13023111ba37a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref></type>
+        <definition>EDF_hsm_stateHandler_t EDF_hsm_getCurrentState</definition>
+        <argsstring>(const EDF_hsm_t *me)</argsstring>
+        <name>EDF_hsm_getCurrentState</name>
+        <param>
+          <type>const <ref refid="structEDF__hsm__t" kindref="compound">EDF_hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Returns the current active state of the HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the HSM instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Current active state handler. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="520" column="24" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="520" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__hsm_8c_1a908122f9e5440e03655d7a28a29a839c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t EDF_hsm_top</definition>
+        <argsstring>(const EDF_hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>EDF_hsm_top</name>
+        <param>
+          <type>const <ref refid="structEDF__hsm__t" kindref="compound">EDF_hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Top state handler of the HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Represents the superstate that contains all other states of the HSM.</para>
+<para><simplesect kind="note"><para>Users should use this as the parent of their HSM’s superstates.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the HSM instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event being dispatched. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Always returns RET_IGNORED. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" line="527" column="23" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c" bodystart="527" bodyend="533"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c"/>
+  </compounddef>
+</doxygen>

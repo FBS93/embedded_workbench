@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ebf__utils_8h" kind="file" language="C++">
+    <compoundname>ebf_utils.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="ebf_8h" local="yes">sw/ecf/embedded_base_framework/inc/ebf.h</includedby>
+    <includedby refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c" local="yes">sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c</includedby>
+    <includedby refid="os_2posix_2src_2ebf__core_8c" local="yes">sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c</includedby>
+    <includedby refid="ebf__utils_8c" local="yes">sw/ecf/embedded_base_framework/src/framework/src/ebf_utils.c</includedby>
+    <includedby refid="emf__bitmask_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_base_framework/inc/ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>sw/ecf/embedded_assert_framework/src/eaf.c</label>
+        <link refid="eaf_8c"/>
+      </node>
+      <node id="2">
+        <label>sw/ecf/embedded_base_framework/inc/ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_base_framework/inc/ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c"/>
+      </node>
+      <node id="5">
+        <label>sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c</label>
+        <link refid="os_2posix_2src_2ebf__core_8c"/>
+      </node>
+      <node id="6">
+        <label>sw/ecf/embedded_base_framework/src/framework/src/ebf_utils.c</label>
+        <link refid="ebf__utils_8c"/>
+      </node>
+      <node id="25">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c</label>
+        <link refid="emf__bitmask_8c"/>
+      </node>
+      <node id="7">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c</label>
+        <link refid="emf__print_8c"/>
+      </node>
+      <node id="8">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_utils/src/emf_utils.c</label>
+        <link refid="emf__utils_8c"/>
+      </node>
+      <node id="9">
+        <label>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c</label>
+        <link refid="epf__timer_8c"/>
+      </node>
+      <node id="10">
+        <label>sw/ecf/embedded_test_framework/src/etf.c</label>
+        <link refid="etf_8c"/>
+      </node>
+      <node id="11">
+        <label>sw/ecf/event_driven_framework/edf_test/src/edf_test.c</label>
+        <link refid="edf__test_8c"/>
+      </node>
+      <node id="12">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2edf__core_8c"/>
+      </node>
+      <node id="13">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="14">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c"/>
+      </node>
+      <node id="15">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h</label>
+        <link refid="os_2posix__preemptive_2inc_2edf__core_8h"/>
+      </node>
+      <node id="16">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="17">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</label>
+        <link refid="edf__active__object_8c"/>
+      </node>
+      <node id="18">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event.c</label>
+        <link refid="edf__event_8c"/>
+      </node>
+      <node id="19">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c</label>
+        <link refid="edf__event__queue_8c"/>
+      </node>
+      <node id="20">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_framework.c</label>
+        <link refid="edf__framework_8c"/>
+      </node>
+      <node id="21">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c</label>
+        <link refid="edf__hsm_8c"/>
+      </node>
+      <node id="22">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_pool.c</label>
+        <link refid="edf__pool_8c"/>
+      </node>
+      <node id="23">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</label>
+        <link refid="edf__time__event_8c"/>
+      </node>
+      <node id="24">
+        <label>sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c</label>
+        <link refid="stdio_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="ebf__utils_8h_1a215ccc192f06529b13aa06e1ec2378f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t EBF_utils_log2</definition>
+        <argsstring>(uint8_t byte)</argsstring>
+        <name>EBF_utils_log2</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+<para>Returns the position of the most significant set bit in a byte. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the 1-based index of the most significant bit set in the input byte. If <computeroutput>byte</computeroutput> is fully clear, the function returns 0.</para>
+<para>The default weak implementation is software-only (lookup table + shifts). On cores/ports that provide a hardware-specific instruction (e.g., CLZ in ARM), this function can be overridden for improved performance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">byte</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input byte. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Position (1–8) of highest set bit, or 0 if no bits are set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/inc/ebf_utils.h" line="64" column="9" bodyfile="sw/ecf/embedded_base_framework/src/framework/src/ebf_utils.c" bodystart="66" bodyend="90" declfile="sw/ecf/embedded_base_framework/inc/ebf_utils.h" declline="64" declcolumn="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_base_framework/inc/ebf_utils.h"/>
+  </compounddef>
+</doxygen>

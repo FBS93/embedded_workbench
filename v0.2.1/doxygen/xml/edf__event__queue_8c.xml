@@ -1,0 +1,390 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__event__queue_8c" kind="file" language="C++">
+    <compoundname>edf_event_queue.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="edf__event__queue_8h" local="yes">edf_event_queue.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="edf__event_8h" local="yes">edf_event.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes local="yes">edf_core.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c</label>
+        <link refid="edf__event__queue_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="11">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="6">
+        <label>edf_config.h</label>
+      </node>
+      <node id="15">
+        <label>edf_core.h</label>
+      </node>
+      <node id="21">
+        <label>pthread.h</label>
+      </node>
+      <node id="14">
+        <label>queue.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__event__queue_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" line="60" column="1" declfile="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" declline="60" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event__queue_8c_1ace12f6d658c1b1f0c808f4915855afed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_eventQueue_init</definition>
+        <argsstring>(EDF_eventQueue_t *me, const EDF_event_t **q_storage, EDF_eventQueue_cnt_t q_len)</argsstring>
+        <name>EDF_eventQueue_init</name>
+        <param>
+          <type><ref refid="structEDF__eventQueue__t" kindref="compound">EDF_eventQueue_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> **</type>
+          <declname>q_storage</declname>
+        </param>
+        <param>
+          <type>EDF_eventQueue_cnt_t</type>
+          <declname>q_len</declname>
+        </param>
+        <briefdescription>
+<para>Initializes an event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <computeroutput>q_storage</computeroutput> is NULL and <computeroutput>q_len</computeroutput> is 0, the queue will have no ring buffer and can only hold one event at a time in <computeroutput>front_e</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event queue instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">q_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the ring buffer storage (can be NULL if <computeroutput>q_len</computeroutput> is 0). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">q_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the ring buffer (can be 0 if <computeroutput>q_storage</computeroutput> is NULL). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" line="82" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" bodystart="82" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event__queue_8c_1a866e3e991fbf8a109dc697562b541f64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_eventQueue_postFIFO</definition>
+        <argsstring>(EDF_eventQueue_t *me, const EDF_event_t *e)</argsstring>
+        <name>EDF_eventQueue_postFIFO</name>
+        <param>
+          <type><ref refid="structEDF__eventQueue__t" kindref="compound">EDF_eventQueue_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Posts an event to the back of the event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event queue instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event to post. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Safety margin allows up to 2 refs per AO (normal queue + deferred queue).</para>
+<para><simplesect kind="note"><para>This assertion means that the post failed, and this failure cannot be tolerated.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" line="101" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" bodystart="101" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event__queue_8c_1ab40df10c0a838e361daa609fe2497d77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_eventQueue_postLIFO</definition>
+        <argsstring>(EDF_eventQueue_t *me, const EDF_event_t *e)</argsstring>
+        <name>EDF_eventQueue_postLIFO</name>
+        <param>
+          <type><ref refid="structEDF__eventQueue__t" kindref="compound">EDF_eventQueue_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Posts an event to the front of the event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event queue instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event to post. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Safety margin allows up to 2 refs per AO (normal queue + deferred queue).</para>
+<para><simplesect kind="note"><para>This assertion means that the post failed, and this failure cannot be tolerated.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" line="159" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" bodystart="159" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event__queue_8c_1a097f9cddecee5a9afaf9633713b4b858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+        <definition>const EDF_event_t * EDF_eventQueue_get</definition>
+        <argsstring>(EDF_eventQueue_t *me)</argsstring>
+        <name>EDF_eventQueue_get</name>
+        <param>
+          <type><ref refid="structEDF__eventQueue__t" kindref="compound">EDF_eventQueue_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves the next event from the queue (FIFO order). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event queue instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the retrieved event, or NULL if the queue is empty. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" line="217" column="19" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c" bodystart="217" bodyend="262"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c"/>
+  </compounddef>
+</doxygen>

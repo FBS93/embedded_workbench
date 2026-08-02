@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__log_8c" kind="file" language="C++">
+    <compoundname>emf_log.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="emf__log_8h" local="yes">emf_log.h</includes>
+    <includes refid="emf__print_8h" local="yes">emf_print.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c</label>
+        <link refid="emf__log_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="emf__log_8c_1a4a9b804ff8baff2e54eefd9805df2ba4" prot="public" static="yes" mutable="no">
+        <type><ref refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264" kindref="member">EMF_log_level_t</ref></type>
+        <definition>EMF_log_level_t logLevel</definition>
+        <argsstring></argsstring>
+        <name>logLevel</name>
+        <briefdescription>
+<para>Current logging level state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the active logging level used by ESF module. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" line="58" column="24" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__log_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" line="51" column="1" declfile="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" declline="51" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__log_8c_1ad4232d294ea3dc5ca1c53c04d1039130" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_log_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>EMF_log_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the EMF log module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After initialization, the default logging level is <ref refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264aedee1e3159bfe7d918b6e29873c5aee4" kindref="member">LOG_LEVEL_INFO</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" line="80" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__log_8c_1a906563388c8d7a8477687a47a6be4586" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_log_setLevel</definition>
+        <argsstring>(EMF_log_level_t log_level)</argsstring>
+        <name>EMF_log_setLevel</name>
+        <param>
+          <type><ref refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264" kindref="member">EMF_log_level_t</ref></type>
+          <declname>log_level</declname>
+        </param>
+        <briefdescription>
+<para>Sets the active logging level. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">log_level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Logging level to apply. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" line="85" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__log_8c_1af50cd3bb68bb281d2068a294e20064a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_log</definition>
+        <argsstring>(EMF_log_level_t log_level, const char *fmt, const uintptr_t *args)</argsstring>
+        <name>EMF_log</name>
+        <param>
+          <type><ref refid="emf__log_8h_1ad8bc431cf05489a11b85a0fd234b1264" kindref="member">EMF_log_level_t</ref></type>
+          <declname>log_level</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fmt</declname>
+        </param>
+        <param>
+          <type>const uintptr_t *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Logs a formatted message with arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function used by the <computeroutput>EMF_LOG_</computeroutput>... macros.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">log_level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Logging level of the message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fmt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Null-terminated format string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to array of arguments, or NULL. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" line="90" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c" bodystart="90" bodyend="127"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="os_2posix_2src_2ebf__core_8c" kind="file" language="C++">
+    <compoundname>ebf_core.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">pthread.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="yes">ebf_core.h</includes>
+    <includes refid="ebf__utils_8h" local="yes">ebf_utils.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="11">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c</label>
+        <link refid="os_2posix_2src_2ebf__core_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="7">
+        <label>ebf_core.h</label>
+      </node>
+      <node id="5">
+        <label>pthread.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="6">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="os_2posix_2src_2ebf__core_8c_1a3399e41af271d07722214b4d88984215" prot="public" static="no" mutable="no">
+        <type>pthread_mutex_t</type>
+        <definition>pthread_mutex_t EBF_critSecMutex</definition>
+        <argsstring></argsstring>
+        <name>EBF_critSecMutex</name>
+        <initializer>= PTHREAD_MUTEX_INITIALIZER</initializer>
+        <briefdescription>
+<para>Mutex protecting critical sections to ensure exclusive thread access. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>If an init function is added to this module, move initialization there. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="65" column="17" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="os_2posix_2src_2ebf__core_8c_1ae6891c9bd47ae72702538529471923ff" prot="public" static="no" mutable="no">
+        <type>int8_t</type>
+        <definition>int8_t EBF_critSecNestCnt</definition>
+        <argsstring></argsstring>
+        <name>EBF_critSecNestCnt</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Tracks critical section nesting depth. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000003"><xreftitle>Todo</xreftitle><xrefdescription><para>If an init function is added to this module, move initialization there. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="70" column="8" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="os_2posix_2src_2ebf__core_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="56" column="1" declfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" declline="56" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix_2src_2ebf__core_8c_1a7fc8f5b888fff4b4266b71a29f2df517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EBF_setStdinListener</definition>
+        <argsstring>(EBF_stdin_t listener)</argsstring>
+        <name>EBF_setStdinListener</name>
+        <param>
+          <type><ref refid="ebf_8h_1ae5791af1ebceacc30e9a8e993eb3df3a" kindref="member">EBF_stdin_t</ref></type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback to receive standard input data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defined as weak, so it can be overridden by a custom implementation if needed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Function to be called with incoming data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="88" column="15" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix_2src_2ebf__core_8c_1adc15f503f197b8c6dc3a52381f068a27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EBF_stdoutWrite</definition>
+        <argsstring>(const uint8_t *data, uint16_t len)</argsstring>
+        <name>EBF_stdoutWrite</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Sends data to the standard output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defined as weak, so it can be overridden by a custom implementation if needed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to be sent. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the data in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="93" column="15" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="93" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix_2src_2ebf__core_8c_1a5d055623374191377a72fc73e89fb9f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> bool</type>
+        <definition>EBF_WEAK bool EBF_stdoutIsReadyToWrite</definition>
+        <argsstring>(uint16_t len)</argsstring>
+        <name>EBF_stdoutIsReadyToWrite</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Checks if the output is ready to send the specified number of bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defined as weak, so it can be overridden by a custom implementation if needed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to check for availability. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if ready, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="108" column="15" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="108" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix_2src_2ebf__core_8c_1a0b0358a40adba6c0e471e0966b14ba48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EBF_entryCriticalSection</definition>
+        <argsstring>(void)</argsstring>
+        <name>EBF_entryCriticalSection</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Entry critical section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Do not call directly. Use EBF_CRITICAL_SECTION_ENTRY macro instead.</para>
+<para>This declaration is required for correct macro expansion in user code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="115" column="6" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="115" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix_2src_2ebf__core_8c_1afdb2b786dfef7807e74876b0ded5835b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EBF_exitCriticalSection</definition>
+        <argsstring>(void)</argsstring>
+        <name>EBF_exitCriticalSection</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Exit critical section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Do not call directly. Use EBF_CRITICAL_SECTION_EXIT macro instead.</para>
+<para>This declaration is required for correct macro expansion in user code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="125" column="6" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="125" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix_2src_2ebf__core_8c_1ab53792ce200aea84b9a1db7f2c4935de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EBF_isInCriticalSection</definition>
+        <argsstring>(void)</argsstring>
+        <name>EBF_isInCriticalSection</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns true if currently inside a critical section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Do not call directly. Use EBF_IS_IN_CRITICAL_SECTION macro instead.</para>
+<para>This declaration is required for correct macro expansion in user code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="134" column="6" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="134" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix_2src_2ebf__core_8c_1a0e26790e54ccca52c482ac2a1c715ce1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EBF_noOperation</definition>
+        <argsstring>(void)</argsstring>
+        <name>EBF_noOperation</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>No operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Do not call directly. Use EBF_NOP macro instead.</para>
+<para>This declaration is required for correct macro expansion in user code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" line="139" column="6" bodyfile="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c" bodystart="139" bodyend="142"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c"/>
+  </compounddef>
+</doxygen>

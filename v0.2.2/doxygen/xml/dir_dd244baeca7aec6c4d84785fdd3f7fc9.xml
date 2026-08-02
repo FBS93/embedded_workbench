@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_dd244baeca7aec6c4d84785fdd3f7fc9" kind="dir">
+    <compoundname>sw/ecf/embedded_test_framework/inc</compoundname>
+    <innerfile refid="etf_8h">etf.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_test_framework/inc/"/>
+  </compounddef>
+</doxygen>

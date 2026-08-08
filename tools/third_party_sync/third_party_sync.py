@@ -42,6 +42,8 @@ from pathlib import Path
 # ------------------------------------------------------------------------------
 # External library imports
 # ------------------------------------------------------------------------------
+from jsonschema import Draft202012Validator
+from jsonschema import exceptions as jsonschema_exceptions
 
 # ------------------------------------------------------------------------------
 # Project-specific imports
@@ -53,6 +55,11 @@ from pathlib import Path
 
 GITHUB_API_BASE_URL = "https://api.github.com"
 
+##
+# @brief JSON Schema path for repository manifest validation.
+##
+MANIFEST_SCHEMA_PATH = Path(__file__).with_name("repos.schema.json")
+
 # ==============================================================================
 # CLASSES
 # ==============================================================================
@@ -61,15 +68,17 @@ GITHUB_API_BASE_URL = "https://api.github.com"
 # FUNCTIONS
 # ==============================================================================
 
+
 ##
 # @brief Parse command-line arguments.
 #
 # @return Parsed arguments namespace.
 ##
 def parse_args():
-  parser = argparse.ArgumentParser(
-    description="Synchronize third-party GitHub repositories by snapshot reference."
+  description = (
+    "Synchronize third-party GitHub repositories by snapshot reference."
   )
+  parser = argparse.ArgumentParser(description=description)
   parser.add_argument(
     "--repository-id",
     help="Synchronize only the repository entry matching this id.",
@@ -97,6 +106,7 @@ def parse_args():
 
   return parser.parse_args()
 
+
 ##
 # @brief Read and parse a JSON file.
 #
@@ -118,6 +128,57 @@ def read_json_file(file_path, required):
     print(f"❌ Invalid JSON in {file_path}: {error}", flush=True)
     sys.exit(1)
 
+
+##
+# @brief Format a JSON Schema validation path for diagnostics.
+#
+# @param[in] path_elements JSON Schema validation path elements.
+# @return Human-readable dotted path.
+##
+def format_schema_path(path_elements):
+  formatted_path = "$"
+
+  for path_element in path_elements:
+    if isinstance(path_element, int):
+      formatted_path += f"[{path_element}]"
+    else:
+      formatted_path += f".{path_element}"
+
+  return formatted_path
+
+
+##
+# @brief Validate a JSON instance against a JSON Schema file.
+#
+# @param[in] instance Parsed JSON instance.
+# @param[in] schema_file JSON Schema file path.
+# @param[in] source_file Source JSON file path for diagnostics.
+##
+def validate_json_schema(instance, schema_file, source_file):
+  schema = read_json_file(schema_file, required=True)
+
+  try:
+    Draft202012Validator.check_schema(schema)
+    validator = Draft202012Validator(schema)
+    validator.validate(instance)
+  except jsonschema_exceptions.SchemaError as error:
+    schema_path = format_schema_path(error.schema_path)
+    print(
+      f"❌ Invalid JSON Schema in {schema_file} at {schema_path}: "
+      f"{error.message}",
+      flush=True,
+    )
+    sys.exit(1)
+  except jsonschema_exceptions.ValidationError as error:
+    instance_path = format_schema_path(error.path)
+    print(
+      f"❌ Invalid manifest in {source_file} at {instance_path}: "
+      f"{error.message}",
+      flush=True,
+    )
+    sys.exit(1)
+
+
 ##
 # @brief Write a JSON object to disk.
 #
@@ -130,6 +191,7 @@ def write_json_file(file_path, payload):
     json.dump(payload, file_handle, indent=2, sort_keys=True)
     file_handle.write("\n")
 
+
 ##
 # @brief Validate manifest structure and return repository entries.
 #
@@ -139,61 +201,26 @@ def write_json_file(file_path, payload):
 def validate_manifest(manifest):
   repositories = manifest.get("repositories")
 
-  if not isinstance(repositories, list):
-    print("❌ Manifest must contain a 'repositories' list.", flush=True)
-    sys.exit(1)
-
   seen_ids = set()
   validated = []
 
   for index, repository in enumerate(repositories, start=1):
-    if not isinstance(repository, dict):
-      print(f"❌ repositories[{index}] must be an object.", flush=True)
-      sys.exit(1)
-
     repository_id = repository.get("id")
     repository_url = repository.get("url")
     repository_path = repository.get("path")
     repository_ref_type = repository.get("ref_type", "auto")
     repository_ref = repository.get("ref", "")
 
-    if not isinstance(repository_id, str) or repository_id.strip() == "":
-      print(f"❌ repositories[{index}].id must be a non-empty string.", flush=True)
-      sys.exit(1)
-
     if repository_id in seen_ids:
       print(f"❌ Duplicate repository id: {repository_id}", flush=True)
       sys.exit(1)
     seen_ids.add(repository_id)
-
-    if not isinstance(repository_url, str) or repository_url.strip() == "":
-      print(f"❌ repositories[{index}].url must be a non-empty string.", flush=True)
-      sys.exit(1)
-
-    if not isinstance(repository_path, str) or repository_path.strip() == "":
-      print(f"❌ repositories[{index}].path must be a non-empty string.", flush=True)
-      sys.exit(1)
 
     if Path(repository_path).is_absolute():
       print(
         f"❌ repositories[{index}].path must be workspace-relative.",
         flush=True,
       )
-      sys.exit(1)
-
-    if not isinstance(repository_ref_type, str):
-      print(f"❌ repositories[{index}].ref_type must be a string.", flush=True)
-      sys.exit(1)
-
-    if repository_ref_type not in ["auto", "release", "commit"]:
-      print(
-        f"❌ repositories[{index}].ref_type must be one of: auto, release, commit.",
-        flush=True,
-      )
-      sys.exit(1)
-
-    if not isinstance(repository_ref, str):
-      print(f"❌ repositories[{index}].ref must be a string.", flush=True)
       sys.exit(1)
 
     validated.append(
@@ -208,6 +235,7 @@ def validate_manifest(manifest):
 
   return validated
 
+
 ##
 # @brief Filter repositories by id when requested.
 #
@@ -220,14 +248,19 @@ def filter_repositories(repositories, repository_id):
     return repositories
 
   filtered_repositories = [
-    repository for repository in repositories if repository["id"] == repository_id
+    repository
+    for repository in repositories
+    if repository["id"] == repository_id
   ]
 
   if len(filtered_repositories) == 0:
-    print(f"❌ Repository id not found in manifest: {repository_id}", flush=True)
+    print(
+      f"❌ Repository id not found in manifest: {repository_id}", flush=True
+    )
     sys.exit(1)
 
   return filtered_repositories
+
 
 ##
 # @brief Parse owner/repo from a GitHub URL.
@@ -239,7 +272,9 @@ def parse_github_slug(repository_url):
   parsed = urllib.parse.urlparse(repository_url)
 
   if parsed.netloc not in ["github.com", "www.github.com"]:
-    print(f"❌ Only github.com URLs are supported: {repository_url}", flush=True)
+    print(
+      f"❌ Only github.com URLs are supported: {repository_url}", flush=True
+    )
     sys.exit(1)
 
   path = parsed.path.rstrip("/")
@@ -252,6 +287,7 @@ def parse_github_slug(repository_url):
     sys.exit(1)
 
   return f"{segments[0]}/{segments[1]}"
+
 
 ##
 # @brief Perform a GitHub API GET request and decode JSON response.
@@ -285,6 +321,7 @@ def github_api_get_json(url, github_token):
   except urllib.error.URLError as error:
     print(f"❌ Network error while requesting {url}: {error}", flush=True)
     sys.exit(1)
+
 
 ##
 # @brief Perform a GitHub API GET request returning None on HTTP 404.
@@ -322,6 +359,7 @@ def github_api_get_json_or_none(url, github_token):
     print(f"❌ Network error while requesting {url}: {error}", flush=True)
     sys.exit(1)
 
+
 ##
 # @brief Resolve the commit SHA associated with a repository ref.
 #
@@ -344,7 +382,9 @@ def resolve_commit_sha(repository_slug, ref_name, github_token, error_context):
   if github_token:
     headers["Authorization"] = f"Bearer {github_token}"
 
-  request = urllib.request.Request(commit_api_url, headers=headers, method="GET")
+  request = urllib.request.Request(
+    commit_api_url, headers=headers, method="GET"
+  )
 
   try:
     with urllib.request.urlopen(request) as response:
@@ -360,12 +400,15 @@ def resolve_commit_sha(repository_slug, ref_name, github_token, error_context):
 
     error_message = error.read().decode("utf-8", errors="replace")
     print(
-      f"❌ GitHub API request failed ({error.code}) for {commit_api_url}: {error_message}",
+      f"❌ GitHub API request failed ({error.code}) for "
+      f"{commit_api_url}: {error_message}",
       flush=True,
     )
     sys.exit(1)
   except urllib.error.URLError as error:
-    print(f"❌ Network error while requesting {commit_api_url}: {error}", flush=True)
+    print(
+      f"❌ Network error while requesting {commit_api_url}: {error}", flush=True
+    )
     sys.exit(1)
 
   commit_sha = commit_metadata.get("sha")
@@ -378,6 +421,7 @@ def resolve_commit_sha(repository_slug, ref_name, github_token, error_context):
     sys.exit(1)
 
   return commit_sha
+
 
 ##
 # @brief Resolve snapshot metadata for one repository entry.
@@ -399,13 +443,16 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
   ref_value = ref_value.strip()
 
   def resolve_latest_release_or_none():
-    release_api_url = f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/latest"
+    release_api_url = (
+      f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/latest"
+    )
     return github_api_get_json_or_none(release_api_url, github_token)
 
   def resolve_release_by_tag_or_fail(release_tag):
     encoded_tag = urllib.parse.quote(release_tag, safe="")
     release_api_url = (
-      f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/tags/{encoded_tag}"
+      f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/releases/tags/"
+      f"{encoded_tag}"
     )
     metadata = github_api_get_json_or_none(release_api_url, github_token)
     if metadata is None:
@@ -440,11 +487,17 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
     tarball_url = release_metadata.get("tarball_url")
 
     if not isinstance(resolved_release, str) or resolved_release.strip() == "":
-      print(f"❌ Missing tag_name in release metadata for {repository_slug}", flush=True)
+      print(
+        f"❌ Missing tag_name in release metadata for {repository_slug}",
+        flush=True,
+      )
       sys.exit(1)
 
     if not isinstance(tarball_url, str) or tarball_url.strip() == "":
-      print(f"❌ Missing tarball_url in release metadata for {repository_slug}", flush=True)
+      print(
+        f"❌ Missing tarball_url in release metadata for {repository_slug}",
+        flush=True,
+      )
       sys.exit(1)
 
     resolved_commit = resolve_commit_sha(
@@ -467,7 +520,9 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
   default_branch = repository_metadata.get("default_branch")
 
   if not isinstance(default_branch, str) or default_branch.strip() == "":
-    print(f"❌ Missing default_branch for repository {repository_slug}", flush=True)
+    print(
+      f"❌ Missing default_branch for repository {repository_slug}", flush=True
+    )
     sys.exit(1)
 
   if ref_type == "commit" and ref_value != "":
@@ -485,7 +540,9 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
       "Default branch",
     )
 
-  commit_api_url = f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/commits/{resolved_commit}"
+  commit_api_url = (
+    f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/commits/{resolved_commit}"
+  )
   commit_metadata = github_api_get_json(commit_api_url, github_token)
 
   commit_date = None
@@ -500,8 +557,11 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
     "default_branch": default_branch,
     "resolved_commit": resolved_commit,
     "commit_date": commit_date,
-    "tarball_url": f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/tarball/{resolved_commit}",
+    "tarball_url": (
+      f"{GITHUB_API_BASE_URL}/repos/{repository_slug}/tarball/{resolved_commit}"
+    ),
   }
+
 
 ##
 # @brief Download a URL to a local file.
@@ -535,6 +595,7 @@ def download_file(url, destination_path, github_token):
     print(f"❌ Network error while downloading {url}: {error}", flush=True)
     sys.exit(1)
 
+
 ##
 # @brief Extract a GitHub release tarball into a target path.
 #
@@ -557,7 +618,9 @@ def extract_tarball_to_path(tarball_path, target_path):
         continue
 
       member_name = member.name.lstrip("/")
-      member_parts = [part for part in member_name.split("/") if part not in ["", "."]]
+      member_parts = [
+        part for part in member_name.split("/") if part not in ["", "."]
+      ]
       if len(member_parts) < 2:
         continue
 
@@ -585,6 +648,7 @@ def extract_tarball_to_path(tarball_path, target_path):
       with destination.open("wb") as destination_file:
         shutil.copyfileobj(file_object, destination_file)
 
+
 ##
 # @brief Determine whether a repository entry needs update.
 #
@@ -603,7 +667,9 @@ def needs_update(lock_entry, target_path, snapshot_metadata):
   if lock_entry.get("source") != snapshot_metadata.get("source"):
     return True
 
-  if lock_entry.get("resolved_commit") != snapshot_metadata.get("resolved_commit"):
+  if lock_entry.get("resolved_commit") != snapshot_metadata.get(
+    "resolved_commit"
+  ):
     return True
 
   resolved_release = snapshot_metadata.get("resolved_release")
@@ -611,6 +677,7 @@ def needs_update(lock_entry, target_path, snapshot_metadata):
     return lock_entry.get("resolved_release") != resolved_release
 
   return False
+
 
 ##
 # @brief Build a readable snapshot label for logs.
@@ -631,6 +698,7 @@ def snapshot_label(snapshot_metadata):
 
   return "unknown"
 
+
 ##
 # @brief Synchronize repositories from manifest to workspace.
 #
@@ -641,7 +709,9 @@ def snapshot_label(snapshot_metadata):
 # @param[in] github_token Optional GitHub token.
 # @return Updated lock data.
 ##
-def synchronize_repositories(repositories, lock_data, workspace_root, dry_run, github_token):
+def synchronize_repositories(
+  repositories, lock_data, workspace_root, dry_run, github_token
+):
   lock_repositories = lock_data.get("repositories")
   if not isinstance(lock_repositories, dict):
     lock_repositories = {}
@@ -684,14 +754,19 @@ def synchronize_repositories(repositories, lock_data, workspace_root, dry_run, g
     )
 
     if not dry_run:
-      with tempfile.TemporaryDirectory(prefix="third_party_sync_") as temporary_directory:
+      with tempfile.TemporaryDirectory(
+        prefix="third_party_sync_"
+      ) as temporary_directory:
         tarball_path = Path(temporary_directory) / "release.tar"
-        download_file(snapshot_metadata["tarball_url"], tarball_path, github_token)
+        download_file(
+          snapshot_metadata["tarball_url"], tarball_path, github_token
+        )
         extract_tarball_to_path(tarball_path, repository_path)
 
     updated_lock_repositories[repository_id] = snapshot_metadata
 
   return {"repositories": updated_lock_repositories}
+
 
 ##
 # @brief Main third-party synchronization workflow.
@@ -714,6 +789,7 @@ def main():
     sys.exit(1)
 
   manifest_data = read_json_file(manifest_path, required=True)
+  validate_json_schema(manifest_data, MANIFEST_SCHEMA_PATH, manifest_path)
   repositories = validate_manifest(manifest_data)
   repositories = filter_repositories(repositories, arguments.repository_id)
 
@@ -737,6 +813,7 @@ def main():
 
   write_json_file(lock_path, updated_lock_data)
   print(f"✅ Lock file updated: {lock_path}", flush=True)
+
 
 # ==============================================================================
 # SCRIPT ENTRY POINT

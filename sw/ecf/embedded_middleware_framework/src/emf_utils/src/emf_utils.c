@@ -85,6 +85,8 @@ void EMF_utils_clear(void* start, uint32_t len)
   // Align pointer to 4 bytes by clearing single bytes if needed.
   while ((((uintptr_t)ptr8 & 0x3) != 0) && (len > 0))
   {
+    // Precondition enforced by contract assertions.
+    // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
     *ptr8++ = 0;
     len--;
   }
@@ -93,6 +95,8 @@ void EMF_utils_clear(void* start, uint32_t len)
   ptr32 = (uint32_t*)ptr8;
   while (len >= 4)
   {
+    // Precondition enforced by contract assertions.
+    // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
     *ptr32++ = 0;
     len -= 4;
   }
@@ -101,6 +105,8 @@ void EMF_utils_clear(void* start, uint32_t len)
   ptr8 = (uint8_t*)ptr32;
   while (len > 0)
   {
+    // Precondition enforced by contract assertions.
+    // NOLINTNEXTLINE(clang-analyzer-core.NullDereference)
     *ptr8++ = 0;
     len--;
   }

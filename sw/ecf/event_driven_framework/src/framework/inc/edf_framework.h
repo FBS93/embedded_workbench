@@ -91,7 +91,7 @@ typedef struct
 {
   EDF_timeEvent_t* armed_head; /**< Points to the list of armed time events. */
   EDF_timeEvent_t* new_head; /**< Points to the list of newly armed time events.
-                                  See note @ref time_event_new_list. */
+                                  See @ref time_event_new_list. */
 } EDF_timeEventRegistry_t;
 
 /**
@@ -102,7 +102,7 @@ typedef struct
   /**
    * @brief Active objects registry, indexed by their priority.
    *
-   * Index 0 is unused; valid entries are 1..EDF_MAX_ACTIVE_OBJECT.
+   * Index 0 is unused; valid entries are 1 ... @c EDF_MAX_ACTIVE_OBJECT.
    *
    * @note The framework does not support unregistering; entries shall be
    * only modified to add new active objects, never removed or replaced.
@@ -114,8 +114,8 @@ typedef struct
    * @brief Registry of time events for all tick rates.
    *
    * Each index of this array corresponds to a specific tick rate.
-   * The user is responsible for calling EDF_timeEvent_tick()
-   * with the corresponding tick_rate index at the correct periodicity
+   * The user is responsible for calling @ref EDF_timeEvent_tick()
+   * with the corresponding @p tick_rate index at the correct periodicity
    * to represent the desired tick rate.
    */
   EDF_timeEventRegistry_t te_registry[EDF_MAX_TICK_RATE];

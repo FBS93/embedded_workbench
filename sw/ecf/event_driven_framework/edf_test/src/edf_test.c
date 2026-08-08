@@ -307,7 +307,7 @@ int main(void)
 
 /**
  * @todo Document that the test framework invokes user-defined functions such as
- * setup, teardown, test initialization, and test verification *without*
+ * setup, teardown, test initialization and test verification *without*
  * entering a critical section. It is therefore the user's responsibility to
  * ensure proper protection when concurrent contexts or interrupts may occur and
  * could affect the test correctness.

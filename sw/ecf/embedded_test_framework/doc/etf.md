@@ -13,7 +13,7 @@ This framework is a derivative work based on:
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

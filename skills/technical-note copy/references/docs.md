@@ -1,2 +1,0 @@
-- [Development methodology overview](../../../doc/development_methodology/development_methodology_overview.md)
-- [Technical notes](../../../doc/technical_notes/*.md)

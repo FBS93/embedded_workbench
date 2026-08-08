@@ -90,7 +90,6 @@
  * @todo Consider moving this macro to a generic middleware module and using
  * it wherever macros of this type are used (e.g., emf_log, eff).
  *
- * @param[in] __VA_ARGS__ Variable number of arguments.
  * @return Number of arguments (0–8).
  */
 #define EMF_PRINT_NARG(...) \
@@ -103,8 +102,7 @@
  * @todo Consider moving this macro to a generic middleware module and using
  * it wherever macros of this type are used (e.g., emf_log, eff).
  *
- * @param[in] _1..._8 Positional placeholders.
- * @param[in] N Number of arguments resolved by macro expansion.
+ * @return Number of arguments (0–8).
  */
 #define EMF_PRINT_NARG_(_1, _2, _3, _4, _5, _6, _7, _8, N, ...) N
 
@@ -157,23 +155,25 @@
 void EMF_print(const char* fmt, const uintptr_t* args);
 
 /**
- * @note uintptr_t_for_variadic_arguments
+ * @anchor uintptr_t_for_variadic_arguments
+ * @par @c uintptr_t for variadic arguments
  *
- * This module uses `uintptr_t` to represent variadic arguments in a
- * platform-agnostic and type-safe way. `uintptr_t` is an unsigned integer
+ * This module uses @c uintptr_t to represent variadic arguments in a
+ * platform-agnostic and type-safe way. @c uintptr_t is an unsigned integer
  * type guaranteed to be capable of storing any pointer value without loss,
  * making it suitable for encoding both scalar values (e.g., int, float, char)
  * and pointers (e.g., strings).
  *
- * It is critical to use `uintptr_t` for pointers because their size can
- * vary between platforms (e.g., 32-bit vs 64-bit), and storing a pointers like
- * string in a smaller type like `uint32_t` would lead to data loss and invalid
- * pointers. For scalar values that are known to fit in 32 bits, `uint32_t`
- * could be used, but using `uintptr_t` unifies the representation safely.
+ * It is critical to use @c uintptr_t for pointers because their size can
+ * vary between platforms (e.g., 32-bit vs 64-bit) and storing a pointers like
+ * string in a smaller type like @c uint32_t would lead to data loss and
+ * invalid pointers. For scalar values that are known to fit in 32 bits,
+ * @c uint32_t could be used, but using @c uintptr_t unifies the
+ * representation safely.
  *
- * Using `uintptr_t` ensures the implementation is portable across 32-bit
+ * Using @c uintptr_t ensures the implementation is portable across 32-bit
  * and 64-bit systems, which is especially important for dual-targeted code.
- * Using `void*` instead would not be portable, since it is only valid for
+ * Using @c void* instead would not be portable, since it is only valid for
  * storing object pointers, not arbitrary scalar values.
  *
  * @todo Consider supporting 64-bit values (e.g., int64_t, double) if required.

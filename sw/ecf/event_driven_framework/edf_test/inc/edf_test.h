@@ -73,13 +73,14 @@
  * @param[in] name Name of the test case.
  * @param[in] trigger_signal Signal used to trigger the test case verify phase.
  */
-#define EDF_TEST_CASE(name, trigger_signal)                                \
-  static void name##_init(void);                                           \
-  static void name##_verify(const EDF_event_t* e);                         \
-  static const EDFTest_test_t name##_test = {.test_name = #name,           \
-                                             .test_init = name##_init,     \
-                                             .test_verify = name##_verify, \
-                                             .test_trigger = trigger_signal};
+#define EDF_TEST_CASE(name, trigger_signal)        \
+  static void name##_init(void);                   \
+  static void name##_verify(const EDF_event_t* e); \
+  static const EDFTest_test_t name##_test = {      \
+    .test_name = #name,                            \
+    .test_init = name##_init,                      \
+    .test_verify = name##_verify,                  \
+    .test_trigger = (trigger_signal)};
 
 /**
  * @brief Defines the init function for a test case.
@@ -95,14 +96,14 @@
  * @param[in] input_evt_name Variable name for the input event.
  */
 #define EDF_TEST_CASE_VERIFY(name, input_evt_name) \
-  static void name##_verify(const EDF_event_t* input_evt_name)
+  static void name##_verify(const EDF_event_t*(input_evt_name))
 
 /**
  * @brief Verifies a test condition.
  *
  * If the condition fails, it triggers a test failure report.
  *
- * @param[in] cond Boolean expression to evaluate.
+ * @param[in] cond_ Boolean expression to evaluate.
  */
 #define EDF_TEST_VERIFY(cond_) \
   ((cond_) ? (void)0 : EDFTest_fail(#cond_, __FILE__, __LINE__));
@@ -121,14 +122,20 @@
  *
  * @param[in] name Name of the test case.
  */
-#define EDF_TEST_RUN(name) {.test = name##_test, .skip = false}
+#define EDF_TEST_RUN(name)             \
+  {                                    \
+    .test = name##_test, .skip = false \
+  }
 
 /**
  * @brief Register a test to be skipped.
  *
  * @param[in] name Name of the test case.
  */
-#define EDF_TEST_SKIP(name) {.test = name##_test, .skip = true}
+#define EDF_TEST_SKIP(name)           \
+  {                                   \
+    .test = name##_test, .skip = true \
+  }
 
 /**
  * @brief Define an array of test entries.
@@ -238,9 +245,6 @@ void EDFTest_fail(const char* cond, const char* file, int line);
  * @note All user software shall be initialized in this function,
  * but @ref EDF_run() must NOT be called, as control must return to the
  * EDF test framework.
- *
- * @param[in] argc Argument count from main.
- * @param[in] argv Argument vector from main.
  */
 void EDFTest_onInit(void);
 

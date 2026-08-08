@@ -4,26 +4,31 @@ Tiny dummy application used to validate the host fuzzing port end-to-end. It pro
 
 ```mermaid
 stateDiagram-v2
-    [*] --> standby
+    [*] --> operational
 
-    standby --> armed: START
-    armed --> collecting: STEP / accepted slot and adjusted value >= gate
-    collecting --> standby: FINISH
-    collecting --> standby: STEP / STOP flag set
+    state operational {
+        [*] --> standby
 
-    standby --> standby: SET
-    standby --> standby: PING
-    standby --> standby: RESET
+        standby --> armed: START / reset collection state
+        standby --> standby: FINISH / ignored_count++
+        standby --> standby: STEP / ignored_count++
+        standby --> standby: SET / applySet()
 
-    armed --> armed: SET
-    armed --> armed: PING
-    armed --> armed: STEP / rejected or below gate
-    armed --> standby: RESET
+        armed --> armed: START / ignored_count++
+        armed --> armed: FINISH / ignored_count++
+        armed --> armed: SET / applySet()
+        armed --> armed: STEP / rejected slot or adjusted value < gate, ignored_count++
+        armed --> collecting: STEP / accepted slot and adjusted value >= gate, beginCollecting(), transition_count++
 
-    collecting --> collecting: SET
-    collecting --> collecting: PING
-    collecting --> collecting: STEP / continue collecting
-    collecting --> standby: RESET
+        collecting --> collecting: SET / applySet()
+        collecting --> collecting: STEP / rejected slot, ignored_count++
+        collecting --> collecting: STEP / accepted slot and STOP flag clear
+        collecting --> standby: STEP / accepted slot and STOP flag set, transition_count++
+        collecting --> standby: FINISH / transition_count++
+    }
+
+    operational --> operational: PING / ping_count++
+    operational --> standby: RESET / resetRuntime(), transition_count++
 ```
 
 The purpose of this example is to teach the fuzzing flow and stateful discovery, not to model a real application domain.

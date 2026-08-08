@@ -6,7 +6,7 @@ EMF utils groups helper macros and functions shared across the frameworks.
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

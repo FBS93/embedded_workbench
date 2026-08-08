@@ -88,16 +88,36 @@
             "label": "🧰 WB toolbox",
             "tasks": [
                 {
+                    "label": "🔗 Connect Raspberry Pi (SSH)",
+                    "task": "connect_rpi_ssh"
+                },
+                {
                     "label": "🌐 OpenCode web GUI",
                     "task": "run_opencode_web_gui"
+                },
+                {
+                    "label": "📈 PulseView web GUI",
+                    "task": "run_pulseview_web"
+                },
+                {
+                    "label": "📥 Sync logic analyzer captures",
+                    "task": "sync_logic_analyzer_captures"
                 },
                 {
                     "label": "🔄 Sync third-party repositories",
                     "task": "run_third_party_sync"
                 },
                 {
-                    "label": "🔗 Connect Raspberry Pi (SSH)",
-                    "task": "connect_rpi_ssh"
+                    "label": "📄 Generate documentation",
+                    "task": "run_docgen"
+                },
+                {
+                    "label": "☑️ Validate release",
+                    "task": "validate_release"
+                },
+                {
+                    "label": "🚀 Release",
+                    "task": "run_release"
                 }
             ],
             "tooltip": "Workbench toolbox"
@@ -124,6 +144,10 @@
                 {
                     "label": "🔎 Run linter",
                     "task": "lint"
+                },
+                {
+                    "label": "🚦 Run CI",
+                    "task": "run_ci"
                 },
                 {
                     "label": "🧪 Run fuzzer",
@@ -157,17 +181,7 @@
                 }
             ],
             "tooltip": "Hardware toolbox"
-        },
-        {
-            "label": "📐 MECH toolbox",
-            "tasks": [
-                {
-                    "label": "🧊 Open CQ-Editor",
-                    "task": "open_cq_editor"
-                }
-            ],
-            "tooltip": "Mechanical toolbox"
-        },
+        }
     ],
     "files.associations": {
         "*.c": "c",

@@ -6,7 +6,7 @@ EMF CRC provides CRC calculation utilities.
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

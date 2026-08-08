@@ -18,7 +18,7 @@ Define system requirements from specifications.
 2. Identify the needs to be addressed by the system requirements.
 3. Define the system requirements derived from the specifications.
 4. Define traceability between system requirements and specifications.
-5. Check the system requirements for completeness, consistency, and correctness.
+5. Check the system requirements for completeness, consistency and correctness.
 
 ## Guidelines
 
@@ -38,12 +38,12 @@ The domain attribute shall:
 - Be used to support the identification of the engineering domains applicable to the project.
 - Be used to support downstream allocation of system requirements to engineering domain requirements.
 
-The domain attribute shall be included in all system requirements using the following requirement template:
+The domain attribute shall be included in all system requirements after the requirement-specific content and before the upstream traceability attribute, as shown in the following requirement template:
 
 ```md
-# SYS_<FUNC_DOMAIN>_REQ_<X>
+# SYS_REQ_<FUNC_DOMAIN>_<X>
 
-<subject> shall <required behavior>.
+...
 
 Domain:
 - <engineering domain abbreviation>
@@ -51,5 +51,6 @@ Domain:
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
 
-References:
-- [SYS_...](#...)
+...
+
+```

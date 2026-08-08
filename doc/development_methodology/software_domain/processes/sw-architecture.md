@@ -18,7 +18,7 @@ Define software architecture from software requirements.
 2. Identify the software architecture elements required to address the software requirements.
 3. Define the software architecture based on the identified software architecture elements.
 4. Define traceability between software architecture elements and software requirements.
-5. Check the software architecture for completeness, consistency, and correctness.
+5. Check the software architecture for completeness, consistency and correctness.
 
 ## Guidelines
 
@@ -106,12 +106,12 @@ The platform software design shall contain:
     - `target_<platform>_hard_debug`: Target embedded execution in debug configuration with preprocessed source code available for inspection.
   - If build flags for the selected toolchain are not explicitly defined or are not self-evident, they shall be defined here, including the presets to which they apply.
 - Memory layout:
-  - A memory layout divided into RAM layout, ROM layout (e.g., program flash, ...), and NVM layout (e.g., persistent parameters, persistent data, ...). Each memory layout shall be represented as a Markdown table. Each row of this table represents a memory region of the memory layout and may describe any level of granularity, ranging from a memory block to individual parameters. Each memory region shall be specified with:
+  - A memory layout divided into RAM layout, ROM layout (e.g., program flash, ...) and NVM layout (e.g., persistent parameters, persistent data, ...). Each memory layout shall be represented as a Markdown table. Each row of this table represents a memory region of the memory layout and may describe any level of granularity, ranging from a memory block to individual parameters. Each memory region shall be specified with:
     - A memory region name in lower_snake_case. The memory region name shall be unique across all memory layouts, as it is used as the memory region identifier.
     - A description defining the memory region. The description shall include all necessary information to fully specify the memory region, written in a clear and concise manner.
     - The start address of the memory region.
     - The end address of the memory region.
-- Debug configuration: 
+- Debug configuration:
   - Definition of the debug interfaces used (e.g., SWD, JTAG, etc.).
 - [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md) integration:
   - Integration strategy for [Embedded Base Framework (EBF)](../../../../sw/ecf/embedded_base_framework/doc/ebf.md) stdin/stdout integration. Upstream elements shall define the interface used for this integration. If no further detail is specified by upstream elements, the default shall be:

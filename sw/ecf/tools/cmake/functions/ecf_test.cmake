@@ -1,7 +1,7 @@
 include(CMakeParseArguments)
 
 #------------------------------------------------------------------------------
-# Function: create_etf_test
+# Function: ecf_create_etf_test
 #
 # Description:
 #   Creates a test executable and configures it for compilation and execution
@@ -30,7 +30,7 @@ include(CMakeParseArguments)
 #   INCLUDES - Include directories required by the test.
 #
 # Example:
-#   create_etf_test(my_test test/test_my_module.c
+#   ecf_create_etf_test(my_test test/test_my_module.c
 #     LINKS lib_a lib_b
 #     INCLUDES lib_c/inc lib_d/inc)
 #
@@ -45,7 +45,7 @@ include(CMakeParseArguments)
 #         - lib_d/inc
 #     - Register "my_test" as a CTest test.
 #------------------------------------------------------------------------------
-function(create_etf_test test_name test_src)
+function(ecf_create_etf_test test_name test_src)
   # Parse optional keyword arguments LINKS and INCLUDES
   set(options)
   set(oneValueArgs)
@@ -56,7 +56,7 @@ function(create_etf_test test_name test_src)
   get_filename_component(test_src_absolute ${test_src} REALPATH)
 
   # Create the test executable target
-  ect_add_executable(${test_name} ${test_src_absolute})
+  ew_add_executable(${test_name} ${test_src_absolute})
   target_link_libraries(${test_name} PRIVATE etf ${CT_LINKS})
   target_include_directories(${test_name} PRIVATE ${CT_INCLUDES})
 
@@ -82,7 +82,7 @@ function(create_etf_test test_name test_src)
 endfunction()
 
 #------------------------------------------------------------------------------
-# Function: create_edf_test
+# Function: ecf_create_edf_test
 #
 # Description:
 #   Creates a test executable and configures it for compilation and execution
@@ -111,7 +111,7 @@ endfunction()
 #   INCLUDES - Include directories required by the test.
 #
 # Example:
-#   create_edf_test(my_test test/test_my_module.c
+#   ecf_create_edf_test(my_test test/test_my_module.c
 #     LINKS lib_a lib_b
 #     INCLUDES lib_c/inc lib_d/inc)
 #
@@ -126,7 +126,7 @@ endfunction()
 #         - lib_d/inc
 #     - Register "my_test" as a CTest test.
 #------------------------------------------------------------------------------
-function(create_edf_test test_name test_src)
+function(ecf_create_edf_test test_name test_src)
   # Parse optional keyword arguments LINKS and INCLUDES
   set(options)
   set(oneValueArgs)
@@ -137,7 +137,7 @@ function(create_edf_test test_name test_src)
   get_filename_component(test_src_absolute ${test_src} REALPATH)
 
   # Create the test executable target
-  ect_add_executable(${test_name} ${test_src_absolute})
+  ew_add_executable(${test_name} ${test_src_absolute})
   target_link_libraries(${test_name} PRIVATE edf_test ${CT_LINKS})
   target_include_directories(${test_name} PRIVATE ${CT_INCLUDES})
 

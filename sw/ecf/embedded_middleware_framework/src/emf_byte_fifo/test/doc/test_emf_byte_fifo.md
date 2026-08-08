@@ -6,4 +6,4 @@ A byte-oriented circular FIFO stores variable-length streams while preserving FI
 
 # Verification scope
 The test validates externally observable behavior through the public API.
-It covers ordering, free/used accounting, wrap-around behavior, offset peek, and state reset.
+It covers ordering, free/used accounting, wrap-around behavior, offset peek and state reset.

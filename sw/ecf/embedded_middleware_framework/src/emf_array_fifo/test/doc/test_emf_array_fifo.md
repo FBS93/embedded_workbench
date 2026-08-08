@@ -6,4 +6,4 @@ A fixed-size circular FIFO stores and retrieves byte arrays while preserving FIF
 
 # Verification scope
 The test validates externally observable behavior through the public API.
-It covers ordering, full/empty transitions, and wrap-around behavior without relying on internal state.
+It covers ordering, full/empty transitions and wrap-around behavior without relying on internal state.

@@ -22,7 +22,7 @@ Define and implement software integration tests against software architecture to
 3. Identify software architecture elements requiring validation.
 4. Define and implement the software integration tests.
 5. Define traceability between software integration tests and the corresponding software architecture elements.
-6. Check the software integration tests for completeness, consistency, and correctness.
+6. Check the software integration tests for completeness, consistency and correctness.
 
 ## Guidelines
 

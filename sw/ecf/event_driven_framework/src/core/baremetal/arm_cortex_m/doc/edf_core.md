@@ -21,10 +21,10 @@ The flow is:
 1. An ISR posts or publishes an event and finishes with `EDF_ISRExit()`.
 2. `EDF_ISRExit()` calls the scheduler inside a critical section.
 3. If a higher-priority active object shall run, `EDF_ISRExit()` pends `PendSV`.
-4. After the ISR finishes, `PendSV_Handler` saves the original return information, fabricates a new exception frame, and exception-returns into `EDF_core_activate()`.
+4. After the ISR finishes, `PendSV_Handler` saves the original return information, fabricates a new exception frame and exception-returns into `EDF_core_activate()`.
 5. `EDF_core_activate()` runs in Thread mode on the same MSP and may dispatch one or more higher-priority active objects.
 6. When the activation finishes, the function returns to `EDF_core_preemptedContextReturn()`,which pends `NMI`.
-7. `NMI_Handler` removes the fabricated frame, restores the original `EXC_RETURN`, and the CPU resumes the exact interrupted context.
+7. `NMI_Handler` removes the fabricated frame, restores the original `EXC_RETURN` and the CPU resumes the exact interrupted context.
 
 ```mermaid
 sequenceDiagram
@@ -129,10 +129,4 @@ When the target provides an FPU, this core enables lazy stacking during initiali
 
 # Usage example
 
-```c
-void SysTick_Handler(void)
-{
-  EDF_timeEvent_tick(0U);
-  EDF_ISRExit();
-}
-```
+For a complete on-target visual demonstration of nested preemption, see [`examples/arm_cortex_m_preemption_example`](../../../../../examples/arm_cortex_m_preemption_example/doc/arm_cortex_m_preemption_example.md).

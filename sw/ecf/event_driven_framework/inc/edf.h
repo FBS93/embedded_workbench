@@ -164,10 +164,10 @@ void EDF_onIdle(void);
  */
 
 /**
- * @todo Review and clean up all `#include` directives across the framework.
- * Many modules currently include `edf_core.h`, but now `ebf.h` already
- * provides critical section handling. It should be checked whether `edf_core.h`
- * (and potentially other headers) are still needed in each file.
+ * @todo Review and clean up all @c #include directives across the framework.
+ * Many modules currently include @c edf_core.h, but now @c ebf.h already
+ * provides critical section handling. It should be checked whether
+ * @c edf_core.h (and potentially other headers) are still needed in each file.
  *
  * This review must be applied consistently to all framework modules.
  */
@@ -175,7 +175,7 @@ void EDF_onIdle(void);
 /**
  * @todo Review and enforce consistent coding style across the framework.
  * This includes comment formatting, naming conventions (functions, variables,
- * types, macros), and implementation patterns. Ensure all modules follow
+ * types, macros) and implementation patterns. Ensure all modules follow
  * the same style guide uniformly.
  */
 

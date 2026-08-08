@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 echo "📊 Run fuzzer coverage"
 
@@ -14,7 +14,7 @@ fi
 
 target="$(basename "$1")"
 source_dir="$2"
-coverage_preset="host_fuzz_source_coverage"
+coverage_preset="host_fuzz_coverage"
 fuzz_preset="host_fuzz"
 
 # Validate required inputs.

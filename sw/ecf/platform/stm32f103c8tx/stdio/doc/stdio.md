@@ -19,7 +19,7 @@ Hardware configuration:
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

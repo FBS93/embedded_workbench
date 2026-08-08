@@ -2,7 +2,7 @@
  * @brief Time manager active object used for test validation.
  *
  * Provides time management and time events used by the tests to verify timing
- * accuracy, deterministic expiration counters, and correct delivery of time
+ * accuracy, deterministic expiration counters and correct delivery of time
  * events through the publish–subscribe mechanism.
  *
  * @copyright

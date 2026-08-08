@@ -9,7 +9,7 @@ EPF is a lightweight, platform-dependent framework designed to run on specific p
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

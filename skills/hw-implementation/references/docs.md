@@ -1,3 +1,0 @@
-- [development_methodology_overview.md](../../../doc/development_methodology/development_methodology_overview.md)
-- [hardware_domain_overview.md](../../../doc/development_methodology/hardware_domain/hardware_domain_overview.md)
-- [hw-implementation.md](../../../doc/development_methodology/hardware_domain/processes/hw-implementation.md)

@@ -47,7 +47,7 @@
  *
  * @param[in] _ Unused parameter, kept for API compatibility.
  */
-#define EDF_CORE_SCHED_LOCK(_) ((void)0)
+#define EDF_CORE_SCHED_LOCK(_) EMF_UTILS_UNUSED_PARAM(_)
 
 /**
  * @brief Unlock task scheduling.
@@ -63,7 +63,7 @@
  *
  * @note This macro is called within a critical section.
  *
- * @param[in,out] _ Unused parameter, kept for API compatibility.
+ * @param[in,out] me Unused parameter, kept for API compatibility.
  */
 #define EDF_CORE_WAIT_FOR_EVENT(me) ((void)0)
 

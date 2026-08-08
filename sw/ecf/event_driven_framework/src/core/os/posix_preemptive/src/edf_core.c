@@ -210,7 +210,7 @@ void EDF_init(void)
 
   /**
    * Lock the startup mutex to block any active objects started before
-   * calling EDF_run().
+   * calling @ref EDF_run().
    */
   (void)pthread_mutex_lock(&startupMutex);
 
@@ -229,16 +229,16 @@ int EDF_run(void)
 
   EDF_onStartup();  // User-specific startup callback.
 
-  // See @ref pthread_priority_scope
+  // See @ref pthread_priority_scope.
   sparam.sched_priority =
     sched_get_priority_max(SCHED_FIFO) - EDF_MAIN_THREAD_PRIO_OFFSET;
 
-  // See @ref scheduler_fifo_policy
+  // See @ref scheduler_fifo_policy.
   (void)pthread_setschedparam(pthread_self(), SCHED_FIFO, &sparam);
 
   /**
    * Exit the startup critical section to unblock any active objects
-   * started before calling EDF_run()
+   * started before calling @ref EDF_run().
    */
   (void)pthread_mutex_unlock(&startupMutex);
 
@@ -258,9 +258,9 @@ int EDF_run(void)
 void EDF_stop(void)
 {
   /**
-   * @note Calling this function terminates the main EDF thread,
+   * Calling this function terminates the main EDF thread,
    * which causes all Active Object threads to end abruptly.
-   * The user is responsible for invoking EDF_stop() only
+   * The user is responsible for invoking @ref EDF_stop() only
    * when the AO states are safe for an immediate shutdown.
    */
   isRunning = false;  // Terminate the main EDF thread
@@ -302,14 +302,14 @@ void EDF_activeObject_start(EDF_activeObject_t* me,
   EDF_hsm_start(&me->super, e);
 
   // Configure the Active Object thread scheduling policy and attributes.
-  // See @ref scheduler_fifo_policy
+  // See @ref scheduler_fifo_policy.
   (void)pthread_attr_init(&attr);
   (void)pthread_attr_setschedpolicy(&attr, SCHED_FIFO);
   (void)pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
   (void)pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 
   // Configure the Active Object thread priority.
-  // See @ref pthread_priority_scope
+  // See @ref pthread_priority_scope.
   sched_param.sched_priority =
     me->prio + (sched_get_priority_max(SCHED_FIFO) - EDF_MAX_ACTIVE_OBJECT -
                 ACTIVE_OBJECT_THREAD_PRIO_OFFSET);
@@ -355,12 +355,13 @@ EBF_WEAK void EDF_onShutdown(void)
 }
 
 /**
- * @note scheduler_fifo_policy
+ * @anchor scheduler_fifo_policy
+ * @par Scheduler FIFO policy
  *
- * On POSIX, the scheduler policy closest to real-time is `SCHED_FIFO`.
+ * On POSIX, the scheduler policy closest to real-time is @c SCHED_FIFO.
  * This policy is only available with superuser privileges.
  *
- * `EDF_run()` attempts to set this policy and maximize its priority,
+ * @ref EDF_run() attempts to set this policy and maximize its priority,
  * so that ticking occurs in the most timely manner (as close to an
  * interrupt as possible).
  *
@@ -368,43 +369,45 @@ EBF_WEAK void EDF_onShutdown(void)
  */
 
 /**
- * @note pthread_priority_scope
+ * @anchor pthread_priority_scope
+ * @par Pthread priority scope
  *
- * According to the POSIX man pages (`pthread_attr_setschedpolicy`),
- * the only supported value for scheduling scope is `PTHREAD_SCOPE_SYSTEM`.
+ * According to the POSIX man pages (@c pthread_attr_setschedpolicy),
+ * the only supported value for scheduling scope is @c PTHREAD_SCOPE_SYSTEM.
  *
  * This means that threads compete for CPU time with all processes
- * running on the machine, and thread priorities are interpreted
+ * running on the machine and thread priorities are interpreted
  * relative to other system processes.
  *
  * If thread priorities are set high enough, no other process (or
  * thread within one) can preempt CPU control.
  *
  * The EDF framework limits the number of priority levels to
- * `EDF_MAX_ACTIVE_OBJECT`. To accommodate real-time needs, this port:
+ * @ref EDF_MAX_ACTIVE_OBJECT. To accommodate real-time needs, this port:
  * - Reserves the **highest available pthread priority** exclusively
  * for the ticker thread, which periodically invokes
- * `EDF_timeEvent_tick()`. See @ref ticker_thread_priority.
+ * @ref EDF_timeEvent_tick(). See @ref ticker_thread_priority.
  * - Reserves the **second-highest priority** for the main EDF
- * thread created when `EDF_run()` is called.
+ * thread created when @ref EDF_run() is called.
  * - The remaining priorities are distributed among active objects,
  * while the three lowest priorities are left unused to avoid
  * starvation of system/background tasks.
  */
 
 /**
- * @note ticker_thread_priority
+ * @anchor ticker_thread_priority
+ * @par Ticker thread priority
  *
  * The ticker thread is responsible for periodically invoking
- * `EDF_timeEvent_tick(tick_rate)` at the configured tick rates.
+ * @ref EDF_timeEvent_tick() with the configured @p tick_rate values.
  *
  * - For reliable and deterministic processing of time events, this
  * thread should run at the **maximum available priority** under the
- * `SCHED_FIFO` scheduling policy.
+ * @c SCHED_FIFO scheduling policy.
  * - The maximum priority can be obtained at runtime with:
- * `sched_get_priority_max(SCHED_FIFO)`.
- * - Running with `SCHED_FIFO` at maximum priority requires:
- *  - Root privileges or the `CAP_SYS_NICE` capability.
+ * @c sched_get_priority_max(SCHED_FIFO).
+ * - Running with @c SCHED_FIFO at maximum priority requires:
+ *  - Root privileges or the @c CAP_SYS_NICE capability.
  *  - A system with POSIX real-time scheduling support.
  *
  * Example code:

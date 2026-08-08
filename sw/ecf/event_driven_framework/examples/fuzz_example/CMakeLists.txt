@@ -1,4 +1,4 @@
-ect_add_executable(fuzz_example
+ew_add_executable(fuzz_example
     src/main.c
     src/fuzz_example.c)
 target_include_directories(fuzz_example

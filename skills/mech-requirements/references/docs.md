@@ -1,3 +1,0 @@
-- [development_methodology_overview.md](../../../doc/development_methodology/development_methodology_overview.md)
-- [mechanical_domain_overview.md](../../../doc/development_methodology/mechanical_domain/mechanical_domain_overview.md)
-- [mech-requirements.md](../../../doc/development_methodology/mechanical_domain/processes/mech-requirements.md)

@@ -131,8 +131,8 @@ void EDF_activeObject_publish(const EDF_event_t* e)
      * it can preempt and recycle the event before multicasting finishes,
      * prematurely freeing it from the pool. To prevent this, the reference
      * counter of a mutable event is incremented before multicasting.
-     * At the end, EDF_event_gc() decrements the counter and recycles the event
-     * if it drops to zero.
+     * At the end, @ref EDF_event_gc() decrements the counter and recycles the
+     * event if it drops to zero.
      */
     // Safety margin allows up to 2 refs per AO (normal queue + deferred queue).
     EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt < (2U * EDF_MAX_ACTIVE_OBJECT));
@@ -153,9 +153,6 @@ void EDF_activeObject_publish(const EDF_event_t* e)
     // Get highest-prio subscriber.
     prio = EMF_bitmask_findMax(subs_list.bitmask,
                                EMF_UTILS_SIZEOF_ARRAY(subs_list.bitmask));
-
-    // Get active object reference.
-    ao = EDF_framework.ao_registry[prio];
 
     EDF_CORE_SCHED_STATUS
     EDF_CORE_SCHED_LOCK(prio);  // Lock the scheduler up to AO's prio.
@@ -401,7 +398,7 @@ void EDF_activeObject_register(EDF_activeObject_t* me)
     }
   }
 
-  // Threshold consistency check. See @ref preemption-threshold.
+  // Threshold consistency check. See @ref preemption_threshold.
   EAF_ASSERT_IN_CRITICAL_SECTION(prev_thre <= me->pthre);
   EAF_ASSERT_IN_CRITICAL_SECTION(me->pthre <= next_thre);
 
@@ -583,17 +580,18 @@ const EDF_event_t* EDF_activeObject_get(EDF_activeObject_t* me)
 }
 
 /**
- * @note duplicated_code_in_post_functions
+ * @anchor duplicated_code_in_post_functions
+ * @par Duplicated code in post functions
  *
- * The implementations of EDF_activeObject_postFIFO() and
- * EDF_activeObject_postLIFO() contain code that is largely duplicated from
- * EDF_eventQueue_postFIFO() and EDF_eventQueue_postLIFO(). This duplication is
- * intentional and necessary.
+ * The implementations of @ref EDF_activeObject_postFIFO() and
+ * @ref EDF_activeObject_postLIFO() contain code that is largely duplicated
+ * from @ref EDF_eventQueue_postFIFO() and @ref EDF_eventQueue_postLIFO().
+ * This duplication is intentional and necessary.
  *
- * The difference is that the EDF_activeObject variants must call
- * EDF_CORE_NOTIFY_EVENT(me) when posting to an empty queue. This notification
- * must occur *within the same critical section* to ensure atomicity and prevent
- * race conditions.
+ * The difference is that the active-object variants must call
+ * @ref EDF_CORE_NOTIFY_EVENT(me) when posting to an empty queue. This
+ * notification must occur *within the same critical section* to ensure
+ * atomicity and prevent race conditions.
  *
  * Attempting to unify the functions (e.g. by calling into a shared function in
  * the edf_event_queue module) would require exiting and re-entering the
@@ -604,15 +602,17 @@ const EDF_event_t* EDF_activeObject_get(EDF_activeObject_t* me)
  */
 
 /**
- * @note duplicated_code_in_get_functions
+ * @anchor duplicated_code_in_get_functions
+ * @par Duplicated code in get functions
  *
- * The implementations of EDF_activeObject_get() and EDF_eventQueue_get()
- * contain code that is largely duplicated. This duplication is intentional.
+ * The implementations of @ref EDF_activeObject_get() and
+ * @ref EDF_eventQueue_get() contain code that is largely duplicated. This
+ * duplication is intentional.
  *
- * The difference is that EDF_activeObject_get() must additionally call
- * EDF_CORE_WAIT_FOR_EVENT(me) to wait until an event arrives. This step must
- * occur within the same critical section to ensure atomicity and prevent race
- * conditions.
+ * The difference is that @ref EDF_activeObject_get() must additionally call
+ * @ref EDF_CORE_WAIT_FOR_EVENT(me) to wait until an event arrives. This step
+ * must occur within the same critical section to ensure atomicity and prevent
+ * race conditions.
  *
  * Attempting to unify the functions (e.g. by calling into a shared function in
  * the edf_event_queue module) would require exiting and re-entering the

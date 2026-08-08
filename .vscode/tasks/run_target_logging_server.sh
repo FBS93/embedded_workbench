@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
-set -e
-
-# -----------------------------------------------------------------------------
-# This script automatically selects the FIRST device found in:
-#   /dev/serial/by-id/
-#
-# If multiple USB/serial adapters are connected to the Raspberry Pi, this may
-# select the wrong one. In that case, manual filtering must be added.
-# -----------------------------------------------------------------------------
+set -euo pipefail
 
 echo "📃 Enable target logging"
 
@@ -16,6 +8,7 @@ echo "📃 Enable target logging"
 : "${RPI_HOST:?Missing RPI_HOST}"
 : "${LOG_PORT:?Missing LOG_PORT}"
 : "${LOG_BAUD_RATE:?Missing LOG_BAUD_RATE}"
+: "${LOG_SERIAL_DEVICE:?Missing LOG_SERIAL_DEVICE}"
 : "${NETWORK_LATENCY_TIMEOUT_S:?Missing NETWORK_LATENCY_TIMEOUT_S}"
 : "${WORKSPACE_FOLDER:?Missing WORKSPACE_FOLDER}"
 
@@ -44,43 +37,48 @@ fi
 scp -o StrictHostKeyChecking=accept-new "${LOCAL_SCRIPT}" "${RPI_USER}@${RPI_HOST}:${REMOTE_SCRIPT}" >/dev/null
 
 ssh -o StrictHostKeyChecking=accept-new "${RPI_USER}@${RPI_HOST}" bash << EOF
-set -e
+set -euo pipefail
 
-# Find the serial device.
-SERIAL_NAME=\$(ls -1 /dev/serial/by-id/ 2>/dev/null | head -n1)
-if [ -z "\$SERIAL_NAME" ]; then
-    echo "❌ No USB serial device found."
+# Use the configured serial device.
+if [ ! -e "${LOG_SERIAL_DEVICE}" ]; then
+    echo "❌ Configured logging serial device not found: ${LOG_SERIAL_DEVICE}"
     exit 1
 fi
 
-SERIAL_DEV="/dev/serial/by-id/\$SERIAL_NAME"
-echo "USB serial device found: \$SERIAL_DEV."
+SERIAL_DEVICE="\$(/usr/bin/readlink -f -- "${LOG_SERIAL_DEVICE}")"
+echo "USB serial device configured: ${LOG_SERIAL_DEVICE}."
 
 # Reuse the existing logging server when healthy and matching the device and port.
-if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT" && \
-   /usr/bin/pgrep -f "python3 ${REMOTE_SCRIPT} \${SERIAL_DEV} ${LOG_PORT} ${LOG_BAUD_RATE}" >/dev/null; then
-    if bash -c "exec 9<>/dev/tcp/127.0.0.1/$LOG_PORT" 2>/dev/null; then
-        exec 9>&-
-        exec 9<&-
-        echo "✅ Logging server already listening on port $LOG_PORT."
-        exit 0
-    fi
+if /usr/bin/ss -ltn | /usr/bin/grep ":$LOG_PORT" >/dev/null && \
+   /usr/bin/pgrep -f "python3 ${REMOTE_SCRIPT} ${LOG_SERIAL_DEVICE} ${LOG_PORT} ${LOG_BAUD_RATE}" >/dev/null; then
+    for pid in \$(/usr/bin/pgrep -f "python3 ${REMOTE_SCRIPT} ${LOG_SERIAL_DEVICE} ${LOG_PORT} ${LOG_BAUD_RATE}"); do
+        for fd in /proc/\${pid}/fd/*; do
+            if [ "\$(/usr/bin/readlink -f -- "\${fd}" 2>/dev/null)" = "\${SERIAL_DEVICE}" ]; then
+                if bash -c "exec 9<>/dev/tcp/127.0.0.1/$LOG_PORT" 2>/dev/null; then
+                    exec 9>&-
+                    exec 9<&-
+                    echo "✅ Logging server already listening on port $LOG_PORT."
+                    exit 0
+                fi
+            fi
+        done
+    done
 fi
 
 # Stop stale instances before starting a fresh one.
-if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
+if /usr/bin/ss -ltn | /usr/bin/grep ":$LOG_PORT" >/dev/null; then
     /usr/bin/fuser -k ${LOG_PORT}/tcp 2>/dev/null || true
 fi
 /usr/bin/pkill -f "python3 ${REMOTE_SCRIPT}" 2>/dev/null || true
 
 # Start the logging server.
-nohup python3 "${REMOTE_SCRIPT}" "\${SERIAL_DEV}" "${LOG_PORT}" "${LOG_BAUD_RATE}" \
+nohup python3 "${REMOTE_SCRIPT}" "${LOG_SERIAL_DEVICE}" "${LOG_PORT}" "${LOG_BAUD_RATE}" \
     > "${REMOTE_LOG}" 2>&1 &
 
 # Wait for the TCP port.
 TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT_S} * 1000) }')
 while true; do
-    if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
+    if /usr/bin/ss -ltn | /usr/bin/grep ":$LOG_PORT" >/dev/null; then
         echo "✅ Logging server ready on port $LOG_PORT."
         exit 0
     fi

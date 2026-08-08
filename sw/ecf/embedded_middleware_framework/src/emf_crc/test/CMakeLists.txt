@@ -1,4 +1,4 @@
-create_etf_test(
+ecf_create_etf_test(
   test_emf_crc
   src/test_emf_crc.c
   LINKS

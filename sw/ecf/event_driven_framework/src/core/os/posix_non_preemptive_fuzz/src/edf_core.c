@@ -262,8 +262,8 @@ static bool injectFuzzEvent(const EDF_fuzz_eventDescriptor_t* descriptor,
 
     if (payload_len >= expected_payload_len)
     {
-      event = EDF_event_initMutable(descriptor->mutable_event_size,
-                                    descriptor->sig);
+      event =
+        EDF_event_initMutable(descriptor->mutable_event_size, descriptor->sig);
       EAF_ASSERT(event != NULL);
 
       if (expected_payload_len > 0U)
@@ -351,19 +351,6 @@ static void installCoverageFlushSignalHandlers(void)
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
-/**
- * @brief Handle controlled framework errors during fuzzing.
- *
- * @note In this fuzzing port, an assert/error means the current testcase
- * cannot continue executing normally. Therefore, this function logs the error
- * context and terminates the process with `exit(0)` so the testcase ends
- * immediately in a controlled way without being reported to AFL++ as a fatal
- * crash.
- *
- * @param[in] file Source file that raised the error.
- * @param[in] line Source line that raised the error.
- * @param[in] id Error identifier.
- */
 void EAF_onError(const char* file, int line, int id)
 {
   EMF_PRINT("Error in file %s, line %i, id %i\n",
@@ -371,12 +358,16 @@ void EAF_onError(const char* file, int line, int id)
             EMF_PRINT_ARG_I(line),
             EMF_PRINT_ARG_I(id));
 
+  /**
+   * In this fuzzing port, an assert/error means the current testcase
+   * cannot continue executing normally. Therefore, this function logs the error
+   * context and terminates the process with `exit(0)` so the testcase ends
+   * immediately in a controlled way without being reported to AFL++ as a fatal
+   * crash.
+   */
   exit(0);
 }
 
-/**
- * @brief Initialize the fuzz-specific EDF port.
- */
 void EDF_init(void)
 {
   // Clear EDF_core instance.
@@ -388,11 +379,6 @@ void EDF_init(void)
   installCoverageFlushSignalHandlers();
 }
 
-/**
- * @brief Run the EDF main loop over the fuzz input stream.
- *
- * @return 0 on normal exit.
- */
 int EDF_run(void)
 {
   uint8_t prio;
@@ -520,25 +506,11 @@ int EDF_run(void)
   return 0;
 }
 
-/**
- * @brief Stop the EDF main loop.
- */
 void EDF_stop(void)
 {
   isRunning = false;  // Terminate the main EDF thread
 }
 
-/**
- * @brief Start an EDF active object in the fuzz-specific port.
- *
- * @param[in,out] me Active object instance.
- * @param[in] prio Active object priority and preemption threshold.
- * @param[in] q_storage Event queue storage.
- * @param[in] q_len Event queue length.
- * @param[in] stack_storage Unused stack storage parameter.
- * @param[in] stack_size Unused stack size parameter.
- * @param[in] e Initial transition event.
- */
 void EDF_activeObject_start(EDF_activeObject_t* me,
                             EDF_activeObject_prio_t prio,
                             EDF_event_ptr* q_storage,
@@ -562,15 +534,6 @@ void EDF_activeObject_start(EDF_activeObject_t* me,
   EDF_hsm_start(&me->super, e);
 }
 
-/**
- * @brief Set implementation-specific active object attributes.
- *
- * @note This port does not use additional active object attributes.
- *
- * @param[in,out] me Active object instance.
- * @param[in] attr1 Implementation-specific attribute.
- * @param[in] attr2 Implementation-specific attribute pointer.
- */
 void EDF_activeObject_setAttr(EDF_activeObject_t* me,
                               uint32_t attr1,
                               const void* attr2)
@@ -582,26 +545,14 @@ void EDF_activeObject_setAttr(EDF_activeObject_t* me,
   // Not used.
 }
 
-/**
- * @brief User-overridable startup callback.
- */
 EBF_WEAK void EDF_onStartup(void)
 {
 }
 
-/**
- * @brief User-overridable shutdown callback.
- */
 EBF_WEAK void EDF_onShutdown(void)
 {
 }
 
-/**
- * @brief User-overridable context switch callback.
- *
- * @param[in] prev Previously running active object.
- * @param[in] next Newly scheduled active object.
- */
 EBF_WEAK void EDF_onContextSwitch(EDF_activeObject_t* prev,
                                   EDF_activeObject_t* next)
 {
@@ -609,18 +560,16 @@ EBF_WEAK void EDF_onContextSwitch(EDF_activeObject_t* prev,
   EMF_UTILS_UNUSED_PARAM(next);
 }
 
-/**
- * @brief User-overridable idle callback.
- */
 EBF_WEAK void EDF_onIdle(void)
 {
 }
 
 /**
- * @note ticker_thread
+ * @anchor ticker_thread
+ * @par Ticker thread
  *
  * The ticker thread is responsible for periodically invoking
- * `EDF_timeEvent_tick(tick_rate)` at the configured tick rates.
+ * @ref EDF_timeEvent_tick() with the configured @p tick_rate values.
  *
  * @note The EDF framework does not create this thread automatically.
  * It is the user's responsibility to configure and start the ticker

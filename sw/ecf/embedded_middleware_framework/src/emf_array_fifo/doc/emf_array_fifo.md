@@ -8,7 +8,7 @@ This module does not perform locking, protect it externally if it is shared by c
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

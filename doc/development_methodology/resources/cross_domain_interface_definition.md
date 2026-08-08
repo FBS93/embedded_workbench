@@ -24,6 +24,7 @@ Cross-domain interface elements shall have the following attributes:
   - `<X>` is a monotonically increasing number that shall never be reused.
 - A description defining the element. The description shall include all necessary information to fully specify the element for the target domain, written in a clear and concise manner.
 - Upstream traceability to one or more source domain traceable elements. Shall be defined as a list of Markdown links referencing the corresponding source domain traceable elements.
+- A status indicating the approval state of the cross-domain interface element. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following element template shall be used:
 
@@ -34,6 +35,8 @@ The following element template shall be used:
 
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
+
+Status: <status>
 ```
 
 ## Rules

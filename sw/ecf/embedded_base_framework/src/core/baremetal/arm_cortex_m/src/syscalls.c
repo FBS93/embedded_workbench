@@ -68,6 +68,8 @@
  * PUBLIC FUNCTIONS
  ******************************************************************************/
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 ssize_t _write(int fd, const void* buf, size_t count)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
@@ -78,6 +80,8 @@ ssize_t _write(int fd, const void* buf, size_t count)
   return -1;
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 ssize_t _read(int fd, void* buf, size_t count)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
@@ -88,6 +92,8 @@ ssize_t _read(int fd, void* buf, size_t count)
   return -1;
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 void* _sbrk(ptrdiff_t incr)
 {
   EMF_UTILS_UNUSED_PARAM(incr);
@@ -96,6 +102,8 @@ void* _sbrk(ptrdiff_t incr)
   return (void*)-1;
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 int _close(int fd)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
@@ -104,6 +112,8 @@ int _close(int fd)
   return -1;
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 off_t _lseek(int fd, off_t offset, int whence)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
@@ -114,6 +124,8 @@ off_t _lseek(int fd, off_t offset, int whence)
   return -1;
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 int _fstat(int fd, struct stat* st)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
@@ -123,6 +135,8 @@ int _fstat(int fd, struct stat* st)
   return -1;
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 int _isatty(int fd)
 {
   EMF_UTILS_UNUSED_PARAM(fd);
@@ -130,6 +144,8 @@ int _isatty(int fd)
   return 0;
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 void _exit(int status)
 {
   EMF_UTILS_UNUSED_PARAM(status);
@@ -140,6 +156,8 @@ void _exit(int status)
   }
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 int _kill(pid_t pid, int sig)
 {
   EMF_UTILS_UNUSED_PARAM(pid);
@@ -149,6 +167,8 @@ int _kill(pid_t pid, int sig)
   return -1;
 }
 
+// Required by the newlib syscall ABI.
+// NOLINTNEXTLINE(bugprone-reserved-identifier)
 pid_t _getpid(void)
 {
   return 1;

@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-# Function: create_mock_from_file
+# Function: ecf_create_mock_from_file
 #
 # Description:
 #   Generates a mock library from a module’s header file using the Embedded Fake
@@ -27,7 +27,7 @@
 #   target_link_libraries for the generated mock target.
 #
 # Example:
-#   create_mock_from_file(inc/foo.h test lib_a lib_b)
+#   ecf_create_mock_from_file(inc/foo.h test lib_a lib_b)
 #
 #   This will:
 #     - Generate:
@@ -42,7 +42,9 @@
 #         - lib_a
 #         - lib_b
 #------------------------------------------------------------------------------
-function(create_mock_from_file header_path mock_directory_path)
+function(ecf_create_mock_from_file header_path mock_directory_path)
+  set(eff_gen_tool ${PROJECT_SOURCE_DIR}/sw/ecf/tools/eff_gen/eff_gen.py)
+
   # Locate the Python executable required for the mock generator if not already defined
   if(NOT DEFINED PYTHON_EXECUTABLE)
     find_program(PYTHON_EXECUTABLE NAMES python3 python REQUIRED)
@@ -73,23 +75,23 @@ function(create_mock_from_file header_path mock_directory_path)
   add_custom_command(
     OUTPUT ${mock_src} ${mock_hdr}
     COMMAND ${PYTHON_EXECUTABLE}
-            ${PROJECT_SOURCE_DIR}/sw/ecf/tools/scripts/eff_gen.py
+            ${eff_gen_tool}
             -i ${header_abs_path}
             -o ${mock_directory_abs}/mock/${mock_name}
-    DEPENDS ${header_abs_path})
+    DEPENDS ${header_abs_path} ${eff_gen_tool})
 
   # Create the mock library
   add_library(${mock_name} ${mock_src})
-  target_include_directories(${mock_name} 
+  target_include_directories(${mock_name}
     PUBLIC ${header_folder}
     PUBLIC ${mock_directory_abs}/mock/${mock_name}/inc)
-  target_link_libraries(${mock_name} 
+  target_link_libraries(${mock_name}
     PUBLIC eff
     PRIVATE ${ARGN})
 endfunction()
 
 #------------------------------------------------------------------------------
-# Function: create_mock_from_dir
+# Function: ecf_create_mock_from_dir
 #
 # Description:
 #   Generates a mock library from all header files contained in a directory,
@@ -120,7 +122,7 @@ endfunction()
 #   target_link_libraries for the generated mock library.
 #
 # Example:
-#   create_mock_from_dir(generated_mocks modules/inc tests lib_a lib_b)
+#   ecf_create_mock_from_dir(generated_mocks modules/inc tests lib_a lib_b)
 #
 #   This will:
 #     - For every *.h file in modules/inc/, generate a mock pair:
@@ -135,7 +137,9 @@ endfunction()
 #         - lib_a
 #         - lib_b
 #------------------------------------------------------------------------------
-function(create_mock_from_dir mock_lib_name headers_dir mock_directory_path)
+function(ecf_create_mock_from_dir mock_lib_name headers_dir mock_directory_path)
+  set(eff_gen_tool ${PROJECT_SOURCE_DIR}/sw/ecf/tools/eff_gen/eff_gen.py)
+
   # Locate the Python executable required for the mock generator if not already defined
   if(NOT DEFINED PYTHON_EXECUTABLE)
     find_program(PYTHON_EXECUTABLE NAMES python3 python REQUIRED)
@@ -181,18 +185,18 @@ function(create_mock_from_dir mock_lib_name headers_dir mock_directory_path)
   add_custom_command(
     OUTPUT ${mock_outputs}
     COMMAND ${PYTHON_EXECUTABLE}
-            ${PROJECT_SOURCE_DIR}/sw/ecf/tools/scripts/eff_gen.py
+            ${eff_gen_tool}
             -i ${headers_dir_abs}
             -o ${mock_directory_abs}/mock/${mock_lib_name}
-    DEPENDS ${header_files}
+    DEPENDS ${header_files} ${eff_gen_tool}
   )
 
   # Create the mock library
   add_library(${mock_lib_name} ${mock_sources})
-  target_include_directories(${mock_lib_name} 
+  target_include_directories(${mock_lib_name}
     PUBLIC ${headers_dir_abs}
     PUBLIC ${mock_directory_abs}/mock/${mock_lib_name}/inc)
-  target_link_libraries(${mock_lib_name} 
-    PUBLIC eff 
+  target_link_libraries(${mock_lib_name}
+    PUBLIC eff
     PRIVATE ${ARGN})
 endfunction()

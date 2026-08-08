@@ -19,7 +19,7 @@ Each document may be organized into chapters to support hierarchical structuring
 ### Architecture components
 
 Architecture components shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_COMPONENT_ARCH_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_ARCH_COMPONENT_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -29,11 +29,12 @@ Architecture components shall have the following attributes:
 - A description defining the component. The description shall include all necessary information to fully specify the component, written in a clear and concise manner. When other architecture elements are referenced from the architecture component, their usage shall be explicitly defined (i.e., referenced interfaces should specify how they are used by the component and, when applicable, how they are implemented by it; referenced parameters should specify their effect on the component behavior).
 - Upstream traceability to one or more requirements. Shall be defined as a list of Markdown links referencing the corresponding requirements.
 - References to other architecture elements when applicable. Shall be defined as a list of Markdown links referencing the target element identifier.
+- A status indicating the approval state of the component. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following component template shall be used:
 
 ```md
-# <DOMAIN>_COMPONENT_ARCH_<X>
+# <DOMAIN>_ARCH_COMPONENT_<X>
 
 Name: <domain>c_<architectureComponentName>
 
@@ -44,12 +45,14 @@ Upstream traceability:
 
 References:
 - [<DOMAIN>_...](#...)
+
+Status: <status>
 ```
 
 ### Architecture interfaces
 
 Architecture interfaces shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_INTERFACE_ARCH_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_ARCH_INTERFACE_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -58,11 +61,12 @@ Architecture interfaces shall have the following attributes:
   - `<architectureInterfaceName>` is the unique interface name written in camelCase.
 - A description defining the interface. The description shall include all necessary information to fully specify the interface, written in a clear and concise manner.
 - Upstream traceability to one or more requirements. Shall be defined as a list of Markdown links referencing the corresponding requirements.
+- A status indicating the approval state of the interface. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following interface template shall be used:
 
 ```md
-# <DOMAIN>_INTERFACE_ARCH_<X>
+# <DOMAIN>_ARCH_INTERFACE_<X>
 
 Name: <domain>i_<architectureInterfaceName>
 
@@ -70,12 +74,14 @@ Name: <domain>i_<architectureInterfaceName>
 
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
+
+Status: <status>
 ```
 
 If an interface is directly inherited from an upstream traceable element used as architectural input, an architecture interface shall be created with a single upstream traceability reference to that element and a fixed interface description as follows:
 
 ```md
-# <DOMAIN>_INTERFACE_ARCH_<X>
+# <DOMAIN>_ARCH_INTERFACE_<X>
 
 Interface inherited from upstream definition.
 
@@ -86,7 +92,7 @@ Upstream traceability:
 ### Architecture parameters
 
 Architecture parameters shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_PARAMETER_ARCH_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_ARCH_PARAMETER_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -95,11 +101,12 @@ Architecture parameters shall have the following attributes:
   - `<architectureParameterName>` is the unique parameter name written in camelCase.
 - A description defining the parameter. The description shall include all necessary information to fully specify the parameter, written in a clear and concise manner, including its explicit value and units when applicable.
 - Upstream traceability to one or more requirements. Shall be defined as a list of Markdown links referencing the corresponding requirements.
+- A status indicating the approval state of the parameter. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following parameter template shall be used:
 
 ```md
-# <DOMAIN>_PARAMETER_ARCH_<X>
+# <DOMAIN>_ARCH_PARAMETER_<X>
 
 Name: <domain>p_<architectureParameterName>
 
@@ -107,12 +114,14 @@ Name: <domain>p_<architectureParameterName>
 
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
+
+Status: <status>
 ```
 
 If a parameter is directly inherited from an upstream traceable element used as architectural input, an architecture parameter shall be created with a single upstream traceability reference to that element and a fixed parameter description as follows:
 
 ```md
-# <DOMAIN>_PARAMETER_ARCH_<X>
+# <DOMAIN>_ARCH_PARAMETER_<X>
 
 Parameter inherited from upstream definition.
 
@@ -123,7 +132,7 @@ Upstream traceability:
 ### Architecture designs
 
 Architecture designs shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_DESIGN_ARCH_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_ARCH_DESIGN_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -132,11 +141,12 @@ Architecture designs shall have the following attributes:
   - `<architectureDesignName>` is the unique design name written in camelCase.
 - A description defining the design. The description shall include all necessary information to fully specify the architectural design decision, written in a clear and concise manner. A design captures architectural decisions that are not represented as components, interfaces, or parameters.
 - Upstream traceability when applicable. Shall be defined as a list of Markdown links referencing the corresponding requirement.
+- A status indicating the approval state of the design. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following design template shall be used:
 
 ```md
-# <DOMAIN>_DESIGN_ARCH_<X>
+# <DOMAIN>_ARCH_DESIGN_<X>
 
 Name: <domain>d_<architectureDesignName>
 
@@ -144,6 +154,8 @@ Name: <domain>d_<architectureDesignName>
 
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
+
+Status: <status>
 ```
 
 ## Architecture views

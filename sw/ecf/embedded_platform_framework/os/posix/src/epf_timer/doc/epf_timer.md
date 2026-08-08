@@ -6,7 +6,7 @@ EPF timer provides POSIX thread-based one-shot and periodic timers.
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

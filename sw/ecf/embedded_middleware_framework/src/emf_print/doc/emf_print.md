@@ -6,7 +6,7 @@ EMF print provides minimal formatted output on top of the EBF stdout abstraction
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

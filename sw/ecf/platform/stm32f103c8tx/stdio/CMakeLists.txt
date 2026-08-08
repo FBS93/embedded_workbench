@@ -10,5 +10,6 @@ target_link_libraries(stdio_obj
 )
 add_library(stdio INTERFACE)
 target_link_libraries(stdio INTERFACE
+    stdio_obj
     $<TARGET_OBJECTS:stdio_obj>
 )

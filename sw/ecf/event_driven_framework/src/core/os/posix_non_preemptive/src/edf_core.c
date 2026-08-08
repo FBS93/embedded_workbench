@@ -25,7 +25,6 @@
  * -------------------------------------------------------------------------- */
 #include <stdint.h>
 #include <stdbool.h>
-#include <string.h>
 #include <stdlib.h>
 #include <pthread.h>
 #include <signal.h>
@@ -126,7 +125,7 @@ void EDF_init(void)
   EDF_framework_init();
 
   // set SIGINT (Ctrl-C) signal callback
-  (void)memset(&sig_act, 0, sizeof(sig_act));
+  EMF_utils_clear(&sig_act, sizeof(sig_act));
   sig_act.sa_handler = &sigIntHandler;
   (void)sigaction(SIGINT, &sig_act, NULL);
 }
@@ -268,10 +267,11 @@ EBF_WEAK void EDF_onIdle(void)
 }
 
 /**
- * @note ticker_thread
+ * @anchor ticker_thread_posix_non_preemptive
+ * @par Ticker thread
  *
  * The ticker thread is responsible for periodically invoking
- * `EDF_timeEvent_tick(tick_rate)` at the configured tick rates.
+ * @ref EDF_timeEvent_tick() with the configured @p tick_rate values.
  *
  * @note The EDF framework does not create this thread automatically.
  * It is the user's responsibility to configure and start the ticker

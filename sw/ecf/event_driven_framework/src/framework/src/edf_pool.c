@@ -92,7 +92,7 @@ void EDF_pool_init(void* pool_storage,
   EAF_ASSERT_IN_CRITICAL_SECTION(pool_storage != NULL);
   EAF_ASSERT_IN_CRITICAL_SECTION(EDF_framework.pool_registry.max_pool <
                                  EDF_MAX_POOL);
-  // Minimum block_size. See note @ref free_list.
+  // Minimum block_size. See @ref free_list.
   EAF_ASSERT_IN_CRITICAL_SECTION(block_size >= sizeof(void*));
   EAF_ASSERT_IN_CRITICAL_SECTION(pool_size >= block_size);
 
@@ -132,10 +132,10 @@ void EDF_pool_init(void* pool_storage,
        size -= (uint_fast32_t)new_pool->block_size)
   {
     // Set the next link to next free block.
-    free_block[0] = &free_block[next_block_idx];
+    free_block[0] = (void*)&free_block[next_block_idx];
 
     // Advance to the next block.
-    free_block = free_block[0];
+    free_block = (void**)free_block[0];
 
     // One more free block in the pool.
     ++n_total;
@@ -230,15 +230,16 @@ void EDF_pool_release(EDF_pool_t* me, void* block)
   EAF_ASSERT_IN_CRITICAL_SECTION((me->start <= free_block) &&
                                  (free_block <= me->end));
 
-  free_block[0] = me->free_head;  // Link into the free list.
-  me->free_head = free_block;     // Set as new head of the free list.
-  me->n_free++;                   // One more free block in this pool.
+  free_block[0] = (void*)me->free_head;  // Link into the free list.
+  me->free_head = free_block;            // Set as new head of the free list.
+  me->n_free++;                          // One more free block in this pool.
 
   EBF_CRITICAL_SECTION_EXIT();
 }
 
 /**
- * @note free_list
+ * @anchor free_list
+ * @par Free list
  *
  * This note explains how the free list is managed.
  * When a block is free, its first sizeof(void*) bytes are used to store
@@ -248,26 +249,12 @@ void EDF_pool_release(EDF_pool_t* me, void* block)
  * Upon release, the same first bytes are reused to relink the block
  * back into the free list.
  *
- * @startuml free_list_diagram
- *  class freeBlock1 {
- *    + next: freeBlock2
- *  }
- *  class freeBlock2 {
- *    + next: freeBlock3
- *  }
- *  class freeBlock3 {
- *    + next: NULL
- *  }
- *
- *  freeBlock1 --> freeBlock2
- *  freeBlock2 --> freeBlock3
- *
- *  note right of freeBlock1
- *  freeBlock[0] stores pointer to next free block.
- *  end note
- *
- *  note right of freeBlock3
- *  Last block of the free list.
- *  end note
- * @enduml
+ * @code{.unparsed}
+ * me->free_block
+ *       |
+ *       v
+ * +--------------------+     +--------------------+     +--------------------+
+ * | block1[0] = block2 | --> | block2[0] = block3 | --> | block3[0] = NULL   |
+ * +--------------------+     +--------------------+     +--------------------+
+ * @endcode
  */

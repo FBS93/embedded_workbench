@@ -162,7 +162,8 @@ def replace_dir(source_dir, destination_dir, ignore_patterns=None):
 
 
 ##
-# @brief Return whether a directory exists and contains entries other than `.gitkeep`.
+# @brief Return whether a directory exists and contains entries other than
+# `.gitkeep`.
 #
 # @param[in] directory Directory path.
 # @return True when the directory contains real content.

@@ -104,7 +104,7 @@
  *
  * @note This macro is called within a critical section.
  *
- * @param[in,out] _ Unused parameter, kept for API compatibility.
+ * @param[in,out] me Unused parameter, kept for API compatibility.
  */
 #define EDF_CORE_WAIT_FOR_EVENT(me) ((void)0)
 
@@ -168,7 +168,8 @@ extern EDF_core_t EDF_core;
  ******************************************************************************/
 
 /**
- * @note internal_access_via_macros_only
+ * @anchor internal_access_via_macros_only
+ * @par Internal access via macros only
  *
  * The following functions are not meant to be called directly from external
  * modules. They are exposed only for documentation purposes and to allow
@@ -242,7 +243,7 @@ void EDF_core_activate(void);
  * Thread mode to execute @ref EDF_core_activate and then
  * @ref EDF_core_preemptedContextReturn.
  *
- * @note Implemented in assembly within @ref edf_core.S.
+ * @note Implemented in assembly within @c edf_core.S.
  */
 extern void PendSV_Handler(void);
 
@@ -251,7 +252,7 @@ extern void PendSV_Handler(void);
  *
  * Generates an NMI to safely return to preempted execution context.
  *
- * @note Implemented in assembly within @ref edf_core.S.
+ * @note Implemented in assembly within @c edf_core.S.
  */
 extern void EDF_core_preemptedContextReturn(void);
 
@@ -261,14 +262,14 @@ extern void EDF_core_preemptedContextReturn(void);
  * Completes the return sequence to Thread mode, re-enabling
  * interrupts and restoring the preempted execution context.
  *
- * @note Implemented in assembly within @ref edf_core.S.
+ * @note Implemented in assembly within @c edf_core.S.
  */
 extern void NMI_Handler(void);
 
 /**
  * @brief Disable FPU context stacking.
  *
- * @note Implemented in assembly within @ref edf_core.S.
+ * @note Implemented in assembly within @c edf_core.S.
  */
 extern void EDF_core_disableFPUContext(void);
 
@@ -277,7 +278,7 @@ extern void EDF_core_disableFPUContext(void);
  *
  * Returns the content of the Interrupt Program Status Register (IPSR).
  *
- * @note Implemented in assembly within @ref edf_core.S.
+ * @note Implemented in assembly within @c edf_core.S.
  *
  * @return  0 when the processor is executing in thread mode,
  * or a non-zero when running within an interrupt or exception context.
@@ -287,7 +288,7 @@ extern uint32_t EDF_core_getIPSR(void);
 /**
  * @brief Workaround for ARM Erratum 838869.
  *
- * @note Implemented in assembly within @ref edf_core.S.
+ * @note Implemented in assembly within @c edf_core.S.
  */
 extern void EDF_core_ARMErratum838869(void);
 

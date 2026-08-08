@@ -199,14 +199,15 @@
 
 /**
  * @note
- * `EAF_ASSERT_IN_CRITICAL_SECTION_ID()` and `EAF_ASSERT_IN_CRITICAL_SECTION()`
- * shall always be used inside an already active critical section. These macros
- * do not modify the critical-section state.
+ * @ref EAF_ASSERT_IN_CRITICAL_SECTION_ID() and
+ * @ref EAF_ASSERT_IN_CRITICAL_SECTION() shall always be used inside an already
+ * active critical section. These macros do not modify the critical-section
+ * state.
  *
- * In contrast, `EAF_ASSERT()`, `EAF_ASSERT_ID()`, and the in-block assertions
- * (`EAF_ASSERT_IN_BLOCK()` and `EAF_ASSERT_IN_BLOCK_ID()`) used between
- * `EAF_ASSERT_BLOCK_BEGIN()` and `EAF_ASSERT_BLOCK_END()` first check whether
- * execution is already inside a critical section:
+ * In contrast, @ref EAF_ASSERT(), @ref EAF_ASSERT_ID() and the in-block
+ * assertions (@ref EAF_ASSERT_IN_BLOCK() and @ref EAF_ASSERT_IN_BLOCK_ID())
+ * used between @ref EAF_ASSERT_BLOCK_BEGIN() and @ref EAF_ASSERT_BLOCK_END()
+ * first check whether execution is already inside a critical section:
  * - If not, they enter a critical section.
  * - Upon completion, they exit the critical section only if it was not active
  * prior to the assertion call.
@@ -277,7 +278,7 @@
  * this call.
  *
  * @note The default weak implementation logs the error information and
- * enters an infinite loop (`while (1)`) to halt execution.
+ * enters an infinite loop to halt execution.
  *
  * @param[in] file Pointer to the file name string.
  * @param[in] line Line number where the error occurred.

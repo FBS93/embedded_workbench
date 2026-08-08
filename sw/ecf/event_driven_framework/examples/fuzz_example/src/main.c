@@ -67,7 +67,7 @@
 /**
  * @brief Start the fuzz example application and hand control to EDF.
  *
- * @return Result returned by EDF_run().
+ * @return Result returned by @ref EDF_run().
  */
 int main(void)
 {

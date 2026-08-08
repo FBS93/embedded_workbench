@@ -1,93 +1,10 @@
 {
+  "$schema": "repos.schema.json",
   "repositories": [
     {
       "id": "actions-template-sync",
       "url": "https://github.com/AndreasAugustin/actions-template-sync",
       "path": "third_party/AndreasAugustin/actions-template-sync",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "gentle-ai",
-      "url": "https://github.com/Gentleman-Programming/gentle-ai",
-      "path": "third_party/Gentleman-Programming/gentle-ai",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "agent-teams-lite",
-      "url": "https://github.com/Gentleman-Programming/agent-teams-lite",
-      "path": "third_party/Gentleman-Programming/agent-teams-lite",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "engram",
-      "url": "https://github.com/Gentleman-Programming/engram",
-      "path": "third_party/Gentleman-Programming/engram",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "gentleman-guardian-angel",
-      "url": "https://github.com/Gentleman-Programming/gentleman-guardian-angel",
-      "path": "third_party/Gentleman-Programming/gentleman-guardian-angel",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "gentleman-dots",
-      "url": "https://github.com/Gentleman-Programming/Gentleman.Dots",
-      "path": "third_party/Gentleman-Programming/Gentleman.Dots",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "pyspice",
-      "url": "https://github.com/PySpice-org/PySpice",
-      "path": "third_party/PySpice-org/PySpice",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "skidl",
-      "url": "https://github.com/devbisme/skidl",
-      "path": "third_party/devbisme/skidl",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "jlcpcb-kicad-library",
-      "url": "https://github.com/CDFER/JLCPCB-Kicad-Library",
-      "path": "third_party/CDFER/JLCPCB-Kicad-Library",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "jlcpcb-parts-database",
-      "url": "https://github.com/CDFER/jlcpcb-parts-database",
-      "path": "third_party/CDFER/jlcpcb-parts-database",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "cd-fer-kicad-repository",
-      "url": "https://github.com/CDFER/cd_fer-kicad-repository",
-      "path": "third_party/CDFER/cd_fer-kicad-repository",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "jlc2kicad-lib",
-      "url": "https://github.com/TousstNicolas/JLC2KiCad_lib",
-      "path": "third_party/TousstNicolas/JLC2KiCad_lib",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "kicad-jlcpcb-tools",
-      "url": "https://github.com/Bouni/kicad-jlcpcb-tools",
-      "path": "third_party/Bouni/kicad-jlcpcb-tools",
       "ref_type": "auto",
       "ref": ""
     },

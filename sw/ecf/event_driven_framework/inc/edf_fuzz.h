@@ -56,8 +56,10 @@
  * @param[in] sig Event signal associated with the immutable event.
  * @param[in] event_ptr Pointer to the immutable event instance.
  */
-#define EDF_FUZZ_IMMUTABLE_EVENT(sig, event_ptr) \
-  {(EDF_event_signal_t)(sig), false, (event_ptr), 0U}
+#define EDF_FUZZ_IMMUTABLE_EVENT(sig, event_ptr)      \
+  {                                                   \
+    (EDF_event_signal_t)(sig), false, (event_ptr), 0U \
+  }
 
 /**
  * @brief Add a mutable fuzzable event.
@@ -65,8 +67,10 @@
  * @param[in] sig Event signal associated with the mutable event.
  * @param[in] event_size Full mutable event size, including EDF_event_t.
  */
-#define EDF_FUZZ_MUTABLE_EVENT(sig, event_size) \
-  {(EDF_event_signal_t)(sig), true, NULL, (uint_fast16_t)(event_size)}
+#define EDF_FUZZ_MUTABLE_EVENT(sig, event_size)                        \
+  {                                                                    \
+    (EDF_event_signal_t)(sig), true, NULL, (uint_fast16_t)(event_size) \
+  }
 
 /*******************************************************************************
  * PUBLIC TYPEDEFS

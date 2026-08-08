@@ -81,7 +81,7 @@
 #define EMF_LOG_ARG_C(val) EMF_PRINT_ARG_C(val)
 
 /**
- * @brief Dispatch helper macro for EMF_log().
+ * @brief Dispatch helper macro for @ref EMF_log().
  *
  * Builds a local array of arguments and passes them with the format string.
  *
@@ -106,7 +106,7 @@
   } while (0)
 
 /**
- * @brief Logs an error-level message using EMF_log.
+ * @brief Logs an error-level message using @ref EMF_log().
  *
  * Builds a local array of arguments and passes them with the format string.
  *
@@ -117,7 +117,7 @@
   EMF_LOG_DISPATCH(LOG_LEVEL_ERROR, fmt, __VA_ARGS__)
 
 /**
- * @brief Logs a warning-level message using EMF_log.
+ * @brief Logs a warning-level message using @ref EMF_log().
  *
  * Builds a local array of arguments and passes them with the format string.
  *
@@ -128,7 +128,7 @@
   EMF_LOG_DISPATCH(LOG_LEVEL_WARNING, fmt, __VA_ARGS__)
 
 /**
- * @brief Logs an info-level message using EMF_log.
+ * @brief Logs an info-level message using @ref EMF_log().
  *
  * Builds a local array of arguments and passes them with the format string.
  *
@@ -139,7 +139,7 @@
   EMF_LOG_DISPATCH(LOG_LEVEL_INFO, fmt, __VA_ARGS__)
 
 /**
- * @brief Logs a debug-level message using EMF_log.
+ * @brief Logs a debug-level message using @ref EMF_log().
  *
  * Builds a local array of arguments and passes them with the format string.
  *
@@ -173,7 +173,7 @@ typedef enum
  ******************************************************************************/
 
 /**
- * @brief Initializes EMF_LOG module.
+ * @brief Initializes the EMF log module.
  *
  * After initialization, the default logging level is @ref LOG_LEVEL_INFO.
  */
@@ -189,7 +189,7 @@ void EMF_log_setLevel(EMF_log_level_t log_level);
 /**
  * @brief Logs a formatted message with arguments.
  *
- * Function used by EMF_LOG_... macros.
+ * Function used by the @c EMF_LOG_... macros.
  *
  * @param[in] log_level Logging level of the message.
  * @param[in] fmt Null-terminated format string.

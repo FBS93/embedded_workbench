@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 echo "run_target_gdb_server"
 
@@ -22,7 +22,7 @@ fi
 #   -f interface/stlink.cfg \
 #   -f target/stm32f1x.cfg \
 #   -c \"bindto 0.0.0.0\" \
-#   -c \"gdb_port ${GDB_PORT}\""  
+#   -c \"gdb_port ${GDB_PORT}\""
 #
 # --- SEGGER J-Link ---
 GDB_SERVER_RUN_CMD="JLinkGDBServer \
@@ -36,10 +36,10 @@ GDB_SERVER_RUN_CMD="JLinkGDBServer \
 REMOTE_LOG="/tmp/run_target_gdb_server.log"
 
 ssh -o StrictHostKeyChecking=accept-new "$RPI_USER@$RPI_HOST" bash << EOF
-set -e
+set -euo pipefail
 
 # Reuse the existing GDB server if already running.
-if /usr/bin/ss -ltn | /usr/bin/grep -q ":$GDB_PORT"; then
+if /usr/bin/ss -ltn | /usr/bin/grep ":$GDB_PORT" >/dev/null; then
     echo "✅ GDB server already listening on port $GDB_PORT."
     exit 0
 fi
@@ -53,7 +53,7 @@ nohup $GDB_SERVER_RUN_CMD > "$REMOTE_LOG" 2>&1 &
 # Wait for the TCP port.
 TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT_S} * 1000) }')
 while true; do
-    if /usr/bin/ss -ltn | /usr/bin/grep -q ":$GDB_PORT"; then
+    if /usr/bin/ss -ltn | /usr/bin/grep ":$GDB_PORT" >/dev/null; then
         echo "✅ GDB server ready on port $GDB_PORT."
         exit 0
     fi

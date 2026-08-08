@@ -22,7 +22,7 @@ Define and implement system integration tests against system architecture to val
 4. Identify system architecture elements requiring validation.
 5. Define and implement the system integration tests.
 6. Define traceability between system integration tests and the corresponding system architecture elements.
-7. Check the system integration tests for completeness, consistency, and correctness.
+7. Check the system integration tests for completeness, consistency and correctness.
 
 ## Guidelines
 
@@ -50,4 +50,4 @@ The integration tests shall ensure that:
 - All relevant system modes and transitions are covered.
 - The behavior associated with each state is validated.
 
-Tests shall be implemented by stimulating the system through the defined interfaces and events, using the available project tools, and observing the resulting system behavior.
+Tests shall be implemented by stimulating the system through the defined interfaces and events, using the available project tools and observing the resulting system behavior.

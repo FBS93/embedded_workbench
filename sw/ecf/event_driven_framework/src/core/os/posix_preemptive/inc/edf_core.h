@@ -56,7 +56,7 @@
  *
  * @param[in] _ Unused parameter, kept for API compatibility.
  */
-#define EDF_CORE_SCHED_LOCK(_) ((void)0)
+#define EDF_CORE_SCHED_LOCK(_) EMF_UTILS_UNUSED_PARAM(_)
 
 /**
  * @brief Unlock task scheduling.
@@ -66,13 +66,14 @@
 #define EDF_CORE_SCHED_UNLOCK() ((void)0)
 
 /**
- * @note scheduler_locking_not_implemented
+ * @anchor scheduler_locking_not_implemented
+ * @par Scheduler locking not implemented
  *
- * Scheduler locking (used inside EDF_activeObject_publish()) is NOT implemented
- * in this port. This means that event multicasting is NOT atomic, so thread
- * preemption CAN happen during that time, especially when a low-priority
- * thread publishes events to higher-priority threads. This can lead to
- * (occasionally) unexpected event sequences.
+ * Scheduler locking (used inside @ref EDF_activeObject_publish()) is NOT
+ * implemented in this port. This means that event multicasting is NOT atomic,
+ * so thread preemption CAN happen during that time, especially when a
+ * low-priority thread publishes events to higher-priority threads. This can
+ * lead to (occasionally) unexpected event sequences.
  */
 
 /**

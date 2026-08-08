@@ -5,6 +5,13 @@
       "TASKS_PATH": "${workspaceFolder}/.vscode/tasks"
     }
   },
+  "inputs": [
+    {
+      "id": "releaseVersion",
+      "type": "promptString",
+      "description": "Release version (vX.Y.Z)"
+    }
+  ],
   "tasks": [
     {
       "label": "build",
@@ -32,6 +39,19 @@
       "command": "${TASKS_PATH}/connect_rpi_ssh.sh"
     },
     {
+      "label": "sync_logic_analyzer_captures",
+      "type": "shell",
+      "command": "${TASKS_PATH}/sync_logic_analyzer_captures.sh",
+      "args": [
+        "${workspaceFolder}"
+      ]
+    },
+    {
+      "label": "run_pulseview_web",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_pulseview_web.sh"
+    },
+    {
       "label": "run_target_gdb_server",
       "type": "shell",
       "command": "${TASKS_PATH}/run_target_gdb_server.sh"
@@ -40,31 +60,6 @@
       "label": "run_target_logging_server",
       "type": "shell",
       "command": "${TASKS_PATH}/run_target_logging_server.sh"
-    },
-    {
-      "label": "open_kicad",
-      "type": "shell",
-      "command": "${TASKS_PATH}/open_kicad.sh"
-    },
-    {
-      "label": "save_kicad_state",
-      "type": "shell",
-      "command": "${TASKS_PATH}/save_kicad_state.sh"
-    },
-    {
-      "label": "restore_kicad_state",
-      "type": "shell",
-      "command": "${TASKS_PATH}/restore_kicad_state.sh"
-    },
-    {
-      "label": "clean_kicad_runtime_state",
-      "type": "shell",
-      "command": "${TASKS_PATH}/clean_kicad_runtime_state.sh"
-    },
-    {
-      "label": "open_cq_editor",
-      "type": "shell",
-      "command": "${TASKS_PATH}/open_cq_editor.sh"
     },
     {
       "label": "run_opencode_web_gui",
@@ -77,6 +72,35 @@
       "command": "${TASKS_PATH}/run_third_party_sync.sh",
       "args": [
         "${workspaceFolder}"
+      ]
+    },
+    {
+      "label": "run_docgen",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_docgen.sh",
+      "args": [
+        "${workspaceFolder}",
+        "${workspaceFolderBasename}"
+      ]
+    },
+    {
+      "label": "validate_release",
+      "type": "shell",
+      "command": "${TASKS_PATH}/validate_release.sh",
+      "args": [
+        "${workspaceFolder}",
+        "${workspaceFolderBasename}",
+        "${input:releaseVersion}"
+      ]
+    },
+    {
+      "label": "run_release",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_release.sh",
+      "args": [
+        "${workspaceFolder}",
+        "${workspaceFolderBasename}",
+        "${input:releaseVersion}"
       ]
     },
     {
@@ -93,7 +117,15 @@
       "type": "shell",
       "command": "${TASKS_PATH}/lint.sh",
       "args": [
-        "${workspaceFolder}/sw",
+        "${workspaceFolder}",
+        "${command:cmake.activeConfigurePresetName}"
+      ]
+    },
+    {
+      "label": "run_ci",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_ci.sh",
+      "args": [
         "${workspaceFolder}",
         "${command:cmake.activeConfigurePresetName}"
       ]
@@ -115,6 +147,26 @@
         "${command:cmake.buildTargetName}",
         "${config:cmake.sourceDirectory}"
       ]
+    },
+    {
+      "label": "open_kicad",
+      "type": "shell",
+      "command": "${TASKS_PATH}/open_kicad.sh"
+    },
+    {
+      "label": "save_kicad_state",
+      "type": "shell",
+      "command": "${TASKS_PATH}/save_kicad_state.sh"
+    },
+    {
+      "label": "restore_kicad_state",
+      "type": "shell",
+      "command": "${TASKS_PATH}/restore_kicad_state.sh"
+    },
+    {
+      "label": "clean_kicad_runtime_state",
+      "type": "shell",
+      "command": "${TASKS_PATH}/clean_kicad_runtime_state.sh"
     }
   ]
 }

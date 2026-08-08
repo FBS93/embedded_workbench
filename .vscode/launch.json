@@ -8,7 +8,12 @@
       "MIMode": "gdb",
       "cwd": "${workspaceFolder}",
       "program": "${command:cmake.launchTargetPath}",
-      "stopAtEntry": true
+      "stopAtEntry": true,
+      "debuginfod": {
+        // Workaround for https://github.com/microsoft/vscode/issues/316682.
+        // Requires ms-vscode.cpptools >= 1.33.0, which supports disabling debuginfod.
+        "enabled": false
+      }
     },
     {
       "name": "Target STM32F103C8Tx (launch)",

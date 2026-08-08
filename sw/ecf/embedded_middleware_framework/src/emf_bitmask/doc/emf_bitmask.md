@@ -6,7 +6,7 @@ EMF bitmask provides a compact bitmask helper with priority-oriented lookup.
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

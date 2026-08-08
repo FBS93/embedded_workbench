@@ -20,7 +20,7 @@ Each document may be organized into chapters to support hierarchical structuring
 ### Functional domain requirements
 
 Functional domain requirements shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_<FUNC_DOMAIN>_REQ_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_REQ_<FUNC_DOMAIN>_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<FUNC_DOMAIN>` identifies the functional domain and shall match the functional domain used in the document name where the requirement is defined.
@@ -31,11 +31,12 @@ Functional domain requirements shall have the following attributes:
 - Validation criteria. Shall be defined as a list of one or more criteria describing how the requirement is validated in a clear and unambiguous way, including measurable values, tolerances, or observable behaviors when applicable.
 - Upstream traceability to one or more upstream elements. Shall be defined as a list of Markdown links referencing the corresponding upstream element.
 - References to other requirements of the same engineering domain when applicable. Shall be defined as a list of Markdown links referencing the target requirement identifier.
+- A status indicating the approval state of the requirement. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following functional domain requirement template shall be used:
 
 ```md
-# <DOMAIN>_<FUNC_DOMAIN>_REQ_<X>
+# <DOMAIN>_REQ_<FUNC_DOMAIN>_<X>
 
 <subject> shall <required behavior>.
 
@@ -47,12 +48,14 @@ Upstream traceability:
 
 References:
 - [<DOMAIN>_...](#...)
+
+Status: <status>
 ```
 
 ### Interface requirements
 
 Interface requirements shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_INTERFACE_REQ_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_REQ_INTERFACE_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -61,11 +64,12 @@ Interface requirements shall have the following attributes:
   - `<requirementInterfaceName>` is the unique interface name written in camelCase.
 - A description defining the interface. The description shall include all necessary information to fully specify the interface, written in a clear and concise manner.
 - Upstream traceability to one or more upstream elements. Shall be defined as a list of Markdown links referencing the corresponding upstream element.
+- A status indicating the approval state of the interface. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following interface requirement template shall be used:
 
 ```md
-# <DOMAIN>_INTERFACE_REQ_<X>
+# <DOMAIN>_REQ_INTERFACE_<X>
 
 Name: <domain>i_<requirementInterfaceName>
 
@@ -73,12 +77,14 @@ Name: <domain>i_<requirementInterfaceName>
 
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
+
+Status: <status>
 ```
 
 ### Parameter requirements
 
 Parameter requirements shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_PARAMETER_REQ_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_REQ_PARAMETER_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -87,11 +93,12 @@ Parameter requirements shall have the following attributes:
   - `<requirementParameterName>` is the unique parameter name written in camelCase.
 - A description defining the parameter. The description shall include all necessary information to fully specify the parameter, written in a clear and concise manner, including its explicit value and units when applicable.
 - Upstream traceability to one or more upstream elements. Shall be defined as a list of Markdown links referencing the corresponding upstream element.
+- A status indicating the approval state of the parameter. Shall use exactly one of these values: `not approved`, `approved`.
 
 The following parameter requirement template shall be used:
 
 ```md
-# <DOMAIN>_PARAMETER_REQ_<X>
+# <DOMAIN>_REQ_PARAMETER_<X>
 
 Name: <domain>p_<requirementParameterName>
 
@@ -99,6 +106,8 @@ Name: <domain>p_<requirementParameterName>
 
 Upstream traceability:
 - [<UPSTREAM_ELEMENT_UNIQUE_ID>](#...)
+
+Status: <status>
 ```
 
 ## Rules

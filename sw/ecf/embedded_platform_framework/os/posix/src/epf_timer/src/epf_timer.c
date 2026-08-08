@@ -131,18 +131,20 @@ static void* ticker_thread(void* arg)
   EPF_timer_t* me = (EPF_timer_t*)arg;
 
   /**
-   * @note The implementation uses a pointer-to-pointer (`EPF_timer_t **t_link`)
+   * @note The implementation uses a pointer-to-pointer
+   * (@c EPF_timer_t **t_link)
    * to avoid special-casing the first element of the timers list:
-   * - At the start, `t_link = &me->armed_head`.
-   * - As we traverse the armed timers list, `t_link` is updated to point to the
-   * `next` field of the current node: `t_link = &t->next`, where `t = *t_link`.
-   * - Removing a node is always `*t_link = t->next;`
+   * - At the start, @c t_link = &me->armed_head.
+   * - As we traverse the armed timers list, @c t_link is updated to point to
+   *   the @c next field of the current node: @c t_link = &t->next, where
+   *   @c t = *t_link.
+   * - Removing a node is always @c *t_link = t->next;
    * (works for both the first node and all subsequent nodes).
    *
-   * Attaching freshly armed timers (`me->new_head`) is also unified:
-   * - When `*t_link == NULL` and `me->new_head != NULL`, simply do
-   * `*t_link = me->new_head;` (this attaches the new timer list either at the
-   * beginning of me->armed_head or after its last node).
+   * Attaching freshly armed timers (@c me->new_head) is also unified:
+   * - When @c *t_link == NULL and @c me->new_head != NULL, simply do
+   *   @c *t_link = me->new_head; (this attaches the new timer list either at
+   *   the beginning of me->armed_head or after its last node).
    *
    * This way the same code handles head removal, internal removals and
    * attaching new timers without branching on special cases.
@@ -344,7 +346,7 @@ void EPF_timer_arm(EPF_timer_t* me,
   timer_entry->period = ns_to_ticks(period);
 
   /**
-   * Is the timer unlinked? See note @ref timer_disarmed_but_linked.
+   * Is the timer unlinked? See @ref timer_disarmed_but_linked.
    * This check allows disarming and re-arming within the same tick
    * without duplicating links.
    */
@@ -352,7 +354,7 @@ void EPF_timer_arm(EPF_timer_t* me,
   {
     timer_entry->is_linked = true;  // Mark as linked.
 
-    // Link into the temporary new list. See note @ref timer_new_list.
+    // Link into the temporary new list. See @ref timer_new_list.
     timer_entry->next = me->new_head;
     me->new_head = timer_entry;
   }
@@ -409,7 +411,7 @@ bool EPF_timer_rearm(EPF_timer_t* me,
     was_armed = false;
 
     /**
-     * Is the timer unlinked? See note @ref timer_disarmed_but_linked.
+     * Is the timer unlinked? See @ref timer_disarmed_but_linked.
      * This check allows disarming and re-arming within the same tick
      * without duplicating links.
      */
@@ -417,7 +419,7 @@ bool EPF_timer_rearm(EPF_timer_t* me,
     {
       timer_entry->is_linked = true;  // Mark as linked.
 
-      // Link into the temporary new list. See note @ref timer_new_list.
+      // Link into the temporary new list. See @ref timer_new_list.
       timer_entry->next = me->new_head;
       me->new_head = timer_entry;
     }
@@ -453,19 +455,21 @@ uint64_t EPF_timer_currentCounter(EPF_timer_t* me,
 }
 
 /**
- * @note timer_disarmed_but_linked
+ * @anchor timer_disarmed_but_linked
+ * @par Timer disarmed but linked
  *
  * A timer can be "disarmed but still linked" for the duration of one
  * tick interval:
- * - EPF_timer_disarm() sets cnt = 0, but does not unlink the timer.
- * - Unlinking is performed exclusively in ticker_thread().
+ * - @ref EPF_timer_disarm() sets @c cnt = 0, but does not unlink the timer.
+ * - Unlinking is performed exclusively in @c ticker_thread().
  */
 
 /**
- * @note timer_new_list
+ * @anchor timer_new_list
+ * @par Timer new list
  *
- * The list of armed timers (`armed_head`) is modified
- * exclusively inside ticker_thread().
+ * The list of armed timers (@c armed_head) is modified
+ * exclusively inside @c ticker_thread().
  * Newly armed timers are first linked into a temporary list
  * (`new_head`) and only merged into the main list during
  * the tick processing.

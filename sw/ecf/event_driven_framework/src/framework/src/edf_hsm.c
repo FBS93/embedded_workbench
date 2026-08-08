@@ -49,12 +49,16 @@
 /**
  * @brief Dispatches a reserved HSM event to the given state handler.
  *
+ * @note The caller shall ensure that @p state is a valid state handler.
+ *
  * @param state Pointer to the state handler function.
  * @param sig Reserved signal to dispatch. Must be one of the following:
- * EDF_HSM_EMPTY_SIGNAL, EDF_HSM_ENTRY_SIGNAL, EDF_HSM_EXIT_SIGNAL or
- * EDF_HSM_INIT_SIGNAL.
+ * @ref EDF_HSM_EMPTY_SIGNAL, @ref EDF_HSM_ENTRY_SIGNAL,
+ * @ref EDF_HSM_EXIT_SIGNAL or @ref EDF_HSM_INIT_SIGNAL.
  */
-#define DISPATCH_RESERVED_EVENT(state, sig) \
+#define DISPATCH_RESERVED_EVENT(state, sig)                 \
+  /* State handlers contract is validated by assertions. */ \
+  /* NOLINTNEXTLINE(clang-analyzer-core.CallAndMessage) */  \
   ((*(state))(me, &reservedEvents[(sig)]))
 
 /*******************************************************************************
@@ -100,52 +104,21 @@ static const EDF_event_t reservedEvents[4] = {
  * Case 1: Self-Transition (source == target)
  * Transition begins and ends in the same state.
  * The source state executes its exit action and then its entry action.
- * @startuml
- *  state S
- *  S --> S : "Self-Transition (exit and re-enter)"
- * @enduml
  *
  * Case 2: Ancestor → Descendant
  * Transition goes from an ancestor state to a descendant state.
  * Only entry actions are executed for each state on the path down to the
  * descendant.
- * @startuml
- *  state Ancestor {
- *      state Mid {
- *          state Descendant
- *      }
- *  }
- *  Ancestor --> Descendant : "Ancestor to Descendant"
- * @enduml
  *
  * Case 3: Descendant → Ancestor
  * Transition ascends from a deep descendant to one of its ancestors.
  * Exit actions are executed upward until (but not including) the ancestor
  * target.
- * @startuml
- *  state Ancestor {
- *      state Mid {
- *          state Descendant
- *      }
- *  }
- *  Descendant --> Ancestor : "Descendant to Ancestor (upward)"
- * @enduml
  *
  * Case 4: Between Branches (via Lowest Common Ancestor)
  * Transition between two states in different branches sharing a Lowest Common
  * Ancestor (LCA). Exit actions are executed up to (but not including) the LCA,
  * then entry actions down to the target.
- * @startuml
- *  state LCA {
- *      state BranchA {
- *          state A1
- *      }
- *      state BranchB {
- *          state B1
- *      }
- *  }
- *  A1 --> B1 : "Between branches via LCA"
- * @enduml
  *
  * Key Definitions:
  * -Ancestor: A state that is higher in the hierarchy relative to another state
@@ -321,8 +294,8 @@ static void EDF_hsm_getTransitionPath(EDF_hsm_t* me,
       {
         if (x_path[x_i] == e_path[e_i])
         {
-          *x_idx = x_i - 1;  // Do not exit the LCA.
-          *e_idx = e_i - 1;  // Do not enter the LCA.
+          *x_idx = (int_fast8_t)(x_i - 1);  // Do not exit the LCA.
+          *e_idx = (int_fast8_t)(e_i - 1);  // Do not enter the LCA.
           t_found = true;
           break;
         }
@@ -433,7 +406,9 @@ void EDF_hsm_start(EDF_hsm_t* me, const EDF_event_t* e)
   EAF_ASSERT_BLOCK_END();
 
   // Execute the top-most initial transition.
-  state_ret = (*me->temp_state)(me, e);
+  // State handlers contract is validated by assertions.
+  // NOLINTNEXTLINE(clang-analyzer-core.CallAndMessage)
+  state_ret = me->temp_state(me, e);
 
   // The top-most initial transition shall be taken.
   EAF_ASSERT(state_ret == RET_TRANSITION);
@@ -492,7 +467,9 @@ void EDF_hsm_dispatch(EDF_hsm_t* me, const EDF_event_t* e)
      * Invoke state handler (updates me->temp_state on RET_SUPER or
      * RET_TRANSITION).
      */
-    state_ret = (*aux_state)(me, e);
+    // State handlers contract is validated by assertions.
+    // NOLINTNEXTLINE(clang-analyzer-core.CallAndMessage)
+    state_ret = aux_state(me, e);
 
     // Unhandled due to a guard?
     if (state_ret == RET_UNHANDLED)

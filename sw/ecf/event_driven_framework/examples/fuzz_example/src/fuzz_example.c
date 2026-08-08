@@ -2,7 +2,7 @@
  * @brief EDF fuzz example module.
  *
  * Implements a tiny dummy state machine whose only purpose is to demonstrate
- * fuzz-event injection, stateful discovery, and reserved crash/hang triggers.
+ * fuzz-event injection, stateful discovery and reserved crash/hang triggers.
  *
  * @copyright
  * Copyright (c) 2026 FBS93.

@@ -8,7 +8,7 @@ This test defines several active objects, each with a specific subscription patt
 
 When an event is published, only the active objects subscribed to that signal should mark the event as received.
 
-This models a typical event-driven scenario: Publishers remain unaware of subscribers, and the infrastructure alone is responsible for enforcing correct routing.
+This models a typical event-driven scenario: Publishers remain unaware of subscribers and the infrastructure alone is responsible for enforcing correct routing.
 
 # Verification scope
 This test validates:

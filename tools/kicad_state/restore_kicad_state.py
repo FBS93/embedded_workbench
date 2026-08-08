@@ -27,7 +27,6 @@ import sys
 # ------------------------------------------------------------------------------
 # External library imports
 # ------------------------------------------------------------------------------
-
 # ------------------------------------------------------------------------------
 # Project-specific imports
 # ------------------------------------------------------------------------------
@@ -127,7 +126,8 @@ def main():
   state_dir = get_state_root_dir() / kicad_version
   if not state_dir.is_dir():
     print(
-      f"No KiCad state stored for version {kicad_version}. Skipping KiCad state restore."
+      f"No KiCad state stored for version {kicad_version}. "
+      "Skipping KiCad state restore."
     )
     return 0
 

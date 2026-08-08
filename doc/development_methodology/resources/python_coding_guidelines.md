@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
 All code elements shall be documented using **Doxygen** comments.
 
-The following Doxygen tags are allowed: `@brief`, `@note`, `@todo`, `@param`, `@return`
+The following Doxygen tags are allowed: `@brief`, `@param`, `@return`, `@note`, `@todo`, `@ref`, `@c`, `@par`, `@anchor`, `@warning`
 
 Multi-line documentation blocks shall use the following Doxygen format:
 
@@ -187,7 +187,7 @@ The following template shall be used to document packages and modules in a separ
 ```
 # <Package/module name> overview
 
-<High-level description of the purpose, intent, and scope of the package/module>.
+<High-level description of the purpose, intent and scope of the package/module>.
 
 # Glossary
 

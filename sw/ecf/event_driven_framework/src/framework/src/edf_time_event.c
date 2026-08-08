@@ -119,7 +119,7 @@ void EDF_timeEvent_arm(EDF_timeEvent_t* me,
   me->period = period;
 
   /**
-   * Is the time event unlinked? See note @ref time_event_disarmed_but_linked.
+   * Is the time event unlinked? See @ref time_event_disarmed_but_linked.
    * This check allows disarming and re-arming within the same tick
    * without duplicating links.
    */
@@ -127,7 +127,7 @@ void EDF_timeEvent_arm(EDF_timeEvent_t* me,
   {
     me->is_linked = true;  // Mark as linked.
 
-    // Link into the temporary new list. See note @ref time_event_new_list.
+    // Link into the temporary new list. See @ref time_event_new_list.
     me->next = EDF_framework.te_registry[me->tick_rate].new_head;
     EDF_framework.te_registry[me->tick_rate].new_head = me;
   }
@@ -177,7 +177,7 @@ bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_cnt_t time)
     was_armed = false;
 
     /**
-     * Is the time event unlinked? See note @ref time_event_disarmed_but_linked.
+     * Is the time event unlinked? See @ref time_event_disarmed_but_linked.
      * This check allows disarming and re-arming within the same tick
      * without duplicating links.
      */
@@ -185,7 +185,7 @@ bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_cnt_t time)
     {
       me->is_linked = true;  // Mark as linked.
 
-      // Link into the temporary new list. See note @ref time_event_new_list.
+      // Link into the temporary new list. See @ref time_event_new_list.
       me->next = EDF_framework.te_registry[me->tick_rate].new_head;
       EDF_framework.te_registry[me->tick_rate].new_head = me;
     }
@@ -227,18 +227,20 @@ void EDF_timeEvent_tick(uint8_t tick_rate)
 
   /**
    * @note
-   * The implementation uses a pointer-to-pointer (`EDF_timeEvent_t **te_link`)
+   * The implementation uses a pointer-to-pointer
+   * (@c EDF_timeEvent_t **te_link)
    * to avoid special-casing the first element of the time event registry:
-   * - At the start, `te_link = &registry->armed_head`.
-   * - As we traverse the armed time events list, `te_link` is updated to point
-   * to the `next` field of the current node: `te_link = &te->next`, where
-   * `te = *te_link`.
-   * - Removing a node is always `*te_link = te->next;` (works for both the
+   * - At the start, @c te_link = &registry->armed_head.
+   * - As we traverse the armed time events list, @c te_link is updated to point
+   *   to the @c next field of the current node: @c te_link = &te->next, where
+   *   @c te = *te_link.
+   * - Removing a node is always @c *te_link = te->next; (works for both the
    * first node and all subsequent nodes).
    *
-   * Attaching freshly armed time events (`registry->new_head`) is also unified:
-   * - When `*te_link == NULL` and `registry->new_head != NULL`, simply do
-   * `*te_link = registry->new_head;` (this attaches the new time events list
+   * Attaching freshly armed time events (@c registry->new_head) is also
+   * unified:
+   * - When @c *te_link == NULL and @c registry->new_head != NULL, simply do
+   *   @c *te_link = registry->new_head; (this attaches the new time events list
    * either at the beginning of registry->armed_head or after its last node).
    *
    * This way the same code handles head removal, internal removals and
@@ -332,23 +334,26 @@ void EDF_timeEvent_tick(uint8_t tick_rate)
 }
 
 /**
- * @note time_event_disarmed_but_linked
+ * @anchor time_event_disarmed_but_linked
+ * @par Time event disarmed but linked
  *
  * A time event can be "disarmed but still linked" for the duration of one
  * tick interval:
- * - EDF_timeEvent_disarm() sets cnt=0 but does not unlink the time event.
- * - Unlinking is performed exclusively in EDF_timeEvent_tick().
+ * - @ref EDF_timeEvent_disarm() sets @c cnt=0 but does not unlink the time
+ *   event.
+ * - Unlinking is performed exclusively in @ref EDF_timeEvent_tick().
  */
 
 /**
- * @note time_event_new_list
+ * @anchor time_event_new_list
+ * @par Time event new list
  *
  * The list of armed time events
- * (`EDF_framework.te_registry[tick_rate].armed_head`) is modified exclusively
- * inside EDF_timeEvent_tick(). Newly armed time events are first linked into a
- * temporary list
- * (`EDF_framework.te_registry[tick_rate].new_head`) and only merged into the
- * main list during the tick processing. This design allows EDF_timeEvent_tick()
- * to enter and exit the critical section multiple times, avoiding long CPU
- * blocking while maintaining armed time event list consistency.
+ * (@c EDF_framework.te_registry[tick_rate].armed_head) is modified exclusively
+ * inside @ref EDF_timeEvent_tick(). Newly armed time events are first linked
+ * into a temporary list (@c EDF_framework.te_registry[tick_rate].new_head) and
+ * only merged into the main list during the tick processing. This design
+ * allows @ref EDF_timeEvent_tick() to enter and exit the critical section
+ * multiple times, avoiding long CPU blocking while maintaining armed time
+ * event list consistency.
  */

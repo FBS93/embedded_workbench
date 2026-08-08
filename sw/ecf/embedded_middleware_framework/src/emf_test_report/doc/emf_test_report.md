@@ -6,7 +6,7 @@ EMF test report provides the shared text report utilities used by [ETF](../../..
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 

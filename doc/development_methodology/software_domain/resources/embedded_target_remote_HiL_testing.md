@@ -4,9 +4,11 @@
 
 This document describes how automated HiL tests can be executed on the embedded target using a Python runner script integrated with CTest.
 
-The script orchestrates the full remote test workflow through a Raspberry Pi connected to the target device. It requires the [embedded target remote debugging](embedded_target_remote_debugging.md) and [embedded target remote logging](embedded_target_remote_logging.md) to be enabled in order to flash the test firmware, execute it on the target, capture serial output, and report PASS/FAIL back to CTest.
+The script orchestrates the full remote test workflow through a Raspberry Pi connected to the target device. It requires the [embedded target remote debugging](embedded_target_remote_debugging.md) and [embedded target remote logging](embedded_target_remote_logging.md) to be enabled in order to flash the test firmware, execute it on the target, capture serial output and report PASS/FAIL back to CTest.
 
 ## Dependencies
+
+### Devcontainer
 
 Make sure that the environment variables in [devcontainer.json](../../../../.devcontainer/devcontainer.json) are configured for the HiL setup and target environment:
 

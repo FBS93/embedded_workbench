@@ -21,7 +21,7 @@ Implement the software from software requirements, software architecture and sof
 2. Review available tools required for the implementation.
 3. Implement each software unit according to its software detailed design.
 4. Ensure consistency between implementation, software detailed design, software architecture and software requirements.
-5. Check the software implementation for completeness, consistency, and correctness.
+5. Check the software implementation for completeness, consistency and correctness.
 
 ## Guidelines
 
@@ -52,7 +52,7 @@ The implementation of software units defined as active objects shall:
 - Implement the Hierarchical State Machine (HSM) exactly as defined in the software detailed design.
   - Implement each state defined in the HSM as a static function in the source file (`<sw_unit_name>.c`), using the names defined in the software detailed design.
   - Implement each activity defined in the HSM in a source file named `<sw_unit_name>_activities.c`, with corresponding declarations in the `<sw_unit_name>_activities.h` header file.
-  - Ensure that the HSM only extracts event parameters, evaluates minimal dispatching logic, and invokes the corresponding activities.
+  - Ensure that the HSM only extracts event parameters, evaluates minimal dispatching logic and invokes the corresponding activities.
   - Delegate all functional logic to activity functions and avoid implementing it directly within the HSM.
 - Use events as the only mechanism for interaction between software units. Direct function calls to other software units shall not be used.
 - Publish and subscribe only to the events explicitly defined for the software unit.

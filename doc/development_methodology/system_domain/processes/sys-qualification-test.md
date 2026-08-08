@@ -23,7 +23,7 @@ Define and implement system qualification tests against system requirements to v
 4. Identify system requirements requiring validation.
 5. Define and implement the system qualification tests.
 6. Define traceability between system qualification tests and the corresponding system requirements.
-7. Check the system qualification tests for completeness, consistency, and correctness.
+7. Check the system qualification tests for completeness, consistency and correctness.
 
 ## Guidelines
 

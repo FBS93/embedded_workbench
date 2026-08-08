@@ -35,6 +35,8 @@ Once running, the host can connect to the exposed port using GDB or compatible d
 
 ## Dependencies
 
+### Raspberry Pi
+
 The Raspberry Pi must have a compatible GDB server installed. For example:
 
 When using OpenOCD:
@@ -77,6 +79,8 @@ When using SEGGER J-Link GDB Server:
     ```bash
     JLinkGDBServer -version
     ```
+
+### Devcontainer
 
 Make sure that the environment variables in [devcontainer.json](../../../../.devcontainer/devcontainer.json) are configured for the installed GDB server and target environment:
 

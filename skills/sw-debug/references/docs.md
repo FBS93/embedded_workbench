@@ -1,3 +1,0 @@
-- [Software domain overview](../../../doc/development_methodology/software_domain/software_domain_overview.md)
-- [Dual targeting setup](../../../doc/resources/dual_targeting_setup.md)
-- [Embedded target remote debugging](../../../doc/development_methodology/software_domain/resources/embedded_target_remote_debugging.md)

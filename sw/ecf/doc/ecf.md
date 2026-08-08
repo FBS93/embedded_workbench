@@ -41,7 +41,7 @@ These variables are typically defined in the project [CMakePresets.json](../../.
 
 When `ECF_TARGET_PLATFORM` is defined, ECF loads the selected platform package and its platform-specific CMake integration.
 
-The `platform.cmake` file of the selected platform package centralizes the common platform-specific build configuration that shall be applied to the relevant embedded executables, such as startup files, linker scripts, libraries, and target-specific compiler or linker options.
+The `platform.cmake` file of the selected platform package centralizes the common platform-specific build configuration that shall be applied to the relevant embedded executables, such as startup files, linker scripts, libraries and target-specific compiler or linker options.
 
 The [STM32F103C8Tx platform package](../platform/stm32f103c8tx/doc/stm32f103c8tx_platform_package.md) shall be used as the reference example.
 

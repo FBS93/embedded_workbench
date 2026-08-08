@@ -3,12 +3,6 @@
 # ==============================================================================
 # @brief Automated embedded target test runner.
 #
-# Usage:
-#   run_target_test.py <test_binary>
-#
-# Parameters:
-#   <test_binary> Absolute path to the target ELF firmware to be executed.
-#
 # Intended for CI and automated hardware testing using CTest.
 #
 # @copyright
@@ -29,10 +23,10 @@
 # ------------------------------------------------------------------------------
 # External imports
 # ------------------------------------------------------------------------------
-import sys
 import os
-import subprocess
 import socket
+import subprocess
+import sys
 import time
 
 # ------------------------------------------------------------------------------
@@ -75,6 +69,7 @@ TEST_BINARY = None
 # FUNCTIONS
 # ==============================================================================
 
+
 ##
 # @brief Retrieve a required environment variable.
 #
@@ -94,13 +89,16 @@ def get_env(name):
 
   return value
 
+
 ##
 # @brief Loads required configuration values.
 #
 # Terminates the program if any required configuration value is missing.
 ##
 def init_config():
-  global RPI_USER, RPI_HOST, GDB_PORT, LOG_PORT, TARGET_RX_TIMEOUT_S, NETWORK_LATENCY_TIMEOUT_S, WORKSPACE_FOLDER, TEST_BINARY
+  global RPI_USER, RPI_HOST, GDB_PORT, LOG_PORT
+  global TARGET_RX_TIMEOUT_S, NETWORK_LATENCY_TIMEOUT_S
+  global WORKSPACE_FOLDER, TEST_BINARY
 
   # Validate command-line arguments
   if len(sys.argv) < 2:
@@ -116,6 +114,7 @@ def init_config():
   WORKSPACE_FOLDER = get_env("WORKSPACE_FOLDER")
   TEST_BINARY = sys.argv[1]
 
+
 ##
 # @brief Execute a system command.
 #
@@ -126,11 +125,12 @@ def init_config():
 ##
 def run(cmd, quiet=True):
   if quiet:
-    subprocess.run(cmd, check=True,
-                   stdout=subprocess.DEVNULL,
-                   stderr=subprocess.DEVNULL)
+    subprocess.run(
+      cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
   else:
     subprocess.run(cmd, check=True)
+
 
 ##
 # @brief Flash firmware to the target via GDB server.
@@ -139,6 +139,7 @@ def run(cmd, quiet=True):
 ##
 def flash_via_gdb(test_binary):
   print("Flashing target via GDB server...", flush=True)
+  # fmt: off
   run([
     "arm-none-eabi-gdb",
     test_binary,
@@ -151,6 +152,8 @@ def flash_via_gdb(test_binary):
     "-ex", "monitor halt",
     "-ex", "quit",
   ])
+  # fmt: on
+
 
 ##
 # @brief Main test execution workflow.
@@ -164,7 +167,7 @@ def flash_via_gdb(test_binary):
 # - Capture and analyze output
 ##
 def main():
-  init_config() # Init config values.
+  init_config()  # Init config values.
 
   print("Run target GDB server ...", flush=True)
   run([f"{WORKSPACE_FOLDER}/.vscode/tasks/run_target_gdb_server.sh"])
@@ -176,7 +179,9 @@ def main():
   run([f"{WORKSPACE_FOLDER}/.vscode/tasks/run_target_logging_server.sh"])
 
   print("Connecting to target logging server ...", flush=True)
-  serial = socket.create_connection((RPI_HOST, LOG_PORT), timeout=NETWORK_LATENCY_TIMEOUT_S)
+  serial = socket.create_connection(
+    (RPI_HOST, LOG_PORT), timeout=NETWORK_LATENCY_TIMEOUT_S
+  )
   serial.settimeout(0.2)
 
   # Flush stale serial data.
@@ -189,6 +194,7 @@ def main():
   # Launch GDB in a subprocess because the "continue" command is blocking.
   # This allows the script to proceed while the target firmware runs.
   print("Starting firmware execution...", flush=True)
+  # fmt: off
   gdb_proc = subprocess.Popen(
     [
       "arm-none-eabi-gdb",
@@ -201,12 +207,13 @@ def main():
     stdout=subprocess.DEVNULL,
     stderr=subprocess.DEVNULL,
   )
+  # fmt: on
 
   print("Capturing test output:", flush=True)
   buffer = ""
-  last_rx = time.time() # Timestamp of last received data.
+  last_rx = time.time()  # Timestamp of last received data.
 
-  ret = 1 # Set default exit code to failure.
+  ret = 1  # Set default exit code to failure.
   try:
     while True:
       try:
@@ -231,7 +238,7 @@ def main():
           break
 
       # Exit if no data has been received for TARGET_RX_TIMEOUT_S.
-      if ((time.time() - last_rx) > TARGET_RX_TIMEOUT_S):
+      if (time.time() - last_rx) > TARGET_RX_TIMEOUT_S:
         print("\n❌ Timeout: no output from target.", flush=True)
         break
 

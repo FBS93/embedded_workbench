@@ -73,8 +73,8 @@
  *
  * @param[in] super Superstate handler.
  */
-#define EDF_HSM_RET_SUPER(super)                                       \
-  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)super), \
+#define EDF_HSM_RET_SUPER(super)                                         \
+  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)(super)), \
    (EDF_hsm_stateReturn_t)RET_SUPER)
 
 /**
@@ -85,8 +85,8 @@
  *
  * @param[in] target Target state handler for the transition.
  */
-#define EDF_HSM_RET_TRAN(target)                                        \
-  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)target), \
+#define EDF_HSM_RET_TRAN(target)                                          \
+  ((EDF_HSM_UPCAST(me))->temp_state = ((EDF_hsm_stateHandler_t)(target)), \
    (EDF_hsm_stateReturn_t)RET_TRANSITION)
 
 /**
@@ -100,7 +100,8 @@
  * @brief Forces a state handler to return its superstate.
  *
  * This signal must never be handled explicitly. It always falls into
- * the `default` case of the state switch and returns EDF_HSM_RET_SUPER(super).
+ * the default case of the state switch and returns
+ * @ref EDF_HSM_RET_SUPER(super).
  */
 #define EDF_HSM_EMPTY_SIGNAL ((EDF_event_signal_t)0U)
 
@@ -108,7 +109,8 @@
  * @brief Entry action signal.
  *
  * A state may implement this handler to perform its entry action.
- * The only valid return is EDF_HSM_HANDLED(). If no entry action exists,
+ * The only valid return is @ref EDF_HSM_RET_HANDLED(). If no entry action
+ * exists,
  * no handling of the signal should be implemented.
  */
 #define EDF_HSM_ENTRY_SIGNAL ((EDF_event_signal_t)1U)
@@ -117,7 +119,8 @@
  * @brief Exit action signal.
  *
  * A state may implement this handler to perform its exit action.
- * The only valid return is EDF_HSM_HANDLED(). If no exit action exists,
+ * The only valid return is @ref EDF_HSM_RET_HANDLED(). If no exit action
+ * exists,
  * no handling of the signal should be implemented.
  */
 #define EDF_HSM_EXIT_SIGNAL ((EDF_event_signal_t)2U)
@@ -126,7 +129,8 @@
  * @brief Initial transition signal.
  *
  * Not intended to execute any action; the only valid return is
- * EDF_HSM_RET_TRAN(target), or leave the handling of the signal unimplemented.
+ * @ref EDF_HSM_RET_TRAN(target), or leave the handling of the signal
+ * unimplemented.
  */
 #define EDF_HSM_INIT_SIGNAL ((EDF_event_signal_t)3U)
 
@@ -146,10 +150,10 @@
  * @brief Internal return codes from state/action handlers.
  *
  * @note For EDF library internal use only. Users must use the public macros:
- * - ::EDF_HSM_RET_HANDLED
- * - ::EDF_HSM_RET_UNHANDLED
- * - ::EDF_HSM_RET_SUPER
- * - ::EDF_HSM_RET_TRAN
+ * - EDF_HSM_RET_HANDLED
+ * - EDF_HSM_RET_UNHANDLED
+ * - EDF_HSM_RET_SUPER
+ * - EDF_HSM_RET_TRAN
  */
 typedef enum
 {

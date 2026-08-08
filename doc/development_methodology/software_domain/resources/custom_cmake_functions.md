@@ -4,9 +4,9 @@
 
 This document describes the custom CMake functions used for reusable software build integration.
 
-## `ect_add_executable()`
+## `ew_add_executable()`
 
-[`ect_add_executable()`](../../../../tools/cmake/functions/ect_add_executable.cmake) shall be used to create executable targets that need the common executable integration defined at workspace level.
+[`ew_add_executable()`](../../../../tools/cmake/functions/ew_add_executable.cmake) shall be used to create executable targets that need the common executable integration defined at workspace level.
 
 It wraps the standard CMake `add_executable()` function and applies the common executable settings configured for the workspace, avoiding per-target duplication.
 

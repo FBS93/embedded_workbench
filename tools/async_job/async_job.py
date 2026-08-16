@@ -30,8 +30,8 @@ import json
 import os
 import re
 import secrets
-import signal
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile

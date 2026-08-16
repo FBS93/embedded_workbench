@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__timeEventRegistry__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_timeEventRegistry_t</compoundname>
+    <includes refid="edf__framework_8h" local="no">edf_framework.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__timeEventRegistry__t_1a14c20d5f1e38ae092a2015b0bc2d96fb" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref> *</type>
+        <definition>EDF_timeEvent_t* EDF_timeEventRegistry_t::armed_head</definition>
+        <argsstring></argsstring>
+        <name>armed_head</name>
+        <qualifiedname>EDF_timeEventRegistry_t::armed_head</qualifiedname>
+        <briefdescription>
+<para>Points to the list of armed time events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="92" column="19" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__timeEventRegistry__t_1a7ba58917405c23d8de2198e4031b4555" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref> *</type>
+        <definition>EDF_timeEvent_t* EDF_timeEventRegistry_t::new_head</definition>
+        <argsstring></argsstring>
+        <name>new_head</name>
+        <qualifiedname>EDF_timeEventRegistry_t::new_head</qualifiedname>
+        <briefdescription>
+<para>Points to the list of newly armed time events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="/workspaces/embedded_workbench/sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c_1time_event_new_list" kindref="member">time_event_new_list</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="93" column="19" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Time event registry. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Registry of time events for a specific tick rate. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="5">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>EDF_timeEventRegistry_t</label>
+        <link refid="structEDF__timeEventRegistry__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>armed_head</edgelabel>
+          <edgelabel>new_head</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EDF_timeEvent_t</label>
+        <link refid="structEDF__timeEvent__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ao</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="90" column="1" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="91" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structEDF__timeEventRegistry__t_1a14c20d5f1e38ae092a2015b0bc2d96fb" prot="public" virt="non-virtual"><scope>EDF_timeEventRegistry_t</scope><name>armed_head</name></member>
+      <member refid="structEDF__timeEventRegistry__t_1a7ba58917405c23d8de2198e4031b4555" prot="public" virt="non-virtual"><scope>EDF_timeEventRegistry_t</scope><name>new_head</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

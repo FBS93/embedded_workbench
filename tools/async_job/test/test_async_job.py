@@ -387,8 +387,12 @@ def test_queries_and_unknown_job_exit_codes(isolated_script):
 ##
 def test_clean_terminal_job_and_reject_active_or_unknown(isolated_script):
   terminal_id = "3" * 24
-  terminal_directory = create_persisted_job(isolated_script, terminal_id, "succeeded")
-  other_directory = isolated_script.parents[2] / "build" / "async_job" / ("4" * 24)
+  terminal_directory = create_persisted_job(
+    isolated_script, terminal_id, "succeeded"
+  )
+  other_directory = (
+    isolated_script.parents[2] / "build" / "async_job" / ("4" * 24)
+  )
   other_directory.mkdir()
   clean_result = run_cli(isolated_script, "clean", terminal_id)
   assert clean_result.returncode == 0, clean_result.stderr

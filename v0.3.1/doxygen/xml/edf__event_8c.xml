@@ -1,0 +1,506 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__event_8c" kind="file" language="C++">
+    <compoundname>edf_event.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="edf__event_8h" local="yes">edf_event.h</includes>
+    <includes refid="edf__framework_8h" local="yes">edf_framework.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes local="yes">edf_core.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="19">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event.c</label>
+        <link refid="edf__event_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="11">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="5">
+        <label>edf_config.h</label>
+      </node>
+      <node id="17">
+        <label>edf_core.h</label>
+      </node>
+      <node id="22">
+        <label>pthread.h</label>
+      </node>
+      <node id="14">
+        <label>queue.h</label>
+      </node>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__event_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" line="60" column="1" declfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" declline="60" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8c_1aca9295f06b59146a186b7b2a1628e73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_event_initImmutable</definition>
+        <argsstring>(EDF_event_t *me, EDF_event_signal_t sig)</argsstring>
+        <name>EDF_event_initImmutable</name>
+        <param>
+          <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>EDF_event_signal_t</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+<para>Initializes an immutable event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event instance to initialize. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" line="82" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="82" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8c_1aa330c3b895241a243cf7315f92678e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+        <definition>EDF_event_t * EDF_event_initMutable</definition>
+        <argsstring>(uint_fast16_t e_size, int sig)</argsstring>
+        <name>EDF_event_initMutable</name>
+        <param>
+          <type>uint_fast16_t</type>
+          <declname>e_size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+<para>Create and initialize a mutable event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the event in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the newly created mutable event, or NULL if no pool space is available. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="note"><para>This assertion means that the event allocation failed, and this failure cannot be tolerated.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" line="91" column="13" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="91" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8c_1a84f67396e28805b84cb94ea46589177e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_event_incrementRefCnt_</definition>
+        <argsstring>(EDF_event_t *me)</argsstring>
+        <name>EDF_event_incrementRefCnt_</name>
+        <param>
+          <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Increments the reference counter of an event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function shall be called inside a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" line="137" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="137" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8c_1a3c231f2d6c18b50ca64073ab76134cf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_event_decrementRefCnt_</definition>
+        <argsstring>(EDF_event_t *me)</argsstring>
+        <name>EDF_event_decrementRefCnt_</name>
+        <param>
+          <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Decrements the reference counter of an event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function shall be called inside a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" line="144" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="144" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8c_1aa7f1bacc9a03a303d353398699c8dd03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_event_gc</definition>
+        <argsstring>(EDF_event_t *e)</argsstring>
+        <name>EDF_event_gc</name>
+        <param>
+          <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Garbage collector for a mutable event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Releases the pool if the event is no longer referenced.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the mutable event to be recycled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" line="151" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="151" bodyend="186"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/src/edf_event.c"/>
+  </compounddef>
+</doxygen>

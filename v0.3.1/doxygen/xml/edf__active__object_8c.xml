@@ -1,0 +1,917 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__active__object_8c" kind="file" language="C++">
+    <compoundname>edf_active_object.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes refid="edf__framework_8h" local="yes">edf_framework.h</includes>
+    <includes refid="edf__hsm_8h" local="yes">edf_hsm.h</includes>
+    <includes local="yes">edf_core.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="19">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</label>
+        <link refid="edf__active__object_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="10">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="6">
+        <label>edf_config.h</label>
+      </node>
+      <node id="17">
+        <label>edf_core.h</label>
+      </node>
+      <node id="22">
+        <label>pthread.h</label>
+      </node>
+      <node id="13">
+        <label>queue.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__active__object_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="61" column="1" declfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" declline="61" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a79459067401e9ed55fca1f17283cdc7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_init</definition>
+        <argsstring>(EDF_activeObject_t *me, EDF_hsm_stateHandler_t initial)</argsstring>
+        <name>EDF_activeObject_init</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref></type>
+          <declname>initial</declname>
+        </param>
+        <briefdescription>
+<para><anchor id="edf__active__object_8c_1preemption_threshold"/></para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>Preemption threshold</title><para></para>
+</simplesect>
+Each AO has a priority (prio) and an optional preemption-threshold (pthre).<itemizedlist>
+<listitem><para>prio decides scheduling order.</para>
+</listitem><listitem><para>pthre limits which higher-priority AOs can preempt this AO.</para>
+</listitem><listitem><para>if not specified, pthre = prio (default).</para>
+</listitem></itemizedlist>
+</para>
+<para>AOs with prio ≤ pthre cannot preempt it (same group).</para>
+<para>Only AOs with prio &gt; pthre can preempt.</para>
+<para>This allows grouping AOs to avoid unnecessary preemptions while still preserving responsiveness to truly higher priorities.</para>
+<para>For consistency, each AO’s pthre must not be smaller than its lower prio neighbor and must not be greater than its higher prio neighbor.</para>
+<para>Initializes an active object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">initial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial state handler function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="83" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="83" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a9424373b920b0b1f26d9a22083582edd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_pubSubInit</definition>
+        <argsstring>(EDF_activeObject_bitmask_t *subs_list, EDF_event_signal_t max_signal)</argsstring>
+        <name>EDF_activeObject_pubSubInit</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__bitmask__t" kindref="compound">EDF_activeObject_bitmask_t</ref> *</type>
+          <declname>subscriber_list</declname>
+          <defname>subs_list</defname>
+        </param>
+        <param>
+          <type>EDF_event_signal_t</type>
+          <declname>max_signal</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the publish-subscribe feature. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Shall be called before any other function related to the publish-subscribe feature.</para>
+<para><simplesect kind="note"><para>The subscriberList array shall provide exactly [max_signal] entries.</para>
+</simplesect>
+<simplesect kind="note"><para>The <computeroutput>subscriberList</computeroutput> array shall also include the reserved entries for signals below <ref refid="edf__hsm_8h_1a90e79450b49ed799ee9beb70ff9fba92" kindref="member">EDF_HSM_USER_SIGNAL</ref>.</para>
+</simplesect>
+Example: <programlisting><codeline><highlight class="normal">typedef<sp/>enum<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SIGNAL_1<sp/>=<sp/>EDF_HSM_USER_SIGNAL,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SIGNAL_2,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>LAST_SIGNAL</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>hsm_eventSignal_t;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">static<sp/>EDF_activeObject_bitmask_t<sp/>subscriberList[LAST_SIGNAL];</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">EDF_activeObject_pubSubInit(subscriberList,<sp/>LAST_SIGNAL);</highlight></codeline>
+</programlisting></para>
+<para>The EDF reserved signal entries remain intentionally unused for simplicity of the implementation, ensuring consistent indexing between EDF and user signals.</para>
+<para><xrefsect id="todo_1_todo000021"><xreftitle>Todo</xreftitle><xrefdescription><para>Evaluate whether it is worth optimizing memory usage by avoiding reserved entries for EDF signals (those below <ref refid="edf__hsm_8h_1a90e79450b49ed799ee9beb70ff9fba92" kindref="member">EDF_HSM_USER_SIGNAL</ref>). These entries remain intentionally unused in the current implementation for indexing simplicity.</para>
+</xrefdescription></xrefsect></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">subscriber_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the array of subscriber lists. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">max_signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Highest user event signal defined. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="98" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="98" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a6b91bd4f1399ba0f638d562305c063a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_publish</definition>
+        <argsstring>(const EDF_event_t *e)</argsstring>
+        <name>EDF_activeObject_publish</name>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Publishes an event to all subscribed active objects. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event to be published. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="note"><para>If a lower-priority AO publishes to a higher-priority one, it can preempt and recycle the event before multicasting finishes, prematurely freeing it from the pool. To prevent this, the reference counter of a mutable event is incremented before multicasting. At the end, <ref refid="edf__event_8h_1aa7f1bacc9a03a303d353398699c8dd03" kindref="member">EDF_event_gc()</ref> decrements the counter and recycles the event if it drops to zero.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="114" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="114" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a96e398f42ea14f17ac094b8538c973d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_subscribe</definition>
+        <argsstring>(const EDF_activeObject_t *me, EDF_event_signal_t sig)</argsstring>
+        <name>EDF_activeObject_subscribe</name>
+        <param>
+          <type>const <ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>EDF_event_signal_t</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+<para>Subscribes an active object to a specific event signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal to subscribe to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="180" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="180" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1ab7195013756d0fbed7aee0d37c1fd2c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_subscribeAll</definition>
+        <argsstring>(const EDF_activeObject_t *me)</argsstring>
+        <name>EDF_activeObject_subscribeAll</name>
+        <param>
+          <type>const <ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Subscribes an active object to all event signals. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="200" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="200" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1abaf821cbbf94eb1e0de51dbc7b377a54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_unsubscribe</definition>
+        <argsstring>(const EDF_activeObject_t *me, EDF_event_signal_t sig)</argsstring>
+        <name>EDF_activeObject_unsubscribe</name>
+        <param>
+          <type>const <ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>EDF_event_signal_t</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+<para>Unsubscribes an active object from a specific event signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal to unsubscribe from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="228" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="228" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a9535c9727a4cdadbe7afafdb54e1079b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_unsubscribeAll</definition>
+        <argsstring>(const EDF_activeObject_t *me)</argsstring>
+        <name>EDF_activeObject_unsubscribeAll</name>
+        <param>
+          <type>const <ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Unsubscribes an active object from all event signals. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="248" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="248" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a6515b237aa3fe9531a4fc45c63f789e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_defer</definition>
+        <argsstring>(const EDF_activeObject_t *me, EDF_eventQueue_t *e_queue, const EDF_event_t *e)</argsstring>
+        <name>EDF_activeObject_defer</name>
+        <param>
+          <type>const <ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="structEDF__eventQueue__t" kindref="compound">EDF_eventQueue_t</ref> *</type>
+          <declname>e_queue</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Defers an event by placing it into a deferred event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">e_queue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the deferred event queue. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event to defer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="276" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="276" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1afe9233dab6dcd1282cd53103a3ddd6c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_recall</definition>
+        <argsstring>(EDF_activeObject_t *me, EDF_eventQueue_t *e_queue)</argsstring>
+        <name>EDF_activeObject_recall</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="structEDF__eventQueue__t" kindref="compound">EDF_eventQueue_t</ref> *</type>
+          <declname>e_queue</declname>
+        </param>
+        <briefdescription>
+<para>Recalls (retrieves) a deferred event from the deferred event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">e_queue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the deferred event queue. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="note"><para>After posting to the AO&apos;s queue the event must be referenced at least twice: once in the deferred event queue (e_queue-&gt;get() did NOT decrement the reference counter) and once in the AO&apos;s event queue.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="291" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="291" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a917710d3a74e92249afc0804550c0db0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint_fast16_t</type>
+        <definition>uint_fast16_t EDF_activeObject_flushDeferred</definition>
+        <argsstring>(const EDF_activeObject_t *me, EDF_eventQueue_t *e_queue, uint_fast16_t num)</argsstring>
+        <name>EDF_activeObject_flushDeferred</name>
+        <param>
+          <type>const <ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="structEDF__eventQueue__t" kindref="compound">EDF_eventQueue_t</ref> *</type>
+          <declname>e_queue</declname>
+        </param>
+        <param>
+          <type>uint_fast16_t</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+<para>Removes a number of deferred events from the deferred event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">e_queue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the deferred event queue. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of events to flush. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The actual number of events flushed from the queue. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="326" column="15" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="326" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1aa4ae260fade3b8b6c960113379c40eec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_register</definition>
+        <argsstring>(EDF_activeObject_t *me)</argsstring>
+        <name>EDF_activeObject_register</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Registers an active object within the EDF framework. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>For internal EDF library use only.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="357" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="357" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a02783a44bc856636e089b8220da3a449" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_postFIFO</definition>
+        <argsstring>(EDF_activeObject_t *me, const EDF_event_t *e)</argsstring>
+        <name>EDF_activeObject_postFIFO</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Posts an event to the back of an active object&apos;s queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>For internal EDF library use only.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event to post. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Safety margin allows up to 2 refs per AO (normal queue + deferred queue).</para>
+<para><simplesect kind="note"><para>This assertion means that the post failed, and this failure cannot be tolerated.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="411" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="411" bodyend="468"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a22aae6af2c48209e5d3aa93624706ba8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_postLIFO</definition>
+        <argsstring>(EDF_activeObject_t *me, const EDF_event_t *e)</argsstring>
+        <name>EDF_activeObject_postLIFO</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Posts an event to the front of an active object&apos;s queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>For internal EDF library use only.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event to post. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Safety margin allows up to 2 refs per AO (normal queue + deferred queue).</para>
+<para><simplesect kind="note"><para>This assertion means that the post failed, and this failure cannot be tolerated.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="470" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="470" bodyend="532"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__active__object_8c_1a515611fbb8263f762598df5b561c64fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+        <definition>const EDF_event_t * EDF_activeObject_get</definition>
+        <argsstring>(EDF_activeObject_t *me)</argsstring>
+        <name>EDF_activeObject_get</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves the next event from the active object&apos;s event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>For internal EDF library use only.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the next event. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" line="534" column="19" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c" bodystart="534" bodyend="580"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c"/>
+  </compounddef>
+</doxygen>

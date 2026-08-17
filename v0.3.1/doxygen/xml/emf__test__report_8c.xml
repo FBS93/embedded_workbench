@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__test__report_8c" kind="file" language="C++">
+    <compoundname>emf_test_report.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="emf__test__report_8h" local="yes">emf_test_report.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="emf__print_8h" local="yes">emf_print.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c</label>
+        <link refid="emf__test__report_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="emf__test__report_8c_1a666201b429d62c0cc1bd9f464c0fafb3" prot="public" static="no">
+        <name>LINE_WIDTH</name>
+        <initializer>80U</initializer>
+        <briefdescription>
+<para>Maximum width of a printed line (in characters). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" line="43" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__test__report_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" line="56" column="1" declfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" declline="56" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8c_1a157998985edd94237260ec9f40513b21" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void printRepeated</definition>
+        <argsstring>(char c, uint8_t cnt)</argsstring>
+        <name>printRepeated</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>cnt</declname>
+        </param>
+        <briefdescription>
+<para>Prints a character repeated a specified number of times. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character to print repeatedly. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cnt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of times to print the character. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" line="91" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="91" bodyend="97" declfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" declline="76" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8c_1a5a373aa4bb119674d74232ab94a661e5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void printCenteredLine</definition>
+        <argsstring>(const char *text, char fill)</argsstring>
+        <name>printCenteredLine</name>
+        <param>
+          <type>const char *</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>fill</declname>
+        </param>
+        <briefdescription>
+<para>Prints a null-terminated string centered on a line, padded with a specified fill character on both sides. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Null-terminated string to center. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fill</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character used for padding on both sides. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" line="99" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="99" bodyend="115" declfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" declline="85" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8c_1ad2f89759f33808b4038733eadcf7be0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_testReport_printHeader</definition>
+        <argsstring>(const char *frameworkName, const char *suiteName)</argsstring>
+        <name>EMF_testReport_printHeader</name>
+        <param>
+          <type>const char *</type>
+          <declname>frameworkName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>suiteName</declname>
+        </param>
+        <briefdescription>
+<para>Prints the test report header with framework and suite names. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">frameworkName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test framework. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">suiteName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test suite. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" line="121" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="121" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8c_1a282a2aeabc2e8fe63e1a97bf333c4282" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_testReport_printTestIntro</definition>
+        <argsstring>(uint16_t test_num, const char *test_name)</argsstring>
+        <name>EMF_testReport_printTestIntro</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>test_num</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>test_name</declname>
+        </param>
+        <briefdescription>
+<para>Prints the test number and name at the start of test execution. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">test_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of the test. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">test_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" line="152" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="152" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8c_1a2bfb2ad97de5d8f36023d4945b74fe92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_testReport_printTestResult</definition>
+        <argsstring>(EMF_testReport_testResult_t test_result, const char *fail_cond, const char *fail_file, int fail_line)</argsstring>
+        <name>EMF_testReport_printTestResult</name>
+        <param>
+          <type><ref refid="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0b" kindref="member">EMF_testReport_testResult_t</ref></type>
+          <declname>test_result</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fail_cond</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fail_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fail_line</declname>
+        </param>
+        <briefdescription>
+<para>Prints the result of a test. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">test_result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Test result (passed, skipped, failed). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fail_cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed condition (if any). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fail_file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File where the failure occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fail_line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line number of the failure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" line="162" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="162" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8c_1a49d34027d56d4c9a5222480a3867c739" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_testReport_printSummary</definition>
+        <argsstring>(uint16_t totalTests, uint16_t skippedTests, uint16_t failedTests)</argsstring>
+        <name>EMF_testReport_printSummary</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>totalTests</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>skippedTests</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>failedTests</declname>
+        </param>
+        <briefdescription>
+<para>Prints a summary of all test results. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">totalTests</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Total number of tests run. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">skippedTests</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of skipped tests. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">failedTests</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of failed tests. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" line="199" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="199" bodyend="211"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="epf__timer_8h" kind="file" language="C++">
+    <compoundname>epf_timer.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="epf_8h" local="yes">sw/ecf/embedded_platform_framework/os/posix/inc/epf.h</includedby>
+    <includedby refid="epf__timer_8c" local="yes">sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h</label>
+        <link refid="epf__timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>sw/ecf/embedded_platform_framework/os/posix/inc/epf.h</label>
+        <link refid="epf_8h"/>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h</label>
+        <link refid="epf__timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c</label>
+        <link refid="epf__timer_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structEPF__timer__entry__t" prot="public">EPF_timer_entry_t</innerclass>
+    <innerclass refid="structEPF__timer__t" prot="public">EPF_timer_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="epf__timer_8h_1aa7beb66b6440d9ef2a26a415ac2eb173" prot="public" static="no">
+        <name>EPF_TIMER_MS_TO_NS</name>
+        <param><defname>ms</defname></param>
+        <initializer>((uint64_t)(ms) * 1000000ULL)</initializer>
+        <briefdescription>
+<para>Converts milliseconds to nanoseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Equivalent time in nanoseconds as uint64_t. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="52" column="9" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="epf__timer_8h_1a91d904c9decd23fa77ead5595503d310" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* EPF_timer_callback_t) (void)</definition>
+        <argsstring>)(void)</argsstring>
+        <name>EPF_timer_callback_t</name>
+        <briefdescription>
+<para>Callback type invoked on timer entry expiration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The callback executes in the timer thread context. Performing lengthy or blocking operations may delay other timer entries or cause timing deviations. Use this callback strictly as an ISR-like routine. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="64" column="9" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="epf__timer_8h_1aa1be7840388c8066eb3af1614a705ab2" prot="public" static="no">
+        <type>struct <ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref></type>
+        <definition>typedef struct EPF_timer_entry_t EPF_timer_entry_t</definition>
+        <argsstring></argsstring>
+        <name>EPF_timer_entry_t</name>
+        <briefdescription>
+<para>Timer entry structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="77" column="19"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="epf__timer_8h_1a0145c7a497b841d80aa344c9b3a7be02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EPF_timer_init</definition>
+        <argsstring>(EPF_timer_t *me, uint8_t prio)</argsstring>
+        <name>EPF_timer_init</name>
+        <param>
+          <type><ref refid="structEPF__timer__t" kindref="compound">EPF_timer_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>prio</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a timer instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>prio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ticker thread priority. Valid range: 1–99 (using SCHED_FIFO). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Creating p-thread with the SCHED_FIFO policy failed. Most likely this application has no superuser privileges, so we just fall back to the default SCHED_OTHER policy, which only supports priority 0.</para>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="108" column="6" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c" bodystart="244" bodyend="291" declfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" declline="108" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="epf__timer_8h_1a03a38f2867a05fabc356573e92cd0148" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EPF_timer_deinit</definition>
+        <argsstring>(EPF_timer_t *me)</argsstring>
+        <name>EPF_timer_deinit</name>
+        <param>
+          <type><ref refid="structEPF__timer__t" kindref="compound">EPF_timer_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Deinitializes a timer instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="115" column="6" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c" bodystart="293" bodyend="313" declfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" declline="115" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="epf__timer_8h_1a8f198551c269d8e75a3284c85d764a05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EPF_timeEvent_new</definition>
+        <argsstring>(EPF_timer_entry_t *timer_entry, EPF_timer_callback_t cb)</argsstring>
+        <name>EPF_timeEvent_new</name>
+        <param>
+          <type><ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref> *</type>
+          <declname>timer_entry</declname>
+        </param>
+        <param>
+          <type><ref refid="epf__timer_8h_1a91d904c9decd23fa77ead5595503d310" kindref="member">EPF_timer_callback_t</ref></type>
+          <declname>cb</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a timer entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">timer_entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer entry instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback to invoke on timer expiration. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="123" column="6" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c" bodystart="315" bodyend="328" declfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" declline="123" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="epf__timer_8h_1afacb092a00de3c8410e498b5ae4fd06a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EPF_timer_arm</definition>
+        <argsstring>(EPF_timer_t *me, EPF_timer_entry_t *timer_entry, uint64_t start, uint64_t period)</argsstring>
+        <name>EPF_timer_arm</name>
+        <param>
+          <type><ref refid="structEPF__timer__t" kindref="compound">EPF_timer_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref> *</type>
+          <declname>timer_entry</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>period</declname>
+        </param>
+        <briefdescription>
+<para>Arms a timer entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">timer_entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer entry instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time until first expiration (nano seconds). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Periodic interval of timer expirations, 0 for one-shot timer (nano seconds). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Is the timer unlinked? See <ref refid="/workspaces/embedded_workbench/sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c_1timer_disarmed_but_linked" kindref="member">timer_disarmed_but_linked</ref>. This check allows disarming and re-arming within the same tick without duplicating links.</para>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="134" column="6" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c" bodystart="330" bodyend="363" declfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" declline="134" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="epf__timer_8h_1a2576aef6156f1f78e029b9e491d70fad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EPF_timer_disarm</definition>
+        <argsstring>(EPF_timer_t *me, EPF_timer_entry_t *timer_entry)</argsstring>
+        <name>EPF_timer_disarm</name>
+        <param>
+          <type><ref refid="structEPF__timer__t" kindref="compound">EPF_timer_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref> *</type>
+          <declname>timer_entry</declname>
+        </param>
+        <briefdescription>
+<para>Disarms a timer entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">timer_entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer entry instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the timer was armed, false if it was already disarmed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="146" column="6" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c" bodystart="365" bodyend="391" declfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" declline="146" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="epf__timer_8h_1a48fb383313381c15b35cad5b0b0d0939" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EPF_timer_rearm</definition>
+        <argsstring>(EPF_timer_t *me, EPF_timer_entry_t *timer_entry, uint64_t time)</argsstring>
+        <name>EPF_timer_rearm</name>
+        <param>
+          <type><ref refid="structEPF__timer__t" kindref="compound">EPF_timer_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref> *</type>
+          <declname>timer_entry</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Rearms a timer entry with a new timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">timer_entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer entry instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time until first expiration (nano seconds). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the timer was already armed, false if it was not. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Is the timer unlinked? See <ref refid="/workspaces/embedded_workbench/sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c_1timer_disarmed_but_linked" kindref="member">timer_disarmed_but_linked</ref>. This check allows disarming and re-arming within the same tick without duplicating links.</para>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="156" column="6" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c" bodystart="393" bodyend="439" declfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" declline="156" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="epf__timer_8h_1a689cc59d7dcd46afc489f8e3bc26f57f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t EPF_timer_currentCounter</definition>
+        <argsstring>(EPF_timer_t *me, EPF_timer_entry_t *timer_entry)</argsstring>
+        <name>EPF_timer_currentCounter</name>
+        <param>
+          <type><ref refid="structEPF__timer__t" kindref="compound">EPF_timer_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref> *</type>
+          <declname>timer_entry</declname>
+        </param>
+        <briefdescription>
+<para>Gets the current counter value of a timer entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">timer_entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the timer entry instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Current tick counter of the timer (nano seconds). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="167" column="10" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c" bodystart="441" bodyend="455" declfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" declline="167" declcolumn="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h"/>
+  </compounddef>
+</doxygen>

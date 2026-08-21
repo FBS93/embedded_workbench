@@ -282,8 +282,7 @@ class DoclingOutputCapture:
       for logger_name in DOCLING_LOGGER_NAMES:
         logger = logging.getLogger(logger_name)
         handler_levels = [
-          (handler, handler.level)
-          for handler in logger.handlers
+          (handler, handler.level) for handler in logger.handlers
         ]
         self.logger_states.append(
           (
@@ -330,10 +329,7 @@ class DoclingOutputCapture:
   # @return Combined logging, standard-output and standard-error text.
   ##
   def diagnostics(self):
-    diagnostics = [
-      self.handler.format(record)
-      for record in self.records
-    ]
+    diagnostics = [self.handler.format(record) for record in self.records]
     for stream in (self.stdout, self.stderr):
       stream_text = stream.getvalue().strip()
       if stream_text:
@@ -549,10 +545,7 @@ def parse_args(arguments=None):
   parser.add_argument(
     "--page-ranges",
     default=None,
-    help=(
-      "Forced inclusive page ranges, for example "
-      "'50-53,600-601'."
-    ),
+    help=("Forced inclusive page ranges, for example '50-53,600-601'."),
   )
   return parser.parse_args(arguments)
 
@@ -713,9 +706,7 @@ def read_metadata_and_body_sha256(output_path):
         if metadata_end >= 0:
           metadata_handle.write(data[:metadata_end])
           body_hash = hashlib.sha256()
-          body_hash.update(
-            data[metadata_end + len(METADATA_SUFFIX) :]
-          )
+          body_hash.update(data[metadata_end + len(METADATA_SUFFIX) :])
           for body_chunk in iter(
             lambda: output_handle.read(1024 * 1024),
             b"",
@@ -808,16 +799,12 @@ def parse_page_ranges(ranges_text):
     start_page = int(match.group(1))
     end_page = int(match.group(2))
     if start_page < 1 or end_page < 1 or start_page > end_page:
-      raise PdfToMarkdownError(
-        f"Invalid page range: {range_text.strip()}"
-      )
+      raise PdfToMarkdownError(f"Invalid page range: {range_text.strip()}")
 
     if parsed_ranges:
       previous_start, previous_end = parsed_ranges[-1]
       if (start_page, end_page) == (previous_start, previous_end):
-        raise PdfToMarkdownError(
-          f"Duplicate page range: {range_text.strip()}"
-        )
+        raise PdfToMarkdownError(f"Duplicate page range: {range_text.strip()}")
       if start_page <= previous_start:
         raise PdfToMarkdownError(
           "Forced page ranges must be ordered by start page."
@@ -868,9 +855,7 @@ def build_segments(total_pages, pages_per_segment, forced_ranges):
   previous_range = None
   for start_page, end_page in forced_ranges:
     if start_page < 1 or end_page < start_page:
-      raise PdfToMarkdownError(
-        f"Invalid page range: {start_page}-{end_page}"
-      )
+      raise PdfToMarkdownError(f"Invalid page range: {start_page}-{end_page}")
     if end_page > total_pages:
       raise PdfToMarkdownError(
         f"Page range {start_page}-{end_page} exceeds the "
@@ -1134,9 +1119,7 @@ def convert_segment_with_docling(
       )
   except Exception as error:
     diagnostics = (
-      output_capture.diagnostics()
-      if output_capture is not None
-      else ""
+      output_capture.diagnostics() if output_capture is not None else ""
     )
     if diagnostics:
       raise PdfToMarkdownError(
@@ -1259,9 +1242,7 @@ def run_segment_worker(
 
   if process.returncode != 0:
     diagnostics = "\n".join(
-      stream.strip()
-      for stream in (stdout, stderr)
-      if stream.strip()
+      stream.strip() for stream in (stdout, stderr) if stream.strip()
     )
     if process.returncode < 0:
       signal_name = signal.Signals(-process.returncode).name
@@ -1290,8 +1271,7 @@ def run_segment_worker(
 ##
 def convert_with_docling(input_path, body_path, segments, verbose=False):
   total_pages = sum(
-    end_page - start_page + 1
-    for start_page, end_page in segments
+    end_page - start_page + 1 for start_page, end_page in segments
   )
   progress = ProgressReporter(
     len(segments),
@@ -1392,11 +1372,7 @@ def write_final_staging_file(
     body_sha256,
     conversion_options,
   )
-  metadata_data = (
-    METADATA_PREFIX
-    + canonical_json(metadata)
-    + METADATA_SUFFIX
-  )
+  metadata_data = METADATA_PREFIX + canonical_json(metadata) + METADATA_SUFFIX
 
   with staging_path.open("wb") as output_handle:
     output_handle.write(metadata_data)

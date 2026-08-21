@@ -108,10 +108,10 @@ def fake_docling(tmp_path):
       "    self.options = options\n"
     ),
     "docling/document_converter.py": (
-       "import logging\n"
-       "import os\n"
-       "import signal\n"
-       "import time\n"
+      "import logging\n"
+      "import os\n"
+      "import signal\n"
+      "import time\n"
       "from pathlib import Path\n\n"
       "class PdfFormatOption:\n"
       "  def __init__(self, pipeline_options):\n"
@@ -121,16 +121,16 @@ def fake_docling(tmp_path):
       "    self.page_range = page_range\n\n"
       "  def save_as_markdown(self, filename, image_mode):\n"
       '    content = os.environ.get("FAKE_DOCLING_MARKDOWN")\n'
-      '    large_content_bytes = os.environ.get(\n'
+      "    large_content_bytes = os.environ.get(\n"
       '      "FAKE_DOCLING_MARKDOWN_BYTES"\n'
-      '    )\n'
-      '    if large_content_bytes is not None:\n'
+      "    )\n"
+      "    if large_content_bytes is not None:\n"
       '      content = "x" * int(large_content_bytes) + "\\n"\n'
-      '    if content is None:\n'
+      "    if content is None:\n"
       '      content = "\\n".join(\n'
       '        f"Page {page}" for page in range(\n'
-      '          self.page_range[0], self.page_range[1] + 1\n'
-      '        )\n'
+      "          self.page_range[0], self.page_range[1] + 1\n"
+      "        )\n"
       '      ) + "\\n"\n'
       '    filename.write_text(content, encoding="utf-8")\n'
       '    if os.environ.get("FAKE_DOCLING_FAIL") == "1":\n'
@@ -151,18 +151,18 @@ def fake_docling(tmp_path):
       '    if os.environ.get("FAKE_DOCLING_NATIVE_OUTPUT") == "1":\n'
       '      os.write(1, b"native stdout\\n")\n'
       '      os.write(2, b"native stderr\\n")\n'
-       '    delay = float(os.environ.get("FAKE_DOCLING_DELAY_SECONDS", "0"))\n'
-       '    ready_file = os.environ.get("FAKE_DOCLING_READY_FILE")\n'
-       '    if ready_file:\n'
-       '      Path(ready_file).touch()\n'
-       '    if delay > 0:\n'
-       '      time.sleep(delay)\n'
-       '    fail_range = os.environ.get("FAKE_DOCLING_FAIL_RANGE")\n'
+      '    delay = float(os.environ.get("FAKE_DOCLING_DELAY_SECONDS", "0"))\n'
+      '    ready_file = os.environ.get("FAKE_DOCLING_READY_FILE")\n'
+      "    if ready_file:\n"
+      "      Path(ready_file).touch()\n"
+      "    if delay > 0:\n"
+      "      time.sleep(delay)\n"
+      '    fail_range = os.environ.get("FAKE_DOCLING_FAIL_RANGE")\n'
       '    if fail_range == f"{page_range[0]}-{page_range[1]}":\n'
       '      raise RuntimeError("simulated segment failure")\n'
       '    kill_range = os.environ.get("FAKE_DOCLING_SIGKILL_RANGE")\n'
       '    if kill_range == f"{page_range[0]}-{page_range[1]}":\n'
-       '      signal.raise_signal(signal.SIGKILL)\n'
+      "      signal.raise_signal(signal.SIGKILL)\n"
       "    return FakeResult(page_range)\n"
     ),
     "pypdfium2/__init__.py": (
@@ -615,8 +615,7 @@ def test_default_ten_page_segments_preserve_order(tmp_path, fake_docling):
   assert result.returncode == 0, result.stderr
   assert progress_ranges(result.stdout) == ["1-10", "11-20", "21-23"]
   assert read_body(output_path) == b"".join(
-    f"Page {page}\n".encode("utf-8")
-    for page in range(1, 24)
+    f"Page {page}\n".encode("utf-8") for page in range(1, 24)
   )
   records = progress_records(result.stdout)
   assert records
@@ -628,8 +627,7 @@ def test_default_ten_page_segments_preserve_order(tmp_path, fake_docling):
   assert records[-1]["start"] == "21"
   assert records[-1]["end"] == "23"
   assert all(
-    re.fullmatch(r"\d{2,}:\d{2}:\d{2}", record["elapsed"])
-    for record in records
+    re.fullmatch(r"\d{2,}:\d{2}:\d{2}", record["elapsed"]) for record in records
   )
   assert "\r" not in result.stdout
   assert "\x1b[" not in result.stdout
@@ -660,15 +658,12 @@ def test_tty_progress_refreshes_during_and_across_segments(
   )
 
   assert returncode == 0
-  records = progress_records(
-    terminal_output.decode("utf-8", errors="replace")
-  )
+  records = progress_records(terminal_output.decode("utf-8", errors="replace"))
   assert records
   durations = [duration_seconds(record["elapsed"]) for record in records]
   assert durations == sorted(durations)
   assert any(
-    record["completed"] == "0"
-    and record["elapsed"] != "00:00:00"
+    record["completed"] == "0" and record["elapsed"] != "00:00:00"
     for record in records
   )
   assert records[-1]["completed"] == "2"
@@ -703,9 +698,7 @@ def test_tty_output_uses_interactive_progress_line(tmp_path, fake_docling):
   terminal_records = progress_records(terminal_text)
   assert terminal_records
   assert normal_records
-  assert progress_ranges(terminal_text) == progress_ranges(
-    normal_result.stdout
-  )
+  assert progress_ranges(terminal_text) == progress_ranges(normal_result.stdout)
   assert terminal_records[-1]["completed"] == normal_records[-1]["completed"]
   assert terminal_records[-1]["total"] == normal_records[-1]["total"]
   assert all(
@@ -723,9 +716,7 @@ def test_tty_output_uses_interactive_progress_line(tmp_path, fake_docling):
 # @param[in] tmp_path Pytest temporary directory fixture.
 # @param[in] fake_docling Deterministic Docling environment fixture.
 ##
-def test_verbose_tty_output_uses_normal_progress_lines(
-  tmp_path, fake_docling
-):
+def test_verbose_tty_output_uses_normal_progress_lines(tmp_path, fake_docling):
   environment = fake_docling
   environment["FAKE_PDF_PAGES"] = "12"
   environment["FAKE_DOCLING_LOGS"] = "1"
@@ -742,9 +733,7 @@ def test_verbose_tty_output_uses_normal_progress_lines(
   )
 
   assert returncode == 0
-  progress = progress_records(
-    terminal_output.decode("utf-8", errors="replace")
-  )
+  progress = progress_records(terminal_output.decode("utf-8", errors="replace"))
   assert progress
   assert progress[-1]["percentage"] == "100.0"
   assert progress[-1]["completed"] == "12"
@@ -904,9 +893,7 @@ def test_forced_ranges_split_base_segments_without_overlap(
 # @param[in] tmp_path Pytest temporary directory fixture.
 # @param[in] fake_docling Deterministic Docling environment fixture.
 ##
-def test_forced_range_boundaries_and_adjacent_ranges(
-  tmp_path, fake_docling
-):
+def test_forced_range_boundaries_and_adjacent_ranges(tmp_path, fake_docling):
   environment = fake_docling
   environment["FAKE_PDF_PAGES"] = "10"
   input_path = tmp_path / "source.pdf"

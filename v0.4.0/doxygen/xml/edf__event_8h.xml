@@ -1,0 +1,601 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__event_8h" kind="file" language="C++">
+    <compoundname>edf_event.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="yes">edf_config.h</includes>
+    <includedby refid="edf_8h" local="yes">sw/ecf/event_driven_framework/inc/edf.h</includedby>
+    <includedby refid="edf__event__queue_8h" local="yes">sw/ecf/event_driven_framework/inc/edf_event_queue.h</includedby>
+    <includedby refid="edf__fuzz_8h" local="yes">sw/ecf/event_driven_framework/inc/edf_fuzz.h</includedby>
+    <includedby refid="edf__hsm_8h" local="yes">sw/ecf/event_driven_framework/inc/edf_hsm.h</includedby>
+    <includedby refid="edf__time__event_8h" local="yes">sw/ecf/event_driven_framework/inc/edf_time_event.h</includedby>
+    <includedby refid="edf__framework_8h" local="yes">sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h</includedby>
+    <includedby refid="edf__event_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_event.c</includedby>
+    <includedby refid="edf__event__queue_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c</includedby>
+    <includedby refid="edf__hsm_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/inc/edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>edf_config.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/edf_test/inc/edf_test.h</label>
+        <link refid="edf__test_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>sw/ecf/event_driven_framework/edf_test/src/edf_test.c</label>
+        <link refid="edf__test_8c"/>
+      </node>
+      <node id="8">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</label>
+        <link refid="app_8c"/>
+      </node>
+      <node id="9">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/main.c</label>
+        <link refid="arm__cortex__m__preemption__example_2src_2main_8c"/>
+      </node>
+      <node id="10">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/tick_timer.c</label>
+        <link refid="tick__timer_8c"/>
+      </node>
+      <node id="11">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h</label>
+        <link refid="fuzz__example_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</label>
+        <link refid="fuzz__example_8c"/>
+      </node>
+      <node id="13">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/main.c</label>
+        <link refid="fuzz__example_2src_2main_8c"/>
+      </node>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/inc/edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>sw/ecf/event_driven_framework/inc/edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/inc/edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>sw/ecf/event_driven_framework/inc/edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>sw/ecf/event_driven_framework/inc/edf_fuzz.h</label>
+        <link refid="edf__fuzz_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>sw/ecf/event_driven_framework/inc/edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>sw/ecf/event_driven_framework/inc/edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h</label>
+        <link refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h"/>
+      </node>
+      <node id="14">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2edf__core_8c"/>
+      </node>
+      <node id="35">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive_2inc_2edf__core_8h"/>
+      </node>
+      <node id="15">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="36">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h"/>
+      </node>
+      <node id="16">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c"/>
+      </node>
+      <node id="17">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="31">
+        <label>sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</label>
+        <link refid="edf__active__object_8c"/>
+      </node>
+      <node id="19">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event.c</label>
+        <link refid="edf__event_8c"/>
+      </node>
+      <node id="20">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c</label>
+        <link refid="edf__event__queue_8c"/>
+      </node>
+      <node id="32">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_framework.c</label>
+        <link refid="edf__framework_8c"/>
+      </node>
+      <node id="39">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c</label>
+        <link refid="edf__hsm_8c"/>
+      </node>
+      <node id="33">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_pool.c</label>
+        <link refid="edf__pool_8c"/>
+      </node>
+      <node id="21">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</label>
+        <link refid="edf__time__event_8c"/>
+      </node>
+      <node id="22">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h</label>
+        <link refid="active__object_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c</label>
+        <link refid="active__object_8c"/>
+      </node>
+      <node id="5">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</label>
+        <link refid="test__event__delivery_8c"/>
+      </node>
+      <node id="24">
+        <label>sw/ecf/event_driven_framework/test/hsm/inc/hsm.h</label>
+        <link refid="hsm_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/hsm.c</label>
+        <link refid="hsm_8c"/>
+      </node>
+      <node id="6">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c</label>
+        <link refid="test__hsm_8c"/>
+      </node>
+      <node id="26">
+        <label>sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h</label>
+        <link refid="time__mgr_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</label>
+        <link refid="test__time__event_8c"/>
+      </node>
+      <node id="27">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c</label>
+        <link refid="time__mgr_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structEDF__event__t" prot="public">EDF_event_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="edf__event_8h_1ab9cb3096a090641fbf495f96cf2ac060" prot="public" static="no">
+        <name>EDF_EVENT_REF_CNT_IMMUTABLE</name>
+        <initializer>(0xFFU)</initializer>
+        <briefdescription>
+<para>Reserved value for immutable events (marks them as constant). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="48" column="9" bodyfile="sw/ecf/event_driven_framework/inc/edf_event.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" prot="public" static="no">
+        <name>EDF_EVENT_IMMUTABLE_INIT</name>
+        <param><defname>sig</defname></param>
+        <initializer>  {                                                               \
+    (EDF_event_signal_t)(sig), 0x00U, <ref refid="edf__event_8h_1ab9cb3096a090641fbf495f96cf2ac060" kindref="member">EDF_EVENT_REF_CNT_IMMUTABLE</ref> \
+  }</initializer>
+        <briefdescription>
+<para>Initializer for an immutable event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="53" column="9" bodyfile="sw/ecf/event_driven_framework/inc/edf_event.h" bodystart="53" bodyend="56"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="edf__event_8h_1a77589289eec868e7cd360a4d5d51cee4" prot="public" static="no">
+        <type>struct <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>typedef struct EDF_event_t EDF_event_t</definition>
+        <argsstring></argsstring>
+        <name>EDF_event_t</name>
+        <briefdescription>
+<para>Event signal type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Event structure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="81" column="13"/>
+      </memberdef>
+      <memberdef kind="typedef" id="edf__event_8h_1ad3ce23e581fbb6e6edbfd96bec56d9aa" prot="public" static="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+        <definition>typedef const EDF_event_t* EDF_event_ptr</definition>
+        <argsstring></argsstring>
+        <name>EDF_event_ptr</name>
+        <briefdescription>
+<para>Pointer to an event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="86" column="27" bodyfile="sw/ecf/event_driven_framework/inc/edf_event.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__event_8h_1aca9295f06b59146a186b7b2a1628e73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_event_initImmutable</definition>
+        <argsstring>(EDF_event_t *me, EDF_event_signal_t sig)</argsstring>
+        <name>EDF_event_initImmutable</name>
+        <param>
+          <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>EDF_event_signal_t</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+<para>Initializes an immutable event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event instance to initialize. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="102" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="82" bodyend="89" declfile="sw/ecf/event_driven_framework/inc/edf_event.h" declline="102" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8h_1aa330c3b895241a243cf7315f92678e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+        <definition>EDF_event_t * EDF_event_initMutable</definition>
+        <argsstring>(uint_fast16_t e_size, int sig)</argsstring>
+        <name>EDF_event_initMutable</name>
+        <param>
+          <type>uint_fast16_t</type>
+          <declname>e_size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+<para>Create and initialize a mutable event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the event in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the newly created mutable event, or NULL if no pool space is available. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="note"><para>This assertion means that the event allocation failed, and this failure cannot be tolerated.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="112" column="13" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="91" bodyend="135" declfile="sw/ecf/event_driven_framework/inc/edf_event.h" declline="112" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8h_1a84f67396e28805b84cb94ea46589177e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_event_incrementRefCnt_</definition>
+        <argsstring>(EDF_event_t *me)</argsstring>
+        <name>EDF_event_incrementRefCnt_</name>
+        <param>
+          <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Increments the reference counter of an event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function shall be called inside a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="121" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="137" bodyend="142" declfile="sw/ecf/event_driven_framework/inc/edf_event.h" declline="121" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8h_1a3c231f2d6c18b50ca64073ab76134cf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_event_decrementRefCnt_</definition>
+        <argsstring>(EDF_event_t *me)</argsstring>
+        <name>EDF_event_decrementRefCnt_</name>
+        <param>
+          <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Decrements the reference counter of an event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function shall be called inside a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="130" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="144" bodyend="149" declfile="sw/ecf/event_driven_framework/inc/edf_event.h" declline="130" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__event_8h_1aa7f1bacc9a03a303d353398699c8dd03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_event_gc</definition>
+        <argsstring>(EDF_event_t *e)</argsstring>
+        <name>EDF_event_gc</name>
+        <param>
+          <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Garbage collector for a mutable event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Releases the pool if the event is no longer referenced.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the mutable event to be recycled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="139" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_event.c" bodystart="151" bodyend="186" declfile="sw/ecf/event_driven_framework/inc/edf_event.h" declline="139" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/inc/edf_event.h"/>
+  </compounddef>
+</doxygen>

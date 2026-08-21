@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_fef83f14c74d40c20e8071d6d98ca24d" kind="dir">
+    <compoundname>sw/ecf/embedded_middleware_framework/src/emf_test_report/src</compoundname>
+    <innerfile refid="emf__test__report_8c">emf_test_report.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/"/>
+  </compounddef>
+</doxygen>

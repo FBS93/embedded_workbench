@@ -1,0 +1,512 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test__event__delivery_8c" kind="file" language="C++">
+    <compoundname>test_event_delivery.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="edf__test_8h" local="yes">edf_test.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="active__object_8h" local="yes">active_object.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="19">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>edf_test.h</label>
+        <link refid="edf__test_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>active_object.h</label>
+        <link refid="active__object_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</label>
+        <link refid="test__event__delivery_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="12">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="6">
+        <label>edf_config.h</label>
+      </node>
+      <node id="15">
+        <label>queue.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="14">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="test__event__delivery_8c_1a7cf74c2db751271f374d334ac0e64495" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>const EDF_event_t sig1</definition>
+        <argsstring></argsstring>
+        <name>sig1</name>
+        <initializer>= <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa4eda5f72b331209ee9bc2d8fb2c02e7e" kindref="member">S1</ref>)</initializer>
+        <briefdescription>
+<para>Immutable events used to validate the event delivery in the tests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="55" column="19" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="test__event__delivery_8c_1ac833968a1577b4109460475258f9582a" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>const EDF_event_t sig2</definition>
+        <argsstring></argsstring>
+        <name>sig2</name>
+        <initializer>= <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa113785310fe1ea81844313b0a2a360ad" kindref="member">S2</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="56" column="19" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="test__event__delivery_8c_1a1195f01f43906f0def69b14fa83217cb" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>const EDF_event_t sig3</definition>
+        <argsstring></argsstring>
+        <name>sig3</name>
+        <initializer>= <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa448146e9295c1ce04d258f3aed12169f" kindref="member">S3</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="57" column="19" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="test__event__delivery_8c_1ac71d1b80ed5b3a421e3bfc6ce9d4b57a" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>const EDF_event_t lastSig</definition>
+        <argsstring></argsstring>
+        <name>lastSig</name>
+        <initializer>= <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fae52a67fe08f6f2d20f15eab27fa68069" kindref="member">LAST_EVENT_SIGNAL</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="58" column="19" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test__event__delivery_8c_1ae9aea5e7aba53585e3f23a27d29a6fc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDFTest_onInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTest_onInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Init callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the EDF Test framework, providing a default implementation in case the user does not define a specific behavior.</para>
+<para><simplesect kind="note"><para>All user software shall be initialized in this function, but <ref refid="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" kindref="member">EDF_run()</ref> must NOT be called, as control must return to the EDF test framework. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="84" column="6" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1a35a2f6bca88844142fb41a5d44708229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDFTest_setUp</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTest_setUp</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Pre-test callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the EDF Test framework, providing a default implementation in case the user does not define a specific behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="89" column="6" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1a3015d92a9e337f89823de6b327af817b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(signal_1)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>signal_1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="95" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1a1f518f7e8064c88b7d99d2f11ce58fc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(signal_1, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>signal_1</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="99" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="99" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1a848c995fec92702bd2518e21de77722f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(signal_2)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>signal_2</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="127" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1a912467937caca014d474727519a68de0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(signal_2, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>signal_2</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="131" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="131" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1af13c83826d8ecfa426d68b81924ba662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(signal_3)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>signal_3</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="159" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1a75cb04c087958f933ae0489acd93d288" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(signal_3, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>signal_3</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="163" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="163" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1a6d3ff37f55e4bf3fae4eb0d363f58324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(last_signal)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>last_signal</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="191" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="191" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="test__event__delivery_8c_1ad7b44f9de8bfcee78afa274ac1bf16f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(last_signal, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>last_signal</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Check that any active object except the last is subscribed to LAST_EVENT_SIGNAL.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" line="195" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c" bodystart="195" bodyend="208"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c"/>
+  </compounddef>
+</doxygen>

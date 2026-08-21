@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test__emf__utils_8c" kind="file" language="C++">
+    <compoundname>test_emf_utils.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="etf_8h" local="yes">etf.h</includes>
+    <includes refid="emf__utils_8h" local="yes">emf_utils.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_utils/test/src/test_emf_utils.c</label>
+        <link refid="test__emf__utils_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>etf.h</label>
+        <link refid="etf_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test__emf__utils_8c_1a34d8868eaefcde965e78c38cacd012a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ETF_TEST_SUITE</definition>
+        <argsstring>(test_emf_utils)</argsstring>
+        <name>ETF_TEST_SUITE</name>
+        <param>
+          <type>test_emf_utils</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_utils/test/src/test_emf_utils.c" line="66" column="1" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_utils/test/src/test_emf_utils.c" bodystart="66" bodyend="100"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_utils/test/src/test_emf_utils.c"/>
+  </compounddef>
+</doxygen>

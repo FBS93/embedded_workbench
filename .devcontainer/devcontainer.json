@@ -48,7 +48,8 @@
         "spencerwmiles.vscode-task-buttons",
         "emeraldwalk.runonsave",
         "bierner.markdown-preview-github-styles",
-        "ms-vscode.live-server"
+        "ms-vscode.live-server",
+        "tomoki1207.pdf"
       ]
     }
   }

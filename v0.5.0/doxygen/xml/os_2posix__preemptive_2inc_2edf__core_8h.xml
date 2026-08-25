@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="os_2posix__preemptive_2inc_2edf__core_8h" kind="file" language="C++">
+    <compoundname>edf_core.h</compoundname>
+    <includes local="no">pthread.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h</label>
+        <link refid="os_2posix__preemptive_2inc_2edf__core_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="2">
+        <label>pthread.h</label>
+      </node>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="os_2posix__preemptive_2inc_2edf__core_8h_1a593e68f83856e1b3fcae88c6d688f9a0" prot="public" static="no">
+        <name>EDF_CORE_SCHED_STATUS</name>
+        <briefdescription>
+<para>Defines the variable storing the scheduler lock status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Not implemented in this port. See <ref refid="os_2posix__preemptive_2inc_2edf__core_8h_1scheduler_locking_not_implemented" kindref="member">scheduler_locking_not_implemented</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" line="50" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__preemptive_2inc_2edf__core_8h_1acd5353fd660f0febda48f0ea378c12b4" prot="public" static="no">
+        <name>EDF_CORE_SCHED_LOCK</name>
+        <param><defname>_</defname></param>
+        <initializer><ref refid="emf__utils_8h_1a137ba9470dd9263e76c36ea298e44db0" kindref="member">EMF_UTILS_UNUSED_PARAM</ref>(_)</initializer>
+        <briefdescription>
+<para>Lock task scheduling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Not implemented in this port. See <ref refid="os_2posix__preemptive_2inc_2edf__core_8h_1scheduler_locking_not_implemented" kindref="member">scheduler_locking_not_implemented</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unused parameter, kept for API compatibility. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" line="59" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__preemptive_2inc_2edf__core_8h_1ae93bc912dbefdb5a706c2381637a4f69" prot="public" static="no">
+        <name>EDF_CORE_SCHED_UNLOCK</name>
+        <param></param>
+        <initializer>((void)0)</initializer>
+        <briefdescription>
+<para>Unlock task scheduling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Not implemented in this port. See <ref refid="os_2posix__preemptive_2inc_2edf__core_8h_1scheduler_locking_not_implemented" kindref="member">scheduler_locking_not_implemented</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" line="66" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__preemptive_2inc_2edf__core_8h_1a58f7c00750b3a9e52ce2355896e9c1b9" prot="public" static="no">
+        <name>EDF_CORE_WAIT_FOR_EVENT</name>
+        <param><defname>me</defname></param>
+        <initializer>  do                                                             \
+  {                                                              \
+    while ((me)-&gt;e_queue.front_e == NULL)                        \
+    {                                                            \
+      <ref refid="eaf_8h_1a0e68ed6bfcb78d5621202ca71c7caa05" kindref="member">EAF_ASSERT_IN_CRITICAL_SECTION</ref>(<ref refid="ebf_8h_1ae6891c9bd47ae72702538529471923ff" kindref="member">EBF_critSecNestCnt</ref> == 1);   \
+      --<ref refid="ebf_8h_1ae6891c9bd47ae72702538529471923ff" kindref="member">EBF_critSecNestCnt</ref>;                                      \
+      (void)pthread_cond_wait(&amp;(me)-&gt;e_cond, &amp;<ref refid="ebf_8h_1a3399e41af271d07722214b4d88984215" kindref="member">EBF_critSecMutex</ref>); \
+      <ref refid="eaf_8h_1a0e68ed6bfcb78d5621202ca71c7caa05" kindref="member">EAF_ASSERT_IN_CRITICAL_SECTION</ref>(<ref refid="ebf_8h_1ae6891c9bd47ae72702538529471923ff" kindref="member">EBF_critSecNestCnt</ref> == 0);   \
+      ++<ref refid="ebf_8h_1ae6891c9bd47ae72702538529471923ff" kindref="member">EBF_critSecNestCnt</ref>;                                      \
+    }                                                            \
+  } while (false)</initializer>
+        <briefdescription>
+<para><anchor id="os_2posix__preemptive_2inc_2edf__core_8h_1scheduler_locking_not_implemented"/></para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>Scheduler locking not implemented</title><para></para>
+</simplesect>
+Scheduler locking (used inside <ref refid="edf__active__object_8h_1a6b91bd4f1399ba0f638d562305c063a0" kindref="member">EDF_activeObject_publish()</ref>) is NOT implemented in this port. This means that event multicasting is NOT atomic, so thread preemption CAN happen during that time, especially when a low-priority thread publishes events to higher-priority threads. This can lead to (occasionally) unexpected event sequences.</para>
+<para>Wait until an event is available for the active object.</para>
+<para><simplesect kind="note"><para>This macro is called within a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Active object instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" line="86" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" bodystart="86" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__preemptive_2inc_2edf__core_8h_1a1d02c6a3d49b09079c4bc600cc772abc" prot="public" static="no">
+        <name>EDF_CORE_NOTIFY_EVENT</name>
+        <param><defname>me</defname></param>
+        <initializer>(void)pthread_cond_signal(&amp;(me)-&gt;e_cond)</initializer>
+        <briefdescription>
+<para>Notify that a new event is available for the active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Shall be called inside a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Active object instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" line="106" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/inc/edf_core.h"/>
+  </compounddef>
+</doxygen>

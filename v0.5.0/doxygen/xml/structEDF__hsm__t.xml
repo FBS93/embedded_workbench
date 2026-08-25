@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__hsm__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_hsm_t</compoundname>
+    <includes refid="edf__hsm_8h" local="no">edf_hsm.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__hsm__t_1a779165a54c4e10798911604cfc29ee60" prot="public" static="no" mutable="no">
+        <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref></type>
+        <definition>EDF_hsm_stateHandler_t EDF_hsm_t::current_state</definition>
+        <argsstring></argsstring>
+        <name>current_state</name>
+        <qualifiedname>EDF_hsm_t::current_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Currently active state handler. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_hsm.h" line="192" column="26" bodyfile="sw/ecf/event_driven_framework/inc/edf_hsm.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__hsm__t_1a94296c867e2ee50658bca17d6b7fa381" prot="public" static="no" mutable="no">
+        <type><ref refid="edf__hsm_8h_1af3baec581532a1e7dff79290016046cd" kindref="member">EDF_hsm_stateHandler_t</ref></type>
+        <definition>EDF_hsm_stateHandler_t EDF_hsm_t::temp_state</definition>
+        <argsstring></argsstring>
+        <name>temp_state</name>
+        <qualifiedname>EDF_hsm_t::temp_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Temporary state handler; used to manage the HSM functionalities. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_hsm.h" line="193" column="26" bodyfile="sw/ecf/event_driven_framework/inc/edf_hsm.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>HSM structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="1">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/inc/edf_hsm.h" line="190" column="1" bodyfile="sw/ecf/event_driven_framework/inc/edf_hsm.h" bodystart="191" bodyend="195"/>
+    <listofallmembers>
+      <member refid="structEDF__hsm__t_1a779165a54c4e10798911604cfc29ee60" prot="public" virt="non-virtual"><scope>EDF_hsm_t</scope><name>current_state</name></member>
+      <member refid="structEDF__hsm__t_1a94296c867e2ee50658bca17d6b7fa381" prot="public" virt="non-virtual"><scope>EDF_hsm_t</scope><name>temp_state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

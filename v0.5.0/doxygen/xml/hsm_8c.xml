@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="hsm_8c" kind="file" language="C++">
+    <compoundname>hsm.c</compoundname>
+    <includes refid="hsm_8h" local="yes">hsm.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="18">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>hsm.h</label>
+        <link refid="hsm_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/hsm.c</label>
+        <link refid="hsm_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="12">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="5">
+        <label>edf_config.h</label>
+      </node>
+      <node id="15">
+        <label>queue.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>stddef.h</label>
+      </node>
+      <node id="7">
+        <label>stdint.h</label>
+      </node>
+      <node id="14">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="hsm_8c_1a6d602e0b8e86906810bdc5bb8d2800c7" prot="public" static="no">
+        <name>HSM_AO_PRIO</name>
+        <initializer>2U</initializer>
+        <briefdescription>
+<para>hsm active object priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" line="42" column="9" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="hsm_8c_1acbf276c3201777f991172a57c9efdc90" prot="public" static="yes" mutable="no">
+        <type><ref refid="structEDF__activeObject__bitmask__t" kindref="compound">EDF_activeObject_bitmask_t</ref></type>
+        <definition>EDF_activeObject_bitmask_t subscriberList[LAST_EVENT_SIGNAL]</definition>
+        <argsstring>[LAST_EVENT_SIGNAL]</argsstring>
+        <name>subscriberList</name>
+        <briefdescription>
+<para>Subscriber lists used by the publish–subscribe mechanism. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" line="60" column="35" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="hsm_8c_1a3c153f01b98054bca7fa83d8c6e7124a" prot="public" static="no" mutable="no">
+        <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref></type>
+        <definition>hsm_t hsm</definition>
+        <argsstring></argsstring>
+        <name>hsm</name>
+        <briefdescription>
+<para>hsm active object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Global for test access purposes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" line="66" column="7" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="hsm_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" line="55" column="1" declfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" declline="55" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="hsm_8c_1a79f2d72a6c863bdea89b7f5c9be95560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hsm_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>hsm_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the hsm active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000025"><xreftitle>Todo</xreftitle><xrefdescription><para>Verify that the defined HSM state depth allows reaching the top level with the default value of EDF_HSM_MAX_DEPTH (6). </para>
+</xrefdescription></xrefsect><xrefsect id="todo_1_todo000026"><xreftitle>Todo</xreftitle><xrefdescription><para>Evaluate adding test validation for correct execution order of init/entry/exit activities. This could be done by setting an array or log within the HSM states to record the sequence of state activity executions. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" line="96" column="6" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="96" bodyend="120"/>
+      </memberdef>
+      <member refid="group__HSM__States_1ga1f9bb00217905e1d9e2e4ca9b7a94a77" kind="function"><name>initialTransition</name></member>
+      <member refid="group__HSM__States_1ga200db285bf0233fa8d725feab8335232" kind="function"><name>S1</name></member>
+      <member refid="group__HSM__States_1ga354097f4b5cf7e58ec54a5577aa702ba" kind="function"><name>S11</name></member>
+      <member refid="group__HSM__States_1gaafb646218bb2a3632b889cb84cb690a6" kind="function"><name>S111</name></member>
+      <member refid="group__HSM__States_1gac245a6a1f36a9e7e7a89a580f246247b" kind="function"><name>S1111</name></member>
+      <member refid="group__HSM__States_1gaaab823046aee1c904909d6308c6da161" kind="function"><name>S11111</name></member>
+      <member refid="group__HSM__States_1gadf306213d03bff742daabc82a185be43" kind="function"><name>S2</name></member>
+      <member refid="group__HSM__States_1ga268f39855dfd5969bf77bcfd95f108bc" kind="function"><name>S21</name></member>
+      <member refid="group__HSM__States_1ga9cfe48ddec88f7e28fbbb60c186a56f9" kind="function"><name>S211</name></member>
+      <member refid="group__HSM__States_1ga67086c9b8d036bb94cb1e618c495e75b" kind="function"><name>S2111</name></member>
+      <member refid="group__HSM__States_1ga0e105b5b1a9a7d3b769b8e4d29c239db" kind="function"><name>S2112</name></member>
+      <member refid="group__HSM__States_1ga58800db65bbef5181ed280bbcbea63d9" kind="function"><name>S3</name></member>
+      <member refid="group__HSM__States_1ga998cd743fb4f36fe1de120df7dcc6575" kind="function"><name>S31</name></member>
+      <member refid="group__HSM__States_1ga7caa2fd0b26e617d5ed983ea5c6f9f34" kind="function"><name>S311</name></member>
+      <member refid="group__HSM__States_1ga77f8391ab1ddedc77c4ed432527c9a74" kind="function"><name>S4</name></member>
+      <member refid="group__HSM__States_1gab85d138ecd59cb08c9f0ff321408a8eb" kind="function"><name>S41</name></member>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/hsm/src/hsm.c"/>
+  </compounddef>
+</doxygen>

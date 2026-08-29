@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_84e6f5bc0641296f0fd17abee619cc05" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc</compoundname>
+    <innerfile refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h">edf_core.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/"/>
+  </compounddef>
+</doxygen>

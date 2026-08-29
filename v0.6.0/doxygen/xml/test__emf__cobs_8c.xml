@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test__emf__cobs_8c" kind="file" language="C++">
+    <compoundname>test_emf_cobs.c</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes refid="etf_8h" local="yes">etf.h</includes>
+    <includes refid="emf__cobs_8h" local="yes">emf_cobs.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c</label>
+        <link refid="test__emf__cobs_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>etf.h</label>
+        <link refid="etf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test__emf__cobs_8c_1adf29c40a0fd7aea9e6cb13a05d4f5cc0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void verifyBuffersEqual</definition>
+        <argsstring>(const uint8_t *lhs, const uint8_t *rhs, uint16_t len)</argsstring>
+        <name>verifyBuffersEqual</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Verifies that two buffers have equal content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">lhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to first buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to second buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c" line="74" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c" bodystart="74" bodyend="86" declfile="sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c" declline="66" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="test__emf__cobs_8c_1a5c2f62442d06c790a4e53ead47da569d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ETF_TEST_SUITE</definition>
+        <argsstring>(test_emf_cobs)</argsstring>
+        <name>ETF_TEST_SUITE</name>
+        <param>
+          <type>test_emf_cobs</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c" line="92" column="1" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c" bodystart="92" bodyend="216"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEMF__arrayFifo__handler__t" kind="struct" language="C++" prot="public">
+    <compoundname>EMF_arrayFifo_handler_t</compoundname>
+    <includes refid="emf__array__fifo_8h" local="no">emf_array_fifo.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEMF__arrayFifo__handler__t_1a715cf88331d7283f2527f6a94b15b915" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EMF_arrayFifo_handler_t::n_slots</definition>
+        <argsstring></argsstring>
+        <name>n_slots</name>
+        <qualifiedname>EMF_arrayFifo_handler_t::n_slots</qualifiedname>
+        <briefdescription>
+<para>Number of available slots in the FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" line="54" column="11" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEMF__arrayFifo__handler__t_1a71b2636f4008b65cae696369b9f2a9bc" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t EMF_arrayFifo_handler_t::slot_size</definition>
+        <argsstring></argsstring>
+        <name>slot_size</name>
+        <qualifiedname>EMF_arrayFifo_handler_t::slot_size</qualifiedname>
+        <briefdescription>
+<para>Size (in bytes) of each individual slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" line="55" column="12" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEMF__arrayFifo__handler__t_1aa76454486c245d6aab481717d66b3fed" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* EMF_arrayFifo_handler_t::storage</definition>
+        <argsstring></argsstring>
+        <name>storage</name>
+        <qualifiedname>EMF_arrayFifo_handler_t::storage</qualifiedname>
+        <briefdescription>
+<para>Pointer to the FIFO storage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The FIFO storage is not intended to be accessed directly outside this module&apos;s API. However, if direct access to the FIFO storage memory is required, it is the user&apos;s responsibility to ensure that the storage is properly memory-aligned. It is recommended to define the FIFO storage using the <ref refid="emf__utils_8h_1a187facb8161d36f1bed711ae44ec731a" kindref="member">EMF_UTILS_MEM_ALIGNED_SLOT</ref> macro or an equivalent alignment-safe definition for portability across architectures. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" line="66" column="11" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEMF__arrayFifo__handler__t_1a0228060c5dfb9e84ee874a8f1d80df3b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EMF_arrayFifo_handler_t::head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <qualifiedname>EMF_arrayFifo_handler_t::head</qualifiedname>
+        <briefdescription>
+<para>Index of the next write position. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" line="67" column="11" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEMF__arrayFifo__handler__t_1aef722607914d96180105971aba33ccdb" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EMF_arrayFifo_handler_t::tail</definition>
+        <argsstring></argsstring>
+        <name>tail</name>
+        <qualifiedname>EMF_arrayFifo_handler_t::tail</qualifiedname>
+        <briefdescription>
+<para>Index of the next read position. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" line="68" column="11" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEMF__arrayFifo__handler__t_1ad319ec11ec9563416922522a600a1053" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EMF_arrayFifo_handler_t::full</definition>
+        <argsstring></argsstring>
+        <name>full</name>
+        <qualifiedname>EMF_arrayFifo_handler_t::full</qualifiedname>
+        <briefdescription>
+<para>Indicates whether the FIFO is currently full. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" line="69" column="8" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Handler for managing a circular FIFO buffer. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This structure acts as a handle to an internal FIFO context.</para>
+<para>It is not meant to be accessed or modified directly by user code; all operations must be performed via the API functions. </para>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" line="52" column="1" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/inc/emf_array_fifo.h" bodystart="53" bodyend="70"/>
+    <listofallmembers>
+      <member refid="structEMF__arrayFifo__handler__t_1ad319ec11ec9563416922522a600a1053" prot="public" virt="non-virtual"><scope>EMF_arrayFifo_handler_t</scope><name>full</name></member>
+      <member refid="structEMF__arrayFifo__handler__t_1a0228060c5dfb9e84ee874a8f1d80df3b" prot="public" virt="non-virtual"><scope>EMF_arrayFifo_handler_t</scope><name>head</name></member>
+      <member refid="structEMF__arrayFifo__handler__t_1a715cf88331d7283f2527f6a94b15b915" prot="public" virt="non-virtual"><scope>EMF_arrayFifo_handler_t</scope><name>n_slots</name></member>
+      <member refid="structEMF__arrayFifo__handler__t_1a71b2636f4008b65cae696369b9f2a9bc" prot="public" virt="non-virtual"><scope>EMF_arrayFifo_handler_t</scope><name>slot_size</name></member>
+      <member refid="structEMF__arrayFifo__handler__t_1aa76454486c245d6aab481717d66b3fed" prot="public" virt="non-virtual"><scope>EMF_arrayFifo_handler_t</scope><name>storage</name></member>
+      <member refid="structEMF__arrayFifo__handler__t_1aef722607914d96180105971aba33ccdb" prot="public" virt="non-virtual"><scope>EMF_arrayFifo_handler_t</scope><name>tail</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

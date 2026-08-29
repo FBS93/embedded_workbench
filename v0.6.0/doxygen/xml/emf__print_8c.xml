@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__print_8c" kind="file" language="C++">
+    <compoundname>emf_print.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="emf__print_8h" local="yes">emf_print.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="10">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c</label>
+        <link refid="emf__print_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="9">
+        <label>pthread.h</label>
+      </node>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="emf__print_8c_1ad37893797b35ff7ec4d9c9a9b0ab9a5c" prot="public" static="no">
+        <name>UINT32_STR_MAX_LEN</name>
+        <initializer>11U</initializer>
+        <briefdescription>
+<para>Maximum buffer size to hold a 32-bit unsigned integer as a string, including the terminating null character. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="45" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__print_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="58" column="1" declfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" declline="58" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__print_8c_1ac7bd385b9ab03aefc3a995ec925af5dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void writeChar</definition>
+        <argsstring>(char c)</argsstring>
+        <name>writeChar</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Writes a single character to the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="warning"><para>This function may block depending on the user stdout implementation. See EBF documentation for details.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="116" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="116" bodyend="127" declfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" declline="81" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__print_8c_1a76a7d920173a26636c45a41dd64b9fbc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void writeStr</definition>
+        <argsstring>(const char *str)</argsstring>
+        <name>writeStr</name>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Writes a null-terminated string to the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a null-terminated string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="warning"><para>This function may block depending on the user stdout implementation. See EBF documentation for details.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="129" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="129" bodyend="146" declfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" declline="88" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__print_8c_1a8cb01a684528fc10c82504905853e4c6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void writeUint</definition>
+        <argsstring>(uint32_t val)</argsstring>
+        <name>writeUint</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Converts an unsigned integer to string and writes it to the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unsigned 32-bit integer to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="148" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="148" bodyend="172" declfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" declline="95" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__print_8c_1aa9db85936b81f12759815d833774e9f0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void writeInt</definition>
+        <argsstring>(int32_t val)</argsstring>
+        <name>writeInt</name>
+        <param>
+          <type>int32_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Converts a signed integer to string and writes it to the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signed 32-bit integer to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="174" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="174" bodyend="190" declfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" declline="102" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__print_8c_1a4a747eadeaacd96b380bc41e50c828bf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void writeFloat</definition>
+        <argsstring>(float fval)</argsstring>
+        <name>writeFloat</name>
+        <param>
+          <type>float</type>
+          <declname>fval</declname>
+        </param>
+        <briefdescription>
+<para>Converts a floating-point number to string and writes it to the output with 2 decimal digits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Float value to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="192" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="192" bodyend="217" declfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" declline="110" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__print_8c_1aa2affc0918cda6aaf259b4492d973f86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_print</definition>
+        <argsstring>(const char *fmt, const uintptr_t *args)</argsstring>
+        <name>EMF_print</name>
+        <param>
+          <type>const char *</type>
+          <declname>fmt</declname>
+        </param>
+        <param>
+          <type>const uintptr_t *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Print a formatted message with arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function used by EMF_PRINT macro.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fmt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Null-terminated format string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to array of arguments, or NULL. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="223" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="223" bodyend="296"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c"/>
+  </compounddef>
+</doxygen>

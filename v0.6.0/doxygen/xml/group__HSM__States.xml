@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__HSM__States" kind="group">
+    <compoundname>HSM_States</compoundname>
+    <title>HSM States.</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group__HSM__States_1ga1f9bb00217905e1d9e2e4ca9b7a94a77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t initialTransition</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>initialTransition</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000027"><xreftitle>Todo</xreftitle><xrefdescription><para>Validate that the initial transition correctly receives event parameters passed by pointer in the EDF_activeObject_start function, in accordance with the API specification. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="98" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="127" bodyend="133" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="98" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga200db285bf0233fa8d725feab8335232" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S1</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S1</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="99" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="135" bodyend="164" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="99" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga354097f4b5cf7e58ec54a5577aa702ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S11</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S11</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="100" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="166" bodyend="190" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="100" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1gaafb646218bb2a3632b889cb84cb690a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S111</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S111</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="101" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="192" bodyend="216" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="101" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1gac245a6a1f36a9e7e7a89a580f246247b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S1111</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S1111</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="102" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="218" bodyend="242" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="102" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1gaaab823046aee1c904909d6308c6da161" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S11111</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S11111</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="103" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="244" bodyend="263" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="103" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1gadf306213d03bff742daabc82a185be43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S2</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S2</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="104" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="265" bodyend="289" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="104" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga268f39855dfd5969bf77bcfd95f108bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S21</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S21</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="105" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="291" bodyend="315" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="105" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga9cfe48ddec88f7e28fbbb60c186a56f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S211</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S211</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="106" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="317" bodyend="341" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="106" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga67086c9b8d036bb94cb1e618c495e75b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S2111</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S2111</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="107" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="343" bodyend="367" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="107" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga0e105b5b1a9a7d3b769b8e4d29c239db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S2112</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S2112</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="108" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="369" bodyend="393" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="108" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga58800db65bbef5181ed280bbcbea63d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S3</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S3</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="109" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="395" bodyend="419" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="109" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga998cd743fb4f36fe1de120df7dcc6575" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S31</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S31</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="110" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="421" bodyend="445" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="110" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga7caa2fd0b26e617d5ed983ea5c6f9f34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S311</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S311</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="111" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="447" bodyend="471" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="111" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1ga77f8391ab1ddedc77c4ed432527c9a74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S4</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S4</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="112" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="473" bodyend="497" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="112" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="group__HSM__States_1gab85d138ecd59cb08c9f0ff321408a8eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>EDF_hsm_stateReturn_t S41</definition>
+        <argsstring>(hsm_t *me, const EDF_event_t *e)</argsstring>
+        <name>S41</name>
+        <param>
+          <type><ref refid="structhsm__t" kindref="compound">hsm_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="113" column="23" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/hsm.c" bodystart="499" bodyend="530" declfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" declline="113" declcolumn="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>HSM state handlers used for test validation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Each function implements a state of the hierarchical state machine.</para>
+<para><simplesect kind="note"><para>Global for test access purposes. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

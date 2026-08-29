@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="active__object_8h" kind="file" language="C++">
+    <compoundname>active_object.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includedby refid="active__object_8c" local="yes">sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c</includedby>
+    <includedby refid="test__event__delivery_8c" local="yes">sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h</label>
+        <link refid="active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="11">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="4">
+        <label>edf_config.h</label>
+      </node>
+      <node id="14">
+        <label>queue.h</label>
+      </node>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h</label>
+        <link refid="active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c</label>
+        <link refid="active__object_8c"/>
+      </node>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</label>
+        <link refid="test__event__delivery_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structactiveObject__t" prot="public">activeObject_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="active__object_8h_1a680557d8e1608bd1aa3fdc816e1ba895" prot="public" static="no">
+        <name>ACTIVE_OBJECT_N_TOTAL</name>
+        <initializer>4U</initializer>
+        <briefdescription>
+<para>Define the number of active objects. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Global for test access purposes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="49" column="9" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="active__object_8h_1a9e25162131c65528fc7663b099826e9e" prot="public" static="no">
+        <name>ACTIVE_OBJECT_PRIO_TO_SIGNAL</name>
+        <param><defname>prio</defname></param>
+        <initializer>  ((<ref refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17f" kindref="member">activeObject_eventSignal_t</ref>)(<ref refid="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa4eda5f72b331209ee9bc2d8fb2c02e7e" kindref="member">S1</ref> + ((prio) - 2U)))</initializer>
+        <briefdescription>
+<para>Deterministic mapping between active object priority and subscribed signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each active object (except the last) subscribes to exactly one signal. The relationship is defined such that active object priority <computeroutput>prio</computeroutput> (starting from 2) maps to signal <computeroutput>S1 + (prio - 2)</computeroutput>. The last active object subscribes to all signals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="60" column="9" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" bodystart="60" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>activeObject_eventSignal_t</name>
+        <enumvalue id="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa4eda5f72b331209ee9bc2d8fb2c02e7e" prot="public">
+          <name>S1</name>
+          <initializer>= EDF_HSM_USER_SIGNAL</initializer>
+          <briefdescription>
+<para>Signal S1. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa113785310fe1ea81844313b0a2a360ad" prot="public">
+          <name>S2</name>
+          <briefdescription>
+<para>Signal S2. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fa448146e9295c1ce04d258f3aed12169f" prot="public">
+          <name>S3</name>
+          <briefdescription>
+<para>Signal S3. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="active__object_8h_1a339614e2c6b3f80b5fe15771a41be17fae52a67fe08f6f2d20f15eab27fa68069" prot="public">
+          <name>LAST_EVENT_SIGNAL</name>
+          <briefdescription>
+<para>Reference for the last valid signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Event signals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="81" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" bodystart="82" bodyend="87"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="active__object_8h_1a66624994117a8c6ae3cda1cdca19c9c9" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="structactiveObject__t" kindref="compound">activeObject_t</ref></type>
+        <definition>activeObject_t activeObject[ACTIVE_OBJECT_N_TOTAL]</definition>
+        <argsstring>[ACTIVE_OBJECT_N_TOTAL]</argsstring>
+        <name>activeObject</name>
+        <briefdescription>
+<para>Active object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Global for test access purposes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="98" column="23" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c" bodystart="61" bodyend="-1" declfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" declline="98" declcolumn="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="active__object_8h_1ab00237f257ea1f1def0924b1811edf78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void activeObject_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>activeObject_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes all the active objects. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000024"><xreftitle>Todo</xreftitle><xrefdescription><para>Evaluate adding test validation for correct reception order of events taking into account the AOs priority. This could be done by setting an array within the HSM states to record the sequence of state activity executions. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Subscribes each active object to specific event signals:<itemizedlist>
+<listitem><para>All but the last active object subscribe to a unique signal.</para>
+</listitem><listitem><para>The last active object subscribes to all signals.</para>
+</listitem></itemizedlist>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="107" column="6" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c" bodystart="140" bodyend="180" declfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" declline="107" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="active__object_8h_1a5de959001970f040a03b44db35f83c73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void activeObject_resetEventReceivedFlag</definition>
+        <argsstring>(void)</argsstring>
+        <name>activeObject_resetEventReceivedFlag</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clear event received flag of all active objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="112" column="6" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c" bodystart="182" bodyend="188" declfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" declline="112" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h"/>
+  </compounddef>
+</doxygen>

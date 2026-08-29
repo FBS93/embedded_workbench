@@ -112,7 +112,7 @@ def open_serial_raw(serial_dev, baud_rate):
 def main():
   if len(sys.argv) != 4:
     print(
-      "Usage: run_target_logging_server.py",
+      "Usage: run_target_serial_logging_server.py",
       "<serial_device>",
       "<tcp_port>",
       "<baud_rate>",

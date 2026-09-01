@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="baremetal_2arm__cortex__m_2src_2ebf__core_8c" kind="file" language="C++">
+    <compoundname>ebf_core.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="yes">ebf_core.h</includes>
+    <includes refid="ebf__utils_8h" local="yes">ebf_utils.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="4">
+        <label>ebf_core.h</label>
+      </node>
+      <node id="8">
+        <label>pthread.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="17">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2ebf__core_8c_1a7fc8f5b888fff4b4266b71a29f2df517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EBF_setStdinListener</definition>
+        <argsstring>(EBF_stdin_t listener)</argsstring>
+        <name>EBF_setStdinListener</name>
+        <param>
+          <type><ref refid="ebf_8h_1ae5791af1ebceacc30e9a8e993eb3df3a" kindref="member">EBF_stdin_t</ref></type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback to receive standard input data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Defined as weak by default, allowing a custom implementation to override it.</para>
+</simplesect>
+<simplesect kind="note"><para>Depending on the stdin implementation, the listener may be called from an ISR context when input data is received. If so, the listener implementation shall be treated as ISR code.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Function to be called with incoming data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c" line="73" column="15" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2ebf__core_8c_1a5b99acb3d2b82895a10f4a113638560f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> bool</type>
+        <definition>EBF_WEAK bool EBF_stdoutWrite</definition>
+        <argsstring>(const uint8_t *data, uint16_t len)</argsstring>
+        <name>EBF_stdoutWrite</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Sends data to the standard output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Defined as weak by default, allowing a custom implementation to override it.</para>
+</simplesect>
+<simplesect kind="note"><para>Since standard output may be a shared resource, all implementations shall be protected using <ref refid="ebf_8h_1a058a9071df8f3bcedc4fff0a9e06ee84" kindref="member">EBF_CRITICAL_SECTION_ENTRY()</ref> and <ref refid="ebf_8h_1ae34944c46809734fbb6dd706bc6779fa" kindref="member">EBF_CRITICAL_SECTION_EXIT()</ref>. Therefore, Calling <ref refid="ebf_8h_1a2270e3785e19164c7cb1974c10a496eb" kindref="member">EBF_stdoutWrite()</ref> from an active EBF critical section violates the contract, as nested critical sections are not supported.</para>
+</simplesect>
+<simplesect kind="note"><para>Supported message length is implementation dependent.</para>
+</simplesect>
+<simplesect kind="note"><para>A false return value indicates that the data cannot be serialized and shall be handled explicitly by the caller, preferably using EAF asserts. Silently discarding the data is highly discouraged.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data to be sent. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the data in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if all data was accepted for transmission; false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c" line="78" column="15" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c" bodystart="78" bodyend="84"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c"/>
+  </compounddef>
+</doxygen>

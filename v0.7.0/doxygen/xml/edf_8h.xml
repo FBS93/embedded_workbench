@@ -1,0 +1,539 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf_8h" kind="file" language="C++">
+    <compoundname>edf.h</compoundname>
+    <includes local="yes">edf_config.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes refid="edf__event__queue_8h" local="yes">edf_event_queue.h</includes>
+    <includes refid="edf__event_8h" local="yes">edf_event.h</includes>
+    <includes refid="edf__hsm_8h" local="yes">edf_hsm.h</includes>
+    <includes refid="edf__pool_8h" local="yes">edf_pool.h</includes>
+    <includes refid="edf__time__event_8h" local="yes">edf_time_event.h</includes>
+    <includes local="yes">ebf_config.h</includes>
+    <includedby refid="edf__test_8h" local="yes">sw/ecf/event_driven_framework/edf_test/inc/edf_test.h</includedby>
+    <includedby refid="edf__test_8c" local="yes">sw/ecf/event_driven_framework/edf_test/src/edf_test.c</includedby>
+    <includedby refid="app_8c" local="yes">sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</includedby>
+    <includedby refid="arm__cortex__m__preemption__example_2src_2main_8c" local="yes">sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/main.c</includedby>
+    <includedby refid="tick__timer_8c" local="yes">sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/tick_timer.c</includedby>
+    <includedby refid="fuzz__example_8h" local="yes">sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h</includedby>
+    <includedby refid="fuzz__example_2src_2main_8c" local="yes">sw/ecf/event_driven_framework/examples/fuzz_example/src/main.c</includedby>
+    <includedby refid="baremetal_2arm__cortex__m_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</includedby>
+    <includedby refid="os_2posix__non__preemptive_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</includedby>
+    <includedby refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</includedby>
+    <includedby refid="os_2posix__preemptive_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</includedby>
+    <includedby refid="edf__active__object_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</includedby>
+    <includedby refid="edf__event_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_event.c</includedby>
+    <includedby refid="edf__event__queue_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c</includedby>
+    <includedby refid="edf__time__event_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</includedby>
+    <includedby refid="active__object_8h" local="yes">sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h</includedby>
+    <includedby refid="active__object_8c" local="yes">sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c</includedby>
+    <includedby refid="test__event__delivery_8c" local="yes">sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</includedby>
+    <includedby refid="hsm_8h" local="yes">sw/ecf/event_driven_framework/test/hsm/inc/hsm.h</includedby>
+    <includedby refid="hsm_8c" local="yes">sw/ecf/event_driven_framework/test/hsm/src/hsm.c</includedby>
+    <includedby refid="test__hsm_8c" local="yes">sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c</includedby>
+    <includedby refid="time__mgr_8h" local="yes">sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h</includedby>
+    <includedby refid="test__time__event_8c" local="yes">sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</includedby>
+    <includedby refid="time__mgr_8c" local="yes">sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/inc/edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="10">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="2">
+        <label>edf_config.h</label>
+      </node>
+      <node id="13">
+        <label>queue.h</label>
+      </node>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/edf_test/inc/edf_test.h</label>
+        <link refid="edf__test_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/edf_test/src/edf_test.c</label>
+        <link refid="edf__test_8c"/>
+      </node>
+      <node id="7">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</label>
+        <link refid="app_8c"/>
+      </node>
+      <node id="8">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/main.c</label>
+        <link refid="arm__cortex__m__preemption__example_2src_2main_8c"/>
+      </node>
+      <node id="9">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/tick_timer.c</label>
+        <link refid="tick__timer_8c"/>
+      </node>
+      <node id="10">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h</label>
+        <link refid="fuzz__example_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</label>
+        <link refid="fuzz__example_8c"/>
+      </node>
+      <node id="12">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/main.c</label>
+        <link refid="fuzz__example_2src_2main_8c"/>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/inc/edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2edf__core_8c"/>
+      </node>
+      <node id="14">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="15">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c"/>
+      </node>
+      <node id="16">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="17">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</label>
+        <link refid="edf__active__object_8c"/>
+      </node>
+      <node id="18">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event.c</label>
+        <link refid="edf__event_8c"/>
+      </node>
+      <node id="19">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event_queue.c</label>
+        <link refid="edf__event__queue_8c"/>
+      </node>
+      <node id="20">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</label>
+        <link refid="edf__time__event_8c"/>
+      </node>
+      <node id="21">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h</label>
+        <link refid="active__object_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c</label>
+        <link refid="active__object_8c"/>
+      </node>
+      <node id="4">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</label>
+        <link refid="test__event__delivery_8c"/>
+      </node>
+      <node id="23">
+        <label>sw/ecf/event_driven_framework/test/hsm/inc/hsm.h</label>
+        <link refid="hsm_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/hsm.c</label>
+        <link refid="hsm_8c"/>
+      </node>
+      <node id="5">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c</label>
+        <link refid="test__hsm_8c"/>
+      </node>
+      <node id="25">
+        <label>sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h</label>
+        <link refid="time__mgr_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</label>
+        <link refid="test__time__event_8c"/>
+      </node>
+      <node id="26">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c</label>
+        <link refid="time__mgr_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf_8h_1aa39ca4397d9a775d2a56e0280901b31b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the EDF framework. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Shall be called once before any other function of the framework. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para><xrefsect id="todo_1_todo000023"><xreftitle>Todo</xreftitle><xrefdescription><para>Optional hard real-time optimization.</para>
+</xrefdescription></xrefsect></para>
+<para>mlockall(MCL_CURRENT | MCL_FUTURE) locks all current and future memory pages of this process into RAM, preventing them from being swapped to disk. This can eliminate unpredictable page faults and improve timing determinism in hard real-time systems.</para>
+<para>Considerations before enabling:<itemizedlist>
+<listitem><para>Requires root privileges or CAP_IPC_LOCK capability.</para>
+</listitem><listitem><para>Limited by the RLIMIT_MEMLOCK resource limit (ulimit -l).</para>
+</listitem><listitem><para>May consume significant RAM and reduce overall system flexibility.</para>
+</listitem><listitem><para>Not strictly necessary for soft real-time applications.</para>
+</listitem></itemizedlist>
+</para>
+<para>If enabled, handle errors carefully: failure to lock memory does not necessarily mean the application cannot run, but timing may degrade. Use only if strict timing guarantees are required and the platform environment supports it.</para>
+<para>Example code:</para>
+<para><programlisting><codeline><highlight class="normal">#include<sp/>&lt;sys/mman.h&gt;<sp/>//<sp/>for<sp/>mlockall()</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(mlockall(MCL_CURRENT<sp/>|<sp/>MCL_FUTURE)<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>perror(&quot;mlockall<sp/>failed&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>optional:<sp/>decide<sp/>if<sp/>you<sp/>want<sp/>to<sp/>exit<sp/>or<sp/>continue<sp/>without<sp/>locked<sp/>memory</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para>Initialize the startup mutex with default attributes (non-recursive, same as PTHREAD_MUTEX_INITIALIZER).</para>
+<para>Lock the startup mutex to block any active objects started before calling <ref refid="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" kindref="member">EDF_run()</ref>.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf.h" line="67" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="403" bodyend="417" declfile="sw/ecf/event_driven_framework/inc/edf.h" declline="67" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf_8h_1ab0327c1b380f9da71459714ce13f3fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Stops the EDF framework. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calling this function terminates the main EDF thread, which causes all Active Object threads to end abruptly. The user is responsible for invoking <ref refid="edf_8h_1ab0327c1b380f9da71459714ce13f3fea" kindref="member">EDF_stop()</ref> only when the AO states are safe for an immediate shutdown.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf.h" line="72" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="451" bodyend="454" declfile="sw/ecf/event_driven_framework/inc/edf.h" declline="72" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EDF_run</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_run</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Takes control and runs the EDF main loop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 on normal exit, non-zero on error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Exit the startup critical section to unblock any active objects started before calling <ref refid="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" kindref="member">EDF_run()</ref>.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf.h" line="79" column="5" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="419" bodyend="449" declfile="sw/ecf/event_driven_framework/inc/edf.h" declline="79" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="edf_8h_1a78a0071d6610ff033393b92a213e1249" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_onStartup</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onStartup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific startup callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called just before the EDF framework takes control with the main loop. The framework provides a dummy weak implementation, can be overridden by the application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf.h" line="88" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="352" bodyend="357" declfile="sw/ecf/event_driven_framework/inc/edf.h" declline="88" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf_8h_1aea18abcbcfb67888e64dd1315407cdd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_onShutdown</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onShutdown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific shutdown callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called just before the EDF framework stops. The framework provides a dummy weak implementation, can be overridden by the application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf.h" line="97" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="501" bodyend="503" declfile="sw/ecf/event_driven_framework/inc/edf.h" declline="97" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf_8h_1ad633188bc929012aeeb8e31b8834ba29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_ISRExit</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_ISRExit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Framework ISR exit handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Shall be called at the end of every ISR that posts an EDF event. Evaluates pending activations of active objects and triggers a context switch if required. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf.h" line="107" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="505" bodyend="520" declfile="sw/ecf/event_driven_framework/inc/edf.h" declline="107" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf_8h_1ab7526d3761f52be63e9d7d751ef882e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_onContextSwitch</definition>
+        <argsstring>(EDF_activeObject_t *prev, EDF_activeObject_t *next)</argsstring>
+        <name>EDF_onContextSwitch</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>prev</declname>
+        </param>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>next</declname>
+        </param>
+        <briefdescription>
+<para>User-specific context switch callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called whenever EDF switches execution between two active objects. The framework provides a dummy weak implementation, can be overridden by the application (e.g., to trace or profile scheduling, apply memory protection techniques, etc.).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">prev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the previously running active object (can be NULL). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">next</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the newly scheduled active object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf.h" line="125" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="359" bodyend="378" declfile="sw/ecf/event_driven_framework/inc/edf.h" declline="125" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="edf_8h_1a3a579f87161dd3a61080d455374930be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_onIdle</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onIdle</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific idle callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called whenever EDF have no active objects are ready to run. The framework provides a dummy weak implementation, can be overridden by the application.</para>
+<para><simplesect kind="note"><para>In non-preemptive ports, the idle task can delay the execution of the next ready active object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf.h" line="137" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="529" bodyend="531" declfile="sw/ecf/event_driven_framework/inc/edf.h" declline="137" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/inc/edf.h"/>
+  </compounddef>
+</doxygen>

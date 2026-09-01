@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structprintBuffer__t" kind="struct" language="C++" prot="public">
+    <compoundname>printBuffer_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structprintBuffer__t_1addab9c6299d3b205562453fba80bdcd5" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t printBuffer_t::data[EMF_PRINT_MAX_LEN]</definition>
+        <argsstring>[EMF_PRINT_MAX_LEN]</argsstring>
+        <name>data</name>
+        <qualifiedname>printBuffer_t::data</qualifiedname>
+        <briefdescription>
+<para>Formatted message bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="57" column="11" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structprintBuffer__t_1a716abc4908f806727913e953a85b8749" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t printBuffer_t::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <qualifiedname>printBuffer_t::len</qualifiedname>
+        <briefdescription>
+<para>Number of formatted message bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="58" column="12" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structprintBuffer__t_1a65b61f00145b8eaf07f6b3a07b1f34a8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool printBuffer_t::overflow</definition>
+        <argsstring></argsstring>
+        <name>overflow</name>
+        <qualifiedname>printBuffer_t::overflow</qualifiedname>
+        <briefdescription>
+<para>Indicates that the message exceeded buffer capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="59" column="8" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Complete formatted message under construction. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" line="55" column="1" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="56" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structprintBuffer__t_1addab9c6299d3b205562453fba80bdcd5" prot="public" virt="non-virtual"><scope>printBuffer_t</scope><name>data</name></member>
+      <member refid="structprintBuffer__t_1a716abc4908f806727913e953a85b8749" prot="public" virt="non-virtual"><scope>printBuffer_t</scope><name>len</name></member>
+      <member refid="structprintBuffer__t_1a65b61f00145b8eaf07f6b3a07b1f34a8" prot="public" virt="non-virtual"><scope>printBuffer_t</scope><name>overflow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

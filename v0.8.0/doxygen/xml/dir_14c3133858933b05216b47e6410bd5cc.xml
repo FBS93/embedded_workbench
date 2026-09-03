@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_14c3133858933b05216b47e6410bd5cc" kind="dir">
+    <compoundname>sw/ecf/embedded_middleware_framework/src/emf_endian/test</compoundname>
+    <innerdir refid="dir_85d41705955ef28f73184306088bd1e9">sw/ecf/embedded_middleware_framework/src/emf_endian/test/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/test/"/>
+  </compounddef>
+</doxygen>

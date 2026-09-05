@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structtimeMgr__t" kind="struct" language="C++" prot="public">
+    <compoundname>timeMgr_t</compoundname>
+    <includes refid="time__mgr_8h" local="no">time_mgr.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtimeMgr__t_1a30e976505817ffc81d7974871b062fb2" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref></type>
+        <definition>EDF_activeObject_t timeMgr_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>timeMgr_t::super</qualifiedname>
+        <briefdescription>
+<para>Base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="68" column="22" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtimeMgr__t_1a85bc147667bea3594686caaadbd7a245" prot="public" static="no" mutable="no">
+        <type><ref refid="edf__event_8h_1ad3ce23e581fbb6e6edbfd96bec56d9aa" kindref="member">EDF_event_ptr</ref></type>
+        <definition>EDF_event_ptr timeMgr_t::event_buff[EVENT_BUFF_SIZE]</definition>
+        <argsstring>[EVENT_BUFF_SIZE]</argsstring>
+        <name>event_buff</name>
+        <qualifiedname>timeMgr_t::event_buff</qualifiedname>
+        <briefdescription>
+<para>Event buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="69" column="17" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtimeMgr__t_1ac0943b3c88c9e4683914a4ff2b663bc2" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t timeMgr_t::periodic_5ms_cnt</definition>
+        <argsstring></argsstring>
+        <name>periodic_5ms_cnt</name>
+        <qualifiedname>timeMgr_t::periodic_5ms_cnt</qualifiedname>
+        <briefdescription>
+<para>Counter of periodic 5ms time event expirations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="70" column="12" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtimeMgr__t_1a6fb1651347b54e86c09cd4e2a3689df1" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t timeMgr_t::periodic_100ms_cnt</definition>
+        <argsstring></argsstring>
+        <name>periodic_100ms_cnt</name>
+        <qualifiedname>timeMgr_t::periodic_100ms_cnt</qualifiedname>
+        <briefdescription>
+<para>Counter of periodic 100ms time event expirations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="72" column="12" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtimeMgr__t_1a000a0ae04c7db49fc58ee1e8cc1f8a4a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t timeMgr_t::periodic_5ms_100ms_cnt</definition>
+        <argsstring></argsstring>
+        <name>periodic_5ms_100ms_cnt</name>
+        <qualifiedname>timeMgr_t::periodic_5ms_100ms_cnt</qualifiedname>
+        <briefdescription>
+<para>Counter of periodic 5ms-100ms time event expirations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="74" column="12" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtimeMgr__t_1ab1afc70a4cee88ac84924e913f822275" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t timeMgr_t::one_shot_100ms_cnt</definition>
+        <argsstring></argsstring>
+        <name>one_shot_100ms_cnt</name>
+        <qualifiedname>timeMgr_t::one_shot_100ms_cnt</qualifiedname>
+        <briefdescription>
+<para>Counter of one-shot 100ms time event expirations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="76" column="12" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>timeMgr active object structure. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>Global for test access purposes. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="3">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>timeMgr_t</label>
+        <link refid="structtimeMgr__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>event_buff</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="66" column="1" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="67" bodyend="78"/>
+    <listofallmembers>
+      <member refid="structtimeMgr__t_1a85bc147667bea3594686caaadbd7a245" prot="public" virt="non-virtual"><scope>timeMgr_t</scope><name>event_buff</name></member>
+      <member refid="structtimeMgr__t_1ab1afc70a4cee88ac84924e913f822275" prot="public" virt="non-virtual"><scope>timeMgr_t</scope><name>one_shot_100ms_cnt</name></member>
+      <member refid="structtimeMgr__t_1a6fb1651347b54e86c09cd4e2a3689df1" prot="public" virt="non-virtual"><scope>timeMgr_t</scope><name>periodic_100ms_cnt</name></member>
+      <member refid="structtimeMgr__t_1a000a0ae04c7db49fc58ee1e8cc1f8a4a" prot="public" virt="non-virtual"><scope>timeMgr_t</scope><name>periodic_5ms_100ms_cnt</name></member>
+      <member refid="structtimeMgr__t_1ac0943b3c88c9e4683914a4ff2b663bc2" prot="public" virt="non-virtual"><scope>timeMgr_t</scope><name>periodic_5ms_cnt</name></member>
+      <member refid="structtimeMgr__t_1a30e976505817ffc81d7974871b062fb2" prot="public" virt="non-virtual"><scope>timeMgr_t</scope><name>super</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

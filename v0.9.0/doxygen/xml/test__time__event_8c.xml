@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test__time__event_8c" kind="file" language="C++">
+    <compoundname>test_time_event.c</compoundname>
+    <includes refid="edf__test_8h" local="yes">edf_test.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="time__mgr_8h" local="yes">time_mgr.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="19">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>edf_test.h</label>
+        <link refid="edf__test_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>time_mgr.h</label>
+        <link refid="time__mgr_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</label>
+        <link refid="test__time__event_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="12">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="6">
+        <label>edf_config.h</label>
+      </node>
+      <node id="15">
+        <label>queue.h</label>
+      </node>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>stddef.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="14">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="test__time__event_8c_1ac56f90c1b144cbaddbb6b9221068a82c" prot="public" static="yes" mutable="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>const EDF_event_t verifyEvent</definition>
+        <argsstring></argsstring>
+        <name>verifyEvent</name>
+        <initializer>= <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2aba570b000ad5bd233482644aaaac095680" kindref="member">VERIFY</ref>)</initializer>
+        <briefdescription>
+<para>Immutable event used to trigger the test verification. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" line="53" column="26" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test__time__event_8c_1ae9aea5e7aba53585e3f23a27d29a6fc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDFTest_onInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTest_onInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>The buffer must be large enough to hold the maximum number of consecutive posted events in the worst-case scenario without preemption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Init callback.</para>
+<para>This ensures the test can also be used in non-preemptive core/port configurations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" line="84" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="test__time__event_8c_1a35a2f6bca88844142fb41a5d44708229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDFTest_setUp</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTest_setUp</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Pre-test callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the EDF Test framework, providing a default implementation in case the user does not define a specific behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" line="89" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="test__time__event_8c_1a33cbb73ddcd475def55df80af25c0460" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(periodic_timers)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>periodic_timers</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" line="95" column="1" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" bodystart="95" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="test__time__event_8c_1a6a132a54cfebe9517c17f315da80030d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(periodic_timers, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>periodic_timers</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" line="108" column="1" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" bodystart="108" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="test__time__event_8c_1a78064d1003575bd443c262bd6e78e78f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(one_shot_timer)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>one_shot_timer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" line="122" column="1" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" bodystart="122" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="test__time__event_8c_1a8b778952b839a0b9af4af9a3416f74e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(one_shot_timer, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>one_shot_timer</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" line="133" column="1" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c" bodystart="133" bodyend="138"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,655 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test__hsm_8c" kind="file" language="C++">
+    <compoundname>test_hsm.c</compoundname>
+    <includes refid="edf__test_8h" local="yes">edf_test.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="hsm_8h" local="yes">hsm.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="19">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>edf_test.h</label>
+        <link refid="edf__test_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>hsm.h</label>
+        <link refid="hsm_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c</label>
+        <link refid="test__hsm_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="12">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="6">
+        <label>edf_config.h</label>
+      </node>
+      <node id="15">
+        <label>queue.h</label>
+      </node>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>stddef.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="14">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="test__hsm_8c_1a521534494889161aaa10ef6be0fefe65" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>const EDF_event_t transitionEvent</definition>
+        <argsstring></argsstring>
+        <name>transitionEvent</name>
+        <initializer>= <ref refid="edf__event_8h_1a8e981299a481d7514103f4bbeba7db18" kindref="member">EDF_EVENT_IMMUTABLE_INIT</ref>(<ref refid="hsm_8h_1a2c057348c500357fe2cc3d5724e47f6fa544dafaf104c4d12f4f6590528c12c3c" kindref="member">TRANSITION</ref>)</initializer>
+        <briefdescription>
+<para>Immutable event used to trigger state transitions in the test HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="52" column="19" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test__hsm_8c_1ae9aea5e7aba53585e3f23a27d29a6fc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDFTest_onInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTest_onInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Init callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the EDF Test framework, providing a default implementation in case the user does not define a specific behavior.</para>
+<para><simplesect kind="note"><para>All user software shall be initialized in this function, but <ref refid="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" kindref="member">EDF_run()</ref> must NOT be called, as control must return to the EDF test framework. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="78" column="6" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="78" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a79948377abb0dabcf7112776975b3084" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_1)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="87" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a73b1553fca29ca30c7778bc714232dd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_1, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_1</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="91" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="91" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a46880610cb567705d83666a52adfd03f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_2)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_2</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="100" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a83654c328d724b10a67a3f10f03dd5b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_2, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_2</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="104" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="104" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1acd7c3df85a8cd888647215499889a97a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_3)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_3</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="113" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="113" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1aca7752d0e838b88e5ae786cdc2912de3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_3, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_3</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="117" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="117" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1ab9e377e1ea940155fc5d81444e54f53f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_4)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_4</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="126" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1af60bc89a0d9f183bb4fb4196b05a56ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_4, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_4</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="130" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="130" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1aedbf71d7c31e846383b2ff38bcbdc2cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_5)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_5</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="139" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1ad04b4ec6ec7d7bdb1bc3b83a09b0847c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_5, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_5</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="143" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="143" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a950007223bb5b20c53aa83f1690d811e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_6)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_6</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="152" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a7388fc07ad073970506f9b3be907d4a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_6, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_6</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="156" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="156" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a85f402e55def7bafba34979b1b400298" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_7)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_7</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="165" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="165" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a163ebfab40ee14f2b42edd54f7a8e4a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_7, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_7</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="169" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="169" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a792b66aa6b2096fc5b929b93fe5609a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_8)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_8</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="178" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="178" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1af78d47ffc97cbc52a340b1c7a6fd2338" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_8, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_8</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="182" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="182" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a0c59bd91779120c2ac65f2ae62c67bf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_9)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_9</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="191" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="191" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1ab876309332483cfba3e260abb32d60d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_9, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_9</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="196" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="196" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1aea8efc14c02ff3f18a0c9976c52a439a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_INIT</definition>
+        <argsstring>(transition_10)</argsstring>
+        <name>EDF_TEST_CASE_INIT</name>
+        <param>
+          <type>transition_10</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="205" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="205" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hsm_8c_1a634436a9fce098add67075921feed8de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EDF_TEST_CASE_VERIFY</definition>
+        <argsstring>(transition_10, e)</argsstring>
+        <name>EDF_TEST_CASE_VERIFY</name>
+        <param>
+          <type>transition_10</type>
+        </param>
+        <param>
+          <type>e</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" line="210" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c" bodystart="210" bodyend="216"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c"/>
+  </compounddef>
+</doxygen>

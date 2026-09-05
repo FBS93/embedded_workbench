@@ -1,0 +1,745 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="os_2posix__preemptive_2src_2edf__core_8c" kind="file" language="C++">
+    <compoundname>edf_core.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">pthread.h</includes>
+    <includes local="no">signal.h</includes>
+    <includes local="no">limits.h</includes>
+    <includes local="yes">edf_core.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="edf__framework_8h" local="yes">edf_framework.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="26">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__preemptive_2src_2edf__core_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="17">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="11">
+        <label>edf_config.h</label>
+      </node>
+      <node id="9">
+        <label>edf_core.h</label>
+      </node>
+      <node id="8">
+        <label>limits.h</label>
+      </node>
+      <node id="6">
+        <label>pthread.h</label>
+      </node>
+      <node id="20">
+        <label>queue.h</label>
+      </node>
+      <node id="7">
+        <label>signal.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="15">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="5">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+      <node id="19">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="os_2posix__preemptive_2src_2edf__core_8c_1a4929a372396638523e886c1efe0303e2" prot="public" static="no">
+        <name>ACTIVE_OBJECT_THREAD_PRIO_OFFSET</name>
+        <initializer>2U</initializer>
+        <briefdescription>
+<para>Offset applied to calculate the priority of Active Object threads. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Ensures that Active Objects run below the main EDF thread and the ticker thread in the SCHED_FIFO priority hierarchy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="59" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="os_2posix__preemptive_2src_2edf__core_8c_1a4c9878b0ac34c445d2811dfb9181870f" prot="public" static="no">
+        <name>EDF_MAIN_THREAD_PRIO_OFFSET</name>
+        <initializer>1U</initializer>
+        <briefdescription>
+<para>Offset applied to calculate the priority of the EDF main thread. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Ensures the main EDF thread runs just below the ticker thread in the SCHED_FIFO priority hierarchy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="67" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="os_2posix__preemptive_2src_2edf__core_8c_1a6589a4cd0a9c86a632d24b1a6dbbdceb" prot="public" static="yes" mutable="no">
+        <type>pthread_mutex_t</type>
+        <definition>pthread_mutex_t startupMutex</definition>
+        <argsstring></argsstring>
+        <name>startupMutex</name>
+        <briefdescription>
+<para>Mutex used to synchronize the active object threads and EDF initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="86" column="24" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="os_2posix__preemptive_2src_2edf__core_8c_1afdf24e281764d1399ee4a5cbb1ae92f9" prot="public" static="yes" mutable="no">
+        <type>volatile bool</type>
+        <definition>volatile bool isRunning</definition>
+        <argsstring></argsstring>
+        <name>isRunning</name>
+        <briefdescription>
+<para>Flag indicating whether the EDF framework is running. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: context_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="93" column="22" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="93" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="80" column="1" declfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" declline="80" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1ae677108f84ee41b1bcfee9b5aa8684e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void sigIntHandler</definition>
+        <argsstring>(int signum)</argsstring>
+        <name>sigIntHandler</name>
+        <param>
+          <type>int</type>
+          <declname>signum</declname>
+        </param>
+        <briefdescription>
+<para>Signal handler for SIGINT (Ctrl+C). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This handler is registered via sigaction() to catch the SIGINT signal, which is typically generated when the user presses Ctrl+C in the terminal. Instead of terminating the process immediately, it perform a controlled application exit.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signal number that triggered the handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Unused because we have only registered SIGINT, so the value will always be SIGINT (2), which corresponds to Ctrl+C.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="131" column="13" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="131" bodyend="141" declfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" declline="117" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1a7a5feef252d18cfb549492c722ecea8b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>static void * activeObjectThread</definition>
+        <argsstring>(void *arg)</argsstring>
+        <name>activeObjectThread</name>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Thread routine for an Active Object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Always returns NULL (unused, as threads are detached). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="143" column="13" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="143" bodyend="164" declfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" declline="125" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1aa39ca4397d9a775d2a56e0280901b31b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the EDF framework. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Shall be called once before any other function of the framework. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para><xrefsect id="todo_1_todo000023"><xreftitle>Todo</xreftitle><xrefdescription><para>Optional hard real-time optimization.</para>
+</xrefdescription></xrefsect></para>
+<para>mlockall(MCL_CURRENT | MCL_FUTURE) locks all current and future memory pages of this process into RAM, preventing them from being swapped to disk. This can eliminate unpredictable page faults and improve timing determinism in hard real-time systems.</para>
+<para>Considerations before enabling:<itemizedlist>
+<listitem><para>Requires root privileges or CAP_IPC_LOCK capability.</para>
+</listitem><listitem><para>Limited by the RLIMIT_MEMLOCK resource limit (ulimit -l).</para>
+</listitem><listitem><para>May consume significant RAM and reduce overall system flexibility.</para>
+</listitem><listitem><para>Not strictly necessary for soft real-time applications.</para>
+</listitem></itemizedlist>
+</para>
+<para>If enabled, handle errors carefully: failure to lock memory does not necessarily mean the application cannot run, but timing may degrade. Use only if strict timing guarantees are required and the platform environment supports it.</para>
+<para>Example code:</para>
+<para><programlisting><codeline><highlight class="normal">#include<sp/>&lt;sys/mman.h&gt;<sp/>//<sp/>for<sp/>mlockall()</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(mlockall(MCL_CURRENT<sp/>|<sp/>MCL_FUTURE)<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>perror(&quot;mlockall<sp/>failed&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>optional:<sp/>decide<sp/>if<sp/>you<sp/>want<sp/>to<sp/>exit<sp/>or<sp/>continue<sp/>without<sp/>locked<sp/>memory</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para>Initialize the startup mutex with default attributes (non-recursive, same as PTHREAD_MUTEX_INITIALIZER).</para>
+<para>Lock the startup mutex to block any active objects started before calling <ref refid="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" kindref="member">EDF_run()</ref>.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="170" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="170" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1a741f22f8d99bbfbb000daeca620ca2a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EDF_run</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_run</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Takes control and runs the EDF main loop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 on normal exit, non-zero on error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Exit the startup critical section to unblock any active objects started before calling <ref refid="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" kindref="member">EDF_run()</ref>.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="226" column="5" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="226" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1ab0327c1b380f9da71459714ce13f3fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Stops the EDF framework. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Calling this function terminates the main EDF thread, which causes all Active Object threads to end abruptly. The user is responsible for invoking <ref refid="edf_8h_1ab0327c1b380f9da71459714ce13f3fea" kindref="member">EDF_stop()</ref> only when the AO states are safe for an immediate shutdown.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="258" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="258" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1ae4df5c8aa4c336242ffdf563948a0772" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_start</definition>
+        <argsstring>(EDF_activeObject_t *me, EDF_activeObject_prio_t prio, EDF_event_ptr *q_storage, EDF_eventQueue_cnt_t q_len, void *stack_storage, uint_fast16_t stack_size, const EDF_event_t *e)</argsstring>
+        <name>EDF_activeObject_start</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__active__object_8h_1ac6abb3dab6df18ac3f03c7bfec321ad7" kindref="member">EDF_activeObject_prio_t</ref></type>
+          <declname>prio</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__event_8h_1ad3ce23e581fbb6e6edbfd96bec56d9aa" kindref="member">EDF_event_ptr</ref> *</type>
+          <declname>q_storage</declname>
+        </param>
+        <param>
+          <type>EDF_eventQueue_cnt_t</type>
+          <declname>q_len</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>stack_storage</declname>
+        </param>
+        <param>
+          <type>uint_fast16_t</type>
+          <declname>stack_size</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Starts the execution of an active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If the active object has no event queue, it can only retain one event at a time; subsequent events will be lost.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">prio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Priority of the active object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">q_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event queue storage buffer. NULL if no queue </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">q_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the event queue. 0 if no queue. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stack_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the stack storage. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stack_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the stack storage. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event passed to the AO’s HSM initial state. NULL if not used. If NULL is provided, the AO initial state implementation shall not dereference or rely on this parameter. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>If this assertion fails, creating the pthread with the SCHED_FIFO policy was unsuccessful. Most likely, the application does not have superuser privileges.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="269" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="269" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1a3a57c1b9f40fb6c4bae5e8ee99aff57e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_setAttr</definition>
+        <argsstring>(EDF_activeObject_t *me, uint32_t attr1, const void *attr2)</argsstring>
+        <name>EDF_activeObject_setAttr</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>attr1</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>attr2</declname>
+        </param>
+        <briefdescription>
+<para>Sets implementation-specific attributes for an active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function can only be called after <ref refid="edf__active__object_8h_1a79459067401e9ed55fca1f17283cdc7d" kindref="member">EDF_activeObject_init()</ref> and before <ref refid="edf__active__object_8h_1ae4df5c8aa4c336242ffdf563948a0772" kindref="member">EDF_activeObject_start()</ref>, only if specific attributes need to be configured, depending on the selected core and port.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attr1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attr2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to attribute data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="341" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="341" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1a53ef92afdf8b412f92b918b04d89464c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDF_onStartup</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onStartup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific startup callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called just before the EDF framework takes control with the main loop. The framework provides a dummy weak implementation, can be overridden by the application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="352" column="15" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="352" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="os_2posix__preemptive_2src_2edf__core_8c_1a07d67b09f2c5893ffc971abccd3cf182" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDF_onShutdown</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onShutdown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific shutdown callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called just before the EDF framework stops. The framework provides a dummy weak implementation, can be overridden by the application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" line="356" column="15" bodyfile="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c" bodystart="356" bodyend="358"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c"/>
+  </compounddef>
+</doxygen>

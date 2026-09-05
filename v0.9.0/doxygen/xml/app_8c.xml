@@ -1,0 +1,760 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="app_8c" kind="file" language="C++">
+    <compoundname>app.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="app_8h" local="yes">app.h</includes>
+    <includes refid="gpio__trace_8h" local="yes">gpio_trace.h</includes>
+    <includes refid="exec__timer_8h" local="yes">exec_timer.h</includes>
+    <includes refid="tick__timer_8h" local="yes">tick_timer.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="21">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>app.h</label>
+        <link refid="app_8h"/>
+      </node>
+      <node id="6">
+        <label>exec_timer.h</label>
+        <link refid="exec__timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>gpio_trace.h</label>
+        <link refid="gpio__trace_8h"/>
+      </node>
+      <node id="7">
+        <label>tick_timer.h</label>
+        <link refid="tick__timer_8h"/>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</label>
+        <link refid="app_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="15">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="9">
+        <label>edf_config.h</label>
+      </node>
+      <node id="18">
+        <label>queue.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="13">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="17">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structworkerAo__t" prot="public">workerAo_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="app_8c_1a2d620781eb0d42cca3583b81ccef1611" prot="public" static="no">
+        <name>APP_TICK_RATE_IDX_1_MS</name>
+        <initializer>0U</initializer>
+        <briefdescription>
+<para>EDF tick-rate index used by the application. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="47" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="app_8c_1ad790fa83ab99edefd0b8324ac76f02ae" prot="public" static="no">
+        <name>APP_EVENT_BUFF_SIZE</name>
+        <initializer>16U</initializer>
+        <briefdescription>
+<para>Event queue length for each active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="52" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="app_8c_1a997c4acc216f54de3f83ff3295e7ec8a" prot="public" static="no">
+        <name>AO_LOW_PRIO</name>
+        <initializer>2U</initializer>
+        <briefdescription>
+<para>Low-priority active object priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="57" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="app_8c_1a3f9ad2b1e60766ca8f7c43dbaf3a22de" prot="public" static="no">
+        <name>AO_MID_PRIO</name>
+        <initializer>3U</initializer>
+        <briefdescription>
+<para>Medium-priority active object priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="62" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="app_8c_1aa7253050703aa463b4b7e501079b2224" prot="public" static="no">
+        <name>AO_HIGH_PRIO</name>
+        <initializer>4U</initializer>
+        <briefdescription>
+<para>High-priority active object priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="67" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="app_8c_1ac498e8dd1f9f1907697a29506730a03c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>app_eventSignal_t</name>
+        <enumvalue id="app_8c_1ac498e8dd1f9f1907697a29506730a03caea9a8a433bfaef29b0af2e8fb34ce1a5" prot="public">
+          <name>AO_LOW_TIMEOUT</name>
+          <initializer>= EDF_HSM_USER_SIGNAL</initializer>
+          <briefdescription>
+<para>Low-priority activation signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="app_8c_1ac498e8dd1f9f1907697a29506730a03caac81f09c694dcb69a8be80bf54a2f542" prot="public">
+          <name>AO_MID_TIMEOUT</name>
+          <briefdescription>
+<para>Medium-priority activation signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="app_8c_1ac498e8dd1f9f1907697a29506730a03cafac78e413b0462ba4cdc41849db9a6b1" prot="public">
+          <name>AO_HIGH_TIMEOUT</name>
+          <briefdescription>
+<para>High-priority activation signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Event signals used by the dummy application. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="76" column="1" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="77" bodyend="81"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="app_8c_1aec4ff178ff7745e69fb83db1592f9c1d" prot="public" static="yes" mutable="no">
+        <type><ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref></type>
+        <definition>workerAo_t aoLow</definition>
+        <argsstring></argsstring>
+        <name>aoLow</name>
+        <initializer>= {
+  .trace_channel = <ref refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11af5a76fa52ad1516dd0f75fba1e80c1ab" kindref="member">GPIO_TRACE_CHANNEL_LOW</ref>,
+  .activation_sig = <ref refid="app_8c_1ac498e8dd1f9f1907697a29506730a03caea9a8a433bfaef29b0af2e8fb34ce1a5" kindref="member">AO_LOW_TIMEOUT</ref>,
+  .first_delay_ms = 10U,
+  .period_ms = 1000U,
+  .execution_time_us = 500000U,
+}</initializer>
+        <briefdescription>
+<para>Low-priority worker. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="116" column="19" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="116" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="variable" id="app_8c_1a2335356778a77ebc2c54ac9e3037f8c8" prot="public" static="yes" mutable="no">
+        <type><ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref></type>
+        <definition>workerAo_t aoMid</definition>
+        <argsstring></argsstring>
+        <name>aoMid</name>
+        <initializer>= {
+  .trace_channel = <ref refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11a4337aa6b5812469531ab7a48c84ac538" kindref="member">GPIO_TRACE_CHANNEL_MID</ref>,
+  .activation_sig = <ref refid="app_8c_1ac498e8dd1f9f1907697a29506730a03caac81f09c694dcb69a8be80bf54a2f542" kindref="member">AO_MID_TIMEOUT</ref>,
+  .first_delay_ms = 20U,
+  .period_ms = 500U,
+  .execution_time_us = 150000U,
+}</initializer>
+        <briefdescription>
+<para>Medium-priority worker. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="127" column="19" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="127" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="variable" id="app_8c_1abdcabfe50d5d9e01048eade70a474d0e" prot="public" static="yes" mutable="no">
+        <type><ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref></type>
+        <definition>workerAo_t aoHigh</definition>
+        <argsstring></argsstring>
+        <name>aoHigh</name>
+        <initializer>= {
+  .trace_channel = <ref refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11a15e2f950b6ae16b60fa16d7487127411" kindref="member">GPIO_TRACE_CHANNEL_HIGH</ref>,
+  .activation_sig = <ref refid="app_8c_1ac498e8dd1f9f1907697a29506730a03cafac78e413b0462ba4cdc41849db9a6b1" kindref="member">AO_HIGH_TIMEOUT</ref>,
+  .first_delay_ms = 30U,
+  .period_ms = 100U,
+  .execution_time_us = 10000U,
+}</initializer>
+        <briefdescription>
+<para>High-priority worker. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="138" column="19" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="138" bodyend="144"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="app_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="111" column="1" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" declline="111" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1a527db7a06765393e3b6efa8e39478bbd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>static EDF_hsm_stateReturn_t initialTransition</definition>
+        <argsstring>(workerAo_t *me, const EDF_event_t *e)</argsstring>
+        <name>initialTransition</name>
+        <param>
+          <type><ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Initial transition of a worker active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the worker active object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>State return code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="213" column="30" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="213" bodyend="220" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" declline="165" declcolumn="30"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1ad387ea2e65a2c4860a96027812ddd310" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>static EDF_hsm_stateReturn_t readyState</definition>
+        <argsstring>(workerAo_t *me, const EDF_event_t *e)</argsstring>
+        <name>readyState</name>
+        <param>
+          <type><ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Ready state of a worker active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the worker active object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>State return code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="222" column="30" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="222" bodyend="255" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" declline="175" declcolumn="30"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1acb1b76d1d828bb3fadc38649949e5dda" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void initWorkerAo</definition>
+        <argsstring>(workerAo_t *me, EDF_activeObject_prio_t prio)</argsstring>
+        <name>initWorkerAo</name>
+        <param>
+          <type><ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__active__object_8h_1ac6abb3dab6df18ac3f03c7bfec321ad7" kindref="member">EDF_activeObject_prio_t</ref></type>
+          <declname>prio</declname>
+        </param>
+        <briefdescription>
+<para>Initialize one worker active object and its time event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the worker active object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">prio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EDF active object priority. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="257" column="13" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="257" bodyend="279" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" declline="183" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1adca0857a11b662f122fcfb23247e1cea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref> *</type>
+        <definition>static workerAo_t * workerFromAo</definition>
+        <argsstring>(EDF_activeObject_t *ao)</argsstring>
+        <name>workerFromAo</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>ao</declname>
+        </param>
+        <briefdescription>
+<para>Resolve a worker active object from its EDF base pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ao</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>EDF active object pointer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Matching worker active object, or NULL if it is not one of the demo workers. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="281" column="19" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="281" bodyend="303" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" declline="192" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1a5dd58e1f352c7ca6839a6a87819b3310" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void updateExecutedTicks</definition>
+        <argsstring>(workerAo_t *me)</argsstring>
+        <name>updateExecutedTicks</name>
+        <param>
+          <type><ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Update one worker accumulated execution budget until now. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the worker active object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="305" column="13" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="305" bodyend="319" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" declline="199" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1acfaa6d9e8b8ba3c298604a7351cc5568" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>static uint16_t currentExecutedTicks</definition>
+        <argsstring>(const workerAo_t *me)</argsstring>
+        <name>currentExecutedTicks</name>
+        <param>
+          <type>const <ref refid="structworkerAo__t" kindref="compound">workerAo_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Return the current counted execution time of one worker. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the worker active object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Counted execution time in timer ticks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="321" column="17" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="321" bodyend="337" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" declline="207" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1add3190cf715f513666f4be42874d91e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void app_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>app_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the dummy EDF application. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="343" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="343" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1a78a0071d6610ff033393b92a213e1249" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_onStartup</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onStartup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific startup callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called just before the EDF framework takes control with the main loop. The framework provides a dummy weak implementation, can be overridden by the application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="352" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="352" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="app_8c_1ab7526d3761f52be63e9d7d751ef882e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_onContextSwitch</definition>
+        <argsstring>(EDF_activeObject_t *prev, EDF_activeObject_t *next)</argsstring>
+        <name>EDF_onContextSwitch</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>prev</declname>
+        </param>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>next</declname>
+        </param>
+        <briefdescription>
+<para>User-specific context switch callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called whenever EDF switches execution between two active objects. The framework provides a dummy weak implementation, can be overridden by the application (e.g., to trace or profile scheduling, apply memory protection techniques, etc.).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">prev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the previously running active object (can be NULL). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">next</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the newly scheduled active object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="359" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="359" bodyend="378"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c"/>
+  </compounddef>
+</doxygen>

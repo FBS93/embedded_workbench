@@ -1,0 +1,757 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__endian_8c" kind="file" language="C++">
+    <compoundname>emf_endian.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="emf__endian_8h" local="yes">emf_endian.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c</label>
+        <link refid="emf__endian_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__endian_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="50" column="1" declfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" declline="50" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1a93d1f9ab51115bd314d1b728636dad1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_readBuffBE</definition>
+        <argsstring>(const uint8_t *buff, void *out, uint8_t out_size)</argsstring>
+        <name>EMF_endian_readBuffBE</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>out_size</declname>
+        </param>
+        <briefdescription>
+<para>Reads a big-endian value from a buffer into a generic variable. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output variable. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">out_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size (in bytes) of the output variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="72" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="72" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1a1278d3f6c683c91aa99c85bac3bd0de8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_writeBuffBE</definition>
+        <argsstring>(uint8_t *buff, const void *in, uint8_t in_size)</argsstring>
+        <name>EMF_endian_writeBuffBE</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>in_size</declname>
+        </param>
+        <briefdescription>
+<para>Writes a generic variable to a buffer in big-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input variable. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size (in bytes) of the input variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="102" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="102" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1abcb71604f10194968a3d50a16d9fc8ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u16ReadBuffBE</definition>
+        <argsstring>(const uint8_t *buff, uint16_t *out)</argsstring>
+        <name>EMF_endian_u16ReadBuffBE</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>uint16_t *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Reads a 16-bit unsigned integer from a buffer in big-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="139" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="139" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1a6addac5943c989dfbd7672db229b8ab2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u16WriteBuffBE</definition>
+        <argsstring>(uint8_t *buff, const uint16_t *in)</argsstring>
+        <name>EMF_endian_u16WriteBuffBE</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>const uint16_t *</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Writes a 16-bit unsigned integer to a buffer in big-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="149" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="149" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1ab50485ec116cd8534b8dd3bd42171475" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u32ReadBuffBE</definition>
+        <argsstring>(const uint8_t *buff, uint32_t *out)</argsstring>
+        <name>EMF_endian_u32ReadBuffBE</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Reads a 32-bit unsigned integer from a buffer in big-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="160" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="160" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1af53cbe22c4f07c8f00755f1b057f50d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u32WriteBuffBE</definition>
+        <argsstring>(uint8_t *buff, const uint32_t *in)</argsstring>
+        <name>EMF_endian_u32WriteBuffBE</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>const uint32_t *</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Writes a 32-bit unsigned integer to a buffer in big-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="171" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="171" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1a49df7fa960c7d2bba662b5026948e802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u64ReadBuffBE</definition>
+        <argsstring>(const uint8_t *buff, uint64_t *out)</argsstring>
+        <name>EMF_endian_u64ReadBuffBE</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>uint64_t *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Reads a 64-bit unsigned integer from a buffer in big-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="184" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="184" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1abd2840e8999fa013e9022b31ae4b7f6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u64WriteBuffBE</definition>
+        <argsstring>(uint8_t *buff, const uint64_t *in)</argsstring>
+        <name>EMF_endian_u64WriteBuffBE</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>const uint64_t *</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Writes a 64-bit unsigned integer to a buffer in big-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="197" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="197" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1a55268637dc1753ebd262eba15810f19b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_readBuffLE</definition>
+        <argsstring>(const uint8_t *buff, void *out, uint8_t out_size)</argsstring>
+        <name>EMF_endian_readBuffLE</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>out_size</declname>
+        </param>
+        <briefdescription>
+<para>Reads a little-endian value from a buffer into a generic variable. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output variable. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">out_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size (in bytes) of the output variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="214" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="214" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1aceb6b7b8de294f1b35672a716a8934c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_writeBuffLE</definition>
+        <argsstring>(uint8_t *buff, const void *in, uint8_t in_size)</argsstring>
+        <name>EMF_endian_writeBuffLE</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>in_size</declname>
+        </param>
+        <briefdescription>
+<para>Writes a generic variable to a buffer in little-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input variable. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size (in bytes) of the input variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="244" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="244" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1afe4db90de8be4a84c7490b6a849f7a71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u16ReadBuffLE</definition>
+        <argsstring>(const uint8_t *buff, uint16_t *out)</argsstring>
+        <name>EMF_endian_u16ReadBuffLE</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>uint16_t *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Reads a 16-bit unsigned integer from a buffer in little-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="281" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="281" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1a14557e3a7f8c39316df3930d5f419657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u16WriteBuffLE</definition>
+        <argsstring>(uint8_t *buff, const uint16_t *in)</argsstring>
+        <name>EMF_endian_u16WriteBuffLE</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>const uint16_t *</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Writes a 16-bit unsigned integer to a buffer in little-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="291" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="291" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1a4271f59ed23197a35d6113439b9d11ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u32ReadBuffLE</definition>
+        <argsstring>(const uint8_t *buff, uint32_t *out)</argsstring>
+        <name>EMF_endian_u32ReadBuffLE</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Reads a 32-bit unsigned integer from a buffer in little-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="302" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="302" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1a54da44eb934fd8fc5aab535352870b64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u32WriteBuffLE</definition>
+        <argsstring>(uint8_t *buff, const uint32_t *in)</argsstring>
+        <name>EMF_endian_u32WriteBuffLE</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>const uint32_t *</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Writes a 32-bit unsigned integer to a buffer in little-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="313" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="313" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1ae86f6f9e4c21dd9b593192e3f3f0e78b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u64ReadBuffLE</definition>
+        <argsstring>(const uint8_t *buff, uint64_t *out)</argsstring>
+        <name>EMF_endian_u64ReadBuffLE</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>uint64_t *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Reads a 64-bit unsigned integer from a buffer in little-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="326" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="326" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__endian_8c_1aade46c44e5694833b5268985a5cd55e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_endian_u64WriteBuffLE</definition>
+        <argsstring>(uint8_t *buff, const uint64_t *in)</argsstring>
+        <name>EMF_endian_u64WriteBuffLE</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff</declname>
+        </param>
+        <param>
+          <type>const uint64_t *</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Writes a 64-bit unsigned integer to a buffer in little-endian format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">buff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input variable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" line="339" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c" bodystart="339" bodyend="354"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_endian/src/emf_endian.c"/>
+  </compounddef>
+</doxygen>

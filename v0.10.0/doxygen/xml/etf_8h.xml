@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="etf_8h" kind="file" language="C++">
+    <compoundname>etf.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includedby refid="test__eff_8c" local="yes">sw/ecf/embedded_fake_framework/test/src/test_eff.c</includedby>
+    <includedby refid="test__emf__array__fifo_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c</includedby>
+    <includedby refid="test__emf__bitmask_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_bitmask/test/src/test_emf_bitmask.c</includedby>
+    <includedby refid="test__emf__byte__fifo_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/test/src/test_emf_byte_fifo.c</includedby>
+    <includedby refid="test__emf__cobs_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c</includedby>
+    <includedby refid="test__emf__crc_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_crc/test/src/test_emf_crc.c</includedby>
+    <includedby refid="test__emf__endian_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_endian/test/src/test_emf_endian.c</includedby>
+    <includedby refid="test__emf__utils_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_utils/test/src/test_emf_utils.c</includedby>
+    <includedby refid="etf_8c" local="yes">sw/ecf/embedded_test_framework/src/etf.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_test_framework/inc/etf.h</label>
+        <link refid="etf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>sw/ecf/embedded_fake_framework/test/src/test_eff.c</label>
+        <link refid="test__eff_8c"/>
+      </node>
+      <node id="3">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c</label>
+        <link refid="test__emf__array__fifo_8c"/>
+      </node>
+      <node id="4">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_bitmask/test/src/test_emf_bitmask.c</label>
+        <link refid="test__emf__bitmask_8c"/>
+      </node>
+      <node id="5">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/test/src/test_emf_byte_fifo.c</label>
+        <link refid="test__emf__byte__fifo_8c"/>
+      </node>
+      <node id="6">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_cobs/test/src/test_emf_cobs.c</label>
+        <link refid="test__emf__cobs_8c"/>
+      </node>
+      <node id="7">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_crc/test/src/test_emf_crc.c</label>
+        <link refid="test__emf__crc_8c"/>
+      </node>
+      <node id="8">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_endian/test/src/test_emf_endian.c</label>
+        <link refid="test__emf__endian_8c"/>
+      </node>
+      <node id="9">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_utils/test/src/test_emf_utils.c</label>
+        <link refid="test__emf__utils_8c"/>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_test_framework/inc/etf.h</label>
+        <link refid="etf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>sw/ecf/embedded_test_framework/src/etf.c</label>
+        <link refid="etf_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="etf_8h_1a8ab235f8d4f4382ed466e7d68da81f18" prot="public" static="no">
+        <name>ETF_TEST_SUITE</name>
+        <param><defname>name</defname></param>
+        <initializer>  const char <ref refid="etf_8h_1a3ed5c4bf2d10cefa204a9a477054c407" kindref="member">ETF_testSuite</ref>[] = #name; \
+  void <ref refid="etf_8h_1a84c4ccc8add34c61fdafc0d5ca9c7d34" kindref="member">ETF_run</ref>(void)</initializer>
+        <briefdescription>
+<para>Defines a test suite. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines a test suite name and the main test runner function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test suite. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="52" column="9" bodyfile="sw/ecf/embedded_test_framework/inc/etf.h" bodystart="52" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="define" id="etf_8h_1ac20ec8d9ab957fb7f98aa5106bcf354f" prot="public" static="no">
+        <name>ETF_TEST</name>
+        <param><defname>title</defname></param>
+        <initializer>if (<ref refid="etf_8h_1a8d967b1b1cb240f4a01f5ec782a34ebd" kindref="member">ETF_test</ref>(#title, true))</initializer>
+        <briefdescription>
+<para>Start test. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="61" column="9" bodyfile="sw/ecf/embedded_test_framework/inc/etf.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="etf_8h_1a049ad6db13e3c7813661b7589be0643a" prot="public" static="no">
+        <name>ETF_SKIP_TEST</name>
+        <param><defname>title</defname></param>
+        <initializer>if (<ref refid="etf_8h_1a8d967b1b1cb240f4a01f5ec782a34ebd" kindref="member">ETF_test</ref>(#title, false))</initializer>
+        <briefdescription>
+<para>Skip test. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The test is registered but not executed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="70" column="9" bodyfile="sw/ecf/embedded_test_framework/inc/etf.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="etf_8h_1a307a86b059c556472fe4d695b020cb96" prot="public" static="no">
+        <name>ETF_VERIFY</name>
+        <param><defname>cond</defname></param>
+        <initializer>  ((cond) ? (void)0 : <ref refid="etf_8h_1ae9db35e991674a437c47d677a633490f" kindref="member">ETF_fail</ref>(#cond, __FILE__, __LINE__))</initializer>
+        <briefdescription>
+<para>Verifies a test condition. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the condition fails, it triggers a test failure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean expression to evaluate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="79" column="9" bodyfile="sw/ecf/embedded_test_framework/inc/etf.h" bodystart="79" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="define" id="etf_8h_1a719db24df07e46f06d1447cc9b5709a0" prot="public" static="no">
+        <name>ETF_FAIL</name>
+        <param><defname>note</defname></param>
+        <initializer>(<ref refid="etf_8h_1ae9db35e991674a437c47d677a633490f" kindref="member">ETF_fail</ref>(note, __FILE__, __LINE__))</initializer>
+        <briefdescription>
+<para>Forces a test failure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Fails the test unconditionally with a custom message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">note</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Explanation or description of the failure (string literal). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="89" column="9" bodyfile="sw/ecf/embedded_test_framework/inc/etf.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="etf_8h_1a3ed5c4bf2d10cefa204a9a477054c407" prot="public" static="no" extern="yes" mutable="no">
+        <type>const char</type>
+        <definition>const char ETF_testSuite[]</definition>
+        <argsstring>[]</argsstring>
+        <name>ETF_testSuite</name>
+        <briefdescription>
+<para>Name of the current test suite. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defined in the test source file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="104" column="19" declfile="sw/ecf/embedded_test_framework/inc/etf.h" declline="104" declcolumn="19"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="etf_8h_1a84c4ccc8add34c61fdafc0d5ca9c7d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ETF_run</definition>
+        <argsstring>(void)</argsstring>
+        <name>ETF_run</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Internal runner for the test suite. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Automatically invoked by TEST_SUITE macro. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="115" column="6" declfile="sw/ecf/embedded_test_framework/inc/etf.h" declline="115" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="etf_8h_1a8d967b1b1cb240f4a01f5ec782a34ebd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ETF_test</definition>
+        <argsstring>(const char *title, bool execute)</argsstring>
+        <name>ETF_test</name>
+        <param>
+          <type>const char *</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>execute</declname>
+        </param>
+        <briefdescription>
+<para>Registers a test. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called by macros to control test execution.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test case. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">execute</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether the test should be executed or just registered. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the test should execute, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="126" column="6" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="97" bodyend="125" declfile="sw/ecf/embedded_test_framework/inc/etf.h" declline="126" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="etf_8h_1ae9db35e991674a437c47d677a633490f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ETF_fail</definition>
+        <argsstring>(const char *cond, const char *file, int line)</argsstring>
+        <name>ETF_fail</name>
+        <param>
+          <type>const char *</type>
+          <declname>cond</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+<para>Reports a test failure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Used internally by macros.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of the failed condition or reason. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source file where the failure occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line number where the failure occurred. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="137" column="6" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="127" bodyend="143" declfile="sw/ecf/embedded_test_framework/inc/etf.h" declline="137" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="etf_8h_1a77874e70ac0d73338c53aad2a404ef13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ETF_onInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>ETF_onInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Init callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the ETF framework, providing a default implementation in case the user does not define a specific behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="146" column="6" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="145" bodyend="147" declfile="sw/ecf/embedded_test_framework/inc/etf.h" declline="146" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="etf_8h_1a80b536274c2895faf112eb27168ec5f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ETF_onExit</definition>
+        <argsstring>(int err)</argsstring>
+        <name>ETF_onExit</name>
+        <param>
+          <type>int</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+<para>Exit callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the ETF framework, providing a default implementation in case the user does not define a specific behavior.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Exit code to return. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="157" column="6" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="149" bodyend="152" declfile="sw/ecf/embedded_test_framework/inc/etf.h" declline="157" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="etf_8h_1af374430e85d122656fbfcd92aae74f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ETF_setUp</definition>
+        <argsstring>(void)</argsstring>
+        <name>ETF_setUp</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Pre-test callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the ETF framework, providing a default implementation in case the user does not define a specific behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="166" column="6" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="154" bodyend="156" declfile="sw/ecf/embedded_test_framework/inc/etf.h" declline="166" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="etf_8h_1ac7a5e735d9df12f78672613c7029b20d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ETF_tearDown</definition>
+        <argsstring>(void)</argsstring>
+        <name>ETF_tearDown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Post-test callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the ETF framework, providing a default implementation in case the user does not define a specific behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/inc/etf.h" line="175" column="6" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="158" bodyend="160" declfile="sw/ecf/embedded_test_framework/inc/etf.h" declline="175" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_test_framework/inc/etf.h"/>
+  </compounddef>
+</doxygen>

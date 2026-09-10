@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__utils_8h" kind="file" language="C++">
+    <compoundname>emf_utils.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="emf_8h" local="yes">sw/ecf/embedded_middleware_framework/inc/emf.h</includedby>
+    <includedby refid="emf__utils_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_utils/src/emf_utils.c</includedby>
+    <includedby refid="test__emf__utils_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_utils/test/src/test_emf_utils.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>sw/ecf/embedded_assert_framework/src/eaf.c</label>
+        <link refid="eaf_8c"/>
+      </node>
+      <node id="4">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c"/>
+      </node>
+      <node id="5">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c</label>
+        <link refid="syscalls_8c"/>
+      </node>
+      <node id="6">
+        <label>sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c</label>
+        <link refid="os_2posix_2src_2ebf__core_8c"/>
+      </node>
+      <node id="2">
+        <label>sw/ecf/embedded_middleware_framework/inc/emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_utils/src/emf_utils.c</label>
+        <link refid="emf__utils_8c"/>
+      </node>
+      <node id="31">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_utils/test/src/test_emf_utils.c</label>
+        <link refid="test__emf__utils_8c"/>
+      </node>
+      <node id="7">
+        <label>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c</label>
+        <link refid="epf__timer_8c"/>
+      </node>
+      <node id="8">
+        <label>sw/ecf/embedded_test_framework/src/etf.c</label>
+        <link refid="etf_8c"/>
+      </node>
+      <node id="9">
+        <label>sw/ecf/event_driven_framework/edf_test/src/edf_test.c</label>
+        <link refid="edf__test_8c"/>
+      </node>
+      <node id="10">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</label>
+        <link refid="app_8c"/>
+      </node>
+      <node id="11">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</label>
+        <link refid="fuzz__example_8c"/>
+      </node>
+      <node id="12">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h</label>
+        <link refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h"/>
+      </node>
+      <node id="13">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2edf__core_8c"/>
+      </node>
+      <node id="14">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive_2inc_2edf__core_8h"/>
+      </node>
+      <node id="15">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="16">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h"/>
+      </node>
+      <node id="17">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c"/>
+      </node>
+      <node id="18">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="19">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</label>
+        <link refid="edf__active__object_8c"/>
+      </node>
+      <node id="20">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event.c</label>
+        <link refid="edf__event_8c"/>
+      </node>
+      <node id="21">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_framework.c</label>
+        <link refid="edf__framework_8c"/>
+      </node>
+      <node id="22">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c</label>
+        <link refid="edf__hsm_8c"/>
+      </node>
+      <node id="23">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</label>
+        <link refid="edf__time__event_8c"/>
+      </node>
+      <node id="24">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c</label>
+        <link refid="active__object_8c"/>
+      </node>
+      <node id="25">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</label>
+        <link refid="test__event__delivery_8c"/>
+      </node>
+      <node id="26">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/hsm.c</label>
+        <link refid="hsm_8c"/>
+      </node>
+      <node id="27">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c</label>
+        <link refid="test__hsm_8c"/>
+      </node>
+      <node id="28">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</label>
+        <link refid="test__time__event_8c"/>
+      </node>
+      <node id="29">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c</label>
+        <link refid="time__mgr_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="emf__utils_8h_1a137ba9470dd9263e76c36ea298e44db0" prot="public" static="no">
+        <name>EMF_UTILS_UNUSED_PARAM</name>
+        <param><defname>param</defname></param>
+        <initializer>((void)(param))</initializer>
+        <briefdescription>
+<para>Suppresses compiler warnings for unused parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Casts the parameter to void to explicitly mark it as unused.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">param</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameter to suppress warning for. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h" line="46" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__utils_8h_1a13f1a0084658d997018202c48e0df0ac" prot="public" static="no">
+        <name>EMF_UTILS_SIZEOF_ARRAY</name>
+        <param><defname>array</defname></param>
+        <initializer>(sizeof(array) / sizeof((array)[0U]))</initializer>
+        <briefdescription>
+<para>Returns the number of elements in a static array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Safe compile-time computation of array length. Only works with actual arrays, not pointers.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array to evaluate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of elements in the array. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h" line="57" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__utils_8h_1a187facb8161d36f1bed711ae44ec731a" prot="public" static="no">
+        <name>EMF_UTILS_MEM_ALIGNED_SLOT</name>
+        <param><defname>size</defname></param>
+        <initializer>  struct                                                          \
+  {                                                               \
+    void* storage[((size) + sizeof(void*) - 1U) / sizeof(void*)]; \
+  }</initializer>
+        <briefdescription>
+<para>Defines a portable, memory-aligned slot. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This macro defines a struct containing an array of <computeroutput>void*</computeroutput> large enough to hold a memory slot of the specified <computeroutput>size</computeroutput>.</para>
+<para><programlisting><codeline><highlight class="normal">//<sp/>Example:<sp/>Define<sp/>a<sp/>slot<sp/>for<sp/>a<sp/>custom<sp/>structure</highlight></codeline>
+<codeline><highlight class="normal">EMF_UTILS_MEM_ALIGNED_SLOT(sizeof(myStruct_t))<sp/>mySlot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Example:<sp/>Array<sp/>of<sp/>10<sp/>aligned<sp/>slots</highlight></codeline>
+<codeline><highlight class="normal">EMF_UTILS_MEM_ALIGNED_SLOT(sizeof(myStruct_t))<sp/>myStorage[10];</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Requested slot size in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h" line="75" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h" bodystart="75" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__utils_8h_1a3fe2d7c03b7088cef60199453fab3542" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_utils_clear</definition>
+        <argsstring>(void *start, uint32_t len)</argsstring>
+        <name>EMF_utils_clear</name>
+        <param>
+          <type>void *</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Clears a memory region by setting all bytes to zero. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the start of the memory region. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to clear. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h" line="99" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_utils/src/emf_utils.c" bodystart="73" bodyend="113" declfile="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h" declline="99" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_utils/inc/emf_utils.h"/>
+  </compounddef>
+</doxygen>

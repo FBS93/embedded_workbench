@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_6f5003247f8669f0cfffa547d226c2ce" kind="dir">
+    <compoundname>sw/ecf/embedded_platform_framework/os/posix/inc</compoundname>
+    <innerfile refid="epf_8h">epf.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_platform_framework/os/posix/inc/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="eaf_8c" kind="file" language="C++">
+    <compoundname>eaf.c</compoundname>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_assert_framework/src/eaf.c</label>
+        <link refid="eaf_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="8">
+        <label>pthread.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="17">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="eaf_8c_1a57fda8a487555e8a2d639242b0f6b393" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EAF_onError</definition>
+        <argsstring>(const char *file, int line, int id)</argsstring>
+        <name>EAF_onError</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Error handler called on assertion failures. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para><ref refid="eaf_8h_1a0a0aa9983f4492f8478a1bffbf077854" kindref="member">EAF_ASSERT_IN_CRITICAL_SECTION_ID()</ref> and <ref refid="eaf_8h_1a0e68ed6bfcb78d5621202ca71c7caa05" kindref="member">EAF_ASSERT_IN_CRITICAL_SECTION()</ref> shall always be used inside an already active critical section. These macros do not modify the critical-section state.</para>
+</simplesect>
+In contrast, <ref refid="eaf_8h_1a69ce561e8b8aadf6ddfee313d1a4288b" kindref="member">EAF_ASSERT()</ref>, <ref refid="eaf_8h_1a92c4a5c879646da112054000a22265e7" kindref="member">EAF_ASSERT_ID()</ref> and the in-block assertions (<ref refid="eaf_8h_1ac6852b068db51dde92a2065a23008d83" kindref="member">EAF_ASSERT_IN_BLOCK()</ref> and <ref refid="eaf_8h_1a2195c8f8081ed8a2742832c4cb79de50" kindref="member">EAF_ASSERT_IN_BLOCK_ID()</ref>) used between <ref refid="eaf_8h_1a5099b62e4f0b41bee01594c33d73aaf0" kindref="member">EAF_ASSERT_BLOCK_BEGIN()</ref> and <ref refid="eaf_8h_1a5527c84790575eb476f9bdb40a490046" kindref="member">EAF_ASSERT_BLOCK_END()</ref> first check whether execution is already inside a critical section:<itemizedlist>
+<listitem><para>If not, they enter a critical section.</para>
+</listitem><listitem><para>Upon completion, they exit the critical section only if it was not active prior to the assertion call.</para>
+</listitem></itemizedlist>
+</para>
+<para>This behavior allows assertions to be used safely in code that may run either inside or outside a critical section, while avoiding nested critical sections which the Embedded C Framework (ECF) framework does not support.<simplesect kind="note"><para>When using <ref refid="eaf_8h_1a69ce561e8b8aadf6ddfee313d1a4288b" kindref="member">EAF_ASSERT()</ref> or <ref refid="eaf_8h_1a92c4a5c879646da112054000a22265e7" kindref="member">EAF_ASSERT_ID()</ref> to validate expressions involving shared or global variables, ensure that the entire condition is evaluated atomically within a single assertion. Splitting related checks across multiple calls to these macros can cause repeated entry and exit of critical sections, opening small windows where an interrupt or concurrent context may preempt execution and modify shared or global variables.</para>
+</simplesect>
+<bold>Incorrect:</bold> <programlisting><codeline><highlight class="normal">EAF_ASSERT(global_var<sp/>&lt;<sp/>x);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Context<sp/>may<sp/>be<sp/>interrupted<sp/>between<sp/>critical<sp/>sections</highlight></codeline>
+<codeline><highlight class="normal">EAF_ASSERT(global_var<sp/>&gt;<sp/>y);</highlight></codeline>
+</programlisting> <programlisting><codeline><highlight class="normal">EAF_ASSERT_ID((global_var<sp/>&lt;<sp/>x),<sp/>100);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Context<sp/>may<sp/>be<sp/>interrupted<sp/>between<sp/>critical<sp/>sections</highlight></codeline>
+<codeline><highlight class="normal">EAF_ASSERT_ID((global_var<sp/>&gt;<sp/>y),<sp/>100);</highlight></codeline>
+</programlisting></para>
+<para><bold>Correct:</bold> <programlisting><codeline><highlight class="normal">EAF_ASSERT((global_var<sp/>&lt;<sp/>x)<sp/>&amp;&amp;<sp/>(global_var<sp/>&gt;<sp/>y));</highlight></codeline>
+</programlisting> <programlisting><codeline><highlight class="normal">EAF_ASSERT_ID(((global_var<sp/>&lt;<sp/>x)<sp/>&amp;&amp;<sp/>(global_var<sp/>&gt;<sp/>y)),<sp/>100);</highlight></codeline>
+</programlisting></para>
+<para><xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>Integrate this note into the coding guidelines so AI tools can verify it. </para>
+</xrefdescription></xrefsect></para>
+<para>This function is defined as weak within the EAF framework, providing a default implementation in case the user does not define a specific behavior.</para>
+<para>Do not call directly. This declaration is required so the macros can expand correctly in user code.</para>
+<para><simplesect kind="note"><para>This function is invoked while inside a critical section to ensure atomic error handling. Users providing their own implementation must consider that concurrent or asynchronous execution is blocked during this call.</para>
+</simplesect>
+<simplesect kind="note"><para>Implementations shall not call operations that can trigger another assertion.</para>
+</simplesect>
+<simplesect kind="note"><para>User implementations are strongly encouraged not to return. EAF_onError is the last line of defense against non-recoverable errors; after an assertion failure, the system state and availability of previously operational resources can no longer be guaranteed.</para>
+</simplesect>
+<simplesect kind="note"><para>The default weak implementation enters an infinite loop to halt execution.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the file name string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line number where the error occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identifier associated with the error. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_assert_framework/src/eaf.c" line="66" column="15" bodyfile="sw/ecf/embedded_assert_framework/src/eaf.c" bodystart="66" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="eaf_8c_1a906160bff4d41462eded66cd25618650" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EAF_criticalSectionEntry</definition>
+        <argsstring>(void)</argsstring>
+        <name>EAF_criticalSectionEntry</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Enter critical section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Encapsulates the platform-specific mechanism to enter a critical section. This function abstracts dependencies on the underlying EBF library, so users including this header do not require direct linkage or knowledge of EBF API.</para>
+<para>Do not call directly. This declaration is required so the macros can expand correctly in user code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_assert_framework/src/eaf.c" line="78" column="6" bodyfile="sw/ecf/embedded_assert_framework/src/eaf.c" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="eaf_8c_1a7cd97c066df677a908333636728b41fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EAF_criticalSectionExit</definition>
+        <argsstring>(void)</argsstring>
+        <name>EAF_criticalSectionExit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Exit critical section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Encapsulates the platform-specific mechanism to exit a critical section. This function abstracts dependencies on the underlying EBF library, so users including this header do not require direct linkage or knowledge of EBF API.</para>
+<para>Do not call directly. This declaration is required so the macros can expand correctly in user code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_assert_framework/src/eaf.c" line="83" column="6" bodyfile="sw/ecf/embedded_assert_framework/src/eaf.c" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="eaf_8c_1a864a951f6ba88663f3ee0673b42d1daa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EAF_isInCriticalSection</definition>
+        <argsstring>(void)</argsstring>
+        <name>EAF_isInCriticalSection</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check if currently inside a critical section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Encapsulates the platform-specific mechanism to determine if execution is within a critical section. This function abstracts dependencies on the underlying EBF library, so users including this header do not require direct linkage or knowledge of the EBF API.</para>
+<para>Do not call directly. This declaration is required so the macros can expand correctly in user code. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_assert_framework/src/eaf.c" line="88" column="6" bodyfile="sw/ecf/embedded_assert_framework/src/eaf.c" bodystart="88" bodyend="91"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_assert_framework/src/eaf.c"/>
+  </compounddef>
+</doxygen>

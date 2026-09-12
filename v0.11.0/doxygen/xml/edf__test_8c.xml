@@ -1,0 +1,613 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__test_8c" kind="file" language="C++">
+    <compoundname>edf_test.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="edf__test_8h" local="yes">edf_test.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="22">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_test.h</label>
+        <link refid="edf__test_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/edf_test/src/edf_test.c</label>
+        <link refid="edf__test_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="13">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="8">
+        <label>edf_config.h</label>
+      </node>
+      <node id="21">
+        <label>pthread.h</label>
+      </node>
+      <node id="16">
+        <label>queue.h</label>
+      </node>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="15">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structEDFTest__t" prot="public">EDFTest_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="edf__test_8c_1a0f39bee1fe3ddff8fd500157cbbedf0e" prot="public" static="no">
+        <name>EDF_TEST_AO_PRIO</name>
+        <initializer>(<ref refid="edf__active__object_8h_1ac6abb3dab6df18ac3f03c7bfec321ad7" kindref="member">EDF_activeObject_prio_t</ref>)1</initializer>
+        <briefdescription>
+<para>Defines the priority for the EDFTest active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to the lowest available priority. This ensures that tests run with minimal intrusion to the system&apos;s behavior.</para>
+<para><simplesect kind="note"><para>In case the user wants to use the EDF Test library, the user shall leave the lowest priority (1) free in their application code so that the EDFTest active object can use it.</para>
+</simplesect>
+<xrefsect id="todo_1_todo000010"><xreftitle>Todo</xreftitle><xrefdescription><para>Move this note to the module documentation to make it highly visible for the user. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="57" column="9" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="edf__test_8c_1aa08f935af60341fc2fc40662e2d42ac7" prot="public" static="yes" mutable="no">
+        <type><ref refid="structEDFTest__t" kindref="compound">EDFTest_t</ref></type>
+        <definition>EDFTest_t EDFTest</definition>
+        <argsstring></argsstring>
+        <name>EDFTest</name>
+        <briefdescription>
+<para>Instance of the EDFTest active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="89" column="18" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__test_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="84" column="1" declfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" declline="84" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1a720a70042bdc8e90bcdc9e49e7e6e5af" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>static EDF_hsm_stateReturn_t initialTransition</definition>
+        <argsstring>(EDFTest_t *me, const EDF_event_t *e)</argsstring>
+        <name>initialTransition</name>
+        <param>
+          <type><ref refid="structEDFTest__t" kindref="compound">EDFTest_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Initial transition of the EDFTest HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the EDFTest instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="129" column="30" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="129" bodyend="136" declfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" declline="109" declcolumn="30"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1aefa4b8c730977645061aeacda8e928f2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>static EDF_hsm_stateReturn_t waitForEvent</definition>
+        <argsstring>(EDFTest_t *me, const EDF_event_t *e)</argsstring>
+        <name>waitForEvent</name>
+        <param>
+          <type><ref refid="structEDFTest__t" kindref="compound">EDFTest_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>waitForRxCmd state of the EDFTest HSM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the EDFTest instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="138" column="30" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="138" bodyend="189" declfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" declline="118" declcolumn="30"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1a99f53847240d9d623f466c48eab9e6ec" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void EDFTestInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTestInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the EDFTest active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para><xrefsect id="todo_1_todo000011"><xreftitle>Todo</xreftitle><xrefdescription><para>Review the last three parameters (currently NULL, 0, NULL). They may need to be conditionally defined depending on the CORE and PORT configuration used. </para>
+</xrefdescription></xrefsect></para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="191" column="13" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="191" bodyend="220" declfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" declline="123" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1ad46126f05a2400e1f1210e9da914eddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDFTest_fail</definition>
+        <argsstring>(const char *cond, const char *file, int line)</argsstring>
+        <name>EDFTest_fail</name>
+        <param>
+          <type>const char *</type>
+          <declname>cond</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+<para>Reports a test failure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Used internally by macros.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of the failed condition or reason. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source file where the failure occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line number where the failure occurred. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="226" column="6" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="226" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1ab26188db97c3778444a070cd2680663f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDFTest_onInit</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTest_onInit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Init callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the EDF Test framework, providing a default implementation in case the user does not define a specific behavior.</para>
+<para><simplesect kind="note"><para>All user software shall be initialized in this function, but <ref refid="edf_8h_1a741f22f8d99bbfbb000daeca620ca2a6" kindref="member">EDF_run()</ref> must NOT be called, as control must return to the EDF test framework. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="247" column="15" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="247" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1aa9a4afc514eb08f9b0dea8c575e09c6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDFTest_onExit</definition>
+        <argsstring>(int err)</argsstring>
+        <name>EDFTest_onExit</name>
+        <param>
+          <type>int</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+<para>Exit callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the EDF Test framework, providing a default implementation in case the user does not define a specific behavior.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Exit code to return. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="251" column="15" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="251" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1a0d1badf64e9d0e0253a6ca74a4134584" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDFTest_setUp</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTest_setUp</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Pre-test callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the EDF Test framework, providing a default implementation in case the user does not define a specific behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="256" column="15" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="256" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1afcba74ede74df5d336ca606c104f348b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDFTest_tearDown</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDFTest_tearDown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Post-test callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is defined as weak within the EDF Test framework, providing a default implementation in case the user does not define a specific behavior. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="260" column="15" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="260" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__test_8c_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(void)</argsstring>
+        <name>main</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="264" column="5" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="264" bodyend="306"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c"/>
+  </compounddef>
+</doxygen>

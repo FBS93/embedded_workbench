@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_51e5f01e8aaba604db1b746169c557db" kind="dir">
+    <compoundname>sw/ecf/embedded_base_framework/src/core/os/posix/src</compoundname>
+    <innerfile refid="os_2posix_2src_2ebf__core_8c">ebf_core.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_base_framework/src/core/os/posix/src/"/>
+  </compounddef>
+</doxygen>

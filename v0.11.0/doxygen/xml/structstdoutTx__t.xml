@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structstdoutTx__t" kind="struct" language="C++" prot="public">
+    <compoundname>stdoutTx_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structstdoutTx__t_1afafd4018f9c0f41a19c8ed331e0aa7d4" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t stdoutTx_t::buffer[STDOUT_TX_BUFFER_CAPACITY]</definition>
+        <argsstring>[STDOUT_TX_BUFFER_CAPACITY]</argsstring>
+        <name>buffer</name>
+        <qualifiedname>stdoutTx_t::buffer</qualifiedname>
+        <briefdescription>
+<para>FIFO storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="182" column="11" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstdoutTx__t_1ae0e49924d9b0cb397aa5ec725f3b44ad" prot="public" static="no" mutable="no">
+        <type>volatile uint16_t</type>
+        <definition>volatile uint16_t stdoutTx_t::head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <qualifiedname>stdoutTx_t::head</qualifiedname>
+        <briefdescription>
+<para>Next FIFO position to transmit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: asynchronous_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="183" column="21" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstdoutTx__t_1a00b95dc1dae212abe55b838ca2c57d48" prot="public" static="no" mutable="no">
+        <type>volatile uint16_t</type>
+        <definition>volatile uint16_t stdoutTx_t::tail</definition>
+        <argsstring></argsstring>
+        <name>tail</name>
+        <qualifiedname>stdoutTx_t::tail</qualifiedname>
+        <briefdescription>
+<para>Next FIFO position to fill. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: asynchronous_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="185" column="21" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstdoutTx__t_1ad81779283f2ea8beb989ac38db98ab3f" prot="public" static="no" mutable="no">
+        <type>volatile uint16_t</type>
+        <definition>volatile uint16_t stdoutTx_t::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>stdoutTx_t::count</qualifiedname>
+        <briefdescription>
+<para>Number of bytes admitted to the FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: asynchronous_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="187" column="21" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="187" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Asynchronous standard output transmit state. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>See <ref refid="/workspaces/embedded_workbench/sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c_1stdout_tx_fifo_implementation" kindref="member">stdout_tx_fifo_implementation</ref>. </para>
+    </detaileddescription>
+    <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="180" column="1" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="181" bodyend="189"/>
+    <listofallmembers>
+      <member refid="structstdoutTx__t_1afafd4018f9c0f41a19c8ed331e0aa7d4" prot="public" virt="non-virtual"><scope>stdoutTx_t</scope><name>buffer</name></member>
+      <member refid="structstdoutTx__t_1ad81779283f2ea8beb989ac38db98ab3f" prot="public" virt="non-virtual"><scope>stdoutTx_t</scope><name>count</name></member>
+      <member refid="structstdoutTx__t_1ae0e49924d9b0cb397aa5ec725f3b44ad" prot="public" virt="non-virtual"><scope>stdoutTx_t</scope><name>head</name></member>
+      <member refid="structstdoutTx__t_1a00b95dc1dae212abe55b838ca2c57d48" prot="public" virt="non-virtual"><scope>stdoutTx_t</scope><name>tail</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

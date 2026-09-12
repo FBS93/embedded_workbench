@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_ccf68216b6a28a58d06de320ad90cf68" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/examples/fuzz_example</compoundname>
+    <innerdir refid="dir_bda3a788be1635ddd371b56c39e633f7">sw/ecf/event_driven_framework/examples/fuzz_example/inc</innerdir>
+    <innerdir refid="dir_57ff49d112969bc96717c5b63d39138f">sw/ecf/event_driven_framework/examples/fuzz_example/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/fuzz_example/"/>
+  </compounddef>
+</doxygen>

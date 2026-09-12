@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEPF__timer__entry__t" kind="struct" language="C++" prot="public">
+    <compoundname>EPF_timer_entry_t</compoundname>
+    <includes refid="epf__timer_8h" local="no">epf_timer.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEPF__timer__entry__t_1aa128b46b882243e18357a0f9b0a95f91" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref> *</type>
+        <definition>struct EPF_timer_entry_t* EPF_timer_entry_t::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>EPF_timer_entry_t::next</qualifiedname>
+        <briefdescription>
+<para>Link to the next timer in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="71" column="27" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEPF__timer__entry__t_1a3e8da653ee0b4150ba35977ba775e6d7" prot="public" static="no" mutable="no">
+        <type><ref refid="epf__timer_8h_1a91d904c9decd23fa77ead5595503d310" kindref="member">EPF_timer_callback_t</ref></type>
+        <definition>EPF_timer_callback_t EPF_timer_entry_t::cb</definition>
+        <argsstring></argsstring>
+        <name>cb</name>
+        <qualifiedname>EPF_timer_entry_t::cb</qualifiedname>
+        <briefdescription>
+<para>User-defined callback executed on expiration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="72" column="24" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEPF__timer__entry__t_1a2f9c5a274f38fc1a9e382b0f7679a0c6" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t EPF_timer_entry_t::cnt</definition>
+        <argsstring></argsstring>
+        <name>cnt</name>
+        <qualifiedname>EPF_timer_entry_t::cnt</qualifiedname>
+        <briefdescription>
+<para>Down-counter until expiration (ticks). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="73" column="12" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEPF__timer__entry__t_1a0252caee628781a9df4eaf8e1980e4c1" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t EPF_timer_entry_t::period</definition>
+        <argsstring></argsstring>
+        <name>period</name>
+        <qualifiedname>EPF_timer_entry_t::period</qualifiedname>
+        <briefdescription>
+<para>Reload value for periodic timer, 0 for one-shot timer (ticks). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="74" column="12" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEPF__timer__entry__t_1af1d3266b8c49ee8ef435eaf447ac7393" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EPF_timer_entry_t::is_linked</definition>
+        <argsstring></argsstring>
+        <name>is_linked</name>
+        <qualifiedname>EPF_timer_entry_t::is_linked</qualifiedname>
+        <briefdescription>
+<para>True if the timer is currently linked. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="76" column="8" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Timer entry structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>EPF_timer_entry_t</label>
+        <link refid="structEPF__timer__entry__t"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="69" column="1" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="70" bodyend="77"/>
+    <listofallmembers>
+      <member refid="structEPF__timer__entry__t_1a3e8da653ee0b4150ba35977ba775e6d7" prot="public" virt="non-virtual"><scope>EPF_timer_entry_t</scope><name>cb</name></member>
+      <member refid="structEPF__timer__entry__t_1a2f9c5a274f38fc1a9e382b0f7679a0c6" prot="public" virt="non-virtual"><scope>EPF_timer_entry_t</scope><name>cnt</name></member>
+      <member refid="structEPF__timer__entry__t_1af1d3266b8c49ee8ef435eaf447ac7393" prot="public" virt="non-virtual"><scope>EPF_timer_entry_t</scope><name>is_linked</name></member>
+      <member refid="structEPF__timer__entry__t_1aa128b46b882243e18357a0f9b0a95f91" prot="public" virt="non-virtual"><scope>EPF_timer_entry_t</scope><name>next</name></member>
+      <member refid="structEPF__timer__entry__t_1a0252caee628781a9df4eaf8e1980e4c1" prot="public" virt="non-virtual"><scope>EPF_timer_entry_t</scope><name>period</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

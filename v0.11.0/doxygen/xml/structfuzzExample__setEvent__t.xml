@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structfuzzExample__setEvent__t" kind="struct" language="C++" prot="public">
+    <compoundname>fuzzExample_setEvent_t</compoundname>
+    <includes refid="fuzz__example_8h" local="no">fuzz_example.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfuzzExample__setEvent__t_1ae9aa1163f0980475569d17898b22221d" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>EDF_event_t fuzzExample_setEvent_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>fuzzExample_setEvent_t::super</qualifiedname>
+        <briefdescription>
+<para>EDF event base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="66" column="15" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__setEvent__t_1a1f5d1db99c173afbe909393454ba3e93" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_setEvent_t::slot</definition>
+        <argsstring></argsstring>
+        <name>slot</name>
+        <qualifiedname>fuzzExample_setEvent_t::slot</qualifiedname>
+        <briefdescription>
+<para>Slot to accept. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="67" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__setEvent__t_1a495b4aaae52ae1f53bde5a94968ffa24" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_setEvent_t::gate</definition>
+        <argsstring></argsstring>
+        <name>gate</name>
+        <qualifiedname>fuzzExample_setEvent_t::gate</qualifiedname>
+        <briefdescription>
+<para>Value gate used to enter collecting state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="68" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__setEvent__t_1a4aefc308c53e207a2db02d10b67cd290" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_setEvent_t::target_count</definition>
+        <argsstring></argsstring>
+        <name>target_count</name>
+        <qualifiedname>fuzzExample_setEvent_t::target_count</qualifiedname>
+        <briefdescription>
+<para>Small target used by finish logic. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="69" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Mutable setup event accepted by the example application. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="1">
+        <label>fuzzExample_setEvent_t</label>
+        <link refid="structfuzzExample__setEvent__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="64" column="1" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="65" bodyend="70"/>
+    <listofallmembers>
+      <member refid="structfuzzExample__setEvent__t_1a495b4aaae52ae1f53bde5a94968ffa24" prot="public" virt="non-virtual"><scope>fuzzExample_setEvent_t</scope><name>gate</name></member>
+      <member refid="structfuzzExample__setEvent__t_1a1f5d1db99c173afbe909393454ba3e93" prot="public" virt="non-virtual"><scope>fuzzExample_setEvent_t</scope><name>slot</name></member>
+      <member refid="structfuzzExample__setEvent__t_1ae9aa1163f0980475569d17898b22221d" prot="public" virt="non-virtual"><scope>fuzzExample_setEvent_t</scope><name>super</name></member>
+      <member refid="structfuzzExample__setEvent__t_1a4aefc308c53e207a2db02d10b67cd290" prot="public" virt="non-virtual"><scope>fuzzExample_setEvent_t</scope><name>target_count</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

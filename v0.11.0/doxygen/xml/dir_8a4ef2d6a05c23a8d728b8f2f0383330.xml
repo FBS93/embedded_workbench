@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_8a4ef2d6a05c23a8d728b8f2f0383330" kind="dir">
+    <compoundname>sw/ecf/embedded_fake_framework/inc</compoundname>
+    <innerfile refid="eff_8h">eff.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_fake_framework/inc/"/>
+  </compounddef>
+</doxygen>

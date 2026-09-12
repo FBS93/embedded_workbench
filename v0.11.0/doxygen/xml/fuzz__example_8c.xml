@@ -1,0 +1,967 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="fuzz__example_8c" kind="file" language="C++">
+    <compoundname>fuzz_example.c</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="fuzz__example_8h" local="yes">fuzz_example.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="edf__fuzz_8h" local="yes">edf_fuzz.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="19">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>fuzz_example.h</label>
+        <link refid="fuzz__example_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</label>
+        <link refid="fuzz__example_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>edf_fuzz.h</label>
+        <link refid="edf__fuzz_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="13">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="7">
+        <label>edf_config.h</label>
+      </node>
+      <node id="16">
+        <label>queue.h</label>
+      </node>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+      <node id="11">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="15">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structfuzzExample__t" prot="public">fuzzExample_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="fuzz__example_8c_1a7eca63c9195fb08803e079e60c4f5011" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_AO_PRIO</name>
+        <initializer>2U</initializer>
+        <briefdescription>
+<para>Priority assigned to the fuzz example active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="47" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a64b75838a4e81d9f391520ccd0c5a8dd" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_QUEUE_LEN</name>
+        <initializer>4U</initializer>
+        <briefdescription>
+<para>Length of the active object event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="52" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1ae70ca50f5278cbaf6941a1a91e481f42" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_POOL_BLOCKS</name>
+        <initializer>4U</initializer>
+        <briefdescription>
+<para>Number of mutable event blocks in the pool. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="57" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a3c1012a9b8b7c57edd7659a7fd13f1ce" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_DEFAULT_SLOT</name>
+        <initializer>0x10U</initializer>
+        <briefdescription>
+<para>Default accepted slot after reset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="62" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a9d7e8d4ed52cbb6a5b4259d7fb403d0c" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_DEFAULT_GATE</name>
+        <initializer>0x20U</initializer>
+        <briefdescription>
+<para>Default gate value after reset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="67" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a07729cd31f791ad12ebe1fc722935d28" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_DEFAULT_TARGET_COUNT</name>
+        <initializer>2U</initializer>
+        <briefdescription>
+<para>Default finish target count after reset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="72" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1ab252400158a882d9c9e10fcc5380a563" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_CRASH_SET_SLOT</name>
+        <initializer>0xC7U</initializer>
+        <briefdescription>
+<para>Reserved slot value that triggers the direct crash path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="77" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1ac5ab50f5ea40a50290df549d5b42fe18" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_CRASH_SET_GATE</name>
+        <initializer>0x00U</initializer>
+        <briefdescription>
+<para>Reserved gate value that triggers the direct crash path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="82" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a0df83c2cc16f408524558d5992ab4f81" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_CRASH_SET_TARGET</name>
+        <initializer>1U</initializer>
+        <briefdescription>
+<para>Reserved target count that triggers the direct crash path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="87" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a62dbe3241a5dfff5d721644eab3a263e" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_HANG_SET_SLOT</name>
+        <initializer>0xE1U</initializer>
+        <briefdescription>
+<para>Reserved slot value that triggers the direct hang path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="92" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1ab36ed4a7fe7ee6a441594104fff257fe" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_HANG_SET_GATE</name>
+        <initializer>0x00U</initializer>
+        <briefdescription>
+<para>Reserved gate value that triggers the direct hang path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="97" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a37649bc001f396ae20adf736279d12f7" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_HANG_SET_TARGET</name>
+        <initializer>1U</initializer>
+        <briefdescription>
+<para>Reserved target count that triggers the direct hang path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="102" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1ad374d12745f30bf6f14bfb2d37ce5533" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_FINISH_CRASH_SLOT</name>
+        <initializer>0x11U</initializer>
+        <briefdescription>
+<para>Reserved slot used by the finish crash pattern. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="107" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a29e18a8e4db762ab012094c4276d14be" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_FINISH_CRASH_GATE</name>
+        <initializer>0x11U</initializer>
+        <briefdescription>
+<para>Reserved gate used by the finish crash pattern. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="112" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a2efc28d546aa4caf180a9df92f1c12b3" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_FINISH_CRASH_TARGET</name>
+        <initializer>2U</initializer>
+        <briefdescription>
+<para>Reserved target count used by the finish crash pattern. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="117" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1ae7dbeca5b6a9d3136b3b84cb5d8b1f39" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_FINISH_CRASH_SUM</name>
+        <initializer>0x33U</initializer>
+        <briefdescription>
+<para>Reserved running sum used by the finish crash pattern. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="122" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1ae11e9c4678c27184ad4eee152dc6c28b" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_STEP_HANG_VALUE</name>
+        <initializer>0xFEU</initializer>
+        <briefdescription>
+<para>Adjusted value that triggers the deep collecting hang path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="127" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1ac4345bcb7826a854e6e9016fb74ed06c" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_STEP_BOOST_DELTA</name>
+        <initializer>0x20U</initializer>
+        <briefdescription>
+<para>Value boost applied when the boost flag is set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="132" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a308af9a9b03af98d4efe0e52b2865428" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_MAX_MUTABLE_EVENT_SIZE</name>
+        <initializer>  ((sizeof(<ref refid="structfuzzExample__setEvent__t" kindref="compound">fuzzExample_setEvent_t</ref>) &lt; sizeof(<ref refid="structfuzzExample__stepEvent__t" kindref="compound">fuzzExample_stepEvent_t</ref>)) ? \
+     sizeof(<ref refid="structfuzzExample__stepEvent__t" kindref="compound">fuzzExample_stepEvent_t</ref>) :                                  \
+     sizeof(<ref refid="structfuzzExample__setEvent__t" kindref="compound">fuzzExample_setEvent_t</ref>))</initializer>
+        <briefdescription>
+<para>Maximum size among mutable fuzz event payloads. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="137" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="137" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="define" id="fuzz__example_8c_1a2fee31dcd1ac7e99f2360fa3318885fa" prot="public" static="no">
+        <name>FUZZ_EXAMPLE_POOL_BLOCK_SIZE</name>
+        <initializer>  ((EDF_pool_blockSize_t)((<ref refid="fuzz__example_8c_1a308af9a9b03af98d4efe0e52b2865428" kindref="member">FUZZ_EXAMPLE_MAX_MUTABLE_EVENT_SIZE</ref> &lt; \
+                           sizeof(void*)) ?                      \
+                            sizeof(void*) :                      \
+                            <ref refid="fuzz__example_8c_1a308af9a9b03af98d4efe0e52b2865428" kindref="member">FUZZ_EXAMPLE_MAX_MUTABLE_EVENT_SIZE</ref>))</initializer>
+        <briefdescription>
+<para>Event-pool block size aligned to EDF pool requirements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="145" column="9" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="145" bodyend="149"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="fuzz__example_8c_1a80c2f03c5c49b1472efea351d8b26997" prot="public" static="no" strong="no">
+        <type></type>
+        <name>fuzzExample_stepFlag_t</name>
+        <enumvalue id="fuzz__example_8c_1a80c2f03c5c49b1472efea351d8b26997a7f8666dc5b40a0f1e4a11a3e21a22116" prot="public">
+          <name>FUZZ_EXAMPLE_STEP_FLAG_BOOST</name>
+          <initializer>= (1U &lt;&lt; 0)</initializer>
+          <briefdescription>
+<para>Add a fixed boost to value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="fuzz__example_8c_1a80c2f03c5c49b1472efea351d8b26997a2f6eccca7488653ce0e146caa12de739" prot="public">
+          <name>FUZZ_EXAMPLE_STEP_FLAG_STOP</name>
+          <initializer>= (1U &lt;&lt; 1)</initializer>
+          <briefdescription>
+<para>Return to standby after step. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="fuzz__example_8c_1a80c2f03c5c49b1472efea351d8b26997ab736073e81a847f50eae18421279b38e" prot="public">
+          <name>FUZZ_EXAMPLE_STEP_FLAG_CLEAR</name>
+          <initializer>= (1U &lt;&lt; 2)</initializer>
+          <briefdescription>
+<para>Clear the running sum first. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Bit flags carried by fuzzed step events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="179" column="1" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="180" bodyend="184"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="fuzz__example_8c_1a3ddc8f39b51c1467e733d18d028abe56" prot="public" static="yes" mutable="no">
+        <type><ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref></type>
+        <definition>fuzzExample_t fuzzExample</definition>
+        <argsstring></argsstring>
+        <name>fuzzExample</name>
+        <briefdescription>
+<para>Fuzz example active object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="198" column="22" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fuzz__example_8c_1ad638fc543df08a91e0d393515aa727e0" prot="public" static="yes" mutable="no">
+        <type><ref refid="structEDF__activeObject__bitmask__t" kindref="compound">EDF_activeObject_bitmask_t</ref></type>
+        <definition>EDF_activeObject_bitmask_t subscriberList[FUZZ_EXAMPLE_LAST_SIG]</definition>
+        <argsstring>[FUZZ_EXAMPLE_LAST_SIG]</argsstring>
+        <name>subscriberList</name>
+        <briefdescription>
+<para>Publish-subscribe subscriber list for all example signals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="203" column="35" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="fuzz__example_8c_1a4f6085a7a933ee5f16a5388004cd2c36" prot="public" static="yes" mutable="no">
+        <type><ref refid="edf__event_8h_1ad3ce23e581fbb6e6edbfd96bec56d9aa" kindref="member">EDF_event_ptr</ref></type>
+        <definition>EDF_event_ptr eventQueueStorage[FUZZ_EXAMPLE_QUEUE_LEN]</definition>
+        <argsstring>[FUZZ_EXAMPLE_QUEUE_LEN]</argsstring>
+        <name>eventQueueStorage</name>
+        <briefdescription>
+<para>Storage backing the fuzz example active object queue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="208" column="22" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="208" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="fuzz__example_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="193" column="1" declfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" declline="193" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1a6a5d28c69b2f7c6475cab695fdbf6eda" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>static</type>
+        <definition>static EMF_UTILS_MEM_ALIGNED_SLOT</definition>
+        <argsstring>(FUZZ_EXAMPLE_MAX_MUTABLE_EVENT_SIZE)</argsstring>
+        <name>EMF_UTILS_MEM_ALIGNED_SLOT</name>
+        <param>
+          <type><ref refid="fuzz__example_8c_1a308af9a9b03af98d4efe0e52b2865428" kindref="member">FUZZ_EXAMPLE_MAX_MUTABLE_EVENT_SIZE</ref></type>
+        </param>
+        <briefdescription>
+<para>Storage backing the mutable event memory pool. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="213" column="8" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="213" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1a56f71694f6b44e80ed18731e7f7c7eaa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>static EDF_hsm_stateReturn_t fuzzExample_operationalState</definition>
+        <argsstring>(fuzzExample_t *me, const EDF_event_t *e)</argsstring>
+        <name>fuzzExample_operationalState</name>
+        <param>
+          <type><ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="421" column="30" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="421" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1a3803021d00213c3eb4c18fc512d40e3b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>static EDF_hsm_stateReturn_t fuzzExample_standbyState</definition>
+        <argsstring>(fuzzExample_t *me, const EDF_event_t *e)</argsstring>
+        <name>fuzzExample_standbyState</name>
+        <param>
+          <type><ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="465" column="30" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="465" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1a9c31fb7a3e6fffc9bd0962347a814a57" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>static EDF_hsm_stateReturn_t fuzzExample_armedState</definition>
+        <argsstring>(fuzzExample_t *me, const EDF_event_t *e)</argsstring>
+        <name>fuzzExample_armedState</name>
+        <param>
+          <type><ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="514" column="30" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="514" bodyend="587"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1ae6ce4476ef4b320c10eb0979fa085bda" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="edf__hsm_8h_1a4cf72760f70e41d794a6a5c2cb6b37e8" kindref="member">EDF_hsm_stateReturn_t</ref></type>
+        <definition>static EDF_hsm_stateReturn_t fuzzExample_collectingState</definition>
+        <argsstring>(fuzzExample_t *me, const EDF_event_t *e)</argsstring>
+        <name>fuzzExample_collectingState</name>
+        <param>
+          <type><ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="589" column="30" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="589" bodyend="683"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1ae3872039aab29ffc4c15b4dc885d2dd5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void fuzzExample_resetRuntime</definition>
+        <argsstring>(fuzzExample_t *me)</argsstring>
+        <name>fuzzExample_resetRuntime</name>
+        <param>
+          <type><ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="685" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="685" bodyend="696"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1abc2c32ba88884bc85a17065fa6b2a243" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool fuzzExample_applySet</definition>
+        <argsstring>(fuzzExample_t *me, const fuzzExample_setEvent_t *set_evt)</argsstring>
+        <name>fuzzExample_applySet</name>
+        <param>
+          <type><ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structfuzzExample__setEvent__t" kindref="compound">fuzzExample_setEvent_t</ref> *</type>
+          <declname>set_evt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="698" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="698" bodyend="739"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1abbe04ba9844f89a4e8b3112ec0c4c7ed" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool fuzzExample_acceptsSlot</definition>
+        <argsstring>(const fuzzExample_t *me, uint8_t slot)</argsstring>
+        <name>fuzzExample_acceptsSlot</name>
+        <param>
+          <type>const <ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>slot</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="741" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="741" bodyend="745"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1aa0248b85ebda0d189457a91dc7470503" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>static uint8_t fuzzExample_adjustValue</definition>
+        <argsstring>(uint8_t value, uint8_t flags)</argsstring>
+        <name>fuzzExample_adjustValue</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="747" column="16" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="747" bodyend="764"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1ab690c0c4381da75475605cc1ad87c52f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void fuzzExample_beginCollecting</definition>
+        <argsstring>(fuzzExample_t *me, const fuzzExample_stepEvent_t *step_evt, uint8_t adjusted_value)</argsstring>
+        <name>fuzzExample_beginCollecting</name>
+        <param>
+          <type><ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structfuzzExample__stepEvent__t" kindref="compound">fuzzExample_stepEvent_t</ref> *</type>
+          <declname>step_evt</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>adjusted_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="766" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="766" bodyend="779"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1aac2e97c083d93b340643877c8280bbc7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool fuzzExample_shouldCrashOnSet</definition>
+        <argsstring>(const fuzzExample_setEvent_t *set_evt)</argsstring>
+        <name>fuzzExample_shouldCrashOnSet</name>
+        <param>
+          <type>const <ref refid="structfuzzExample__setEvent__t" kindref="compound">fuzzExample_setEvent_t</ref> *</type>
+          <declname>set_evt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="781" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="781" bodyend="788"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1afc679a1885b583689724e920cee50f87" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool fuzzExample_shouldHangOnSet</definition>
+        <argsstring>(const fuzzExample_setEvent_t *set_evt)</argsstring>
+        <name>fuzzExample_shouldHangOnSet</name>
+        <param>
+          <type>const <ref refid="structfuzzExample__setEvent__t" kindref="compound">fuzzExample_setEvent_t</ref> *</type>
+          <declname>set_evt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="790" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="790" bodyend="797"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1a84dab537b9617e93c47ca73d80a8875d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool fuzzExample_shouldCrashOnFinish</definition>
+        <argsstring>(const fuzzExample_t *me)</argsstring>
+        <name>fuzzExample_shouldCrashOnFinish</name>
+        <param>
+          <type>const <ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="799" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="799" bodyend="808"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1af5ef90d68bc474e04d511624ec623a6f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool fuzzExample_shouldHangOnStep</definition>
+        <argsstring>(const fuzzExample_t *me, const fuzzExample_stepEvent_t *step_evt, uint8_t adjusted_value)</argsstring>
+        <name>fuzzExample_shouldHangOnStep</name>
+        <param>
+          <type>const <ref refid="structfuzzExample__t" kindref="compound">fuzzExample_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structfuzzExample__stepEvent__t" kindref="compound">fuzzExample_stepEvent_t</ref> *</type>
+          <declname>step_evt</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>adjusted_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="810" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="810" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1a653404b3fea15fc8851f524e35c9598d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void fuzzExample_triggerCrash</definition>
+        <argsstring>(void)</argsstring>
+        <name>fuzzExample_triggerCrash</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="826" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="826" bodyend="829"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1a23502d5cb97b7641cc02d38d9cc6de84" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void fuzzExample_triggerHang</definition>
+        <argsstring>(void)</argsstring>
+        <name>fuzzExample_triggerHang</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="831" column="13" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="831" bodyend="836"/>
+      </memberdef>
+      <memberdef kind="function" id="fuzz__example_8c_1ace923deac2bada319cc2bb30bfebd552" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fuzzExample_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>fuzzExample_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the fuzz example application and start its active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="842" column="6" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="842" bodyend="872"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c"/>
+  </compounddef>
+</doxygen>

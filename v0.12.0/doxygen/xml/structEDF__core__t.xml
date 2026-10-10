@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__core__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_core_t</compoundname>
+    <includes refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h" local="no">edf_core.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__core__t_1a0a361c40e34eb034f117e62d3e985846" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__bitmask__t" kindref="compound">EDF_activeObject_bitmask_t</ref></type>
+        <definition>EDF_activeObject_bitmask_t EDF_core_t::ready_set</definition>
+        <argsstring></argsstring>
+        <name>ready_set</name>
+        <qualifiedname>EDF_core_t::ready_set</qualifiedname>
+        <briefdescription>
+<para>Bitmask of active objects ready to run. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" line="140" column="30" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__core__t_1a8207a888d1bf8d1fbf0fd874243e6b97" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_core_t::active_priority</definition>
+        <argsstring></argsstring>
+        <name>active_priority</name>
+        <qualifiedname>EDF_core_t::active_priority</qualifiedname>
+        <briefdescription>
+<para>Priority of the currently running active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" line="142" column="11" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__core__t_1aee2311fc5cd3e3101ae99e313d70b946" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_core_t::next_priority</definition>
+        <argsstring></argsstring>
+        <name>next_priority</name>
+        <qualifiedname>EDF_core_t::next_priority</qualifiedname>
+        <briefdescription>
+<para>Priority of the next active object to execute. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" line="144" column="11" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__core__t_1a2b1dd5d0c61e6ef865ae98da4c051417" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_core_t::active_preemption_threshold</definition>
+        <argsstring></argsstring>
+        <name>active_preemption_threshold</name>
+        <qualifiedname>EDF_core_t::active_preemption_threshold</qualifiedname>
+        <briefdescription>
+<para>Current preemption threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" line="145" column="11" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__core__t_1a40773591c11bd02a8bab4ea800894d0f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_core_t::lock_ceiling</definition>
+        <argsstring></argsstring>
+        <name>lock_ceiling</name>
+        <qualifiedname>EDF_core_t::lock_ceiling</qualifiedname>
+        <briefdescription>
+<para>Current scheduler lock ceiling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" line="146" column="11" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>EDF core structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_activeObject_bitmask_t</label>
+        <link refid="structEDF__activeObject__bitmask__t"/>
+      </node>
+      <node id="1">
+        <label>EDF_core_t</label>
+        <link refid="structEDF__core__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ready_set</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" line="138" column="1" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h" bodystart="139" bodyend="147"/>
+    <listofallmembers>
+      <member refid="structEDF__core__t_1a2b1dd5d0c61e6ef865ae98da4c051417" prot="public" virt="non-virtual"><scope>EDF_core_t</scope><name>active_preemption_threshold</name></member>
+      <member refid="structEDF__core__t_1a8207a888d1bf8d1fbf0fd874243e6b97" prot="public" virt="non-virtual"><scope>EDF_core_t</scope><name>active_priority</name></member>
+      <member refid="structEDF__core__t_1a40773591c11bd02a8bab4ea800894d0f" prot="public" virt="non-virtual"><scope>EDF_core_t</scope><name>lock_ceiling</name></member>
+      <member refid="structEDF__core__t_1aee2311fc5cd3e3101ae99e313d70b946" prot="public" virt="non-virtual"><scope>EDF_core_t</scope><name>next_priority</name></member>
+      <member refid="structEDF__core__t_1a0a361c40e34eb034f117e62d3e985846" prot="public" virt="non-virtual"><scope>EDF_core_t</scope><name>ready_set</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

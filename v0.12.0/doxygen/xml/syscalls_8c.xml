@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="syscalls_8c" kind="file" language="C++">
+    <compoundname>syscalls.c</compoundname>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">sys/stat.h</includes>
+    <includes local="no">unistd.h</includes>
+    <includes local="no">errno.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c</label>
+        <link refid="syscalls_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>errno.h</label>
+      </node>
+      <node id="10">
+        <label>stdbool.h</label>
+      </node>
+      <node id="6">
+        <label>stddef.h</label>
+      </node>
+      <node id="9">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="2">
+        <label>sys/types.h</label>
+      </node>
+      <node id="4">
+        <label>unistd.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="syscalls_8c_1ab5d780fb26c5cbe9cccad71637e474cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t _write</definition>
+        <argsstring>(int fd, const void *buf, size_t count)</argsstring>
+        <name>_write</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="73" column="9" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="73" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1a5c3b96561fe05baaeab1af37b35606c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t _read</definition>
+        <argsstring>(int fd, void *buf, size_t count)</argsstring>
+        <name>_read</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="85" column="9" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="85" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1a68125648bcce70b6bb3aa0be50e99700" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * _sbrk</definition>
+        <argsstring>(ptrdiff_t incr)</argsstring>
+        <name>_sbrk</name>
+        <param>
+          <type>ptrdiff_t</type>
+          <declname>incr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="97" column="6" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="97" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1a58a559c63748012aab165d5f82af766d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int _close</definition>
+        <argsstring>(int fd)</argsstring>
+        <name>_close</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="107" column="5" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="107" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1a6fd96f1827f22161142519298141cd2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>off_t</type>
+        <definition>off_t _lseek</definition>
+        <argsstring>(int fd, off_t offset, int whence)</argsstring>
+        <name>_lseek</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>off_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>whence</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="117" column="7" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="117" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1a6e8d95db883bc4efe10c487d74e96b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int _fstat</definition>
+        <argsstring>(int fd, struct stat *st)</argsstring>
+        <name>_fstat</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>struct stat *</type>
+          <declname>st</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="129" column="5" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="129" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1a4284676ccba12d7f2061d338001f71fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int _isatty</definition>
+        <argsstring>(int fd)</argsstring>
+        <name>_isatty</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="140" column="5" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="140" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1abc96bd69b58b2deaddb484478d911c1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void _exit</definition>
+        <argsstring>(int status)</argsstring>
+        <name>_exit</name>
+        <param>
+          <type>int</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="149" column="6" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="149" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1aea4fc7643f2a2aacc79a377ffb7be528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int _kill</definition>
+        <argsstring>(pid_t pid, int sig)</argsstring>
+        <name>_kill</name>
+        <param>
+          <type>pid_t</type>
+          <declname>pid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="161" column="5" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="161" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="syscalls_8c_1ad1f206883946ce8cb8bb983464f9b102" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>pid_t</type>
+        <definition>pid_t _getpid</definition>
+        <argsstring>(void)</argsstring>
+        <name>_getpid</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" line="172" column="7" bodyfile="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c" bodystart="172" bodyend="175"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c"/>
+  </compounddef>
+</doxygen>

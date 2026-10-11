@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDFTest__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDFTest_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDFTest__t_1abf0c688a819e2a27093e7915865a90af" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref></type>
+        <definition>EDF_activeObject_t EDFTest_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>EDFTest_t::super</qualifiedname>
+        <briefdescription>
+<para>Active object base class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="68" column="22" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDFTest__t_1acd1710b05dbe172013c33917fb0d3443" prot="public" static="no" mutable="no">
+        <type><ref refid="edf__event_8h_1ad3ce23e581fbb6e6edbfd96bec56d9aa" kindref="member">EDF_event_ptr</ref> *</type>
+        <definition>EDF_event_ptr* EDFTest_t::event_buff</definition>
+        <argsstring></argsstring>
+        <name>event_buff</name>
+        <qualifiedname>EDFTest_t::event_buff</qualifiedname>
+        <briefdescription>
+<para>Event buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="69" column="17" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDFTest__t_1a3f22dfc27504d11391410a77084f9a47" prot="public" static="no" mutable="no">
+        <type>EDF_eventQueue_cnt_t</type>
+        <definition>EDF_eventQueue_cnt_t EDFTest_t::event_buff_size</definition>
+        <argsstring></argsstring>
+        <name>event_buff_size</name>
+        <qualifiedname>EDFTest_t::event_buff_size</qualifiedname>
+        <briefdescription>
+<para>Event buffer size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="70" column="24" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDFTest__t_1ac705c804a70988d9632ab267f98f1cab" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structEDFTest__testEntry__t" kindref="compound">EDFTest_testEntry_t</ref> *</type>
+        <definition>const EDFTest_testEntry_t* EDFTest_t::tests</definition>
+        <argsstring></argsstring>
+        <name>tests</name>
+        <qualifiedname>EDFTest_t::tests</qualifiedname>
+        <briefdescription>
+<para>Tests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="71" column="29" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDFTest__t_1a41b475ffe2c77c42291c6a192dd6a0fc" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t EDFTest_t::test_idx</definition>
+        <argsstring></argsstring>
+        <name>test_idx</name>
+        <qualifiedname>EDFTest_t::test_idx</qualifiedname>
+        <briefdescription>
+<para>Current test index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="72" column="12" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDFTest__t_1a6c9262a70f7c7f0bf666b5ab817b8cd0" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t EDFTest_t::skip_cnt</definition>
+        <argsstring></argsstring>
+        <name>skip_cnt</name>
+        <qualifiedname>EDFTest_t::skip_cnt</qualifiedname>
+        <briefdescription>
+<para>Number of tests skipped. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="73" column="12" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDFTest__t_1adef82b2f6750f5be10e6ccd4622f7020" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t EDFTest_t::num_tests</definition>
+        <argsstring></argsstring>
+        <name>num_tests</name>
+        <qualifiedname>EDFTest_t::num_tests</qualifiedname>
+        <briefdescription>
+<para>Number of test entries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="74" column="12" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="74" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>EDFTest active object structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>EDFTest_t</label>
+        <link refid="structEDFTest__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>event_buff</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>tests</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>EDFTest_testEntry_t</label>
+        <link refid="structEDFTest__testEntry__t"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>test</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>EDFTest_test_t</label>
+        <link refid="structEDFTest__test__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>test_verify</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="3">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" line="66" column="1" bodyfile="sw/ecf/event_driven_framework/edf_test/src/edf_test.c" bodystart="67" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structEDFTest__t_1acd1710b05dbe172013c33917fb0d3443" prot="public" virt="non-virtual"><scope>EDFTest_t</scope><name>event_buff</name></member>
+      <member refid="structEDFTest__t_1a3f22dfc27504d11391410a77084f9a47" prot="public" virt="non-virtual"><scope>EDFTest_t</scope><name>event_buff_size</name></member>
+      <member refid="structEDFTest__t_1adef82b2f6750f5be10e6ccd4622f7020" prot="public" virt="non-virtual"><scope>EDFTest_t</scope><name>num_tests</name></member>
+      <member refid="structEDFTest__t_1a6c9262a70f7c7f0bf666b5ab817b8cd0" prot="public" virt="non-virtual"><scope>EDFTest_t</scope><name>skip_cnt</name></member>
+      <member refid="structEDFTest__t_1abf0c688a819e2a27093e7915865a90af" prot="public" virt="non-virtual"><scope>EDFTest_t</scope><name>super</name></member>
+      <member refid="structEDFTest__t_1a41b475ffe2c77c42291c6a192dd6a0fc" prot="public" virt="non-virtual"><scope>EDFTest_t</scope><name>test_idx</name></member>
+      <member refid="structEDFTest__t_1ac705c804a70988d9632ab267f98f1cab" prot="public" virt="non-virtual"><scope>EDFTest_t</scope><name>tests</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

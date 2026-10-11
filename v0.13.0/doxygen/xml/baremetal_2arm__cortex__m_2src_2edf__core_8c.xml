@@ -1,0 +1,979 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="baremetal_2arm__cortex__m_2src_2edf__core_8c" kind="file" language="C++">
+    <compoundname>edf_core.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes local="yes">edf_core.h</includes>
+    <includes refid="edf__framework_8h" local="yes">edf_framework.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="22">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2edf__core_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="11">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="5">
+        <label>edf_config.h</label>
+      </node>
+      <node id="17">
+        <label>edf_core.h</label>
+      </node>
+      <node id="21">
+        <label>pthread.h</label>
+      </node>
+      <node id="14">
+        <label>queue.h</label>
+      </node>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ad998c31e1eef9f7d8a0933e5f9c2ae7c" prot="public" static="no">
+        <name>SCB_SYSPRI</name>
+        <initializer>((uint32_t volatile*)0xE000ED18U)</initializer>
+        <briefdescription>
+<para>System Handler Priority Registers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Array-like register block (e.g. use SCB_SYSPRI[2]).</para>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="59" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aa1677b86fc9699414925aeca46baac9a" prot="public" static="no">
+        <name>SCB_CPACR</name>
+        <initializer>*((uint32_t volatile*)0xE000ED88U)</initializer>
+        <briefdescription>
+<para>Coprocessor Access Control Register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="66" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1af259bafcf8a95053debb7cb0c82c8518" prot="public" static="no">
+        <name>FPU_FPCCR</name>
+        <initializer>*((uint32_t volatile*)0xE000EF34U)</initializer>
+        <briefdescription>
+<para>Floating-Point Context Control Register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="73" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a7f8564488243827944de74c4db24b732" prot="public" static="no">
+        <name>SCB_ICSR</name>
+        <initializer>*((uint32_t volatile*)0xE000ED04U)</initializer>
+        <briefdescription>
+<para>Interrupt Control and State Register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="80" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a0a12e243d9e081a821837e109318c6de" prot="public" static="no">
+        <name>SCB_SYSPRI_PENDSV_PRI</name>
+        <initializer>16U</initializer>
+        <briefdescription>
+<para>PendSV priority position within SCB_SYSPRI[2] register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="85" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aeb039d3fad201ab00ebf8e788e7726ba" prot="public" static="no">
+        <name>SCB_CPACR_CP10_FULL_ACCESS</name>
+        <initializer>20U</initializer>
+        <briefdescription>
+<para>CP10 full-access position within SCB_CPACR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="90" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a8e3e7cfe2f1185f75d25a5e7acba7833" prot="public" static="no">
+        <name>SCB_CPACR_CP11_FULL_ACCESS</name>
+        <initializer>22U</initializer>
+        <briefdescription>
+<para>CP11 full-access position within SCB_CPACR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="95" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a4d08b3c1bd96c4c12dddd25aea063e35" prot="public" static="no">
+        <name>SCB_ICSR_PENDSVSET</name>
+        <initializer>28U</initializer>
+        <briefdescription>
+<para>PendSV set-pending position within SCB_ICSR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="100" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ab3e819588b83ad03dd1419c983279f0d" prot="public" static="no">
+        <name>FPU_FPCCR_ASPEN</name>
+        <initializer>31U</initializer>
+        <briefdescription>
+<para>Automatic State Preservation Enable position within FPU_FPCCR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="106" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a618b6786326d394524f4757341eea808" prot="public" static="no">
+        <name>FPU_FPCCR_LSPEN</name>
+        <initializer>30U</initializer>
+        <briefdescription>
+<para>Lazy State Preservation Enable position within FPU_FPCCR register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="111" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="111" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a51679d4142534ac8d36782961100e756" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__core__t" kindref="compound">EDF_core_t</ref></type>
+        <definition>EDF_core_t EDF_core</definition>
+        <argsstring></argsstring>
+        <name>EDF_core</name>
+        <briefdescription>
+<para>EDF core instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Declared global to allow port-specific implementations and to be accessed from macros defined in this file. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="130" column="12" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="130" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="124" column="1" declfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" declline="124" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a8db178db226a4ccaf767313276480c06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_core_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_core_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>EDF core initialization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="149" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="149" bodyend="162" declfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" declline="143" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aaeba4868d10079fc4a500a27beef7dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1ab65351184e17503508d8092f85a75d38" kindref="member">EDF_core_schedStatus_t</ref></type>
+        <definition>EDF_core_schedStatus_t EDF_core_lockScheduler</definition>
+        <argsstring>(uint8_t ceiling)</argsstring>
+        <name>EDF_core_lockScheduler</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>ceiling</declname>
+        </param>
+        <briefdescription>
+<para><anchor id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1internal_access_via_macros_only"/></para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>Internal access via macros only</title><para></para>
+</simplesect>
+The following functions are not meant to be called directly from external modules. They are exposed only for documentation purposes and to allow access through the public macros defined in this header.</para>
+<para>Raises the scheduler lock ceiling.</para>
+<para>Prevents preemption by active objects with a priority at or below the specified ceiling.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ceiling</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New lock ceiling priority. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Previous scheduler lock state. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="168" column="24" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="168" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a0190b963c1c755db567605f4c446ce9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_core_unlockScheduler</definition>
+        <argsstring>(EDF_core_schedStatus_t prev_ceiling)</argsstring>
+        <name>EDF_core_unlockScheduler</name>
+        <param>
+          <type><ref refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h_1ab65351184e17503508d8092f85a75d38" kindref="member">EDF_core_schedStatus_t</ref></type>
+          <declname>prev_ceiling</declname>
+        </param>
+        <briefdescription>
+<para>Restores the previous scheduler lock state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">prev_ceiling</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous scheduler lock state. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="194" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="194" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aea83f75aeac77f31d0e5f2c29468f1b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_core_schedule</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_core_schedule</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Determine the next active object eligible for execution. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluates the current set of ready active objects and selects the highest-priority one that can preempt the currently running context, considering both the scheduler lock and preemption threshold.</para>
+<para><simplesect kind="note"><para>This function shall be called within a critical section.</para>
+</simplesect>
+<simplesect kind="return"><para>The priority of the next active object to run, or 0 if no activation is required. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="note"><para>This function is called within a critical section.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="219" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="219" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a9d401e5d855fa93ba6828750289428ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_core_scheduleAfter</definition>
+        <argsstring>(const EDF_activeObject_t *act, uint8_t pthre_in)</argsstring>
+        <name>EDF_core_scheduleAfter</name>
+        <param>
+          <type>const <ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>act</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>pthre_in</declname>
+        </param>
+        <briefdescription>
+<para>Evaluates scheduling after an active object completes execution. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Determines if another active object should be activated based on current priorities and preemption thresholds, following the completion of the given active object&apos;s event processing.</para>
+<para><simplesect kind="note"><para>This function shall be called within a critical section.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">act</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object that has just run. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pthre_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Preemption threshold before the current activation, in other words, the preemption threshold of the AO preempted by the currently running AO. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The priority of the next active object to run, or 0 if no activation is required. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="note"><para>This function is called within a critical section.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="257" column="9" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="257" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a830b7ae3b8145806e386c66bfa439023" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_core_activate</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_core_activate</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Activates ready active objects according to their priorities. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes all active objects that are ready to run and whose priorities allow preemption of the last context.</para>
+<para><simplesect kind="note"><para>This function shall be called within a critical section. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="note"><para>This function is called within a critical section.</para>
+</simplesect>
+Loop until no more ready-to-run AOs of higher preemption threshold than the initial.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="302" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="302" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1aa39ca4397d9a775d2a56e0280901b31b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the EDF framework. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Shall be called once before any other function of the framework. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="403" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="403" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a741f22f8d99bbfbb000daeca620ca2a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int EDF_run</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_run</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Takes control and runs the EDF main loop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0 on normal exit, non-zero on error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="419" column="5" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="419" bodyend="449"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ab0327c1b380f9da71459714ce13f3fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Stops the EDF framework. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="451" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="451" bodyend="454"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ae4df5c8aa4c336242ffdf563948a0772" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_start</definition>
+        <argsstring>(EDF_activeObject_t *me, EDF_activeObject_prio_t prio, EDF_event_ptr *q_storage, EDF_eventQueue_cnt_t q_len, void *stack_storage, uint_fast16_t stack_size, const EDF_event_t *e)</argsstring>
+        <name>EDF_activeObject_start</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__active__object_8h_1ac6abb3dab6df18ac3f03c7bfec321ad7" kindref="member">EDF_activeObject_prio_t</ref></type>
+          <declname>prio</declname>
+        </param>
+        <param>
+          <type><ref refid="edf__event_8h_1ad3ce23e581fbb6e6edbfd96bec56d9aa" kindref="member">EDF_event_ptr</ref> *</type>
+          <declname>q_storage</declname>
+        </param>
+        <param>
+          <type>EDF_eventQueue_cnt_t</type>
+          <declname>q_len</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>stack_storage</declname>
+        </param>
+        <param>
+          <type>uint_fast16_t</type>
+          <declname>stack_size</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Starts the execution of an active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If the active object has no event queue, it can only retain one event at a time; subsequent events will be lost.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">prio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Priority of the active object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">q_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the event queue storage buffer. NULL if no queue </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">q_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the event queue. 0 if no queue. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stack_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the stack storage. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stack_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the stack storage. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event passed to the AO’s HSM initial state. NULL if not used. If NULL is provided, the AO initial state implementation shall not dereference or rely on this parameter. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="456" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="456" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a3a57c1b9f40fb6c4bae5e8ee99aff57e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_activeObject_setAttr</definition>
+        <argsstring>(EDF_activeObject_t *me, uint32_t attr1, const void *attr2)</argsstring>
+        <name>EDF_activeObject_setAttr</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>attr1</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>attr2</declname>
+        </param>
+        <briefdescription>
+<para>Sets implementation-specific attributes for an active object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function can only be called after <ref refid="edf__active__object_8h_1a79459067401e9ed55fca1f17283cdc7d" kindref="member">EDF_activeObject_init()</ref> and before <ref refid="edf__active__object_8h_1ae4df5c8aa4c336242ffdf563948a0772" kindref="member">EDF_activeObject_start()</ref>, only if specific attributes need to be configured, depending on the selected core and port.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the active object instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attr1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">attr2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to attribute data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="486" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="486" bodyend="495"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a53ef92afdf8b412f92b918b04d89464c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDF_onStartup</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onStartup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific startup callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called just before the EDF framework takes control with the main loop. The framework provides a dummy weak implementation, can be overridden by the application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="497" column="15" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="497" bodyend="499"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1a07d67b09f2c5893ffc971abccd3cf182" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDF_onShutdown</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onShutdown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific shutdown callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called just before the EDF framework stops. The framework provides a dummy weak implementation, can be overridden by the application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="501" column="15" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="501" bodyend="503"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ad633188bc929012aeeb8e31b8834ba29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_ISRExit</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_ISRExit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Framework ISR exit handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Shall be called at the end of every ISR that posts an EDF event. Evaluates pending activations of active objects and triggers a context switch if required. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="505" column="6" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="505" bodyend="520"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1afbbd2d226f02c377c5ce4b0167ad67f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDF_onContextSwitch</definition>
+        <argsstring>(EDF_activeObject_t *prev, EDF_activeObject_t *next)</argsstring>
+        <name>EDF_onContextSwitch</name>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>prev</declname>
+        </param>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>next</declname>
+        </param>
+        <briefdescription>
+<para>User-specific context switch callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called whenever EDF switches execution between two active objects. The framework provides a dummy weak implementation, can be overridden by the application (e.g., to trace or profile scheduling, apply memory protection techniques, etc.).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">prev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the previously running active object (can be NULL). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">next</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the newly scheduled active object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="522" column="15" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="522" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="function" id="baremetal_2arm__cortex__m_2src_2edf__core_8c_1ae8d8cd156148263012c035b6b5c69b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> void</type>
+        <definition>EBF_WEAK void EDF_onIdle</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_onIdle</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>User-specific idle callback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called whenever EDF have no active objects are ready to run. The framework provides a dummy weak implementation, can be overridden by the application.</para>
+<para><simplesect kind="note"><para>In non-preemptive ports, the idle task can delay the execution of the next ready active object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" line="529" column="15" bodyfile="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c" bodystart="529" bodyend="531"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_622f1b1bd2c837c9f6d9e41c314b73f9" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/test/event_delivery/inc</compoundname>
+    <innerfile refid="active__object_8h">active_object.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/"/>
+  </compounddef>
+</doxygen>

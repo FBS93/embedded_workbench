@@ -1,0 +1,592 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__time__event_8c" kind="file" language="C++">
+    <compoundname>edf_time_event.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="edf__time__event_8h" local="yes">edf_time_event.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="edf__framework_8h" local="yes">edf_framework.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <includes refid="emf_8h" local="yes">emf.h</includes>
+    <incdepgraph>
+      <node id="15">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>emf_endian.h</label>
+        <link refid="emf__endian_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>emf_utils.h</label>
+        <link refid="emf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</label>
+        <link refid="edf__time__event_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="11">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="7">
+        <label>edf_config.h</label>
+      </node>
+      <node id="21">
+        <label>pthread.h</label>
+      </node>
+      <node id="14">
+        <label>queue.h</label>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__time__event_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" line="60" column="1" declfile="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" declline="60" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__time__event_8c_1a0451c418914896fc10fdc7fbbfdc22bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_timeEvent_new</definition>
+        <argsstring>(EDF_timeEvent_t *me, EDF_activeObject_t *ao, EDF_event_signal_t sig, uint8_t tick_rate)</argsstring>
+        <name>EDF_timeEvent_new</name>
+        <param>
+          <type><ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+          <declname>ao</declname>
+        </param>
+        <param>
+          <type>EDF_event_signal_t</type>
+          <declname>sig</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>tick_rate</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a time event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the time event instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ao</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the associated active object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tick_rate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tick rate index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" line="82" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" bodystart="82" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__time__event_8c_1ab9a852d92750082459fd26b98a599f84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_timeEvent_arm</definition>
+        <argsstring>(EDF_timeEvent_t *me, EDF_timeEvent_cnt_t start, EDF_timeEvent_cnt_t period)</argsstring>
+        <name>EDF_timeEvent_arm</name>
+        <param>
+          <type><ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>EDF_timeEvent_cnt_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>EDF_timeEvent_cnt_t</type>
+          <declname>period</declname>
+        </param>
+        <briefdescription>
+<para>Arms a time event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the time event instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time until first expiration (ticks). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Periodic interval of timer expirations, 0 for one-shot timer (ticks). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Is the time event unlinked? See <ref refid="/workspaces/embedded_workbench/sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c_1time_event_disarmed_but_linked" kindref="member">time_event_disarmed_but_linked</ref>. This check allows disarming and re-arming within the same tick without duplicating links.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" line="106" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" bodystart="106" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__time__event_8c_1a63aa702343e589c12d03ca168026e2fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EDF_timeEvent_disarm</definition>
+        <argsstring>(EDF_timeEvent_t *me)</argsstring>
+        <name>EDF_timeEvent_disarm</name>
+        <param>
+          <type><ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Disarms a time event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the time event instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the time event was armed, false if it was already disarmed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" line="138" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" bodystart="138" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__time__event_8c_1aaec52cd086da0a640e043734053b49da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EDF_timeEvent_rearm</definition>
+        <argsstring>(EDF_timeEvent_t *me, EDF_timeEvent_cnt_t time)</argsstring>
+        <name>EDF_timeEvent_rearm</name>
+        <param>
+          <type><ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>EDF_timeEvent_cnt_t</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Rearms a time event with a new timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the time event instance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time until expiration (ticks). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the time event was already armed, false if it was not. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Is the time event unlinked? See <ref refid="/workspaces/embedded_workbench/sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c_1time_event_disarmed_but_linked" kindref="member">time_event_disarmed_but_linked</ref>. This check allows disarming and re-arming within the same tick without duplicating links.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" line="163" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" bodystart="163" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__time__event_8c_1a483f37c09b0fc2b725f6d86cd69948f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>EDF_timeEvent_cnt_t</type>
+        <definition>EDF_timeEvent_cnt_t EDF_timeEvent_currentCounter</definition>
+        <argsstring>(const EDF_timeEvent_t *me)</argsstring>
+        <name>EDF_timeEvent_currentCounter</name>
+        <param>
+          <type>const <ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Gets the current counter value of a time event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the time event instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Current tick counter of the time event (ticks). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" line="207" column="21" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" bodystart="207" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__time__event_8c_1a310b5ba291f7765a5a874e360fcc10fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_timeEvent_tick</definition>
+        <argsstring>(uint8_t tick_rate)</argsstring>
+        <name>EDF_timeEvent_tick</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>tick_rate</declname>
+        </param>
+        <briefdescription>
+<para>Processes time events for a given tick rate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function shall be called periodically at the frequency corresponding to the given tick rate.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">tick_rate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tick rate index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para><simplesect kind="note"><para>The implementation uses a pointer-to-pointer (<computeroutput><ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref></computeroutput> **te_link) to avoid special-casing the first element of the time event registry:<itemizedlist>
+<listitem><para>At the start, <computeroutput>te_link</computeroutput> = &amp;registry-&gt;armed_head.</para>
+</listitem><listitem><para>As we traverse the armed time events list, <computeroutput>te_link</computeroutput> is updated to point to the <computeroutput>next</computeroutput> field of the current node: <computeroutput>te_link</computeroutput> = &amp;te-&gt;next, where <computeroutput>te</computeroutput> = *te_link.</para>
+</listitem><listitem><para>Removing a node is always <computeroutput>*te_link</computeroutput> = te-&gt;next; (works for both the first node and all subsequent nodes).</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+Attaching freshly armed time events (<computeroutput>registry-&gt;new_head</computeroutput>) is also unified:<itemizedlist>
+<listitem><para>When <computeroutput>*te_link</computeroutput> == NULL and <computeroutput>registry-&gt;new_head</computeroutput> != NULL, simply do <computeroutput>*te_link</computeroutput> = registry-&gt;new_head; (this attaches the new time events list either at the beginning of registry-&gt;armed_head or after its last node).</para>
+</listitem></itemizedlist>
+</para>
+<para>This way the same code handles head removal, internal removals and attaching new time events without branching on special cases.</para>
+<para>Attach new time events to armed list; Updates registry-&gt;armed_head or registry-&gt;armed_head[last].next depending on the current te_link.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" line="222" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c" bodystart="222" bodyend="334"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c"/>
+  </compounddef>
+</doxygen>

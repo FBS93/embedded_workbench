@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test__emf__array__fifo_8c" kind="file" language="C++">
+    <compoundname>test_emf_array_fifo.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="etf_8h" local="yes">etf.h</includes>
+    <includes refid="emf__array__fifo_8h" local="yes">emf_array_fifo.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>emf_array_fifo.h</label>
+        <link refid="emf__array__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c</label>
+        <link refid="test__emf__array__fifo_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>etf.h</label>
+        <link refid="etf_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test__emf__array__fifo_8c_1a354dd3b5877a5b86c057e5ed4577cf53" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void verifySlotEq</definition>
+        <argsstring>(const uint8_t *expected, const uint8_t *actual, uint16_t size)</argsstring>
+        <name>verifySlotEq</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>expected</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>actual</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Verifies two slots have the same byte content. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">expected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to expected slot content. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">actual</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to actual slot content. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes in each slot. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c" line="73" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c" bodystart="73" bodyend="83" declfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c" declline="65" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="test__emf__array__fifo_8c_1a49fc28cab8e051b65c743972378403fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ETF_TEST_SUITE</definition>
+        <argsstring>(test_emf_array_fifo)</argsstring>
+        <name>ETF_TEST_SUITE</name>
+        <param>
+          <type>test_emf_array_fifo</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c" line="89" column="1" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c" bodystart="89" bodyend="229"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_array_fifo/test/src/test_emf_array_fifo.c"/>
+  </compounddef>
+</doxygen>

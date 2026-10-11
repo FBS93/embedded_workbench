@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structfuzzExample__t" kind="struct" language="C++" prot="public">
+    <compoundname>fuzzExample_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfuzzExample__t_1ad8509cda5959e38900b6c23187c10be1" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref></type>
+        <definition>EDF_activeObject_t fuzzExample_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>fuzzExample_t::super</qualifiedname>
+        <briefdescription>
+<para>EDF active object base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="160" column="22" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1a1e5e69dda82daf8fc149adc6cac2c549" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t fuzzExample_t::ping_count</definition>
+        <argsstring></argsstring>
+        <name>ping_count</name>
+        <qualifiedname>fuzzExample_t::ping_count</qualifiedname>
+        <briefdescription>
+<para>Number of ping events processed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="161" column="12" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1aab3fc0b233314b76697b854b3124e30c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t fuzzExample_t::set_count</definition>
+        <argsstring></argsstring>
+        <name>set_count</name>
+        <qualifiedname>fuzzExample_t::set_count</qualifiedname>
+        <briefdescription>
+<para>Number of setup events processed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="162" column="12" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1a4a393b96212f607bb771b9e0bd4dccab" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t fuzzExample_t::step_count_total</definition>
+        <argsstring></argsstring>
+        <name>step_count_total</name>
+        <qualifiedname>fuzzExample_t::step_count_total</qualifiedname>
+        <briefdescription>
+<para>Number of step events processed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="163" column="12" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1acc2e577c9b9940760b7eb5e695a5f0c6" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t fuzzExample_t::ignored_count</definition>
+        <argsstring></argsstring>
+        <name>ignored_count</name>
+        <qualifiedname>fuzzExample_t::ignored_count</qualifiedname>
+        <briefdescription>
+<para>Number of ignored events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="164" column="12" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1a7c10deaf3fdce4dc46188009725baa1d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t fuzzExample_t::rejected_count</definition>
+        <argsstring></argsstring>
+        <name>rejected_count</name>
+        <qualifiedname>fuzzExample_t::rejected_count</qualifiedname>
+        <briefdescription>
+<para>Number of rejected setup events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="165" column="12" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1aba0ad42b45ab75688c2fa4577e1ecc9c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t fuzzExample_t::transition_count</definition>
+        <argsstring></argsstring>
+        <name>transition_count</name>
+        <qualifiedname>fuzzExample_t::transition_count</qualifiedname>
+        <briefdescription>
+<para>Number of state transitions executed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="166" column="12" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1a0c6a02beb3d8a9b450f82a9330a8242c" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t fuzzExample_t::running_sum</definition>
+        <argsstring></argsstring>
+        <name>running_sum</name>
+        <qualifiedname>fuzzExample_t::running_sum</qualifiedname>
+        <briefdescription>
+<para>Running sum of collected step values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="167" column="12" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1a4a143ab35de1b86aa6d2f2dea53f011c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_t::match_slot</definition>
+        <argsstring></argsstring>
+        <name>match_slot</name>
+        <qualifiedname>fuzzExample_t::match_slot</qualifiedname>
+        <briefdescription>
+<para>Slot accepted by the dummy app. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="168" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1a26aeb11617053923f69e9d9d49553d12" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_t::gate</definition>
+        <argsstring></argsstring>
+        <name>gate</name>
+        <qualifiedname>fuzzExample_t::gate</qualifiedname>
+        <briefdescription>
+<para>Minimum value required to start collecting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="169" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1ab2b09025c6dfc88fa34e07cfab7f211d" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_t::target_count</definition>
+        <argsstring></argsstring>
+        <name>target_count</name>
+        <qualifiedname>fuzzExample_t::target_count</qualifiedname>
+        <briefdescription>
+<para>Small counter target used by finish logic. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="170" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1a5c5d4a893dbc03b494331b71584b7165" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_t::collected_count</definition>
+        <argsstring></argsstring>
+        <name>collected_count</name>
+        <qualifiedname>fuzzExample_t::collected_count</qualifiedname>
+        <briefdescription>
+<para>Number of collected steps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="171" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1afd2150170a9dde5f6326d14041e6feb3" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_t::last_slot</definition>
+        <argsstring></argsstring>
+        <name>last_slot</name>
+        <qualifiedname>fuzzExample_t::last_slot</qualifiedname>
+        <briefdescription>
+<para>Last slot processed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="172" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__t_1a20426780e0ebde02729a748147bc5408" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_t::last_value</definition>
+        <argsstring></argsstring>
+        <name>last_value</name>
+        <qualifiedname>fuzzExample_t::last_value</qualifiedname>
+        <briefdescription>
+<para>Last value processed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="173" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="173" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Active object backing the fuzz example application. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="3">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>fuzzExample_t</label>
+        <link refid="structfuzzExample__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" line="158" column="1" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="159" bodyend="174"/>
+    <listofallmembers>
+      <member refid="structfuzzExample__t_1a5c5d4a893dbc03b494331b71584b7165" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>collected_count</name></member>
+      <member refid="structfuzzExample__t_1a26aeb11617053923f69e9d9d49553d12" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>gate</name></member>
+      <member refid="structfuzzExample__t_1acc2e577c9b9940760b7eb5e695a5f0c6" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>ignored_count</name></member>
+      <member refid="structfuzzExample__t_1afd2150170a9dde5f6326d14041e6feb3" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>last_slot</name></member>
+      <member refid="structfuzzExample__t_1a20426780e0ebde02729a748147bc5408" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>last_value</name></member>
+      <member refid="structfuzzExample__t_1a4a143ab35de1b86aa6d2f2dea53f011c" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>match_slot</name></member>
+      <member refid="structfuzzExample__t_1a1e5e69dda82daf8fc149adc6cac2c549" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>ping_count</name></member>
+      <member refid="structfuzzExample__t_1a7c10deaf3fdce4dc46188009725baa1d" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>rejected_count</name></member>
+      <member refid="structfuzzExample__t_1a0c6a02beb3d8a9b450f82a9330a8242c" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>running_sum</name></member>
+      <member refid="structfuzzExample__t_1aab3fc0b233314b76697b854b3124e30c" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>set_count</name></member>
+      <member refid="structfuzzExample__t_1a4a393b96212f607bb771b9e0bd4dccab" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>step_count_total</name></member>
+      <member refid="structfuzzExample__t_1ad8509cda5959e38900b6c23187c10be1" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>super</name></member>
+      <member refid="structfuzzExample__t_1ab2b09025c6dfc88fa34e07cfab7f211d" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>target_count</name></member>
+      <member refid="structfuzzExample__t_1aba0ad42b45ab75688c2fa4577e1ecc9c" prot="public" virt="non-virtual"><scope>fuzzExample_t</scope><name>transition_count</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

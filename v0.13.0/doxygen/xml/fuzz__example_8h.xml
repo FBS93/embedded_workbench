@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="fuzz__example_8h" kind="file" language="C++">
+    <compoundname>fuzz_example.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includedby refid="fuzz__example_8c" local="yes">sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</includedby>
+    <includedby refid="fuzz__example_2src_2main_8c" local="yes">sw/ecf/event_driven_framework/examples/fuzz_example/src/main.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h</label>
+        <link refid="fuzz__example_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="11">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="4">
+        <label>edf_config.h</label>
+      </node>
+      <node id="14">
+        <label>queue.h</label>
+      </node>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h</label>
+        <link refid="fuzz__example_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</label>
+        <link refid="fuzz__example_8c"/>
+      </node>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/main.c</label>
+        <link refid="fuzz__example_2src_2main_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structfuzzExample__setEvent__t" prot="public">fuzzExample_setEvent_t</innerclass>
+    <innerclass refid="structfuzzExample__stepEvent__t" prot="public">fuzzExample_stepEvent_t</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>fuzzExample_eventSignal_t</name>
+        <enumvalue id="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba74b9518536bbdcc82123457262f7d527" prot="public">
+          <name>FUZZ_EXAMPLE_PING_SIG</name>
+          <initializer>= EDF_HSM_USER_SIGNAL</initializer>
+          <briefdescription>
+<para>Ping event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba64177df3eeeee7bd0800b87d1f688f49" prot="public">
+          <name>FUZZ_EXAMPLE_START_SIG</name>
+          <briefdescription>
+<para>Start event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba5edd2d296e79bad8c3073224dbe0cd2c" prot="public">
+          <name>FUZZ_EXAMPLE_FINISH_SIG</name>
+          <briefdescription>
+<para>Finish event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5ebaed0f5ebdd54fb9315f404cf3af6bc5dd" prot="public">
+          <name>FUZZ_EXAMPLE_RESET_SIG</name>
+          <briefdescription>
+<para>Reset event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba72c670c1e001d8f8592e5b4f9500f37e" prot="public">
+          <name>FUZZ_EXAMPLE_SET_SIG</name>
+          <briefdescription>
+<para>Mutable setup event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba04e139f228c7aebd8109e1159e9ef3b0" prot="public">
+          <name>FUZZ_EXAMPLE_STEP_SIG</name>
+          <briefdescription>
+<para>Mutable step event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="fuzz__example_8h_1afaf68bb19e05d3b592ea63983957f5eba6fe262b7f27a591fa4e66a624f66b3a8" prot="public">
+          <name>FUZZ_EXAMPLE_LAST_SIG</name>
+          <briefdescription>
+<para>Sentinel signal value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Event signals accepted by the fuzz example application. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="50" column="1" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="51" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="fuzz__example_8h_1ace923deac2bada319cc2bb30bfebd552" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fuzzExample_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>fuzzExample_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the fuzz example application and start its active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="94" column="6" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c" bodystart="842" bodyend="872" declfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" declline="94" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h"/>
+  </compounddef>
+</doxygen>

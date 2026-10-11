@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__test__report_8h" kind="file" language="C++">
+    <compoundname>emf_test_report.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="emf_8h" local="yes">sw/ecf/embedded_middleware_framework/inc/emf.h</includedby>
+    <includedby refid="emf__test__report_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>sw/ecf/embedded_assert_framework/src/eaf.c</label>
+        <link refid="eaf_8c"/>
+      </node>
+      <node id="4">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c"/>
+      </node>
+      <node id="5">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c</label>
+        <link refid="syscalls_8c"/>
+      </node>
+      <node id="6">
+        <label>sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c</label>
+        <link refid="os_2posix_2src_2ebf__core_8c"/>
+      </node>
+      <node id="2">
+        <label>sw/ecf/embedded_middleware_framework/inc/emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h</label>
+        <link refid="emf__test__report_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c</label>
+        <link refid="emf__test__report_8c"/>
+      </node>
+      <node id="7">
+        <label>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c</label>
+        <link refid="epf__timer_8c"/>
+      </node>
+      <node id="8">
+        <label>sw/ecf/embedded_test_framework/src/etf.c</label>
+        <link refid="etf_8c"/>
+      </node>
+      <node id="9">
+        <label>sw/ecf/event_driven_framework/edf_test/src/edf_test.c</label>
+        <link refid="edf__test_8c"/>
+      </node>
+      <node id="10">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</label>
+        <link refid="app_8c"/>
+      </node>
+      <node id="11">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</label>
+        <link refid="fuzz__example_8c"/>
+      </node>
+      <node id="12">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h</label>
+        <link refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h"/>
+      </node>
+      <node id="13">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2edf__core_8c"/>
+      </node>
+      <node id="14">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive_2inc_2edf__core_8h"/>
+      </node>
+      <node id="15">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="16">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h"/>
+      </node>
+      <node id="17">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c"/>
+      </node>
+      <node id="18">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="19">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</label>
+        <link refid="edf__active__object_8c"/>
+      </node>
+      <node id="20">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event.c</label>
+        <link refid="edf__event_8c"/>
+      </node>
+      <node id="21">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_framework.c</label>
+        <link refid="edf__framework_8c"/>
+      </node>
+      <node id="22">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c</label>
+        <link refid="edf__hsm_8c"/>
+      </node>
+      <node id="23">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</label>
+        <link refid="edf__time__event_8c"/>
+      </node>
+      <node id="24">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c</label>
+        <link refid="active__object_8c"/>
+      </node>
+      <node id="25">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</label>
+        <link refid="test__event__delivery_8c"/>
+      </node>
+      <node id="26">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/hsm.c</label>
+        <link refid="hsm_8c"/>
+      </node>
+      <node id="27">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c</label>
+        <link refid="test__hsm_8c"/>
+      </node>
+      <node id="28">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</label>
+        <link refid="test__time__event_8c"/>
+      </node>
+      <node id="29">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c</label>
+        <link refid="time__mgr_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EMF_testReport_testResult_t</name>
+        <enumvalue id="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0bab0b7c38c4ec19a4cf3be3d851e6724c0" prot="public">
+          <name>TEST_PASSED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0ba35a64703143880acd8948c7b00b0ca09" prot="public">
+          <name>TEST_SKIPPED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0ba983ad813fec232f9af0d26f1bb43caa5" prot="public">
+          <name>TEST_FAILED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enumeration of possible test results. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" line="49" column="1" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" bodystart="50" bodyend="54"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__test__report_8h_1ad2f89759f33808b4038733eadcf7be0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_testReport_printHeader</definition>
+        <argsstring>(const char *frameworkName, const char *suiteName)</argsstring>
+        <name>EMF_testReport_printHeader</name>
+        <param>
+          <type>const char *</type>
+          <declname>frameworkName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>suiteName</declname>
+        </param>
+        <briefdescription>
+<para>Prints the test report header with framework and suite names. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">frameworkName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test framework. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">suiteName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test suite. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" line="70" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="121" bodyend="150" declfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" declline="70" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8h_1a282a2aeabc2e8fe63e1a97bf333c4282" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_testReport_printTestIntro</definition>
+        <argsstring>(uint16_t test_num, const char *test_name)</argsstring>
+        <name>EMF_testReport_printTestIntro</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>test_num</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>test_name</declname>
+        </param>
+        <briefdescription>
+<para>Prints the test number and name at the start of test execution. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">test_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of the test. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">test_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the test. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" line="79" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="152" bodyend="160" declfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" declline="79" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8h_1a2bfb2ad97de5d8f36023d4945b74fe92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_testReport_printTestResult</definition>
+        <argsstring>(EMF_testReport_testResult_t test_result, const char *fail_cond, const char *fail_file, int fail_line)</argsstring>
+        <name>EMF_testReport_printTestResult</name>
+        <param>
+          <type><ref refid="emf__test__report_8h_1ac5748d2c7daa8267a2d6f1b6daf43a0b" kindref="member">EMF_testReport_testResult_t</ref></type>
+          <declname>test_result</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fail_cond</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fail_file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fail_line</declname>
+        </param>
+        <briefdescription>
+<para>Prints the result of a test. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">test_result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Test result (passed, skipped, failed). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fail_cond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed condition (if any). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fail_file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File where the failure occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">fail_line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Line number of the failure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" line="89" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="162" bodyend="197" declfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" declline="89" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__test__report_8h_1a49d34027d56d4c9a5222480a3867c739" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_testReport_printSummary</definition>
+        <argsstring>(uint16_t totalTests, uint16_t skippedTests, uint16_t failedTests)</argsstring>
+        <name>EMF_testReport_printSummary</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>totalTests</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>skippedTests</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>failedTests</declname>
+        </param>
+        <briefdescription>
+<para>Prints a summary of all test results. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">totalTests</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Total number of tests run. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">skippedTests</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of skipped tests. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">failedTests</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of failed tests. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" line="101" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c" bodystart="199" bodyend="211" declfile="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h" declline="101" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_test_report/inc/emf_test_report.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__print_8h" kind="file" language="C++">
+    <compoundname>emf_print.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includedby refid="emf_8h" local="yes">sw/ecf/embedded_middleware_framework/inc/emf.h</includedby>
+    <includedby refid="emf__log_8h" local="yes">sw/ecf/embedded_middleware_framework/src/emf_log/inc/emf_log.h</includedby>
+    <includedby refid="emf__log_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c</includedby>
+    <includedby refid="emf__print_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c</includedby>
+    <includedby refid="emf__test__report_8c" local="yes">sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>sw/ecf/embedded_assert_framework/src/eaf.c</label>
+        <link refid="eaf_8c"/>
+      </node>
+      <node id="4">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/ebf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2ebf__core_8c"/>
+      </node>
+      <node id="5">
+        <label>sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m/src/syscalls.c</label>
+        <link refid="syscalls_8c"/>
+      </node>
+      <node id="6">
+        <label>sw/ecf/embedded_base_framework/src/core/os/posix/src/ebf_core.c</label>
+        <link refid="os_2posix_2src_2ebf__core_8c"/>
+      </node>
+      <node id="2">
+        <label>sw/ecf/embedded_middleware_framework/inc/emf.h</label>
+        <link refid="emf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_log/inc/emf_log.h</label>
+        <link refid="emf__log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_log/src/emf_log.c</label>
+        <link refid="emf__log_8c"/>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h</label>
+        <link refid="emf__print_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c</label>
+        <link refid="emf__print_8c"/>
+      </node>
+      <node id="33">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_test_report/src/emf_test_report.c</label>
+        <link refid="emf__test__report_8c"/>
+      </node>
+      <node id="7">
+        <label>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c</label>
+        <link refid="epf__timer_8c"/>
+      </node>
+      <node id="8">
+        <label>sw/ecf/embedded_test_framework/src/etf.c</label>
+        <link refid="etf_8c"/>
+      </node>
+      <node id="9">
+        <label>sw/ecf/event_driven_framework/edf_test/src/edf_test.c</label>
+        <link refid="edf__test_8c"/>
+      </node>
+      <node id="10">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</label>
+        <link refid="app_8c"/>
+      </node>
+      <node id="11">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</label>
+        <link refid="fuzz__example_8c"/>
+      </node>
+      <node id="12">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/inc/edf_core.h</label>
+        <link refid="baremetal_2arm__cortex__m_2inc_2edf__core_8h"/>
+      </node>
+      <node id="13">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2edf__core_8c"/>
+      </node>
+      <node id="14">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive_2inc_2edf__core_8h"/>
+      </node>
+      <node id="15">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="16">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/inc/edf_core.h</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2inc_2edf__core_8h"/>
+      </node>
+      <node id="17">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c"/>
+      </node>
+      <node id="18">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="19">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</label>
+        <link refid="edf__active__object_8c"/>
+      </node>
+      <node id="20">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event.c</label>
+        <link refid="edf__event_8c"/>
+      </node>
+      <node id="21">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_framework.c</label>
+        <link refid="edf__framework_8c"/>
+      </node>
+      <node id="22">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_hsm.c</label>
+        <link refid="edf__hsm_8c"/>
+      </node>
+      <node id="23">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</label>
+        <link refid="edf__time__event_8c"/>
+      </node>
+      <node id="24">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/active_object.c</label>
+        <link refid="active__object_8c"/>
+      </node>
+      <node id="25">
+        <label>sw/ecf/event_driven_framework/test/event_delivery/src/test_event_delivery.c</label>
+        <link refid="test__event__delivery_8c"/>
+      </node>
+      <node id="26">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/hsm.c</label>
+        <link refid="hsm_8c"/>
+      </node>
+      <node id="27">
+        <label>sw/ecf/event_driven_framework/test/hsm/src/test_hsm.c</label>
+        <link refid="test__hsm_8c"/>
+      </node>
+      <node id="28">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</label>
+        <link refid="test__time__event_8c"/>
+      </node>
+      <node id="29">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c</label>
+        <link refid="time__mgr_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="emf__print_8h_1a09b4af88a67d832ee96e8ba952b548ec" prot="public" static="no">
+        <name>EMF_PRINT_ARG_U</name>
+        <param><defname>val</defname></param>
+        <initializer>((uintptr_t)(val))</initializer>
+        <briefdescription>
+<para>Casts an unsigned integer for printing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unsigned integer value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Casted value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="49" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__print_8h_1adb07a126e75c20ecce0b0806b3f3a5f5" prot="public" static="no">
+        <name>EMF_PRINT_ARG_I</name>
+        <param><defname>val</defname></param>
+        <initializer>((uintptr_t)(int32_t)(val))</initializer>
+        <briefdescription>
+<para>Casts a signed integer for printing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Signed integer value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Casted value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="57" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__print_8h_1a1d559228414cacbf889690eeed805601" prot="public" static="no">
+        <name>EMF_PRINT_ARG_F</name>
+        <param><defname>val</defname></param>
+        <initializer>  (((union { float f; uintptr_t u; }){ .f = (val) }).u)</initializer>
+        <briefdescription>
+<para>Casts a float for printing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Floating-point value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Casted value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="66" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" bodystart="66" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__print_8h_1a6c2f2ff9c94300180ba9f463969efdf2" prot="public" static="no">
+        <name>EMF_PRINT_ARG_S</name>
+        <param><defname>ptr</defname></param>
+        <initializer>((uintptr_t)(ptr))</initializer>
+        <briefdescription>
+<para>Casts a string pointer for printing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a null-terminated string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Casted pointer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="76" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__print_8h_1a38462fa9e99c5f8cc46362a293963124" prot="public" static="no">
+        <name>EMF_PRINT_ARG_C</name>
+        <param><defname>val</defname></param>
+        <initializer>((uintptr_t)(uint8_t)(val))</initializer>
+        <briefdescription>
+<para>Casts a character for printing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Casted value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="84" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__print_8h_1a57ca66445a18ffc13d0f305ab75e9c8d" prot="public" static="no">
+        <name>EMF_PRINT_NARG</name>
+        <param><defname>...</defname></param>
+        <initializer>  <ref refid="emf__print_8h_1af0e8c425c9b1a60f5bf9f11436e13dc0" kindref="member">EMF_PRINT_NARG_</ref>(__VA_ARGS__, 8, 7, 6, 5, 4, 3, 2, 1, 0)</initializer>
+        <briefdescription>
+<para>Counts number of variadic arguments passed (up to 8). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000005"><xreftitle>Todo</xreftitle><xrefdescription><para>Review if 8 is sufficient for maximum number of arguments. </para>
+<para>Consider moving this macro to a generic middleware module and using it wherever macros of this type are used (e.g., emf_log, eff).</para>
+</xrefdescription></xrefsect></para>
+<para><simplesect kind="return"><para>Number of arguments (0–8). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="95" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" bodystart="95" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__print_8h_1af0e8c425c9b1a60f5bf9f11436e13dc0" prot="public" static="no">
+        <name>EMF_PRINT_NARG_</name>
+        <param><defname>_1</defname></param>
+        <param><defname>_2</defname></param>
+        <param><defname>_3</defname></param>
+        <param><defname>_4</defname></param>
+        <param><defname>_5</defname></param>
+        <param><defname>_6</defname></param>
+        <param><defname>_7</defname></param>
+        <param><defname>_8</defname></param>
+        <param><defname>N</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>N</initializer>
+        <briefdescription>
+<para>Helper macro for counting variadic arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000006"><xreftitle>Todo</xreftitle><xrefdescription><para>Review if 8 is sufficient for maximum number of arguments. </para>
+<para>Consider moving this macro to a generic middleware module and using it wherever macros of this type are used (e.g., emf_log, eff).</para>
+</xrefdescription></xrefsect></para>
+<para><simplesect kind="return"><para>Number of arguments (0–8). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="107" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__print_8h_1a6710a7a0dd075a545aa20ef41fd4f102" prot="public" static="no">
+        <name>EMF_PRINT</name>
+        <param><defname>fmt</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>  do                                      \
+  {                                       \
+    if (<ref refid="emf__print_8h_1a57ca66445a18ffc13d0f305ab75e9c8d" kindref="member">EMF_PRINT_NARG</ref>(__VA_ARGS__) == 0) \
+    {                                     \
+      <ref refid="emf__print_8h_1aa2affc0918cda6aaf259b4492d973f86" kindref="member">EMF_print</ref>(fmt, NULL);               \
+    }                                     \
+    else                                  \
+    {                                     \
+      uintptr_t args[] = {__VA_ARGS__};   \
+      <ref refid="emf__print_8h_1aa2affc0918cda6aaf259b4492d973f86" kindref="member">EMF_print</ref>(fmt, args);               \
+    }                                     \
+  } while (0)</initializer>
+        <briefdescription>
+<para>Safe variadic print macro using EMF_print. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If no arguments are passed, it calls EMF_print with NULL. Otherwise, it builds a local array of arguments and passes them.</para>
+<para><xrefsect id="todo_1_todo000007"><xreftitle>Todo</xreftitle><xrefdescription><para>Limit of 8 arguments is imposed by EMF_PRINT_NARG. </para>
+<para>If the limit is changed update the documentation.</para>
+</xrefdescription></xrefsect></para>
+<para><simplesect kind="note"><para>This macro shall not be called from an active EBF critical section. See <ref refid="/workspaces/embedded_workbench/sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h_1emf_stdout_critical_section_precondition" kindref="member">emf_stdout_critical_section_precondition</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fmt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Format string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable arguments (max 8). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="124" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" bodystart="124" bodyend="136"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__print_8h_1aa2affc0918cda6aaf259b4492d973f86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_print</definition>
+        <argsstring>(const char *fmt, const uintptr_t *args)</argsstring>
+        <name>EMF_print</name>
+        <param>
+          <type>const char *</type>
+          <declname>fmt</declname>
+        </param>
+        <param>
+          <type>const uintptr_t *</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Print a formatted message with arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function used by EMF_PRINT macro.</para>
+<para>The complete message is written atomically through EBF stdout. EAF is triggered if the formatted message exceeds <computeroutput>EMF_PRINT_MAX_LEN</computeroutput> or EBF stdout rejects the write.</para>
+<para><simplesect kind="note"><para>This function shall not be called from an active EBF critical section. See <ref refid="/workspaces/embedded_workbench/sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h_1emf_stdout_critical_section_precondition" kindref="member">emf_stdout_critical_section_precondition</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">fmt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Null-terminated format string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to array of arguments, or NULL. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>&lt; Floating-point representation.</para>
+<para>&lt; Unsigned integer representation.</para>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" line="165" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_print/src/emf_print.c" bodystart="227" bodyend="311" declfile="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h" declline="165" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_print/inc/emf_print.h"/>
+  </compounddef>
+</doxygen>

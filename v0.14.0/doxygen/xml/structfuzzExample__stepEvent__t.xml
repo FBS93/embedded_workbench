@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structfuzzExample__stepEvent__t" kind="struct" language="C++" prot="public">
+    <compoundname>fuzzExample_stepEvent_t</compoundname>
+    <includes refid="fuzz__example_8h" local="no">fuzz_example.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfuzzExample__stepEvent__t_1a045ee9be11ca93aaf8b1dfc9bb4cbecd" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>EDF_event_t fuzzExample_stepEvent_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>fuzzExample_stepEvent_t::super</qualifiedname>
+        <briefdescription>
+<para>EDF event base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="77" column="15" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__stepEvent__t_1ae137d43e29fb28321c69da18bdeaac6b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_stepEvent_t::slot</definition>
+        <argsstring></argsstring>
+        <name>slot</name>
+        <qualifiedname>fuzzExample_stepEvent_t::slot</qualifiedname>
+        <briefdescription>
+<para>Slot carried by the step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="78" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__stepEvent__t_1acd18342203ad392c35fa444dc1fd3215" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_stepEvent_t::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>fuzzExample_stepEvent_t::value</qualifiedname>
+        <briefdescription>
+<para>Value carried by the step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="79" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfuzzExample__stepEvent__t_1a09d19185afbc657b5f0065094b834901" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t fuzzExample_stepEvent_t::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <qualifiedname>fuzzExample_stepEvent_t::flags</qualifiedname>
+        <briefdescription>
+<para>Step-processing flags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="80" column="11" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Mutable step event accepted by the example application. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="1">
+        <label>fuzzExample_stepEvent_t</label>
+        <link refid="structfuzzExample__stepEvent__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" line="75" column="1" bodyfile="sw/ecf/event_driven_framework/examples/fuzz_example/inc/fuzz_example.h" bodystart="76" bodyend="81"/>
+    <listofallmembers>
+      <member refid="structfuzzExample__stepEvent__t_1a09d19185afbc657b5f0065094b834901" prot="public" virt="non-virtual"><scope>fuzzExample_stepEvent_t</scope><name>flags</name></member>
+      <member refid="structfuzzExample__stepEvent__t_1ae137d43e29fb28321c69da18bdeaac6b" prot="public" virt="non-virtual"><scope>fuzzExample_stepEvent_t</scope><name>slot</name></member>
+      <member refid="structfuzzExample__stepEvent__t_1a045ee9be11ca93aaf8b1dfc9bb4cbecd" prot="public" virt="non-virtual"><scope>fuzzExample_stepEvent_t</scope><name>super</name></member>
+      <member refid="structfuzzExample__stepEvent__t_1acd18342203ad392c35fa444dc1fd3215" prot="public" virt="non-virtual"><scope>fuzzExample_stepEvent_t</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

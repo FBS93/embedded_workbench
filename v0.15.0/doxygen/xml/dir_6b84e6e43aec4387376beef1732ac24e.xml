@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_6b84e6e43aec4387376beef1732ac24e" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/test/time_event/src</compoundname>
+    <innerfile refid="test__time__event_8c">test_time_event.c</innerfile>
+    <innerfile refid="time__mgr_8c">time_mgr.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/time_event/src/"/>
+  </compounddef>
+</doxygen>

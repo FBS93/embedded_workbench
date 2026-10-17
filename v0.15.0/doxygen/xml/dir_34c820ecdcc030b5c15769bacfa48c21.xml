@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_34c820ecdcc030b5c15769bacfa48c21" kind="dir">
+    <compoundname>sw/ecf/embedded_platform_framework/os/posix/src/epf_timer</compoundname>
+    <innerdir refid="dir_bd8b0b189adc301ddbf5b8579820faf1">sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc</innerdir>
+    <innerdir refid="dir_3e205b8fbd5b5486df1873fa298d771e">sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/"/>
+  </compounddef>
+</doxygen>

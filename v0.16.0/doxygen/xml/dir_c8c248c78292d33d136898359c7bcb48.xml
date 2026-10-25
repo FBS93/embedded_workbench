@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_c8c248c78292d33d136898359c7bcb48" kind="dir">
+    <compoundname>sw/ecf/embedded_fake_framework</compoundname>
+    <innerdir refid="dir_8a4ef2d6a05c23a8d728b8f2f0383330">sw/ecf/embedded_fake_framework/inc</innerdir>
+    <innerdir refid="dir_5744c86ab3a2699e947104d7b04f0587">sw/ecf/embedded_fake_framework/test</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_fake_framework/"/>
+  </compounddef>
+</doxygen>

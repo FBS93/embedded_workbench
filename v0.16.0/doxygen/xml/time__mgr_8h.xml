@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="time__mgr_8h" kind="file" language="C++">
+    <compoundname>time_mgr.h</compoundname>
+    <includes refid="edf_8h" local="yes">edf.h</includes>
+    <includedby refid="test__time__event_8c" local="yes">sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</includedby>
+    <includedby refid="time__mgr_8c" local="yes">sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>edf.h</label>
+        <link refid="edf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h</label>
+        <link refid="time__mgr_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="11">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="3">
+        <label>edf_config.h</label>
+      </node>
+      <node id="14">
+        <label>queue.h</label>
+      </node>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h</label>
+        <link refid="time__mgr_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/test_time_event.c</label>
+        <link refid="test__time__event_8c"/>
+      </node>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c</label>
+        <link refid="time__mgr_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structtimeMgr__t" prot="public">timeMgr_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="time__mgr_8h_1a139f21408bbcea35ffc96263cb1fdf44" prot="public" static="no">
+        <name>TICK_RATE_IDX_1_MS</name>
+        <initializer>0U</initializer>
+        <briefdescription>
+<para>Index of 1ms tick rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="46" column="9" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="time__mgr_8h_1a9caba83b45ef3f5d8651f51a4c6c773f" prot="public" static="no">
+        <name>EVENT_BUFF_SIZE</name>
+        <initializer>50U</initializer>
+        <briefdescription>
+<para>Size of timeMgr event buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The buffer must be large enough to hold the maximum number of consecutive posted events in the worst-case scenario without preemption. This ensures the test can also be used in non-preemptive core/port configurations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="55" column="9" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2ab" prot="public" static="no" strong="no">
+        <type></type>
+        <name>timeMgr_eventSignal_t</name>
+        <enumvalue id="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2aba0b9480255dbdba73193bdfeed1142c29" prot="public">
+          <name>PERIODIC_TIMER_5_MS</name>
+          <initializer>= EDF_HSM_USER_SIGNAL</initializer>
+          <briefdescription>
+<para>Periodic 5ms time event signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2aba89d61b1c720a632b327bcb7f23293549" prot="public">
+          <name>PERIODIC_TIMER_100_MS</name>
+          <briefdescription>
+<para>Periodic 100ms time event signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2abacf3f5a102a2678eef072f60be50e639e" prot="public">
+          <name>PERIODIC_TIMER_5_MS_100_MS</name>
+          <briefdescription>
+<para>Periodic 5ms-100ms time event signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2abaab36dbbd20b8f312490963e4a8b70e0a" prot="public">
+          <name>ONE_SHOT_TIMER_100_MS</name>
+          <briefdescription>
+<para>One-shot 100ms time event signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2aba570b000ad5bd233482644aaaac095680" prot="public">
+          <name>VERIFY</name>
+          <briefdescription>
+<para>Verification event. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="time__mgr_8h_1a3daf5d0064fe4bc84daa9e253023d2abae52a67fe08f6f2d20f15eab27fa68069" prot="public">
+          <name>LAST_EVENT_SIGNAL</name>
+          <briefdescription>
+<para>Reference for the last valid signal. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Event signals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="83" column="1" bodyfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" bodystart="84" bodyend="92"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="time__mgr_8h_1a773056ed4e85d47aaf71baa35f47bec4" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="structtimeMgr__t" kindref="compound">timeMgr_t</ref></type>
+        <definition>timeMgr_t timeMgr</definition>
+        <argsstring></argsstring>
+        <name>timeMgr</name>
+        <briefdescription>
+<para>timeMgr active object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Global for test access purposes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="103" column="18" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="87" bodyend="-1" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="103" declcolumn="18"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="time__mgr_8h_1a4b150d4bb5bd8972c2997b8d4db6788c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the timeMgr active object and timers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="112" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="176" bodyend="215" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="112" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1aa0f7cdd3f1e0bf734dfc8f871b7ff9a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_clearExpirationCnt</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_clearExpirationCnt</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clear all timer expiration counters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="117" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="217" bodyend="223" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="117" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1ac7e88802edbf380698afce96fb390223" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_armPeriodicTimer5ms</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_armPeriodicTimer5ms</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Arm periodic timer of 5ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="122" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="225" bodyend="230" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="122" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1a419c3eedc6973b118ce1951da65beb24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_disarmPeriodicTimer5ms</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_disarmPeriodicTimer5ms</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Disarm periodic timer of 5ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="127" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="232" bodyend="235" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="127" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1a7b066317f9bd64aab3b0fc7b80465429" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_armPeriodicTimer100ms</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_armPeriodicTimer100ms</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Arm periodic timer of 100ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="132" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="237" bodyend="242" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="132" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1a2a2de4780446effebc6bf478013505b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_disarmPeriodicTimer100ms</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_disarmPeriodicTimer100ms</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Disarm periodic timer of 100ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="137" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="244" bodyend="247" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="137" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1a28b94c456684aa1d17c98c11ac983853" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_armPeriodicTimer5ms100ms</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_armPeriodicTimer5ms100ms</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Arm periodic timer; first expiration at 5ms, then every 100ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="142" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="249" bodyend="254" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="142" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1a84bee3954bcb7adde9a51c63c277800d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_disarmPeriodicTimer5ms100ms</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_disarmPeriodicTimer5ms100ms</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Disarm periodic timer; first expiration at 5ms, then every 100ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="147" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="256" bodyend="259" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="147" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1a954bb7347dd82997e50caaf8c31d9030" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_armOneShotTimer100ms</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_armOneShotTimer100ms</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Arm one-shot timer of 100ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="152" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="261" bodyend="266" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="152" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="time__mgr_8h_1a8e92a2a9fe95b7e0bd90a5745592ed5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeMgr_disarmOneShotTimer100ms</definition>
+        <argsstring>(void)</argsstring>
+        <name>timeMgr_disarmOneShotTimer100ms</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Disarm one-shot timer of 100ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" line="157" column="6" bodyfile="sw/ecf/event_driven_framework/test/time_event/src/time_mgr.c" bodystart="268" bodyend="271" declfile="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h" declline="157" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/test/time_event/inc/time_mgr.h"/>
+  </compounddef>
+</doxygen>

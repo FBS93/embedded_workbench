@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__fuzz__eventDescriptor__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_fuzz_eventDescriptor_t</compoundname>
+    <includes refid="edf__fuzz_8h" local="no">edf_fuzz.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__fuzz__eventDescriptor__t_1a32c2040fb4027d1dcc6f2a61bfcec3da" prot="public" static="no" mutable="no">
+        <type>EDF_event_signal_t</type>
+        <definition>EDF_event_signal_t EDF_fuzz_eventDescriptor_t::sig</definition>
+        <argsstring></argsstring>
+        <name>sig</name>
+        <qualifiedname>EDF_fuzz_eventDescriptor_t::sig</qualifiedname>
+        <briefdescription>
+<para>Event signal published by EDF. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="88" column="22" bodyfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__fuzz__eventDescriptor__t_1a9cebf1dd246af3582db02ded6bfb44e8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EDF_fuzz_eventDescriptor_t::is_mutable</definition>
+        <argsstring></argsstring>
+        <name>is_mutable</name>
+        <qualifiedname>EDF_fuzz_eventDescriptor_t::is_mutable</qualifiedname>
+        <briefdescription>
+<para>Mutable event descriptor flag. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="89" column="8" bodyfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__fuzz__eventDescriptor__t_1a7eecdd604a82931bd2aa7df5a4045135" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref> *</type>
+        <definition>const EDF_event_t* EDF_fuzz_eventDescriptor_t::immutable_event</definition>
+        <argsstring></argsstring>
+        <name>immutable_event</name>
+        <qualifiedname>EDF_fuzz_eventDescriptor_t::immutable_event</qualifiedname>
+        <briefdescription>
+<para>Immutable event instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="90" column="21" bodyfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__fuzz__eventDescriptor__t_1a700b2de3817df91c0c9c72ac83f34f38" prot="public" static="no" mutable="no">
+        <type>uint_fast16_t</type>
+        <definition>uint_fast16_t EDF_fuzz_eventDescriptor_t::mutable_event_size</definition>
+        <argsstring></argsstring>
+        <name>mutable_event_size</name>
+        <qualifiedname>EDF_fuzz_eventDescriptor_t::mutable_event_size</qualifiedname>
+        <briefdescription>
+<para>Mutable event size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="91" column="17" bodyfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Fuzzable event descriptor. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>This structure is part of the fuzz-port integration contract and is consumed internally by EDF. Applications shall define descriptors only through the table macros provided by this header. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="1">
+        <label>EDF_fuzz_eventDescriptor_t</label>
+        <link refid="structEDF__fuzz__eventDescriptor__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>immutable_event</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="86" column="1" bodyfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" bodystart="87" bodyend="92"/>
+    <listofallmembers>
+      <member refid="structEDF__fuzz__eventDescriptor__t_1a7eecdd604a82931bd2aa7df5a4045135" prot="public" virt="non-virtual"><scope>EDF_fuzz_eventDescriptor_t</scope><name>immutable_event</name></member>
+      <member refid="structEDF__fuzz__eventDescriptor__t_1a9cebf1dd246af3582db02ded6bfb44e8" prot="public" virt="non-virtual"><scope>EDF_fuzz_eventDescriptor_t</scope><name>is_mutable</name></member>
+      <member refid="structEDF__fuzz__eventDescriptor__t_1a700b2de3817df91c0c9c72ac83f34f38" prot="public" virt="non-virtual"><scope>EDF_fuzz_eventDescriptor_t</scope><name>mutable_event_size</name></member>
+      <member refid="structEDF__fuzz__eventDescriptor__t_1a32c2040fb4027d1dcc6f2a61bfcec3da" prot="public" virt="non-virtual"><scope>EDF_fuzz_eventDescriptor_t</scope><name>sig</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

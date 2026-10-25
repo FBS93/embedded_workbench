@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__fuzz_8h" kind="file" language="C++">
+    <compoundname>edf_fuzz.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes local="yes">ebf_config.h</includes>
+    <includes refid="edf__event_8h" local="yes">edf_event.h</includes>
+    <includedby refid="fuzz__example_8c" local="yes">sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</includedby>
+    <includedby refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/inc/edf_fuzz.h</label>
+        <link refid="edf__fuzz_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="7">
+        <label>edf_config.h</label>
+      </node>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/examples/fuzz_example/src/fuzz_example.c</label>
+        <link refid="fuzz__example_8c"/>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/inc/edf_fuzz.h</label>
+        <link refid="edf__fuzz_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structEDF__fuzz__eventDescriptor__t" prot="public">EDF_fuzz_eventDescriptor_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="edf__fuzz_8h_1a1742b9f5f56c8f4ea24199c19ffac87f" prot="public" static="no">
+        <name>EDF_FUZZ_EVENT_TABLE</name>
+        <param><defname>...</defname></param>
+        <initializer>  const <ref refid="structEDF__fuzz__eventDescriptor__t" kindref="compound">EDF_fuzz_eventDescriptor_t</ref> <ref refid="edf__fuzz_8h_1ae87cc0b78cf91673af90a69b9e84882b" kindref="member">EDF_fuzz_eventTable</ref>[] = {__VA_ARGS__}; \
+  const size_t <ref refid="edf__fuzz_8h_1a86c5e846afa6402e26bf6c8070771740" kindref="member">EDF_fuzz_eventTableLen</ref> =                                   \
+    sizeof(<ref refid="edf__fuzz_8h_1ae87cc0b78cf91673af90a69b9e84882b" kindref="member">EDF_fuzz_eventTable</ref>) / sizeof(<ref refid="edf__fuzz_8h_1ae87cc0b78cf91673af90a69b9e84882b" kindref="member">EDF_fuzz_eventTable</ref>[0U])</initializer>
+        <briefdescription>
+<para>Define the single global fuzzable-event table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="48" column="9" bodyfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="define" id="edf__fuzz_8h_1a854673074512c0f08745e91c182713c2" prot="public" static="no">
+        <name>EDF_FUZZ_IMMUTABLE_EVENT</name>
+        <param><defname>sig</defname></param>
+        <param><defname>event_ptr</defname></param>
+        <initializer>  {                                                   \
+    (EDF_event_signal_t)(sig), false, (event_ptr), 0U \
+  }</initializer>
+        <briefdescription>
+<para>Add an immutable fuzzable event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal associated with the immutable event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the immutable event instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="59" column="9" bodyfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="define" id="edf__fuzz_8h_1ae141cf52ab9791c40479ef9df7e5a956" prot="public" static="no">
+        <name>EDF_FUZZ_MUTABLE_EVENT</name>
+        <param><defname>sig</defname></param>
+        <param><defname>event_size</defname></param>
+        <initializer>  {                                                                    \
+    (EDF_event_signal_t)(sig), true, NULL, (uint_fast16_t)(event_size) \
+  }</initializer>
+        <briefdescription>
+<para>Add a mutable fuzzable event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sig</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event signal associated with the mutable event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Full mutable event size, including <ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="70" column="9" bodyfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" bodystart="70" bodyend="73"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="edf__fuzz_8h_1ae87cc0b78cf91673af90a69b9e84882b" prot="public" static="no" extern="yes" mutable="no">
+        <type>const <ref refid="structEDF__fuzz__eventDescriptor__t" kindref="compound">EDF_fuzz_eventDescriptor_t</ref></type>
+        <definition>const EDF_fuzz_eventDescriptor_t EDF_fuzz_eventTable[]</definition>
+        <argsstring>[]</argsstring>
+        <name>EDF_fuzz_eventTable</name>
+        <briefdescription>
+<para>Single global fuzzable-event table generated by the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This symbol is intended for EDF internal use. Applications shall define it with <ref refid="edf__fuzz_8h_1a1742b9f5f56c8f4ea24199c19ffac87f" kindref="member">EDF_FUZZ_EVENT_TABLE</ref> and shall not access it directly. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="104" column="41" declfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" declline="104" declcolumn="41"/>
+      </memberdef>
+      <memberdef kind="variable" id="edf__fuzz_8h_1a86c5e846afa6402e26bf6c8070771740" prot="public" static="no" extern="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t EDF_fuzz_eventTableLen</definition>
+        <argsstring></argsstring>
+        <name>EDF_fuzz_eventTableLen</name>
+        <briefdescription>
+<para>Number of entries in the single global fuzzable-event table. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This symbol is intended for EDF internal use. Applications shall define it with <ref refid="edf__fuzz_8h_1a1742b9f5f56c8f4ea24199c19ffac87f" kindref="member">EDF_FUZZ_EVENT_TABLE</ref> and shall not access it directly. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h" line="112" column="21" declfile="sw/ecf/event_driven_framework/inc/edf_fuzz.h" declline="112" declcolumn="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/inc/edf_fuzz.h"/>
+  </compounddef>
+</doxygen>

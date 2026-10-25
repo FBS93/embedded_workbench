@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__framework__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_framework_t</compoundname>
+    <includes refid="edf__framework_8h" local="no">edf_framework.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__framework__t_1a959b988ccc9e7b6420193d911b9b82a3" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+        <definition>EDF_activeObject_t* EDF_framework_t::ao_registry[EDF_MAX_ACTIVE_OBJECT+1U]</definition>
+        <argsstring>[EDF_MAX_ACTIVE_OBJECT+1U]</argsstring>
+        <name>ao_registry</name>
+        <qualifiedname>EDF_framework_t::ao_registry</qualifiedname>
+        <briefdescription>
+<para>Active objects registry, indexed by their priority. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Index 0 is unused; valid entries are 1 ... <computeroutput>EDF_MAX_ACTIVE_OBJECT</computeroutput>.</para>
+<para><simplesect kind="note"><para>The framework does not support unregistering; entries shall be only modified to add new active objects, never removed or replaced. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="110" column="22" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__framework__t_1a0d9a11b7555e7d4b376985067c9fa979" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__subscriberRegistry__t" kindref="compound">EDF_subscriberRegistry_t</ref></type>
+        <definition>EDF_subscriberRegistry_t EDF_framework_t::subscr_registry</definition>
+        <argsstring></argsstring>
+        <name>subscr_registry</name>
+        <qualifiedname>EDF_framework_t::subscr_registry</qualifiedname>
+        <briefdescription>
+<para>Subscriber registry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="111" column="28" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__framework__t_1a6c08263092f13d6dd410eac670e71e29" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__poolRegistry__t" kindref="compound">EDF_poolRegistry_t</ref></type>
+        <definition>EDF_poolRegistry_t EDF_framework_t::pool_registry</definition>
+        <argsstring></argsstring>
+        <name>pool_registry</name>
+        <qualifiedname>EDF_framework_t::pool_registry</qualifiedname>
+        <briefdescription>
+<para>Pool registry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="112" column="22" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__framework__t_1a8f12a5ffee3d0ff9578d32f2e1d09efc" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__timeEventRegistry__t" kindref="compound">EDF_timeEventRegistry_t</ref></type>
+        <definition>EDF_timeEventRegistry_t EDF_framework_t::te_registry[EDF_MAX_TICK_RATE]</definition>
+        <argsstring>[EDF_MAX_TICK_RATE]</argsstring>
+        <name>te_registry</name>
+        <qualifiedname>EDF_framework_t::te_registry</qualifiedname>
+        <briefdescription>
+<para>Registry of time events for all tick rates. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each index of this array corresponds to a specific tick rate. The user is responsible for calling <ref refid="edf__time__event_8h_1a310b5ba291f7765a5a874e360fcc10fe" kindref="member">EDF_timeEvent_tick()</ref> with the corresponding <computeroutput>tick_rate</computeroutput> index at the correct periodicity to represent the desired tick rate. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="121" column="27" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>EDF framework structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="7">
+        <label>EDF_activeObject_bitmask_t</label>
+        <link refid="structEDF__activeObject__bitmask__t"/>
+      </node>
+      <node id="2">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="1">
+        <label>EDF_framework_t</label>
+        <link refid="structEDF__framework__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ao_registry</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>subscr_registry</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>pool_registry</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>te_registry</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>EDF_poolRegistry_t</label>
+        <link refid="structEDF__poolRegistry__t"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>EDF_pool_t</label>
+        <link refid="structEDF__pool__t"/>
+      </node>
+      <node id="6">
+        <label>EDF_subscriberRegistry_t</label>
+        <link refid="structEDF__subscriberRegistry__t"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>EDF_timeEventRegistry_t</label>
+        <link refid="structEDF__timeEventRegistry__t"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>armed_head</edgelabel>
+          <edgelabel>new_head</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>EDF_timeEvent_t</label>
+        <link refid="structEDF__timeEvent__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ao</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="100" column="1" bodyfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" bodystart="101" bodyend="122"/>
+    <listofallmembers>
+      <member refid="structEDF__framework__t_1a959b988ccc9e7b6420193d911b9b82a3" prot="public" virt="non-virtual"><scope>EDF_framework_t</scope><name>ao_registry</name></member>
+      <member refid="structEDF__framework__t_1a6c08263092f13d6dd410eac670e71e29" prot="public" virt="non-virtual"><scope>EDF_framework_t</scope><name>pool_registry</name></member>
+      <member refid="structEDF__framework__t_1a0d9a11b7555e7d4b376985067c9fa979" prot="public" virt="non-virtual"><scope>EDF_framework_t</scope><name>subscr_registry</name></member>
+      <member refid="structEDF__framework__t_1a8f12a5ffee3d0ff9578d32f2e1d09efc" prot="public" virt="non-virtual"><scope>EDF_framework_t</scope><name>te_registry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

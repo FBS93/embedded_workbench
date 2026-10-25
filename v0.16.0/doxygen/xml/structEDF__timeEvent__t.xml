@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__timeEvent__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_timeEvent_t</compoundname>
+    <includes refid="edf__time__event_8h" local="no">edf_time_event.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__timeEvent__t_1a006d3478a80e16437eb56a7036fd9ed9" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__event__t" kindref="compound">EDF_event_t</ref></type>
+        <definition>EDF_event_t EDF_timeEvent_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>EDF_timeEvent_t::super</qualifiedname>
+        <briefdescription>
+<para>Base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_time_event.h" line="66" column="15" bodyfile="sw/ecf/event_driven_framework/inc/edf_time_event.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__timeEvent__t_1abc8c4080b63ae2ee25f71acafd2b1d36" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref> *</type>
+        <definition>struct EDF_timeEvent_t* EDF_timeEvent_t::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>EDF_timeEvent_t::next</qualifiedname>
+        <briefdescription>
+<para>Link to the next time event in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_time_event.h" line="67" column="25" bodyfile="sw/ecf/event_driven_framework/inc/edf_time_event.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__timeEvent__t_1a3e9d4f414afcdf9c309b62bb8c3e47d7" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref> *</type>
+        <definition>EDF_activeObject_t* EDF_timeEvent_t::ao</definition>
+        <argsstring></argsstring>
+        <name>ao</name>
+        <qualifiedname>EDF_timeEvent_t::ao</qualifiedname>
+        <briefdescription>
+<para>Associated active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_time_event.h" line="68" column="22" bodyfile="sw/ecf/event_driven_framework/inc/edf_time_event.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__timeEvent__t_1a5b8e5da3b9679bec2b3b14c0444e819c" prot="public" static="no" mutable="no">
+        <type>EDF_timeEvent_cnt_t</type>
+        <definition>EDF_timeEvent_cnt_t EDF_timeEvent_t::cnt</definition>
+        <argsstring></argsstring>
+        <name>cnt</name>
+        <qualifiedname>EDF_timeEvent_t::cnt</qualifiedname>
+        <briefdescription>
+<para>Down-counter until expiration (ticks). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_time_event.h" line="69" column="23" bodyfile="sw/ecf/event_driven_framework/inc/edf_time_event.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__timeEvent__t_1addf1719bb44b2c250227b68340561229" prot="public" static="no" mutable="no">
+        <type>EDF_timeEvent_cnt_t</type>
+        <definition>EDF_timeEvent_cnt_t EDF_timeEvent_t::period</definition>
+        <argsstring></argsstring>
+        <name>period</name>
+        <qualifiedname>EDF_timeEvent_t::period</qualifiedname>
+        <briefdescription>
+<para>Reload value for periodic timer, 0 for one-shot timer (ticks). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_time_event.h" line="70" column="23" bodyfile="sw/ecf/event_driven_framework/inc/edf_time_event.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__timeEvent__t_1aeee525bbb08237f7d301c3e7e459e322" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_timeEvent_t::tick_rate</definition>
+        <argsstring></argsstring>
+        <name>tick_rate</name>
+        <qualifiedname>EDF_timeEvent_t::tick_rate</qualifiedname>
+        <briefdescription>
+<para>Tick rate index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_time_event.h" line="72" column="11" bodyfile="sw/ecf/event_driven_framework/inc/edf_time_event.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__timeEvent__t_1aa3e3f140e21a379fef961d288a07a57d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EDF_timeEvent_t::is_linked</definition>
+        <argsstring></argsstring>
+        <name>is_linked</name>
+        <qualifiedname>EDF_timeEvent_t::is_linked</qualifiedname>
+        <briefdescription>
+<para>True if the time event is currently linked. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_time_event.h" line="73" column="8" bodyfile="sw/ecf/event_driven_framework/inc/edf_time_event.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Time event queue counter type. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Time event structure. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="4">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>EDF_timeEvent_t</label>
+        <link refid="structEDF__timeEvent__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ao</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/inc/edf_time_event.h" line="64" column="1" bodyfile="sw/ecf/event_driven_framework/inc/edf_time_event.h" bodystart="65" bodyend="74"/>
+    <listofallmembers>
+      <member refid="structEDF__timeEvent__t_1a3e9d4f414afcdf9c309b62bb8c3e47d7" prot="public" virt="non-virtual"><scope>EDF_timeEvent_t</scope><name>ao</name></member>
+      <member refid="structEDF__timeEvent__t_1a5b8e5da3b9679bec2b3b14c0444e819c" prot="public" virt="non-virtual"><scope>EDF_timeEvent_t</scope><name>cnt</name></member>
+      <member refid="structEDF__timeEvent__t_1aa3e3f140e21a379fef961d288a07a57d" prot="public" virt="non-virtual"><scope>EDF_timeEvent_t</scope><name>is_linked</name></member>
+      <member refid="structEDF__timeEvent__t_1abc8c4080b63ae2ee25f71acafd2b1d36" prot="public" virt="non-virtual"><scope>EDF_timeEvent_t</scope><name>next</name></member>
+      <member refid="structEDF__timeEvent__t_1addf1719bb44b2c250227b68340561229" prot="public" virt="non-virtual"><scope>EDF_timeEvent_t</scope><name>period</name></member>
+      <member refid="structEDF__timeEvent__t_1a006d3478a80e16437eb56a7036fd9ed9" prot="public" virt="non-virtual"><scope>EDF_timeEvent_t</scope><name>super</name></member>
+      <member refid="structEDF__timeEvent__t_1aeee525bbb08237f7d301c3e7e459e322" prot="public" virt="non-virtual"><scope>EDF_timeEvent_t</scope><name>tick_rate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

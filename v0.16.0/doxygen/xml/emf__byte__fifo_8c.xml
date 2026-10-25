@@ -1,0 +1,717 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__byte__fifo_8c" kind="file" language="C++">
+    <compoundname>emf_byte_fifo.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="emf__byte__fifo_8h" local="yes">emf_byte_fifo.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>emf_byte_fifo.h</label>
+        <link refid="emf__byte__fifo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c</label>
+        <link refid="emf__byte__fifo_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="51" column="1" declfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" declline="51" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1ac24cbc2d30e8f85ef9832b48b5401394" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t advanceIndex</definition>
+        <argsstring>(const EMF_byteFifo_handler_t *handler, uint32_t idx, uint32_t offset)</argsstring>
+        <name>advanceIndex</name>
+        <param>
+          <type>const <ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Advances an index with wrap-around. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Base index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Offset to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Wrapped index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="107" column="17" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="107" bodyend="121" declfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" declline="73" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1adc478c9b9da7efdc10929194ee1e3149" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void readBytes</definition>
+        <argsstring>(const EMF_byteFifo_handler_t *handler, uint32_t start_index, uint8_t *data, uint32_t len)</argsstring>
+        <name>readBytes</name>
+        <param>
+          <type>const <ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>start_index</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Reads bytes from FIFO storage into destination buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">start_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read start index in storage. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="123" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="123" bodyend="139" declfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" declline="85" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a97fa940d3e4ac27afded61d007a75bb6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void writeBytes</definition>
+        <argsstring>(EMF_byteFifo_handler_t *handler, uint32_t start_index, const uint8_t *data, uint32_t len)</argsstring>
+        <name>writeBytes</name>
+        <param>
+          <type><ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>start_index</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Writes bytes into FIFO storage from source buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">start_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Write start index in storage. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="141" column="13" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="141" bodyend="157" declfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" declline="98" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a84db8c2a0ccc597236d705d0eb18c9d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_byteFifo_init</definition>
+        <argsstring>(EMF_byteFifo_handler_t *handler, uint32_t size, uint8_t *storage)</argsstring>
+        <name>EMF_byteFifo_init</name>
+        <param>
+          <type><ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>storage</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the byte FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler to initialize. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Storage capacity in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to FIFO storage. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="163" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="163" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a736babf83ee18d58cb183b45b4dcc238" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_byteFifo_push</definition>
+        <argsstring>(EMF_byteFifo_handler_t *handler, const uint8_t *data, uint32_t len)</argsstring>
+        <name>EMF_byteFifo_push</name>
+        <param>
+          <type><ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Pushes bytes into the FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to push. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to push. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="180" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="180" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1ae8615c471b960a843ca20252d8eb0c73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_byteFifo_pop</definition>
+        <argsstring>(EMF_byteFifo_handler_t *handler, uint8_t *data, uint32_t len)</argsstring>
+        <name>EMF_byteFifo_pop</name>
+        <param>
+          <type><ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Pops bytes from the FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to pop. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="195" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="195" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1abfe857c9c079ca1bf0e5e902b16128a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_byteFifo_peek</definition>
+        <argsstring>(const EMF_byteFifo_handler_t *handler, uint8_t *data, uint32_t len)</argsstring>
+        <name>EMF_byteFifo_peek</name>
+        <param>
+          <type>const <ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Copies bytes from the FIFO without removing them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Equivalent to <ref refid="emf__byte__fifo_8h_1a8033a01d06661287e61b4bcb9e421e36" kindref="member">EMF_byteFifo_peekAt</ref> with offset equal to 0.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to copy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="210" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="210" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a8033a01d06661287e61b4bcb9e421e36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_byteFifo_peekAt</definition>
+        <argsstring>(const EMF_byteFifo_handler_t *handler, uint32_t offset, uint8_t *data, uint32_t len)</argsstring>
+        <name>EMF_byteFifo_peekAt</name>
+        <param>
+          <type>const <ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Copies bytes from the FIFO without removing them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Byte offset from current FIFO tail. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to copy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="217" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="217" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a349419ed1e2d76b9cdbe9e518d9d083f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_byteFifo_drop</definition>
+        <argsstring>(EMF_byteFifo_handler_t *handler, uint32_t len)</argsstring>
+        <name>EMF_byteFifo_drop</name>
+        <param>
+          <type><ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Drops bytes from the FIFO without copying them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to drop. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="235" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="235" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a0d30cd0706ce6c2a7b9725f6bb834ed2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_byteFifo_flush</definition>
+        <argsstring>(EMF_byteFifo_handler_t *handler)</argsstring>
+        <name>EMF_byteFifo_flush</name>
+        <param>
+          <type><ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Flushes the FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="246" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="246" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a950b7bfe3b3084eb6f3ad92a6fcc8c5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t EMF_byteFifo_getUsed</definition>
+        <argsstring>(const EMF_byteFifo_handler_t *handler)</argsstring>
+        <name>EMF_byteFifo_getUsed</name>
+        <param>
+          <type>const <ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Returns used bytes in FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of used bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="255" column="10" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="255" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1a7f65df5c9d18c5af6d359dee3bd495bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t EMF_byteFifo_getFree</definition>
+        <argsstring>(const EMF_byteFifo_handler_t *handler)</argsstring>
+        <name>EMF_byteFifo_getFree</name>
+        <param>
+          <type>const <ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Returns free bytes in FIFO. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of free bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="261" column="10" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="261" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1afca655da1eddf7907904a5cbaef59cb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EMF_byteFifo_isEmpty</definition>
+        <argsstring>(const EMF_byteFifo_handler_t *handler)</argsstring>
+        <name>EMF_byteFifo_isEmpty</name>
+        <param>
+          <type>const <ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Checks whether FIFO is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if empty, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="267" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="267" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__byte__fifo_8c_1acf303c1789585f917a83b22187f08a25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EMF_byteFifo_isFull</definition>
+        <argsstring>(const EMF_byteFifo_handler_t *handler)</argsstring>
+        <name>EMF_byteFifo_isFull</name>
+        <param>
+          <type>const <ref refid="structEMF__byteFifo__handler__t" kindref="compound">EMF_byteFifo_handler_t</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Checks whether FIFO is full. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FIFO handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if full, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" line="273" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c" bodystart="273" bodyend="277"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_byte_fifo/src/emf_byte_fifo.c"/>
+  </compounddef>
+</doxygen>

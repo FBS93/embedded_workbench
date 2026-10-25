@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structETF__t" kind="struct" language="C++" prot="public">
+    <compoundname>ETF_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structETF__t_1a03fcc7eeb9b1a3190027be8d6454c81a" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t ETF_t::test_cnt</definition>
+        <argsstring></argsstring>
+        <name>test_cnt</name>
+        <qualifiedname>ETF_t::test_cnt</qualifiedname>
+        <briefdescription>
+<para>Counter of executed tests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/src/etf.c" line="58" column="12" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structETF__t_1a2941bbad694a4ccad2342bf3f606d86e" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t ETF_t::skip_cnt</definition>
+        <argsstring></argsstring>
+        <name>skip_cnt</name>
+        <qualifiedname>ETF_t::skip_cnt</qualifiedname>
+        <briefdescription>
+<para>Counter of skipped tests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/src/etf.c" line="59" column="12" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structETF__t_1a2c469db23cbb9f6d0ca43636ea23eea8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ETF_t::last_skipped</definition>
+        <argsstring></argsstring>
+        <name>last_skipped</name>
+        <qualifiedname>ETF_t::last_skipped</qualifiedname>
+        <briefdescription>
+<para>Flag indicating if the last test was skipped. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_test_framework/src/etf.c" line="60" column="8" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Internal state of the ETF. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds counters and flags related to test execution. </para>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_test_framework/src/etf.c" line="56" column="1" bodyfile="sw/ecf/embedded_test_framework/src/etf.c" bodystart="57" bodyend="61"/>
+    <listofallmembers>
+      <member refid="structETF__t_1a2c469db23cbb9f6d0ca43636ea23eea8" prot="public" virt="non-virtual"><scope>ETF_t</scope><name>last_skipped</name></member>
+      <member refid="structETF__t_1a2941bbad694a4ccad2342bf3f606d86e" prot="public" virt="non-virtual"><scope>ETF_t</scope><name>skip_cnt</name></member>
+      <member refid="structETF__t_1a03fcc7eeb9b1a3190027be8d6454c81a" prot="public" virt="non-virtual"><scope>ETF_t</scope><name>test_cnt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

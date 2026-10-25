@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_c1373100961b8908e4648fc0b4c6649b" kind="dir">
+    <compoundname>sw/ecf/embedded_middleware_framework/src/emf_crc</compoundname>
+    <innerdir refid="dir_665483ce57e3fa4e9125f6da50b2f187">sw/ecf/embedded_middleware_framework/src/emf_crc/inc</innerdir>
+    <innerdir refid="dir_e3582c69a39ad8da5bf35336e910825f">sw/ecf/embedded_middleware_framework/src/emf_crc/src</innerdir>
+    <innerdir refid="dir_050b87ad08176dc53007c7aa600d28de">sw/ecf/embedded_middleware_framework/src/emf_crc/test</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_crc/"/>
+  </compounddef>
+</doxygen>

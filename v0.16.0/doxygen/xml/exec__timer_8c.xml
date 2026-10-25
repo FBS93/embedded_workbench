@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="exec__timer_8c" kind="file" language="C++">
+    <compoundname>exec_timer.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="exec__timer_8h" local="yes">exec_timer.h</includes>
+    <includes refid="stm32f103c8tx__registers_8h" local="yes">stm32f103c8tx_registers.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>exec_timer.h</label>
+        <link refid="exec__timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stm32f103c8tx_registers.h</label>
+        <link refid="stm32f103c8tx__registers_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c</label>
+        <link refid="exec__timer_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="exec__timer_8c_1a057f2da74c76373f6be25dffe229b810" prot="public" static="no">
+        <name>EXEC_TIMER_TICK_US</name>
+        <initializer>10U</initializer>
+        <briefdescription>
+<para>Timer tick period used by the execution delay timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" line="42" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="exec__timer_8c_1a2ba05d5d53f60ef21f97e69c2b1c6996" prot="public" static="no">
+        <name>EXEC_TIMER_PRESCALER</name>
+        <initializer>79U</initializer>
+        <briefdescription>
+<para>Prescaler value for 8 MHz / 80 = 100 kHz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" line="47" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="exec__timer_8c_1a9f01157a9dd0d4bd068cb1f273625419" prot="public" static="no">
+        <name>EXEC_TIMER_MAX_ARR</name>
+        <initializer>0xFFFFU</initializer>
+        <briefdescription>
+<para>Maximum auto-reload value used for the free-running timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" line="52" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="exec__timer_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" line="65" column="1" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" declline="65" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="exec__timer_8c_1a1b2958a0a0ce30b1f5222ef3cafd61d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void execTimer_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>execTimer_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the hardware timer used for blocking execution delays. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" line="87" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" bodystart="87" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="exec__timer_8c_1a449bf212e6e8b673cac3d690543ae97f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t execTimer_getTick</definition>
+        <argsstring>(void)</argsstring>
+        <name>execTimer_getTick</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Read the current free-running timer tick. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Current timer tick. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" line="99" column="10" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="exec__timer_8c_1a78b874ad03879e85dbdd176e59df156d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t execTimer_delayUsToTicks</definition>
+        <argsstring>(uint32_t delay_us)</argsstring>
+        <name>execTimer_delayUsToTicks</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>delay_us</declname>
+        </param>
+        <briefdescription>
+<para>Convert a delay in microseconds into execution-timer ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">delay_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delay in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Delay expressed in execution-timer ticks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" line="104" column="10" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" bodystart="104" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="exec__timer_8c_1a66fa1e128220df0a5036ef1fc700c2a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t execTimer_elapsedTicks</definition>
+        <argsstring>(uint16_t start_tick, uint16_t end_tick)</argsstring>
+        <name>execTimer_elapsedTicks</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>start_tick</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>end_tick</declname>
+        </param>
+        <briefdescription>
+<para>Compute elapsed execution-timer ticks between two samples. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Supports the natural wraparound of the free-running 16-bit timer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">start_tick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Earlier timer tick. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">end_tick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Later timer tick. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Elapsed timer ticks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" line="122" column="10" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c" bodystart="122" bodyend="125"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c"/>
+  </compounddef>
+</doxygen>

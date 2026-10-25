@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gpio__trace_8c" kind="file" language="C++">
+    <compoundname>gpio_trace.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="gpio__trace_8h" local="yes">gpio_trace.h</includes>
+    <includes refid="stm32f103c8tx__registers_8h" local="yes">stm32f103c8tx_registers.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>gpio_trace.h</label>
+        <link refid="gpio__trace_8h"/>
+      </node>
+      <node id="5">
+        <label>stm32f103c8tx_registers.h</label>
+        <link refid="stm32f103c8tx__registers_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c</label>
+        <link refid="gpio__trace_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="gpio__trace_8c_1a131aba57240489a775bd7fb83213cd18" prot="public" static="no">
+        <name>GPIO_OUTPUT_PUSH_PULL_50MHZ</name>
+        <initializer>0x3U</initializer>
+        <briefdescription>
+<para>Output configuration nibble for push-pull 50 MHz GPIO. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="43" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gpio__trace_8c_1aa0a15a52c0f5b77e976d6473ca980f4f" prot="public" static="no">
+        <name>GPIO_TRACE_LOW_PIN_MASK</name>
+        <initializer>(1U &lt;&lt; 12U)</initializer>
+        <briefdescription>
+<para>PB12 bit mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="48" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gpio__trace_8c_1ae6cfd1bfbebece51794624f77f23b390" prot="public" static="no">
+        <name>GPIO_TRACE_MID_PIN_MASK</name>
+        <initializer>(1U &lt;&lt; 13U)</initializer>
+        <briefdescription>
+<para>PB13 bit mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="53" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gpio__trace_8c_1a9a96c4c7bc6aa987b0e3e97e451bb44f" prot="public" static="no">
+        <name>GPIO_TRACE_HIGH_PIN_MASK</name>
+        <initializer>(1U &lt;&lt; 14U)</initializer>
+        <briefdescription>
+<para>PB14 bit mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="58" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="gpio__trace_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="71" column="1" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" declline="71" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="gpio__trace_8c_1a56fe07d232a8d487e7aef8c520d0c1e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t getPinMask</definition>
+        <argsstring>(gpioTrace_channel_t channel)</argsstring>
+        <name>getPinMask</name>
+        <param>
+          <type><ref refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11" kindref="member">gpioTrace_channel_t</ref></type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Resolve one trace channel to its GPIO bit mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Trace channel. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GPIO bit mask. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="97" column="17" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" bodystart="97" bodyend="127" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" declline="91" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="gpio__trace_8c_1a7c9af55380a64c8dd3afe8668f07c3e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gpioTrace_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>gpioTrace_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the GPIO trace outputs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="133" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" bodystart="133" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="gpio__trace_8c_1a6e41439af908889aba763b0e2eb165f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gpioTrace_setActive</definition>
+        <argsstring>(gpioTrace_channel_t channel)</argsstring>
+        <name>gpioTrace_setActive</name>
+        <param>
+          <type><ref refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11" kindref="member">gpioTrace_channel_t</ref></type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Set one trace channel active. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Trace channel to set high. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="147" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" bodystart="147" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="gpio__trace_8c_1a25205559eff92ae58cda0606d21d6b50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gpioTrace_setInactive</definition>
+        <argsstring>(gpioTrace_channel_t channel)</argsstring>
+        <name>gpioTrace_setInactive</name>
+        <param>
+          <type><ref refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11" kindref="member">gpioTrace_channel_t</ref></type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Set one trace channel inactive. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Trace channel to set low. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" line="152" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c" bodystart="152" bodyend="155"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c"/>
+  </compounddef>
+</doxygen>

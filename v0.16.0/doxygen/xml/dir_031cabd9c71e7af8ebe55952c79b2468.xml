@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_031cabd9c71e7af8ebe55952c79b2468" kind="dir">
+    <compoundname>sw/ecf/embedded_base_framework/inc</compoundname>
+    <innerfile refid="ebf_8h">ebf.h</innerfile>
+    <innerfile refid="ebf__utils_8h">ebf_utils.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_base_framework/inc/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ebf__utils_8c" kind="file" language="C++">
+    <compoundname>ebf_utils.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="ebf__utils_8h" local="yes">ebf_utils.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_base_framework/src/framework/src/ebf_utils.c</label>
+        <link refid="ebf__utils_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="7">
+        <label>pthread.h</label>
+      </node>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="ebf__utils_8c_1adef04c4b7d4a97b7cb9afe092d05cc9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="ebf_8h_1a2deeba857b1640697bd4abbb79571010" kindref="member">EBF_WEAK</ref> uint8_t</type>
+        <definition>EBF_WEAK uint8_t EBF_utils_log2</definition>
+        <argsstring>(uint8_t byte)</argsstring>
+        <name>EBF_utils_log2</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+<para>Returns the position of the most significant set bit in a byte. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the 1-based index of the most significant bit set in the input byte. If <computeroutput>byte</computeroutput> is fully clear, the function returns 0.</para>
+<para>The default weak implementation is software-only (lookup table + shifts). On cores/ports that provide a hardware-specific instruction (e.g., CLZ in ARM), this function can be overridden for improved performance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">byte</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input byte. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Position (1–8) of highest set bit, or 0 if no bits are set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_base_framework/src/framework/src/ebf_utils.c" line="66" column="18" bodyfile="sw/ecf/embedded_base_framework/src/framework/src/ebf_utils.c" bodystart="66" bodyend="90"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_base_framework/src/framework/src/ebf_utils.c"/>
+  </compounddef>
+</doxygen>

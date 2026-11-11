@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_3479950e9e888047a64238b2f1b0c9f1" kind="dir">
+    <compoundname>sw/ecf/embedded_middleware_framework/src/emf_bitmask/test</compoundname>
+    <innerdir refid="dir_14180a27a23eff0e68bbc167e9e7d54a">sw/ecf/embedded_middleware_framework/src/emf_bitmask/test/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/test/"/>
+  </compounddef>
+</doxygen>

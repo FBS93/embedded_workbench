@@ -1,0 +1,1528 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="group__FakeFunctionMacros" kind="group">
+    <compoundname>FakeFunctionMacros</compoundname>
+    <title>Fake function declaration and definition macros</title>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gab78d1321173c5ec6fa029201d80b7243" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC0</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                \
+  {                                                             \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                     \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                           \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, void);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, void); \
+  } FUNCNAME##_Fake;                                            \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                       \
+  void FUNCNAME##_reset(void);                                  \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(void);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="382" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="382" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaad05785f517f7bfed8fbdabd94197b31" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC0</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  FUNCNAME##_Fake FUNCNAME##_fake;                                                   \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(void)                                    \
+  {                                                                                  \
+    if (<ref refid="eff_8h_1a9de5f1b447452968c07a477fbfec9c9e" kindref="member">ROOM_FOR_MORE_HISTORY</ref>(FUNCNAME))                                             \
+    {                                                                                \
+    }                                                                                \
+    else                                                                             \
+    {                                                                                \
+      <ref refid="eff_8h_1adcf92825fec9b9478398765cb84cd00f" kindref="member">HISTORY_DROPPED</ref>(FUNCNAME);                                                     \
+    }                                                                                \
+    <ref refid="eff_8h_1ae570ba4a02c31f264f5da7d092c8cac4" kindref="member">INCREMENT_CALL_COUNT</ref>(FUNCNAME);                                                  \
+    <ref refid="eff_8h_1a539b3c049757e910bee6c8c6f5414e30" kindref="member">REGISTER_CALL</ref>(FUNCNAME);                                                         \
+    if (FUNCNAME##_fake.custom_fake_seq_len)                                         \
+    {                                                                                \
+      if (FUNCNAME##_fake.custom_fake_seq_idx &lt; FUNCNAME##_fake.custom_fake_seq_len) \
+      {                                                                              \
+        FUNCNAME##_fake.custom_fake_seq[FUNCNAME##_fake.custom_fake_seq_idx++]();    \
+      }                                                                              \
+      else                                                                           \
+      {                                                                              \
+        FUNCNAME##_fake.custom_fake_seq[FUNCNAME##_fake.custom_fake_seq_len - 1]();  \
+      }                                                                              \
+    }                                                                                \
+    if (FUNCNAME##_fake.custom_fake != NULL)                                         \
+    {                                                                                \
+      FUNCNAME##_fake.custom_fake();                                                 \
+    }                                                                                \
+  }                                                                                  \
+  <ref refid="eff_8h_1aec1937352832e066bddd2220ccc8a503" kindref="member">DEFINE_RESET_FUNCTION</ref>(FUNCNAME)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="394" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="394" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga4d1ab0fa0d0d90f90177ad393870fc15" prot="public" static="no">
+        <name>FAKE_VOID_FUNC0</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1gab78d1321173c5ec6fa029201d80b7243" kindref="member">DECLARE_FAKE_VOID_FUNC0</ref>(FUNCNAME) \
+  <ref refid="group__FakeFunctionMacros_1gaad05785f517f7bfed8fbdabd94197b31" kindref="member">DEFINE_FAKE_VOID_FUNC0</ref>(FUNCNAME)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="425" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="425" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gab99f92d18abc83674d17291169275712" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC1</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                     \
+  {                                                                  \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                              \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                          \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE); \
+  } FUNCNAME##_Fake;                                                 \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                            \
+  void FUNCNAME##_reset(void);                                       \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="429" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="429" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga4b83661285f76e002833cf73600a0ef4" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC1</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="442" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="442" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaefef27bc3014a5535c02cc7b9c043355" prot="public" static="no">
+        <name>FAKE_VOID_FUNC1</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1gab99f92d18abc83674d17291169275712" kindref="member">DECLARE_FAKE_VOID_FUNC1</ref>(FUNCNAME, ARG0_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga4b83661285f76e002833cf73600a0ef4" kindref="member">DEFINE_FAKE_VOID_FUNC1</ref>(FUNCNAME, ARG0_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="475" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="475" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga0ac9e87dc810b8a5bb6e6c532e6be39d" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC2</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                \
+  {                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                         \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                         \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                     \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                           \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE); \
+  } FUNCNAME##_Fake;                                                            \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                       \
+  void FUNCNAME##_reset(void);                                                  \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="479" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="479" bodyend="491"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga5be5bb3c42fca77b248404aff6cd2027" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC2</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="493" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="493" bodyend="526"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga58cde3d8a1e79effd038c63a59e55104" prot="public" static="no">
+        <name>FAKE_VOID_FUNC2</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga0ac9e87dc810b8a5bb6e6c532e6be39d" kindref="member">DECLARE_FAKE_VOID_FUNC2</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga5be5bb3c42fca77b248404aff6cd2027" kindref="member">DEFINE_FAKE_VOID_FUNC2</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="528" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="528" bodyend="530"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gad5293b1eb48a7d4d5a11c3c75aaa5d71" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC3</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                           \
+  {                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                    \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                    \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                    \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE); \
+  } FUNCNAME##_Fake;                                                                       \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                  \
+  void FUNCNAME##_reset(void);                                                             \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="532" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="532" bodyend="545"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga6d2c55ab70f5fb9acd9760d9d09e42f9" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC3</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="547" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="547" bodyend="582"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaa130f9e166b31b1156fceccda8dc31df" prot="public" static="no">
+        <name>FAKE_VOID_FUNC3</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1gad5293b1eb48a7d4d5a11c3c75aaa5d71" kindref="member">DECLARE_FAKE_VOID_FUNC3</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga6d2c55ab70f5fb9acd9760d9d09e42f9" kindref="member">DEFINE_FAKE_VOID_FUNC3</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="584" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="584" bodyend="586"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga7db609175d368a7f64569899944cbc83" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC4</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                      \
+  {                                                                                                   \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                               \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                               \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                               \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                               \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                           \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                 \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE); \
+  } FUNCNAME##_Fake;                                                                                  \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                             \
+  void FUNCNAME##_reset(void);                                                                        \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="588" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="588" bodyend="602"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga1dd59da676a468c78c4d71482b227a3f" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC4</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="604" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="604" bodyend="641"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gafad7544f90a9db9c9d14d6565006a314" prot="public" static="no">
+        <name>FAKE_VOID_FUNC4</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga7db609175d368a7f64569899944cbc83" kindref="member">DECLARE_FAKE_VOID_FUNC4</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga1dd59da676a468c78c4d71482b227a3f" kindref="member">DEFINE_FAKE_VOID_FUNC4</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="643" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="643" bodyend="645"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gacad2449d38b7d37e8cfc81920a4cb4cf" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC5</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                 \
+  {                                                                                                              \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                          \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                          \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                          \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                          \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                          \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                      \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                            \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE); \
+  } FUNCNAME##_Fake;                                                                                             \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                        \
+  void FUNCNAME##_reset(void);                                                                                   \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="647" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="647" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga0d1fba2ef7aa0c128f2773a640c536e3" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC5</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="664" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="664" bodyend="703"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gae468697dd7626c63a5093cc505b9056b" prot="public" static="no">
+        <name>FAKE_VOID_FUNC5</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1gacad2449d38b7d37e8cfc81920a4cb4cf" kindref="member">DECLARE_FAKE_VOID_FUNC5</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga0d1fba2ef7aa0c128f2773a640c536e3" kindref="member">DEFINE_FAKE_VOID_FUNC5</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="705" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="705" bodyend="707"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga791750f81a0ab23de808df374498812b" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC6</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                            \
+  {                                                                                                                         \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                     \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                     \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                     \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                     \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                     \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                     \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                 \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                       \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                        \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                   \
+  void FUNCNAME##_reset(void);                                                                                              \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="709" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="709" bodyend="725"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga644fc466c398bee48c8b47b02f40d7c5" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC6</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="727" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="727" bodyend="768"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga13e908e62ea8cc666d2b52af87d31d94" prot="public" static="no">
+        <name>FAKE_VOID_FUNC6</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga791750f81a0ab23de808df374498812b" kindref="member">DECLARE_FAKE_VOID_FUNC6</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga644fc466c398bee48c8b47b02f40d7c5" kindref="member">DEFINE_FAKE_VOID_FUNC6</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="770" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="770" bodyend="772"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga5e93a67a7a9398e66cd5d8c32b2cf97b" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC7</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                       \
+  {                                                                                                                                    \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                                \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                                \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                                \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                                \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                                \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                                \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG6_TYPE, 6, FUNCNAME)                                                                                                \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                            \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                                  \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                                   \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                              \
+  void FUNCNAME##_reset(void);                                                                                                         \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5, ARG6_TYPE arg6);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="774" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="774" bodyend="791"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga952ad059564364677d12eb60e3502ced" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC7</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="793" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="793" bodyend="836"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaf4c9613946a4564812695db47c18c7fe" prot="public" static="no">
+        <name>FAKE_VOID_FUNC7</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga5e93a67a7a9398e66cd5d8c32b2cf97b" kindref="member">DECLARE_FAKE_VOID_FUNC7</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga952ad059564364677d12eb60e3502ced" kindref="member">DEFINE_FAKE_VOID_FUNC7</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="838" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="838" bodyend="840"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga40ded2b5aa02187f35c64597decd85e3" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC8</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                                  \
+  {                                                                                                                                               \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG6_TYPE, 6, FUNCNAME)                                                                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG7_TYPE, 7, FUNCNAME)                                                                                                           \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                                       \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                                             \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                                              \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                                         \
+  void FUNCNAME##_reset(void);                                                                                                                    \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5, ARG6_TYPE arg6, ARG7_TYPE arg7);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="842" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="842" bodyend="860"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gae9ad8635021363488ca5a60f7443172b" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC8</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="862" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="862" bodyend="907"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga414c19398243ecb3b6e6089a970b517d" prot="public" static="no">
+        <name>FAKE_VOID_FUNC8</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga40ded2b5aa02187f35c64597decd85e3" kindref="member">DECLARE_FAKE_VOID_FUNC8</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1gae9ad8635021363488ca5a60f7443172b" kindref="member">DEFINE_FAKE_VOID_FUNC8</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="909" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="909" bodyend="911"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaeb6fdcc872b8cac7a43e567912ead87a" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC9</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                                             \
+  {                                                                                                                                                          \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG6_TYPE, 6, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG7_TYPE, 7, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG8_TYPE, 8, FUNCNAME)                                                                                                                      \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                                                  \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                                                        \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                                                         \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                                                    \
+  void FUNCNAME##_reset(void);                                                                                                                               \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5, ARG6_TYPE arg6, ARG7_TYPE arg7, ARG8_TYPE arg8);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="913" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="913" bodyend="932"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga1e82227c0a74849ca3df99fea2da718f" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC9</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="934" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="934" bodyend="981"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga9bfcd16a665682cbc7acc723762fc057" prot="public" static="no">
+        <name>FAKE_VOID_FUNC9</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1gaeb6fdcc872b8cac7a43e567912ead87a" kindref="member">DECLARE_FAKE_VOID_FUNC9</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga1e82227c0a74849ca3df99fea2da718f" kindref="member">DEFINE_FAKE_VOID_FUNC9</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="983" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="983" bodyend="985"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga89b7e7d5b41cb8658b44ef43e51bc460" prot="public" static="no">
+        <name>DECLARE_FAKE_VOID_FUNC10</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <param><defname>ARG9_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                                                        \
+  {                                                                                                                                                                     \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG6_TYPE, 6, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG7_TYPE, 7, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG8_TYPE, 8, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG9_TYPE, 9, FUNCNAME)                                                                                                                                 \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                                                             \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                                                                   \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE, ARG9_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(void, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE, ARG9_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                                                                    \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                                                               \
+  void FUNCNAME##_reset(void);                                                                                                                                          \
+  void <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5, ARG6_TYPE arg6, ARG7_TYPE arg7, ARG8_TYPE arg8, ARG9_TYPE arg9);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="987" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="987" bodyend="1007"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gab3d57c134c4ded89611bd80eeb4f2ba6" prot="public" static="no">
+        <name>DEFINE_FAKE_VOID_FUNC10</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <param><defname>ARG9_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1009" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1009" bodyend="1058"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gadb8da71d91ec087bc164e858626c3357" prot="public" static="no">
+        <name>FAKE_VOID_FUNC10</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <param><defname>ARG9_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga89b7e7d5b41cb8658b44ef43e51bc460" kindref="member">DECLARE_FAKE_VOID_FUNC10</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE, ARG9_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1gab3d57c134c4ded89611bd80eeb4f2ba6" kindref="member">DEFINE_FAKE_VOID_FUNC10</ref>(FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE, ARG9_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1060" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1060" bodyend="1062"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga948e9a55b1fb4d8faefeb5586ed87b54" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC0</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                       \
+  {                                                                    \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                            \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                      \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                          \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                  \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, void);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, void); \
+  } FUNCNAME##_Fake;                                                   \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                              \
+  void FUNCNAME##_reset(void);                                         \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(void);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1064" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1064" bodyend="1076"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga62e52bb4169a4064e240fee1d6d0ffef" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC0</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1078" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1078" bodyend="1114"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gad5a62862651ac48fdabbcb2ec166a856" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC0</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga948e9a55b1fb4d8faefeb5586ed87b54" kindref="member">DECLARE_FAKE_VALUE_FUNC0</ref>(RETURN_TYPE, FUNCNAME) \
+  <ref refid="group__FakeFunctionMacros_1ga62e52bb4169a4064e240fee1d6d0ffef" kindref="member">DEFINE_FAKE_VALUE_FUNC0</ref>(RETURN_TYPE, FUNCNAME)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1116" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1116" bodyend="1118"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga6a83cf86c84df816f5a5a7378940a141" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC1</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                            \
+  {                                                                         \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                     \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                 \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                           \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                               \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                       \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE); \
+  } FUNCNAME##_Fake;                                                        \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                   \
+  void FUNCNAME##_reset(void);                                              \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1120" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1120" bodyend="1133"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gad5b9dbf0ecde74490845fdb24ab9c82f" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC1</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1135" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1135" bodyend="1173"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga9aa6f70cb4fafba7117582cdd568af7a" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC1</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga6a83cf86c84df816f5a5a7378940a141" kindref="member">DECLARE_FAKE_VALUE_FUNC1</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1gad5b9dbf0ecde74490845fdb24ab9c82f" kindref="member">DEFINE_FAKE_VALUE_FUNC1</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1175" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1175" bodyend="1177"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga47f6a10ebc54d48df5dfb294920faf2c" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC2</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                       \
+  {                                                                                    \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                            \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                      \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                          \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                  \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE); \
+  } FUNCNAME##_Fake;                                                                   \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                              \
+  void FUNCNAME##_reset(void);                                                         \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1179" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1179" bodyend="1193"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaabc1f9414d1aec0ce34a88addca6ea44" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC2</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1195" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1195" bodyend="1235"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga1334c40947b6a71442d3a8363ab85e45" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC2</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga47f6a10ebc54d48df5dfb294920faf2c" kindref="member">DECLARE_FAKE_VALUE_FUNC2</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1gaabc1f9414d1aec0ce34a88addca6ea44" kindref="member">DEFINE_FAKE_VALUE_FUNC2</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1237" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1237" bodyend="1239"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaf8d6323b2ca5983fcfbcc5e99d1a22a6" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC3</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                  \
+  {                                                                                               \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                           \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                       \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                                 \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                                     \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                             \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE); \
+  } FUNCNAME##_Fake;                                                                              \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                         \
+  void FUNCNAME##_reset(void);                                                                    \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1241" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1241" bodyend="1256"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga174910cf63261390944368b656443d7c" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC3</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1258" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1258" bodyend="1300"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga13274b15d56763d56365c6cb7b36e9b0" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC3</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1gaf8d6323b2ca5983fcfbcc5e99d1a22a6" kindref="member">DECLARE_FAKE_VALUE_FUNC3</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga174910cf63261390944368b656443d7c" kindref="member">DEFINE_FAKE_VALUE_FUNC3</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1302" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1302" bodyend="1304"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga1cd827d54f1ce2de5be6bfffa183a42b" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC4</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                             \
+  {                                                                                                          \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                      \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                  \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                                            \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                                                \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                        \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE); \
+  } FUNCNAME##_Fake;                                                                                         \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                    \
+  void FUNCNAME##_reset(void);                                                                               \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1306" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1306" bodyend="1322"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaec251b7082fd92db673c7797d678db1b" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC4</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1324" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1324" bodyend="1368"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga985a7e10aaad6a1108f5093afb4aad91" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC4</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga1cd827d54f1ce2de5be6bfffa183a42b" kindref="member">DECLARE_FAKE_VALUE_FUNC4</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1gaec251b7082fd92db673c7797d678db1b" kindref="member">DEFINE_FAKE_VALUE_FUNC4</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1370" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1370" bodyend="1372"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga4bb680a4fd1ecaafaa4fb52efae21b3a" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC5</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                        \
+  {                                                                                                                     \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                 \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                             \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                                                       \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                                                           \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                   \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                    \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                               \
+  void FUNCNAME##_reset(void);                                                                                          \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1374" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1374" bodyend="1391"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga11206579c82b79ffcc5cbc98e874dc88" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC5</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1393" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1393" bodyend="1439"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga005a828cb8cd31d85d9d3974416a12fc" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC5</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga4bb680a4fd1ecaafaa4fb52efae21b3a" kindref="member">DECLARE_FAKE_VALUE_FUNC5</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga11206579c82b79ffcc5cbc98e874dc88" kindref="member">DEFINE_FAKE_VALUE_FUNC5</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1441" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1441" bodyend="1443"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga5b811ace680aa63e501539244f10249f" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC6</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                   \
+  {                                                                                                                                \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                            \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                            \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                            \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                            \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                            \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                            \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                        \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                                                                  \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                                                                      \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                              \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                               \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                          \
+  void FUNCNAME##_reset(void);                                                                                                     \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1445" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1445" bodyend="1463"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga3cbf5347f876ac0e6c530b0461f88aae" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC6</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1465" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1465" bodyend="1513"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga1e7329a3880facae95f57016933a1710" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC6</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga5b811ace680aa63e501539244f10249f" kindref="member">DECLARE_FAKE_VALUE_FUNC6</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga3cbf5347f876ac0e6c530b0461f88aae" kindref="member">DEFINE_FAKE_VALUE_FUNC6</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1515" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1515" bodyend="1517"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga4dc16c4fa9b91c60d91f4c046934c50d" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC7</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                              \
+  {                                                                                                                                           \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                                       \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                                       \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                                       \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                                       \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                                       \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                                       \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG6_TYPE, 6, FUNCNAME)                                                                                                       \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                                   \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                                                                             \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                                                                                 \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                                         \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                                          \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                                     \
+  void FUNCNAME##_reset(void);                                                                                                                \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5, ARG6_TYPE arg6);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1519" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1519" bodyend="1538"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga35abd788057adafc718bea84e17029eb" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC7</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1540" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1540" bodyend="1590"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga69b1ecedd06e63cb40af937c167562ca" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC7</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga4dc16c4fa9b91c60d91f4c046934c50d" kindref="member">DECLARE_FAKE_VALUE_FUNC7</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga35abd788057adafc718bea84e17029eb" kindref="member">DEFINE_FAKE_VALUE_FUNC7</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1592" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1592" bodyend="1594"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga3d565c07339708db8917c4b732c81fed" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC8</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                                         \
+  {                                                                                                                                                      \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                                                  \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                                                  \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                                                  \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                                                  \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                                                  \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                                                  \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG6_TYPE, 6, FUNCNAME)                                                                                                                  \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG7_TYPE, 7, FUNCNAME)                                                                                                                  \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                                              \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                                                                                        \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                                                                                            \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                                                    \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                                                     \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                                                \
+  void FUNCNAME##_reset(void);                                                                                                                           \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5, ARG6_TYPE arg6, ARG7_TYPE arg7);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1596" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1596" bodyend="1616"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaa714d55175dc73f6058d628bcaa09a6b" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC8</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1618" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1618" bodyend="1670"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga2c198934771fd04db81577fee5db49e6" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC8</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga3d565c07339708db8917c4b732c81fed" kindref="member">DECLARE_FAKE_VALUE_FUNC8</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1gaa714d55175dc73f6058d628bcaa09a6b" kindref="member">DEFINE_FAKE_VALUE_FUNC8</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1672" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1672" bodyend="1674"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaf107425ea18f1c488feaaf35402cd212" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC9</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                                                    \
+  {                                                                                                                                                                 \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG6_TYPE, 6, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG7_TYPE, 7, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG8_TYPE, 8, FUNCNAME)                                                                                                                             \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                                                         \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                                                                                                   \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                                                                                                       \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                                                               \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                                                                \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                                                           \
+  void FUNCNAME##_reset(void);                                                                                                                                      \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5, ARG6_TYPE arg6, ARG7_TYPE arg7, ARG8_TYPE arg8);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1676" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1676" bodyend="1697"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga3a28ceda7883c1b0a01e125d7206780f" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC9</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1699" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1699" bodyend="1753"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1gaccab85b0ce3cd20c1e101c5e0171189c" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC9</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1gaf107425ea18f1c488feaaf35402cd212" kindref="member">DECLARE_FAKE_VALUE_FUNC9</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga3a28ceda7883c1b0a01e125d7206780f" kindref="member">DEFINE_FAKE_VALUE_FUNC9</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1755" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1755" bodyend="1757"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga8443637605560af0ca45ddd274a72d4f" prot="public" static="no">
+        <name>DECLARE_FAKE_VALUE_FUNC10</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <param><defname>ARG9_TYPE</defname></param>
+        <initializer>  typedef struct FUNCNAME##_Fake                                                                                                                                               \
+  {                                                                                                                                                                            \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG0_TYPE, 0, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG1_TYPE, 1, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG2_TYPE, 2, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG3_TYPE, 3, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG4_TYPE, 4, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG5_TYPE, 5, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG6_TYPE, 6, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG7_TYPE, 7, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG8_TYPE, 8, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1a17de136cb5d33eaa97f32453f0092867" kindref="member">DECLARE_ARG</ref>(ARG9_TYPE, 9, FUNCNAME)                                                                                                                                        \
+    <ref refid="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" kindref="member">DECLARE_ALL_FUNC_COMMON</ref>                                                                                                                                                    \
+    <ref refid="eff_8h_1a80bea996d8adbb85983d092aedf27615" kindref="member">DECLARE_VALUE_FUNCTION_VARIABLES</ref>(RETURN_TYPE)                                                                                                                              \
+    <ref refid="eff_8h_1a75f63764ee2938556c973f0bde7fb017" kindref="member">DECLARE_RETURN_VALUE_HISTORY</ref>(RETURN_TYPE)                                                                                                                                  \
+    <ref refid="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" kindref="member">DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</ref>                                                                                                                                          \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, custom_fake, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE, ARG9_TYPE);      \
+    <ref refid="eff_8h_1a99134629f2acf9e746c6952a420deb35" kindref="member">CUSTOM_EFF_FUNCTION_TEMPLATE</ref>(RETURN_TYPE, *custom_fake_seq, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE, ARG9_TYPE); \
+  } FUNCNAME##_Fake;                                                                                                                                                           \
+  extern FUNCNAME##_Fake FUNCNAME##_fake;                                                                                                                                      \
+  void FUNCNAME##_reset(void);                                                                                                                                                 \
+  RETURN_TYPE <ref refid="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" kindref="member">EFF_GCC_FUNCTION_ATTRIBUTES</ref> FUNCNAME(ARG0_TYPE arg0, ARG1_TYPE arg1, ARG2_TYPE arg2, ARG3_TYPE arg3, ARG4_TYPE arg4, ARG5_TYPE arg5, ARG6_TYPE arg6, ARG7_TYPE arg7, ARG8_TYPE arg8, ARG9_TYPE arg9);</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1759" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1759" bodyend="1781"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga1c60bac0421fbba415f25a3604391305" prot="public" static="no">
+        <name>DEFINE_FAKE_VALUE_FUNC10</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <param><defname>ARG9_TYPE</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1783" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1783" bodyend="1839"/>
+      </memberdef>
+      <memberdef kind="define" id="group__FakeFunctionMacros_1ga239a00463bf260bb1b5fb97c558f643c" prot="public" static="no">
+        <name>FAKE_VALUE_FUNC10</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARG0_TYPE</defname></param>
+        <param><defname>ARG1_TYPE</defname></param>
+        <param><defname>ARG2_TYPE</defname></param>
+        <param><defname>ARG3_TYPE</defname></param>
+        <param><defname>ARG4_TYPE</defname></param>
+        <param><defname>ARG5_TYPE</defname></param>
+        <param><defname>ARG6_TYPE</defname></param>
+        <param><defname>ARG7_TYPE</defname></param>
+        <param><defname>ARG8_TYPE</defname></param>
+        <param><defname>ARG9_TYPE</defname></param>
+        <initializer>  <ref refid="group__FakeFunctionMacros_1ga8443637605560af0ca45ddd274a72d4f" kindref="member">DECLARE_FAKE_VALUE_FUNC10</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE, ARG9_TYPE) \
+  <ref refid="group__FakeFunctionMacros_1ga1c60bac0421fbba415f25a3604391305" kindref="member">DEFINE_FAKE_VALUE_FUNC10</ref>(RETURN_TYPE, FUNCNAME, ARG0_TYPE, ARG1_TYPE, ARG2_TYPE, ARG3_TYPE, ARG4_TYPE, ARG5_TYPE, ARG6_TYPE, ARG7_TYPE, ARG8_TYPE, ARG9_TYPE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1841" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1841" bodyend="1843"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Macros to create fake functions with 0–10 arguments and void or non-void return values. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

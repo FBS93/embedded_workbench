@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEPF__timer__t" kind="struct" language="C++" prot="public">
+    <compoundname>EPF_timer_t</compoundname>
+    <includes refid="epf__timer_8h" local="no">epf_timer.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEPF__timer__t_1af8705dbd079dc76c38c9eea7802085aa" prot="public" static="no" mutable="no">
+        <type>pthread_t</type>
+        <definition>pthread_t EPF_timer_t::ticker_tid</definition>
+        <argsstring></argsstring>
+        <name>ticker_tid</name>
+        <qualifiedname>EPF_timer_t::ticker_tid</qualifiedname>
+        <briefdescription>
+<para>Ticker thread handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="84" column="13" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEPF__timer__t_1a98f4d12c8c9ffc5fe5cdadcaed067fd1" prot="public" static="no" mutable="no">
+        <type>pthread_mutex_t</type>
+        <definition>pthread_mutex_t EPF_timer_t::mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <qualifiedname>EPF_timer_t::mutex</qualifiedname>
+        <briefdescription>
+<para>Mutex protecting timer lists. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="/workspaces/embedded_workbench/sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c_1timer_new_list" kindref="member">timer_new_list</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="85" column="19" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEPF__timer__t_1a348bd7b14902e6776d5159dcce40481b" prot="public" static="no" mutable="no">
+        <type>volatile bool</type>
+        <definition>volatile bool EPF_timer_t::stop_ticker</definition>
+        <argsstring></argsstring>
+        <name>stop_ticker</name>
+        <qualifiedname>EPF_timer_t::stop_ticker</qualifiedname>
+        <briefdescription>
+<para>Stop flag for ticker thread. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: context_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="87" column="17" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEPF__timer__t_1a569f2e2f99bc55e1119b1e09fa037237" prot="public" static="no" mutable="no">
+        <type><ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref> *</type>
+        <definition>EPF_timer_entry_t* EPF_timer_t::armed_head</definition>
+        <argsstring></argsstring>
+        <name>armed_head</name>
+        <qualifiedname>EPF_timer_t::armed_head</qualifiedname>
+        <briefdescription>
+<para>Points to the list of armed timers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="89" column="21" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEPF__timer__t_1afc903946c6b7ebdf334c15f635f88488" prot="public" static="no" mutable="no">
+        <type><ref refid="structEPF__timer__entry__t" kindref="compound">EPF_timer_entry_t</ref> *</type>
+        <definition>EPF_timer_entry_t* EPF_timer_t::new_head</definition>
+        <argsstring></argsstring>
+        <name>new_head</name>
+        <qualifiedname>EPF_timer_t::new_head</qualifiedname>
+        <briefdescription>
+<para>Points to the list of newly armed timers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="/workspaces/embedded_workbench/sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/src/epf_timer.c_1timer_new_list" kindref="member">timer_new_list</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="90" column="21" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Timer structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EPF_timer_entry_t</label>
+        <link refid="structEPF__timer__entry__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>EPF_timer_t</label>
+        <link refid="structEPF__timer__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>armed_head</edgelabel>
+          <edgelabel>new_head</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" line="82" column="1" bodyfile="sw/ecf/embedded_platform_framework/os/posix/src/epf_timer/inc/epf_timer.h" bodystart="83" bodyend="92"/>
+    <listofallmembers>
+      <member refid="structEPF__timer__t_1a569f2e2f99bc55e1119b1e09fa037237" prot="public" virt="non-virtual"><scope>EPF_timer_t</scope><name>armed_head</name></member>
+      <member refid="structEPF__timer__t_1a98f4d12c8c9ffc5fe5cdadcaed067fd1" prot="public" virt="non-virtual"><scope>EPF_timer_t</scope><name>mutex</name></member>
+      <member refid="structEPF__timer__t_1afc903946c6b7ebdf334c15f635f88488" prot="public" virt="non-virtual"><scope>EPF_timer_t</scope><name>new_head</name></member>
+      <member refid="structEPF__timer__t_1a348bd7b14902e6776d5159dcce40481b" prot="public" virt="non-virtual"><scope>EPF_timer_t</scope><name>stop_ticker</name></member>
+      <member refid="structEPF__timer__t_1af8705dbd079dc76c38c9eea7802085aa" prot="public" virt="non-virtual"><scope>EPF_timer_t</scope><name>ticker_tid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

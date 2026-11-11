@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structactiveObject__t" kind="struct" language="C++" prot="public">
+    <compoundname>activeObject_t</compoundname>
+    <includes refid="active__object_8h" local="no">active_object.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structactiveObject__t_1a56956a60ce8628b618b6c488cc465d82" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref></type>
+        <definition>EDF_activeObject_t activeObject_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>activeObject_t::super</qualifiedname>
+        <briefdescription>
+<para>Base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="74" column="22" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structactiveObject__t_1afdfa66d1343ce9b38a1fed73eb4cc325" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool activeObject_t::event_received</definition>
+        <argsstring></argsstring>
+        <name>event_received</name>
+        <qualifiedname>activeObject_t::event_received</qualifiedname>
+        <briefdescription>
+<para>True if an event is received, false otherwise. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="75" column="8" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Active object structure. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>Global for test access purposes. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="3">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>activeObject_t</label>
+        <link refid="structactiveObject__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" line="72" column="1" bodyfile="sw/ecf/event_driven_framework/test/event_delivery/inc/active_object.h" bodystart="73" bodyend="76"/>
+    <listofallmembers>
+      <member refid="structactiveObject__t_1afdfa66d1343ce9b38a1fed73eb4cc325" prot="public" virt="non-virtual"><scope>activeObject_t</scope><name>event_received</name></member>
+      <member refid="structactiveObject__t_1a56956a60ce8628b618b6c488cc465d82" prot="public" virt="non-virtual"><scope>activeObject_t</scope><name>super</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

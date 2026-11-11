@@ -1,0 +1,805 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="eff_8h" kind="file" language="C++">
+    <compoundname>eff.h</compoundname>
+    <includes local="no">string.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_fake_framework/inc/eff.h</label>
+        <link refid="eff_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeff__globals__t" prot="public">eff_globals_t</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="eff_8h_1acdca2e59514f2393766c66ccb235fdee" prot="public" static="no">
+        <name>SET_RETURN_SEQ</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARRAY_POINTER</defname></param>
+        <param><defname>ARRAY_LEN</defname></param>
+        <initializer>  FUNCNAME##_fake.return_val_seq = ARRAY_POINTER;          \
+  FUNCNAME##_fake.return_val_seq_len = ARRAY_LEN;</initializer>
+        <briefdescription>
+<para>Sets the sequence of return values for a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assigns an array of return values and its length to the specified fake function, enabling it to return different values on consecutive calls.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the fake function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ARRAY_POINTER</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the array of return values. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ARRAY_LEN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the return values array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="60" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a312c7ffe4911b7ee89c96ba5a710394a" prot="public" static="no">
+        <name>SET_CUSTOM_FAKE_SEQ</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARRAY_POINTER</defname></param>
+        <param><defname>ARRAY_LEN</defname></param>
+        <initializer>  FUNCNAME##_fake.custom_fake_seq = ARRAY_POINTER;              \
+  FUNCNAME##_fake.custom_fake_seq_len = ARRAY_LEN;</initializer>
+        <briefdescription>
+<para>Sets the sequence of custom fake function pointers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assigns an array of custom fake function pointers and its length to the specified fake function, allowing dynamic behavior changes on consecutive calls.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the fake function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ARRAY_POINTER</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the array of custom fake function pointers. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ARRAY_LEN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the custom fake function pointer array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="76" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1aeb6d3347167d658bbd604805a5ea4648" prot="public" static="no">
+        <name>RESET_FAKE</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  {                          \
+    FUNCNAME##_reset();      \
+  }</initializer>
+        <briefdescription>
+<para>Resets the internal state of a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls the reset function associated with the specified fake function, clearing call counts, argument histories and return value sequences.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the fake function to reset. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="88" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a8affb67f3d175fe43771a559be95034d" prot="public" static="no">
+        <name>EFF_RESET_HISTORY</name>
+        <param></param>
+        <initializer>  eff.call_history_idx = 0; \
+  /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */ \
+  memset((void *)eff.call_history, 0, sizeof(eff.call_history));</initializer>
+        <briefdescription>
+<para>Resets the global call history. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the recorded history of fake function calls by resetting the call index and zeroing the call history array. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="99" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1aac963376ac8fc2477912c769c0db032f" prot="public" static="no">
+        <name>DEFINE_EFF_GLOBALS</name>
+        <initializer><ref refid="structeff__globals__t" kindref="compound">eff_globals_t</ref> <ref refid="eff_8h_1a7cc0d0af15c5493bace1bf9b01984a04" kindref="member">eff</ref>;</initializer>
+        <briefdescription>
+<para>Defines the global call history instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Shall be used to define EFF global variables. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="113" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a0dceb064829f208bc30dc9a09fe9b6f5" prot="public" static="no">
+        <name>EFF_MAX_ARGS</name>
+        <initializer>(10U)</initializer>
+        <briefdescription>
+<para>Maximum number of arguments supported by a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="118" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a49410639a3a59ada13b17231e25f4da2" prot="public" static="no">
+        <name>EFF_ARG_HISTORY_LEN</name>
+        <initializer>(50U)</initializer>
+        <briefdescription>
+<para>Maximum number of arguments stored per fake function call. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines how many argument values are stored in history for each individual fake function argument.</para>
+<para><simplesect kind="note"><para>Can be overridden before including this header. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="129" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a64c809141559efb52ca8a4789e267eb4" prot="public" static="no">
+        <name>EFF_CALL_HISTORY_LEN</name>
+        <initializer>(50U)</initializer>
+        <briefdescription>
+<para>Maximum number of fake function calls stored globally. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines how many function calls can be recorded in the global call history, allowing verification of the order in which fakes were invoked.</para>
+<para><simplesect kind="note"><para>Can be overridden before including this header. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="141" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1acc21dbfa7be96c0a1cf014a36e006e3c" prot="public" static="no">
+        <name>EFF_GCC_FUNCTION_ATTRIBUTES</name>
+        <briefdescription>
+<para>Function attributes for fake function declarations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allows users to define compiler-specific attributes to be applied to all generated fake function definitions.</para>
+<para><simplesect kind="note"><para>Can be overridden before including this header. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="153" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a99134629f2acf9e746c6952a420deb35" prot="public" static="no">
+        <name>CUSTOM_EFF_FUNCTION_TEMPLATE</name>
+        <param><defname>RETURN</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>  RETURN (*FUNCNAME)(__VA_ARGS__)</initializer>
+        <briefdescription>
+<para>Custom function pointer template for fake function handlers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allows overriding the way function pointers are declared for <computeroutput>custom_fake</computeroutput> and <computeroutput>custom_fake_seq</computeroutput>. Useful for adapting to different coding standards or function signature requirements.</para>
+<para><simplesect kind="note"><para>Can be overridden before including this header.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">RETURN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Return type of the function pointer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the function pointer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameter types of the function pointer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Function pointer type matching the specified signature. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="171" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="171" bodyend="172"/>
+      </memberdef>
+      <member refid="group__FakeFunction_1gaadc3f4cfe5d96785e3b49be014aa1677" kind="define"><name>FAKE_VALUE_FUNC</name></member>
+      <member refid="group__FakeFunction_1gaf5e0d3e09a9383ac72a9cb45eb4ed831" kind="define"><name>FAKE_VOID_FUNC</name></member>
+      <member refid="group__FakeFunctionDeclarations_1gabe755adc69a66dab496ea7583050d3fd" kind="define"><name>DECLARE_FAKE_VALUE_FUNC</name></member>
+      <member refid="group__FakeFunctionDeclarations_1gab3a6abd531c44d2ec1d249e3e100ff3c" kind="define"><name>DECLARE_FAKE_VOID_FUNC</name></member>
+      <member refid="group__FakeFunctionDefinitions_1ga4d9be23c4ca81be38396a83bc94164c0" kind="define"><name>DEFINE_FAKE_VALUE_FUNC</name></member>
+      <member refid="group__FakeFunctionDefinitions_1ga1629581dedc52dad4772c16b3c314828" kind="define"><name>DEFINE_FAKE_VOID_FUNC</name></member>
+      <memberdef kind="define" id="eff_8h_1a17de136cb5d33eaa97f32453f0092867" prot="public" static="no">
+        <name>DECLARE_ARG</name>
+        <param><defname>type</defname></param>
+        <param><defname>n</defname></param>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  type arg##n##_val;                   \
+  type arg##n##_history[<ref refid="eff_8h_1a49410639a3a59ada13b17231e25f4da2" kindref="member">EFF_ARG_HISTORY_LEN</ref>];</initializer>
+        <briefdescription>
+<para>Declares storage for a single argument value and its history. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data type of the argument. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument index number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the fake function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="220" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="220" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1acf9b31d0f297d9ebf8613e9f8e3873de" prot="public" static="no">
+        <name>DECLARE_ALL_FUNC_COMMON</name>
+        <initializer>  unsigned int call_count;      \
+  unsigned int arg_history_len; \
+  unsigned int arg_histories_dropped;</initializer>
+        <briefdescription>
+<para>Declares common variables for a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="227" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="227" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a75f63764ee2938556c973f0bde7fb017" prot="public" static="no">
+        <name>DECLARE_RETURN_VALUE_HISTORY</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <initializer>  RETURN_TYPE return_val_history[<ref refid="eff_8h_1a49410639a3a59ada13b17231e25f4da2" kindref="member">EFF_ARG_HISTORY_LEN</ref>];</initializer>
+        <briefdescription>
+<para>Declares storage for the history of return values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">RETURN_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data type of the return value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="237" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="237" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a3e2f865bd86814ffac51b1dc1e4d3450" prot="public" static="no">
+        <name>SAVE_ARG</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>n</defname></param>
+        <initializer>  /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */ \
+  memcpy((void *)&amp;FUNCNAME##_fake.arg##n##_val, (const void *)&amp;arg##n, sizeof(arg##n));</initializer>
+        <briefdescription>
+<para>Saves the current value of an argument to the fake function&apos;s storage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the fake function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument index number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="246" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="246" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a9de5f1b447452968c07a477fbfec9c9e" prot="public" static="no">
+        <name>ROOM_FOR_MORE_HISTORY</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  FUNCNAME##_fake.call_count &lt; <ref refid="eff_8h_1a49410639a3a59ada13b17231e25f4da2" kindref="member">EFF_ARG_HISTORY_LEN</ref></initializer>
+        <briefdescription>
+<para>Checks if there is space to store more call history for a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the fake function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if more call history can be stored, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="256" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="256" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1af7caefd665b7c070c1cee343ca572dce" prot="public" static="no">
+        <name>SAVE_RET_HISTORY</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>RETVAL</defname></param>
+        <initializer>  if ((FUNCNAME##_fake.call_count - 1) &lt; <ref refid="eff_8h_1a49410639a3a59ada13b17231e25f4da2" kindref="member">EFF_ARG_HISTORY_LEN</ref>) \
+    /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */ \
+    memcpy((void *)&amp;FUNCNAME##_fake.return_val_history[FUNCNAME##_fake.call_count - 1], (const void *)&amp;(RETVAL), sizeof(RETVAL));</initializer>
+        <briefdescription>
+<para>Saves a return value to the history of a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the return value of the most recent call in the return value history if there is room.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the fake function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">RETVAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Return value to save. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="268" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="268" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1afb6d5256553c3be825f7f83fe6d5dde9" prot="public" static="no">
+        <name>SAVE_ARG_HISTORY</name>
+        <param><defname>FUNCNAME</defname></param>
+        <param><defname>ARGN</defname></param>
+        <initializer>  /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */ \
+  memcpy((void *)&amp;FUNCNAME##_fake.arg##ARGN##_history[FUNCNAME##_fake.call_count], (const void *)&amp;arg##ARGN, sizeof(arg##ARGN));</initializer>
+        <briefdescription>
+<para>Saves an argument value to the argument history of a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Copies the current argument value into the history buffer at the current call index.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the fake function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ARGN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument index number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="281" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="281" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1adcf92825fec9b9478398765cb84cd00f" prot="public" static="no">
+        <name>HISTORY_DROPPED</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  FUNCNAME##_fake.arg_histories_dropped++</initializer>
+        <briefdescription>
+<para>Increments the count of dropped argument histories for a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Tracks how many argument values have been dropped due to exceeding history capacity.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the fake function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="292" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="292" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a80bea996d8adbb85983d092aedf27615" prot="public" static="no">
+        <name>DECLARE_VALUE_FUNCTION_VARIABLES</name>
+        <param><defname>RETURN_TYPE</defname></param>
+        <initializer>  RETURN_TYPE return_val;                             \
+  int return_val_seq_len;                             \
+  int return_val_seq_idx;                             \
+  RETURN_TYPE (*return_val_seq);</initializer>
+        <briefdescription>
+<para>Declares variables for managing return values in a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Includes the current return value, a sequence of return values with length, and the current index in the return sequence.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">RETURN_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The return type of the fake function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="303" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="303" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a7884e082e23fc3f1b4a23a6f4b6fd303" prot="public" static="no">
+        <name>DECLARE_CUSTOM_FAKE_SEQ_VARIABLES</name>
+        <initializer>  int custom_fake_seq_len;                \
+  int custom_fake_seq_idx;</initializer>
+        <briefdescription>
+<para>Declares variables for managing a sequence of custom fake functions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Tracks the length of the custom fake function sequence and the current index. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="314" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="314" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1ae570ba4a02c31f264f5da7d092c8cac4" prot="public" static="no">
+        <name>INCREMENT_CALL_COUNT</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  FUNCNAME##_fake.call_count++</initializer>
+        <briefdescription>
+<para>Increments the call count of a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the fake function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="323" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="323" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1a539b3c049757e910bee6c8c6f5414e30" prot="public" static="no">
+        <name>REGISTER_CALL</name>
+        <param><defname>function</defname></param>
+        <initializer>  if (eff.call_history_idx &lt; <ref refid="eff_8h_1a64c809141559efb52ca8a4789e267eb4" kindref="member">EFF_CALL_HISTORY_LEN</ref>) \
+    eff.call_history[eff.call_history_idx++] = (<ref refid="eff_8h_1ad6c4be434f0b0441d80bdba7d8d4f64e" kindref="member">eff_function_t</ref>)(function);</initializer>
+        <briefdescription>
+<para>Registers a fake function call in the global call history. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Records the provided function pointer in the global call history array if there is available space.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Function pointer to register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="334" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="334" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1af19fef1f0025bb4733e998d35bc03310" prot="public" static="no">
+        <name>RETURN_FAKE_RESULT</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  if (FUNCNAME##_fake.return_val_seq_len)                                                                    \
+  { /* then its a sequence */                                                                                \
+    if (FUNCNAME##_fake.return_val_seq_idx &lt; FUNCNAME##_fake.return_val_seq_len)                             \
+    {                                                                                                        \
+      <ref refid="eff_8h_1af7caefd665b7c070c1cee343ca572dce" kindref="member">SAVE_RET_HISTORY</ref>(FUNCNAME, FUNCNAME##_fake.return_val_seq[FUNCNAME##_fake.return_val_seq_idx])         \
+      return FUNCNAME##_fake.return_val_seq[FUNCNAME##_fake.return_val_seq_idx++];                           \
+    }                                                                                                        \
+    <ref refid="eff_8h_1af7caefd665b7c070c1cee343ca572dce" kindref="member">SAVE_RET_HISTORY</ref>(FUNCNAME, FUNCNAME##_fake.return_val_seq[FUNCNAME##_fake.return_val_seq_len - 1])       \
+    return FUNCNAME##_fake.return_val_seq[FUNCNAME##_fake.return_val_seq_len - 1]; /* return last element */ \
+  }                                                                                                          \
+  <ref refid="eff_8h_1af7caefd665b7c070c1cee343ca572dce" kindref="member">SAVE_RET_HISTORY</ref>(FUNCNAME, FUNCNAME##_fake.return_val)                                                     \
+  return FUNCNAME##_fake.return_val;</initializer>
+        <briefdescription>
+<para>Returns the appropriate fake function result, handling sequences. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If a return value sequence is set, returns the next value in the sequence, saving each returned value in the history. Once the sequence ends, continues returning the last value. Otherwise, returns the single stored return value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier for the fake function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="347" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="347" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="define" id="eff_8h_1aec1937352832e066bddd2220ccc8a503" prot="public" static="no">
+        <name>DEFINE_RESET_FUNCTION</name>
+        <param><defname>FUNCNAME</defname></param>
+        <initializer>  void FUNCNAME##_reset(void)                                                                                                                     \
+  {                                                                                                                                               \
+    /* NOLINTNEXTLINE(clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling) */                                                    \
+    memset((void *)&amp;FUNCNAME##_fake, 0, sizeof(FUNCNAME##_fake) - sizeof(FUNCNAME##_fake.custom_fake) - sizeof(FUNCNAME##_fake.custom_fake_seq)); \
+    FUNCNAME##_fake.custom_fake = NULL;                                                                                                           \
+    FUNCNAME##_fake.custom_fake_seq = NULL;                                                                                                       \
+    FUNCNAME##_fake.arg_history_len = <ref refid="eff_8h_1a49410639a3a59ada13b17231e25f4da2" kindref="member">EFF_ARG_HISTORY_LEN</ref>;                                                                                        \
+  }</initializer>
+        <briefdescription>
+<para>Defines a reset function for a fake function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">FUNCNAME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name identifier of the fake function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="366" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="366" bodyend="374"/>
+      </memberdef>
+      <member refid="group__FakeFunctionMacros_1gab78d1321173c5ec6fa029201d80b7243" kind="define"><name>DECLARE_FAKE_VOID_FUNC0</name></member>
+      <member refid="group__FakeFunctionMacros_1gaad05785f517f7bfed8fbdabd94197b31" kind="define"><name>DEFINE_FAKE_VOID_FUNC0</name></member>
+      <member refid="group__FakeFunctionMacros_1ga4d1ab0fa0d0d90f90177ad393870fc15" kind="define"><name>FAKE_VOID_FUNC0</name></member>
+      <member refid="group__FakeFunctionMacros_1gab99f92d18abc83674d17291169275712" kind="define"><name>DECLARE_FAKE_VOID_FUNC1</name></member>
+      <member refid="group__FakeFunctionMacros_1ga4b83661285f76e002833cf73600a0ef4" kind="define"><name>DEFINE_FAKE_VOID_FUNC1</name></member>
+      <member refid="group__FakeFunctionMacros_1gaefef27bc3014a5535c02cc7b9c043355" kind="define"><name>FAKE_VOID_FUNC1</name></member>
+      <member refid="group__FakeFunctionMacros_1ga0ac9e87dc810b8a5bb6e6c532e6be39d" kind="define"><name>DECLARE_FAKE_VOID_FUNC2</name></member>
+      <member refid="group__FakeFunctionMacros_1ga5be5bb3c42fca77b248404aff6cd2027" kind="define"><name>DEFINE_FAKE_VOID_FUNC2</name></member>
+      <member refid="group__FakeFunctionMacros_1ga58cde3d8a1e79effd038c63a59e55104" kind="define"><name>FAKE_VOID_FUNC2</name></member>
+      <member refid="group__FakeFunctionMacros_1gad5293b1eb48a7d4d5a11c3c75aaa5d71" kind="define"><name>DECLARE_FAKE_VOID_FUNC3</name></member>
+      <member refid="group__FakeFunctionMacros_1ga6d2c55ab70f5fb9acd9760d9d09e42f9" kind="define"><name>DEFINE_FAKE_VOID_FUNC3</name></member>
+      <member refid="group__FakeFunctionMacros_1gaa130f9e166b31b1156fceccda8dc31df" kind="define"><name>FAKE_VOID_FUNC3</name></member>
+      <member refid="group__FakeFunctionMacros_1ga7db609175d368a7f64569899944cbc83" kind="define"><name>DECLARE_FAKE_VOID_FUNC4</name></member>
+      <member refid="group__FakeFunctionMacros_1ga1dd59da676a468c78c4d71482b227a3f" kind="define"><name>DEFINE_FAKE_VOID_FUNC4</name></member>
+      <member refid="group__FakeFunctionMacros_1gafad7544f90a9db9c9d14d6565006a314" kind="define"><name>FAKE_VOID_FUNC4</name></member>
+      <member refid="group__FakeFunctionMacros_1gacad2449d38b7d37e8cfc81920a4cb4cf" kind="define"><name>DECLARE_FAKE_VOID_FUNC5</name></member>
+      <member refid="group__FakeFunctionMacros_1ga0d1fba2ef7aa0c128f2773a640c536e3" kind="define"><name>DEFINE_FAKE_VOID_FUNC5</name></member>
+      <member refid="group__FakeFunctionMacros_1gae468697dd7626c63a5093cc505b9056b" kind="define"><name>FAKE_VOID_FUNC5</name></member>
+      <member refid="group__FakeFunctionMacros_1ga791750f81a0ab23de808df374498812b" kind="define"><name>DECLARE_FAKE_VOID_FUNC6</name></member>
+      <member refid="group__FakeFunctionMacros_1ga644fc466c398bee48c8b47b02f40d7c5" kind="define"><name>DEFINE_FAKE_VOID_FUNC6</name></member>
+      <member refid="group__FakeFunctionMacros_1ga13e908e62ea8cc666d2b52af87d31d94" kind="define"><name>FAKE_VOID_FUNC6</name></member>
+      <member refid="group__FakeFunctionMacros_1ga5e93a67a7a9398e66cd5d8c32b2cf97b" kind="define"><name>DECLARE_FAKE_VOID_FUNC7</name></member>
+      <member refid="group__FakeFunctionMacros_1ga952ad059564364677d12eb60e3502ced" kind="define"><name>DEFINE_FAKE_VOID_FUNC7</name></member>
+      <member refid="group__FakeFunctionMacros_1gaf4c9613946a4564812695db47c18c7fe" kind="define"><name>FAKE_VOID_FUNC7</name></member>
+      <member refid="group__FakeFunctionMacros_1ga40ded2b5aa02187f35c64597decd85e3" kind="define"><name>DECLARE_FAKE_VOID_FUNC8</name></member>
+      <member refid="group__FakeFunctionMacros_1gae9ad8635021363488ca5a60f7443172b" kind="define"><name>DEFINE_FAKE_VOID_FUNC8</name></member>
+      <member refid="group__FakeFunctionMacros_1ga414c19398243ecb3b6e6089a970b517d" kind="define"><name>FAKE_VOID_FUNC8</name></member>
+      <member refid="group__FakeFunctionMacros_1gaeb6fdcc872b8cac7a43e567912ead87a" kind="define"><name>DECLARE_FAKE_VOID_FUNC9</name></member>
+      <member refid="group__FakeFunctionMacros_1ga1e82227c0a74849ca3df99fea2da718f" kind="define"><name>DEFINE_FAKE_VOID_FUNC9</name></member>
+      <member refid="group__FakeFunctionMacros_1ga9bfcd16a665682cbc7acc723762fc057" kind="define"><name>FAKE_VOID_FUNC9</name></member>
+      <member refid="group__FakeFunctionMacros_1ga89b7e7d5b41cb8658b44ef43e51bc460" kind="define"><name>DECLARE_FAKE_VOID_FUNC10</name></member>
+      <member refid="group__FakeFunctionMacros_1gab3d57c134c4ded89611bd80eeb4f2ba6" kind="define"><name>DEFINE_FAKE_VOID_FUNC10</name></member>
+      <member refid="group__FakeFunctionMacros_1gadb8da71d91ec087bc164e858626c3357" kind="define"><name>FAKE_VOID_FUNC10</name></member>
+      <member refid="group__FakeFunctionMacros_1ga948e9a55b1fb4d8faefeb5586ed87b54" kind="define"><name>DECLARE_FAKE_VALUE_FUNC0</name></member>
+      <member refid="group__FakeFunctionMacros_1ga62e52bb4169a4064e240fee1d6d0ffef" kind="define"><name>DEFINE_FAKE_VALUE_FUNC0</name></member>
+      <member refid="group__FakeFunctionMacros_1gad5a62862651ac48fdabbcb2ec166a856" kind="define"><name>FAKE_VALUE_FUNC0</name></member>
+      <member refid="group__FakeFunctionMacros_1ga6a83cf86c84df816f5a5a7378940a141" kind="define"><name>DECLARE_FAKE_VALUE_FUNC1</name></member>
+      <member refid="group__FakeFunctionMacros_1gad5b9dbf0ecde74490845fdb24ab9c82f" kind="define"><name>DEFINE_FAKE_VALUE_FUNC1</name></member>
+      <member refid="group__FakeFunctionMacros_1ga9aa6f70cb4fafba7117582cdd568af7a" kind="define"><name>FAKE_VALUE_FUNC1</name></member>
+      <member refid="group__FakeFunctionMacros_1ga47f6a10ebc54d48df5dfb294920faf2c" kind="define"><name>DECLARE_FAKE_VALUE_FUNC2</name></member>
+      <member refid="group__FakeFunctionMacros_1gaabc1f9414d1aec0ce34a88addca6ea44" kind="define"><name>DEFINE_FAKE_VALUE_FUNC2</name></member>
+      <member refid="group__FakeFunctionMacros_1ga1334c40947b6a71442d3a8363ab85e45" kind="define"><name>FAKE_VALUE_FUNC2</name></member>
+      <member refid="group__FakeFunctionMacros_1gaf8d6323b2ca5983fcfbcc5e99d1a22a6" kind="define"><name>DECLARE_FAKE_VALUE_FUNC3</name></member>
+      <member refid="group__FakeFunctionMacros_1ga174910cf63261390944368b656443d7c" kind="define"><name>DEFINE_FAKE_VALUE_FUNC3</name></member>
+      <member refid="group__FakeFunctionMacros_1ga13274b15d56763d56365c6cb7b36e9b0" kind="define"><name>FAKE_VALUE_FUNC3</name></member>
+      <member refid="group__FakeFunctionMacros_1ga1cd827d54f1ce2de5be6bfffa183a42b" kind="define"><name>DECLARE_FAKE_VALUE_FUNC4</name></member>
+      <member refid="group__FakeFunctionMacros_1gaec251b7082fd92db673c7797d678db1b" kind="define"><name>DEFINE_FAKE_VALUE_FUNC4</name></member>
+      <member refid="group__FakeFunctionMacros_1ga985a7e10aaad6a1108f5093afb4aad91" kind="define"><name>FAKE_VALUE_FUNC4</name></member>
+      <member refid="group__FakeFunctionMacros_1ga4bb680a4fd1ecaafaa4fb52efae21b3a" kind="define"><name>DECLARE_FAKE_VALUE_FUNC5</name></member>
+      <member refid="group__FakeFunctionMacros_1ga11206579c82b79ffcc5cbc98e874dc88" kind="define"><name>DEFINE_FAKE_VALUE_FUNC5</name></member>
+      <member refid="group__FakeFunctionMacros_1ga005a828cb8cd31d85d9d3974416a12fc" kind="define"><name>FAKE_VALUE_FUNC5</name></member>
+      <member refid="group__FakeFunctionMacros_1ga5b811ace680aa63e501539244f10249f" kind="define"><name>DECLARE_FAKE_VALUE_FUNC6</name></member>
+      <member refid="group__FakeFunctionMacros_1ga3cbf5347f876ac0e6c530b0461f88aae" kind="define"><name>DEFINE_FAKE_VALUE_FUNC6</name></member>
+      <member refid="group__FakeFunctionMacros_1ga1e7329a3880facae95f57016933a1710" kind="define"><name>FAKE_VALUE_FUNC6</name></member>
+      <member refid="group__FakeFunctionMacros_1ga4dc16c4fa9b91c60d91f4c046934c50d" kind="define"><name>DECLARE_FAKE_VALUE_FUNC7</name></member>
+      <member refid="group__FakeFunctionMacros_1ga35abd788057adafc718bea84e17029eb" kind="define"><name>DEFINE_FAKE_VALUE_FUNC7</name></member>
+      <member refid="group__FakeFunctionMacros_1ga69b1ecedd06e63cb40af937c167562ca" kind="define"><name>FAKE_VALUE_FUNC7</name></member>
+      <member refid="group__FakeFunctionMacros_1ga3d565c07339708db8917c4b732c81fed" kind="define"><name>DECLARE_FAKE_VALUE_FUNC8</name></member>
+      <member refid="group__FakeFunctionMacros_1gaa714d55175dc73f6058d628bcaa09a6b" kind="define"><name>DEFINE_FAKE_VALUE_FUNC8</name></member>
+      <member refid="group__FakeFunctionMacros_1ga2c198934771fd04db81577fee5db49e6" kind="define"><name>FAKE_VALUE_FUNC8</name></member>
+      <member refid="group__FakeFunctionMacros_1gaf107425ea18f1c488feaaf35402cd212" kind="define"><name>DECLARE_FAKE_VALUE_FUNC9</name></member>
+      <member refid="group__FakeFunctionMacros_1ga3a28ceda7883c1b0a01e125d7206780f" kind="define"><name>DEFINE_FAKE_VALUE_FUNC9</name></member>
+      <member refid="group__FakeFunctionMacros_1gaccab85b0ce3cd20c1e101c5e0171189c" kind="define"><name>FAKE_VALUE_FUNC9</name></member>
+      <member refid="group__FakeFunctionMacros_1ga8443637605560af0ca45ddd274a72d4f" kind="define"><name>DECLARE_FAKE_VALUE_FUNC10</name></member>
+      <member refid="group__FakeFunctionMacros_1ga1c60bac0421fbba415f25a3604391305" kind="define"><name>DEFINE_FAKE_VALUE_FUNC10</name></member>
+      <member refid="group__FakeFunctionMacros_1ga239a00463bf260bb1b5fb97c558f643c" kind="define"><name>FAKE_VALUE_FUNC10</name></member>
+      <memberdef kind="define" id="eff_8h_1ae4b532a93c757194ec73b6790a3e6b1f" prot="public" static="no">
+        <name>EXPAND</name>
+        <param><defname>x</defname></param>
+        <initializer>x</initializer>
+        <briefdescription>
+<para>Expands a macro argument. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Used to force macro expansion, especially needed to work around expansion limitations in MSVC&apos;s preprocessor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The macro argument to expand. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1854" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1854" bodyend="-1"/>
+      </memberdef>
+      <member refid="group__PP__CountArgumentMacros_1gaed4e92e74d3346203733f847c1fb7c13" kind="define"><name>PP_NARG_MINUS2</name></member>
+      <member refid="group__PP__CountArgumentMacros_1gacdd3fc1d1e62fd3f5da6cc3a0b121e73" kind="define"><name>PP_NARG_MINUS2_</name></member>
+      <member refid="group__PP__CountArgumentMacros_1gae6c437a9f72281ce6d8d92f6abb5f7da" kind="define"><name>PP_ARG_MINUS2_N</name></member>
+      <member refid="group__PP__CountArgumentMacros_1gad8efeac53da71c035282ee9a13880a14" kind="define"><name>PP_RSEQ_N_MINUS2</name></member>
+      <member refid="group__PP__CountArgumentMacros_1gae35e4e10e3c657c61184fb4f80a9d436" kind="define"><name>PP_NARG_MINUS1</name></member>
+      <member refid="group__PP__CountArgumentMacros_1gaa751f94e24b84d18435bb22958c913b9" kind="define"><name>PP_NARG_MINUS1_</name></member>
+      <member refid="group__PP__CountArgumentMacros_1ga4aaae05af53813dc7c5b93ab295a441e" kind="define"><name>PP_ARG_MINUS1_N</name></member>
+      <member refid="group__PP__CountArgumentMacros_1gacca5a4e5675ac18afa05990b1c7485b7" kind="define"><name>PP_RSEQ_N_MINUS1</name></member>
+      <member refid="group__FakeFunctionDispatch_1ga8625ed13dfb3b5021bb8d532f2160ff8" kind="define"><name>FUNC_VALUE_</name></member>
+      <member refid="group__FakeFunctionDispatch_1gaf0fddd67177d21091ab7d222d8edd6fd" kind="define"><name>FUNC_VALUE_N</name></member>
+      <member refid="group__FakeFunctionDispatch_1ga857495061e2f86db044bb9f633251c65" kind="define"><name>FUNC_VOID_</name></member>
+      <member refid="group__FakeFunctionDispatch_1gada990ce44fa8e5d9a4caf5927863f36a" kind="define"><name>FUNC_VOID_N</name></member>
+      <member refid="group__FakeFunctionDeclarationDispatch_1ga87931f735fdb8221f2f4c18146c59c80" kind="define"><name>DECLARE_FUNC_VALUE_</name></member>
+      <member refid="group__FakeFunctionDeclarationDispatch_1ga5b8bdf38c87d97882d04d74f3839b813" kind="define"><name>DECLARE_FUNC_VALUE_N</name></member>
+      <member refid="group__FakeFunctionDeclarationDispatch_1gad87ab733f2f23db8ca737780762de08a" kind="define"><name>DECLARE_FUNC_VOID_</name></member>
+      <member refid="group__FakeFunctionDeclarationDispatch_1ga748f971c722172983ee913eddcd314be" kind="define"><name>DECLARE_FUNC_VOID_N</name></member>
+      <member refid="group__FakeFunctionDefinitionDispatch_1gaec6f33309a6e05463eff93190db809ba" kind="define"><name>DEFINE_FUNC_VALUE_</name></member>
+      <member refid="group__FakeFunctionDefinitionDispatch_1ga65ae8b005afece51e4ead99d32402420" kind="define"><name>DEFINE_FUNC_VALUE_N</name></member>
+      <member refid="group__FakeFunctionDefinitionDispatch_1ga9647ac5bbd553454c66976056c556b25" kind="define"><name>DEFINE_FUNC_VOID_</name></member>
+      <member refid="group__FakeFunctionDefinitionDispatch_1ga5a3498cf3b25c3e6522649a5a25d9345" kind="define"><name>DEFINE_FUNC_VOID_N</name></member>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="eff_8h_1ad6c4be434f0b0441d80bdba7d8d4f64e" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* eff_function_t) (void)</definition>
+        <argsstring>)(void)</argsstring>
+        <name>eff_function_t</name>
+        <briefdescription>
+<para>Generic function pointer type used for tracking calls. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1914" column="9" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1914" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="eff_8h_1a7cc0d0af15c5493bace1bf9b01984a04" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="structeff__globals__t" kindref="compound">eff_globals_t</ref></type>
+        <definition>eff_globals_t eff</definition>
+        <argsstring></argsstring>
+        <name>eff</name>
+        <briefdescription>
+<para>Global instance tracking call history of all fake functions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Shall be defined with DEFINE_EFF_GLOBALS macro </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1938" column="22" declfile="sw/ecf/embedded_fake_framework/inc/eff.h" declline="1938" declcolumn="22"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_fake_framework/inc/eff.h"/>
+  </compounddef>
+</doxygen>

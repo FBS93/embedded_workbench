@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__pool_8c" kind="file" language="C++">
+    <compoundname>edf_pool.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="edf__pool_8h" local="yes">edf_pool.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes local="yes">edf_core.h</includes>
+    <includes refid="edf__framework_8h" local="yes">edf_framework.h</includes>
+    <includes refid="ebf_8h" local="yes">ebf.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ebf.h</label>
+        <link refid="ebf_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_pool.c</label>
+        <link refid="edf__pool_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="12">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="5">
+        <label>edf_config.h</label>
+      </node>
+      <node id="16">
+        <label>edf_core.h</label>
+      </node>
+      <node id="21">
+        <label>pthread.h</label>
+      </node>
+      <node id="15">
+        <label>queue.h</label>
+      </node>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="14">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__pool_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c" line="58" column="1" declfile="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c" declline="58" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__pool_8c_1ad7480419c24fe94d4008bd9fc2387e61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_pool_init</definition>
+        <argsstring>(void *pool_storage, uint_fast32_t pool_size, EDF_pool_blockSize_t block_size)</argsstring>
+        <name>EDF_pool_init</name>
+        <param>
+          <type>void *</type>
+          <declname>pool_storage</declname>
+        </param>
+        <param>
+          <type>uint_fast32_t</type>
+          <declname>pool_size</declname>
+        </param>
+        <param>
+          <type>EDF_pool_blockSize_t</type>
+          <declname>block_size</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a pool. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Proper memory alignment of the pool storage is required to ensure safe pointer access. As described in <ref refid="/workspaces/embedded_workbench/sw/ecf/event_driven_framework/src/framework/src/edf_pool.c_1free_list" kindref="member">free_list</ref>, the first bytes of each block store a pointer to the next free block; if the storage is not properly aligned, this may lead to undefined behavior or hardware faults on some architectures. It is recommended to use <ref refid="emf__utils_8h_1a187facb8161d36f1bed711ae44ec731a" kindref="member">EMF_UTILS_MEM_ALIGNED_SLOT</ref> or an equivalent alignment-safe definition. This not only guarantees correct pointer alignment, but also ensures that the computed number of blocks matches the ratio of pool_size to block_size as intended.</para>
+</simplesect>
+<xrefsect id="todo_1_todo000022"><xreftitle>Todo</xreftitle><xrefdescription><para>Currently, pools must be initialized in ascending block size order. Future implementations shall allow pools to be initialized in any order.</para>
+</xrefdescription></xrefsect></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pool_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the storage for the pool. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pool_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Total size of pool_storage in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">block_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of each block of the pool in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Dynamic range check. Only needed when EDF_pool_blockCnt_t is 8 or 16 bits; for 32-bit, n_total always fits.</para>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c" line="80" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c" bodystart="80" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__pool_8c_1a55a7c1a0dc2062e4840570726ec037b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * EDF_pool_acquire</definition>
+        <argsstring>(EDF_pool_t *me)</argsstring>
+        <name>EDF_pool_acquire</name>
+        <param>
+          <type><ref refid="structEDF__pool__t" kindref="compound">EDF_pool_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <briefdescription>
+<para>Acquires a free block from a pool. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The returned pool block contains undefined data.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the pool structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the allocated block, or NULL if no free blocks. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c" line="166" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c" bodystart="166" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="edf__pool_8c_1a27a004b99c811ac20de35198185d3f83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_pool_release</definition>
+        <argsstring>(EDF_pool_t *me, void *block)</argsstring>
+        <name>EDF_pool_release</name>
+        <param>
+          <type><ref refid="structEDF__pool__t" kindref="compound">EDF_pool_t</ref> *</type>
+          <declname>me</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>block</declname>
+        </param>
+        <briefdescription>
+<para>Releases a pool block. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">me</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the pool structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the block to release. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c" line="220" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c" bodystart="220" bodyend="238"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/src/edf_pool.c"/>
+  </compounddef>
+</doxygen>

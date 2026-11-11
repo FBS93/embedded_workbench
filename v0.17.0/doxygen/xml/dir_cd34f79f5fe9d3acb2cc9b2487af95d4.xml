@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_cd34f79f5fe9d3acb2cc9b2487af95d4" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/src/framework/src</compoundname>
+    <innerfile refid="edf__active__object_8c">edf_active_object.c</innerfile>
+    <innerfile refid="edf__event_8c">edf_event.c</innerfile>
+    <innerfile refid="edf__event__queue_8c">edf_event_queue.c</innerfile>
+    <innerfile refid="edf__framework_8c">edf_framework.c</innerfile>
+    <innerfile refid="edf__hsm_8c">edf_hsm.c</innerfile>
+    <innerfile refid="edf__pool_8c">edf_pool.c</innerfile>
+    <innerfile refid="edf__time__event_8c">edf_time_event.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/src/"/>
+  </compounddef>
+</doxygen>

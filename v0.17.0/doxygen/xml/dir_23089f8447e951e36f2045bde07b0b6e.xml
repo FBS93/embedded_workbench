@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_23089f8447e951e36f2045bde07b0b6e" kind="dir">
+    <compoundname>sw/ecf</compoundname>
+    <innerdir refid="dir_1763ccf680a6bfd4d2f90785db908a1e">sw/ecf/embedded_assert_framework</innerdir>
+    <innerdir refid="dir_8455eb7ffad68415393e4f3e8477bb49">sw/ecf/embedded_base_framework</innerdir>
+    <innerdir refid="dir_c8c248c78292d33d136898359c7bcb48">sw/ecf/embedded_fake_framework</innerdir>
+    <innerdir refid="dir_76bdf1236c870ada8e3cb8df008e5033">sw/ecf/embedded_middleware_framework</innerdir>
+    <innerdir refid="dir_16604aff1dc7e6aea12f63d93dc5df23">sw/ecf/embedded_platform_framework</innerdir>
+    <innerdir refid="dir_35c3f0324748fc6e81c140226abe5430">sw/ecf/embedded_test_framework</innerdir>
+    <innerdir refid="dir_72a981b9314f14af5b156a8578978205">sw/ecf/event_driven_framework</innerdir>
+    <innerdir refid="dir_88c7320252908f545e37670b090d8ede">sw/ecf/platform</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_89aa83eb3336ce2c1c39256008930f38" kind="dir">
+    <compoundname>sw/ecf/embedded_middleware_framework/src/emf_cobs</compoundname>
+    <innerdir refid="dir_2de53c796769da83b34901ecc29d5ad7">sw/ecf/embedded_middleware_framework/src/emf_cobs/inc</innerdir>
+    <innerdir refid="dir_e46e95adddf7e4f426b07e6ddf8cb12c">sw/ecf/embedded_middleware_framework/src/emf_cobs/src</innerdir>
+    <innerdir refid="dir_3fc6efee5834cf0dbdde57d3a2b40d80">sw/ecf/embedded_middleware_framework/src/emf_cobs/test</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/"/>
+  </compounddef>
+</doxygen>

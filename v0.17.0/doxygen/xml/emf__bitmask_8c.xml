@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__bitmask_8c" kind="file" language="C++">
+    <compoundname>emf_bitmask.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="emf__bitmask_8h" local="yes">emf_bitmask.h</includes>
+    <includes refid="ebf__utils_8h" local="yes">ebf_utils.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ebf_utils.h</label>
+        <link refid="ebf__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>emf_bitmask.h</label>
+        <link refid="emf__bitmask_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c</label>
+        <link refid="emf__bitmask_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__bitmask_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" line="52" column="1" declfile="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" declline="52" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__bitmask_8c_1a2330d97fcf1518a012de5d90e847802c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_bitmask_clearAll</definition>
+        <argsstring>(uint8_t *bitmask, uint8_t len)</argsstring>
+        <name>EMF_bitmask_clearAll</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bitmask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Clears all bits in the bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the bitmask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the bitmask in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" line="74" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" bodystart="74" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__bitmask_8c_1a51a8bb9119c2673598b8dec37faee7a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EMF_bitmask_isAnySet</definition>
+        <argsstring>(const uint8_t *bitmask, uint8_t len)</argsstring>
+        <name>EMF_bitmask_isAnySet</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>bitmask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Checks if any bit is set in the bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the bitmask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the bitmask in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if at least one bit is set, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" line="87" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" bodystart="87" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__bitmask_8c_1ad5cde05c12cda1821539120f1ef84b20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EMF_bitmask_isBitSet</definition>
+        <argsstring>(const uint8_t *bitmask, uint8_t bit_pos)</argsstring>
+        <name>EMF_bitmask_isBitSet</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>bitmask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bit_pos</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a specific bit is set in the bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the bitmask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">bit_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit position (1-based index). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the bit is set, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" line="108" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" bodystart="108" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__bitmask_8c_1a1f42d1a2bc37c4519dab49a4ab1c3d26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_bitmask_setBit</definition>
+        <argsstring>(uint8_t *bitmask, uint8_t bit_pos)</argsstring>
+        <name>EMF_bitmask_setBit</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bitmask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bit_pos</declname>
+        </param>
+        <briefdescription>
+<para>Sets a specific bit in the bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the bitmask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">bit_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit position (1-based index). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" line="124" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" bodystart="124" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__bitmask_8c_1aaa26303520393ffa364d294c8f7d481f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_bitmask_clearBit</definition>
+        <argsstring>(uint8_t *bitmask, uint8_t bit_pos)</argsstring>
+        <name>EMF_bitmask_clearBit</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bitmask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bit_pos</declname>
+        </param>
+        <briefdescription>
+<para>Clears a specific bit in the bitmask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the bitmask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">bit_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit position (1-based index). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" line="140" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" bodystart="140" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__bitmask_8c_1af098ff5e898d70159b6102b793b8a4e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t EMF_bitmask_findMax</definition>
+        <argsstring>(const uint8_t *bitmask, uint8_t len)</argsstring>
+        <name>EMF_bitmask_findMax</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>bitmask</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Finds the set bit with the highest priority. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">bitmask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the bitmask. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the bitmask in bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Position (1-based index) of the highest-priority set bit, or 0 if empty. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" line="156" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c" bodystart="156" bodyend="177"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_bitmask/src/emf_bitmask.c"/>
+  </compounddef>
+</doxygen>

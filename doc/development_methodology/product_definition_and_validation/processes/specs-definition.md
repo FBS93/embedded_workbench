@@ -33,7 +33,7 @@ Define project specifications from stakeholder specifications.
 
 Every PDF file consumed from the stakeholder specifications shall be processed using the [pdf-to-markdown skill](../../../../.opencode/skills/pdf-to-markdown/SKILL.md) before its generated Markdown is consumed.
 
-For a source PDF at `spec/stakeholder_spec/<relative path>/<document basename>.pdf`, the generated Markdown shall be written to `spec/stakeholder_spec_parsed/<relative path>/<document basename>.md`. The relative path and basename shall be preserved exactly, replacing only the `.pdf` extension with `.md`.
+For a source PDF at `pdv/spec/stakeholder_spec/<relative path>/<document basename>.pdf`, the generated Markdown shall be written to `pdv/spec/stakeholder_spec_parsed/<relative path>/<document basename>.md`. The relative path and basename shall be preserved exactly, replacing only the `.pdf` extension with `.md`.
 
 ### Specifications work product
 

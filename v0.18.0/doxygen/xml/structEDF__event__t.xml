@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__event__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_event_t</compoundname>
+    <includes refid="edf__event_8h" local="no">edf_event.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__event__t_1aaedd456489612e92ff32d936cae0b134" prot="public" static="no" mutable="no">
+        <type>EDF_event_signal_t</type>
+        <definition>EDF_event_signal_t EDF_event_t::sig</definition>
+        <argsstring></argsstring>
+        <name>sig</name>
+        <qualifiedname>EDF_event_t::sig</qualifiedname>
+        <briefdescription>
+<para>Event signal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="78" column="22" bodyfile="sw/ecf/event_driven_framework/inc/edf_event.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__event__t_1a8d9ca69008b03ac4d3ad382ed4b561e6" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_event_t::pool_num</definition>
+        <argsstring></argsstring>
+        <name>pool_num</name>
+        <qualifiedname>EDF_event_t::pool_num</qualifiedname>
+        <briefdescription>
+<para>Pool number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="79" column="11" bodyfile="sw/ecf/event_driven_framework/inc/edf_event.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__event__t_1a1e35c6c9c18b0e4503317f02fe7b57c5" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_event_t::ref_cnt</definition>
+        <argsstring></argsstring>
+        <name>ref_cnt</name>
+        <qualifiedname>EDF_event_t::ref_cnt</qualifiedname>
+        <briefdescription>
+<para>Reference counter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="80" column="11" bodyfile="sw/ecf/event_driven_framework/inc/edf_event.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Event signal type. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Event structure. </para>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/inc/edf_event.h" line="76" column="1" bodyfile="sw/ecf/event_driven_framework/inc/edf_event.h" bodystart="77" bodyend="81"/>
+    <listofallmembers>
+      <member refid="structEDF__event__t_1a8d9ca69008b03ac4d3ad382ed4b561e6" prot="public" virt="non-virtual"><scope>EDF_event_t</scope><name>pool_num</name></member>
+      <member refid="structEDF__event__t_1a1e35c6c9c18b0e4503317f02fe7b57c5" prot="public" virt="non-virtual"><scope>EDF_event_t</scope><name>ref_cnt</name></member>
+      <member refid="structEDF__event__t_1aaedd456489612e92ff32d936cae0b134" prot="public" virt="non-virtual"><scope>EDF_event_t</scope><name>sig</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

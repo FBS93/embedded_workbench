@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_9a0eb92c4f4838dbdfa9a8ec50f1b396" kind="dir">
+    <compoundname>sw/ecf/platform/stm32f103c8tx/stdio</compoundname>
+    <innerdir refid="dir_7927c137f7bc6a0dc4d949f157d5dc60">sw/ecf/platform/stm32f103c8tx/stdio/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/platform/stm32f103c8tx/stdio/"/>
+  </compounddef>
+</doxygen>

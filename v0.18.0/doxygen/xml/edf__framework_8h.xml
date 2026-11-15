@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="edf__framework_8h" kind="file" language="C++">
+    <compoundname>edf_framework.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="yes">edf_config.h</includes>
+    <includes refid="edf__active__object_8h" local="yes">edf_active_object.h</includes>
+    <includes refid="edf__event_8h" local="yes">edf_event.h</includes>
+    <includes refid="edf__pool_8h" local="yes">edf_pool.h</includes>
+    <includes refid="edf__time__event_8h" local="yes">edf_time_event.h</includes>
+    <includedby refid="baremetal_2arm__cortex__m_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</includedby>
+    <includedby refid="os_2posix__non__preemptive_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</includedby>
+    <includedby refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</includedby>
+    <includedby refid="os_2posix__preemptive_2src_2edf__core_8c" local="yes">sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</includedby>
+    <includedby refid="edf__active__object_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</includedby>
+    <includedby refid="edf__event_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_event.c</includedby>
+    <includedby refid="edf__framework_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_framework.c</includedby>
+    <includedby refid="edf__pool_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_pool.c</includedby>
+    <includedby refid="edf__time__event_8c" local="yes">sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>edf_active_object.h</label>
+        <link refid="edf__active__object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>edf_event.h</label>
+        <link refid="edf__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>edf_event_queue.h</label>
+        <link refid="edf__event__queue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>edf_hsm.h</label>
+        <link refid="edf__hsm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>edf_pool.h</label>
+        <link refid="edf__pool_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>edf_time_event.h</label>
+        <link refid="edf__time__event_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FreeRTOS.h</label>
+      </node>
+      <node id="10">
+        <label>ebf_config.h</label>
+      </node>
+      <node id="3">
+        <label>edf_config.h</label>
+      </node>
+      <node id="13">
+        <label>queue.h</label>
+      </node>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>task.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/src/core/baremetal/arm_cortex_m/src/edf_core.c</label>
+        <link refid="baremetal_2arm__cortex__m_2src_2edf__core_8c"/>
+      </node>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="4">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_non_preemptive_fuzz/src/edf_core.c</label>
+        <link refid="os_2posix__non__preemptive__fuzz_2src_2edf__core_8c"/>
+      </node>
+      <node id="5">
+        <label>sw/ecf/event_driven_framework/src/core/os/posix_preemptive/src/edf_core.c</label>
+        <link refid="os_2posix__preemptive_2src_2edf__core_8c"/>
+      </node>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h</label>
+        <link refid="edf__framework_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_active_object.c</label>
+        <link refid="edf__active__object_8c"/>
+      </node>
+      <node id="7">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_event.c</label>
+        <link refid="edf__event_8c"/>
+      </node>
+      <node id="8">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_framework.c</label>
+        <link refid="edf__framework_8c"/>
+      </node>
+      <node id="9">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_pool.c</label>
+        <link refid="edf__pool_8c"/>
+      </node>
+      <node id="10">
+        <label>sw/ecf/event_driven_framework/src/framework/src/edf_time_event.c</label>
+        <link refid="edf__time__event_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structEDF__subscriberRegistry__t" prot="public">EDF_subscriberRegistry_t</innerclass>
+    <innerclass refid="structEDF__poolRegistry__t" prot="public">EDF_poolRegistry_t</innerclass>
+    <innerclass refid="structEDF__timeEventRegistry__t" prot="public">EDF_timeEventRegistry_t</innerclass>
+    <innerclass refid="structEDF__framework__t" prot="public">EDF_framework_t</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="edf__framework_8h_1aa71bd6cdc8adc017c71054575866afb5" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="structEDF__framework__t" kindref="compound">EDF_framework_t</ref></type>
+        <definition>EDF_framework_t EDF_framework</definition>
+        <argsstring></argsstring>
+        <name>EDF_framework</name>
+        <briefdescription>
+<para>Instance of EDF_framework. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This variable is public to allow core/port specific implementations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="133" column="24" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_framework.c" bodystart="56" bodyend="-1" declfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" declline="133" declcolumn="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="edf__framework_8h_1ac3a4dfa07da66e5e5559e8eb2eb5480c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EDF_framework_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>EDF_framework_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the EDF framework registries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This function must be called once before using any EDF framework feature. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" line="145" column="6" bodyfile="sw/ecf/event_driven_framework/src/framework/src/edf_framework.c" bodystart="74" bodyend="82" declfile="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h" declline="145" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/inc/edf_framework.h"/>
+  </compounddef>
+</doxygen>

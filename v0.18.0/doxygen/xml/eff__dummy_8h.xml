@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="eff__dummy_8h" kind="file" language="C++">
+    <compoundname>eff_dummy.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h</label>
+        <link refid="eff__dummy_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="eff__dummy_8h_1a4b0b901b65057c7e0795e7e9cc10e539" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void effDummy_storeSample</definition>
+        <argsstring>(const uint8_t *input_buffer, uint16_t *output_value)</argsstring>
+        <name>effDummy_storeSample</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>input_buffer</declname>
+        </param>
+        <param>
+          <type>uint16_t *</type>
+          <declname>output_value</declname>
+        </param>
+        <briefdescription>
+<para>Stores a sample buffer into an output location. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">input_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input sample buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">output_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the output storage location. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h" line="57" column="6" declfile="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h" declline="57" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="eff__dummy_8h_1ae2c75af829107ff9f4f1ef8e5c1ad076" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t effDummy_measure</definition>
+        <argsstring>(uint8_t *sample_count, const uint8_t *sample_window)</argsstring>
+        <name>effDummy_measure</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>sample_count</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>sample_window</declname>
+        </param>
+        <briefdescription>
+<para>Measures a value using a sample counter and sample window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">sample_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the sample counter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">sample_window</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input sample window. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Measured value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h" line="66" column="9" declfile="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h" declline="66" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="eff__dummy_8h_1a1b031cef473ca46b628730690674e6c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t *</type>
+        <definition>uint16_t * effDummy_selectBuffer</definition>
+        <argsstring>(uint16_t *candidate_buffers, const uint16_t *reference_buffer)</argsstring>
+        <name>effDummy_selectBuffer</name>
+        <param>
+          <type>uint16_t *</type>
+          <declname>candidate_buffers</declname>
+        </param>
+        <param>
+          <type>const uint16_t *</type>
+          <declname>reference_buffer</declname>
+        </param>
+        <briefdescription>
+<para>Selects a candidate buffer using a reference buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">candidate_buffers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the candidate buffer array. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">reference_buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the reference buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the selected candidate buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h" line="75" column="10" declfile="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h" declline="75" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="eff__dummy_8h_1a164c8ccf464ee070fc9e1b5f54a8d02e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void effDummy_registerCallback</definition>
+        <argsstring>(void(*callback)(uint8_t status, const uint8_t *payload))</argsstring>
+        <name>effDummy_registerCallback</name>
+        <param>
+          <type>void(*)(uint8_t status, const uint8_t *payload)</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Registers a callback used by the dummy module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback function to register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h" line="83" column="6" declfile="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h" declline="83" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_fake_framework/test/inc/eff_dummy.h"/>
+  </compounddef>
+</doxygen>

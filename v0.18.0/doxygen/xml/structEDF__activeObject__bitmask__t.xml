@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__activeObject__bitmask__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_activeObject_bitmask_t</compoundname>
+    <includes refid="edf__active__object_8h" local="no">edf_active_object.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__activeObject__bitmask__t_1a0371ca26e978848c9a75879d8f381c6e" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_activeObject_bitmask_t::bitmask[(EDF_MAX_ACTIVE_OBJECT+7U)/8U]</definition>
+        <argsstring>[(EDF_MAX_ACTIVE_OBJECT+7U)/8U]</argsstring>
+        <name>bitmask</name>
+        <qualifiedname>EDF_activeObject_bitmask_t::bitmask</qualifiedname>
+        <briefdescription>
+<para>Bitmask indicating active objects using their priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_active_object.h" line="110" column="11" bodyfile="sw/ecf/event_driven_framework/inc/edf_active_object.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Bitmask of active objects. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/inc/edf_active_object.h" line="105" column="1" bodyfile="sw/ecf/event_driven_framework/inc/edf_active_object.h" bodystart="106" bodyend="111"/>
+    <listofallmembers>
+      <member refid="structEDF__activeObject__bitmask__t_1a0371ca26e978848c9a75879d8f381c6e" prot="public" virt="non-virtual"><scope>EDF_activeObject_bitmask_t</scope><name>bitmask</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

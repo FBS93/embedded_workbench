@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_59acfaa4a44736372ea7cca22c6b5e2b" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src</compoundname>
+    <innerfile refid="app_8c">app.c</innerfile>
+    <innerfile refid="exec__timer_8c">exec_timer.c</innerfile>
+    <innerfile refid="gpio__trace_8c">gpio_trace.c</innerfile>
+    <innerfile refid="arm__cortex__m__preemption__example_2src_2main_8c">main.c</innerfile>
+    <innerfile refid="tick__timer_8c">tick_timer.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/"/>
+  </compounddef>
+</doxygen>

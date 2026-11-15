@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_bc59a1c9941dbc76cf0b1e94be7e2c1b" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/src/framework/inc</compoundname>
+    <innerfile refid="edf__framework_8h">edf_framework.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/framework/inc/"/>
+  </compounddef>
+</doxygen>

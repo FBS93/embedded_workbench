@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="tick__timer_8h" kind="file" language="C++">
+    <compoundname>tick_timer.h</compoundname>
+    <includedby refid="app_8c" local="yes">sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</includedby>
+    <includedby refid="tick__timer_8c" local="yes">sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/tick_timer.c</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/tick_timer.h</label>
+        <link refid="tick__timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c</label>
+        <link refid="app_8c"/>
+      </node>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/tick_timer.c</label>
+        <link refid="tick__timer_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="tick__timer_8h_1a518ed37e2e0239493c53b5c900db9fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tickTimer_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>tickTimer_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize and start the 1 ms SysTick tick source. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/tick_timer.h" line="53" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/tick_timer.c" bodystart="71" bodyend="77" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/tick_timer.h" declline="53" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/tick_timer.h"/>
+  </compounddef>
+</doxygen>

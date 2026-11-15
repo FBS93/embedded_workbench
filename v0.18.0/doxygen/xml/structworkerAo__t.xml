@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structworkerAo__t" kind="struct" language="C++" prot="public">
+    <compoundname>workerAo_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structworkerAo__t_1af2967350f12d2646bf41449f07940827" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref></type>
+        <definition>EDF_activeObject_t workerAo_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>workerAo_t::super</qualifiedname>
+        <briefdescription>
+<para>Base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="88" column="22" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1abf4ba013ec28be0e7101ba3ea61e7de4" prot="public" static="no" mutable="no">
+        <type><ref refid="edf__event_8h_1ad3ce23e581fbb6e6edbfd96bec56d9aa" kindref="member">EDF_event_ptr</ref></type>
+        <definition>EDF_event_ptr workerAo_t::event_buff[APP_EVENT_BUFF_SIZE]</definition>
+        <argsstring>[APP_EVENT_BUFF_SIZE]</argsstring>
+        <name>event_buff</name>
+        <qualifiedname>workerAo_t::event_buff</qualifiedname>
+        <briefdescription>
+<para>Queue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="89" column="17" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1a3824490f8b5309e62973fd87787516f7" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__timeEvent__t" kindref="compound">EDF_timeEvent_t</ref></type>
+        <definition>EDF_timeEvent_t workerAo_t::activation_time_event</definition>
+        <argsstring></argsstring>
+        <name>activation_time_event</name>
+        <qualifiedname>workerAo_t::activation_time_event</qualifiedname>
+        <briefdescription>
+<para>Periodic activation time event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="90" column="19" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1ae4f1131d07ad1ec3fcb4fe3a49cc20ce" prot="public" static="no" mutable="no">
+        <type><ref refid="gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11" kindref="member">gpioTrace_channel_t</ref></type>
+        <definition>gpioTrace_channel_t workerAo_t::trace_channel</definition>
+        <argsstring></argsstring>
+        <name>trace_channel</name>
+        <qualifiedname>workerAo_t::trace_channel</qualifiedname>
+        <briefdescription>
+<para>GPIO channel used for tracing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="91" column="23" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1a4fef1efa1a513f8f5ff8a79e08158946" prot="public" static="no" mutable="no">
+        <type>EDF_event_signal_t</type>
+        <definition>EDF_event_signal_t workerAo_t::activation_sig</definition>
+        <argsstring></argsstring>
+        <name>activation_sig</name>
+        <qualifiedname>workerAo_t::activation_sig</qualifiedname>
+        <briefdescription>
+<para>Self activation signal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="92" column="22" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1aaa77d680256a82d86aaeddb0c249ce60" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t workerAo_t::first_delay_ms</definition>
+        <argsstring></argsstring>
+        <name>first_delay_ms</name>
+        <qualifiedname>workerAo_t::first_delay_ms</qualifiedname>
+        <briefdescription>
+<para>Initial release offset in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="93" column="12" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1a2e58fe2796a300e3622d32ae567cefa8" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t workerAo_t::period_ms</definition>
+        <argsstring></argsstring>
+        <name>period_ms</name>
+        <qualifiedname>workerAo_t::period_ms</qualifiedname>
+        <briefdescription>
+<para>Period in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="94" column="12" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1afc540a0940f5989ead6e826dbe568317" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t workerAo_t::execution_time_us</definition>
+        <argsstring></argsstring>
+        <name>execution_time_us</name>
+        <qualifiedname>workerAo_t::execution_time_us</qualifiedname>
+        <briefdescription>
+<para>Blocking execution time in microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="95" column="12" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1a4b909f35a428de60bb23248de951ce76" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t workerAo_t::execution_budget_ticks</definition>
+        <argsstring></argsstring>
+        <name>execution_budget_ticks</name>
+        <qualifiedname>workerAo_t::execution_budget_ticks</qualifiedname>
+        <briefdescription>
+<para>Execution budget in timer ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="96" column="12" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1a41f1bbe2cc7b1bc6caef269e26ef5078" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t workerAo_t::executed_ticks</definition>
+        <argsstring></argsstring>
+        <name>executed_ticks</name>
+        <qualifiedname>workerAo_t::executed_ticks</qualifiedname>
+        <briefdescription>
+<para>Accumulated execution time in timer ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="97" column="12" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1ae637565040d6fda81c02c0de706f0f9e" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t workerAo_t::resume_tick</definition>
+        <argsstring></argsstring>
+        <name>resume_tick</name>
+        <qualifiedname>workerAo_t::resume_tick</qualifiedname>
+        <briefdescription>
+<para>Tick at which the current execution slice started. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="98" column="12" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1ae48a23b9333fc8b78f5764691d6975ae" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool workerAo_t::execution_active</definition>
+        <argsstring></argsstring>
+        <name>execution_active</name>
+        <qualifiedname>workerAo_t::execution_active</qualifiedname>
+        <briefdescription>
+<para>True while the AO trace pulse is active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="100" column="8" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structworkerAo__t_1ae195b60fafa0db45ace149117603e052" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool workerAo_t::execution_counting</definition>
+        <argsstring></argsstring>
+        <name>execution_counting</name>
+        <qualifiedname>workerAo_t::execution_counting</qualifiedname>
+        <briefdescription>
+<para>True while execution time is being counted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="101" column="8" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="101" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Generic worker active object used by the dummy application. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="3">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>EDF_timeEvent_t</label>
+        <link refid="structEDF__timeEvent__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ao</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>workerAo_t</label>
+        <link refid="structworkerAo__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>event_buff</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>activation_time_event</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" line="86" column="1" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/app.c" bodystart="87" bodyend="102"/>
+    <listofallmembers>
+      <member refid="structworkerAo__t_1a4fef1efa1a513f8f5ff8a79e08158946" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>activation_sig</name></member>
+      <member refid="structworkerAo__t_1a3824490f8b5309e62973fd87787516f7" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>activation_time_event</name></member>
+      <member refid="structworkerAo__t_1abf4ba013ec28be0e7101ba3ea61e7de4" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>event_buff</name></member>
+      <member refid="structworkerAo__t_1a41f1bbe2cc7b1bc6caef269e26ef5078" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>executed_ticks</name></member>
+      <member refid="structworkerAo__t_1ae48a23b9333fc8b78f5764691d6975ae" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>execution_active</name></member>
+      <member refid="structworkerAo__t_1a4b909f35a428de60bb23248de951ce76" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>execution_budget_ticks</name></member>
+      <member refid="structworkerAo__t_1ae195b60fafa0db45ace149117603e052" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>execution_counting</name></member>
+      <member refid="structworkerAo__t_1afc540a0940f5989ead6e826dbe568317" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>execution_time_us</name></member>
+      <member refid="structworkerAo__t_1aaa77d680256a82d86aaeddb0c249ce60" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>first_delay_ms</name></member>
+      <member refid="structworkerAo__t_1a2e58fe2796a300e3622d32ae567cefa8" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>period_ms</name></member>
+      <member refid="structworkerAo__t_1ae637565040d6fda81c02c0de706f0f9e" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>resume_tick</name></member>
+      <member refid="structworkerAo__t_1af2967350f12d2646bf41449f07940827" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>super</name></member>
+      <member refid="structworkerAo__t_1ae4f1131d07ad1ec3fcb4fe3a49cc20ce" prot="public" virt="non-virtual"><scope>workerAo_t</scope><name>trace_channel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDF__activeObject__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDF_activeObject_t</compoundname>
+    <includes refid="edf__active__object_8h" local="no">edf_active_object.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDF__activeObject__t_1a09a3b633aa3adc1a73eaf4e545a88c7f" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__hsm__t" kindref="compound">EDF_hsm_t</ref></type>
+        <definition>EDF_hsm_t EDF_activeObject_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>EDF_activeObject_t::super</qualifiedname>
+        <briefdescription>
+<para>Base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_active_object.h" line="85" column="13" bodyfile="sw/ecf/event_driven_framework/inc/edf_active_object.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__activeObject__t_1ae01ab7ca2f3cf5afc790a16b00f06ae4" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_activeObject_t::prio</definition>
+        <argsstring></argsstring>
+        <name>prio</name>
+        <qualifiedname>EDF_activeObject_t::prio</qualifiedname>
+        <briefdescription>
+<para>Priority of the active object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_active_object.h" line="86" column="11" bodyfile="sw/ecf/event_driven_framework/inc/edf_active_object.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__activeObject__t_1aa652748484ae19f6dbb571ab5816f9a6" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t EDF_activeObject_t::pthre</definition>
+        <argsstring></argsstring>
+        <name>pthre</name>
+        <qualifiedname>EDF_activeObject_t::pthre</qualifiedname>
+        <briefdescription>
+<para>Preemption threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_active_object.h" line="87" column="11" bodyfile="sw/ecf/event_driven_framework/inc/edf_active_object.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDF__activeObject__t_1ac09c5bf3474bc1fcecdd60ee7aed5dd4" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__eventQueue__t" kindref="compound">EDF_eventQueue_t</ref></type>
+        <definition>EDF_eventQueue_t EDF_activeObject_t::e_queue</definition>
+        <argsstring></argsstring>
+        <name>e_queue</name>
+        <qualifiedname>EDF_activeObject_t::e_queue</qualifiedname>
+        <briefdescription>
+<para>Event queue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/inc/edf_active_object.h" line="89" column="20" bodyfile="sw/ecf/event_driven_framework/inc/edf_active_object.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Active object structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="2">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/inc/edf_active_object.h" line="83" column="1" bodyfile="sw/ecf/event_driven_framework/inc/edf_active_object.h" bodystart="84" bodyend="100"/>
+    <listofallmembers>
+      <member refid="structEDF__activeObject__t_1ac09c5bf3474bc1fcecdd60ee7aed5dd4" prot="public" virt="non-virtual"><scope>EDF_activeObject_t</scope><name>e_queue</name></member>
+      <member refid="structEDF__activeObject__t_1ae01ab7ca2f3cf5afc790a16b00f06ae4" prot="public" virt="non-virtual"><scope>EDF_activeObject_t</scope><name>prio</name></member>
+      <member refid="structEDF__activeObject__t_1aa652748484ae19f6dbb571ab5816f9a6" prot="public" virt="non-virtual"><scope>EDF_activeObject_t</scope><name>pthre</name></member>
+      <member refid="structEDF__activeObject__t_1a09a3b633aa3adc1a73eaf4e545a88c7f" prot="public" virt="non-virtual"><scope>EDF_activeObject_t</scope><name>super</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

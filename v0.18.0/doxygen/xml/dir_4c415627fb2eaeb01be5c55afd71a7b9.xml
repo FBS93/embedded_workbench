@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_4c415627fb2eaeb01be5c55afd71a7b9" kind="dir">
+    <compoundname>sw/ecf/embedded_middleware_framework/src</compoundname>
+    <innerdir refid="dir_1a13c92b839ee3e6b61d50b103d09720">sw/ecf/embedded_middleware_framework/src/emf_array_fifo</innerdir>
+    <innerdir refid="dir_841a56acea6b39e9925055a1ad1cebc6">sw/ecf/embedded_middleware_framework/src/emf_bitmask</innerdir>
+    <innerdir refid="dir_104320396b92705214f0579526a2ecfe">sw/ecf/embedded_middleware_framework/src/emf_byte_fifo</innerdir>
+    <innerdir refid="dir_89aa83eb3336ce2c1c39256008930f38">sw/ecf/embedded_middleware_framework/src/emf_cobs</innerdir>
+    <innerdir refid="dir_c1373100961b8908e4648fc0b4c6649b">sw/ecf/embedded_middleware_framework/src/emf_crc</innerdir>
+    <innerdir refid="dir_251bd84082a482a2bbbb649c188c9a5b">sw/ecf/embedded_middleware_framework/src/emf_endian</innerdir>
+    <innerdir refid="dir_4e84f1e4a27800d4ab6ace6968b95bf7">sw/ecf/embedded_middleware_framework/src/emf_log</innerdir>
+    <innerdir refid="dir_28d52ba36cc070f03f67c8d06365c16b">sw/ecf/embedded_middleware_framework/src/emf_print</innerdir>
+    <innerdir refid="dir_867b5346d257dadcca1a1149cbd2e8e6">sw/ecf/embedded_middleware_framework/src/emf_test_report</innerdir>
+    <innerdir refid="dir_d66725549e42f36b685952a41fae8ff5">sw/ecf/embedded_middleware_framework/src/emf_utils</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/"/>
+  </compounddef>
+</doxygen>

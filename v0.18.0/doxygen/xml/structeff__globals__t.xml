@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structeff__globals__t" kind="struct" language="C++" prot="public">
+    <compoundname>eff_globals_t</compoundname>
+    <includes refid="eff_8h" local="no">eff.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeff__globals__t_1a7dbdbd81a4d9d05f50671dc5d0196050" prot="public" static="no" mutable="no">
+        <type><ref refid="eff_8h_1ad6c4be434f0b0441d80bdba7d8d4f64e" kindref="member">eff_function_t</ref></type>
+        <definition>eff_function_t eff_globals_t::call_history[EFF_CALL_HISTORY_LEN]</definition>
+        <argsstring>[EFF_CALL_HISTORY_LEN]</argsstring>
+        <name>call_history</name>
+        <qualifiedname>eff_globals_t::call_history</qualifiedname>
+        <briefdescription>
+<para>Array of called functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1924" column="18" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1924" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeff__globals__t_1a6a1a25edc64f16568d3653cfe38f5664" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int eff_globals_t::call_history_idx</definition>
+        <argsstring></argsstring>
+        <name>call_history_idx</name>
+        <qualifiedname>eff_globals_t::call_history_idx</qualifiedname>
+        <briefdescription>
+<para>call_history index </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1926" column="16" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1926" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Structure holding global call history information. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Stores an array of function pointers representing the call history of fake functions, along with the current index. </para>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_fake_framework/inc/eff.h" line="1922" column="1" bodyfile="sw/ecf/embedded_fake_framework/inc/eff.h" bodystart="1923" bodyend="1927"/>
+    <listofallmembers>
+      <member refid="structeff__globals__t_1a7dbdbd81a4d9d05f50671dc5d0196050" prot="public" virt="non-virtual"><scope>eff_globals_t</scope><name>call_history</name></member>
+      <member refid="structeff__globals__t_1a6a1a25edc64f16568d3653cfe38f5664" prot="public" virt="non-virtual"><scope>eff_globals_t</scope><name>call_history_idx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

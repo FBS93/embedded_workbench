@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="stm32f103c8tx__registers_8h" kind="file" language="C++">
+    <compoundname>stm32f103c8tx_registers.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="exec__timer_8c" local="yes">sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c</includedby>
+    <includedby refid="gpio__trace_8c" local="yes">sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c</includedby>
+    <includedby refid="tick__timer_8c" local="yes">sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/tick_timer.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h</label>
+        <link refid="stm32f103c8tx__registers_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h</label>
+        <link refid="stm32f103c8tx__registers_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/exec_timer.c</label>
+        <link refid="exec__timer_8c"/>
+      </node>
+      <node id="3">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/gpio_trace.c</label>
+        <link refid="gpio__trace_8c"/>
+      </node>
+      <node id="4">
+        <label>sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/src/tick_timer.c</label>
+        <link refid="tick__timer_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a0e681b03f364532055d88f63fec0d99d" prot="public" static="no">
+        <name>RCC_BASE</name>
+        <initializer>0x40021000UL</initializer>
+        <briefdescription>
+<para>Base address of the RCC register block. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="42" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a6d4cd87f49d551c356fed82cbbddc5a4" prot="public" static="no">
+        <name>RCC_APB2ENR</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1a0e681b03f364532055d88f63fec0d99d" kindref="member">RCC_BASE</ref> + 0x18U))</initializer>
+        <briefdescription>
+<para>RCC APB2 peripheral clock enable register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="49" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1ad4baa1f26b04719fe3d4e2f02d7dde40" prot="public" static="no">
+        <name>RCC_APB1ENR</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1a0e681b03f364532055d88f63fec0d99d" kindref="member">RCC_BASE</ref> + 0x1CU))</initializer>
+        <briefdescription>
+<para>RCC APB1 peripheral clock enable register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="56" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1aa9ba85777143e752841c2e6a6977deb9" prot="public" static="no">
+        <name>RCC_APB2ENR_IOPBEN</name>
+        <initializer>(1U &lt;&lt; 3U)</initializer>
+        <briefdescription>
+<para>GPIOB clock enable bit in RCC_APB2ENR. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="61" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1acd3966a4d6ae47f06b3c095eaf26a610" prot="public" static="no">
+        <name>RCC_APB1ENR_TIM2EN</name>
+        <initializer>(1U &lt;&lt; 0U)</initializer>
+        <briefdescription>
+<para>TIM2 clock enable bit in RCC_APB1ENR. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="66" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1ac944a89eb789000ece920c0f89cb6a68" prot="public" static="no">
+        <name>GPIOB_BASE</name>
+        <initializer>0x40010C00UL</initializer>
+        <briefdescription>
+<para>Base address of the GPIOB register block. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="71" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a9d81eb770dba2e815811e92a63be8e86" prot="public" static="no">
+        <name>GPIOB_CRH</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1ac944a89eb789000ece920c0f89cb6a68" kindref="member">GPIOB_BASE</ref> + 0x04U))</initializer>
+        <briefdescription>
+<para>GPIOB control register high (pins 8-15). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="78" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a655fb7f4dc9f0c07c004e559c9697796" prot="public" static="no">
+        <name>GPIOB_BSRR</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1ac944a89eb789000ece920c0f89cb6a68" kindref="member">GPIOB_BASE</ref> + 0x10U))</initializer>
+        <briefdescription>
+<para>GPIOB bit set/reset register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="85" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a00d0fe6ad532ab32f0f81cafca8d3aa5" prot="public" static="no">
+        <name>TIM2_BASE</name>
+        <initializer>0x40000000UL</initializer>
+        <briefdescription>
+<para>Base address of the TIM2 register block. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="90" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1ab24fffc378e2c8b41357f644a85db741" prot="public" static="no">
+        <name>TIM2_CR1</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1a00d0fe6ad532ab32f0f81cafca8d3aa5" kindref="member">TIM2_BASE</ref> + 0x00U))</initializer>
+        <briefdescription>
+<para>TIM2 control register 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="97" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a20a254ef5effa48e066764ef61f2b8db" prot="public" static="no">
+        <name>TIM2_EGR</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1a00d0fe6ad532ab32f0f81cafca8d3aa5" kindref="member">TIM2_BASE</ref> + 0x14U))</initializer>
+        <briefdescription>
+<para>TIM2 event generation register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="104" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1adaca4b7a298da08c4795d6a1177c1abe" prot="public" static="no">
+        <name>TIM2_CNT</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1a00d0fe6ad532ab32f0f81cafca8d3aa5" kindref="member">TIM2_BASE</ref> + 0x24U))</initializer>
+        <briefdescription>
+<para>TIM2 counter register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="111" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1af0e1e8b150a6a80588c2de7b4abe1994" prot="public" static="no">
+        <name>TIM2_PSC</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1a00d0fe6ad532ab32f0f81cafca8d3aa5" kindref="member">TIM2_BASE</ref> + 0x28U))</initializer>
+        <briefdescription>
+<para>TIM2 prescaler register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="118" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a7e23a551449bab7a29e421d494b5fb4f" prot="public" static="no">
+        <name>TIM2_ARR</name>
+        <initializer>(*(volatile uint32_t*)(<ref refid="stm32f103c8tx__registers_8h_1a00d0fe6ad532ab32f0f81cafca8d3aa5" kindref="member">TIM2_BASE</ref> + 0x2CU))</initializer>
+        <briefdescription>
+<para>TIM2 auto-reload register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="125" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a93d86355e5e3b399ed45e1ca83abed2a" prot="public" static="no">
+        <name>TIM_CR1_CEN</name>
+        <initializer>(1U &lt;&lt; 0U)</initializer>
+        <briefdescription>
+<para>TIM enable bit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="130" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a16f52a8e9aad153223405b965566ae91" prot="public" static="no">
+        <name>TIM_EGR_UG</name>
+        <initializer>(1U &lt;&lt; 0U)</initializer>
+        <briefdescription>
+<para>TIM update generation bit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="135" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1ab26b3fc75982181f81b185b206e897f6" prot="public" static="no">
+        <name>SYST_CSR</name>
+        <initializer>(*(volatile uint32_t*)0xE000E010UL)</initializer>
+        <briefdescription>
+<para>SysTick control and status register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="142" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1a4e8efcc1f2b551dbf3cb0aae1231e380" prot="public" static="no">
+        <name>SYST_RVR</name>
+        <initializer>(*(volatile uint32_t*)0xE000E014UL)</initializer>
+        <briefdescription>
+<para>SysTick reload value register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="149" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1ae3dc4d2dbfdf38c593a5581415fecfed" prot="public" static="no">
+        <name>SYST_CVR</name>
+        <initializer>(*(volatile uint32_t*)0xE000E018UL)</initializer>
+        <briefdescription>
+<para>SysTick current value register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: hardware_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="156" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1aa06233914534ab86fb517b840264d7ae" prot="public" static="no">
+        <name>SYST_CSR_ENABLE</name>
+        <initializer>(1U &lt;&lt; 0U)</initializer>
+        <briefdescription>
+<para>SysTick enable bit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="161" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1adcb26bdee87d532910c6c3510988be78" prot="public" static="no">
+        <name>SYST_CSR_TICKINT</name>
+        <initializer>(1U &lt;&lt; 1U)</initializer>
+        <briefdescription>
+<para>SysTick interrupt enable bit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="166" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="stm32f103c8tx__registers_8h_1af73485753224fac0ed8119ec18e424fb" prot="public" static="no">
+        <name>SYST_CSR_CLKSOURCE</name>
+        <initializer>(1U &lt;&lt; 2U)</initializer>
+        <briefdescription>
+<para>SysTick processor clock source bit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" line="171" column="9" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_preemption_example/inc/stm32f103c8tx_registers.h"/>
+  </compounddef>
+</doxygen>

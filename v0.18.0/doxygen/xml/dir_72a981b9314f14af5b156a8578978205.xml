@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_72a981b9314f14af5b156a8578978205" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework</compoundname>
+    <innerdir refid="dir_e159dfe61fefabdae60962454075e233">sw/ecf/event_driven_framework/edf_test</innerdir>
+    <innerdir refid="dir_5f18bf52164e568dc332b2f99c20c34c">sw/ecf/event_driven_framework/examples</innerdir>
+    <innerdir refid="dir_cf32203fa003f7f87913412f231bc2e2">sw/ecf/event_driven_framework/inc</innerdir>
+    <innerdir refid="dir_22ef66d1777319063c47e232f7956c55">sw/ecf/event_driven_framework/src</innerdir>
+    <innerdir refid="dir_5a78ea906f701f4c5404d83101cc573f">sw/ecf/event_driven_framework/test</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhsm__t" kind="struct" language="C++" prot="public">
+    <compoundname>hsm_t</compoundname>
+    <includes refid="hsm_8h" local="no">hsm.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhsm__t_1ac8009260e6ace087a28103ede8b3b58a" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDF__activeObject__t" kindref="compound">EDF_activeObject_t</ref></type>
+        <definition>EDF_activeObject_t hsm_t::super</definition>
+        <argsstring></argsstring>
+        <name>super</name>
+        <qualifiedname>hsm_t::super</qualifiedname>
+        <briefdescription>
+<para>Base type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="51" column="22" bodyfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhsm__t_1a4f62ff46c3ed6b027ec2e7ba4b761aa6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool hsm_t::self_transition</definition>
+        <argsstring></argsstring>
+        <name>self_transition</name>
+        <qualifiedname>hsm_t::self_transition</qualifiedname>
+        <briefdescription>
+<para>Indicates whether the last transition is a self-transition or a child-to-parent transition followed by parent&apos;s init to child. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="56" column="8" bodyfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>hsm active object structure. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>Global for test access purposes. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>EDF_activeObject_t</label>
+        <link refid="structEDF__activeObject__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>e_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>EDF_eventQueue_t</label>
+        <link refid="structEDF__eventQueue__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>front_e</edgelabel>
+          <edgelabel>ring</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+      <node id="3">
+        <label>EDF_hsm_t</label>
+        <link refid="structEDF__hsm__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>current_state</edgelabel>
+          <edgelabel>temp_state</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>hsm_t</label>
+        <link refid="structhsm__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>super</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" line="49" column="1" bodyfile="sw/ecf/event_driven_framework/test/hsm/inc/hsm.h" bodystart="50" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structhsm__t_1a4f62ff46c3ed6b027ec2e7ba4b761aa6" prot="public" virt="non-virtual"><scope>hsm_t</scope><name>self_transition</name></member>
+      <member refid="structhsm__t_1ac8009260e6ace087a28103ede8b3b58a" prot="public" virt="non-virtual"><scope>hsm_t</scope><name>super</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

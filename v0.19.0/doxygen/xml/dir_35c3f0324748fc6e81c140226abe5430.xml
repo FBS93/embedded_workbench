@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_35c3f0324748fc6e81c140226abe5430" kind="dir">
+    <compoundname>sw/ecf/embedded_test_framework</compoundname>
+    <innerdir refid="dir_dd244baeca7aec6c4d84785fdd3f7fc9">sw/ecf/embedded_test_framework/inc</innerdir>
+    <innerdir refid="dir_9f4554e1b6edbff5a711bdc269635cb7">sw/ecf/embedded_test_framework/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_test_framework/"/>
+  </compounddef>
+</doxygen>

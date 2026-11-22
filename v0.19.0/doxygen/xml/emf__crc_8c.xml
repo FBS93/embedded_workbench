@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__crc_8c" kind="file" language="C++">
+    <compoundname>emf_crc.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="emf__crc_8h" local="yes">emf_crc.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>emf_crc.h</label>
+        <link refid="emf__crc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c</label>
+        <link refid="emf__crc_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="emf__crc_8c_1a85565a7b9f1ec670c38e569c48d585ca" prot="public" static="no">
+        <name>CRC16_CCITT_POLY</name>
+        <initializer>0x1021U</initializer>
+        <briefdescription>
+<para>Polynomial used for CRC-16-CCITT calculation (0x1021). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" line="42" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__crc_8c_1a29b8bee5fe44a916600ae2ead4f36531" prot="public" static="no">
+        <name>CRC16_CCITT_INIT_VALUE</name>
+        <initializer>0x0000U</initializer>
+        <briefdescription>
+<para>Initial CRC value for CRC-16-CCITT (0x0000). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" line="47" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__crc_8c_1adf148d93a836e27261c7cf1454722d24" prot="public" static="no">
+        <name>CRC16_WIDTH</name>
+        <initializer>16U</initializer>
+        <briefdescription>
+<para>Width of the CRC in bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" line="52" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="emf__crc_8c_1a194c1f2e2f9300a64f3c53ca7c0417fc" prot="public" static="no">
+        <name>CRC16_TOPBIT</name>
+        <initializer>(1U &lt;&lt; (<ref refid="emf__crc_8c_1adf148d93a836e27261c7cf1454722d24" kindref="member">CRC16_WIDTH</ref> - 1U))</initializer>
+        <briefdescription>
+<para>Top (most significant) bit mask for CRC width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" line="57" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__crc_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" line="70" column="1" declfile="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" declline="70" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__crc_8c_1a160d3bc8492c491592c2fa852c238409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t EMF_crc_16CCITT</definition>
+        <argsstring>(const uint8_t *data, uint16_t length)</argsstring>
+        <name>EMF_crc_16CCITT</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the 16-bit CCITT CRC of a data buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the input data buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes in the input data buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The computed 16-bit CRC value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" line="92" column="10" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c" bodystart="92" bodyend="122"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_crc/src/emf_crc.c"/>
+  </compounddef>
+</doxygen>

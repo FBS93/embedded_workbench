@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_cc95e9e6586e202d8f69bad7eba3d07a" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/src/core/baremetal/preemptive</compoundname>
+    <innerdir refid="dir_180ebc565b4f93892f817785dcc2a319">sw/ecf/event_driven_framework/src/core/baremetal/preemptive/arm_cortex_m</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/core/baremetal/preemptive/"/>
+  </compounddef>
+</doxygen>

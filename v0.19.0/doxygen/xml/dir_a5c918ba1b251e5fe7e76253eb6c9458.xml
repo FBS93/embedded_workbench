@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a5c918ba1b251e5fe7e76253eb6c9458" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption</compoundname>
+    <innerdir refid="dir_86b0ae55c7e24f13f7758093e730f7da">sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption/inc</innerdir>
+    <innerdir refid="dir_057b68fb08ff400579a22edeffba4e54">sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption/"/>
+  </compounddef>
+</doxygen>

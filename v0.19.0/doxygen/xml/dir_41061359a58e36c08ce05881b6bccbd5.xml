@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_41061359a58e36c08ce05881b6bccbd5" kind="dir">
+    <compoundname>sw/ecf/embedded_base_framework/src/core/baremetal</compoundname>
+    <innerdir refid="dir_df980b5e247b322dbb74adbc5538d54e">sw/ecf/embedded_base_framework/src/core/baremetal/arm_cortex_m</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_base_framework/src/core/baremetal/"/>
+  </compounddef>
+</doxygen>

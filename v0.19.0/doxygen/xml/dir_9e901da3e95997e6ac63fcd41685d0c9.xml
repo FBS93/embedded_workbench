@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_9e901da3e95997e6ac63fcd41685d0c9" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/examples/arm_cortex_m_example</compoundname>
+    <innerdir refid="dir_7d2dff63aab2e53aaed8e91543426da3">sw/ecf/event_driven_framework/examples/arm_cortex_m_example/inc</innerdir>
+    <innerdir refid="dir_58b43a1f0532543f8a3d85c27d4dc0e5">sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structEDFTest__testEntry__t" kind="struct" language="C++" prot="public">
+    <compoundname>EDFTest_testEntry_t</compoundname>
+    <includes refid="edf__test_8h" local="no">edf_test.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEDFTest__testEntry__t_1a8e9be1d1f7dda45d7e1b833d8792e434" prot="public" static="no" mutable="no">
+        <type><ref refid="structEDFTest__test__t" kindref="compound">EDFTest_test_t</ref></type>
+        <definition>EDFTest_test_t EDFTest_testEntry_t::test</definition>
+        <argsstring></argsstring>
+        <name>test</name>
+        <qualifiedname>EDFTest_testEntry_t::test</qualifiedname>
+        <briefdescription>
+<para>Test case definition. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/inc/edf_test.h" line="180" column="18" bodyfile="sw/ecf/event_driven_framework/edf_test/inc/edf_test.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEDFTest__testEntry__t_1a0a9dd31ea5b1ffdc1e8245518f9d49ab" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EDFTest_testEntry_t::skip</definition>
+        <argsstring></argsstring>
+        <name>skip</name>
+        <qualifiedname>EDFTest_testEntry_t::skip</qualifiedname>
+        <briefdescription>
+<para>Whether the test should be skipped. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/edf_test/inc/edf_test.h" line="181" column="8" bodyfile="sw/ecf/event_driven_framework/edf_test/inc/edf_test.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents an entry in the test suite. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>EDFTest_testEntry_t</label>
+        <link refid="structEDFTest__testEntry__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>test</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EDFTest_test_t</label>
+        <link refid="structEDFTest__test__t"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>test_verify</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EDF_event_t</label>
+        <link refid="structEDF__event__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/event_driven_framework/edf_test/inc/edf_test.h" line="178" column="1" bodyfile="sw/ecf/event_driven_framework/edf_test/inc/edf_test.h" bodystart="179" bodyend="182"/>
+    <listofallmembers>
+      <member refid="structEDFTest__testEntry__t_1a0a9dd31ea5b1ffdc1e8245518f9d49ab" prot="public" virt="non-virtual"><scope>EDFTest_testEntry_t</scope><name>skip</name></member>
+      <member refid="structEDFTest__testEntry__t_1a8e9be1d1f7dda45d7e1b833d8792e434" prot="public" virt="non-virtual"><scope>EDFTest_testEntry_t</scope><name>test</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

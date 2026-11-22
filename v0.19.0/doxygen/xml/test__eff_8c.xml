@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test__eff_8c" kind="file" language="C++">
+    <compoundname>test_eff.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="etf_8h" local="yes">etf.h</includes>
+    <includes local="yes">eff_dummy_mock.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>sw/ecf/embedded_fake_framework/test/src/test_eff.c</label>
+        <link refid="test__eff_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>etf.h</label>
+        <link refid="etf_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>eff_dummy_mock.h</label>
+      </node>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="test__eff_8c_1a16f99fbadd467cae303f3dff41f4960f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>DEFINE_EFF_GLOBALS</definition>
+        <argsstring></argsstring>
+        <name>DEFINE_EFF_GLOBALS</name>
+        <briefdescription>
+<para>EFF global state used by the generated fakes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/test/src/test_eff.c" line="53" column="1" bodyfile="sw/ecf/embedded_fake_framework/test/src/test_eff.c" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test__eff_8c_1a44e5622641a0ac7d82933a89eccec9a6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void dummy_callback</definition>
+        <argsstring>(uint8_t status, const uint8_t *payload)</argsstring>
+        <name>dummy_callback</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+<para>Dummy callback used to exercise callback mock arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Callback status value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">payload</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to callback payload data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/test/src/test_eff.c" line="73" column="13" bodyfile="sw/ecf/embedded_fake_framework/test/src/test_eff.c" bodystart="73" bodyend="77" declfile="sw/ecf/embedded_fake_framework/test/src/test_eff.c" declline="68" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="test__eff_8c_1adc6e297b8cf1b8c782544bec0ac3f55e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ETF_TEST_SUITE</definition>
+        <argsstring>(test_eff)</argsstring>
+        <name>ETF_TEST_SUITE</name>
+        <param>
+          <type>test_eff</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_fake_framework/test/src/test_eff.c" line="83" column="1" bodyfile="sw/ecf/embedded_fake_framework/test/src/test_eff.c" bodystart="83" bodyend="184"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_fake_framework/test/src/test_eff.c"/>
+  </compounddef>
+</doxygen>

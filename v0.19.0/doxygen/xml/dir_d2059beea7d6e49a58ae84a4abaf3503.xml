@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d2059beea7d6e49a58ae84a4abaf3503" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/src/core/baremetal</compoundname>
+    <innerdir refid="dir_80ddbe9807a6beba7e7e37a34e1ce099">sw/ecf/event_driven_framework/src/core/baremetal/non_preemptive</innerdir>
+    <innerdir refid="dir_cc95e9e6586e202d8f69bad7eba3d07a">sw/ecf/event_driven_framework/src/core/baremetal/preemptive</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/src/core/baremetal/"/>
+  </compounddef>
+</doxygen>

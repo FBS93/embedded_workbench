@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_7d2dff63aab2e53aaed8e91543426da3" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/examples/arm_cortex_m_example/inc</compoundname>
+    <innerfile refid="exec__timer_8h">exec_timer.h</innerfile>
+    <innerfile refid="stm32f103c8tx__registers_8h">stm32f103c8tx_registers.h</innerfile>
+    <innerfile refid="tick__timer_8h">tick_timer.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/inc/"/>
+  </compounddef>
+</doxygen>

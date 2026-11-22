@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="preemption_2inc_2app_8h" kind="file" language="C++">
+    <compoundname>app.h</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="preemption_2inc_2app_8h_1add3190cf715f513666f4be42874d91e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void app_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>app_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize the dummy EDF application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the dummy EDF application. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption/inc/app.h" line="53" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/src/app.c" bodystart="147" bodyend="156" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption/inc/app.h" declline="53" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption/inc/app.h"/>
+  </compounddef>
+</doxygen>

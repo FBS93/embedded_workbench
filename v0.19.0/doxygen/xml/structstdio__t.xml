@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structstdio__t" kind="struct" language="C++" prot="public">
+    <compoundname>stdio_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structstdio__t_1afbf0a0b77f1585210d83944090d72220" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool stdio_t::initialized</definition>
+        <argsstring></argsstring>
+        <name>initialized</name>
+        <qualifiedname>stdio_t::initialized</qualifiedname>
+        <briefdescription>
+<para>Indicates whether the USART has been initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="196" column="8" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstdio__t_1a9f8c47e4709cb001ac1c724fe6210edc" prot="public" static="no" mutable="no">
+        <type>volatile <ref refid="ebf_8h_1ae5791af1ebceacc30e9a8e993eb3df3a" kindref="member">EBF_stdin_t</ref></type>
+        <definition>volatile EBF_stdin_t stdio_t::stdin_listener</definition>
+        <argsstring></argsstring>
+        <name>stdin_listener</name>
+        <qualifiedname>stdio_t::stdin_listener</qualifiedname>
+        <briefdescription>
+<para>Registered input listener. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>volatile_use: asynchronous_interaction </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="197" column="24" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structstdio__t_1a7481e52f4cc7da0b5231ec1bb64c3b82" prot="public" static="no" mutable="no">
+        <type><ref refid="structstdoutTx__t" kindref="compound">stdoutTx_t</ref></type>
+        <definition>stdoutTx_t stdio_t::stdout_tx</definition>
+        <argsstring></argsstring>
+        <name>stdout_tx</name>
+        <qualifiedname>stdio_t::stdout_tx</qualifiedname>
+        <briefdescription>
+<para>Asynchronous output transmit state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="200" column="14" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="200" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Private standard input/output module state. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>stdio_t</label>
+        <link refid="structstdio__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>stdout_tx</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdoutTx_t</label>
+        <link refid="structstdoutTx__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" line="194" column="1" bodyfile="sw/ecf/platform/stm32f103c8tx/stdio/src/stdio.c" bodystart="195" bodyend="201"/>
+    <listofallmembers>
+      <member refid="structstdio__t_1afbf0a0b77f1585210d83944090d72220" prot="public" virt="non-virtual"><scope>stdio_t</scope><name>initialized</name></member>
+      <member refid="structstdio__t_1a9f8c47e4709cb001ac1c724fe6210edc" prot="public" virt="non-virtual"><scope>stdio_t</scope><name>stdin_listener</name></member>
+      <member refid="structstdio__t_1a7481e52f4cc7da0b5231ec1bb64c3b82" prot="public" virt="non-virtual"><scope>stdio_t</scope><name>stdout_tx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

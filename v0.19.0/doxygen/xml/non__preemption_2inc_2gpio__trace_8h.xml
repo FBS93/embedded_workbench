@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="non__preemption_2inc_2gpio__trace_8h" kind="file" language="C++">
+    <compoundname>gpio_trace.h</compoundname>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="non__preemption_2inc_2gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11" prot="public" static="no" strong="no">
+        <type></type>
+        <name>gpioTrace_channel_t</name>
+        <enumvalue id="non__preemption_2inc_2gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11a70209937742bdd90af480781027cda1d" prot="public">
+          <name>GPIO_TRACE_CHANNEL_LOW_EXEC</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="non__preemption_2inc_2gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11a407aa4595e1b4219e084004beed0d45c" prot="public">
+          <name>GPIO_TRACE_CHANNEL_HIGH_RELEASE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="non__preemption_2inc_2gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11a7188a44741f44b7d64a8d314a90896ad" prot="public">
+          <name>GPIO_TRACE_CHANNEL_HIGH_EXEC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Logic analyzer trace channels, mapped to PB12-PB14. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h" line="25" column="1" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h" bodystart="26" bodyend="30"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="non__preemption_2inc_2gpio__trace_8h_1a7c9af55380a64c8dd3afe8668f07c3e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gpioTrace_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>gpioTrace_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialize all three trace outputs low. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h" line="37" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/src/gpio_trace.c" bodystart="53" bodyend="63" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h" declline="37" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="non__preemption_2inc_2gpio__trace_8h_1a6e41439af908889aba763b0e2eb165f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gpioTrace_setActive</definition>
+        <argsstring>(gpioTrace_channel_t channel)</argsstring>
+        <name>gpioTrace_setActive</name>
+        <param>
+          <type><ref refid="non__preemption_2inc_2gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11" kindref="member">gpioTrace_channel_t</ref></type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Set the selected trace channel high. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h" line="40" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/src/gpio_trace.c" bodystart="65" bodyend="68" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h" declline="40" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="non__preemption_2inc_2gpio__trace_8h_1a25205559eff92ae58cda0606d21d6b50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gpioTrace_setInactive</definition>
+        <argsstring>(gpioTrace_channel_t channel)</argsstring>
+        <name>gpioTrace_setInactive</name>
+        <param>
+          <type><ref refid="non__preemption_2inc_2gpio__trace_8h_1a8c533cb8de63da37257775a2f2a5cf11" kindref="member">gpioTrace_channel_t</ref></type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Set the selected trace channel low. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h" line="43" column="6" bodyfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/src/gpio_trace.c" bodystart="70" bodyend="73" declfile="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h" declline="43" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/non_preemption/inc/gpio_trace.h"/>
+  </compounddef>
+</doxygen>

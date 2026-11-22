@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_86b0ae55c7e24f13f7758093e730f7da" kind="dir">
+    <compoundname>sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption/inc</compoundname>
+    <innerfile refid="preemption_2inc_2app_8h">app.h</innerfile>
+    <innerfile refid="preemption_2inc_2gpio__trace_8h">gpio_trace.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/event_driven_framework/examples/arm_cortex_m_example/src/preemption/inc/"/>
+  </compounddef>
+</doxygen>

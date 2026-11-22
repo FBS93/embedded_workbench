@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="emf__cobs_8c" kind="file" language="C++">
+    <compoundname>emf_cobs.c</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="emf__cobs_8h" local="yes">emf_cobs.h</includes>
+    <includes refid="eaf_8h" local="yes">eaf.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>eaf.h</label>
+        <link refid="eaf_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>emf_cobs.h</label>
+        <link refid="emf__cobs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c</label>
+        <link refid="emf__cobs_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="emf__cobs_8c_1a2a34e5e86b8e6341d89a309e144618a1" prot="public" static="no">
+        <name>COBS_CODE_MAX</name>
+        <initializer>(<ref refid="emf__cobs_8h_1aee0fcbe6ca09ae8704ba05126bf6f7a1" kindref="member">EMF_COBS_BLOCK_MAX</ref> + 1U)</initializer>
+        <briefdescription>
+<para>Maximum possible code value (block size + 1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c" line="43" column="9" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="emf__cobs_8c_1a6d7019d8ef1b28133be5e5a73411a728" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EAF_DEFINE_THIS_FILE</definition>
+        <argsstring>(__FILE__)</argsstring>
+        <name>EAF_DEFINE_THIS_FILE</name>
+        <param>
+          <type>__FILE__</type>
+        </param>
+        <briefdescription>
+<para>Define static file name string for asserts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c" line="56" column="1" declfile="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c" declline="56" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__cobs_8c_1a293089cabff82a290ea9128f68a87e8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EMF_cobs_encode</definition>
+        <argsstring>(const uint8_t *buff_in, uint16_t len_in, uint8_t *buff_out, uint16_t *len_out)</argsstring>
+        <name>EMF_cobs_encode</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff_in</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>len_in</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff_out</declname>
+        </param>
+        <param>
+          <type>uint16_t *</type>
+          <declname>len_out</declname>
+        </param>
+        <briefdescription>
+<para>COBS encode data to buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The output includes a trailing EMF_COBS_PACKET_DELIMITER.</para>
+</simplesect>
+<simplesect kind="note"><para>The input and output buffers must not overlap.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to input data to encode </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to encode </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">buff_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to encoded output buffer. The output buffer must be at least len_in + (len_in / EMF_COBS_BLOCK_MAX) + 2 bytes to accommodate worst-case COBS expansion. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">len_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable that will be set to the encoded length. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c" line="78" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c" bodystart="78" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="emf__cobs_8c_1aa69189e6dafbfd6bbcaf04250ef73bb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EMF_cobs_decode</definition>
+        <argsstring>(const uint8_t *buff_in, uint16_t len_in, uint8_t *buff_out, uint16_t *len_out)</argsstring>
+        <name>EMF_cobs_decode</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buff_in</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>len_in</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buff_out</declname>
+        </param>
+        <param>
+          <type>uint16_t *</type>
+          <declname>len_out</declname>
+        </param>
+        <briefdescription>
+<para>Decodes a COBS‑encoded buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Decoding stops when a EMF_COBS_PACKET_DELIMITER is encountered, or when len_in bytes have been processed.</para>
+</simplesect>
+<simplesect kind="note"><para>The minimum size required for the buff_out size is: len_in - 2 bytes. This is because, in the best case, COBS encoding only adds one byte for the length code and one byte for the final EMF_COBS_PACKET_DELIMITER.</para>
+</simplesect>
+<simplesect kind="note"><para>The input and output buffers must not overlap.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buff_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the COBS‑encoded input buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the input buffer, in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">buff_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer to receive decoded data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">len_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable that will be set to the decoded length. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if a COBS packet delimiter (EMF_COBS_PACKET_DELIMITER) was found, so the output is valid. false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c" line="135" column="6" bodyfile="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c" bodystart="135" bodyend="197"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sw/ecf/embedded_middleware_framework/src/emf_cobs/src/emf_cobs.c"/>
+  </compounddef>
+</doxygen>

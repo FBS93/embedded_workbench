@@ -1,5 +1,5 @@
 /*******************************************************************************
- * @brief Blocking execution-time timer.
+ * @brief Free-running timer for the ARM Cortex-M example workloads.
  *
  * @copyright
  * Copyright (c) 2026 FBS93.
@@ -72,6 +72,7 @@ uint16_t execTimer_delayUsToTicks(uint32_t delay_us);
  * @brief Compute elapsed execution-timer ticks between two samples.
  *
  * Supports the natural wraparound of the free-running 16-bit timer.
+ * The actual interval must be shorter than one complete timer revolution.
  *
  * @param[in] start_tick Earlier timer tick.
  * @param[in] end_tick Later timer tick.

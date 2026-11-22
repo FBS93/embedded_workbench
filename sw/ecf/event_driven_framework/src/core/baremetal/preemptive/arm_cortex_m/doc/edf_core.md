@@ -129,4 +129,4 @@ When the target provides an FPU, this core enables lazy stacking during initiali
 
 # Usage example
 
-For a complete on-target visual demonstration of nested preemption, see [`examples/arm_cortex_m_preemption_example`](../../../../../examples/arm_cortex_m_preemption_example/doc/arm_cortex_m_preemption_example.md).
+For a complete on-target visual demonstration of nested preemption, see [`examples/arm_cortex_m_example/src/preemption`](../../../../../../examples/arm_cortex_m_example/doc/arm_cortex_m_preemption_example.md).

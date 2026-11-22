@@ -2,9 +2,11 @@
 
 This example demonstrates the bare-metal ARM Cortex-M port on the Bluepill target using a dummy application together with a remote logic analyzer capture.
 
-The target application is a normal EDF executable. It instantiates three active objects subscribed to periodic events with different priorities and blocking execution times. Each active object drives one GPIO high on entry and low on exit. A real `SysTick_Handler()` drives EDF time events, and a second hardware timer provides the blocking execution delay used to keep each active object active long enough to observe preemption on the logic analyzer.
+The target application is a normal EDF executable. It instantiates three active objects receiving directed periodic time events with different priorities and blocking execution times. Each active object drives one GPIO high on entry and low on exit, keeping it high while preempted. A real `SysTick_Handler()` drives EDF time events, and a second hardware timer provides the blocking execution delay used to keep each active object active long enough to observe preemption on the logic analyzer.
 
 The target executable can be flashed through GDB using the existing remote hardware gateway flow described in [Embedded target remote debugging](../../../../../../doc/development_methodology/software_domain/resources/embedded_target_remote_debugging.md). The resulting GPIO trace can then be inspected with the remote Sigrok and PulseView workflow described in [Embedded target remote logic analyzer](../../../../../../doc/development_methodology/resources/embedded_target_remote_logic_analyzer.md) in order to validate the scheduling behavior visually.
+
+For the run-to-completion counterpart using the same three wires, see the [non-preemption example](arm_cortex_m_non_preemption_example.md). Both variants share the entry point, register definitions, TIM2 timer, and SysTick configuration under `examples/arm_cortex_m_example`; application behavior, trace GPIO implementation, and SysTick handlers remain variant-specific.
 
 ## Use case
 
@@ -55,16 +57,17 @@ When observed in Sigrok/PulseView, this example should show:
 - `D1` / `PB13` preempting `D0` periodically.
 - `D2` / `PB14` preempting `D1` and `D0` periodically.
 - A visible nested sequence `AO_LOW -> AO_MID -> AO_HIGH`.
-- A total effective execution-time budget of approximately 900 ms per aligned 1 s observation window, leaving roughly 100 ms idle.
+- A total effective execution-time budget of approximately 900 ms per aligned 1 s observation window, leaving roughly 100 ms idle apart from uncounted ISR and dispatch overhead.
 
 ## Glossary
 
 | Term | Definition |
 |---|---|
-| Effective execution time | Time budget counted only while one AO is actually running, excluding the time it spends preempted. |
+| Effective execution time | TIM2 budget counted while an AO's context-switch accounting is active, excluding time suspended by the hook but not all ISR time. |
 
 ## Usage example
 
 - Configure and build the example using any of the target STM32F103C8Tx CMake presets.
+- The target is selected for `stm32f103c8tx`, `EBF_CORE_BAREMETAL`, and `EBF_PORT_ARM_CORTEX_M_PREEMPTIVE` (the target presets' default).
 - Flash the resulting `arm_cortex_m_preemption_example` executable through the existing remote target workflow.
 - Open the remote logic analyzer workflow and confirm that the waveforms match the expected nested-preemption pattern described above.

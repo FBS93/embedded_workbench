@@ -1,5 +1,5 @@
 /*******************************************************************************
- * @brief Blocking execution-time timer.
+ * @brief Free-running timer for the ARM Cortex-M example workloads.
  *
  * @copyright
  * Copyright (c) 2026 FBS93.

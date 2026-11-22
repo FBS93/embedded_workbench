@@ -32,7 +32,6 @@
 #include "app.h"
 #include "gpio_trace.h"
 #include "exec_timer.h"
-#include "tick_timer.h"
 #include "edf.h"
 #include "eaf.h"
 #include "emf.h"
@@ -347,13 +346,6 @@ void app_init(void)
   initWorkerAo(&aoLow, AO_LOW_PRIO);
   initWorkerAo(&aoMid, AO_MID_PRIO);
   initWorkerAo(&aoHigh, AO_HIGH_PRIO);
-}
-
-void EDF_onStartup(void)
-{
-  gpioTrace_init();
-  execTimer_init();
-  tickTimer_init();
 }
 
 void EDF_onContextSwitch(EDF_activeObject_t* prev, EDF_activeObject_t* next)

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * @brief Entry point for the ARM Cortex-M preemption example application.
+ * @brief Entry point for the ARM Cortex-M example applications.
  *
  * @copyright
  * Copyright (c) 2026 FBS93.
@@ -29,6 +29,9 @@
  * -------------------------------------------------------------------------- */
 #include "app.h"
 #include "edf.h"
+#include "gpio_trace.h"
+#include "exec_timer.h"
+#include "tick_timer.h"
 
 /*******************************************************************************
  * PRIVATE MACROS
@@ -67,4 +70,11 @@ int main(void)
   app_init();
 
   return EDF_run();
+}
+
+void EDF_onStartup(void)
+{
+  gpioTrace_init();
+  execTimer_init();
+  tickTimer_init();
 }
